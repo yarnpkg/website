@@ -1,0 +1,39 @@
+# Site settings
+title: Yarn
+
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: ""
+url: "https://yarnpkg.com"
+twitter_username: yarnpkg
+github_username:  yarnpkg
+
+exclude:
+  - README.md
+
+gems:
+  - jekyll-redirect-from
+  - jekyll-paginate
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+  syntax_highlighter_opts:
+    css_class: 'rougeHighlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+sass:
+  style: compressed
+
+redcarpet:
+  extensions: [with_toc_data]

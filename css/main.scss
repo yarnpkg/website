@@ -1,0 +1,168 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$pelorous: #2C8EBB;
+$matisse: #1476A2;
+$brand-primary: $pelorous;
+// $navbar-brand-padding-y: 0rem;
+$navbar-light-color: rgba(0,0,0,.4);
+
+@import "bootstrap/scss/bootstrap.scss";
+
+body {
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  top: -2px;
+}
+
+.icon-language {
+  background-image: url(/assets/language.svg);
+  margin-right: 4px;
+}
+
+.navbar-light .nav-item .nav-link .icon {
+  opacity: .4;
+}
+
+.navbar-light .nav-item .nav-link:hover .icon,
+.navbar-light .nav-item .nav-link:focus .icon {
+  opacity: .6;
+}
+
+.navbar-light .nav-item.active .nav-link .icon,
+.navbar-light .nav-item.open > .nav-link .icon {
+  opacity: .8;
+}
+
+.navbar .navbar-brand {
+  font-family: "Grand Hotel";
+  font-size: 2em;
+  line-height: 0.90;
+  text-transform: lowercase;
+  color: $pelorous;
+  margin-right: 2rem;
+}
+
+.hero {
+  margin-bottom: 4rem;
+  padding: 4rem 0;
+  color: white;
+  background-color: $pelorous;
+  background-image:
+    url(/assets/border-top-or-bottom.png),
+    url(/assets/border-top-or-bottom.png),
+    url(/assets/background-noise-blue.png);
+  background-repeat: repeat-x, repeat-x, repeat;
+  background-position: top -4px center, bottom -4px center, center center;
+  background-size: 144px auto, 144px auto, 25px auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-title {
+  font-size: 2.4em;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+  text-shadow: 5px 5px $matisse;
+}
+
+.hero-text {
+  text-shadow: 2px 3px $matisse;
+}
+
+.hero-btn {
+  @include button-outline-variant($matisse);
+  @include button-size($btn-padding-y-lg * 2, $btn-padding-x-lg * 3, $font-size-lg * 1.5, $btn-border-radius-lg);
+
+  color: white;
+  border-width: 2px;
+
+  @include hover {
+    color: $pelorous;
+    background-color: white;
+    border-color: white;
+  }
+}
+
+.featurettes + .hero {
+  margin-top: 3rem;
+}
+
+.featurette-divider {
+  margin: 5rem 0;
+}
+
+.featurette-heading {
+  font-weight: normal;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+#goog-fixurl ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#goog-fixurl form {
+  margin-top: 1rem;
+  @extend .form-inline;
+}
+
+#goog-fixurl .other-things {
+  display: none;
+}
+
+#goog-fixurl input[type="text"] {
+  @extend .form-control;
+  @extend .pull-md-left;
+  margin-right: 0.5rem;
+}
+
+#goog-fixurl input[type="submit"] {
+  @extend .btn;
+  @include button-outline-variant($matisse);
+  color: white;
+}
+
+@include media-breakpoint-down('sm') {
+  .hero-btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (min-width: 40em) {
+  .hero-title {
+    font-size: 3em;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .hero-title {
+    font-size: 4em;
+  }
+
+  .featurette-heading {
+    margin-top: 5.5rem;
+  }
+
+  .featurettes-mini .col-lg-4 {
+    margin-bottom: 3rem;
+  }
+}
