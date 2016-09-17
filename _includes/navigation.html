@@ -1,3 +1,10 @@
+{% assign urlParts = page.url | split: '/' | shift %}
+{% assign urlLanguage = urlParts[0] %}
+{% assign matchedLanguages = site.data.languages | where: "tag", urlLanguage %}
+{% assign activeLanguage = matchedLanguages[0] %}
+
+{% assign relativeUrl = urlParts | shift | join: '/' | replace: '.html', '' %}
+
 <nav class="navbar navbar-static-top navbar-light">
   <div class="container">
     <a href="/en/" class="navbar-brand">Yarn</a>
@@ -23,39 +30,15 @@
         <li class="nav-item dropdown">
           <a id="dropdownNavLanguage" class="nav-link dropdown-toggle"  href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="icon icon-language"></i>
-            English
+            {{activeLanguage.name}}
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownNavLanguage">
-            <a class="dropdown-item active" href="#">English</a>
-            <a class="dropdown-item" href="#">Afrikaans</a>
-            <a class="dropdown-item" href="#">العربية</a>
-            <a class="dropdown-item" href="#">Català</a>
-            <a class="dropdown-item" href="#">Čeština</a>
-            <a class="dropdown-item" href="#">Dansk</a>
-            <a class="dropdown-item" href="#">Deutsch</a>
-            <a class="dropdown-item" href="#">Ελληνικά</a>
-            <a class="dropdown-item" href="#">Español</a>
-            <a class="dropdown-item" href="#">Français</a>
-            <a class="dropdown-item" href="#">עִברִית</a>
-            <a class="dropdown-item" href="#">Italiano</a>
-            <a class="dropdown-item" href="#">日本語</a>
-            <a class="dropdown-item" href="#">한국어</a>
-            <a class="dropdown-item" href="#">Magyar</a>
-            <a class="dropdown-item" href="#">Nederlands</a>
-            <a class="dropdown-item" href="#">Norsk</a>
-            <a class="dropdown-item" href="#">Polskie</a>
-            <a class="dropdown-item" href="#">Português</a>
-            <a class="dropdown-item" href="#">Português (Brasil)</a>
-            <a class="dropdown-item" href="#">Română</a>
-            <a class="dropdown-item" href="#">Русский</a>
-            <a class="dropdown-item" href="#">Српски језик (Ћирилица)</a>
-            <a class="dropdown-item" href="#">Suomi</a>
-            <a class="dropdown-item" href="#">Svenska</a>
-            <a class="dropdown-item" href="#">Türkçe</a>
-            <a class="dropdown-item" href="#">Tiếng Việt</a>
-            <a class="dropdown-item" href="#">Українська</a>
-            <a class="dropdown-item" href="#">中文</a>
-            <a class="dropdown-item" href="#">繁體中文</a>
+            {% for language in site.data.languages %}
+              <a href="/{{language.tag}}/{{relativeUrl}}"
+                class="dropdown-item{% if activeLanguage.tag == language.tag %} active{% endif %}">
+                {{language.name}}
+              </a>
+            {% endfor %}
           </div>
         </li>
 
