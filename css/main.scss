@@ -15,6 +15,11 @@ body {
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
+@include media-breakpoint-down('md') {
+  .navbar-toggleable-md {
+    clear: both;
+  }
+}
 
 .icon {
   position: relative;

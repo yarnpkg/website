@@ -1,0 +1,4 @@
+---
+layout: docs
+title: Install
+---
