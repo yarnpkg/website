@@ -1,4 +1,5 @@
 ---
 id: docs_migrating_from_npm
-layout: docs
+guide: docs_migrating_from_npm
+layout: guide
 ---

@@ -1,38 +1,63 @@
 ---
-layout: docs
+layout: page
 ---
 
 {% include vars.html %}
 
-{{content}}
+{% assign matched_guides = site.data.guides | where: "id", page.guide %}
+{% assign current_guide = matched_guides[0] %}
 
-{% assign guides_size = site.data.guide | size | plus: 2 %}
+{% assign guides_size = current_guide.pages | size | plus: 2 %}
 
 {% for i in (0..guides_size) %}
-  {% if site.data.guide[i].id == page.id %}
+  {% if current_guide.pages[i].id == page.id %}
     {% assign guide_prev_index = i | minus: 1 %}
     {% assign guide_next_index = i | plus: 1 %}
     {% break %}
   {% endif %}
 {% endfor %}
 
-{% assign guide_prev = site.data.guide[guide_prev_index] %}
-{% assign guide_next = site.data.guide[guide_next_index] %}
+{% assign guide_prev = current_guide.pages[guide_prev_index] %}
+{% assign guide_next = current_guide.pages[guide_next_index] %}
 
-<p>
-  {% if guide_prev_index > -1 %}
-    <span class="pull-md-left">
-      &larr;
-      {{i18n.guides_prev}}:
-      <a href="{{url_base}}{{guide_prev.path}}">{{i18n[guide_prev.id]}}</a>
-    </span>
-  {% endif %}
+<div class="row">
+  <div class="col-md-8">
+    {{content}}
 
-  {% if guide_next %}
-    <span class="pull-md-right">
-      {{i18n.guides_next}}:
-      <a href="{{url_base}}{{guide_next.path}}">{{i18n[guide_next.id]}}</a>
-      &rarr;
-    </span>
-  {% endif %}
-</p>
+    <p>
+      {% if guide_prev_index > -1 %}
+        <span class="pull-md-left">
+          &larr;
+          {{i18n.guides_prev}}:
+          <a href="{{url_base}}{{guide_prev.path}}">{{i18n[guide_prev.id]}}</a>
+        </span>
+      {% endif %}
+
+      {% if guide_next %}
+        <span class="pull-md-right">
+          {{i18n.guides_next}}:
+          <a href="{{url_base}}{{guide_next.path}}">{{i18n[guide_next.id]}}</a>
+          &rarr;
+        </span>
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="col-md-4">
+    <ul class="nav nav-stacked">
+      {% for step in current_guide.pages %}
+        <li class="nav-item">
+          {% if step.id == page.id %}
+            <a class="nav-link active">
+              {{i18n[step.id]}}
+            </a>
+          {% else %}
+            <a class="nav-link" href="{{url_base}}{{step.path}}">
+              {{i18n[step.id]}}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

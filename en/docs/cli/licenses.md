@@ -1,4 +1,5 @@
 ---
 id: docs_cli_licenses
-layout: docs
+guide: docs_cli
+layout: guide
 ---

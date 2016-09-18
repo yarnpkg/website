@@ -73,11 +73,29 @@ homepage_featurette_misc_description: |
 # Titles
 ###
 
+docs_getting_started_title: Getting Started
+docs_getting_started_description: |
+  Never used a package manager before or just new to Yarn? Let's get you up and
+  running in just a couple of minutes.
+
 docs_index: Documentation
 docs_getting_started: Getting Started
 docs_install: Installation
 docs_usage: Usage
-docs_migrating_from_npm: Migrating from npm
+
+docs_yarn_workflow_title: The Yarn Workflow
+docs_yarn_workflow_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+docs_yarn_workflow: The Yarn Workflow
+
+docs_cli_title: CLI Commands
+docs_cli_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+docs_cli_index: CLI Introduction
 docs_cli_access: yarn access
 docs_cli_add: yarn add
 docs_cli_cache: yarn cache
@@ -100,4 +118,26 @@ docs_cli_team: yarn team
 docs_cli_uninstall: yarn uninstall
 docs_cli_upgrade: yarn upgrade
 docs_cli_why: yarn why
+
+docs_migrating_from_npm_title: Migrating from npm
+docs_migrating_from_npm_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+docs_migrating_from_npm: Migrating from npm
+
+docs_creating_a_package_title: Creating a Package
+docs_creating_a_package_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+docs_creating_a_package: Creating a Package
+
+docs_how_yarn_works_title: How Yarn Works
+docs_how_yarn_works_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+docs_how_yarn_works: How Yarn Works
+
 blog: Blog

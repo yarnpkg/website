@@ -1,0 +1,89 @@
+- id: docs_getting_started
+  title: docs_getting_started_title
+  description: docs_getting_started_description
+  pages:
+  - id: docs_getting_started
+    path: /docs/getting-started
+  - id: docs_install
+    path: /docs/install
+  - id: docs_usage
+    path: /docs/usage
+
+- id: docs_yarn_workflow
+  title: docs_yarn_workflow_title
+  description: docs_yarn_workflow_description
+  pages:
+  - id: docs_yarn_workflow
+    path: /docs/yarn-workflow
+
+- id: docs_cli
+  title: docs_cli_title
+  description: docs_cli_description
+  pages:
+  - id: docs_cli_index
+    path: /docs/cli/
+  - id: docs_cli_access
+    path: /docs/cli/access
+  - id: docs_cli_add
+    path: /docs/cli/add
+  - id: docs_cli_cache
+    path: /docs/cli/cache
+  - id: docs_cli_check
+    path: /docs/cli/check
+  - id: docs_cli_clean
+    path: /docs/cli/clean
+  - id: docs_cli_config
+    path: /docs/cli/config
+  - id: docs_cli_dist_tag
+    path: /docs/cli/dist-tag
+  - id: docs_cli_install
+    path: /docs/cli/install
+  - id: docs_cli_licenses
+    path: /docs/cli/licenses
+  - id: docs_cli_link
+    path: /docs/cli/link
+  - id: docs_cli_login
+    path: /docs/cli/login
+  - id: docs_cli_logout
+    path: /docs/cli/logout
+  - id: docs_cli_ls
+    path: /docs/cli/ls
+  - id: docs_cli_outdated
+    path: /docs/cli/outdated
+  - id: docs_cli_owner
+    path: /docs/cli/owner
+  - id: docs_cli_pack
+    path: /docs/cli/pack
+  - id: docs_cli_publish
+    path: /docs/cli/publish
+  - id: docs_cli_self_update
+    path: /docs/cli/self-update
+  - id: docs_cli_team
+    path: /docs/cli/team
+  - id: docs_cli_uninstall
+    path: /docs/cli/uninstall
+  - id: docs_cli_upgrade
+    path: /docs/cli/upgrade
+  - id: docs_cli_why
+    path: /docs/cli/why
+
+- id: docs_migrating_from_npm
+  title: docs_migrating_from_npm_title
+  description: docs_migrating_from_npm_description
+  pages:
+  - id: docs_migrating_from_npm
+    path: /docs/migrating-from-npm
+
+- id: docs_creating_a_package
+  title: docs_creating_a_package_title
+  description: docs_creating_a_package_description
+  pages:
+  - id: docs_creating_a_package
+    path: /docs/creating-a-package
+
+- id: docs_how_yarn_works
+  title: docs_how_yarn_works_title
+  description: docs_how_yarn_works_description
+  pages:
+  - id: docs_how_yarn_works
+    path: /docs/how-yarn-works

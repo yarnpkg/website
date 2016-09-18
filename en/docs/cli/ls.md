@@ -1,4 +1,5 @@
 ---
 id: docs_cli_ls
-layout: docs
+guide: docs_cli
+layout: guide
 ---

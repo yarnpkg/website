@@ -1,4 +1,5 @@
 ---
 id: docs_cli_team
-layout: docs
+guide: docs_cli
+layout: guide
 ---

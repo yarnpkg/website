@@ -1,4 +1,5 @@
 ---
 id: docs_cli_owner
-layout: docs
+guide: docs_cli
+layout: guide
 ---
