@@ -1,0 +1,38 @@
+---
+layout: docs
+---
+
+{% include vars.html %}
+
+{{content}}
+
+{% assign guides_size = site.data.guide | size | plus: 2 %}
+
+{% for i in (0..guides_size) %}
+  {% if site.data.guide[i].id == page.id %}
+    {% assign guide_prev_index = i | minus: 1 %}
+    {% assign guide_next_index = i | plus: 1 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign guide_prev = site.data.guide[guide_prev_index] %}
+{% assign guide_next = site.data.guide[guide_next_index] %}
+
+<p>
+  {% if guide_prev_index > -1 %}
+    <span class="pull-md-left">
+      &larr;
+      {{i18n.guides_prev}}:
+      <a href="{{url_base}}{{guide_prev.path}}">{{i18n[guide_prev.id]}}</a>
+    </span>
+  {% endif %}
+
+  {% if guide_next %}
+    <span class="pull-md-right">
+      {{i18n.guides_next}}:
+      <a href="{{url_base}}{{guide_next.path}}">{{i18n[guide_next.id]}}</a>
+      &rarr;
+    </span>
+  {% endif %}
+</p>

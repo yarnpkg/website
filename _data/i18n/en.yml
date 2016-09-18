@@ -9,6 +9,9 @@ site_nav_getting_started: Getting Started
 site_nav_documentation: Documentation
 site_nav_blog: Blog
 
+guides_prev: Previous
+guides_next: Next
+
 ###
 # Homepage
 ###
@@ -72,7 +75,7 @@ homepage_featurette_misc_description: |
 
 docs_index: Documentation
 docs_getting_started: Getting Started
-docs_install: Install
+docs_install: Installation
 docs_migrating_from_npm: Migrating from npm
 docs_cli_access: yarn access
 docs_cli_add: yarn add

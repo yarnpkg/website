@@ -1,4 +1,4 @@
 ---
 id: docs_install
-layout: docs
+layout: guide
 ---
