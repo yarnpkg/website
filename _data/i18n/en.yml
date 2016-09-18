@@ -96,3 +96,4 @@ docs_cli_team: yarn team
 docs_cli_uninstall: yarn uninstall
 docs_cli_upgrade: yarn upgrade
 docs_cli_why: yarn why
+blog: Blog

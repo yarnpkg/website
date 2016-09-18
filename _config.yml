@@ -13,6 +13,10 @@ github_username:  yarnpkg
 
 exclude:
   - README.md
+  - crowdin.yaml
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
 
 gems:
   - jekyll-redirect-from
@@ -37,3 +41,7 @@ sass:
 
 redcarpet:
   extensions: [with_toc_data]
+
+# Blog Settings
+permalink: /blog/:year/:month/:day/:title
+paginate: 1

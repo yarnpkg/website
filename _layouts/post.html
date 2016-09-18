@@ -1,0 +1,19 @@
+---
+layout: page
+---
+
+<p class="text-muted">
+  Posted {{page.date | date: "%b %-d, %Y"}} by
+  {% if page.author_url %}
+    <a href="{{page.author_url}}">{{page.author}}</a>
+  {% else %}
+    {{page.author}}
+  {% endif %}
+  {% if page.meta %} · {{page.meta}}{% endif %}
+</p>
+
+<div class="row">
+  <div class="col-md-8">
+    {{content}}
+  </div>
+</div>
