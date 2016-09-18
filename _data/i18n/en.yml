@@ -76,6 +76,7 @@ homepage_featurette_misc_description: |
 docs_index: Documentation
 docs_getting_started: Getting Started
 docs_install: Installation
+docs_usage: Usage
 docs_migrating_from_npm: Migrating from npm
 docs_cli_access: yarn access
 docs_cli_add: yarn add
