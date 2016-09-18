@@ -1,4 +1,4 @@
 ---
+id: docs_index
 layout: docs
-title: Documentation
 ---

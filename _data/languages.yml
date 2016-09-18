@@ -1,60 +1,90 @@
 - name: English
   tag: en
+  enabled: Yes
 - name: Afrikaans
   tag: af
+  enabled: No
 - name: العربية
   tag: ar
+  enabled: No
 - name: Català
   tag: ca
+  enabled: No
 - name: Čeština
   tag: cs
+  enabled: No
 - name: Dansk
   tag: da
+  enabled: No
 - name: Deutsch
   tag: de
+  enabled: No
 - name: Ελληνικά
   tag: el
+  enabled: No
 - name: Español
   tag: es-ES
+  enabled: No
 - name: Français
   tag: fr
+  enabled: No
 - name: עִברִית
   tag: he
+  enabled: No
 - name: Italiano
   tag: it
+  enabled: No
 - name: 日本語
   tag: ja
+  enabled: No
 - name: 한국어
   tag: ko
+  enabled: No
 - name: Magyar
   tag: hu
+  enabled: No
 - name: Nederlands
   tag: nl
+  enabled: No
 - name: Norsk
   tag: no
+  enabled: No
 - name: Polskie
   tag: pl
+  enabled: No
 - name: Português
   tag: pt-PT
+  enabled: No
 - name: Português (Brasil)
   tag: pt-BR
+  enabled: No
 - name: Română
   tag: ro
+  enabled: No
 - name: Русский
   tag: ru
+  enabled: No
 - name: Српски језик (Ћирилица)
   tag: sr
+  enabled: No
 - name: Suomi
   tag: fi
+  enabled: No
 - name: Svenska
   tag: sv-SE
+  enabled: No
 - name: Türkçe
   tag: tr
+  enabled: No
 - name: Tiếng Việt
   tag: vi
+  enabled: No
 - name: Українська
   tag: uk
+  enabled: No
 - name: 中文
   tag: zh-Hans
+  enabled: No
 - name: 繁體中文
   tag: zh-Hant
+  enabled: No

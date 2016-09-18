@@ -1,0 +1,12 @@
+{% assign vars_url_parts = page.url | split: '/' | shift %}
+{% assign vars_url_language = vars_url_parts[0] %}
+{% assign vars_url_relative = vars_url_parts | shift | join: '/' | replace: '.html', '' %}
+
+{% assign vars_temp_matched_languages = site.data.languages | where: "tag", vars_url_language %}
+{% assign vars_active_language = vars_temp_matched_languages[0] %}
+
+{% unless vars_active_language %}
+  {% assign vars_active_language = site.data.languages[0] %}
+{% endunless %}
+
+{% assign i18n = site.data.i18n[vars_active_language.tag] %}

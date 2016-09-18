@@ -1,0 +1,98 @@
+###
+# Global
+###
+
+site_title: Yarn
+site_description: Yarn is a fast and reliable package manager for JavaScript.
+
+site_nav_getting_started: Getting Started
+site_nav_documentation: Documentation
+site_nav_blog: Blog
+
+###
+# Homepage
+###
+
+homepage_tagline: Fast and reliable package management for JavaScript.
+
+homepage_feature_fast_title: Ultra Fast.
+homepage_feature_fast_subtitle: It'll blow your mind.
+homepage_feature_fast_description: |
+  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
+  ligula porta felis euismod semper. Praesent commodo cursus magna, vel
+  scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+homepage_feature_fast_image_alt: Generic placeholder image
+
+homepage_feature_secure_title: Mega Secure.
+homepage_feature_secure_subtitle: See for yourself.
+homepage_feature_secure_description: |
+  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
+  ligula porta felis euismod semper. Praesent commodo cursus magna, vel
+  scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+homepage_feature_secure_image_alt: Generic placeholder image
+
+homepage_feature_reliable_title: Super Reliable.
+homepage_feature_reliable_subtitle: Checkmate.
+homepage_feature_reliable_description: |
+  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
+  ligula porta felis euismod semper. Praesent commodo cursus magna, vel
+  scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+homepage_feature_reliable_image_alt: Generic placeholder image
+
+homepage_c2a_text: What are you waiting for?
+homepage_c2a_button: Get Started
+
+homepage_featurette_offline_title: Offline mode
+homepage_featurette_offline_description: |
+  If you've installed a package before, you can install it again without
+  any internet connection.
+homepage_featurette_lockfiles_title: Lockfiles
+homepage_featurette_lockfiles_description: |
+  Concise lockfile format. No whitespace, ordered keys to ensure minimal
+  changes and noise.
+homepage_featurette_conflict_resolution_title: Conflict resolution
+homepage_featurette_conflict_resolution_description: |
+  Ability to manually resolve version conflicts so only a single version per
+  package exists.
+homepage_featurette_npm_and_bower_title: npm and bower
+homepage_featurette_npm_and_bower_description: |
+  Compatible with npm and bower. Supports mixing registries.
+homepage_featurette_licenses_title: Licenses
+homepage_featurette_licenses_description: |
+  Ability to restrict licenses of installed modules and ways to output
+  licensing information.
+homepage_featurette_misc_title: And more...
+homepage_featurette_misc_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+###
+# Titles
+###
+
+docs_index: Documentation
+docs_getting_started: Getting Started
+docs_install: Install
+docs_migrating_from_npm: Migrating from npm
+docs_cli_access: yarn access
+docs_cli_add: yarn add
+docs_cli_cache: yarn cache
+docs_cli_check: yarn check
+docs_cli_clean: yarn clean
+docs_cli_config: yarn config
+docs_cli_dist_tag: yarn dist-tag
+docs_cli_install: yarn install
+docs_cli_licenses: yarn licenses
+docs_cli_link: yarn link
+docs_cli_login: yarn login
+docs_cli_logout: yarn logout
+docs_cli_ls: yarn ls
+docs_cli_outdated: yarn outdated
+docs_cli_owner: yarn owner
+docs_cli_pack: yarn pack
+docs_cli_publish: yarn publish
+docs_cli_self_update: yarn self-update
+docs_cli_team: yarn team
+docs_cli_uninstall: yarn uninstall
+docs_cli_upgrade: yarn upgrade
+docs_cli_why: yarn why

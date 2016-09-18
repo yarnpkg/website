@@ -99,15 +99,15 @@ body {
   }
 }
 
-.featurettes + .hero {
+.features + .hero {
   margin-top: 3rem;
 }
 
-.featurette-divider {
+.feature-divider {
   margin: 5rem 0;
 }
 
-.featurette-heading {
+.feature-heading {
   font-weight: normal;
   font-weight: 300;
   line-height: 1;
@@ -153,7 +153,7 @@ body {
     font-size: 3em;
   }
 
-  .featurette-heading {
+  .feature-heading {
     font-size: 50px;
   }
 }
@@ -163,11 +163,11 @@ body {
     font-size: 4em;
   }
 
-  .featurette-heading {
+  .feature-heading {
     margin-top: 5.5rem;
   }
 
-  .featurettes-mini .col-lg-4 {
+  .featurette {
     margin-bottom: 3rem;
   }
 }
