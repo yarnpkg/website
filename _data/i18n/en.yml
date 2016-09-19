@@ -113,6 +113,7 @@ docs_cli_outdated: yarn outdated
 docs_cli_owner: yarn owner
 docs_cli_pack: yarn pack
 docs_cli_publish: yarn publish
+docs_cli_run: yarn run
 docs_cli_self_update: yarn self-update
 docs_cli_team: yarn team
 docs_cli_uninstall: yarn uninstall

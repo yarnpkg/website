@@ -56,6 +56,8 @@
     path: /docs/cli/pack
   - id: docs_cli_publish
     path: /docs/cli/publish
+  - id: docs_cli_run
+    path: /docs/cli/run
   - id: docs_cli_self_update
     path: /docs/cli/self-update
   - id: docs_cli_team
