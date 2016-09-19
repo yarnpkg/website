@@ -1,3 +1,5 @@
+{% include vars.html %}
+
 <hr class="feature-divider">
 
 <div class="container">
@@ -6,6 +8,17 @@
       Yarn &middot;
       Distributed under <a href="https://github.com/yarnpkg/yarn/blob/master/LICENSE">MIT License</a> &middot;
       <a href="https://github.com/yarnpkg/yarn/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+
+      <span class="pull-md-right">
+        <span class="hidden-md-up">&middot;</span>
+        {% if vars_active_language.tag == "en" %}
+          <a href="https://github.com/yarnpkg/website/edit/master/{{page.path}}">
+            Edit this page
+          </a>
+        {% else %}
+          ...
+        {% endif %}
+      </span>
     </p>
   </footer>
 </div>
