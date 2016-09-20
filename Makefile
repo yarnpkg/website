@@ -1,9 +1,10 @@
 .PHONY: start install serve i18n-upload i18n-download
 
 .DEFAULT_GOAL := start
-start: editor install serve
+start: install serve
 
 install: test-bundler
+	git submodule update --init --recursive
 	@bundle install
 
 serve: test-jekyll
@@ -16,9 +17,6 @@ crowdin-sync: test-crowdin
 ###
 # Misc stuff:
 ###
-
-editor:
-	@eval $(EDITOR) ./
 
 BUNDLE_EXISTS := $(shell command -v bundle 2> /dev/null)
 JEKYLL_EXISTS := $(shell command -v jekyll 2> /dev/null)
