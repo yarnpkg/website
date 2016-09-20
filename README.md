@@ -7,6 +7,7 @@ In order to get started:
 ```sh
 $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
+$ git submodule update --init --recursive
 ```
 
 And then:
