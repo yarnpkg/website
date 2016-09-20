@@ -7,7 +7,7 @@ install: test-bundler
 	@bundle install
 
 serve: test-jekyll
-	@jekyll serve
+	@jekyll serve --incremental
 
 crowdin-sync: test-crowdin
 	@crowdin-cli upload sources --auto-update -b master
