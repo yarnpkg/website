@@ -21,12 +21,14 @@ layout: page
 {% assign guide_next = current_guide.pages[guide_next_index] %}
 
 <div class="row">
-  <div class="col-md-8">
-    {{content}}
+  <div class="col-md-8 guide">
+    <div class="guide-content">
+      {{content}}
+    </div>
 
     <hr>
 
-    <p>
+    <p class="guide-controls">
       {% if guide_prev_index > -1 %}
         <span class="pull-md-left">
           &larr;
@@ -46,7 +48,7 @@ layout: page
   </div>
 
   <div class="col-md-4">
-    <ul class="nav nav-stacked">
+    <ul class="nav nav-stacked guide-nav">
       {% for step in current_guide.pages %}
         <li class="nav-item">
           {% if step.id == page.id %}

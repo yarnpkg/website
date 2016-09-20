@@ -46,7 +46,7 @@ version to install when no version is specified.
 You cannot use dist-tags that match potential version numbers since they share
 a namespace:
 
-```
+```sh
 $ yarn install your-package-name@<version>
 $ yarn install your-package-name@<dist-tag>
 ```
