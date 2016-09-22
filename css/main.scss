@@ -15,6 +15,7 @@ body {
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
+
 @include media-breakpoint-down('md') {
   .navbar-toggleable-md {
     clear: both;
@@ -112,6 +113,11 @@ body {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -.05rem;
+}
+
+a code:hover {
+  color: $code-color;
+  text-decoration: underline;
 }
 
 .guide-content {
@@ -321,16 +327,8 @@ body {
   }
 }
 
-p > .highlighter-rouge,
-li > .highlighter-rouge,
-a > .highlighter-rouge {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: inherit;
-}
-
-a:hover {
-  .highlighter-rouge {
-    color: white;
-  }
-}
+// a:hover {
+//   .highlighter-rouge {
+//     color: white;
+//   }
+// }
