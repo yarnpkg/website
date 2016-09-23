@@ -89,3 +89,20 @@
   pages:
   - id: docs_how_yarn_works
     path: /docs/how-yarn-works
+
+- id: yarn_organization
+  title: yarn_organization_title
+  description: yarn_organization_description
+  pages:
+  - id: organization
+    path: /org
+  - id: code_of_conduct
+    path: /org/code-of-conduct
+  - id: contributing
+    path: /org/contributing
+  - id: translations
+    path: /org/translations
+  - id: release_process
+    path: /org/release-process
+  - id: governance
+    path: /org/governance

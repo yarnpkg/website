@@ -9,6 +9,10 @@ site_nav_getting_started: Getting Started
 site_nav_documentation: Documentation
 site_nav_blog: Blog
 
+site_bsd_license: Distributed under BSD License
+site_code_of_conduct: Code of Conduct
+site_edit_this_page: Edit this page
+
 guides_prev: Previous
 guides_next: Next
 
@@ -120,7 +124,7 @@ docs_cli_uninstall: yarn uninstall
 docs_cli_upgrade: yarn upgrade
 docs_cli_why: yarn why
 
-docs_migrating_from_npm_title: Migrating from npm
+docs_migrating_from_npm_title: Migrating from npm client
 docs_migrating_from_npm_description: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua.
@@ -140,5 +144,17 @@ docs_how_yarn_works_description: |
   tempor incididunt ut labore et dolore magna aliqua.
 
 docs_how_yarn_works: How Yarn Works
+
+yarn_organization_title: Yarn Organization
+yarn_organization_description: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+
+organization: Organization
+code_of_conduct: Code of Conduct
+contributing: Contributing
+translations: Translations
+release_process: Release Process
+governance: Governance
 
 blog: Blog
