@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+<p class="lead">List licenses for installed packages.</p>
+
 ##### `yarn licenses ls`
 
 > ***Currently unimplemented***

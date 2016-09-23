@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+<p class="lead">Store registry username and email.</p>
+
 ##### `yarn login`
 
 Running this command will prompt you for your username and email for the

@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+<p class="lead">Symlink a package folder.</p>
+
 ##### `kpm link` (in package dir)
 
 > ***Currently unimplemented***

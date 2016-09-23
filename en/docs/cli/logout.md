@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+<p class="lead">Clear registry username and email.</p>
+
 ##### `yarn logout`
 
 This will remove your stored username and email for the

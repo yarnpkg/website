@@ -4,7 +4,7 @@ guide: docs_cli
 layout: guide
 ---
 
-Add, remove, or list dist-tags on a package.
+<p class="lead">Add, remove, or list dist-tags on a package.</p>
 
 ### What are dist-tags?
 
