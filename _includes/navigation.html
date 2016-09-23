@@ -4,9 +4,13 @@
   <div class="container">
 
     {% if vars_active_language.tag == "en" %}
-      <a href="{{site.baseurl}}/" class="navbar-brand">Yarn</a>
+      <a href="{{site.baseurl}}/" class="navbar-logo">
+        <span class="sr-only">Yarn</span>
+      </a>
     {% else %}
-      <a href="{{url_base}}/" class="navbar-brand">Yarn</a>
+      <a href="{{url_base}}/" class="navbar-logo">
+        <span class="sr-only">Yarn</span>
+      </a>
     {% endif %}
 
     <button class="navbar-toggler hidden-lg-up pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
