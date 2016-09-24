@@ -1,0 +1,35 @@
+$navbar-link-height: .425rem;
+$navbar-height: ($navbar-padding-y * 2) + ($navbar-link-height * 2) + ($font-size-base * $line-height-base);
+
+.navbar-light .nav-item .nav-link .icon {
+  opacity: .4;
+}
+
+.navbar-light .nav-item .nav-link:hover .icon,
+.navbar-light .nav-item .nav-link:focus .icon {
+  opacity: .6;
+}
+
+.navbar-light .nav-item.active .nav-link .icon,
+.navbar-light .nav-item.open > .nav-link .icon {
+  opacity: .8;
+}
+
+.navbar .navbar-logo {
+  float: left;
+  width: 3.5rem;
+  height: $navbar-height;
+  margin: ($navbar-padding-y * -1) 0;
+  margin-right: $navbar-padding-x;
+
+  background-image: url(/assets/logo.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom ($navbar-padding-y / 2);
+  background-size: contain;
+}
+
+@include media-breakpoint-down('md') {
+  .navbar-toggleable-md {
+    clear: both;
+  }
+}

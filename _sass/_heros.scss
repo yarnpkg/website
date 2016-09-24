@@ -1,0 +1,108 @@
+.hero {
+  margin: 1rem 0;
+  padding: 2.5rem 0;
+  color: white;
+  background-color: $pelorous;
+  background-image:
+    url(/assets/border-top-or-bottom.png),
+    url(/assets/border-top-or-bottom.png),
+    url(/assets/background-noise-blue.png);
+  background-repeat: repeat-x, repeat-x, repeat;
+  background-position: top -4px center, bottom -4px center, center center;
+  background-size: 144px auto, 144px auto, 25px auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar + .hero {
+  margin-top: 0;
+}
+
+.hero-title {
+  font-size: 2.5em;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+  text-shadow: 2px 3px $matisse;
+}
+
+.hero-text {
+  text-shadow: 2px 3px $matisse;
+}
+
+.hero-prompt {
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 2px 3px $matisse;
+  margin-bottom: 1rem;
+}
+
+.hero-btn {
+  @include button-outline-variant($matisse);
+  @include button-size($btn-padding-y-lg * 2, $btn-padding-x-lg * 3, $font-size-lg * 1.5, $btn-border-radius-lg);
+
+  color: white;
+  border-width: 2px;
+
+  @include hover {
+    color: $pelorous;
+    background-color: white;
+    border-color: white;
+  }
+}
+
+@include media-breakpoint-down('sm') {
+  .hero-btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+@include media-breakpoint-up('sm') {
+  .hero {
+    margin: 3rem 0;
+    padding: 4rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.8em;
+    text-shadow: 5px 5px $matisse;
+  }
+
+  .hero-prompt {
+    font-size: 2.8rem;
+    margin: 0 0 1.3rem;
+  }
+}
+
+@include media-breakpoint-down('md') {
+  .hero-btn {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@include media-breakpoint-up('md') {
+  .hero-title {
+    font-size: 3.7em;
+  }
+
+  .hero-prompt {
+    margin: 1rem 0;
+    font-size: 2.4rem;
+  }
+}
+
+@include media-breakpoint-up('lg') {
+  .hero-prompt {
+    margin: 0.4rem 0;
+    font-size: 3rem;
+  }
+}
+
+@include media-breakpoint-up('xl') {
+  .hero-prompt {
+    margin: 0;
+    font-size: 3.4rem;
+  }
+}

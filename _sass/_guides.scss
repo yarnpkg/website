@@ -1,0 +1,33 @@
+.guide-content {
+  line-height: 1.7;
+
+  p {
+    margin-bottom: 1.2rem;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+
+    code {
+      background: $pelorous;
+      color: $code-bg;
+      font-weight: 600;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  blockquote {
+    margin-bottom: 1.2rem;
+    padding: 1.2rem 1.2rem 0;
+    border: 1px solid $gray-lighter;
+    background: $gray-lightest;
+    border-left: $border-radius solid $gray-light;
+    border-radius: $border-radius;
+
+    code {
+      background-color: $gray-lighter;
+    }
+  }
+}

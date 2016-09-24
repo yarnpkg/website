@@ -1,0 +1,23 @@
+.featurette {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    color: $gray;
+    font-weight: 400;
+  }
+
+  p {
+    color: $gray-light;
+    font-weight: 300;
+    font-size: 1.1rem;
+  }
+}
+
+@include media-breakpoint-up('md') {
+  .featurette {
+    height: 8rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+}

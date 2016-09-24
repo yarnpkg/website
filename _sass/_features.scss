@@ -1,0 +1,52 @@
+.feature {
+  margin: 3rem 0;
+}
+
+.feature-divider {
+  margin: 3rem 0;
+}
+
+.feature-heading {
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+
+  span {
+    display: inline-block;
+  }
+}
+
+.feature-text {
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: $gray-light;
+}
+
+@include media-breakpoint-up('sm') {
+  .feature-text {
+    font-size: 1.3rem;
+  }
+}
+
+@include media-breakpoint-up('md') {
+  .feature-heading {
+    font-size: 2.6rem;
+  }
+}
+
+@include media-breakpoint-up('lg') {
+  .feature-heading {
+    font-size: 2.8rem;
+  }
+}
+
+@include media-breakpoint-up('xl') {
+  .feature-heading {
+    margin-top: 3.5rem;
+  }
+
+  .feature-divider {
+    margin: 5rem 0;
+  }
+}
