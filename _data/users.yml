@@ -1,3 +1,7 @@
 - name: Facebook
   url: https://www.facebook.com/
   image: facebook.svg
+
+- name: Exponent
+  url: https://getexponent.com/
+  image: exponent.svg
