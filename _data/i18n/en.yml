@@ -157,4 +157,18 @@ translations: Translations
 release_process: Release Process
 governance: Governance
 
+users: Yarn Users
 blog: Blog
+
+users_lead: Meet all the users of Yarn.
+users_description: >
+  Logos are added by company or project representatives. They may or may not be
+  using Yarn on their main properties, but they're definitely using it
+  somewhere.
+users_add_prompt: Want to add your own company or project?
+users_add_pr: Open a pull request
+users_add_requirements_image: >
+  Logos must be a 500x200px (2.5x1) SVG (preferred) or PNG image optimized with
+  svgo, ImageOptim, or another image optimizer.
+users_add_requirements_logo: >
+  Please use a version of your logo that works well on a white background.
