@@ -1,50 +1,83 @@
 .hero {
+  position: relative;
   margin: 1rem 0;
   padding: 2.5rem 0;
   color: white;
-  background-color: $pelorous;
-  background-image:
-    url(/assets/border-top-or-bottom.png),
-    url(/assets/border-top-or-bottom.png),
-    url(/assets/background-noise-blue.png);
-  background-repeat: repeat-x, repeat-x, repeat;
-  background-position: top -4px center, bottom -4px center, center center;
-  background-size: 144px auto, 144px auto, 25px auto;
+  background-color: $yarn-blue;
+  background-size: 25px auto;
+
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background-image: url(/assets/border-top-or-bottom.png);
+  background-repeat: repeat-x;
+  background-size: 144px auto;
+}
+
+.hero::before {
+  top: 0;
+  background-position: top -4px center;
+}
+
+.hero::after {
+  bottom: 0;
+  background-position: bottom -4px center;
 }
 
 .navbar + .hero {
   margin-top: 0;
 }
 
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  right: -3.5rem;
+  transform: translate(0, -50%);
+  height: 140%;
+}
+.hero-logo .logo-primary   { fill: $yarn-blue-darker; }
+.hero-logo .logo-secondary { fill: $yarn-blue; }
+
 .hero-title {
+  position: relative;
+  z-index: 1;
   font-size: 2.5em;
   font-weight: 600;
   text-align: left;
   text-transform: uppercase;
-  text-shadow: 2px 3px $matisse;
+  text-shadow: 2px 3px $yarn-blue-darkest;
 }
 
 .hero-text {
-  text-shadow: 2px 3px $matisse;
+  text-shadow: 2px 3px $yarn-blue-darkest;
 }
 
 .hero-prompt {
   text-align: center;
   font-size: 2rem;
-  text-shadow: 2px 3px $matisse;
+  text-shadow: 2px 3px $yarn-blue-darkest;
   margin-bottom: 1rem;
 }
 
 .hero-btn {
-  @include button-outline-variant($matisse);
+  @include button-outline-variant($yarn-blue-darkest);
   @include button-size($btn-padding-y-lg * 2, $btn-padding-x-lg * 3, $font-size-lg * 1.5, $btn-border-radius-lg);
 
   color: white;
   border-width: 2px;
 
   @include hover {
-    color: $pelorous;
+    color: $yarn-blue;
     background-color: white;
     border-color: white;
   }
@@ -66,7 +99,7 @@
 
   .hero-title {
     font-size: 2.8em;
-    text-shadow: 5px 5px $matisse;
+    text-shadow: 5px 5px $yarn-blue-darkest;
   }
 
   .hero-prompt {

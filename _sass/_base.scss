@@ -7,3 +7,10 @@ a code:hover {
   color: $code-color;
   text-decoration: underline;
 }
+
+svg {
+  vertical-align: top;
+}
+
+.logo-primary   { fill: #2c8ebb; }
+.logo-secondary { fill: #ffffff; }

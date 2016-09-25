@@ -3,9 +3,12 @@
 ---
 @charset "utf-8";
 
-$pelorous: #2C8EBB;
-$matisse: #1476A2;
-$brand-primary: $pelorous;
+$yarn-blue: #2C8EBB;
+$yarn-blue-dark: #2188b6;
+$yarn-blue-darker: #1b7eab;
+$yarn-blue-darkest: #1476A2;
+
+$brand-primary: $yarn-blue;
 
 $navbar-light-color: rgba(0, 0, 0, 0.4);
 
