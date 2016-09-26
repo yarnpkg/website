@@ -1,4 +1,4 @@
-.PHONY: start install serve i18n-upload i18n-download
+.PHONY: start install serve build i18n-upload i18n-download
 
 .DEFAULT_GOAL := start
 start: install serve
@@ -9,6 +9,9 @@ install: test-bundler
 
 serve: test-jekyll
 	@jekyll serve
+
+build: test-jekyll
+	@jekyll build
 
 crowdin-sync: test-crowdin
 	@crowdin-cli upload sources --auto-update -b master
