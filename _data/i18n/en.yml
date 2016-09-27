@@ -113,6 +113,7 @@ docs_cli_check: yarn check
 docs_cli_clean: yarn clean
 docs_cli_config: yarn config
 docs_cli_dist_tag: yarn dist-tag
+docs_cli_info: yarn info
 docs_cli_install: yarn install
 docs_cli_licenses: yarn licenses
 docs_cli_link: yarn link
