@@ -4,22 +4,37 @@ guide: docs_cli
 layout: guide
 ---
 
-<p class="lead">Controls which users can are the "owners" of packages in the npm registry.</p>
+<p class="lead">Manage package owners.</p>
 
-There are no roles such as admin and regular members in the npm registry. Either a user is the owner of a package, or they are not an owner. Owners have the right to:
+### What is a package owner?
 
-1. Push new versions of a package
-2. Add or remove other users as owners
-3. Modify metadata for a package
+An package "owner" in the registry is a user that has access to make changes to
+a package. A single package can have as many owners as you want.
 
-##### `yarn owner add <user> [package]`
+Owners have permission to do the following tasks:
 
-Adds a user to the owners list for a package. You must be an owner to run this.
+1. Publish new versions of the package
+2. Add or remove other owners of the package
+3. Change metadata for a package
 
-##### `yarn owner rm <user> [package]`
+### Caveats
 
-Removes a user from the owners list for a package. You must be an owner to run this.
+There aren't any other levels of access at this time. All users can either
+modify a package or they cannot. In the future, there may be more types of
+roles, but not at this time.
+
+### Commands
 
 ##### `yarn owner ls <package>`
 
-Lists all owners for a package.
+Lists all of the owners of a `<package>`.
+
+##### `yarn owner add <user> <package>`
+
+Adds the `<user>` as an owner of the `<package>`. You must already be an owner
+of the `<package>` in order to run this command.
+
+##### `yarn owner rm <user> <package>`
+
+Removes the `<user>` as an owner of the `<package>`. You must already be an
+owner of the `<package>` in order to run this command.
