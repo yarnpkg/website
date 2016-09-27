@@ -89,8 +89,8 @@ docs_usage: Usage
 
 docs_yarn_workflow_title: The Yarn Workflow
 docs_yarn_workflow_description: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua.
+  How do I use Yarn? There are basic workflows for both creating and consuming
+  Yarn packages that will help you get productive quickly.
 
 docs_yarn_workflow: The Yarn Workflow
 
