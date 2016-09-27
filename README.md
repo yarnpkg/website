@@ -9,15 +9,20 @@ $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
 
-And then:
+You should ensure you have [Bundler](http://bundler.io/) installed: 
 
 ```sh
-$ make
+$ gem install bundler
 ```
 
-Or:
+Install the dependecies, such as [Jekyll](https://jekyllrb.com/):
 
 ```sh
 $ make install
-$ make serve
+```
+
+And then, to build & serve the documentation:
+
+```sh
+$ make
 ```
