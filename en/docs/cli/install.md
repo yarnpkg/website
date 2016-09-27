@@ -4,31 +4,10 @@ guide: docs_cli
 layout: guide
 ---
 
-<p class="lead">Install a packages and any packages that it depends on.</p>
-
-### What is a package?
-
-A package is simply a folder with code and a `package.json` that describes the
-contents. You can install a package a number of different ways:
-
-1. `<package-name>@<package-version>` which resolves to a url in the npm
-  registry of a gzipped tarball of the package at a specific version.
-2. `<package-name>@<dist-tag>` same as before, only using a dist-tag which is a
-  labeled version of the package (i.e. "latest" or "beta").
-3. `<package-name>` which defaults to a `dist-tag` of "latest"
-4. A `<git-remote-url>` of the package.
-
-### Adding dependencies
+`yarn install` is used to install all dependencies for a project. This is most commonly used when you have just checked out code for a project, or when another developer on the project has added a new dependency that you need to pick up.
 
 If you are used to using npm you might be expecting to use `--save` or
-`--save-dev`. These have been replaced by `yarn add` and `yarn add --dev`. For
-info on adding dependencies to your project, see the `yarn add` documentation.
-
-### Install algorithm
-
-> ***TODO***
-
-### Commands
+`--save-dev`. These have been replaced by `yarn add` and `yarn add --dev`. For more information, see [the `yarn add` documentation](/en/docs/cli/add).
 
 ##### `yarn install`
 
