@@ -6,7 +6,7 @@ layout: guide
 
 <p class="lead">Publishes a package to the npm registry.</p>
 
-Once a package is published, you can never modify that specific version, even if it is unpublished, so take care before publishing.
+Once a package is published, you can never modify that specific version, so take care before publishing.
 
 ##### `yarn publish`
 
