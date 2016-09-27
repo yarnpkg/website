@@ -50,6 +50,14 @@ version ranges. These will be added to your `package.json` under a
 }
 ```
 
+##### `yarn install --force`
+
+This refetches all packages, even ones that were previously installed.
+
+##### `yarn install --no-lockfile`
+
+Don't read or generate a `yarn.lock` lockfile.
+
 ##### `yarn install --production`
 
 Using the `--production` flag, or when the `NODE_ENV` environment variable is
@@ -58,14 +66,6 @@ set to `production`, Yarn will not install any package listed in
 
 > **Note:** `--prod` is also an alias of `--production`.
 
-##### `yarn install --rebuild`
-
-Forces packages to be rebuilt that were previously installed.
-
-##### `yarn install --no-lockfile`
-
-Don't read or generate a `Yarn.lock` lockfile.
-
 ##### `yarn install --pure-lockfile`
 
-Don't generate a `Yarn.lock` lockfile.
+Don't generate a `yarn.lock` lockfile.
