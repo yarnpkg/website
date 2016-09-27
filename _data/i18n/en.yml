@@ -133,8 +133,8 @@ docs_migrating_from_npm: Migrating from npm
 
 docs_creating_a_package_title: Creating a Package
 docs_creating_a_package_description: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua.
+  Creating and publishing a yarn package can be done with just a few commands
+  and configuration settings, leaving you to focus on your actual code.
 
 docs_creating_a_package: Creating a Package
 
