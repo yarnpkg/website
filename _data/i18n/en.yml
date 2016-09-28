@@ -140,8 +140,8 @@ docs_creating_a_package: Creating a Package
 
 docs_how_yarn_works_title: How Yarn Works
 docs_how_yarn_works_description: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua.
+  From deterministic installation to package security, learn how Yarn works
+  from the inside to handle your package management.
 
 docs_how_yarn_works: How Yarn Works
 
