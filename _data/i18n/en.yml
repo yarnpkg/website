@@ -23,27 +23,27 @@ guides_next: Next
 homepage_tagline: Fast, reliable, and secure dependency management.
 
 homepage_feature_fast_title: Ultra Fast.
-homepage_feature_fast_subtitle: It'll blow your mind.
+homepage_feature_fast_subtitle: Don't be put on paws.
 homepage_feature_fast_description: |
-  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-  ligula porta felis euismod semper. Praesent commodo cursus magna, vel
-  scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+  Yarn caches every package it downloads so it never needs to again. It also
+  parallelizes operations to maximize resource utilization on your machine so
+  install times are faster than ever.
 homepage_feature_fast_image_alt: Generic placeholder image
 
 homepage_feature_secure_title: Mega Secure.
-homepage_feature_secure_subtitle: See for yourself.
+homepage_feature_secure_subtitle: Fur-vently so.
 homepage_feature_secure_description: |
-  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-  ligula porta felis euismod semper. Praesent commodo cursus magna, vel
-  scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+  Every package that Yarn installs gets checked against a hash to ensure the
+  code you wanted to download is the code you downloaded before you go
+  executing it.
 homepage_feature_secure_image_alt: Generic placeholder image
 
 homepage_feature_reliable_title: Super Reliable.
-homepage_feature_reliable_subtitle: Checkmate.
+homepage_feature_reliable_subtitle: Feline good.
 homepage_feature_reliable_description: |
-  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-  ligula porta felis euismod semper. Praesent commodo cursus magna, vel
-  scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+  Using a detailed but concise lockfile format and a deterministic algorithm
+  for installs, Yarn is able to guarantee that an install that worked on one
+  machine will work exactly the same way on any other machine.
 homepage_feature_reliable_image_alt: Generic placeholder image
 
 homepage_c2a_text: What are you waiting for?
@@ -63,15 +63,16 @@ homepage_featurette_conflict_resolution_description: |
   package exists.
 homepage_featurette_npm_and_bower_title: npm and bower
 homepage_featurette_npm_and_bower_description: |
-  Compatible with npm and bower. Supports mixing registries.
+  Install any package from either registry and keep working the same way you
+  have been.
 homepage_featurette_licenses_title: Licenses
 homepage_featurette_licenses_description: |
   Ability to restrict licenses of installed modules and ways to output
   licensing information.
 homepage_featurette_misc_title: And more...
 homepage_featurette_misc_description: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua.
+  Caching build artifacts, localized error messages, fast git clones from
+  GitHub and BitBucket, and lots more.
 
 ###
 # Titles
