@@ -17,6 +17,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Makefile
+  
+include:
+  - _redirects
 
 gems:
   - jekyll-redirect-from
