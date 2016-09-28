@@ -18,7 +18,7 @@ Optionally, you can create tests for your package that will verify that everythi
 
 ## Create Your Yarn Package
 
-Now that your package code is written, it is time to start creating your yarn package.
+Now that your package code is written, it is time to start creating your Yarn package.
 
 ### Initialization
 
@@ -40,26 +40,30 @@ However, many times a package requires dependencies on other packages in order t
 
 You can modify your `package.json` file by hand to expand on the default created by `init` by as little or as much as necessary. Examples of custom fields include:
 
-```bash
-dependencies {} # package dependencies required in production
-devDependencies {} # package dependencies required during development
-scripts {} # scripts that can be run when you `yarn run <script-name>``
+```json
+dependencies {} # package dependencies required at runtime
+devDependencies {} # package dependencies required when building from source
+scripts {} # scripts that can be run when you `yarn run <script-name>`
 ```
 
 ## Test your package
 
 Now that you have the actual code for your project and have completed specifying all of the metadata that will be needed to install and use your package, you can make sure it installs correctly. You will use the [`yarn install` command](./cli/install) to test the installation of your package.
 
-### Testing in Development
+### Testing Build Time Behavior
 
 ```
 $ yarn install
 ```
 
-### Testing in production
+The `install` command with no additional flags installs both `dependencies` and `devDependencies` from your `packagee.json`, allowing you to test your "build from source" package behavior.
+
+### Testing Runtime Behavior
 ```
 $ yarn install --production
 ```
+
+Adding the `--production` flag to the `install` command installs only your `dependencies` from your `package.json`, allowing you to test your general runtime package behavior.
 
 ## Prepare to Publish Your Package
 
