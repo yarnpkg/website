@@ -32,18 +32,24 @@ $ yarn init
 
 Answer the associated questions. Afterwards, a `package.json` will have been created.
 
-### Modify `package.json`
+### Add Dependencies
 
 In the simplest of packages, running the `init` command may all you need to do in order to publish your package. For example, your package has no external dependencies on other Yarn packages, etc. In this case, no modification to the `package.json` will be necessary.
 
 However, many times a package requires dependencies on other packages in order to be utilized successfully. Or, some packages are required for development of your package only (e.g., a testing framework).
 
-You can modify your `package.json` file by hand to expand on the default created by `init` by as little or as much as necessary. Examples of custom fields include:
+Use [`yarn add <package-name>`](cli/add) to add various types of dependencies to your package. These will be added to your `package.json` automatically.
+
+### Manual Customization of `package.json`
+
+You can modify your `package.json` file by hand to expand on the default created by `init` by as little or as much as necessary.
+
+Examples of custom fields include:
 
 ```json
-dependencies {} # package dependencies required at runtime
-devDependencies {} # package dependencies required when building from source
-scripts {} # scripts that can be run when you `yarn run <script-name>`
+dependencies {} # package dependencies required at runtime. `yarn add` will add this field.
+devDependencies {} # package dependencies required when building from source. `yarn add --devDependencies` will add this field.
+scripts {} # scripts that can be run when you `yarn run <script-name>`.
 ```
 
 ## Test your package
