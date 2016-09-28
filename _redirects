@@ -7,3 +7,11 @@ layout: null
 /latest.tar.gz https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.tar.gz
 /latest.msi https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.msi
 /latest.deb https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.deb
+
+{% for language in site.data.languages %}
+  {% if language.enabled %}
+    {% for accept_language in language.accept_languages %}
+/  /{{language.tag}}  302  Language={{accept_language}}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
