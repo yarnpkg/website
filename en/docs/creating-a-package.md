@@ -22,7 +22,7 @@ Now that your package code is written, it is time to start creating your yarn pa
 
 ### Initialization
 
-To help get you started in creating the metadata associated with your project, Yarn provides an [`init` command]() to create an initial `package.json` file skeleton.
+To help get you started in creating the metadata associated with your project, Yarn provides an `init` command to create an initial `package.json` file skeleton.
 
 In your project's root directory, run:
 
@@ -38,7 +38,7 @@ In the simplest of packages, running the `init` command may all you need to do i
 
 However, many times a package requires dependencies on other packages in order to be utilized successfully. Or, some packages are required for development of your package only (e.g., a testing framework).
 
-You can modify your `package.json`] file by hand to expand on the default created by `init` by as little or as much as necessary. Examples of custom fields include:
+You can modify your `package.json` file by hand to expand on the default created by `init` by as little or as much as necessary. Examples of custom fields include:
 
 ```bash
 dependencies {} # package dependencies required in production
