@@ -82,6 +82,8 @@
   pages:
   - id: docs_creating_a_package
     path: /docs/creating-a-package
+  - id: docs_publishing_a_package
+    path: /docs/publishing-a-package
 
 - id: docs_how_yarn_works
   title: docs_how_yarn_works_title

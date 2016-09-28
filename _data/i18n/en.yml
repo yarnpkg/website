@@ -137,6 +137,7 @@ docs_creating_a_package_description: |
   and configuration settings, leaving you to focus on your actual code.
 
 docs_creating_a_package: Creating a Package
+docs_publishing_a_package: Publishing Your Package
 
 docs_how_yarn_works_title: How Yarn Works
 docs_how_yarn_works_description: |
