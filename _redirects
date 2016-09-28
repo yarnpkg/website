@@ -1,8 +1,9 @@
+---
+layout: null
+---
 /downloads/:version/:file https://github.com/yarnpkg/yarn/releases/download/v:version/:file
 
 # Nice short URLs to download the latest release
-# TODO: Make a website build step that dynamically generates this _redirects 
-# file with the right URLs.
-/latest.tar.gz https://github.com/yarnpkg/yarn/releases/download/v0.13.5/kpm-v0.13.5.tar.gz
-/latest.msi https://github.com/yarnpkg/yarn/releases/download/v0.13.5/kpm-v0.13.5.msi
-/latest.deb https://github.com/yarnpkg/yarn/releases/download/v0.13.5/kpm-v0.13.5.deb
+/latest.tar.gz https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.tar.gz
+/latest.msi https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.msi
+/latest.deb https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.deb
