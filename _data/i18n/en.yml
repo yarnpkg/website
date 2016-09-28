@@ -96,8 +96,8 @@ docs_yarn_workflow: The Yarn Workflow
 
 docs_cli_title: CLI Commands
 docs_cli_description: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua.
+  Yarn is executed through a rich set of commands allowing package
+  installation, administration, publishing, and more.
 
 docs_cli_index: CLI Introduction
 docs_cli_access: yarn access
