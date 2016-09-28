@@ -6,10 +6,10 @@ layout: guide
 
 <p class="lead">Symlink a package folder.</p>
 
-##### `kpm link` (in package dir)
+##### `yarn link` (in package dir)
 
 > ***Currently unimplemented***
 
-##### `kpm link <package-name>`
+##### `yarn link <package-name>`
 
 > ***Currently unimplemented***
