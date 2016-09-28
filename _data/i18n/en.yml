@@ -3,7 +3,7 @@
 ###
 
 site_title: Yarn
-site_description: Yarn is a fast and reliable package manager for JavaScript.
+site_description: Fast, reliable, and secure dependency management.
 
 site_nav_getting_started: Getting Started
 site_nav_documentation: Documentation
@@ -20,7 +20,7 @@ guides_next: Next
 # Homepage
 ###
 
-homepage_tagline: Fast, reliable and secure dependency management.
+homepage_tagline: Fast, reliable, and secure dependency management.
 
 homepage_feature_fast_title: Ultra Fast.
 homepage_feature_fast_subtitle: It'll blow your mind.
