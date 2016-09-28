@@ -1,10 +1,12 @@
 .PHONY: start install serve build i18n-upload i18n-download
 
 .DEFAULT_GOAL := start
-start: install serve
+start:
+	@make install
+	@make serve
 
 install: test-bundler
-	git submodule update --init --recursive
+	@git submodule update --init --recursive
 	@bundle install
 
 serve: test-jekyll
