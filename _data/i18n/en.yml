@@ -138,6 +138,14 @@ docs_creating_a_package_description: |
 
 docs_creating_a_package: Creating a Package
 
+docs_configuration_title: Configuration
+docs_configuration_description: |
+  Learn how to use package.json to configure your package and dependencies
+
+docs_configuration_index: Configuration
+docs_configuration_package_json: Using package.json
+docs_configuration_yarn_lock: About yarn.lock
+
 docs_how_yarn_works_title: How Yarn Works
 docs_how_yarn_works_description: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
