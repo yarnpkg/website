@@ -126,8 +126,8 @@ docs_cli_why: yarn why
 
 docs_migrating_from_npm_title: Migrating from npm client
 docs_migrating_from_npm_description: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua.
+  Yarn interops directly with many features of npm, including its package
+  metadata format, allowing for a painless migration.
 
 docs_migrating_from_npm: Migrating from npm
 
