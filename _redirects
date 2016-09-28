@@ -1,0 +1,9 @@
+---
+layout: null
+---
+/downloads/:version/:file https://github.com/yarnpkg/yarn/releases/download/v:version/:file
+
+# Nice short URLs to download the latest release
+/latest.tar.gz https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.tar.gz
+/latest.msi https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.msi
+/latest.deb https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.deb
