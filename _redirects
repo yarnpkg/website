@@ -10,8 +10,10 @@ layout: null
 
 {% for language in site.data.languages %}
   {% if language.enabled %}
-    {% for accept_language in language.accept_languages %}
+    {% if language.tag != "en" %}
+      {% for accept_language in language.accept_languages %}
 /  /{{language.tag}}  302  Language={{accept_language}}
-    {% endfor %}
+      {% endfor %}
+    {% endif %}
   {% endif %}
 {% endfor %}
