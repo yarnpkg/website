@@ -15,14 +15,15 @@ You should ensure you have [Bundler](http://bundler.io/) installed:
 $ gem install bundler
 ```
 
-Install the dependecies, such as [Jekyll](https://jekyllrb.com/):
-
-```sh
-$ make install
-```
-
-And then, to build & serve the documentation:
+And then:
 
 ```sh
 $ make
+```
+
+Or:
+
+```sh
+$ make install
+$ make serve
 ```
