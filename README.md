@@ -9,6 +9,12 @@ $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
 
+You should ensure you have [Bundler](http://bundler.io/) installed: 
+
+```sh
+$ gem install bundler
+```
+
 And then:
 
 ```sh
