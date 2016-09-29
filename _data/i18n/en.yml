@@ -127,6 +127,7 @@ docs_cli_self_update: yarn self-update
 docs_cli_team: yarn team
 docs_cli_uninstall: yarn uninstall
 docs_cli_upgrade: yarn upgrade
+docs_cli_version: yarn version
 docs_cli_why: yarn why
 
 docs_migrating_from_npm_title: Migrating from npm client

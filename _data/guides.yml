@@ -102,6 +102,9 @@
   - id: docs_cli_upgrade
     path: /docs/cli/upgrade
     tags: ["cli-upgrade"]
+  - id: docs_cli_version
+    path: /docs/cli/version
+    tags: ["cli-version"]
   - id: docs_cli_why
     path: /docs/cli/why
     tags: ["cli-why"]
