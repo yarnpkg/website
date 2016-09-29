@@ -4,33 +4,115 @@ guide: docs_creating_a_package
 layout: guide
 ---
 
-After creating and preparing your package for publication, it is time to publish your package.
+In order to share your package with other developers around the world through
+Yarn, you'll first need to publish it.
 
-Yarn is a client to the npm backend by default, which stores packages. Thus, you will be publishing your package to npm.
+When you publish a package with Yarn it goes onto the
+[npm registry](https://www.npmjs.com/) which is used to distribute packages
+globally with [high availability](http://status.npmjs.org/).
 
-## Publishing
+### Logging into npm
 
-Assuming you have logged into the npm registry via `yarn login`, you are ready to publish your package:
+If you haven't already, you'll first need to
+[create an npm account](https://www.npmjs.com/signup). Once you've done that
+you can setup your username and email in Yarn.
 
+```sh
+$ yarn login
 ```
+
+This will prompt you for your username and email. However, it will not ask you
+for your password. Yarn does not hold onto your password or any sessions. When
+you go to publish or modify something on npm, you will need to enter your
+password then.
+
+### Publishing your package
+
+Once you have written all the code in your package, tested it out and you are
+ready to publish you can kick things off:
+
+```sh
 $ yarn publish
 ```
 
-You will be asked a series of questions before the actual publish occurs.
+First you will be asked to enter a new version to publish:
 
-1. The new version number of your package.
-1. Your npm login information, including username, email address and password.
+```
+[1/4] Bumping version...
+info Current version: 1.0.0
+question New version: _____
+```
 
-Then the actual publishing will occur.
+Next you will be asked to enter your npm password:
 
-1. A commit will be added to your *local* repo specifying the version number change
-1. Your package will be compressed into a tarball.
-1. Your package will be tagged with the new version number
-1. The package will be uploaded to the npm registry.
-1. Your npm registry token that was used to publish will be revoked from your local client.
+```
+[2/4] Logging in...
+info npm username: your-npm-username
+info npm username: you@example.com
+question npm password: ____________
+```
 
-> Remember to push the version commit that was created to the remote repo.
+Finally, Yarn will publish the package and revoke your session token.
 
-## Installing or Updating
+```
+[3/4] Publishing...
+success Published.
+[4/4] Revoking token...
+success Revoked login token.
+✨  Done in 10.53s.
+```
 
-Now that your package has landed in the npm registry, it can be installed by users with `npm install`. It can also be updated by you and republished using `yarn publish` again.
+Each time you want to publish a new version of your package you can follow this
+same flow.
+
+### Accessing your package
+
+Your package should now be available at
+https://www.npmjs.com/package/my-new-project and you should be able to install
+it:
+
+```sh
+yarn add my-new-project
+```
+
+You can also see all the info in the npm registry:
+
+```sh
+yarn info my-new-project
+```
+
+```js
+{ name: 'my-new-project',
+  description: 'My New Project description.',
+  'dist-tags': { latest: '1.0.0' },
+  versions: [ '1.0.0' ],
+  maintainers: [ { name: 'Your Name', email: 'you@example.com' } ],
+  time:
+  { modified: '{{ site.time | date_to_xmlschema }}',
+    created: '{{ site.time | date_to_xmlschema }}',
+    '1.0.0': '{{ site.time | date_to_xmlschema }}' },
+  homepage: 'https://my-new-project-website.com/',
+  keywords: [ 'cool', 'useful', 'stuff' ],
+  repository:
+   { url: 'https://example.com/your-username/my-new-project',
+     type: 'git' },
+  contributors:
+   [ { name: 'Your Friend',
+       email: 'their-email@example.com',
+       url: 'http://their-website.com' },
+     { name: 'Another Friend',
+       email: 'another-email@example.com',
+       url: 'https://another-website.org' } ],
+  author: { name: 'Your Name', email: 'you@example.com' },
+  bugs: { url: 'https://github.com/you/my-new-project/issues' },
+  license: 'MIT',
+  readmeFilename: 'README.md',
+  version: '1.0.0',
+  main: 'index.js',
+  files: [ 'index.js', 'lib/*.js', 'bin/*.js' ],
+  bin: { 'my-new-project-cli': 'bin/my-new-project-cli.js' },
+  dist:
+   { shasum: '908bc9a06fa4421e96ceda243c1ee1789b0dc763',
+     tarball: 'https://registry.npmjs.org/my-new-project/-/my-new-project-1.0.0.tgz' },
+  directories: {} }
+```
