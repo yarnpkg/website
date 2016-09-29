@@ -26,16 +26,16 @@ homepage_feature_fast_title: Ultra Fast.
 homepage_feature_fast_subtitle: Don't be put on paws.
 homepage_feature_fast_description: |
   Yarn caches every package it downloads so it never needs to again. It also
-  parallelizes operations to maximize resource utilization on your machine so
-  install times are faster than ever.
+  parallelizes operations to maximize resource utilization so install times are
+  faster than ever.
 homepage_feature_fast_image_alt: Generic placeholder image
 
 homepage_feature_secure_title: Mega Secure.
 homepage_feature_secure_subtitle: Fur-vently so.
 homepage_feature_secure_description: |
-  Every package that Yarn installs gets checked against a hash to ensure the
-  code you wanted to download is the code you downloaded before you go
-  executing it.
+  Every package that Yarn installs gets checked against a checksum to ensure the
+  code you wanted to download is the code you downloaded before you
+  execute it.
 homepage_feature_secure_image_alt: Generic placeholder image
 
 homepage_feature_reliable_title: Super Reliable.
@@ -43,7 +43,7 @@ homepage_feature_reliable_subtitle: Feline good.
 homepage_feature_reliable_description: |
   Using a detailed but concise lockfile format and a deterministic algorithm
   for installs, Yarn is able to guarantee that an install that worked on one
-  machine will work exactly the same way on any other machine.
+  system will work exactly the same way on any other system.
 homepage_feature_reliable_image_alt: Generic placeholder image
 
 homepage_c2a_text: What are you waiting for?
@@ -55,7 +55,7 @@ homepage_featurette_offline_description: |
   any internet connection.
 homepage_featurette_lockfiles_title: Lockfiles
 homepage_featurette_lockfiles_description: |
-  Concise lockfile format. No whitespace, ordered keys to ensure minimal
+  Concise lockfile format. Little whitespace, ordered keys to ensure minimal
   changes and noise.
 homepage_featurette_conflict_resolution_title: Conflict resolution
 homepage_featurette_conflict_resolution_description: |
