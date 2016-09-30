@@ -1,0 +1,42 @@
+---
+id: docs_install
+guide: docs_getting_started
+layout: guide
+---
+
+Before you start using Yarn, you'll first need to install it on your system.
+There is a growing number of different ways to install Yarn:
+
+{% capture mac          %}{% include_relative _installations/mac.md          %}{% endcapture %}
+{% capture windows      %}{% include_relative _installations/windows.md      %}{% endcapture %}
+{% capture linux        %}{% include_relative _installations/linux.md        %}{% endcapture %}
+{% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
+
+<div class="m-y-1">
+  <div class="nav nav-tabs bg-faded text-xs-center">
+    <ul class="nav navbar-nav nav-inline">
+      <a class="nav-item nav-link" data-toggle="tab" href="#mac">macOS</a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#windows">Windows</a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#linux">Debian/Ubuntu Linux</a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#alternatives">Alternatives</a>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <div class="tab-pane active">
+      <p class="text-xs-center m-y-2 text-muted">Select your platform above</p>
+    </div>
+    <div class="tab-pane" id="mac">{{mac | markdownify}}</div>
+    <div class="tab-pane" id="windows">{{windows | markdownify}}</div>
+    <div class="tab-pane" id="linux">{{linux | markdownify}}</div>
+    <div class="tab-pane" id="alternatives">{{alternatives | markdownify}}</div>
+  </div>
+</div>
+
+<blockquote>
+  <p>
+    <strong>Problems?</strong>
+    If you are unable to install Yarn with any one of these installers, please
+    search through GitHub for an existing issue or open a new one.
+  </p>
+</blockquote>

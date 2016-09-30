@@ -1,0 +1,27 @@
+.tab-content {
+  padding: $spacer;
+  border: 1px solid $nav-tabs-border-color;
+  border-top-width: 0;
+  border-radius: 0 0 $nav-tabs-border-radius $nav-tabs-border-radius;
+
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  p, ul, ol, pre, blockquote,
+  .highlighter-rouge {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.nav-tabs {
+  @extend .bg-faded;
+  border-radius: $nav-tabs-border-radius $nav-tabs-border-radius 0 0;
+  border: 1px solid $nav-tabs-border-color;
+  padding: ($spacer / 2);
+  padding-bottom: 0;
+}
