@@ -1,19 +1,28 @@
-.tab-content {
-  padding: $spacer;
-  border: 1px solid $nav-tabs-border-color;
-  border-top-width: 0;
-  border-radius: 0 0 $nav-tabs-border-radius $nav-tabs-border-radius;
 
-  h1, h2, h3, h4, h5, h6,
-  .h1, .h2, .h3, .h4, .h5, .h6,
-  p, ul, ol, pre, blockquote,
-  .highlighter-rouge {
-    &:first-child {
-      margin-top: 0;
-    }
+.tabs {
+  margin: 1rem 0;
 
-    &:last-child {
-      margin-bottom: 0;
+  .tab-content {
+    border: 1px solid $nav-tabs-border-color;
+    border-top-width: 0;
+    border-radius: 0 0 $nav-tabs-border-radius $nav-tabs-border-radius;
+  }
+
+  .tab-pane {
+    padding: $spacer;
+
+    > {
+      h1, h2, h3, h4, h5, h6,
+      p, ul, ol, pre, blockquote,
+      .highlighter-rouge {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
