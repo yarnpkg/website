@@ -16,15 +16,15 @@ layout: page
 
   {% assign guide = site.data.guides[index] %}
   <div class="col-lg-4">
-    <div class="card">
+    <a class="card" href="{{url_base}}{{guide.pages[0].path}}">
       <div class="card-block">
         <h4 class="card-title">{{i18n[guide.title]}}</h4>
-        <p class="card-text">
+        <p class="card-text text-muted">
           {{i18n[guide.description]}}
-          <a href="{{url_base}}{{guide.pages[0].path}}" class="pull-xs-right">Read more</a>
+          <span class="pull-xs-right text-primary">Read more</span>
         </p>
       </div>
-    </div>
+    </a>
   </div>
 
   {% if index_mod == 2 %}
