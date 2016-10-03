@@ -9,8 +9,11 @@ $yarn-blue-darker: #1b7eab;
 $yarn-blue-darkest: #1476A2;
 
 $brand-primary: $yarn-blue;
+$progress-bar-color: $brand-primary;
 
 $navbar-light-color: rgba(0, 0, 0, 0.4);
+
+$npm-red: #C12127;
 
 @import "bootstrap/scss/bootstrap.scss";
 @import "_base.scss";
@@ -26,3 +29,5 @@ $navbar-light-color: rgba(0, 0, 0, 0.4);
 @import "_tabs.scss";
 @import "_navs.scss";
 @import "_cards.scss";
+@import "_tags.scss";
+@import "_compare.scss";

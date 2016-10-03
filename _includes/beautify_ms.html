@@ -1,0 +1,34 @@
+{% assign inputL = include.ms %}
+
+{% assign second = 1000 %}
+{% assign minute = second | times: 60 %}
+{% assign hour   = minute | times: 60 %}
+
+{% assign hours  = inputL | divided_by: hour | round %}
+{% assign hoursL = inputL | modulo: hour %}
+
+{% assign mins  = hoursL | divided_by: minute | round %}
+{% assign minsL = hoursL | modulo: minute %}
+
+{% assign secs  = minsL | divided_by: second | round %}
+{% assign secsL = minsL | modulo: second %}
+
+{% assign mills = secsL | round %}
+
+{% if hours != 0 %}
+  {{hours}} hour{% if hours > 1 %}s{% endif %}
+{% endif %}
+
+{% if mins != 0 %}
+  {{mins}} minute{% if mins > 1 %}s{% endif %}
+{% endif %}
+
+{% if secs != 0 %}
+  {{secs}} second{% if secs > 1 %}s{% endif %}
+{% endif %}
+
+{% if mins == 0 %}
+  {% if mills != 0 %}
+    {{mills}}ms
+  {% endif %}
+{% endif %}
