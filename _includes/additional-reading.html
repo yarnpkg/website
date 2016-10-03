@@ -1,0 +1,18 @@
+{% assign tags = include.tags %}
+
+{% include vars.html %}
+
+<div class="list-group">
+  <strong class="list-group-item bg-faded">{{i18n.guide_additional_reading}}</strong>
+{% for guide in site.data.guides %}
+  {% for tag in tags %}
+    {% if guide.tags contains tag %}
+  <a class="list-group-item list-group-item-action" href="{{url_base}}{{guide.pages[0].path}}">
+    <h5 class="list-group-item-heading">{{i18n[guide.title]}}</h5>
+    <p class="list-group-item-text text-muted">{{i18n[guide.description]}}</p>
+  </a>
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+</div>

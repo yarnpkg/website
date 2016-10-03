@@ -1,6 +1,7 @@
 - id: docs_getting_started
   title: docs_getting_started_title
   description: docs_getting_started_description
+  tags: ["intro"]
   pages:
   - id: docs_getting_started
     path: /docs/getting-started
@@ -12,6 +13,7 @@
 - id: docs_yarn_workflow
   title: docs_yarn_workflow_title
   description: docs_yarn_workflow_description
+  tags: ["intro", "basics"]
   pages:
   - id: docs_yarn_workflow
     path: /docs/yarn-workflow
@@ -19,6 +21,7 @@
 - id: docs_cli
   title: docs_cli_title
   description: docs_cli_description
+  tags: ["api", "basics"]
   pages:
   - id: docs_cli_index
     path: /docs/cli/
@@ -72,6 +75,7 @@
 - id: docs_migrating_from_npm
   title: docs_migrating_from_npm_title
   description: docs_migrating_from_npm_description
+  tags: ["intro", "basics", "migrating"]
   pages:
   - id: docs_migrating_from_npm
     path: /docs/migrating-from-npm
@@ -79,6 +83,7 @@
 - id: docs_creating_a_package
   title: docs_creating_a_package_title
   description: docs_creating_a_package_description
+  tags: ["intro", "basics", "authoring"]
   pages:
   - id: docs_creating_a_package
     path: /docs/creating-a-package
@@ -88,6 +93,7 @@
 - id: docs_how_yarn_works
   title: docs_how_yarn_works_title
   description: docs_how_yarn_works_description
+  tags: ["advanced"]
   pages:
   - id: docs_how_yarn_works
     path: /docs/how-yarn-works
@@ -95,6 +101,7 @@
 - id: yarn_organization
   title: yarn_organization_title
   description: yarn_organization_description
+  tags: ["internal"]
   pages:
   - id: organization
     path: /org

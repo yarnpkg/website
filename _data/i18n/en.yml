@@ -15,6 +15,7 @@ site_edit_this_page: Edit this page
 
 guides_prev: Previous
 guides_next: Next
+guide_additional_reading: Additional Reading
 
 ###
 # Homepage
@@ -183,6 +184,8 @@ install_os_mac: macOS
 install_os_windows: Windows
 install_os_linux: Debian/Ubuntu Linux
 install_os_alternatives: Alternatives
+
+install_test: "Test that Yarn is installed by running:"
 
 install_problems_title: Problems?
 install_problems_description: >

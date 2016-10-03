@@ -26,8 +26,6 @@ layout: page
       {{content}}
     </div>
 
-    <hr>
-
     <p class="guide-controls">
       {% if guide_prev_index > -1 %}
         <span class="pull-md-left">
@@ -45,6 +43,10 @@ layout: page
         </span>
       {% endif %}
     </p>
+
+    {% if page.additional_reading_tags %}
+      {% include additional-reading.html tags=page.additional_reading_tags %}
+    {% endif %}
   </div>
 
   <div class="col-md-4">
@@ -65,3 +67,4 @@ layout: page
     </ul>
   </div>
 </div>
+
