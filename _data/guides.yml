@@ -66,6 +66,8 @@
     path: /docs/cli/uninstall
   - id: docs_cli_upgrade
     path: /docs/cli/upgrade
+  - id: docs_cli_version
+    path: /docs/cli/version
   - id: docs_cli_why
     path: /docs/cli/why
 
