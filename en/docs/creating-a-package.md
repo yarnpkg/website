@@ -27,7 +27,7 @@ $ yarn init
 ```
 
 This is going to create a new git repository, put you inside of it, and then
-open up an interactive tool for creating a new yarn project with the following
+open up an interactive form for creating a new yarn project with the following
 questions:
 
 ```sh
@@ -48,7 +48,7 @@ the default or leave it blank.
 
 ### `package.json`
 
-Now you should have a `package.json` that looks like this:
+Now you should have a `package.json` that looks similar to this:
 
 ```json
 {
@@ -82,8 +82,9 @@ The fields you see in the `package.json` have the following meanings:
 - **license** is the published legal terms of your package and what is the
   allowed usage of the code in your package.
 
-All `yarn init` does is create this file, there's nothing happening behind the
-scenes. You can feel free to edit this file as much as you want.
+When you run `yarn init`, all it is doing is creating this file, nothing
+happens in the background. You can feel free to edit this file as much as you
+want.
 
 #### Additional fields
 
