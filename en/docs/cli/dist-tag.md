@@ -6,7 +6,7 @@ layout: guide
 
 <p class="lead">Add, remove, or list dist-tags on a package.</p>
 
-### What are dist-tags?
+### What are dist-tags? <a class="toc" id="toc-what-are-dist-tags" href="#toc-what-are-dist-tags"></a>
 
 Distribution tags or dist-tags are a way of marking published versions of your
 package with a label. Users of your package can install it using this label
@@ -16,8 +16,8 @@ For example, if you had a **stable** release channel and a **canary** release
 channel, you could use dist-tags as a way to allow the user to type:
 
 ```sh
-$ yarn install your-package-name@stable
-$ yarn install your-package-name@canary
+yarn install your-package-name@stable
+yarn install your-package-name@canary
 ```
 
 Different dist-tags have different meanings:
@@ -41,14 +41,14 @@ Although these are widely considered the "standard" dist-tags, the only one
 that has any real meaning is `latest` which is used for determining which
 version to install when no version is specified.
 
-### Caveats
+### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
 
 You cannot use dist-tags that match potential version numbers since they share
 a namespace:
 
 ```sh
-$ yarn install your-package-name@<version>
-$ yarn install your-package-name@<dist-tag>
+yarn install your-package-name@<version>
+yarn install your-package-name@<dist-tag>
 ```
 
 Any dist-tag that can also be used as a valid semver range will be rejected.
@@ -58,20 +58,20 @@ For example, you cannot have a dist-tag named `v2.3` because in semver it means
 In general, avoid using dist-tags that look like versions, they typically only
 confuse people anyways.
 
-### Commands
+### Commands <a class="toc" id="commands href="commands"></a>
 
-##### `yarn dist-tag add <package>@<version> <tag>`
+##### `yarn dist-tag add <package>@<version> <tag>` <a class="toc" id="toc-command-yarn-dist-tag-add" href="#toc-command-yarn-dist-tag-add"></a>
 
 Add a dist-tag named `<tag>` for a specific `<version>` of a `<package>`.
 
-##### `yarn dist-tag rm <package> <tag>`
+##### `yarn dist-tag rm <package> <tag>` <a class="toc" id="toc-command-yarn-dist-tag-rm" href="#toc-command-yarn-dist-tag-rm"></a>
 
 Remove a dist-tag named `<tag>` from a `<package>` that is no longer in use.
 
 > **Note:** You do not need to delete a tag before moving it to another
 > version in the package. It's better not to.
 
-##### `yarn dist-tag ls [<package>]`
+##### `yarn dist-tag ls [<package>]` <a class="toc" id="toc-command-yarn-dist-tag-ls" href="#toc-command-yarn-dist-tag-ls"></a>
 
 List all of the dist-tags for a `<package>`. If unspecified `<package>` will
 default to the package you're currently inside the directory of.

@@ -6,10 +6,10 @@ layout: guide
 
 <p class="lead">Symlink a package folder.</p>
 
-##### `yarn link` (in package dir)
+##### `yarn link` (in package dir) <a class="toc" id="toc-command-yarn-link" href="#toc-command-yarn-link"></a>
 
 > ***Currently unimplemented***
 
-##### `yarn link <package-name>`
+##### `yarn link <package-name>` <a class="toc" id="toc-command-yarn-link-package" href="#toc-command-yarn-link-package"></a>
 
 > ***Currently unimplemented***

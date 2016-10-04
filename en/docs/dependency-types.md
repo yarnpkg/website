@@ -1,0 +1,62 @@
+---
+id: docs_dependency_types
+guide: docs_dependencies
+layout: guide
+---
+
+Dependencies serve many different purposes. Some dependencies are needed to
+build your project, others are needed when your running your program. As such
+there are a number of different types of dependencies that you can have (i.e.
+`dependencies`, `devDependencies`, or `peerDependencies`).
+
+Your `package.json` will contain all of these dependencies:
+
+```json
+{
+  "name": "my-project",
+  "dependencies": {
+    "package-a": "^1.0.0"
+  },
+  "devDepdencies": {
+    "package-b": "^1.2.1"
+  },
+  "peerDependencies": {
+    "package-c": "^2.5.4"
+  },
+  "optionalDependencies": {
+    "package-d": "^3.1.0"
+  }
+}
+```
+
+Most people only have `dependencies` and `devDependencies`, but each of these
+are important to understand.
+
+##### `dependencies` <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
+
+These are your normal dependencies, or rather ones that you need when running
+your code (i.e. React or ImmutableJS).
+
+##### `devDependencies` <a class="toc" id="toc-dev-dependencies" href="#toc-dev-dependencies"></a>
+
+These are your development dependencies. Dependencies that you need at some
+point in the development workflow but not while running your code (i.e. Babel
+or Flow).
+
+##### `peerDependencies` <a class="toc" id="toc-peer-dependencies" href="#toc-peer-dependencies"></a>
+
+Peer dependencies are a special type of dependency that would only ever come up
+if you were publishing your own package.
+
+Having a peer dependency means that your package needs a dependency that is the
+same exact dependency as the person installing your package. This is useful for
+packages like `react` that need to have a single copy of `react-dom` that is
+also used by the person installing it.
+
+##### `optionalDependencies` <a class="toc" id="toc-optional-dependencies" href="#toc-optional-dependencies"></a>
+
+Optional dependencies are just that: optional. If they fail to install, Yarn
+will still say the install process was successful.
+
+This is useful for dependencies that won't necessarily work on every machine
+and you have a fallback plan in case they are not installed (i.e. Watchman).

@@ -11,14 +11,14 @@ When you publish a package with Yarn it goes onto the
 [npm registry](https://www.npmjs.com/) which is used to distribute packages
 globally with [high availability](http://status.npmjs.org/).
 
-### Logging into npm
+### Logging into npm <a class="toc" id="toc-logging-into-npm" href="#toc-logging-into-npm"></a>
 
 If you haven't already, you'll first need to
 [create an npm account](https://www.npmjs.com/signup). Once you've done that
 you can setup your username and email in Yarn.
 
 ```sh
-$ yarn login
+yarn login
 ```
 
 This will prompt you for your username and email. However, it will not ask you
@@ -26,13 +26,13 @@ for your password. Yarn does not hold onto your password or any sessions. When
 you go to publish or modify something on npm, you will need to enter your
 password then.
 
-### Publishing your package
+### Publishing your package <a class="toc" id="toc-publishing-your-package" href="#toc-publishing-your-package"></a>
 
 Once you have written all the code in your package, tested it out and you are
 ready to publish you can kick things off:
 
 ```sh
-$ yarn publish
+yarn publish
 ```
 
 First you will be asked to enter a new version to publish:
@@ -65,7 +65,7 @@ success Revoked login token.
 Each time you want to publish a new version of your package you can follow this
 same flow.
 
-### Accessing your package
+### Accessing your package <a class="toc" id="toc-accessing-your-package" href="#toc-accessing-your-package"></a>
 
 Your package should now be available at
 https://www.npmjs.com/package/my-new-project and you should be able to install

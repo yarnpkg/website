@@ -7,27 +7,27 @@ layout: guide
 Contributions are always welcome, no matter how large or small. Before contributing,
 please read the [code of conduct](code-of-conduct).
 
-## Building
+## Building <a class="toc" id="toc-building" href="#toc-building"></a>
 
 ```sh
-$ npm run build
+npm run build
 ```
 
 ```sh
-$ npm run watch
+npm run watch
 ```
 
-## Testing
+## Testing <a class="toc" id="toc-testing" href="#toc-testing"></a>
 
 ```sh
-$ npm run test
+npm run test
 ```
 
 ```sh
-$ npm run lint
+npm run lint
 ```
 
-## Pull Requests
+## Pull Requests <a class="toc" id="toc-pull-requests" href="#toc-pull-requests"></a>
 
 We actively welcome your pull requests.
 
@@ -37,7 +37,7 @@ We actively welcome your pull requests.
 4. Ensure the test suite passes.
 5. Make sure your code lints.
 
-## License
+## License <a class="toc" id="toc-license" href="#toc-license"></a>
 
 By contributing to Yarn, you agree that your contributions will be licensed
 under its BSD license.

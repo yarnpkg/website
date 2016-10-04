@@ -95,6 +95,10 @@ docs_yarn_workflow_description: |
   Yarn packages that will help you get productive quickly.
 
 docs_yarn_workflow: The Yarn Workflow
+docs_creating_a_project: Creating a new project
+docs_managing_dependencies: Managing dependencies
+docs_installing_dependencies: Installing dependencies
+docs_version_control: Working with version control
 
 docs_cli_title: CLI Commands
 docs_cli_description: |
@@ -140,6 +144,15 @@ docs_creating_a_package_description: |
 
 docs_creating_a_package: Creating a Package
 docs_publishing_a_package: Publishing a Package
+
+docs_dependencies_title: Dependencies & Versions
+docs_dependencies_description: |
+  Using Yarn you'll be working with dependencies all the time. Let's go through
+  the different types and versions of dependencies.
+
+docs_dependencies: Dependencies and versions
+docs_dependency_types: Types of dependencies
+docs_dependency_versions: Versions of dependencies
 
 docs_how_yarn_works_title: How Yarn Works
 docs_how_yarn_works_description: |

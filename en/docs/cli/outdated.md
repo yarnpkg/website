@@ -4,10 +4,10 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn outdated`
+##### `yarn outdated` <a class="toc" id="toc-command-yarn-outdated" href="#toc-command-yarn-outdated"></a>
 
 > ***Currently unimplemented***
 
-##### `yarn outdated [pkg...]`
+##### `yarn outdated [package...]` <a class="toc" id="toc-command-yarn-outdated" href="#toc-command-yarn-outdated"></a>
 
 > ***Currently unimplemented***

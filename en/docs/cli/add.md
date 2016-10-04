@@ -2,11 +2,14 @@
 id: docs_cli_add
 guide: docs_cli
 layout: guide
+additional_reading_tags: ["dependencies"]
 ---
+
+{% include vars.html %}
 
 <p class="lead">Installs a package and any packages that it depends on.</p>
 
-### Adding dependencies
+### Adding dependencies <a class="toc" id="toc-adding-dependencies" href="#toc-adding-dependencies"></a>
 
 When you want to use another package, you first need to add it to your
 dependencies. This means running `yarn add [package-name]` to install it into
@@ -26,8 +29,9 @@ You can specify versions using one of these:
 1. `yarn add package-name` installs the "latest" version of the package.
 2. `yarn add package-name@1.2.3` installs a specific version of a package from
   the registry.
-3. `yarn add package-name@dist-tag` installs a specific ["dist-tag"](dist-tag)
-  (i.e. `beta`, `next`, or `latest`).
+3. `yarn add package-name@dist-tag` installs a specific
+  ["dist-tag"]({{url_base}}/docs/cli/dist-tag) (i.e. `beta`, `next`, or
+  `latest`).
 
 In general, a package is simply a folder with code and a `package.json` file
 that describes the contents. You can refer to a package a number of different
@@ -47,89 +51,7 @@ You can also specify packages from different locations:
 5. `yarn add https://my-project.org/package.tgz` installs a package from a
   remote gzipped tarball.
 
-### Different types of dependencies
-
-Dependencies serve many different purposes. Some dependencies are needed to
-build your project, others are needed when your running your program. As such
-there are a number of different types of dependencies that you can have (i.e.
-`dependencies`, `devDependencies`, or `peerDependencies`).
-
-Your `package.json` will contain all of these dependencies:
-
-```json
-{
-  "name": "my-project",
-  "dependencies": {
-    "package-a": "^1.0.0"
-  },
-  "devDepdencies": {
-    "package-b": "^1.2.1"
-  },
-  "peerDependencies": {
-    "package-c": "^2.5.4"
-  },
-  "optionalDependencies": {
-    "package-d": "^3.1.0"
-  }
-}
-```
-
-Most people only have `dependencies` and `devDependencies`, but each of these
-are important to understand.
-
-##### `dependencies`
-
-These are your normal dependencies, or rather ones that you need when running
-your code (i.e. React or ImmutableJS).
-
-##### `devDependencies`
-
-These are your development dependencies. Dependencies that you need at some
-point in the development workflow but not while running your code (i.e. Babel
-or Flow).
-
-##### `peerDependencies`
-
-Peer dependencies are a special type of dependency that would only ever come up
-if you were publishing your own package.
-
-Having a peer dependency means that your package needs a dependency that is the
-same exact dependency as the person installing your package. This is useful for
-packages like `react` that need to have a single copy of `react-dom` that is
-also used by the person installing it.
-
-##### `optionalDependencies`
-
-Optional dependencies are just that: optional. If they fail to install, Yarn
-will still say the install process was successful.
-
-This is useful for dependencies that won't necessarily work on every machine
-and you have a fallback plan in case they are not installed (i.e. Watchman).
-
-### Dependency versions
-
-Packages in Yarn follow [Semantic Versioning](http://semver.org/) or "semver".
-When you install a new package from the registry it will be added to your
-`package.json` with a semver version range like this:
-
-```json
-{
-  "dependencies": {
-    "package-name": "^1.0.3"
-  }
-}
-```
-
-Notice the `^` in the `^1.0.3`, this is a way of specifying "compatible"
-versions to be installed. The `^` operator means "anything greater than or
-equal to `1.0.3`, but less than `2.0.0`".
-
-By default when you run `yarn add [package-name]` it will use the caret (`^`)
-version. But you could also modify this to be a different version range like
-`~1.0.3` which will match anything greater than or equal to `1.0.3` but less than
-`1.1.0`.
-
-### Caveats
+### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
 
 If you have used a package manager like npm previously, you may be looking for
 how to add global dependencies.
@@ -142,23 +64,27 @@ using your project gets the same set of dependencies.
 If you are trying to use a CLI tool that has a `bin` you can access these in
 your `./node_modules/.bin` directory.
 
-##### `yarn add <package...>`
+##### `yarn add <package...>` <a class="toc" id="toc-command-yarn-add" href="#toc-command-yarn-add"></a>
 
-This will install a `<package>` in your [`dependencies`](#dependencies).
+This will install a `<package>` in your
+[`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies).
 
-##### `yarn add <package...> --dev`
+##### `yarn add <package...> --dev` <a class="toc" id="toc-command-yarn-add-dev" href="#toc-command-yarn-add-dev"></a>
 
-This will install a `<package>` in your [`devDependencies`](#devDependencies).
+This will install a `<package>` in your
+[`devDependencies`]({{url_base}}/docs/dependency-types#toc-dev-dependencies).
 
-##### `yarn add <package...> --peer`
+##### `yarn add <package...> --peer` <a class="toc" id="toc-command-yarn-add-peer" href="#toc-command-yarn-add-peer"></a>
 
-This will install a `<package>` in your [`peerDependencies`](#peerDependencies).
+This will install a `<package>` in your
+[`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
 
-##### `yarn add <package...> --optional`
+##### `yarn add <package...> --optional` <a class="toc" id="toc-command-yarn-add-optional" href="#toc-command-yarn-add-optional"></a>
 
-This will install a `<package>` in your [`optionalDependencies`](#optionalDependencies).
+This will install a `<package>` in your
+[`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optional-dependencies).
 
-##### `yarn add <package...> --exact`
+##### `yarn add <package...> --exact` <a class="toc" id="toc-command-yarn-add-exact" href="#toc-command-yarn-add-exact"></a>
 
 [TODO]
 
@@ -167,7 +93,7 @@ recent release with the same major version. For example, `yarn add foo@1.2.3`
 would accept version `1.9.1`, but `yarn add foo@1.2.3 --exact` would only
 accept version `1.2.3`.
 
-##### `yarn add <package...> --tilde`
+##### `yarn add <package...> --tilde` <a class="toc" id="toc-command-yarn-add-tilde" href="#toc-command-yarn-add-tilde"></a>
 
 [TODO]
 

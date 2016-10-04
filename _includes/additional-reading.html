@@ -15,4 +15,17 @@
     {% endif %}
   {% endfor %}
 {% endfor %}
+
+{% for guide in site.data.guides %}
+  {% for page in guide.pages %}
+    {% for tag in tags %}
+      {% if page.tags contains tag %}
+  <a class="list-group-item list-group-item-action" href="{{url_base}}{{page.path}}">
+    <h5 class="list-group-item-heading">{{i18n[page.id]}}</h5>
+  </a>
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
 </div>

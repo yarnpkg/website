@@ -15,15 +15,15 @@ examples are going to use git.
 > install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 > and [Yarn](install).
 
-### Creating your first package
+### Creating your first package <a class="toc" id="toc-creating-your-first-package" href="#toc-creating-your-first-package"></a>
 
 In order to create your first package, open up your system terminal/console and
 run the following commands:
 
 ```sh
-$ git init my-new-project
-$ cd my-new-project
-$ yarn init
+git init my-new-project
+cd my-new-project
+yarn init
 ```
 
 This is going to create a new git repository, put you inside of it, and then
@@ -46,7 +46,7 @@ the default or leave it blank.
 > **Tip:** If you want to use the defaults for everything you can also run
 > `npm init --yes` and it will skip all the questions.
 
-### `package.json`
+### `package.json` <a class="toc" id="toc-package-json" href="#toc-package-json"></a>
 
 Now you should have a `package.json` that looks similar to this:
 
@@ -86,7 +86,7 @@ When you run `yarn init`, all it is doing is creating this file, nothing
 happens in the background. You can feel free to edit this file as much as you
 want.
 
-#### Additional fields
+#### Additional fields <a class="toc" id="toc-additional-fields" href="#toc-additional-fields"></a>
 
 Let's go through some additional `package.json` fields you might want to add.
 

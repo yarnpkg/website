@@ -4,7 +4,7 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn uninstall <package...>`
+##### `yarn uninstall <package...>` <a class="toc" id="toc-command-yarn-uninstall" href="#toc-command-yarn-uninstall"></a>
 
 Running `yarn uninstall foo` uninstalls the package named `foo`. This command also updates the `package.json` and `yarn.lock` files so that other people using the repository only have to run a `yarn install` to get their state up to date.
 

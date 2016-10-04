@@ -68,6 +68,26 @@
 .rougeHighlight .vi { color: #268bd2 } /* Name.Variable.Instance */
 .rougeHighlight .il { color: #2aa198 } /* Literal.Number.Integer.Long */
 
+.language-diff .gi {
+  color: $brand-success;
+  background: lighten($brand-success, 37%);
+  display: block;
+}
+
+.language-diff .gd {
+  color: $brand-danger;
+  background: lighten($brand-danger, 37%);
+  display: block;
+}
+
+.language-sh pre {
+  background: $gray-dark;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  border-left: 4px solid $yarn-blue;
+}
+
+
 .highlighter-rouge, .highlight {
   max-width: 100%;
   margin-bottom: 1.2rem;

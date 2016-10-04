@@ -6,7 +6,7 @@ layout: guide
 
 <p class="lead">Clear registry username and email.</p>
 
-##### `yarn logout`
+##### `yarn logout` <a class="toc" id="toc-yarn-logout" href="#toc-yarn-logout"></a>
 
 This will remove your stored username and email for the
 [npm registry](https://www.npmjs.com/) as setup by

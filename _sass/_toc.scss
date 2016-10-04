@@ -1,0 +1,11 @@
+.toc::before {
+  content: "#";
+}
+
+@include media-breakpoint-up('md') {
+  .toc::before {
+    position: absolute;
+    display: inline-block;
+    right: 100%;
+  }
+}

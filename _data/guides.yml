@@ -17,60 +17,91 @@
   pages:
   - id: docs_yarn_workflow
     path: /docs/yarn-workflow
+  - id: docs_creating_a_project
+    path: /docs/creating-a-project
+  - id: docs_managing_dependencies
+    path: /docs/managing-dependencies
+  - id: docs_installing_dependencies
+    path: /docs/installing-dependencies
+  - id: docs_version_control
+    path: /docs/version-control
 
 - id: docs_cli
   title: docs_cli_title
   description: docs_cli_description
-  tags: ["api", "basics"]
+  tags: ["api", "basics", "cli"]
   pages:
   - id: docs_cli_index
     path: /docs/cli/
   - id: docs_cli_access
     path: /docs/cli/access
+    tags: ["cli-access"]
   - id: docs_cli_add
     path: /docs/cli/add
+    tags: ["cli-add"]
   - id: docs_cli_cache
     path: /docs/cli/cache
+    tags: ["cli-cache"]
   - id: docs_cli_check
     path: /docs/cli/check
+    tags: ["cli-check"]
   - id: docs_cli_clean
     path: /docs/cli/clean
+    tags: ["cli-clean"]
   - id: docs_cli_config
     path: /docs/cli/config
+    tags: ["cli-config"]
   - id: docs_cli_dist_tag
     path: /docs/cli/dist-tag
+    tags: ["cli-dist-tag"]
   - id: docs_cli_install
     path: /docs/cli/install
+    tags: ["cli-install"]
   - id: docs_cli_licenses
     path: /docs/cli/licenses
+    tags: ["cli-licenses"]
   - id: docs_cli_link
     path: /docs/cli/link
+    tags: ["cli-link"]
   - id: docs_cli_login
     path: /docs/cli/login
+    tags: ["cli-login"]
   - id: docs_cli_logout
     path: /docs/cli/logout
+    tags: ["cli-logout"]
   - id: docs_cli_ls
     path: /docs/cli/ls
+    tags: ["cli-ls"]
   - id: docs_cli_outdated
     path: /docs/cli/outdated
+    tags: ["cli-outdated"]
   - id: docs_cli_owner
     path: /docs/cli/owner
+    tags: ["cli-owner"]
   - id: docs_cli_pack
     path: /docs/cli/pack
+    tags: ["cli-pack"]
   - id: docs_cli_publish
     path: /docs/cli/publish
+    tags: ["cli-publish"]
   - id: docs_cli_run
     path: /docs/cli/run
+    tags: ["cli-run"]
   - id: docs_cli_self_update
     path: /docs/cli/self-update
+    tags: ["cli-self-update"]
   - id: docs_cli_team
     path: /docs/cli/team
+    tags: ["cli-team"]
   - id: docs_cli_uninstall
     path: /docs/cli/uninstall
+    tags: ["cli-uninstall"]
   - id: docs_cli_upgrade
     path: /docs/cli/upgrade
+    tags: ["cli-upgrade"]
   - id: docs_cli_why
     path: /docs/cli/why
+    tags: ["cli-why"]
 
 - id: docs_migrating_from_npm
   title: docs_migrating_from_npm_title
@@ -89,6 +120,18 @@
     path: /docs/creating-a-package
   - id: docs_publishing_a_package
     path: /docs/publishing-a-package
+
+- id: docs_dependencies
+  title: docs_dependencies_title
+  description: docs_dependencies_description
+  tags: ["intro", "basics", "dependencies"]
+  pages:
+  - id: docs_dependencies
+    path: /docs/dependencies
+  - id: docs_dependency_types
+    path: /docs/dependency-types
+  - id: docs_dependency_versions
+    path: /docs/dependency-versions
 
 - id: docs_how_yarn_works
   title: docs_how_yarn_works_title

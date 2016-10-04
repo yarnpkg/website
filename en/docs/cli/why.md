@@ -4,4 +4,4 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn why <query>`
+##### `yarn why <query>` <a class="toc" id="toc-command-yarn-why" href="#toc-command-yarn-why"></a>

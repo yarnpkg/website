@@ -4,6 +4,6 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn check`
+##### `yarn check` <a class="toc" id="toc-command-yarn-check" href="#toc-command-yarn-check"></a>
 
-##### `yarn check --integrity`
+##### `yarn check --integrity` <a class="toc" id="toc-command-yarn-check-integrity" href="#toc-command-yarn-check-integrity"></a>
