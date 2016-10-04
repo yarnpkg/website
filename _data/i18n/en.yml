@@ -155,6 +155,14 @@ docs_dependencies: Dependencies and versions
 docs_dependency_types: Types of dependencies
 docs_dependency_versions: Versions of dependencies
 
+docs_configuration_title: Configuration
+docs_configuration_description: |
+  Learn how to use package.json to configure your package and dependencies
+
+docs_configuration_index: Configuration
+docs_configuration_package_json: Using package.json
+docs_configuration_yarn_lock: About yarn.lock
+
 docs_how_yarn_works_title: How Yarn Works
 docs_how_yarn_works_description: |
   From deterministic installation to package security, learn how Yarn works
