@@ -2,6 +2,8 @@
 id: docs_install
 guide: docs_getting_started
 layout: guide
+scripts:
+  - "/js/install.js"
 ---
 
 {% include vars.html %}
@@ -16,15 +18,15 @@ layout: guide
 <div class="tabs">
   <div class="nav nav-tabs bg-faded text-xs-center">
     <ul class="nav navbar-nav nav-inline">
-      <a class="nav-item nav-link" data-toggle="tab" href="#mac">{{i18n.install_os_mac}}</a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
-      <a class="nav-item nav-link text-success" data-toggle="tab" href="#alternatives">{{i18n.install_os_alternatives}}</a>
+      <a id="mac-tab" class="nav-item nav-link" data-toggle="tab" href="#mac">{{i18n.install_os_mac}}</a>
+      <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
+      <a id="linux-tab" class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
+      <a id="alternatives-tab" class="nav-item nav-link text-success" data-toggle="tab" href="#alternatives">{{i18n.install_os_alternatives}}</a>
     </ul>
   </div>
 
   <div class="tab-content">
-    <div class="tab-pane bg-faded active">
+    <div id="select-platform" class="tab-pane bg-faded active">
       <p class="text-xs-center m-y-2 text-muted">
         {{i18n.install_select_platform}}
       </p>
@@ -47,7 +49,7 @@ layout: guide
 </div>
 
 {% capture issueBody %}
-**What operating system are you using:**
+**Which operating system are you using:**
 
 
 **Please describe the steps you took when trying to install Yarn and what went wrong:**
