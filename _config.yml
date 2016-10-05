@@ -18,6 +18,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Makefile
+  - debian/db
+  - debian/conf
 
 include:
   - _redirects
