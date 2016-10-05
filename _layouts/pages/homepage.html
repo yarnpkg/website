@@ -1,5 +1,6 @@
 ---
 layout: default
+shitty: Yes
 ---
 
 {% include vars.html %}
@@ -19,16 +20,13 @@ layout: default
     <div class="col-lg-7">
       <h2 class="feature-heading">
         {{i18n.homepage_feature_fast_title}}
-        <span class="text-muted">
-          {{i18n.homepage_feature_fast_subtitle}}
-        </span>
       </h2>
       <p class="feature-text">
         {{i18n.homepage_feature_fast_description}}
       </p>
     </div>
     <div class="col-lg-5">
-      <img class="feature-image img-fluid m-x-auto"
+      <img class="feature-image img-fluid m-x-auto feature-image-speed"
         src="/assets/feature-speed.png"
         width="500" height="300"
         alt="{{i18n.homepage_feature_fast_image_alt}}"/>
@@ -41,18 +39,15 @@ layout: default
     <div class="col-lg-7 push-lg-5">
       <h2 class="feature-heading">
         {{i18n.homepage_feature_secure_title}}
-        <span class="text-muted">
-          {{i18n.homepage_feature_secure_subtitle}}
-        </span>
       </h2>
       <p class="feature-text">
         {{i18n.homepage_feature_secure_description}}
       </p>
     </div>
     <div class="col-lg-5 pull-lg-7">
-      <img class="feature-image img-fluid m-x-auto"
+      <img class="feature-image img-fluid m-x-auto feature-image-secure"
         src="/assets/feature-secure.png"
-        width="500" height="300"
+        width="375" height="300"
         alt="{{i18n.homepage_feature_secure_image_alt}}"/>
     </div>
   </div>
@@ -63,16 +58,13 @@ layout: default
     <div class="col-lg-7">
       <h2 class="feature-heading">
         {{i18n.homepage_feature_reliable_title}}
-        <span class="text-muted">
-          {{i18n.homepage_feature_reliable_subtitle}}
-        </span>
       </h2>
       <p class="feature-text">
         {{i18n.homepage_feature_reliable_description}}
       </p>
     </div>
     <div class="col-lg-5">
-      <img class="feature-image img-fluid m-x-auto"
+      <img class="feature-image img-fluid m-x-auto feature-image-reliable"
         src="/assets/feature-reliable.png"
         width="500" height="300"
         alt="{{i18n.homepage_feature_reliable_image_alt}}"/>

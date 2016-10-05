@@ -3,24 +3,23 @@
 <hr class="feature-divider">
 
 <div class="container">
-  <footer>
-    <p>
-      Yarn &middot;
-      <a href="https://github.com/yarnpkg/yarn/blob/master/LICENSE">{{i18n.site_bsd_license}}</a> &middot;
-      <a href="{{url_base}}/org/code-of-conduct">{{i18n.code_of_conduct}}</a>
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="footer-item">Yarn</span>
+      <span class="footer-item"><a href="https://github.com/yarnpkg/yarn/blob/master/LICENSE">{{i18n.site_bsd_license}}</a></span>
+      <span class="footer-item"><a href="{{url_base}}/org/code-of-conduct">{{i18n.code_of_conduct}}</a></span>
+    </div>
 
-      <span class="pull-md-right">
-        <span class="hidden-md-up">&middot;</span>
-        {% if vars_active_language.tag == "en" %}
-          <a href="https://github.com/yarnpkg/website/edit/master/{{page.path}}">
-            {{i18n.site_edit_this_page}}
-          </a>
-        {% else %}
-          <a href="{{url_base}}/org/translating">
-            {{i18n.site_edit_this_page}}
-          </a>
-        {% endif %}
-      </span>
-    </p>
+    <div class="footer-right">
+      {% if layout.shitty %}
+        <span class="footer-item"><a href="http://shittywatercolour.com/">Artwork by Shitty Watercolour</a></span>
+      {% endif %}
+
+      {% if vars_active_language.tag == "en" %}
+        <span class="footer-item"><a href="https://github.com/yarnpkg/website/edit/master/{{page.path}}">{{i18n.site_edit_this_page}}</a></span>
+      {% else %}
+        <span class="footer-item"><a href="{{url_base}}/org/translating">{{i18n.site_edit_this_page}}</a></span>
+      {% endif %}
+    </div>
   </footer>
 </div>

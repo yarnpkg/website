@@ -24,7 +24,6 @@ guide_additional_reading: Additional Reading
 homepage_tagline: Fast, reliable, and secure dependency management.
 
 homepage_feature_fast_title: Ultra Fast.
-homepage_feature_fast_subtitle: Don't be put on paws.
 homepage_feature_fast_description: |
   Yarn caches every package it downloads so it never needs to again. It also
   parallelizes operations to maximize resource utilization so install times are
@@ -32,7 +31,6 @@ homepage_feature_fast_description: |
 homepage_feature_fast_image_alt: Generic placeholder image
 
 homepage_feature_secure_title: Mega Secure.
-homepage_feature_secure_subtitle: Fur-vently so.
 homepage_feature_secure_description: |
   Every package that Yarn installs gets checked against a checksum to ensure the
   code you wanted to download is the code you downloaded before you
@@ -40,7 +38,6 @@ homepage_feature_secure_description: |
 homepage_feature_secure_image_alt: Generic placeholder image
 
 homepage_feature_reliable_title: Super Reliable.
-homepage_feature_reliable_subtitle: Feline good.
 homepage_feature_reliable_description: |
   Using a detailed but concise lockfile format and a deterministic algorithm
   for installs, Yarn is able to guarantee that an install that worked on one

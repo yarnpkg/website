@@ -1,0 +1,34 @@
+.footer {
+
+}
+
+@include media-breakpoint-up('sm') {
+  .footer-left {
+    float: left;
+  }
+
+  .footer-right {
+    float: right;
+    text-align: right;
+  }
+}
+
+@include media-breakpoint-down('xs') {
+  .footer-right {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $gray-lighter
+  }
+}
+
+@include media-breakpoint-up('lg') {
+  .footer-item + .footer-item::before {
+    content: " · ";
+  }
+}
+
+@include media-breakpoint-down('md') {
+  .footer-item {
+    display: block;
+  }
+}
