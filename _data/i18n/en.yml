@@ -111,6 +111,8 @@ docs_cli_check: yarn check
 docs_cli_clean: yarn clean
 docs_cli_config: yarn config
 docs_cli_dist_tag: yarn dist-tag
+docs_cli_generate_lock_entry: yarn generate-lock-entry
+docs_cli_global: yarn global
 docs_cli_info: yarn info
 docs_cli_install: yarn install
 docs_cli_licenses: yarn licenses
@@ -122,10 +124,10 @@ docs_cli_outdated: yarn outdated
 docs_cli_owner: yarn owner
 docs_cli_pack: yarn pack
 docs_cli_publish: yarn publish
+docs_cli_remove: yarn remove
 docs_cli_run: yarn run
 docs_cli_self_update: yarn self-update
 docs_cli_team: yarn team
-docs_cli_uninstall: yarn uninstall
 docs_cli_upgrade: yarn upgrade
 docs_cli_version: yarn version
 docs_cli_why: yarn why
