@@ -5,7 +5,10 @@ layout: guide
 additional_reading_tags: ["basics"]
 ---
 
-Now that you have Yarn [installed](install) you can start using Yarn. Here are some of the most common commands you'll need.
+{% include vars.html %}
+
+Now that you have Yarn [installed]({{url_base}}/docs/install) you can start
+using Yarn. Here are some of the most common commands you'll need.
 
 **Starting a new project**
 

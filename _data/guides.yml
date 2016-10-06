@@ -148,21 +148,16 @@
 - id: docs_configuration
   title: docs_configuration_title
   description: docs_configuration_description
+  tags: ["configuration"]
   pages:
   - id: docs_configuration_index
-    path: /docs/configuration/
+    path: /docs/configuration
   - id: docs_configuration_package_json
-    path: /docs/configuration/package-json
+    path: /docs/package-json
+    tags: ["package-json"]
   - id: docs_configuration_yarn_lock
-    path: /docs/configuration/yarn-lock
-
-- id: docs_how_yarn_works
-  title: docs_how_yarn_works_title
-  description: docs_how_yarn_works_description
-  tags: ["advanced"]
-  pages:
-  - id: docs_how_yarn_works
-    path: /docs/how-yarn-works
+    path: /docs/yarn-lock
+    tags: ["yarn-lock"]
 
 - id: yarn_organization
   title: yarn_organization_title

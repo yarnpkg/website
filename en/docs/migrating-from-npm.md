@@ -4,6 +4,35 @@ guide: docs_migrating_from_npm
 layout: guide
 ---
 
+Migrating from npm should be a fairly easy process for most users. Yarn can
+consume the same `package.json` format as npm, and can install any package from
+the npm registry.
+
+If you want to try Yarn out on your existing npm project, just try running:
+
+```sh
+yarn install
+```
+
+This will very likely move a few things around in your `node_modules` and
+you'll most likely get a different set of dependencies in your tree,
+
+If you get an error, please check for an existing issue or report it to Yarn.
+
+
+If you are using an `npm-shrinkwrap.json` file right now, be aware that you'll
+end up with a different set of dependencies. Yarn does not support npm
+shrinkwrap files as they don't have enough information in them to power Yarn's
+more deterministic algorithm.
+
+
+
+
+
+
+
+
+
 It's easy to start using Yarn if you're currently using `npm`. Yarn respects the same `package.json` format that `npm` uses, so you can just start using Yarn without convincing the other developers on the project to use Yarn.
 
 Convenient times to start using Yarn:

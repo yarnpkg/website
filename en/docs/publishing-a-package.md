@@ -9,7 +9,7 @@ Yarn, you'll first need to publish it.
 
 When you publish a package with Yarn it goes onto the
 [npm registry](https://www.npmjs.com/) which is used to distribute packages
-globally with [high availability](http://status.npmjs.org/).
+globally.
 
 ### Logging into npm <a class="toc" id="toc-logging-into-npm" href="#toc-logging-into-npm"></a>
 

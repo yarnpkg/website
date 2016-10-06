@@ -3,8 +3,8 @@ body {
   color: #5a5a5a;
 }
 
-a code:hover {
-  color: $code-color;
+a code {
+  color: $brand-primary;
   text-decoration: underline;
 }
 

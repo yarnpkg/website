@@ -60,3 +60,7 @@ will still say the install process was successful.
 
 This is useful for dependencies that won't necessarily work on every machine
 and you have a fallback plan in case they are not installed (i.e. Watchman).
+
+##### `bundledDependencies` <a class="toc" id="toc-bundled-dependencies" href="#toc-bundled-dependencies"></a>
+
+<!-- Array of package names that will be bundled when publishing the package. -->

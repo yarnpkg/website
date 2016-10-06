@@ -4,8 +4,10 @@ guide: yarn_organization
 layout: guide
 ---
 
+{% include vars.html %}
+
 Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](code-of-conduct).
+please read the [code of conduct]({{url_base}}/org/code-of-conduct).
 
 ## Building <a class="toc" id="toc-building" href="#toc-building"></a>
 

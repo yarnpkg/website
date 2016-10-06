@@ -161,15 +161,8 @@ docs_configuration_description: |
   Learn how to use package.json to configure your package and dependencies
 
 docs_configuration_index: Configuration
-docs_configuration_package_json: Using package.json
-docs_configuration_yarn_lock: About yarn.lock
-
-docs_how_yarn_works_title: How Yarn Works
-docs_how_yarn_works_description: |
-  From deterministic installation to package security, learn how Yarn works
-  from the inside to handle your package management.
-
-docs_how_yarn_works: How Yarn Works
+docs_configuration_package_json: package.json
+docs_configuration_yarn_lock: yarn.lock
 
 yarn_organization_title: Yarn Organization
 yarn_organization_description: |

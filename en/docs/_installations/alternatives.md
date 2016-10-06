@@ -5,7 +5,7 @@ will not work for you, there are a couple of alternatives
 
 ##### Install via tarball
 
-You can install Yarn by [downloading a tarball](/latest.tar.gz) and
+You can install Yarn by [downloading a tarball]({{site.baseurl}}/latest.tar.gz) and
 extracting it anywhere.
 
 ```sh

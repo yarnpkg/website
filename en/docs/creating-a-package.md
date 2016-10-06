@@ -4,6 +4,8 @@ guide: docs_creating_a_package
 layout: guide
 ---
 
+{% include vars.html %}
+
 A **package** is a directory with some code and a `package.json` file that
 provides information to Yarn about your package.
 
@@ -13,7 +15,7 @@ examples are going to use git.
 
 > **Note:** If you want to follow along with this guide, be sure to first
 > install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-> and [Yarn](install).
+> and [Yarn]({{url_base}}/docs/install).
 
 ### Creating your first package <a class="toc" id="toc-creating-your-first-package" href="#toc-creating-your-first-package"></a>
 
@@ -128,7 +130,7 @@ Let's go through some additional `package.json` fields you might want to add.
 
 For a complete list of all the `package.json` fields and more details about
 each of the above fields please see the
-[`package.json` documentation](package-json).
+[`package.json` documentation]({{url_base}}/docs/package-json).
 
 ### Licensing and open source <a class="toc" id="toc-licensing-and-open-source" href="#toc-licensing-and-open-source"></a>
 

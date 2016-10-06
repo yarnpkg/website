@@ -4,8 +4,8 @@
 
 <div class="list-group">
   <strong class="list-group-item bg-faded">{{i18n.guide_additional_reading}}</strong>
-{% for guide in site.data.guides %}
-  {% for tag in tags %}
+{% for tag in tags %}
+  {% for guide in site.data.guides %}
     {% if guide.tags contains tag %}
   <a class="list-group-item list-group-item-action" href="{{url_base}}{{guide.pages[0].path}}">
     <h5 class="list-group-item-heading">{{i18n[guide.title]}}</h5>
@@ -16,9 +16,9 @@
   {% endfor %}
 {% endfor %}
 
-{% for guide in site.data.guides %}
-  {% for page in guide.pages %}
-    {% for tag in tags %}
+{% for tag in tags %}
+  {% for guide in site.data.guides %}
+    {% for page in guide.pages %}
       {% if page.tags contains tag %}
   <a class="list-group-item list-group-item-action" href="{{url_base}}{{page.path}}">
     <h5 class="list-group-item-heading">{{i18n[page.id]}}</h5>
