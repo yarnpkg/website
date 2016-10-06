@@ -54,6 +54,12 @@
   - id: docs_cli_dist_tag
     path: /docs/cli/dist-tag
     tags: ["cli-dist-tag"]
+  - id: docs_cli_generate_lock_entry
+    path: /docs/cli/generate-lock-entry
+    tags: ["cli-generate-lock-entry"]
+  - id: docs_cli_global
+    path: /docs/cli/global
+    tags: ["cli-global"]
   - id: docs_cli_info
     path: /docs/cli/info
     tags: ["cli-info"]
@@ -87,6 +93,9 @@
   - id: docs_cli_publish
     path: /docs/cli/publish
     tags: ["cli-publish"]
+  - id: docs_cli_remove
+    path: /docs/cli/remove
+    tags: ["cli-remove"]
   - id: docs_cli_run
     path: /docs/cli/run
     tags: ["cli-run"]
@@ -96,12 +105,12 @@
   - id: docs_cli_team
     path: /docs/cli/team
     tags: ["cli-team"]
-  - id: docs_cli_uninstall
-    path: /docs/cli/uninstall
-    tags: ["cli-uninstall"]
   - id: docs_cli_upgrade
     path: /docs/cli/upgrade
     tags: ["cli-upgrade"]
+  - id: docs_cli_version
+    path: /docs/cli/version
+    tags: ["cli-version"]
   - id: docs_cli_why
     path: /docs/cli/why
     tags: ["cli-why"]
