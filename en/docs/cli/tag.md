@@ -1,26 +1,26 @@
 ---
-id: docs_cli_dist_tag
+id: docs_cli_tag
 guide: docs_cli
 layout: guide
 ---
 
-<p class="lead">Add, remove, or list dist-tags on a package.</p>
+<p class="lead">Add, remove, or list tags on a package.</p>
 
-### What are dist-tags? <a class="toc" id="toc-what-are-dist-tags" href="#toc-what-are-dist-tags"></a>
+### What are tags? <a class="toc" id="toc-what-are-tags" href="#toc-what-are-tags"></a>
 
-Distribution tags or dist-tags are a way of marking published versions of your
+Distribution tags (or dist-tags) are a way of marking published versions of your
 package with a label. Users of your package can install it using this label
 instead of a version number.
 
 For example, if you had a **stable** release channel and a **canary** release
-channel, you could use dist-tags as a way to allow the user to type:
+channel, you could use tags as a way to allow the user to type:
 
 ```sh
 yarn install your-package-name@stable
 yarn install your-package-name@canary
 ```
 
-Different dist-tags have different meanings:
+Different tags have different meanings:
 
 - `latest`: The current version of the package
 - `stable`: The latest stable release of the package, normally the same as
@@ -33,45 +33,45 @@ Different dist-tags have different meanings:
 - `dev`: Sometimes you want to be able to test out a single revision through
   the registry while you're still working on things, this is useful for that.
 
-Some projects will make up their own dist-tags as they see appropriate or in
+Some projects will make up their own tags as they see appropriate or in
 place of one of the more standard ones. Such as `next` which is used the same
 as `beta`.
 
-Although these are widely considered the "standard" dist-tags, the only one
+Although these are widely considered the "standard" tags, the only one
 that has any real meaning is `latest` which is used for determining which
 version to install when no version is specified.
 
 ### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
 
-You cannot use dist-tags that match potential version numbers since they share
+You cannot use tags that match potential version numbers since they share
 a namespace:
 
 ```sh
 yarn install your-package-name@<version>
-yarn install your-package-name@<dist-tag>
+yarn install your-package-name@<tag>
 ```
 
-Any dist-tag that can also be used as a valid semver range will be rejected.
-For example, you cannot have a dist-tag named `v2.3` because in semver it means
+Any tag that can also be used as a valid semver range will be rejected.
+For example, you cannot have a tag named `v2.3` because in semver it means
 `>=2.3.0 <2.4.0`.
 
-In general, avoid using dist-tags that look like versions, they typically only
+In general, avoid using tags that look like versions, they typically only
 confuse people anyways.
 
 ### Commands <a class="toc" id="commands href="commands"></a>
 
-##### `yarn dist-tag add <package>@<version> <tag>` <a class="toc" id="toc-command-yarn-dist-tag-add" href="#toc-command-yarn-dist-tag-add"></a>
+##### `yarn tag add <package>@<version> <tag>` <a class="toc" id="toc-command-yarn-tag-add" href="#toc-command-yarn-tag-add"></a>
 
-Add a dist-tag named `<tag>` for a specific `<version>` of a `<package>`.
+Add a tag named `<tag>` for a specific `<version>` of a `<package>`.
 
-##### `yarn dist-tag rm <package> <tag>` <a class="toc" id="toc-command-yarn-dist-tag-rm" href="#toc-command-yarn-dist-tag-rm"></a>
+##### `yarn tag rm <package> <tag>` <a class="toc" id="toc-command-yarn-tag-rm" href="#toc-command-yarn-tag-rm"></a>
 
-Remove a dist-tag named `<tag>` from a `<package>` that is no longer in use.
+Remove a tag named `<tag>` from a `<package>` that is no longer in use.
 
 > **Note:** You do not need to delete a tag before moving it to another
 > version in the package. It's better not to.
 
-##### `yarn dist-tag ls [<package>]` <a class="toc" id="toc-command-yarn-dist-tag-ls" href="#toc-command-yarn-dist-tag-ls"></a>
+##### `yarn tag ls [<package>]` <a class="toc" id="toc-command-yarn-tag-ls" href="#toc-command-yarn-tag-ls"></a>
 
-List all of the dist-tags for a `<package>`. If unspecified `<package>` will
+List all of the tags for a `<package>`. If unspecified `<package>` will
 default to the package you're currently inside the directory of.

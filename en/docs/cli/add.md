@@ -29,8 +29,8 @@ You can specify versions using one of these:
 1. `yarn add package-name` installs the "latest" version of the package.
 2. `yarn add package-name@1.2.3` installs a specific version of a package from
   the registry.
-3. `yarn add package-name@dist-tag` installs a specific
-  ["dist-tag"]({{url_base}}/docs/cli/dist-tag) (i.e. `beta`, `next`, or
+3. `yarn add package-name@tag` installs a specific
+  ["tag"]({{url_base}}/docs/cli/tag) (i.e. `beta`, `next`, or
   `latest`).
 
 In general, a package is simply a folder with code and a `package.json` file

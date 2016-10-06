@@ -51,9 +51,6 @@
   - id: docs_cli_config
     path: /docs/cli/config
     tags: ["cli-config"]
-  - id: docs_cli_dist_tag
-    path: /docs/cli/dist-tag
-    tags: ["cli-dist-tag"]
   - id: docs_cli_generate_lock_entry
     path: /docs/cli/generate-lock-entry
     tags: ["cli-generate-lock-entry"]
@@ -102,6 +99,9 @@
   - id: docs_cli_self_update
     path: /docs/cli/self-update
     tags: ["cli-self-update"]
+  - id: docs_cli_tag
+    path: /docs/cli/tag
+    tags: ["cli-tag"]
   - id: docs_cli_team
     path: /docs/cli/team
     tags: ["cli-team"]

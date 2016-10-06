@@ -31,7 +31,7 @@ When you want to add a package as a dependency you use `yarn add`:
 ```sh
 yarn add [package]
 yarn add [package]@[version]
-yarn add [package]@[dist-tag]
+yarn add [package]@[tag]
 ```
 
 This will add the dependencies to your `node_modules` directory and update your
@@ -57,7 +57,7 @@ You can also add other types of dependencies using flags:
 ```sh
 yarn update [package]
 yarn update [package]@[version]
-yarn update [package]@[dist-tag]
+yarn update [package]@[tag]
 ```
 
 This will update your `package.json` and your `yarn.lock` file.

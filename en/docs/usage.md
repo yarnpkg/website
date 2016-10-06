@@ -18,7 +18,7 @@ yarn init
 ```sh
 yarn add [package]
 yarn add [package]@[version]
-yarn add [package]@[dist-tag]
+yarn add [package]@[tag]
 ```
 
 **Updating a dependency**
@@ -26,7 +26,7 @@ yarn add [package]@[dist-tag]
 ```sh
 yarn update [package]
 yarn update [package]@[version]
-yarn update [package]@[dist-tag]
+yarn update [package]@[tag]
 ```
 
 **Removing a dependency**
