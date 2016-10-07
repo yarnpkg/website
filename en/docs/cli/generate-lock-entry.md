@@ -4,5 +4,5 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn generate-lock-entry` <a class="toc" id="toc-command-yarn-generate-lock-entry" href="#toc-command-yarn-generate-lock-entry"></a>
+##### `yarn generate-lock-entry` <a class="toc" id="toc-yarn-generate-lock-entry" href="#toc-yarn-generate-lock-entry"></a>
 

@@ -4,11 +4,9 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn why <query>` <a class="toc" id="toc-command-yarn-why" href="#toc-command-yarn-why"></a>
-
 <p class="lead">Show information about why a package is installed.</p>
 
-##### `yarn why <query>`
+##### `yarn why <query>` <a class="toc" id="toc-yarn-why" href="#toc-yarn-why"></a>
 
 This command will identify why a package has been installed, detailing which
 other packages depend upon it, for example, or whether it was explicitly marked
@@ -29,7 +27,7 @@ info Disk size with transitive dependencies: "3MB"
 info Amount of shared dependencies: 4
 ```
 
-### Query argument
+### Query argument <a class="toc" id="toc-query-argument" href="#toc-query-argument"></a>
 
 The mandatory query argument for `yarn why` can be any of:
 

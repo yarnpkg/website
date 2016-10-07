@@ -1,0 +1,66 @@
+{% assign shouldRender = false %}
+
+{% if jekyll.environment == "development" %}
+  {% assign shouldRender = true %}
+{% endif %}
+
+{% if include.forceRender %}
+  {% assign shouldRender = true %}
+{% endif %}
+
+{% if shouldRender %}
+  {% assign lines = include.content | newline_to_br | strip_newlines | split: '<br />' %}
+
+  {% assign insideCodeBlock = false %}
+
+  {% for line in lines %}
+    {% assign threeChar = line | slice: 0, 3 %}
+    {% assign firstChar = line | slice: 0, 1 %}
+
+    {% if threeChar == '```' %}
+      {% if insideCodeBlock %}
+        {% assign insideCodeBlock = false %}
+      {% else %}
+        {% assign insideCodeBlock = true %}
+      {% endif %}
+    {% endif %}
+
+    {% unless insideCodeBlock %}
+      {% if firstChar == '#' %}
+        {% assign stripped = line | strip_html %}
+        {% assign slug = stripped | slugify | prepend: 'toc-' %}
+        {% assign link = '<a class="toc" id="' | append: slug | append: '" href="#' | append: slug | append: '"></a>' %}
+        {% assign full = stripped | append: ' ' | append: link %}
+
+        {% unless line contains link %}
+          <div class="alert alert-danger">
+            <h4>Yarn Website Internal Developer Warning!</h4>
+
+            <p>This page contains this heading:</p>
+
+            <pre><code>{{line | escape}}</code></pre>
+
+            <p>
+              All headings need a table of contents "toc" link, you have either
+              left it out or are using the "wrong" one. Please use this one:
+            </p>
+
+            <pre><code>{{link | escape}}</code></pre>
+
+            <p>
+              Even if this is not your fault, please correct the error. Also
+              if there is an existing toc, please check that any links on the
+              website to this heading are correct (just search for the previous
+              toc id).
+            </p>
+
+            <p>
+              If you believe you are seeing this error by mistake, please open
+              an issue.
+            </p>
+          </div>
+        {% endunless %}
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+{% endif %}

@@ -25,16 +25,16 @@ roles, but not at this time.
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
-##### `yarn owner ls <package>` <a class="toc" id="toc-command-yarn-owner-ls" href="#toc-command-yarn-owner-ls"></a>
+##### `yarn owner ls <package>` <a class="toc" id="toc-yarn-owner-ls" href="#toc-yarn-owner-ls"></a>
 
 Lists all of the owners of a `<package>`.
 
-##### `yarn owner add <user> <package>` <a class="toc" id="toc-command-yarn-owner-add" href="#toc-command-yarn-owner-add"></a>
+##### `yarn owner add <user> <package>` <a class="toc" id="toc-yarn-owner-add" href="#toc-yarn-owner-add"></a>
 
 Adds the `<user>` as an owner of the `<package>`. You must already be an owner
 of the `<package>` in order to run this command.
 
-##### `yarn owner rm <user> <package>` <a class="toc" id="toc-command-yarn-owner-rm" href="#toc-command-yarn-owner-rm"></a>
+##### `yarn owner rm <user> <package>` <a class="toc" id="toc-yarn-owner-rm" href="#toc-yarn-owner-rm"></a>
 
 Removes the `<user>` as an owner of the `<package>`. You must already be an
 owner of the `<package>` in order to run this command.

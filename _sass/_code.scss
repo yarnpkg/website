@@ -87,41 +87,36 @@
   border-left: 4px solid $yarn-blue;
 }
 
-
-.highlighter-rouge, .highlight {
+pre {
   max-width: 100%;
   margin-bottom: 1.2rem;
+  border-radius: 3px;
+  padding: .6rem 1.2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
-  pre {
-    margin-bottom: 0;
-    border-radius: 3px;
-    padding: .6rem 1.2rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  table {
+    background: none;
+    border: none;
 
-    table {
-      background: none;
-      border: none;
+    tbody {
+      tr {
+        background: none;
+        display: flex;
+        flex-flow: row nowrap;
 
-      tbody {
-        tr {
-          background: none;
-          display: flex;
-          flex-flow: row nowrap;
+        td {
+          display: block;
+          flex: 1 1;
 
-          td {
-            display: block;
-            flex: 1 1;
+          &.gutter {
+            max-width: 40px;
+            padding-left: 1rem;
+            padding-right: 1rem;
 
-            &.gutter {
-              max-width: 40px;
-              padding-left: 1rem;
-              padding-right: 1rem;
-
-              pre {
-                max-width: 20px;
-                color: $gray-light;
-              }
+            pre {
+              max-width: 20px;
+              color: $gray-light;
             }
           }
         }

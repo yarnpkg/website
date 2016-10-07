@@ -6,11 +6,11 @@ layout: guide
 
 <p class="lead">List licenses for installed packages.</p>
 
-##### `yarn licenses ls` <a class="toc" id="toc-command-yarn-licenses-ls" href="#toc-command-yarn-licenses-ls"></a>
+##### `yarn licenses ls` <a class="toc" id="toc-yarn-licenses-ls" href="#toc-yarn-licenses-ls"></a>
 
 > ***Currently unimplemented***
 
-##### `yarn licenses generate-disclaimer` <a class="toc" id="toc-command-yarn-licenses-generate-disclaimer" href="#toc-command-yarn-licenses-generate-disclaimer"></a>
+##### `yarn licenses generate-disclaimer` <a class="toc" id="toc-yarn-licenses-generate-disclaimer" href="#toc-yarn-licenses-generate-disclaimer"></a>
 
 Running this command will return a sorted list of licenses from all the
 packages you have installed to the `stdout`.

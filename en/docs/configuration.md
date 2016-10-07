@@ -4,7 +4,7 @@ guide: docs_configuration
 layout: guide
 ---
 
-## Configuring your package
+## Configuring your package <a class="toc" id="toc-configuring-your-package" href="#toc-configuring-your-package"></a>
 
 Yarn looks for `package.json` files to identify each package and configure the behavior of yarn while running inside that package.
 
@@ -21,7 +21,7 @@ An example configuration for the `pet-kitten` package, which would be found at `
 }
 ```
 
-## Use `yarn.lock` to pin your dependencies
+## Use `yarn.lock` to pin your dependencies <a class="toc" id="toc-use-yarn-lock-to-pin-your-dependencies" href="#toc-use-yarn-lock-to-pin-your-dependencies"></a>
 
 Yarn also uses a `yarn.lock` file in the root of your project to make dependency resolution fast and reliable. You never need to touch this file- yarn owns it and will change it when managing dependencies.
 

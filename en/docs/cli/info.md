@@ -5,7 +5,7 @@ layout: guide
 ---
 <p class="lead">Show information about a package.</p>
 
-##### `yarn info <package> [<field>]`
+##### `yarn info <package> [<field>]` <a class="toc" id="toc-yarn-info" href="#toc-yarn-info"></a>
 
 This command will fetch information about a package and return it in a tree
 format. The package does not have to have been installed locally.
@@ -30,7 +30,7 @@ yarn info left-pad --json
 {"type":"finished","data":417}
 ```
 
-### Information for a specific version
+### Information for a specific version <a class="toc" id="toc-information-for-a-specific-version" href="#toc-information-for-a-specific-version"></a>
 
 Append `@[version]` to the package argument to provide information specific to
 that version:
@@ -45,7 +45,7 @@ yarn info vx.x.x
   time: { modified: '2016-09-24T10:25:01.998Z', ... } ... }
 ```
 
-### Selecting specific fields
+### Selecting specific fields <a class="toc" id="toc-selecting-specific-fields" href="#toc-selecting-specific-fields"></a>
 
 If the optional field argument is provided, then only that part of the tree is
 returned.
@@ -71,7 +71,7 @@ yarn info left-pad time --json
 ...
 ```
 
-### Retrieving the readme field
+### Retrieving the readme field <a class="toc" id="toc-retrieving-the-readme-field" href="#toc-retrieving-the-readme-field"></a>
 
 Note that by default, `yarn info` will not return the `readme` field (since it
 is often very long). To explicitly request that field, use the second argument:

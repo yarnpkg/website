@@ -4,13 +4,13 @@ guide: docs_configuration
 layout: guide
 ---
 
-## Essentials
+## Essentials <a class="toc" id="toc-essentials" href="#toc-essentials"></a>
 
 The two most important fields in your `package.json` are `name` and `version`,
 without them your package won't be able to install. The `name` and `version`
 fields are used together to create a unique id.
 
-### `name`
+### `name` <a class="toc" id="toc-name" href="#toc-name"></a>
 
 ```json
 {
@@ -50,7 +50,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 - Make sure that there isn't something in the
   [registry](https://www.npmjs.com/) with the same name.
 
-### `version`
+### `version` <a class="toc" id="toc-version" href="#toc-version"></a>
 
 ```json
 {
@@ -58,9 +58,9 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
-## Info
+## Info <a class="toc" id="toc-info" href="#toc-info"></a>
 
-### `description`
+### `description` <a class="toc" id="toc-description" href="#toc-description"></a>
 
 ```json
 {
@@ -68,7 +68,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
-### `keywords`
+### `keywords` <a class="toc" id="toc-keywords" href="#toc-keywords"></a>
 
 ```json
 {
@@ -76,7 +76,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
-### `license`
+### `license` <a class="toc" id="toc-license" href="#toc-license"></a>
 
 ```json
 {
@@ -107,9 +107,9 @@ job it's likely best to check with your company before deciding on a license.
 - A `UNLICENSED` string if you do not want to grant others the right to use a
   private or unpublished package under any terms.
 
-## Links
+## Links <a class="toc" id="toc-links" href="#toc-links"></a>
 
-### `homepage`
+### `homepage` <a class="toc" id="toc-homepage" href="#toc-homepage"></a>
 
 ```json
 {
@@ -117,7 +117,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `bugs`
+### `bugs` <a class="toc" id="toc-bugs" href="#toc-bugs"></a>
 
 ```json
 {
@@ -125,7 +125,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `repository`
+### `repository` <a class="toc" id="toc-repository" href="#toc-repository"></a>
 
 ```json
 {
@@ -137,9 +137,9 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-## Maintainers
+## Maintainers <a class="toc" id="toc-maintainers" href="#toc-maintainers"></a>
 
-### `author`
+### `author` <a class="toc" id="toc-author" href="#toc-author"></a>
 
 ```json
 {
@@ -148,7 +148,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `contributors`
+### `contributors` <a class="toc" id="toc-contributors" href="#toc-contributors"></a>
 
 ```json
 {
@@ -163,9 +163,9 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-## Files
+## Files <a class="toc" id="toc-files" href="#toc-files"></a>
 
-### `files`
+### `files` <a class="toc" id="toc-files" href="#toc-files"></a>
 
 ```json
 {
@@ -177,7 +177,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `main`
+### `main` <a class="toc" id="toc-main" href="#toc-main"></a>
 
 ```json
 {
@@ -185,7 +185,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `bin`
+### `bin` <a class="toc" id="toc-bin" href="#toc-bin"></a>
 
 ```json
 {
@@ -197,7 +197,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `man`
+### `man` <a class="toc" id="toc-man" href="#toc-man"></a>
 
 ```json
 {
@@ -206,7 +206,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `directories`
+### `directories` <a class="toc" id="toc-directories" href="#toc-directories"></a>
 
 ```json
 {
@@ -220,9 +220,9 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-## Tasks
+## Tasks <a class="toc" id="toc-tasks" href="#toc-tasks"></a>
 
-### `scripts`
+### `scripts` <a class="toc" id="toc-scripts" href="#toc-scripts"></a>
 
 ```json
 {
@@ -232,7 +232,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `config`
+### `config` <a class="toc" id="toc-config" href="#toc-config"></a>
 
 ```json
 {
@@ -242,9 +242,9 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-## Dependencies
+## Dependencies <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
 
-### `dependencies`
+### `dependencies` <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
 
 ```json
 {
@@ -254,7 +254,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `devDependencies`
+### `devDependencies` <a class="toc" id="toc-devdependencies" href="#toc-devdependencies"></a>
 
 ```json
 {
@@ -264,7 +264,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `peerDependencies`
+### `peerDependencies` <a class="toc" id="toc-peerdependencies" href="#toc-peerdependencies"></a>
 
 ```json
 {
@@ -274,7 +274,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `optionalDependencies`
+### `optionalDependencies` <a class="toc" id="toc-optionaldependencies" href="#toc-optionaldependencies"></a>
 
 ```json
 {
@@ -284,7 +284,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-### `bundledDependencies`
+### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
 ```json
 {
@@ -294,9 +294,9 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-## System
+## System <a class="toc" id="toc-system" href="#toc-system"></a>
 
-### `engines`
+### `engines` <a class="toc" id="toc-engines" href="#toc-engines"></a>
 
 ```json
 {
@@ -310,7 +310,7 @@ job it's likely best to check with your company before deciding on a license.
 
 Checks against `process.versions` as well as the current version of yarn.
 
-### `os`
+### `os` <a class="toc" id="toc-os" href="#toc-os"></a>
 
 ```json
 {
@@ -321,7 +321,7 @@ Checks against `process.versions` as well as the current version of yarn.
 
 Checks against `process.platform`
 
-### `cpu`
+### `cpu` <a class="toc" id="toc-cpu" href="#toc-cpu"></a>
 
 ```json
 {
@@ -332,9 +332,9 @@ Checks against `process.platform`
 
 Checks against `process.arch`
 
-## Publishing
+## Publishing <a class="toc" id="toc-publishing" href="#toc-publishing"></a>
 
-### `private`
+### `private` <a class="toc" id="toc-private" href="#toc-private"></a>
 
 ```json
 {
@@ -342,7 +342,7 @@ Checks against `process.arch`
 }
 ```
 
-### `publishConfig`
+### `publishConfig` <a class="toc" id="toc-publishconfig" href="#toc-publishconfig"></a>
 
 ```json
 {

@@ -58,20 +58,20 @@ For example, you cannot have a tag named `v2.3` because in semver it means
 In general, avoid using tags that look like versions, they typically only
 confuse people anyways.
 
-### Commands <a class="toc" id="commands href="commands"></a>
+### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
-##### `yarn tag add <package>@<version> <tag>` <a class="toc" id="toc-command-yarn-tag-add" href="#toc-command-yarn-tag-add"></a>
+##### `yarn tag add <package>@<version> <tag>` <a class="toc" id="toc-yarn-tag-add" href="#toc-yarn-tag-add"></a>
 
 Add a tag named `<tag>` for a specific `<version>` of a `<package>`.
 
-##### `yarn tag rm <package> <tag>` <a class="toc" id="toc-command-yarn-tag-rm" href="#toc-command-yarn-tag-rm"></a>
+##### `yarn tag rm <package> <tag>` <a class="toc" id="toc-yarn-tag-rm" href="#toc-yarn-tag-rm"></a>
 
 Remove a tag named `<tag>` from a `<package>` that is no longer in use.
 
 > **Note:** You do not need to delete a tag before moving it to another
 > version in the package. It's better not to.
 
-##### `yarn tag ls [<package>]` <a class="toc" id="toc-command-yarn-tag-ls" href="#toc-command-yarn-tag-ls"></a>
+##### `yarn tag ls [<package>]` <a class="toc" id="toc-yarn-tag-ls" href="#toc-yarn-tag-ls"></a>
 
 List all of the tags for a `<package>`. If unspecified `<package>` will
 default to the package you're currently inside the directory of.

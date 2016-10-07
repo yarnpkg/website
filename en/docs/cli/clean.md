@@ -6,7 +6,7 @@ layout: guide
 
 <p class="lead">Cleans and removes unnecessary files from package dependencies.</p>
 
-##### `yarn clean` <a class="toc" id="toc-command-yarn-clean" href="#toc-command-yarn-clean"></a>
+##### `yarn clean` <a class="toc" id="toc-yarn-clean" href="#toc-yarn-clean"></a>
 
 The `clean` command frees up space by removing unnecessary files and folders from package dependencies.
 

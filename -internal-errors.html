@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<div class="container">
+  {% for page in site.pages %}
+    <h4><a href="{{page.url}}">{{page.path}}</a> ({{page.id}})</h4>
+    {% if page.layout == "guide" %}
+      {% include errors/toc.html content=page.content forceRender=true %}
+    {% endif %}
+    <hr>
+  {% endfor %}
+</div>

@@ -22,6 +22,8 @@ layout: page
 
 <div class="row">
   <div class="col-md-8 guide">
+    {% include errors/toc.html content=page.content %}
+
     <div class="guide-content">
       {{content}}
     </div>
@@ -67,4 +69,3 @@ layout: page
     </ul>
   </div>
 </div>
-

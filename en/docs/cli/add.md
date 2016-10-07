@@ -63,27 +63,27 @@ using your project gets the same set of dependencies.
 If you are trying to use a CLI tool that has a `bin` you can access these in
 your `./node_modules/.bin` directory.
 
-##### `yarn add <package...>` <a class="toc" id="toc-command-yarn-add" href="#toc-command-yarn-add"></a>
+##### `yarn add <package...>` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
 
 This will install a `<package>` in your
 [`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies).
 
-##### `yarn add <package...> --dev` <a class="toc" id="toc-command-yarn-add-dev" href="#toc-command-yarn-add-dev"></a>
+##### `yarn add <package...> --dev` <a class="toc" id="toc-yarn-add-dev" href="#toc-yarn-add-dev"></a>
 
 This will install a `<package>` in your
 [`devDependencies`]({{url_base}}/docs/dependency-types#toc-dev-dependencies).
 
-##### `yarn add <package...> --peer` <a class="toc" id="toc-command-yarn-add-peer" href="#toc-command-yarn-add-peer"></a>
+##### `yarn add <package...> --peer` <a class="toc" id="toc-yarn-add-peer" href="#toc-yarn-add-peer"></a>
 
 This will install a `<package>` in your
 [`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
 
-##### `yarn add <package...> --optional` <a class="toc" id="toc-command-yarn-add-optional" href="#toc-command-yarn-add-optional"></a>
+##### `yarn add <package...> --optional` <a class="toc" id="toc-yarn-add-optional" href="#toc-yarn-add-optional"></a>
 
 This will install a `<package>` in your
 [`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optional-dependencies).
 
-##### `yarn add <package...> --exact` <a class="toc" id="toc-command-yarn-add-exact" href="#toc-command-yarn-add-exact"></a>
+##### `yarn add <package...> --exact` <a class="toc" id="toc-yarn-add-exact" href="#toc-yarn-add-exact"></a>
 
 [TODO]
 
@@ -92,7 +92,7 @@ recent release with the same major version. For example, `yarn add foo@1.2.3`
 would accept version `1.9.1`, but `yarn add foo@1.2.3 --exact` would only
 accept version `1.2.3`.
 
-##### `yarn add <package...> --tilde` <a class="toc" id="toc-command-yarn-add-tilde" href="#toc-command-yarn-add-tilde"></a>
+##### `yarn add <package...> --tilde` <a class="toc" id="toc-yarn-add-tilde" href="#toc-yarn-add-tilde"></a>
 
 [TODO]
 

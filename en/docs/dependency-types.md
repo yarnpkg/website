@@ -37,13 +37,13 @@ are important to understand.
 These are your normal dependencies, or rather ones that you need when running
 your code (i.e. React or ImmutableJS).
 
-##### `devDependencies` <a class="toc" id="toc-dev-dependencies" href="#toc-dev-dependencies"></a>
+##### `devDependencies` <a class="toc" id="toc-devdependencies" href="#toc-devdependencies"></a>
 
 These are your development dependencies. Dependencies that you need at some
 point in the development workflow but not while running your code (i.e. Babel
 or Flow).
 
-##### `peerDependencies` <a class="toc" id="toc-peer-dependencies" href="#toc-peer-dependencies"></a>
+##### `peerDependencies` <a class="toc" id="toc-peerdependencies" href="#toc-peerdependencies"></a>
 
 Peer dependencies are a special type of dependency that would only ever come up
 if you were publishing your own package.
@@ -53,7 +53,7 @@ same exact dependency as the person installing your package. This is useful for
 packages like `react` that need to have a single copy of `react-dom` that is
 also used by the person installing it.
 
-##### `optionalDependencies` <a class="toc" id="toc-optional-dependencies" href="#toc-optional-dependencies"></a>
+##### `optionalDependencies` <a class="toc" id="toc-optionaldependencies" href="#toc-optionaldependencies"></a>
 
 Optional dependencies are just that: optional. If they fail to install, Yarn
 will still say the install process was successful.
@@ -61,6 +61,6 @@ will still say the install process was successful.
 This is useful for dependencies that won't necessarily work on every machine
 and you have a fallback plan in case they are not installed (i.e. Watchman).
 
-##### `bundledDependencies` <a class="toc" id="toc-bundled-dependencies" href="#toc-bundled-dependencies"></a>
+##### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
 <!-- Array of package names that will be bundled when publishing the package. -->

@@ -6,7 +6,7 @@ layout: guide
 
 <p class="lead">List installed packages.</p>
 
-##### `yarn ls` <a class="toc" id="toc-command-yarn-ls" href="#toc-command-yarn-ls"></a>
+##### `yarn ls` <a class="toc" id="toc-yarn-ls" href="#toc-yarn-ls"></a>
 
 ```sh
 yarn ls
@@ -20,6 +20,6 @@ yarn ls vx.x.x
 └─ package-3@2.7.0
 ```
 
-##### `yarn ls [package...]` <a class="toc" id="toc-command-yarn-ls" href="#toc-command-yarn-ls"></a>
+##### `yarn ls [package...]` <a class="toc" id="toc-yarn-ls-package" href="#toc-yarn-ls-package"></a>
 
 > ***Currently unimplemented***
