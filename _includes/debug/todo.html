@@ -28,7 +28,10 @@
             {% assign start = i | minus: 3 %}
             {% assign end = i | plus: 3 %}
 
-            <pre><code>{% for n in (start..end) %}{{n}}: {{lines[n]}}
+            {% if start < 0 %}{% assign start = 0 %}{% endif %}
+            {% if end > total %}{% assign end = total %}{% endif %}
+
+            <pre><code>{% for n in (start..end) %}{{n}}: {{lines[n] | escape}}
 {% endfor %}</code></pre>
           {% endif %}
         {% endfor %}

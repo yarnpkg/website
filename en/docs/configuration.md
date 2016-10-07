@@ -4,6 +4,8 @@ guide: docs_configuration
 layout: guide
 ---
 
+<!-- [TODO: Rewrite and accommodate for other configuration files] -->
+
 ## Configuring your package <a class="toc" id="toc-configuring-your-package" href="#toc-configuring-your-package"></a>
 
 Yarn looks for `package.json` files to identify each package and configure the behavior of yarn while running inside that package.

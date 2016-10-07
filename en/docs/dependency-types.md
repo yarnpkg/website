@@ -63,4 +63,5 @@ and you have a fallback plan in case they are not installed (i.e. Watchman).
 
 ##### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
+<!-- [TODO: Explain bundledDependencies in relation to other types] -->
 <!-- Array of package names that will be bundled when publishing the package. -->
