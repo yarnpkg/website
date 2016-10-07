@@ -1,0 +1,43 @@
+{% assign shouldRender = false %}
+
+{% if jekyll.environment == "development" %}
+  {% assign shouldRender = true %}
+{% endif %}
+
+{% if include.forceRender %}
+  {% assign shouldRender = true %}
+{% endif %}
+
+{% if shouldRender %}
+  {% if include.content contains '[TODO' %}
+    {% if include.content %}
+      <div class="alert alert-info">
+        <h4>Yarn Website Internal Developer Info!</h4>
+
+        <p>This page contains some <code>[TODO]</code>'s, if you have time, please complete them</p>
+
+        {% assign lines = include.content | newline_to_br | strip_newlines | split: '<br />' %}
+        {% assign total = lines | size %}
+
+        {% for i in (0..total) %}
+          {% assign line = lines[i] %}
+
+          {% if line contains '[TODO' %}
+            {% assign message = '' %}
+
+            {% assign start = i | minus: 3 %}
+            {% assign end = i | plus: 3 %}
+
+            <pre><code>{% for n in (start..end) %}{{n}}: {{lines[n]}}
+{% endfor %}</code></pre>
+          {% endif %}
+        {% endfor %}
+
+        <p>
+          If you believe you are seeing this warning by mistake, please open
+          an issue.
+        </p>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endif %}

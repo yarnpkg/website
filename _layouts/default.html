@@ -16,6 +16,8 @@
     <link rel="icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
   </head>
   <body>
+    {% include debug/todo.html content=page.content forceRender=true %}
+
     {% include navigation.html %}
     {{content}}
     {% include footer.html %}
