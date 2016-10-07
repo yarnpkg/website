@@ -58,6 +58,8 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
+<!-- [TODO: Add details about package.json#version] -->
+
 ## Info <a class="toc" id="toc-info" href="#toc-info"></a>
 
 ### `description` <a class="toc" id="toc-description" href="#toc-description"></a>
@@ -68,6 +70,8 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
+<!-- [TODO: Add details about package.json#description] -->
+
 ### `keywords` <a class="toc" id="toc-keywords" href="#toc-keywords"></a>
 
 ```json
@@ -75,6 +79,8 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
   "keywords": ["short", "relevant", "keywords", "for", "searching"]
 }
 ```
+
+<!-- [TODO: Add details about package.json#keywords] -->
 
 ### `license` <a class="toc" id="toc-license" href="#toc-license"></a>
 
@@ -109,6 +115,8 @@ job it's likely best to check with your company before deciding on a license.
 
 ## Links <a class="toc" id="toc-links" href="#toc-links"></a>
 
+<!-- [TODO: Add details about Links in package.json] -->
+
 ### `homepage` <a class="toc" id="toc-homepage" href="#toc-homepage"></a>
 
 ```json
@@ -117,6 +125,8 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#homepage] -->
+
 ### `bugs` <a class="toc" id="toc-bugs" href="#toc-bugs"></a>
 
 ```json
@@ -124,6 +134,8 @@ job it's likely best to check with your company before deciding on a license.
   "bugs": "https://gitlub.com/user/repo/issues"
 }
 ```
+
+<!-- [TODO: Add details about package.json#bugs] -->
 
 ### `repository` <a class="toc" id="toc-repository" href="#toc-repository"></a>
 
@@ -137,7 +149,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#repository] -->
+
 ## Maintainers <a class="toc" id="toc-maintainers" href="#toc-maintainers"></a>
+
+<!-- [TODO: Add details about Maintainers in package.json] -->
 
 ### `author` <a class="toc" id="toc-author" href="#toc-author"></a>
 
@@ -147,6 +163,8 @@ job it's likely best to check with your company before deciding on a license.
   "author": "Your Name <you@example.com> (http://your-website.com)"
 }
 ```
+
+<!-- [TODO: Add details about package.json#author] -->
 
 ### `contributors` <a class="toc" id="toc-contributors" href="#toc-contributors"></a>
 
@@ -163,7 +181,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#contributors] -->
+
 ## Files <a class="toc" id="toc-files" href="#toc-files"></a>
+
+<!-- [TODO: Add details about Files in package.json] -->
 
 ### `files` <a class="toc" id="toc-files" href="#toc-files"></a>
 
@@ -177,6 +199,8 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#files] -->
+
 ### `main` <a class="toc" id="toc-main" href="#toc-main"></a>
 
 ```json
@@ -184,6 +208,8 @@ job it's likely best to check with your company before deciding on a license.
   "main": "filename.js"
 }
 ```
+
+<!-- [TODO: Add details about package.json#main] -->
 
 ### `bin` <a class="toc" id="toc-bin" href="#toc-bin"></a>
 
@@ -197,6 +223,8 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#bin] -->
+
 ### `man` <a class="toc" id="toc-man" href="#toc-man"></a>
 
 ```json
@@ -205,6 +233,8 @@ job it's likely best to check with your company before deciding on a license.
   "man": ["./man/doc.1", "./man/doc.2"]
 }
 ```
+
+<!-- [TODO: Add details about package.json#man] -->
 
 ### `directories` <a class="toc" id="toc-directories" href="#toc-directories"></a>
 
@@ -220,7 +250,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#directories] -->
+
 ## Tasks <a class="toc" id="toc-tasks" href="#toc-tasks"></a>
+
+<!-- [TODO: Add details about Tasks in package.json] -->
 
 ### `scripts` <a class="toc" id="toc-scripts" href="#toc-scripts"></a>
 
@@ -232,6 +266,8 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#scripts] -->
+
 ### `config` <a class="toc" id="toc-config" href="#toc-config"></a>
 
 ```json
@@ -242,7 +278,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#config] -->
+
 ## Dependencies <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
+
+<!-- [TODO: Add details about Dependencies in package.json] -->
 
 ### `dependencies` <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
 
@@ -254,6 +294,8 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#dependencies] -->
+
 ### `devDependencies` <a class="toc" id="toc-devdependencies" href="#toc-devdependencies"></a>
 
 ```json
@@ -263,6 +305,8 @@ job it's likely best to check with your company before deciding on a license.
   }
 }
 ```
+
+<!-- [TODO: Add details about package.json#devDependencies] -->
 
 ### `peerDependencies` <a class="toc" id="toc-peerdependencies" href="#toc-peerdependencies"></a>
 
@@ -274,6 +318,8 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#peerDependencies] -->
+
 ### `optionalDependencies` <a class="toc" id="toc-optionaldependencies" href="#toc-optionaldependencies"></a>
 
 ```json
@@ -283,6 +329,8 @@ job it's likely best to check with your company before deciding on a license.
   }
 }
 ```
+
+<!-- [TODO: Add details about package.json#optionalDependencies] -->
 
 ### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
@@ -294,7 +342,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
+<!-- [TODO: Add details about package.json#bundledDependencies] -->
+
 ## System <a class="toc" id="toc-system" href="#toc-system"></a>
+
+<!-- [TODO: Add details about System info package.json] -->
 
 ### `engines` <a class="toc" id="toc-engines" href="#toc-engines"></a>
 
@@ -310,6 +362,8 @@ job it's likely best to check with your company before deciding on a license.
 
 Checks against `process.versions` as well as the current version of yarn.
 
+<!-- [TODO: Add details about package.json#engines] -->
+
 ### `os` <a class="toc" id="toc-os" href="#toc-os"></a>
 
 ```json
@@ -320,6 +374,8 @@ Checks against `process.versions` as well as the current version of yarn.
 ```
 
 Checks against `process.platform`
+
+<!-- [TODO: Add details about package.json#os] -->
 
 ### `cpu` <a class="toc" id="toc-cpu" href="#toc-cpu"></a>
 
@@ -332,6 +388,8 @@ Checks against `process.platform`
 
 Checks against `process.arch`
 
+<!-- [TODO: Add details about package.json#cpu] -->
+
 ## Publishing <a class="toc" id="toc-publishing" href="#toc-publishing"></a>
 
 ### `private` <a class="toc" id="toc-private" href="#toc-private"></a>
@@ -342,6 +400,8 @@ Checks against `process.arch`
 }
 ```
 
+<!-- [TODO: Add details about package.json#private] -->
+
 ### `publishConfig` <a class="toc" id="toc-publishconfig" href="#toc-publishconfig"></a>
 
 ```json
@@ -351,3 +411,5 @@ Checks against `process.arch`
   }
 }
 ```
+
+<!-- [TODO: Add details about package.json#publishConfig] -->

@@ -19,19 +19,15 @@ you'll most likely get a different set of dependencies in your tree,
 
 If you get an error, please check for an existing issue or report it to Yarn.
 
+<!-- [TODO: Explain what types of errors you might get] -->
 
 If you are using an `npm-shrinkwrap.json` file right now, be aware that you'll
 end up with a different set of dependencies. Yarn does not support npm
 shrinkwrap files as they don't have enough information in them to power Yarn's
 more deterministic algorithm.
 
-
-
-
-
-
-
-
+<!-- [TODO: Rewrite bit about how to migrate your whole team to yarn to be more optimistic] -->
+<!-- Then remove everything below here -->
 
 It's easy to start using Yarn if you're currently using `npm`. Yarn respects the same `package.json` format that `npm` uses, so you can just start using Yarn without convincing the other developers on the project to use Yarn.
 
