@@ -165,7 +165,7 @@ websites for hosting your code:
 
 - [GitHub](https://github.com)
 - [GitLab](https://about.gitlab.com/)
-- [BitBucket](https://bitbucket.org/) (Bad choice for open source projects)
+- [BitBucket](https://bitbucket.org/)
 
 These sites will allow your users to see your code, report issues, and
 contribute back. Once you have your code up somewhere you should add the
