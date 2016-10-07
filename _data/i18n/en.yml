@@ -48,30 +48,30 @@ homepage_c2a_text: What are you waiting for?
 homepage_c2a_button: Get Started
 homepage_install_button: Install Yarn
 
-homepage_featurette_offline_title: Offline mode
+homepage_featurette_offline_title: Offline Mode
 homepage_featurette_offline_description: |
   If you've installed a package before, you can install it again without
   any internet connection.
-homepage_featurette_lockfiles_title: Lockfiles
-homepage_featurette_lockfiles_description: |
-  Concise lockfile format. Little whitespace, ordered keys to ensure minimal
-  changes and noise.
-homepage_featurette_conflict_resolution_title: Conflict resolution
-homepage_featurette_conflict_resolution_description: |
-  Ability to manually resolve version conflicts so only a single version per
-  package exists.
-homepage_featurette_npm_and_bower_title: npm and bower
+homepage_featurette_deterministic_title: Deterministic
+homepage_featurette_deterministic_description: |
+  The same dependencies will be installed the same exact way across every
+  machine regardless of install order.
+homepage_featurette_network_performance_title: Network Performance
+homepage_featurette_network_performance_description: |
+  Yarn efficiently queues up requests and avoids request waterfalls in order
+  to maximize network utilization.
+homepage_featurette_npm_and_bower_title: Multiple Registries
 homepage_featurette_npm_and_bower_description: |
-  Install any package from either registry and keep working the same way you
-  have been.
-homepage_featurette_licenses_title: Licenses
-homepage_featurette_licenses_description: |
-  Ability to restrict licenses of installed modules and ways to output
-  licensing information.
-homepage_featurette_misc_title: And more...
-homepage_featurette_misc_description: |
-  Caching build artifacts, localized error messages, fast git clones from
-  GitHub and BitBucket, and lots more.
+  Install any package from either npm or Bower and keep working the same way
+  you have been.
+homepage_featurette_network_resillience_title: Network Resilience
+homepage_featurette_network_resillience_description: |
+  A single request failing won't cause an install to fail. Requests are retried
+  upon failure.
+homepage_featurette_flat_mode_title: Flat Mode
+homepage_featurette_flat_mode_description: |
+  Resolve mis-matching versions of dependencies to a single version to avoid
+  creating duplicates.
 
 ###
 # Titles
