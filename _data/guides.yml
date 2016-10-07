@@ -60,6 +60,9 @@
   - id: docs_cli_info
     path: /docs/cli/info
     tags: ["cli-info"]
+  - id: docs_cli_init
+    path: /docs/cli/init
+    tags: ["cli-init"]
   - id: docs_cli_install
     path: /docs/cli/install
     tags: ["cli-install"]
