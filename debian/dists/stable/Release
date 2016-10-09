@@ -1,0 +1,28 @@
+Origin: yarn
+Label: yarn
+Codename: stable
+Date: Wed, 05 Oct 2016 06:22:08 UTC
+Architectures: i386 amd64
+Components: main
+Description: Repository for stable releases of Yarn
+MD5Sum:
+ 4bcc3633583ea2e670acc69a06afe604 1256 main/binary-i386/Packages
+ bc28cf003d3e799500d5f4c0eee2b772 761 main/binary-i386/Packages.gz
+ 85dac1d9a2465f6c6e72298cb85de2a0 112 main/binary-i386/Release
+ 4bcc3633583ea2e670acc69a06afe604 1256 main/binary-amd64/Packages
+ bc28cf003d3e799500d5f4c0eee2b772 761 main/binary-amd64/Packages.gz
+ 14f32921fb2d9fe2ab04d55a0b430030 113 main/binary-amd64/Release
+SHA1:
+ 5119cf360d15a42b9ff0d9c77b2007295fdbbfce 1256 main/binary-i386/Packages
+ eeed92d69578aaa275452ed1538bd8ca7e5ff8ac 761 main/binary-i386/Packages.gz
+ 88ea29f256af55b7d8e9d652a7901ff841252a98 112 main/binary-i386/Release
+ 5119cf360d15a42b9ff0d9c77b2007295fdbbfce 1256 main/binary-amd64/Packages
+ eeed92d69578aaa275452ed1538bd8ca7e5ff8ac 761 main/binary-amd64/Packages.gz
+ 4b09406f996a093857851b0028767e62fb13d3b9 113 main/binary-amd64/Release
+SHA256:
+ f2c9aa5be5481c52c001cabb9a199618f27e16ee7aadca0be3e8222d4e6a3721 1256 main/binary-i386/Packages
+ 2151b43fd05cb3f12dabea3714ee130e875a5b6baa677dc3cc9787de52cf43c7 761 main/binary-i386/Packages.gz
+ db6303c63cb2ee55751fbc01ffe7c67863e46897790a461ba629dac897e0bf14 112 main/binary-i386/Release
+ f2c9aa5be5481c52c001cabb9a199618f27e16ee7aadca0be3e8222d4e6a3721 1256 main/binary-amd64/Packages
+ 2151b43fd05cb3f12dabea3714ee130e875a5b6baa677dc3cc9787de52cf43c7 761 main/binary-amd64/Packages.gz
+ 3b0777e50007daa352a2e9b2c6932ca91879e2485ba563e44769e3f8f4a9b678 113 main/binary-amd64/Release

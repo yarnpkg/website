@@ -17,3 +17,5 @@ layout: null
     {% endif %}
   {% endif %}
 {% endfor %}
+
+{% include debian_redirects %}

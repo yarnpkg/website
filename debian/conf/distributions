@@ -1,0 +1,7 @@
+Codename: stable
+Architectures: i386 amd64
+Origin: yarn
+Label: yarn
+Components: main
+Description: Repository for stable releases of Yarn
+SignWith: 9D41F3C3

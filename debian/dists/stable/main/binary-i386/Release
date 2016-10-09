@@ -1,0 +1,5 @@
+Component: main
+Origin: yarn
+Label: yarn
+Architecture: i386
+Description: Repository for stable releases of Yarn
