@@ -4,9 +4,10 @@ layout: null
 /downloads/:version/:file https://github.com/yarnpkg/yarn/releases/download/v:version/:file
 
 # Nice short URLs to download the latest release
-/latest.tar.gz https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.tar.gz
-/latest.msi https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.msi
-/latest.deb https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/kpm-v{{site.latest_version}}.deb
+/latest.tar.gz https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-v{{site.latest_version}}.tar.gz
+/latest.msi https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-{{site.latest_version}}.msi
+/latest.deb https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn_{{site.latest_version}}_all.deb
+/latest.rpm https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-{{site.latest_version}}-1.noarch.rpm
 
 {% for language in site.data.languages %}
   {% if language.enabled %}

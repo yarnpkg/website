@@ -13,3 +13,15 @@ Then you can simply:
 ```sh
 sudo apt-get update && sudo apt-get install yarn
 ```
+
+## CentOS / Fedora / RHEL
+
+On CentOS, Fedora and RHEL, you can install Yarn via our RPM package:
+
+```sh
+wget https://yarnpkg.com/latest.rpm
+rpm -Uvh yarn-*.rpm
+```
+
+You will need to first [enable the NodeSource repository](https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora)
+as CentOS does not include Node.js in its main repository.
