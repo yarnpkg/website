@@ -33,6 +33,10 @@ version ranges. These will be added to your `package.json` under a
 
 This refetches all packages, even ones that were previously installed.
 
+##### `yarn install --har` <a class="toc" id="toc-yarn-install-har" href="#toc-yarn-install-har"></a>
+
+Outputs an [HTTP archive](https://en.wikipedia.org/wiki/.har) from all the network requests performed during the installation. HAR files are commonly used to investigate network performance, and can be analyzed with tools such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/) or [HAR Viewer](http://www.softwareishard.com/blog/har-viewer/).
+
 ##### `yarn install --no-lockfile` <a class="toc" id="toc-yarn-install-no-lockfile" href="#toc-yarn-install-no-lockfile"></a>
 
 Don't read or generate a `yarn.lock` lockfile.
