@@ -31,9 +31,6 @@ license (MIT):
 You can type answers for each of these or you can just hit enter/return to use
 the default or leave it blank.
 
-> **Tip:** If you want to use the defaults for everything you can also run
-> `npm init --yes` and it will skip all the questions.
-
 ### `package.json` <a class="toc" id="toc-package-json" href="#toc-package-json"></a>
 
 Now you should have a `package.json` that looks similar to this:
