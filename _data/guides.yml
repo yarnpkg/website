@@ -39,6 +39,9 @@
   - id: docs_cli_add
     path: /docs/cli/add
     tags: ["cli-add"]
+  - id: docs_cli_bin
+    path: /docs/cli/bin
+    tags: ["cli-bin"]
   - id: docs_cli_cache
     path: /docs/cli/cache
     tags: ["cli-cache"]
