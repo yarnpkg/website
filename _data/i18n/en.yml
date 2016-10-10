@@ -32,9 +32,8 @@ homepage_feature_fast_image_alt: Generic placeholder image
 
 homepage_feature_secure_title: Mega Secure.
 homepage_feature_secure_description: |
-  Every package that Yarn installs gets checked against a checksum to ensure the
-  code you wanted to download is the code you downloaded before you
-  execute it.
+  Yarn uses checksums to verify the integrity of every installed package
+  *before* its code is executed.  
 homepage_feature_secure_image_alt: Generic placeholder image
 
 homepage_feature_reliable_title: Super Reliable.
