@@ -10,6 +10,7 @@ scripts:
 
 {{i18n.install_intro}}
 
+{% capture mac          %}{% include_relative _installations/mac.md          %}{% endcapture %}
 {% capture windows      %}{% include_relative _installations/windows.md      %}{% endcapture %}
 {% capture linux        %}{% include_relative _installations/linux.md        %}{% endcapture %}
 {% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
@@ -30,7 +31,7 @@ scripts:
         {{i18n.install_select_platform}}
       </p>
     </div>
-    <div class="tab-pane" id="mac">{{alternatives | markdownify}}</div>
+    <div class="tab-pane" id="mac">{{mac | markdownify}}</div>
     <div class="tab-pane" id="windows">{{windows | markdownify}}</div>
     <div class="tab-pane" id="linux">{{linux | markdownify}}</div>
     <div class="tab-pane" id="alternatives">{{alternatives | markdownify}}</div>

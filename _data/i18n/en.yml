@@ -201,7 +201,7 @@ install_select_platform: Select your platform above
 install_os_mac: macOS
 install_os_windows: Windows
 install_os_linux: Linux
-install_os_alternatives: Others
+install_os_alternatives: Alternatives
 
 install_test: "Test that Yarn is installed by running:"
 
