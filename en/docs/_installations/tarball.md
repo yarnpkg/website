@@ -8,9 +8,6 @@ terminal:
 curl -o- https://yarnpkg.com/install.sh | bash
 ```
 
-On common Linux distributions such as Debian, Ubuntu and CentOS, it is
-recommended to install Yarn via our packages instead.
-
 #### Manual Install via tarball
 
 You can install Yarn by [downloading a tarball]({{site.baseurl}}/latest.tar.gz) and
