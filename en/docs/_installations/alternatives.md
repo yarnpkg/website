@@ -29,5 +29,5 @@ not, you can install Node.js (with npm) by following
 Once you have npm installed you can run:
 
 ```sh
-npm install --global yarn
+npm install --global yarnpkg
 ```
