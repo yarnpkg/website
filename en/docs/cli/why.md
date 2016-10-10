@@ -12,7 +12,7 @@ This command will identify why a package has been installed, detailing which
 other packages depend upon it, for example, or whether it was explicitly marked
 as a dependency in the `package.json` manifest.
 
-```
+```sh
 $ yarn why once
 
 yarn why vx.x.x
