@@ -61,8 +61,8 @@ homepage_featurette_network_performance_description: |
   to maximize network utilization.
 homepage_featurette_npm_and_bower_title: Multiple Registries
 homepage_featurette_npm_and_bower_description: |
-  Install any package from either npm or Bower and keep working the same way
-  you have been.
+  Install any package from either npm or Bower and keep your package workflow
+  the same.
 homepage_featurette_network_resillience_title: Network Resilience
 homepage_featurette_network_resillience_description: |
   A single request failing won't cause an install to fail. Requests are retried
