@@ -70,7 +70,7 @@ homepage_featurette_network_resillience_description: |
   upon failure.
 homepage_featurette_flat_mode_title: Flat Mode
 homepage_featurette_flat_mode_description: |
-  Resolve mis-matching versions of dependencies to a single version to avoid
+  Resolve mismatching versions of dependencies to a single version to avoid
   creating duplicates.
 
 ###
