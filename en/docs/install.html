@@ -10,7 +10,7 @@ scripts:
 
 {{i18n.install_intro}}
 
-{% capture mac          %}{% include_relative _installations/mac.md          %}{% endcapture %}
+{% capture unix         %}{% include_relative _installations/unix.md          %}{% endcapture %}
 {% capture windows      %}{% include_relative _installations/windows.md      %}{% endcapture %}
 {% capture linux        %}{% include_relative _installations/linux.md        %}{% endcapture %}
 {% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
@@ -18,7 +18,7 @@ scripts:
 <div class="tabs">
   <div class="nav nav-tabs bg-faded text-xs-center">
     <ul class="nav navbar-nav nav-inline">
-      <a id="mac-tab" class="nav-item nav-link" data-toggle="tab" href="#mac">{{i18n.install_os_mac}}</a>
+      <a id="unix-tab" class="nav-item nav-link" data-toggle="tab" href="#unix">{{i18n.install_os_unix}}</a>
       <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
       <a id="linux-tab" class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
       <a id="alternatives-tab" class="nav-item nav-link text-success" data-toggle="tab" href="#alternatives">{{i18n.install_os_alternatives}}</a>
@@ -31,7 +31,7 @@ scripts:
         {{i18n.install_select_platform}}
       </p>
     </div>
-    <div class="tab-pane" id="mac">{{mac | markdownify}}</div>
+    <div class="tab-pane" id="unix">{{unix | markdownify}}</div>
     <div class="tab-pane" id="windows">{{windows | markdownify}}</div>
     <div class="tab-pane" id="linux">{{linux | markdownify}}</div>
     <div class="tab-pane" id="alternatives">{{alternatives | markdownify}}</div>
