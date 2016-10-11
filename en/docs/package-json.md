@@ -57,8 +57,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
   "version": "1.0.0"
 }
 ```
-
-<!-- [TODO: Add details about package.json#version] -->
+The current version of your package.
 
 ## Info <a class="toc" id="toc-info" href="#toc-info"></a>
 
@@ -70,7 +69,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
-<!-- [TODO: Add details about package.json#description] -->
+The description is just a string that helps people understand the purpose of the package. It can be used when searching for packages in a package manager as well.
 
 ### `keywords` <a class="toc" id="toc-keywords" href="#toc-keywords"></a>
 
@@ -80,7 +79,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 }
 ```
 
-<!-- [TODO: Add details about package.json#keywords] -->
+Keywords are an array of strings that are useful when searching for packages in a package manager.
 
 ### `license` <a class="toc" id="toc-license" href="#toc-license"></a>
 
@@ -115,17 +114,17 @@ job it's likely best to check with your company before deciding on a license.
 
 ## Links <a class="toc" id="toc-links" href="#toc-links"></a>
 
-<!-- [TODO: Add details about Links in package.json] -->
+Various links to documentation, places to file issues and where your package code actually lives.
 
 ### `homepage` <a class="toc" id="toc-homepage" href="#toc-homepage"></a>
 
 ```json
 {
-  "homepage": "https://gitlub.com/user/repo"
+  "homepage": "https://your-package.org"
 }
 ```
 
-<!-- [TODO: Add details about package.json#homepage] -->
+The homepage is the URL to the landing page or documentation for your package.
 
 ### `bugs` <a class="toc" id="toc-bugs" href="#toc-bugs"></a>
 
@@ -135,7 +134,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#bugs] -->
+The URL to your project's issue tracker. This can also be something like an email address as well. It provides users a way to find out where to send issues with your package.
 
 ### `repository` <a class="toc" id="toc-repository" href="#toc-repository"></a>
 
@@ -149,11 +148,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#repository] -->
+The repository is the location where your the actual code for your package lives.
 
 ## Maintainers <a class="toc" id="toc-maintainers" href="#toc-maintainers"></a>
 
-<!-- [TODO: Add details about Maintainers in package.json] -->
+The maintainers of your project.
 
 ### `author` <a class="toc" id="toc-author" href="#toc-author"></a>
 
@@ -164,7 +163,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#author] -->
+Package author information. An author is one person.
 
 ### `contributors` <a class="toc" id="toc-contributors" href="#toc-contributors"></a>
 
@@ -181,11 +180,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#contributors] -->
+Those that have contributed to your package. Contributors are an array of people.
 
 ## Files <a class="toc" id="toc-files" href="#toc-files"></a>
 
-<!-- [TODO: Add details about Files in package.json] -->
+You can specify files that will be included in your project, along with the main entry point for your project.
 
 ### `files` <a class="toc" id="toc-files" href="#toc-files"></a>
 
@@ -199,7 +198,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#files] -->
+These are files that are included in your project. You can specify single files, whole directories or use wildcards to include files that meet a certain criteria.
 
 ### `main` <a class="toc" id="toc-main" href="#toc-main"></a>
 
@@ -209,7 +208,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#main] -->
+This is the primary entry point for the functionality for your project.
 
 ### `bin` <a class="toc" id="toc-bin" href="#toc-bin"></a>
 
@@ -223,7 +222,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#bin] -->
+Executable files included with your project that will be installed.
 
 ### `man` <a class="toc" id="toc-man" href="#toc-man"></a>
 
@@ -234,7 +233,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#man] -->
+If you have man pages associated with your project, add them here.
 
 ### `directories` <a class="toc" id="toc-directories" href="#toc-directories"></a>
 
@@ -250,11 +249,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#directories] -->
+When installing your package, you can specify exact locations to put binary files, man pages, documentation, examples, etc.
 
 ## Tasks <a class="toc" id="toc-tasks" href="#toc-tasks"></a>
 
-<!-- [TODO: Add details about Tasks in package.json] -->
+Your package can include runnable scripts or other configuration.
 
 ### `scripts` <a class="toc" id="toc-scripts" href="#toc-scripts"></a>
 
@@ -266,7 +265,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#scripts] -->
+If your project `yarn run <script>`, use this to define the name of those scripts and their location.
 
 ### `config` <a class="toc" id="toc-config" href="#toc-config"></a>
 
@@ -278,11 +277,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#config] -->
+Configuration options or parameters used in your scripts.
 
 ## Dependencies <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
 
-<!-- [TODO: Add details about Dependencies in package.json] -->
+Your package will very likely depend on other packages. You can specify those dependencies in your `package.json` file.
 
 ### `dependencies` <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
 
@@ -294,7 +293,9 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#dependencies] -->
+These are dependencies that are required in both development and production for your package.
+
+> You can specify an exact version, a minimum version (e.g., `>=`) or a range of versions (e.g. `>= ... <`).
 
 ### `devDependencies` <a class="toc" id="toc-devdependencies" href="#toc-devdependencies"></a>
 
@@ -306,7 +307,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#devDependencies] -->
+These are packages that are only required when developing your package but will not be installed in production.
 
 ### `peerDependencies` <a class="toc" id="toc-peerdependencies" href="#toc-peerdependencies"></a>
 
@@ -318,7 +319,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#peerDependencies] -->
+Peer dependencies allow you to state compatibility of your package with versions of other packages.
 
 ### `optionalDependencies` <a class="toc" id="toc-optionaldependencies" href="#toc-optionaldependencies"></a>
 
@@ -330,7 +331,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#optionalDependencies] -->
+Optional dependencies can be used with your package, but are not required. If the optional package is not found, installation still continues.
 
 ### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
@@ -342,11 +343,11 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-<!-- [TODO: Add details about package.json#bundledDependencies] -->
+Bundled dependencies are an array of package names that will be bundled together when publishing your package.
 
 ## System <a class="toc" id="toc-system" href="#toc-system"></a>
 
-<!-- [TODO: Add details about System info package.json] -->
+You can provide system-level information associated with your package, such as operating system compatibility, etc.
 
 ### `engines` <a class="toc" id="toc-engines" href="#toc-engines"></a>
 
@@ -360,9 +361,7 @@ job it's likely best to check with your company before deciding on a license.
 }
 ```
 
-Checks against `process.versions` as well as the current version of yarn.
-
-<!-- [TODO: Add details about package.json#engines] -->
+The engines specify versions of clients that must be used with your package. This checks against `process.versions` as well as the current version of yarn.
 
 ### `os` <a class="toc" id="toc-os" href="#toc-os"></a>
 
@@ -373,9 +372,7 @@ Checks against `process.versions` as well as the current version of yarn.
 }
 ```
 
-Checks against `process.platform`
-
-<!-- [TODO: Add details about package.json#os] -->
+This specifies operating system compatibility for your package. It checks against `process.platform`.
 
 ### `cpu` <a class="toc" id="toc-cpu" href="#toc-cpu"></a>
 
@@ -386,9 +383,7 @@ Checks against `process.platform`
 }
 ```
 
-Checks against `process.arch`
-
-<!-- [TODO: Add details about package.json#cpu] -->
+Use this to specify your package will only run on certain CPU architectures. This checks against `process.arch`.
 
 ## Publishing <a class="toc" id="toc-publishing" href="#toc-publishing"></a>
 
@@ -400,7 +395,7 @@ Checks against `process.arch`
 }
 ```
 
-<!-- [TODO: Add details about package.json#private] -->
+If you do not want your package published in a package manager, set this to `true`.
 
 ### `publishConfig` <a class="toc" id="toc-publishconfig" href="#toc-publishconfig"></a>
 
@@ -412,4 +407,4 @@ Checks against `process.arch`
 }
 ```
 
-<!-- [TODO: Add details about package.json#publishConfig] -->
+These configuration values will be used when publishing your package. You can tag your package, for example.
