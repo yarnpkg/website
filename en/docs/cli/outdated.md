@@ -11,7 +11,7 @@ layout: guide
 
 Lists version information for all package dependencies. This information includes the currently installed version, the desired version based on semver, and the latest available version.
 
-For example, say your `package.json` has the following dependecies listed:
+For example, say your `package.json` has the following dependencies listed:
 
 ```js
 "dependencies": {

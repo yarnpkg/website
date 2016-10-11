@@ -12,4 +12,4 @@ You can remove several packages at once by listing them all at the command line 
 
 With `yarn` there is no way to remove a package locally while keeping the `package.json` file the same. This ensures that different users of the same repository have consistent builds.
 
-When you remove a package, it is removeed from all types of dependencies: development, production, optional, and peer dependencies.
+When you remove a package, it is removed from all types of dependencies: development, production, optional, and peer dependencies.

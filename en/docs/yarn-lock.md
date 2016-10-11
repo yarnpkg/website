@@ -46,5 +46,5 @@ break something.
 ### Check into source control <a class="toc" id="toc-check-into-source-control" href="#toc-check-into-source-control"></a>
 
 All `yarn.lock` files should be checked into source control (i.e. git or
-mecurial). This allows Yarn to install the same exact dependency tree across
+mercurial). This allows Yarn to install the same exact dependency tree across
 all machines, whether it be your coworker's laptop or a CI server.
