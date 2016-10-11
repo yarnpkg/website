@@ -4,8 +4,8 @@ guide: docs_configuration
 layout: guide
 ---
 
-In order to get consistent installs across machines Yarn needs more information
-that the dependencies you configure in your `package.json`. Yarn needs to store
+In order to get consistent installs across machines, Yarn needs more information
+than the dependencies you configure in your `package.json`. Yarn needs to store
 exactly which versions of each dependency were installed.
 
 To do this Yarn uses a `yarn.lock` file in the root of your project. These
