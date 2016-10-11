@@ -2,12 +2,10 @@
 id: docs_usage
 guide: docs_getting_started
 layout: guide
-additional_reading_tags: ["basics"]
+additional_reading_tags: ["basics", "cli"]
 ---
 
 {% include vars.html %}
-
-<!-- [TODO: Can any detail be added to this document?] -->
 
 Now that you have Yarn [installed]({{url_base}}/docs/install) you can start
 using Yarn. Here are some of the most common commands you'll need.
