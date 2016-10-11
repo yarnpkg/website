@@ -9,7 +9,7 @@ To have people successfully develop or use your package, you need to ensure that
 
 ### Required Files <a class="toc" id="toc-required-files" href="#toc-required-files"></a>
 
-The following files must be checked into source control for anyone to be able manage your package:
+The following files must be checked into source control for anyone to be able to manage your package:
 
 - `package.json`: This has all the current dependencies for your package.
 - `yarn.lock`: This stores the exact versions of each dependency for your package.
