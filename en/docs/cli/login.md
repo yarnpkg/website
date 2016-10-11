@@ -21,7 +21,7 @@ yarn login
 ```
 
 ```sh
-yarn login vx.x.x
+yarnpkg login vx.x.x
 question npm username: my-username
 question npm email: my-username@example.com
 ✨  Done in 6.03s.

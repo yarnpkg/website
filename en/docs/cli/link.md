@@ -4,12 +4,6 @@ guide: docs_cli
 layout: guide
 ---
 
-<p class="lead">Symlink a package folder.</p>
+<p class="lead">Symlink a package folder during development.</p>
 
 ##### `yarn link` (in package dir) <a class="toc" id="toc-yarn-link-in-package-dir" href="#toc-yarn-link-in-package-dir"></a>
-
-> ***Currently unimplemented***
-
-##### `yarn link <package-name>` <a class="toc" id="toc-yarn-link" href="#toc-yarn-link"></a>
-
-> ***Currently unimplemented***

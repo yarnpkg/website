@@ -13,7 +13,7 @@ format. The package does not have to have been installed locally.
 ```
 $ yarn info react
 
-yarn info vx.x.x
+yarnpkg info vx.x.x
 { name: 'react',
   version: '15.4.0-rc.2',
   description: 'React is a JavaScript library for building user interfaces.',
@@ -38,7 +38,7 @@ that version:
 ```
 $ yarn info react@15.3.0
 
-yarn info vx.x.x
+yarnpkg info vx.x.x
 { name: 'react',
   version: '15.3.0',
   description: 'React is a JavaScript library for building user interfaces.',
@@ -53,7 +53,7 @@ returned.
 ```
 $ yarn info react description
 
-yarn info vx.x.x
+yarnpkg info vx.x.x
 React is a JavaScript library for building user interfaces.
 ```
 
@@ -62,7 +62,7 @@ If the specified field is in turn a nested object, the child tree is returned:
 ```
 $ yarn info react time
 
-yarn info vx.x.x
+yarnpkg info vx.x.x
 { modified: '2016-10-06T22:09:27.397Z',
   created: '2011-10-26T17:46:21.942Z', ... }
 
@@ -79,7 +79,7 @@ is often very long). To explicitly request that field, use the second argument:
 ```
 $ yarn info react readme
 
-yarn info vx.x.x
+yarnpkg info vx.x.x
 ## react
 
 An npm package to get you immediate access to
