@@ -1,5 +1,5 @@
 ---
-id: docs_cli_generate-lock-entry
+id: docs_cli_generate_lock_entry
 guide: docs_cli
 layout: guide
 ---
