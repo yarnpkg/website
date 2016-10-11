@@ -17,7 +17,7 @@ Your `package.json` will contain all of these dependencies:
   "dependencies": {
     "package-a": "^1.0.0"
   },
-  "devDepdencies": {
+  "devDependencies": {
     "package-b": "^1.2.1"
   },
   "peerDependencies": {

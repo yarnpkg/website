@@ -22,7 +22,7 @@ success Set "init-license" to "BSD-2-Clause".
 
 ##### `yarn config get <key>` <a class="toc" id="toc-yarn-config-get" href="#toc-yarn-config-get"></a>
 
-Echose the value for a given `key` to `stdout`.
+Echoes the value for a given `key` to `stdout`.
 
 Example:
 
