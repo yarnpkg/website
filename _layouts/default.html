@@ -12,7 +12,7 @@
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og_image.png" />
     <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | strip_html | strip_newlines }}{% endif %}" />
 
-    <title>{{i18n.site_title}}</title>
+    <title>{% if page.id %}{{ i18n[page.id] }} | {{ i18n.site_title }}{% else %}{{ i18n.site_title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ i18n.site_description }}{% endif %}">
 
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
