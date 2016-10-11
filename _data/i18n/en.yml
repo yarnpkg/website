@@ -105,6 +105,7 @@ docs_cli_description: |
 docs_cli_index: CLI Introduction
 docs_cli_access: yarn access
 docs_cli_add: yarn add
+docs_cli_bin: yarn bin
 docs_cli_cache: yarn cache
 docs_cli_check: yarn check
 docs_cli_clean: yarn clean
