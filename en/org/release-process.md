@@ -11,7 +11,7 @@ layout: guide
 
 ## To patch existing version of Yarn <a class="toc" id="toc-to-patch-existing-version-of-yarn" href="#toc-to-patch-existing-version-of-yarn"></a>
 
-- Switch to released branch `get checkout 0.x-stable`, e.g 0.7-stable
+- Switch to released branch `git checkout 0.x-stable`, e.g 0.7-stable
 - Cherry-pick fixes from master branch
 - Tag the new release `npm version patch`, it will create a commit with changed
   package.json and tag `v0.xx.1` to that commit
