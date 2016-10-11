@@ -85,16 +85,12 @@ This will install a `<package>` in your
 
 ##### `yarn add <package...> --exact` <a class="toc" id="toc-yarn-add-exact" href="#toc-yarn-add-exact"></a>
 
-<!-- [TODO: Rewrite and point to version documentation] -->
-
 This installs the package as an exact version. The default is to use the most
 recent release with the same major version. For example, `yarn add foo@1.2.3`
 would accept version `1.9.1`, but `yarn add foo@1.2.3 --exact` would only
 accept version `1.2.3`.
 
 ##### `yarn add <package...> --tilde` <a class="toc" id="toc-yarn-add-tilde" href="#toc-yarn-add-tilde"></a>
-
-<!-- [TODO: Rewrite and point to version documentation] -->
 
 This installs the most recent release of the package that has the same minor
 version. The default is to use the most recent release with the same major
