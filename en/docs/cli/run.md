@@ -16,11 +16,11 @@ For example,
 yarn run test
 ```
 
-would run the script named `test` defined in your package.
+would run the script named `test` defined in your `package.json`.
 
 ##### `yarn run` <a class="toc" id="toc-yarn-run" href="#toc-yarn-run"></a>
 
-If you do not specifiy a script to the `yarn run` command, the this will list all of the scripts available to run for a package.
+If you do not specify a script to the `yarn run` command, the `run` command will list all of the scripts available to run for a package.
 
 ### Scripts in `package.json` <a class="toc" id="toc-scripts-in-package-json" href="#toc-scripts-in-package-json"></a>
 
