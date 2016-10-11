@@ -12,5 +12,5 @@ There are a couple things you should know about the basic workflow:
 
   1. Creating a new project
   2. Adding/updating/removing dependencies
-  3. Installing/reinstalling you dependencies
+  3. Installing/reinstalling your dependencies
   4. Working with version control (i.e. git)
