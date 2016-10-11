@@ -103,7 +103,6 @@ docs_cli_description: |
   installation, administration, publishing, and more.
 
 docs_cli_index: CLI Introduction
-docs_cli_access: yarn access
 docs_cli_add: yarn add
 docs_cli_bin: yarn bin
 docs_cli_cache: yarn cache
@@ -128,7 +127,6 @@ docs_cli_remove: yarn remove
 docs_cli_run: yarn run
 docs_cli_self_update: yarn self-update
 docs_cli_tag: yarn tag
-docs_cli_team: yarn team
 docs_cli_upgrade: yarn upgrade
 docs_cli_version: yarn version
 docs_cli_why: yarn why
