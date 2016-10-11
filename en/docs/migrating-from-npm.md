@@ -36,7 +36,7 @@ more deterministic algorithm. If you are using a shrinkwrap file it may be easie
 to convert everyone working on the project to use Yarn at the same time. Simply remove
 your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lock` file.
 
-### CLI commands comparison
+### CLI commands comparison <a class="toc" id="toc-cli-commands-comparison" href="#toc-cli-commands-comparison"></a>
 
 | npm                                         | Yarn                                        |
 | ------------------------------------------- | ------------------------------------------- |
