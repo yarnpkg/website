@@ -35,3 +35,26 @@ shrinkwrap files as they don't have enough information in them to power Yarn's
 more deterministic algorithm. If you are using a shrinkwrap file it may be easier
 to convert everyone working on the project to use Yarn at the same time. Simply remove
 your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lock` file.
+
+### CLI commands comparison
+
+| npm                                         | Yarn                                        |
+| ------------------------------------------- | ------------------------------------------- |
+| `npm install`                               | `yarn install`                              |
+| ***(N/A)***                                 | `yarn install --flat`                       |
+| ***(N/A)***                                 | `yarn install --har`                        |
+| ***(N/A)***                                 | `yarn install --no-lockfile`                |
+| ***(N/A)***                                 | `yarn install --pure-lockfile`              |
+| `npm install [package]`                     | ***(N/A)***                                 |
+| `npm install --save [package]`              | `yarn add [package]`                        |
+| `npm install --save-dev [package]`          | `yarn add [package] --dev`                  |
+| ***(N/A)***                                 | `yarn add [package] --peer`                 |
+| `npm install --save-optional [package]`     | `yarn add [package] --optional`             |
+| `npm install --save-exact [package]`        | `yarn add [package] --exact`                |
+| ***(N/A)***                                 | `yarn add [package] --tilde`                |
+| `npm install --global [package]`            | `yarn global add [package]`                 |
+| `npm uninstall [package]`                   | ***(N/A)***                                 |
+| `npm uninstall --save [package]`            | `yarn remove [package]`                     |
+| `npm uninstall --save-dev [package]`        | `yarn remove [package]`                     |
+| `npm uninstall --save-optional [package]`   | `yarn remove [package]`                     |
+| ***(N/A)***                                 | `yarn upgrade [package]`                    |
