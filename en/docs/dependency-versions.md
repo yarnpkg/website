@@ -59,8 +59,8 @@ an _operator_ followed by a _version_. Here are some of the basic operators:
 | ---------- | ----------------------------------------------------------- |
 | `<2.0.0`   | Any version that is ***less than*** `2.0.0`                 |
 | `<=3.1.4`  | Any version that is ***less than or equal to*** `3.1.4`     |
-| `>0.4.2`   | Any version that is ***greater than*** `0.42.0`             |
-| `>=2.7.1`  | Any version that is ***greater than or equal to*** `2.7.18` |
+| `>0.4.2`   | Any version that is ***greater than*** `0.4.2`             |
+| `>=2.7.1`  | Any version that is ***greater than or equal to*** `2.7.1` |
 | `=4.6.6`   | Any version that is ***equal to*** `4.6.6`                  |
 
 > **Note**: If no operator is specified, then `=` is assumed in the version
