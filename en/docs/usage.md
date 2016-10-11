@@ -27,9 +27,9 @@ yarn add [package]@[tag]
 **Updating a dependency**
 
 ```sh
-yarn update [package]
-yarn update [package]@[version]
-yarn update [package]@[tag]
+yarn upgrade [package]
+yarn upgrade [package]@[version]
+yarn upgrade [package]@[tag]
 ```
 
 **Removing a dependency**
