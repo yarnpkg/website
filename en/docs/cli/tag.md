@@ -16,8 +16,8 @@ For example, if you had a **stable** release channel and a **canary** release
 channel, you could use tags as a way to allow the user to type:
 
 ```sh
-yarn install your-package-name@stable
-yarn install your-package-name@canary
+yarn add your-package-name@stable
+yarn add your-package-name@canary
 ```
 
 Different tags have different meanings:
@@ -47,8 +47,8 @@ You cannot use tags that match potential version numbers since they share
 a namespace:
 
 ```sh
-yarn install your-package-name@<version>
-yarn install your-package-name@<tag>
+yarn add your-package-name@<version>
+yarn add your-package-name@<tag>
 ```
 
 Any tag that can also be used as a valid semver range will be rejected.

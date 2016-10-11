@@ -8,7 +8,7 @@ layout: guide
 
 ##### `yarn licenses ls` <a class="toc" id="toc-yarn-licenses-ls" href="#toc-yarn-licenses-ls"></a>
 
-Running this command will list, in alphabetical order all of the packages that were installed by `yarn install`, and give you the license (and URL to the source code) associated with each package.
+Running this command will list, in alphabetical order all of the packages that were installed by `yarn` or `yarn install`, and give you the license (and URL to the source code) associated with each package.
 
 ```sh
 yarn licenses ls

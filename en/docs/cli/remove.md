@@ -6,7 +6,7 @@ layout: guide
 
 ##### `yarn remove [package]` <a class="toc" id="toc-yarn-remove-package" href="#toc-yarn-remove-package"></a>
 
-Running `yarn remove foo` removes the package named `foo`. This command also updates the `package.json` and `yarn.lock` files so that other people using the repository only have to run a `yarn install` to get their state up to date.
+Running `yarn remove foo` removes the package named `foo`. This command also updates the `package.json` and `yarn.lock` files so that other people using the repository only have to run `yarn` or `yarn install` to get their state up to date.
 
 You can remove several packages at once by listing them all at the command line separated by spaces, like `yarn remove foo bar baz`.
 

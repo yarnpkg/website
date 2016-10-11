@@ -17,7 +17,7 @@ your project.
 
 This will also update your `package.json` and your `yarn.lock` so that other
 developers working on the project will get the same dependencies as you when
-they run `yarn install`.
+they run `yarn` or `yarn install`.
 
 Most packages will be installed from the [npm registry](https://www.npmjs.com/)
 and referred to by simply their package name. For example, `yarn add react`

@@ -22,7 +22,7 @@ This is the name of your package. It gets used in URLs, as an argument on the
 command line, and as the directory name inside `node_modules`.
 
 ```sh
-yarn install [name]
+yarn add [name]
 ```
 
 ```

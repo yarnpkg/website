@@ -43,5 +43,11 @@ yarn remove [package]
 **Installing all the dependencies of project**
 
 ```sh
+yarn
+```
+
+or
+
+```sh
 yarn install
 ```
