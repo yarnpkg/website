@@ -10,7 +10,7 @@ baseurl: ""
 url: "https://yarnpkg.com"
 twitter_username: yarnpkg
 github_username:  yarnpkg
-latest_version: 0.13.5
+latest_version: 0.15.0
 
 exclude:
   - README.md
