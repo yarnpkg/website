@@ -8,9 +8,8 @@ layout: guide
 
 ##### `yarn clean` <a class="toc" id="toc-yarn-clean" href="#toc-yarn-clean"></a>
 
-The `clean` command frees up space by removing unnecessary files and folders from package dependencies.
+The `clean` command frees up space by removing unnecessary files and folders from dependencies. It reduces the number of files in your project's `node_modules` folder which is useful in an environment where packages are checked into version control directly.
 
-_*_ Package cleaning is called automatically after build step.
+One you run `yarn clean`, Yarn will create a `.yarnclean` file that should be added to version control. Cleaning is then automatically done as part of `yarn install` and `yarn add`.
 
-_Yarn removes files and folders from package dependencies relating to: configuration, build scripts, code coverage, test data, test directories, example directories, asset directories, minified or compiled files, gzipped files, change history, and markdown files._
->>>>>>> Documenting 'yarn clean'
+*Note: This command is considered for advanced use cases only. Unless you are experiencing issues with the amount of files that are installed as part of `node_modules` it is not recommended to use this command. It uses a heuristic to identify files that may not be needed from a distributed package and may not be entirely safe.*
