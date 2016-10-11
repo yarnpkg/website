@@ -15,7 +15,7 @@ as a dependency in the `package.json` manifest.
 ```sh
 $ yarn why jest
 
-yarnpkg why vx.x.x
+yarn why vx.x.x
 [1/4] 🤔  Why do we have the module "jest"...?
 [2/4] 🚚  Initialising dependency graph...
 [3/4] 🔍  Finding dependency...

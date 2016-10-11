@@ -105,6 +105,9 @@
   - id: docs_cli_tag
     path: /docs/cli/tag
     tags: ["cli-tag"]
+  - id: docs_cli_team
+    path: /docs/cli/team
+    tags: ["cli-team"]
   - id: docs_cli_upgrade
     path: /docs/cli/upgrade
     tags: ["cli-upgrade"]

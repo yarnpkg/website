@@ -13,7 +13,7 @@ yarn ls
 ```
 
 ```sh
-yarnpkg ls vx.x.x
+yarn ls vx.x.x
 ├─ package-1@1.3.3
 ├─ package-2@5.0.9
 │  └─ package-3@^2.1.0

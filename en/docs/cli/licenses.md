@@ -17,7 +17,7 @@ yarn licenses ls
 * Example Output *
 
 ```
-yarnpkg licenses v0.14.0
+yarn licenses v0.14.0
 ├─ abab@1.0.3
 │  ├─ License: ISC
 │  └─ URL: git+https://github.com/jsdom/abab.git
