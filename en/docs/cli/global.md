@@ -21,6 +21,6 @@ $ create-react-app
 Read more about the commands that can be used together with `yarn global`:
 
 - [`yarn add`](./add): add a package to use in your current package.
-- [`yarn bin`](./install): install all dependencies defined in a `package.json` file.
+- [`yarn install`](./install): install all dependencies defined in a `package.json` file.
 - [`yarn ls`](./ls): list installed packages.
 - [`yarn remove`](./remove): remove a package that will no longer be used in your current package.
