@@ -18,5 +18,5 @@ if you already have it installed. If you already have
 Once you have npm installed you can run:
 
 ```sh
-npm install --global yarnpkg
+npm install --global yarn
 ```
