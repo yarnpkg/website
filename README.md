@@ -27,3 +27,9 @@ Or:
 $ make install
 $ make serve
 ```
+
+On Windows, `make` is not available, so you need to execute `bundle` and `jekyll` directly:
+```sh
+bundle install
+bundle exec jekyll serve
+```
