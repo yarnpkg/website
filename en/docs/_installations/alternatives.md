@@ -20,3 +20,13 @@ Once you have npm installed you can run:
 ```sh
 npm install --global yarn
 ```
+
+### Path Setup
+
+#### Unix/Linux/macOS
+
+{% include_relative _installations/unix_path_setup.md %}
+
+#### Windows
+
+{% include_relative _installations/windows_path_setup.md %}

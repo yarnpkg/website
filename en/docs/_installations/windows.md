@@ -19,3 +19,7 @@ A Chocolatey package is coming soon!
 
 **Note:** Yarn is currently incompatible with installation via Ubuntu on Windows awaiting a resolution to 
 <a href="https://github.com/Microsoft/BashOnWindows/issues/468">468</a>
+
+#### Path Setup
+
+{% include_relative _installations/windows_path_setup.md %}
