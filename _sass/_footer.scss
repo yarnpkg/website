@@ -23,6 +23,8 @@
 
 @include media-breakpoint-up('lg') {
   .footer-item + .footer-item::before {
+    padding-left: .25em;
+    padding-right: .25em;
     content: " · ";
   }
 }
