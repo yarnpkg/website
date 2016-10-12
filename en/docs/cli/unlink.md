@@ -26,14 +26,14 @@ into the `react-relay` project:
 $ cd react
 $ yarn unlink
 yarn link vx.x.x
-success Unegistered "react".
+success Unregistered "react".
 ```
 
 ```sh
 $ cd ../react-relay
 $ yarn unlink react
 yarn link vx.x.x
-success Unegistered "react".
+success Unregistered "react".
 ```
 
 Also see:
