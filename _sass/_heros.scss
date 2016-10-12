@@ -111,9 +111,14 @@
     text-shadow: 5px 5px $yarn-blue-darkest;
   }
 
+  .hero-text {
+    text-shadow: 5px 5px $yarn-blue-darkest;
+  }
+
   .hero-prompt {
     font-size: 2.8rem;
     margin: 0 0 1.3rem;
+    text-shadow: 5px 5px $yarn-blue-darkest;
   }
 
   .hero-btn + .hero-btn {
