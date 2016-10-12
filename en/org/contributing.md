@@ -42,4 +42,4 @@ We actively welcome your pull requests.
 ## License <a class="toc" id="toc-license" href="#toc-license"></a>
 
 By contributing to Yarn, you agree that your contributions will be licensed
-under its BSD license.
+under its [BSD license](https://github.com/yarnpkg/yarn/blob/master/LICENSE).
