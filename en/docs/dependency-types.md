@@ -63,5 +63,14 @@ and you have a fallback plan in case they are not installed (e.g. Watchman).
 
 ##### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
-<!-- [TODO: Explain bundledDependencies in relation to other types] -->
-<!-- Array of package names that will be bundled when publishing the package. -->
+Array of package names that will be bundled when publishing the package.
+
+Bundled dependencies should be inside your project. So the functionality is basically the same as normal dependencies. They will also be packed when running `yarn pack`.
+
+Normal dependencies are usually installed from npm. Not bundled dependencies. Thus bundled dependencies are useful where normal dependencies are not:
+
+- When you want to re-use a third party library that doesn't come from npm or that you modified
+- When you want to re-use your own projects as modules
+- When you want to distribute some files with your module
+
+
