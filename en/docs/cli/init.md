@@ -73,3 +73,25 @@ question license (BSD-2-Clause):
 success Saved package.json
 ✨  Done in 121.53s.
 ```
+
+##### `yarn init --yes/-y` <a class="toc" id="toc-yarn-init-yes-y" href="#toc-yarn-init-yes-y"></a>
+
+This command skips the interactive session mentioned above and generates a `package.json` based on your defaults. Some defaults may be modified changing `init-*` config settings like mentioned above. For example, given a fresh install of Yarn and inside a `yarn-example` directory:
+
+```sh
+$ yarn init --yes
+warning The yes flag has been set. This will automatically answer yes to all questions which may have security implications.
+success Saved package.json
+✨  Done in 0.09s.
+```
+
+Which produces the following `package.json`:
+
+```js
+{
+  "name": "yarn-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
+```
