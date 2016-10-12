@@ -33,3 +33,12 @@ Then you can simply:
 ```sh
 sudo yum install yarn
 ```
+
+### Arch Linux
+
+On Arch Linux yarn can be installed through the **AUR**.
+
+If you use an [AUR Helper](https://wiki.archlinux.org/index.php/AUR_helpers) such as yaourt you can simply run: 
+```sh
+yaourt -S yarn
+```
