@@ -128,6 +128,7 @@ docs_cli_run: yarn run
 docs_cli_self_update: yarn self-update
 docs_cli_tag: yarn tag
 docs_cli_team: yarn team
+docs_cli_test: yarn test
 docs_cli_unlink: yarn unlink
 docs_cli_upgrade: yarn upgrade
 docs_cli_version: yarn version
