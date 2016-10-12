@@ -130,7 +130,7 @@ The homepage is the URL to the landing page or documentation for your package.
 
 ```json
 {
-  "bugs": "https://gitlub.com/user/repo/issues"
+  "bugs": "https://github.com/user/repo/issues"
 }
 ```
 
@@ -140,7 +140,7 @@ The URL to your project's issue tracker. This can also be something like an emai
 
 ```json
 {
-  "repository": { "type": "git", "url": "https://gitlub.com/user/repo.git" },
+  "repository": { "type": "git", "url": "https://github.com/user/repo.git" },
   "repository": "github:user/repo",
   "repository": "gitlab:user/repo",
   "repository": "bitbucket:user/repo",

@@ -173,10 +173,10 @@ following fields to your `package.json`:
 
 ```json
 {
-  "homepage": "https://gitlub.com/username/my-new-project",
-  "bugs": "https://gitlub.com/username/my-new-project/issues",
+  "homepage": "https://github.com/username/my-new-project",
+  "bugs": "https://github.com/username/my-new-project/issues",
   "repository": {
-    "url": "https://gitlub.com/username/my-new-project",
+    "url": "https://github.com/username/my-new-project",
     "type": "git"
   }
 }
