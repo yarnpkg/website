@@ -22,7 +22,7 @@ at various times:
   **backwards-compatible**
 
 > **Note:** There are also sometimes "labels" or "extensions" to the semver
-> format that mark things like pre-releases or betas (i.e. `2.0.0-beta.3`)
+> format that mark things like pre-releases or betas (e.g. `2.0.0-beta.3`)
 
 When developers talk about two semver versions being "compatible" with one
 another they are referring to the **backwards-compatible** changes (`minor` and
@@ -82,7 +82,7 @@ means _"Less than `2.0.0` **or** greater than `3.1.4`"_.
 
 #### Pre-release tags <a class="toc" id="toc-pre-release-tags" href="#toc-pre-release-tags"></a>
 
-Versions can also have **pre-release tags** (i.e. `3.1.4-beta.2`). If a
+Versions can also have **pre-release tags** (e.g. `3.1.4-beta.2`). If a
 comparator includes a version with a pre-release tag it will only match against
 versions that have the same `major.minor.patch` version.
 
@@ -98,8 +98,8 @@ behavior is useful.
 
 ##### Hyphen Ranges <a class="toc" id="toc-hyphen-ranges" href="#toc-hyphen-ranges"></a>
 
-Hyphen ranges (i.e. `2.0.0 - 3.1.4`) specify an _inclusive_ set. If part of the
-version is left out (i.e. `0.4` or `2`) then they are filled in with zeroes.
+Hyphen ranges (e.g. `2.0.0 - 3.1.4`) specify an _inclusive_ set. If part of the
+version is left out (e.g. `0.4` or `2`) then they are filled in with zeroes.
 
 | Version range   | Expanded version range |
 | --------------- | ---------------------- |
