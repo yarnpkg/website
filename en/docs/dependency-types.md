@@ -6,8 +6,8 @@ layout: guide
 
 Dependencies serve many different purposes. Some dependencies are needed to
 build your project, others are needed when your running your program. As such
-there are a number of different types of dependencies that you can have (i.e.
-`dependencies`, `devDependencies`, or `peerDependencies`).
+there are a number of different types of dependencies that you can have (e.g.
+`dependencies`, `devDependencies`, and `peerDependencies`).
 
 Your `package.json` will contain all of these dependencies:
 
@@ -35,12 +35,12 @@ are important to understand.
 ##### `dependencies` <a class="toc" id="toc-dependencies" href="#toc-dependencies"></a>
 
 These are your normal dependencies, or rather ones that you need when running
-your code (i.e. React or ImmutableJS).
+your code (e.g. React or ImmutableJS).
 
 ##### `devDependencies` <a class="toc" id="toc-devdependencies" href="#toc-devdependencies"></a>
 
 These are your development dependencies. Dependencies that you need at some
-point in the development workflow but not while running your code (i.e. Babel
+point in the development workflow but not while running your code (e.g. Babel
 or Flow).
 
 ##### `peerDependencies` <a class="toc" id="toc-peerdependencies" href="#toc-peerdependencies"></a>
@@ -59,7 +59,7 @@ Optional dependencies are just that: optional. If they fail to install, Yarn
 will still say the install process was successful.
 
 This is useful for dependencies that won't necessarily work on every machine
-and you have a fallback plan in case they are not installed (i.e. Watchman).
+and you have a fallback plan in case they are not installed (e.g. Watchman).
 
 ##### `bundledDependencies` <a class="toc" id="toc-bundleddependencies" href="#toc-bundleddependencies"></a>
 
