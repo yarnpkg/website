@@ -12,21 +12,21 @@ please read the [code of conduct]({{url_base}}/org/code-of-conduct).
 ## Building <a class="toc" id="toc-building" href="#toc-building"></a>
 
 ```sh
-npm run build
+yarn run build
 ```
 
 ```sh
-npm run watch
+yarn run watch
 ```
 
 ## Testing <a class="toc" id="toc-testing" href="#toc-testing"></a>
 
 ```sh
-npm run test
+yarn run test
 ```
 
 ```sh
-npm run lint
+yarn run lint
 ```
 
 ## Pull Requests <a class="toc" id="toc-pull-requests" href="#toc-pull-requests"></a>
