@@ -11,7 +11,7 @@ layout: guide
   community.
 </p>
 
-Yarn is a community run project with sponsored contributions form a number of
+Yarn is a community run project with sponsored contributions from a number of
 companies. Anyone can get involved and contribute to Yarn, and we're committed
 to creating an open and inclusive community for everyone.
 
