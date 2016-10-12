@@ -64,7 +64,7 @@
 
 .hero-prompt {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   text-shadow: 2px 3px $yarn-blue-darkest;
   margin-bottom: 1rem;
@@ -139,19 +139,23 @@
   }
 
   .hero-prompt {
-    margin: 1rem 0;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    margin-bottom: 0;
   }
 }
 
 @include media-breakpoint-up('lg') {
+  .hero {
+    padding: 5rem 0;
+  }
+
   .hero-title {
     font-size: 4em;
   }
 
   .hero-prompt {
-    margin: 0.4rem 0;
-    font-size: 3rem;
+    font-size: 2.2rem;
+    margin-bottom: 0;
   }
 
   .hero-ghbtn {
@@ -165,7 +169,7 @@
   }
 
   .hero-prompt {
-    margin: 0;
-    font-size: 3.4rem;
+    font-size: 3rem;
+    margin-bottom: 0;
   }
 }
