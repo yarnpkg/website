@@ -108,6 +108,9 @@
   - id: docs_cli_team
     path: /docs/cli/team
     tags: ["cli-team"]
+  - id: docs_cli_test
+    path: /docs/cli/test
+    tags: ["cli-test"]
   - id: docs_cli_unlink
     path: /docs/cli/unlink
     tags: ["cli-unlink"]
