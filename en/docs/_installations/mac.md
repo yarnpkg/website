@@ -13,8 +13,6 @@ brew update
 brew install yarn
 ```
 
-{% include_relative _installations/tarball.md %}
-
 #### Path Setup
 
 {% include_relative _installations/unix_path_setup.md %}
