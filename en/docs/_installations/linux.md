@@ -42,3 +42,10 @@ If you use an [AUR Helper](https://wiki.archlinux.org/index.php/AUR_helpers) suc
 ```sh
 yaourt -S yarn
 ```
+
+### Solus
+
+On Solus, you can install yarn via the Solus repository.
+```sh
+sudo eopkg install yarn
+```
