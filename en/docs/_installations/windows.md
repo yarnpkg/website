@@ -16,6 +16,3 @@ If you use the installer you will first need to install
 ##### Install via Chocolatey
 
 A Chocolatey package is coming soon!
-
-**Note:** Yarn is currently incompatible with installation via Ubuntu on Windows awaiting a resolution to 
-<a href="https://github.com/Microsoft/BashOnWindows/issues/468">468</a>
