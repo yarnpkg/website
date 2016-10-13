@@ -41,3 +41,13 @@ Remove a user from a team they belong to.
 ##### `yarn team ls <scope>|<scope:team>` <a class="toc" id="toc-yarn-team-ls" href="#toc-yarn-team-ls"></a>
 
 If performed on an organization name, will return a list of existing teams under that organization. If performed on a team, it will instead return a list of all users belonging to that particular team.
+
+### Details
+
+yarn team always operates directly on the current registry, configurable from the command line using `--registry=<registry url>`.
+
+In order to create teams and manage team membership, you _must be a team admin_ under the given organization. Listing teams and team memberships may be done by any member of the organizations.
+
+Organization creation and management of team admins and organization members is done through the npm website, not the CLI.
+
+To use teams to manage permissions on packages belonging to your organization, use the yarn access command to grant or revoke the appropriate permissions.
