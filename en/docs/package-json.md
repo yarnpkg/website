@@ -260,12 +260,14 @@ Your package can include runnable scripts or other configuration.
 ```json
 {
   "scripts": {
-    "do-something": "node doSomething.js"
+    "build-project": "node build-project.js"
   }
 }
 ```
 
-If your project `yarn run <script>`, use this to define the name of those scripts and their location.
+Scripts are a great way of automating tasks related to your package, such as simple build processes or development tools. Using the `"scripts"` field, you can define various scripts to be run as `yarn run <script>`. For example, the `build-project` script above can be invoked with `yarn run build-project` and will run `node build-project.js`.
+
+Certain script names are special. If defined, the `preinstall` script is called by yarn before your package is installed. For compatibility reasons, scripts called `install`, `postinstall`, and `prepublish` will all be called after your package has finished installing.
 
 ### `config` <a class="toc" id="toc-config" href="#toc-config"></a>
 
