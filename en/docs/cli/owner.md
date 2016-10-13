@@ -8,7 +8,7 @@ layout: guide
 
 ### What is a package owner? <a class="toc" id="toc-what-is-a-package-owner" href="#toc-what-is-a-package-owner"></a>
 
-An package "owner" in the registry is a user that has access to make changes to
+A package "owner" in the registry is a user that has access to make changes to
 a package. A single package can have as many owners as you want.
 
 Owners have permission to do the following tasks:
