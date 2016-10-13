@@ -1,8 +1,8 @@
 #### Installation Script
 
-The easiest way to install Yarn on macOS and generic Unix environments is via
-our shell script. You can install Yarn by running the following code in your
-terminal:
+One of the easiest ways to install Yarn on macOS and generic Unix environments
+is via our shell script. You can install Yarn by running the following code in
+your terminal:
 
 ```sh
 curl -o- -L https://yarnpkg.com/install.sh | bash
