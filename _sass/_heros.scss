@@ -50,10 +50,10 @@
 
 .hero-title {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
   z-index: 1;
   font-size: 2.5em;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
   text-shadow: 2px 3px $yarn-blue-darkest;
 }
@@ -64,16 +64,21 @@
 
 .hero-prompt {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
   text-shadow: 2px 3px $yarn-blue-darkest;
   margin-bottom: 1rem;
 }
 
 .hero-btn {
   @include button-outline-variant($yarn-blue-darkest);
-  @include button-size($btn-padding-y-lg * 1.5, $btn-padding-x-lg * 2, $font-size-lg * 1.5, $btn-border-radius-lg);
+  @include button-size($btn-padding-y-lg * 1.5, $btn-padding-x-lg * 1.5, $font-size-lg * .8, $btn-border-radius-lg);
   color: white;
   border-width: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
 
   @include hover {
     color: $yarn-blue;
@@ -110,9 +115,14 @@
     text-shadow: 5px 5px $yarn-blue-darkest;
   }
 
+  .hero-text {
+    text-shadow: 5px 5px $yarn-blue-darkest;
+  }
+
   .hero-prompt {
     font-size: 2.8rem;
     margin: 0 0 1.3rem;
+    text-shadow: 5px 5px $yarn-blue-darkest;
   }
 
   .hero-btn + .hero-btn {
@@ -133,19 +143,23 @@
   }
 
   .hero-prompt {
-    margin: 1rem 0;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    margin-bottom: 0;
   }
 }
 
 @include media-breakpoint-up('lg') {
+  .hero {
+    padding: 5rem 0;
+  }
+
   .hero-title {
     font-size: 4em;
   }
 
   .hero-prompt {
-    margin: 0.4rem 0;
-    font-size: 3rem;
+    font-size: 2.2rem;
+    margin-bottom: 0;
   }
 
   .hero-ghbtn {
@@ -159,7 +173,7 @@
   }
 
   .hero-prompt {
-    margin: 0;
-    font-size: 3.4rem;
+    font-size: 3rem;
+    margin-bottom: 0;
   }
 }
