@@ -3,7 +3,7 @@
 You will need to first
 [install Node.js](https://nodejs.org/) if you don't already have it installed.
 
-#### Brew
+#### Homebrew
 
 You can install Yarn through the [Homebrew package manager](http://brew.sh/).
 This will also install Node.js if it is not already installed.
