@@ -347,6 +347,18 @@ Optional dependencies can be used with your package, but are not required. If th
 
 Bundled dependencies are an array of package names that will be bundled together when publishing your package.
 
+### `flat` <a class="toc" id="toc-flat" href="#toc-flat"></a>
+
+```json
+{
+  "flat": true
+}
+```
+
+If your package only allows one version of a given dependency, and you'd like to enforce the same behavior as [`yarn install --flat`]({{url_base}}/docs/cli/install#toc-yarn-install-flat) on the command line, set this to `true`.
+
+Note that if your `package.json` contains `"flat": true` and other packages depend on yours (e.g. you are building a library rather than an application), those other packages will also need `"flat": true` in their `package.json` or be installed with `yarn install --flat` on the command line.
+
 ## System <a class="toc" id="toc-system" href="#toc-system"></a>
 
 You can provide system-level information associated with your package, such as operating system compatibility, etc.
