@@ -65,12 +65,10 @@ and you have a fallback plan in case they are not installed (e.g. Watchman).
 
 Array of package names that will be bundled when publishing the package.
 
-Bundled dependencies should be inside your project. So the functionality is basically the same as normal dependencies. They will also be packed when running `yarn pack`.
+Bundled dependencies should be inside your project. The functionality is basically the same as normal dependencies. They will also be packed when running `yarn pack`.
 
-Normal dependencies are usually installed from npm. Not bundled dependencies. Thus bundled dependencies are useful where normal dependencies are not:
+Normal dependencies are usually installed from the npm registry. Bundled dependencies are useful in cases normal dependencies are not sufficient:
 
-- When you want to re-use a third party library that doesn't come from npm or that you modified
-- When you want to re-use your own projects as modules
-- When you want to distribute some files with your module
-
-
+- When you want to re-use a third party library that doesn't come from the npm registry or that was modified.
+- When you want to re-use your own projects as modules.
+- When you want to distribute some files with your module.
