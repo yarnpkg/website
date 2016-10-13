@@ -77,9 +77,7 @@ yarn add package-3@beta
 ### Upgrading a dependency <a class="toc" id="toc-upgrading-a-dependency" href="#toc-upgrading-a-dependency"></a>
 
 ```sh
-yarn upgrade [package]
-yarn upgrade [package]@[version]
-yarn upgrade [package]@[dist-tag]
+yarn upgrade
 ```
 
 This will upgrade your `package.json` and your `yarn.lock` file.
