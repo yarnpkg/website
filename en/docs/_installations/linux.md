@@ -49,3 +49,7 @@ On Solus, you can install yarn via the Solus repository.
 ```sh
 sudo eopkg install yarn
 ```
+
+### Path Setup
+
+{% include_relative _installations/unix_path_setup.md %}
