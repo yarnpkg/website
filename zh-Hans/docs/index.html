@@ -1,0 +1,33 @@
+---
+id: docs_index
+layout: page
+---
+
+{% include vars.html %}
+
+{% assign guides_size = site.data.guides | size | minus: 1 %}
+
+{% for index in (0..guides_size) %}
+  {% assign index_mod = index | modulo: 3 %}
+
+  {% if index_mod == 0 %}
+    <div class="row">
+  {% endif %}
+
+  {% assign guide = site.data.guides[index] %}
+  <div class="col-lg-4">
+    <a class="card" href="{{url_base}}{{guide.pages[0].path}}">
+      <div class="card-block">
+        <h4 class="card-title">{{i18n[guide.title]}}</h4>
+        <p class="card-text text-muted">
+          {{i18n[guide.description]}}
+          <span class="pull-xs-right text-primary">Read more</span>
+        </p>
+      </div>
+    </a>
+  </div>
+
+  {% if index_mod == 2 %}
+    </div>
+  {% endif %}
+{% endfor %}
