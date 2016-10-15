@@ -1,3 +1,4 @@
+
 ### Windows
 
 There are two options for installing Yarn on Windows.
@@ -23,3 +24,7 @@ A Chocolatey package is coming soon!
 #### Path Setup
 
 {% include_relative _installations/windows_path_setup.md %}
+
+#### Notice
+
+Please put the path of your project folder and global cache folder, which is `%Appdata%\local\Yarn` by default, in the whitelist of anti-virus software, including **Windows Defender**. Otherwise they would dramatically slow down your speed of installation by scanning each file while writing dependencies into your disk.
