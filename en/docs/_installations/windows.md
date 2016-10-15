@@ -12,10 +12,20 @@ If you use the installer you will first need to install
 
 <a class="btn btn-primary" href="/latest.msi">Download Installer</a>
 
-
 #### Install via Chocolatey
 
-A Chocolatey package is coming soon!
+[Chocolatey](https://chocolatey.org/) is a package manager for Windows, you can
+install Chocolatey by following
+[these instructions](https://chocolatey.org/install).
+
+Once you have Chocolatey installed, you may install yarn by running the
+following code in your console:
+
+```sh
+choco install yarn
+```
+
+This will also ensure that you have [Node.js](https://nodejs.org/) installed.
 
 **Note:** Yarn is currently incompatible with installation via Ubuntu on Windows awaiting a resolution to 
 <a href="https://github.com/Microsoft/BashOnWindows/issues/468">468</a>
