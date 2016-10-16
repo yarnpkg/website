@@ -212,3 +212,10 @@ install_problems_description: >
   through GitHub for an existing issue or open a new one.
 install_problems_search: Search for an existing issue
 install_problems_new_issue: Open a new issue
+
+docs_install_ci: Continuous Integration
+ci_intro: >
+  Yarn can easily be used in various continuous integration systems:
+ci_circle: CircleCI
+ci_travis: Travis
+ci_appveyor: AppVeyor

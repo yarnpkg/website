@@ -25,6 +25,8 @@
     path: /docs/installing-dependencies
   - id: docs_version_control
     path: /docs/version-control
+  - id: docs_install_ci
+    path: /docs/install_ci
 
 - id: docs_cli
   title: docs_cli_title
