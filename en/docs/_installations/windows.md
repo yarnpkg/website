@@ -27,4 +27,4 @@ A Chocolatey package is coming soon!
 
 #### Notice
 
-Please put the path of your project folder and global cache folder, which is `%Appdata%\local\Yarn` by default, in the whitelist of anti-virus software, including **Windows Defender**. Otherwise they would dramatically slow down your speed of installation by scanning each file while writing dependencies into your disk.
+Please whitelist your project folder and the Yarn cache directory (%LocalAppData%\Yarn) in your antivirus software, otherwise installing packages will be significantly slower as every single file will be scanned as it's written to disk.
