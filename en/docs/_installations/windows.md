@@ -1,3 +1,4 @@
+
 ### Windows
 
 There are two options for installing Yarn on Windows.
@@ -33,3 +34,7 @@ This will also ensure that you have [Node.js](https://nodejs.org/) installed.
 #### Path Setup
 
 {% include_relative _installations/windows_path_setup.md %}
+
+#### Notice
+
+Please whitelist your project folder and the Yarn cache directory (%LocalAppData%\Yarn) in your antivirus software, otherwise installing packages will be significantly slower as every single file will be scanned as it's written to disk.
