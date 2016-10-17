@@ -1,0 +1,34 @@
+---
+id: docs_install_ci
+guide: docs_yarn_workflow
+layout: guide
+---
+
+{% include vars.html %}
+
+{{i18n.ci_intro}}
+
+{% capture travis   %}{% include_relative _ci/travis.md   %}{% endcapture %}
+{% capture appveyor %}{% include_relative _ci/appveyor.md %}{% endcapture %}
+{% capture circle   %}{% include_relative _ci/circle.md   %}{% endcapture %}
+
+<div class="tabs">
+  <div class="nav nav-tabs bg-faded text-xs-center">
+    <ul class="nav navbar-nav nav-inline">
+      <a id="appveyor-tab" class="nav-item nav-link" data-toggle="tab" href="#appveyor">{{i18n.ci_appveyor}}</a>
+      <a id="circle-tab" class="nav-item nav-link" data-toggle="tab" href="#circle">{{i18n.ci_circle}}</a>
+      <a id="travis-tab" class="nav-item nav-link" data-toggle="tab" href="#travis">{{i18n.ci_travis}}</a>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <div id="select-platform" class="tab-pane bg-faded active">
+      <p class="text-xs-center m-y-2 text-muted">
+        {{i18n.ci_select_platform}}
+      </p>
+    </div>
+    <div class="tab-pane" id="appveyor">{{ appveyor | markdownify }}</div>
+    <div class="tab-pane" id="circle">{{ circle | markdownify }}</div>
+    <div class="tab-pane" id="travis">{{ travis | markdownify }}</div>
+  </div>
+</div>
