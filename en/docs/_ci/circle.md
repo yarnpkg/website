@@ -11,5 +11,3 @@ depenencies:
   cache_directories:
     - "~/.yarn-cache"
 ```
-
-This will also save the Yarn cache directory across builds, to make your builds faster.

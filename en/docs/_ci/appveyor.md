@@ -7,5 +7,3 @@ install:
 cache:
  - "%LOCALAPPDATA%/Yarn"
 ```
-
-This will also save the Yarn cache directory across builds, to make your builds faster.
