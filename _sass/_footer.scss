@@ -2,6 +2,14 @@
 
 }
 
+@include media-breakpoint-down('xs') {
+  .footer-right {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $gray-lighter
+  }
+}
+
 @include media-breakpoint-up('sm') {
   .footer-left {
     float: left;
@@ -13,11 +21,9 @@
   }
 }
 
-@include media-breakpoint-down('xs') {
-  .footer-right {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid $gray-lighter
+@include media-breakpoint-down('md') {
+  .footer-item {
+    display: block;
   }
 }
 
@@ -29,8 +35,8 @@
   }
 }
 
-@include media-breakpoint-down('md') {
-  .footer-item {
-    display: block;
+@include media-breakpoint-up('xl') {
+  .footer {
+    margin-top: -2.5rem;
   }
 }
