@@ -8,17 +8,7 @@ layout: guide
 
 ##### `yarn team` <a class="toc" id="toc-yarn-team" href="#toc-yarn-team"></a>
 
-yarn team is a prefix used for a number of commands create destroy, add, rm and ls
-
-These are to manage teams in organizations, and change team memberships. yarn team does not handle permissions for packages.
-
-Teams must always be fully qualified with the organization/scope they belong to when operating on them, separated by a colon (:). That is, if you have a developers team on a foo organization, you must always refer to that team as foo:developers in these commands.
-
-### What is a team? <a class="toc" id="toc-what-is-a-team" href="#toc-what-is-a-team"></a>
-
-Teams are sets of users that have access to a certain scope within the Organization.
-
-Organizations allow you to manage and monitor access to both new and pre-existing public and private packages through the use of teams
+Manage teams in organizations, and change team memberships. 
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
@@ -42,7 +32,7 @@ Remove a user from a team they belong to.
 
 If performed on an organization name, will return a list of existing teams under that organization. If performed on a team, it will instead return a list of all users belonging to that particular team.
 
-### Details
+### Details <a class="toc" id="toc-yarn-team-details" href="#toc-yarn-team-details"></a>
 
 yarn team always operates directly on the current registry, configurable from the command line using `--registry=<registry url>`.
 
