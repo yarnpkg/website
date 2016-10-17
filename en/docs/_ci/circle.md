@@ -1,7 +1,7 @@
 On [CircleCI](https://circleci.com/), you can install Yarn as part of your build by adding this to your `circle.yml` file:
 
 ```yml
-depenencies:
+dependencies:
   pre:
     # Install Yarn
     - sudo apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
