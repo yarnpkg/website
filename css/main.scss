@@ -3,15 +3,23 @@
 ---
 @charset "utf-8";
 
-$yarn-blue: #2C8EBB;
-$yarn-blue-dark: #2188b6;
-$yarn-blue-darker: #1b7eab;
+$yarn-blue:         #2C8EBB;
+$yarn-blue-dark:    #2188b6;
+$yarn-blue-darker:  #1b7eab;
 $yarn-blue-darkest: #1476A2;
+
+$text-muted:    #52585e;
+$text-muted-er: #6d767d;
+
+$navbar-light-color:          rgba(0,0,0,.6);
+$navbar-light-hover-color:    rgba(0,0,0,.7);
+$navbar-light-active-color:   rgba(0,0,0,.8);
+$navbar-light-disabled-color: rgba(0,0,0,.3);
 
 $brand-primary: $yarn-blue;
 $progress-bar-color: $brand-primary;
 
-$navbar-light-color: rgba(0, 0, 0, 0.4);
+$link-color: saturate(darken($brand-primary, 8%), 20%);
 
 $npm-red: #C12127;
 
