@@ -28,13 +28,6 @@ choco install yarn
 
 This will also ensure that you have [Node.js](https://nodejs.org/) installed.
 
-**Note:** Yarn is currently incompatible with installation via Ubuntu on Windows awaiting a resolution to 
-<a href="https://github.com/Microsoft/BashOnWindows/issues/468">468</a>
-
-#### Path Setup
-
-{% include_relative _installations/windows_path_setup.md %}
-
 #### Notice
 
 Please whitelist your project folder and the Yarn cache directory (%LocalAppData%\Yarn) in your antivirus software, otherwise installing packages will be significantly slower as every single file will be scanned as it's written to disk.
