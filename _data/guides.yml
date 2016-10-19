@@ -38,6 +38,7 @@
   - id: docs_cli_add
     path: /docs/cli/add
     tags: ["cli-add"]
+    description: docs_cli_add_description
   - id: docs_cli_bin
     path: /docs/cli/bin
     tags: ["cli-bin"]
@@ -107,6 +108,7 @@
   - id: docs_cli_tag
     path: /docs/cli/tag
     tags: ["cli-tag"]
+    description: docs_cli_tag_description
   - id: docs_cli_team
     path: /docs/cli/team
     tags: ["cli-team"]
@@ -155,6 +157,8 @@
     path: /docs/dependency-types
   - id: docs_dependency_versions
     path: /docs/dependency-versions
+    tags: ["dependencies-versions"]
+    description: docs_dependency_versions_description
 
 - id: docs_configuration
   title: docs_configuration_title

@@ -2,6 +2,7 @@
 id: docs_cli_upgrade
 guide: docs_cli
 layout: guide
+additional_reading_tags: ["cli-add", "cli-tag", "dependencies-versions"]
 ---
 
 <p class="lead">Upgrades packages to their latest version based on the specified range.</p>
@@ -111,8 +112,3 @@ Similarly, using the `latest` tag will result in an updated `package.json` that 
 +  "react": "latest",
 ```
 
-Also see:
-
-- [`yarn add`](./add): add a package to use in your current package.
-- [`yarn tag`](./tag#toc-what-are-tags): What are tags?
-- [Versions of dependencies](../dependency-versions#toc-semantic-versioning): Semantic versioning
