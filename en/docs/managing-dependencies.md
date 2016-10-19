@@ -79,7 +79,7 @@ yarn add package-3@beta
 ```sh
 yarn upgrade [package]
 yarn upgrade [package]@[version]
-yarn upgrade [package]@[dist-tag]
+yarn upgrade [package]@[tag]
 ```
 
 This will upgrade your `package.json` and your `yarn.lock` file.
