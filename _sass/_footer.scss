@@ -2,6 +2,10 @@
 
 }
 
+.footer-divider {
+  margin: 3rem 0;
+}
+
 @include media-breakpoint-down('xs') {
   .footer-right {
     margin-top: 1rem;
@@ -32,11 +36,5 @@
     padding-left: .25em;
     padding-right: .25em;
     content: " · ";
-  }
-}
-
-@include media-breakpoint-up('xl') {
-  .footer {
-    margin-top: -2.5rem;
   }
 }
