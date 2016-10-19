@@ -30,7 +30,7 @@ another they are referring to the **backwards-compatible** changes (`minor` and
 
 ## Version ranges <a class="toc" id="toc-version-ranges" href="#toc-version-ranges"></a>
 
-When you want to specify a dependency you specify it's name and a
+When you want to specify a dependency you specify its name and a
 **version range** in your `package.json` like one of these:
 
 ```json
