@@ -61,7 +61,9 @@ all of your dependencies locally so that they are explicit and anyone else
 using your project gets the same set of dependencies.
 
 If you are trying to use a CLI tool that has a `bin` you can access these in
-your `./node_modules/.bin` directory.
+your `./node_modules/.bin` directory. You can also use the [`global`]({{url_base}}/docs/cli/global) command
+
+`yarn global add <package...>`
 
 ##### `yarn add <package...>` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
 
