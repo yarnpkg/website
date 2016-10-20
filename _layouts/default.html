@@ -1,6 +1,6 @@
 {% include vars.html %}
 <!doctype html>
-<html lang="{{vars_active_language.tag}}">
+<html lang="{% if vars_active_language.tag %}{{vars_active_language.tag}}{% else %}en{% endif %}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,15 +15,11 @@
     <title>{% if page.id %}{{ i18n[page.id] }} | {{ i18n.site_title }}{% else %}{{ i18n.site_title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ i18n.site_description }}{% endif %}">
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-
     <link rel="icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
 
-    {% comment %}
-    For Algolia search
-    {% endcomment %}
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
   </head>
   <body>
