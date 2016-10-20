@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
   </head>
   <body>
+    {% include debug/url.html url=page.url %}
     {% include debug/todo.html content=page.content %}
 
     {% include navigation.html %}

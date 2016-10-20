@@ -1,0 +1,29 @@
+{% assign shouldRender = false %}
+
+{% if jekyll.environment == "development" %}
+  {% assign shouldRender = true %}
+{% endif %}
+
+{% if include.forceRender %}
+  {% assign shouldRender = true %}
+{% endif %}
+
+{% if shouldRender %}
+  {% if include.url contains "_" %}
+    <div class="alert alert-danger">
+      <h4>Yarn Website Internal Developer Info!</h4>
+
+      <p>
+        This page has an incorrectly formatted url. Underscores (_) are not
+        allowed inside urls, use dashes instead.
+      </p>
+
+      <pre><code>{{include.url}}</code></pre>
+
+      <p>
+        If you believe you are seeing this warning by mistake, please open
+        an issue.
+      </p>
+    </div>
+  {% endif %}
+{% endif %}

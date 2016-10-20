@@ -220,6 +220,7 @@ ci_intro: >
   Yarn can easily be used in various continuous integration systems. To speed up
   builds, the the Yarn cache directory can be saved across builds.
 ci_select_platform: Select the continuous integration system you're using from the options above
-ci_circle: CircleCI
-ci_travis: Travis
 ci_appveyor: AppVeyor
+ci_circle: CircleCI
+ci_codeship: Codeship
+ci_travis: Travis

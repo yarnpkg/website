@@ -10,6 +10,8 @@ layout: null
 /latest.rpm    https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-{{site.latest_version}}-1.noarch.rpm 302
 /install.sh    https://raw.githubusercontent.com/yarnpkg/yarn/master/scripts/install-latest.sh
 
+/en  /  302
+
 {% for language in site.data.languages %}
   {% if language.enabled %}
     {% if language.tag != "en" %}
@@ -17,5 +19,7 @@ layout: null
 /  /{{language.tag}}  302  Language={{accept_language}}
       {% endfor %}
     {% endif %}
+
+/{{language.tag}}/docs/install_ci   /{{language.tag}}/docs/install-ci  302
   {% endif %}
 {% endfor %}
