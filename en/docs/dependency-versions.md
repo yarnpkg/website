@@ -104,7 +104,7 @@ version is left out (e.g. `0.4` or `2`) then they are filled in with zeroes.
 | Version range   | Expanded version range |
 | --------------- | ---------------------- |
 | `2.0.0 - 3.1.4` | `>=2.0.0 <=3.1.4`      |
-| `0.4 - 2`       | `>=0.4.2 <=2.0.0`      |
+| `0.4 - 2`       | `>=0.4.0 <=2.0.0`      |
 
 ##### X-Ranges <a class="toc" id="toc-x-ranges" href="#toc-x-ranges"></a>
 
