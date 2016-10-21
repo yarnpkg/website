@@ -14,3 +14,4 @@ There are a few things you should know about the basic workflow:
   2. Adding/updating/removing dependencies
   3. Installing/reinstalling your dependencies
   4. Working with version control (i.e. git)
+  5. Continuous Integration
