@@ -8,7 +8,7 @@ Introducing a package manager into your project introduces a new workflow
 around dependencies. Yarn tries its best to stay out of your way and make each
 step of this workflow simple to understand.
 
-There are a couple things you should know about the basic workflow:
+There are a few things you should know about the basic workflow:
 
   1. Creating a new project
   2. Adding/updating/removing dependencies
