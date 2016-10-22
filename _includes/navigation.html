@@ -30,7 +30,8 @@
       </ul>
 
       <ul class="nav navbar-nav pull-lg-right">
-        {% unless page.url == '/blog/' %}
+        {% assign path = page.url | split: '/' %}
+        {% unless path[1] == 'blog' %}
           <li class="nav-item dropdown">
             <a id="dropdownNavLanguage" class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {% include svg/language.svg class="navbar-language" %}
