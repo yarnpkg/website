@@ -30,22 +30,24 @@
       </ul>
 
       <ul class="nav navbar-nav pull-lg-right">
-        <li class="nav-item dropdown">
-          <a id="dropdownNavLanguage" class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {% include svg/language.svg class="navbar-language" %}
-            {{vars_active_language.name}}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownNavLanguage">
-            {% for language in site.data.languages %}
-              {% if language.enabled %}
-                <a href="{{site.baseurl}}/{{language.tag}}/{{vars_url_relative}}"
-                  class="dropdown-item{% if vars_active_language.tag == language.tag %} active{% endif %}">
-                  {{language.name}}
-                </a>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </li>
+        {% unless page.url == '/blog/' %}
+          <li class="nav-item dropdown">
+            <a id="dropdownNavLanguage" class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {% include svg/language.svg class="navbar-language" %}
+              {{vars_active_language.name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownNavLanguage">
+              {% for language in site.data.languages %}
+                {% if language.enabled %}
+                  <a href="{{site.baseurl}}/{{language.tag}}/{{vars_url_relative}}"
+                    class="dropdown-item{% if vars_active_language.tag == language.tag %} active{% endif %}">
+                    {{language.name}}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </li>
+        {% endunless %}
 
         <li class="nav-item">
           <a class="nav-link" href="https://discord.gg/yarnpkg">Discord</a>
