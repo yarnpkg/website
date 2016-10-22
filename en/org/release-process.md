@@ -13,7 +13,7 @@ layout: guide
 5. Bump `latest_version` in [_config.yml on the website](https://github.com/yarnpkg/website/blob/master/_config.yml#L9). This updates the download URLs (`/latest.tar.gz` etc) to point to the new release. This will eventually be automated ([#187](https://github.com/yarnpkg/website/issues/187))
 6. Debian and CentOS repo should be automatically updated with the latest release within 5 minutes (keep an eye on [the commits](https://github.com/yarnpkg/releases/commits/gh-pages))
 
-TODO: Instructions for updating Chocolatey should go here - Currrently Daniel does that manually
+<!-- [TODO: Instructions for updating Chocolatey should go here - Currrently Daniel does that manually] -->
 
 ## To patch existing version of Yarn <a class="toc" id="toc-to-patch-existing-version-of-yarn" href="#toc-to-patch-existing-version-of-yarn"></a>
 
