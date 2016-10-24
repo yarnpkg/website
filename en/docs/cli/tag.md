@@ -1,6 +1,7 @@
 ---
 id: docs_cli_tag
 guide: docs_cli
+description: docs_cli_tag_description
 layout: guide
 ---
 

@@ -22,6 +22,9 @@
       {% if page.tags contains tag %}
   <a class="list-group-item list-group-item-action" href="{{url_base}}{{page.path}}">
     <h5 class="list-group-item-heading">{{i18n[page.id]}}</h5>
+        {% if page.description %}
+    <p class="list-group-item-text text-muted">{{i18n[page.description]}}</p>
+        {% endif %}
   </a>
         {% break %}
       {% endif %}

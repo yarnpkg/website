@@ -1,6 +1,7 @@
 ---
 id: docs_dependency_versions
 guide: docs_dependencies
+description: docs_dependency_versions_description
 layout: guide
 ---
 

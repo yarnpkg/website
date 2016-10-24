@@ -2,6 +2,7 @@
 id: docs_cli_add
 guide: docs_cli
 layout: guide
+description: docs_cli_add_description
 additional_reading_tags: ["dependencies"]
 ---
 
