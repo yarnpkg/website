@@ -6,7 +6,7 @@ layout: guide
 
 <p class="lead">Publishes a package to the npm registry.</p>
 
-Once a package is published, you can never modify that specific version, so take care before publishing.
+Once a package is published, you can never modify that specific version, so take care before publishing. During publishing `yarn publish` will ask you for a new version.
 
 ##### `yarn publish` <a class="toc" id="toc-yarn-publish" href="#toc-yarn-publish"></a>
 
@@ -27,3 +27,7 @@ Provided a tag to `yarn publish` lets you publish packages with a specific tag. 
 ##### `yarn publish --access <public|restricted>` <a class="toc" id="toc-yarn-publish-access" href="#toc-yarn-publish-access"></a>
 
 The `--access` flag controls whether the npm registry publishes this package as a public package, or restricted.
+
+##### `yarn publish --new-version <version>` <a class="toc" id="toc-yarn-publish-new-version" href="#toc-yarn-publish-new-version"></a>
+
+Updates the package to the specified version. The same as [`yarn version --new-version <version>`](./version#toc-yarn-version-new-version).
