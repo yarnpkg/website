@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+{% include vars.html %}
+
 <p class="lead">Symlink a package folder during development.</p>
 
 For development, a package can be linked into another project. This is often
@@ -47,4 +49,4 @@ your local copy of the `react` project.
 
 To reverse this process, simply use `yarn unlink` or `yarn unlink [package]`. Also see:
 
-- [`yarn unlink`](./unlink): unlink a linked package.
+- [`yarn unlink`]({{url_base}}/docs/cli/unlink): unlink a linked package.
