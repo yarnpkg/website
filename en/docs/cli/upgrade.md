@@ -5,14 +5,21 @@ layout: guide
 additional_reading_tags: ["cli-add", "cli-tag", "dependencies-versions"]
 ---
 
+{% include vars.html %}
+
 <p class="lead">Upgrades packages to their latest version based on the specified range.</p>
 
 ##### `yarn upgrade` <a class="toc" id="toc-yarn-upgrade" href="#toc-yarn-upgrade"></a>
 
-This command updates all dependencies to their latest version based on the version range specified in the `package.json` file. The `yarn.lock` file will be recreated as well.
+This command updates all dependencies to their latest version based on the
+version range specified in the `package.json` file. The `yarn.lock` file will
+be recreated as well.
 
 ```sh
-$ yarn upgrade
+yarn upgrade
+```
+
+```
 yarn upgrade vx.x.x
 [1/4] 🔍  Resolving packages...
 [2/4] 🚚  Fetching packages...
@@ -33,10 +40,14 @@ success Saved 867 new dependencies.
 
 ##### `yarn upgrade [package]` <a class="toc" id="toc-yarn-upgrade-package" href="#toc-yarn-upgrade-package"></a>
 
-This upgrades a single named package to the version specified by the `latest` tag (potentially upgrading the package across major versions).
+This upgrades a single named package to the version specified by the `latest`
+tag (potentially upgrading the package across major versions).
 
 ```sh
-$ yarn upgrade d3-scale
+yarn upgrade d3-scale
+```
+
+```
 yarn upgrade vx.x.x
 [1/4] 🔍  Resolving packages...
 [2/4] 🚚  Fetching packages...
@@ -57,10 +68,16 @@ This will update your `package.json` to look like this:
 
 ##### `yarn upgrade [package@version]` <a class="toc" id="toc-yarn-upgrade-package-version" href="#toc-yarn-upgrade-package-version"></a>
 
-This will upgrade (or downgrade) an installed package to the specified version. You can use any semver-valid version number or range.
+This will upgrade (or downgrade) an installed package to the specified version. 
+You can use any
+[SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning) version 
+number or range.
 
 ```sh
-$ yarn upgrade d3-scale@1.0.2
+yarn upgrade d3-scale@1.0.2
+```
+
+```
 yarn upgrade vx.x.x
 [1/4] 🔍  Resolving packages...
 [2/4] 🚚  Fetching packages...
@@ -79,14 +96,19 @@ This will update your `package.json` to look like this:
 +  "d3-scale": "^1.0.2",
 ```
 
-Similarly, running
-
 ##### `yarn upgrade [package@tag]` <a class="toc" id="toc-yarn-upgrade-package-tag" href="#toc-yarn-upgrade-package-tag"></a>
 
-This will upgrade a package to the version identified by `tag`. [Tag](./tag#toc-what-are-tags) names are chosen by project maintainers, typically you use this command to install an experimental or long term support release of an actively developed pacakge. The tag you choose will be the version that appears in your `package.json` file.
+This will upgrade a package to the version identified by `tag`.
+[Tag]({{url_base}}/docs/cli/tag#toc-what-are-tags) names are chosen by project
+maintainers, typically you use this command to install an experimental or long
+term support release of an actively developed pacakge. The tag you choose will
+be the version that appears in your `package.json` file.
 
 ```sh
 yarn upgrade react@next
+```
+
+```
 yarn upgrade v0.16.0
 [1/4] 🔍  Resolving packages...
 [2/4] 🚚  Fetching packages...
@@ -98,17 +120,17 @@ success Saved 1 new dependency
 ✨  Done in 3.73s.
 ```
 
-This will update your `package.json` to look like
+This will update your `package.json` to look like:
 
 ```diff
 -  "react": "^15.3.2",
 +  "react": "next",
 ```
 
-Similarly, using the `latest` tag will result in an updated `package.json` that looks like
+Similarly, using the `latest` tag will result in an updated `package.json` that
+looks like:
 
 ```diff
 -  "react": "^15.3.2",
 +  "react": "latest",
 ```
-
