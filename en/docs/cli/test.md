@@ -44,6 +44,6 @@ $ "./scripts/test"
 Hello, world!
 ✨ Done in 0.17s.
 ```
-##### `yarn run test`
+##### `yarn run test` <a class="toc" id="toc-yarn-run-test" href="#toc-yarn-run-test"></a>
 
 `yarn test` is also a shortcut for `yarn run test`.
