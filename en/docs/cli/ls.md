@@ -12,7 +12,7 @@ layout: guide
 yarn ls
 ```
 
-```sh
+```
 yarn ls vx.x.x
 ├─ package-1@1.3.3
 ├─ package-2@5.0.9
