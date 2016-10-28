@@ -32,7 +32,7 @@ Remove a user from a team they belong to.
 
 If performed on an organization name, will return a list of existing teams under that organization. If performed on a team, it will instead return a list of all users belonging to that particular team.
 
-### Details <a class="toc" id="toc-yarn-team-details" href="#toc-yarn-team-details"></a>
+### Details <a class="toc" id="toc-details" href="#toc-details"></a>
 
 yarn team always operates directly on the current registry, configurable from the command line using `--registry=<registry url>`.
 
