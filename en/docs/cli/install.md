@@ -1,15 +1,12 @@
----
-id: docs_cli_install
-guide: docs_cli
-layout: guide
----
-
-{% include vars.html %}
-
-`yarn install` is used to install all dependencies for a project. This is most commonly used when you have just checked out code for a project, or when another developer on the project has added a new dependency that you need to pick up.
+`yarn install` is used to install all dependencies for a project. This is most
+commonly used when you have just checked out code for a project, or when
+another developer on the project has added a new dependency that you need to
+pick up.
 
 If you are used to using npm you might be expecting to use `--save` or
-`--save-dev`. These have been replaced by `yarn add` and `yarn add --dev`. For more information, see [the `yarn add` documentation]({{url_base}}/docs/cli/add).
+`--save-dev`. These have been replaced by `yarn add` and `yarn add --dev`. For
+more information, see
+[the `yarn add` documentation]({{url_base}}/docs/cli/add).
 
 ##### `yarn install` <a class="toc" id="toc-yarn-install" href="#toc-yarn-install"></a>
 
@@ -37,7 +34,11 @@ This refetches all packages, even ones that were previously installed.
 
 ##### `yarn install --har` <a class="toc" id="toc-yarn-install-har" href="#toc-yarn-install-har"></a>
 
-Outputs an [HTTP archive](https://en.wikipedia.org/wiki/.har) from all the network requests performed during the installation. HAR files are commonly used to investigate network performance, and can be analyzed with tools such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/) or [HAR Viewer](http://www.softwareishard.com/blog/har-viewer/).
+Outputs an [HTTP archive](https://en.wikipedia.org/wiki/.har) from all the
+network requests performed during the installation. HAR files are commonly used
+to investigate network performance, and can be analyzed with tools such as
+[Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/) or
+[HAR Viewer](http://www.softwareishard.com/blog/har-viewer/).
 
 ##### `yarn install --no-lockfile` <a class="toc" id="toc-yarn-install-no-lockfile" href="#toc-yarn-install-no-lockfile"></a>
 
