@@ -27,7 +27,7 @@ package-3@^3.0.0:
   resolved "https://registry.npmjs.org/package-3/-/package-3-3.1.9.tgz#a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0"
   dependencies:
     package-4 "^4.5.0"
-package-4^@4.0.0, package-4@^4.5.0:
+package-4@^4.0.0, package-4@^4.5.0:
   version "4.6.3"
   resolved "https://registry.npmjs.org/package-4/-/package-4-2.6.3.tgz#a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0"
 ```
