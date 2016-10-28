@@ -96,6 +96,6 @@ version.
 
 Creates a new version specified by `<version>`.
 
-##### `yarn version --no-git-tag-version` <a class="toc" id="toc-yarn-version-no-git-tag-version" href="#toc-yarn-version-no-git-tag-versiont"></a>
+##### `yarn version --no-git-tag-version` <a class="toc" id="toc-yarn-version-no-git-tag-version" href="#toc-yarn-version-no-git-tag-version"></a>
 
 Creates a new version without creating a git tag.
