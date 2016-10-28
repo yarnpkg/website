@@ -8,13 +8,13 @@ layout: guide
 
 ##### `yarn licenses ls` <a class="toc" id="toc-yarn-licenses-ls" href="#toc-yarn-licenses-ls"></a>
 
-Running this command will list, in alphabetical order all of the packages that were installed by `yarn` or `yarn install`, and give you the license (and URL to the source code) associated with each package.
+Running this command will list, in alphabetical order all of the packages that
+were installed by `yarn` or `yarn install`, and give you the license (and URL
+to the source code) associated with each package.
 
 ```sh
 yarn licenses ls
 ```
-
-* Example Output *
 
 ```
 yarn licenses v0.14.0
@@ -42,9 +42,7 @@ yarn licenses v0.14.0
 ├─ ansi-regex@2.0.0
 │  ├─ License: MIT
 │  └─ URL: https://github.com/sindresorhus/ansi-regex.git
-
-:
-:
+...
 ```
 
 ##### `yarn licenses generate-disclaimer` <a class="toc" id="toc-yarn-licenses-generate-disclaimer" href="#toc-yarn-licenses-generate-disclaimer"></a>
