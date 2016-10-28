@@ -26,7 +26,7 @@ For example, starting with this package.json `package.json`:
 When we run the `yarn version` command:
 
 ```sh
-$ yarn version
+yarn version
 ```
 
 ```
