@@ -4,7 +4,7 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn remove <package...>` <a class="toc" id="toc-yarn-remove-package" href="#toc-yarn-remove-package"></a>
+##### `yarn remove <package...>` <a class="toc" id="toc-yarn-remove" href="#toc-yarn-remove"></a>
 
 Running `yarn remove foo` will remove the package named `foo` from your direct
 dependencies updating your `package.json` and `yarn.lock` files in the process.
