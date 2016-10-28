@@ -52,3 +52,5 @@ info Current version: 1.0.2
 info New version: 1.0.3
 ✨  Done in 0.09s.
 ```
+
+If `yarn version --new-version <version>` is run in a Git repo, by default a new Git tag will be created. If you wish to surpress this behavior, you can use `yarn version --no-git-tag-version --new-version <version>`.
