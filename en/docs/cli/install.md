@@ -1,3 +1,11 @@
+---
+id: docs_cli_install
+guide: docs_cli
+layout: guide
+---
+
+{% include vars.html %}
+
 `yarn install` is used to install all dependencies for a project. This is most
 commonly used when you have just checked out code for a project, or when
 another developer on the project has added a new dependency that you need to
