@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+{% include vars.html %}
+
 <p class="lead">Install packages globally on your operating system.</p>
 
 ##### `yarn global` <a class="toc" id="toc-yarn-global" href="#toc-yarn-global"></a>
@@ -20,7 +22,7 @@ $ create-react-app
 
 Read more about the commands that can be used together with `yarn global`:
 
-- [`yarn add`](./add): add a package to use in your current package.
-- [`yarn bin`](./bin): displays the location of the yarn bin folder.
-- [`yarn ls`](./ls): list installed packages.
-- [`yarn remove`](./remove): remove a package that will no longer be used in your current package.
+- [`yarn add`]({{url_base}}/docs/cli/add): add a package to use in your current package.
+- [`yarn bin`]({{url_base}}/docs/cli/bin): displays the location of the yarn bin folder.
+- [`yarn ls`]({{url_base}}/docs/cli/ls): list installed packages.
+- [`yarn remove`]({{url_base}}/docs/cli/remove): remove a package that will no longer be used in your current package.
