@@ -8,21 +8,22 @@ layout: guide
 
 <p class="lead">Updates the package version.</p>
 
-##### `yarn version` <a class="toc" id="toc-yarn-version" href="#toc-yarn-version"></a>
+### Updating versions <a class="toc" id="toc-updating-versions" href="#toc-updating-versions"></a>
 
-Starts an interactive session to update the version. Once complete,
-`package.json` contains the new version information:
+Using the `yarn version` command you can update the version of your package via
+the command line.
 
-Initial `package.json`:
+For example, starting with this package.json `package.json`:
 
 ```js
 {
   "name": "example-yarn-package",
   "version": "1.0.1",
-  "description": "An example package to demonstrate Yarn",
+  "description": "An example package to demonstrate Yarn"
+}
 ```
 
-Example run:
+When we run the `yarn version` command:
 
 ```sh
 $ yarn version
@@ -35,61 +36,66 @@ info New version: 1.0.2
 ✨  Done in 9.42s.
 ```
 
-Updated `package.json`:
+We will get this updated `package.json`:
 
-```js
+```json
 {
   "name": "example-yarn-package",
   "version": "1.0.2",
-  "description": "An example package to demonstrate Yarn",
+  "description": "An example package to demonstrate Yarn"
+}
 ```
 
-**Note:** The new version you enter must be a valid semver string.
+> **Note:** The new version you enter must be a valid
+> [SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning)
+> version.
+
+#### Git tags <a class="toc" id="toc-git-tags" href="#toc-git-tags"></a>
+
+If you run `yarn version` within a Git repository a
+[Git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) will be created by
+default following the format `v0.0.0`.
+
+You can customize the git tag that is created or disable this behavior by using
+`yarn config set`.
+
+To change the prefix of the git tag you can use `version-tag-prefix`:
+
+```sh
+yarn config set version-tag-prefix "v"
+```
+
+Or you can change the git message using `version-git-message` where `%s` is the
+version string:
+
+```sh
+yarn config set version-git-message "v%s"
+```
+
+You can also turn signing git tags on or off using `version-git-sign`:
+
+```sh
+yarn config set version-git-sign false
+```
+
+You can even enabled or disable the git tagging behavior entirely by using
+`version-git-tag`:
+
+```sh
+yarn config set version-git-tag true
+```
+
+### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
+
+##### `yarn version` <a class="toc" id="toc-yarn-version" href="#toc-yarn-version"></a>
+
+Create a new version using an interactive session to prompt you for a new
+version.
 
 ##### `yarn version --new-version <version>` <a class="toc" id="toc-yarn-version-new-version" href="#toc-yarn-version-new-version"></a>
 
-Updates the package to the specified version.
+Creates a new version specified by `<version>`.
 
-Example:
+##### `yarn version --no-git-tag-version` <a class="toc" id="toc-yarn-version-no-git-tag-version" href="#toc-yarn-version-no-git-tag-versiont"></a>
 
-```sh
-$ yarn version --new-version 1.0.3
-```
-
-```
-info Current version: 1.0.2
-info New version: 1.0.3
-✨  Done in 0.09s.
-```
-
-If `yarn version --new-version <version>` is run in a Git repo, by default a
-new annotated Git tag will be created. The default git message will be "v". Ex:
-"v1.0.3". To change the defaults for the git-related actions of creating a new
-versions, you can change the defaults of the following configuration default
-values with `yarn config set <key> value:
-
-```js
-// String to prefix git versions with
-'version-tag-prefix': 'v'
-
-// Whether to create git tags by default
-'version-git-tag': true
-
-// Whether to sign git tags by default
-'version-git-sign': false
-
-// Default git message, where %s is the version string
-'version-git-message': 'v%s'
-```
-
-##### `yarn version --new-version --no-git-tag-version <version>` <a class="toc" id="toc-yarn-version-new-version-no-git" href="#toc-yarn-version-new-version-no-git"></a>
-
-Works the same as `yarn version --new-version <version>`, but does not create a
-new git tag.
-
-To disable this behavior by default you can use
-[`yarn config`]({{url_base}}/docs/cli/config):
-
-```sh
-yarn config set version-git-tag false
-```
+Creates a new version without creating a git tag.
