@@ -69,7 +69,7 @@ your `./node_modules/.bin` directory. You can also use the
 yarn global add <package...>
 ```
 
-### Commands <a class="toc" id="toc-commands" href="toc-commands"></a>
+### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
 ##### `yarn add <package...>` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
 
