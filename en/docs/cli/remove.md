@@ -4,12 +4,17 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn remove [package]` <a class="toc" id="toc-yarn-remove-package" href="#toc-yarn-remove-package"></a>
+##### `yarn remove <package...>` <a class="toc" id="toc-yarn-remove-package" href="#toc-yarn-remove-package"></a>
 
-Running `yarn remove foo` removes the package named `foo`. This command also updates the `package.json` and `yarn.lock` files so that other people using the repository only have to run `yarn` or `yarn install` to get their state up to date.
+Running `yarn remove foo` will remove the package named `foo` from your direct
+dependencies updating your `package.json` and `yarn.lock` files in the process.
 
-You can remove several packages at once by listing them all at the command line separated by spaces, like `yarn remove foo bar baz`.
+Other developers working on the project can run `yarn install` to sync their
+own `node_modules` directories with the updated set of dependencies.
 
-With `yarn` there is no way to remove a package locally while keeping the `package.json` file the same. This ensures that different users of the same repository have consistent builds.
+When you remove a package, it is removed from all types of dependencies:
+`dependencies`, `devDependencies`, etc.
 
-When you remove a package, it is removed from all types of dependencies: development, production, optional, and peer dependencies.
+> **Note**: `yarn remove` will always update your `package.json` and
+> `yarn.lock`, this ensures that different developers on the same project get
+> the same set of dependencies. It is not possible to disable this behavior.
