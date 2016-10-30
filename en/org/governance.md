@@ -5,4 +5,4 @@ layout: guide
 ---
 
 This is currently being discussed in
-[yarpkg/yarn#274](https://github.com/yarnpkg/yarn/issues/274).
+[yarnpkg/yarn#274](https://github.com/yarnpkg/yarn/issues/274).
