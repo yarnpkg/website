@@ -4,6 +4,8 @@ guide: docs_configuration
 layout: guide
 ---
 
+{% include vars.html %}
+
 ## Essentials <a class="toc" id="toc-essentials" href="#toc-essentials"></a>
 
 The two most important fields in your `package.json` are `name` and `version`,
