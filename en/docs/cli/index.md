@@ -15,3 +15,7 @@ While all of the available commands are provided here, in alphabetical order, so
 - [`yarn install`]({{url_base}}/docs/cli/install): installs all the dependencies defined in a `package.json` file.
 - [`yarn publish`]({{url_base}}/docs/cli/publish): publishes a package to a package manager.
 - [`yarn remove`]({{url_base}}/docs/cli/remove): removes an unused package from your current package.
+
+## Default Command <a class="toc" id="toc-default-command" href="#toc-default-command"></a>
+
+Running `yarn` with no command will run `yarn install`, passing through any provided flags.

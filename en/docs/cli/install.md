@@ -16,6 +16,8 @@ If you are used to using npm you might be expecting to use `--save` or
 more information, see
 [the `yarn add` documentation]({{url_base}}/docs/cli/add).
 
+Running `yarn` with no command will run `yarn install`, passing through any provided flags.
+
 ##### `yarn install` <a class="toc" id="toc-yarn-install" href="#toc-yarn-install"></a>
 
 Install all the dependencies listed within `package.json` in the local
