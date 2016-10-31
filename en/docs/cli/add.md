@@ -73,34 +73,34 @@ yarn global add <package...>
 
 ##### `yarn add <package...>` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
 
-This will install a `<package>` in your
+This will install one or more packages in your
 [`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies).
 
 ##### `yarn add <package...> --dev` <a class="toc" id="toc-yarn-add-dev" href="#toc-yarn-add-dev"></a>
 
-This will install a `<package>` in your
+This will install one or more packages in your
 [`devDependencies`]({{url_base}}/docs/dependency-types#toc-dev-dependencies).
 
 ##### `yarn add <package...> --peer` <a class="toc" id="toc-yarn-add-peer" href="#toc-yarn-add-peer"></a>
 
-This will install a `<package>` in your
+This will install one or more packages in your
 [`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
 
 ##### `yarn add <package...> --optional` <a class="toc" id="toc-yarn-add-optional" href="#toc-yarn-add-optional"></a>
 
-This will install a `<package>` in your
+This will install one or more packages in your
 [`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optional-dependencies).
 
 ##### `yarn add <package...> --exact` <a class="toc" id="toc-yarn-add-exact" href="#toc-yarn-add-exact"></a>
 
-This installs the package as an exact version. The default is to use the most
+This installs the packages as exact versions. The default is to use the most
 recent release with the same major version. For example, `yarn add foo@1.2.3`
 would accept version `1.9.1`, but `yarn add foo@1.2.3 --exact` would only
 accept version `1.2.3`.
 
 ##### `yarn add <package...> --tilde` <a class="toc" id="toc-yarn-add-tilde" href="#toc-yarn-add-tilde"></a>
 
-This installs the most recent release of the package that has the same minor
+This installs the most recent release of the packages that have the same minor
 version. The default is to use the most recent release with the same major
 version. For example, `yarn add foo@1.2.3 --tilde` would accept `1.2.9` but not
 `1.3.0`.
