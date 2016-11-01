@@ -33,6 +33,18 @@ yarn run test
 Running this command will execute the script named `"test"` in your
 `package.json`.
 
+`[script]` can also be any locally installed executable that is inside `node_modules/.bin/`.
+
+##### `yarn run [script] -- <args>` <a class="toc" id="toc-yarn-run-script-args" href="#toc-yarn-run-script-args"></a>
+
+You can use this syntax to pass additional args to your script.
+
+```sh
+yarn run test -- -o -w
+```
+
+Running this command will execute `jest -o --watch`.
+
 ##### `yarn run` <a class="toc" id="toc-yarn-run" href="#toc-yarn-run"></a>
 
 If you do not specify a script to the `yarn run` command, the `run` command
