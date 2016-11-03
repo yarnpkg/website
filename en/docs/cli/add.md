@@ -81,10 +81,14 @@ This will install one or more packages in your
 This will install one or more packages in your
 [`devDependencies`]({{url_base}}/docs/dependency-types#toc-dev-dependencies).
 
+> **Note:** `-D` is an alias of `--dev`.
+
 ##### `yarn add <package...> --peer` <a class="toc" id="toc-yarn-add-peer" href="#toc-yarn-add-peer"></a>
 
 This will install one or more packages in your
 [`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
+
+> **Note:** `-P` is an alias of `--peer`.
 
 ##### `yarn add <package...> --optional` <a class="toc" id="toc-yarn-add-optional" href="#toc-yarn-add-optional"></a>
 
@@ -98,9 +102,13 @@ recent release with the same major version. For example, `yarn add foo@1.2.3`
 would accept version `1.9.1`, but `yarn add foo@1.2.3 --exact` would only
 accept version `1.2.3`.
 
+> **Note:** `-E` is an alias of `--exact`.
+
 ##### `yarn add <package...> --tilde` <a class="toc" id="toc-yarn-add-tilde" href="#toc-yarn-add-tilde"></a>
 
 This installs the most recent release of the packages that have the same minor
 version. The default is to use the most recent release with the same major
 version. For example, `yarn add foo@1.2.3 --tilde` would accept `1.2.9` but not
 `1.3.0`.
+
+> **Note:** `-T` is an alias of `--tilde`.
