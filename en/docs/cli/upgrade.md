@@ -68,9 +68,9 @@ This will update your `package.json` to look like this:
 
 ##### `yarn upgrade [package@version]` <a class="toc" id="toc-yarn-upgrade-package-version" href="#toc-yarn-upgrade-package-version"></a>
 
-This will upgrade (or downgrade) an installed package to the specified version. 
+This will upgrade (or downgrade) an installed package to the specified version.
 You can use any
-[SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning) version 
+[SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning) version
 number or range.
 
 ```sh
@@ -133,4 +133,32 @@ looks like:
 ```diff
 -  "react": "^15.3.2",
 +  "react": "latest",
+```
+
+##### `yarn upgrade [package] --ignore-engines` <a class="toc" id="toc-yarn-upgrade-package-ignore-engines" href="#toc-yarn-upgrade-package-ignore-engines"></a>
+
+This upgrades a single named package to the version specified by the `latest`
+tag ignoring engines check.
+
+```sh
+yarn upgrade d3-scale --ignore-engines
+```
+
+```
+yarn upgrade vx.x.x
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Saved lockfile.
+success Saved 1 new dependency
+└─ d3-scale@1.0.3
+✨  Done in 6.10s.
+```
+
+This will update your `package.json` to look like this:
+
+```diff
+-  "d3-scale": "^0.9.3",
++  "d3-scale": "^1.0.3",
 ```
