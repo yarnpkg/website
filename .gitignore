@@ -2,6 +2,7 @@ _site
 .sass-cache
 .jekyll-metadata
 .DS_Store
+.idea
 
 af/
 ar/

@@ -76,31 +76,31 @@ yarn global add <package...>
 This will install one or more packages in your
 [`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies).
 
-##### `yarn add <package...> --dev` <a class="toc" id="toc-yarn-add-dev" href="#toc-yarn-add-dev"></a>
+##### `yarn add <package...> [--dev/-D]` <a class="toc" id="toc-yarn-add-dev-d" href="#toc-yarn-add-dev-d"></a>
 
-This will install one or more packages in your
+Using `--dev` or `-D` will install one or more packages in your
 [`devDependencies`]({{url_base}}/docs/dependency-types#toc-dev-dependencies).
 
-##### `yarn add <package...> --peer` <a class="toc" id="toc-yarn-add-peer" href="#toc-yarn-add-peer"></a>
+##### `yarn add <package...> [--peer/-P]` <a class="toc" id="toc-yarn-add-peer-p" href="#toc-yarn-add-peer-p"></a>
 
-This will install one or more packages in your
+Using `--peer` or `-P` will install one or more packages in your
 [`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
 
-##### `yarn add <package...> --optional` <a class="toc" id="toc-yarn-add-optional" href="#toc-yarn-add-optional"></a>
+##### `yarn add <package...> [--optional,-O]` <a class="toc" id="toc-yarn-add-optional-o" href="#toc-yarn-add-optional-o"></a>
 
-This will install one or more packages in your
+Using `--optional` or `-O` will install one or more packages in your
 [`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optional-dependencies).
 
-##### `yarn add <package...> --exact` <a class="toc" id="toc-yarn-add-exact" href="#toc-yarn-add-exact"></a>
+##### `yarn add <package...> [--exact/-E]` <a class="toc" id="toc-yarn-add-exact-e" href="#toc-yarn-add-exact-e"></a>
 
-This installs the packages as exact versions. The default is to use the most
-recent release with the same major version. For example, `yarn add foo@1.2.3`
-would accept version `1.9.1`, but `yarn add foo@1.2.3 --exact` would only
-accept version `1.2.3`.
+Using `--exact` or `-E` installs the packages as exact versions. The default is
+to use the most recent release with the same major version. For example,
+`yarn add foo@1.2.3` would accept version `1.9.1`, but
+`yarn add foo@1.2.3 --exact` would only accept version `1.2.3`.
 
-##### `yarn add <package...> --tilde` <a class="toc" id="toc-yarn-add-tilde" href="#toc-yarn-add-tilde"></a>
+##### `yarn add <package...> [--tilde/-T]` <a class="toc" id="toc-yarn-add-tilde-t" href="#toc-yarn-add-tilde-t"></a>
 
-This installs the most recent release of the packages that have the same minor
-version. The default is to use the most recent release with the same major
-version. For example, `yarn add foo@1.2.3 --tilde` would accept `1.2.9` but not
-`1.3.0`.
+Using `--tilde` or `-T` installs the most recent release of the packages that
+have the same minor version. The default is to use the most recent release with
+the same major version. For example, `yarn add foo@1.2.3 --tilde` would accept
+`1.2.9` but not `1.3.0`.
