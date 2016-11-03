@@ -1,87 +1,49 @@
 /** Algolia Doc Search **/
 
-::-webkit-input-placeholder { /* Safari, Chrome */
-  color: $navbar-light-color;
-}
-:-moz-placeholder { /* Mozilla Firefox <= 18 */
-  color:    $navbar-light-color;
-  opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    $navbar-light-color;
-  opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer */
-  color:    $navbar-light-color;
-}
-:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    $navbar-light-color;
-}
 
-[type="search"] {
-  -moz-appearance:    textfield;
-  -webkit-appearance: textfield;
-  appearance:         textfield;
-}
-
-.algolia-search-col {
-  float: none;
-  margin: 0 auto;
-  border: 1px solid grey;
-  margin-bottom: 45px;
-}
-
-.nav-item.algolia-search-wrapper {
+.search {
   display: inline-block;
   vertical-align: top;
   margin-left: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
   width: 100%;
-
-  span.algolia-autocomplete {
+  
+  .algolia-autocomplete {
     width: 100%;
+    vertical-align: top;
   }
 }
 
-@media screen and (max-width: 1150px) {
-  .nav-item.algolia-search-wrapper {
-    display: none;
-  }
-}
-
-input#algolia-doc-search {
-
-  background: transparent url('/assets/search.svg') no-repeat left center;
-  background-size: 16px 16px;
-
-  padding-left: 30px;
-  font-size: 16px;
-  background-color: #FFFFFF;
-  border: none;
-  color: $navbar-light-color;
-  outline: none;
+.search-input {
   width: 100%;
-
-  transition: border-color .2s ease, width .2s ease;
-  -webkit-transition: border-color .2s ease, width .2s ease;
-  -moz-transition: border-color .2s ease, width .2s ease;
-  -o-transition: border-color .2s ease, width .2s ease;
-}
-
-input#algolia-doc-search:focus {
-  border-color: #05A5D1;
-  width: 240px;
-}
-
-@media screen and (max-width: 1200px) {
-  input#algolia-doc-search:focus {
-    width: 178px;
+  font-size: 1rem;
+  padding: 1rem 1.5rem 1rem 2rem;
+  border: 1px solid $navbar-light-color;
+  background: white url('/assets/search.svg') no-repeat 0.5rem center;
+  background-size: 1rem 1rem;
+  transition: border-color 0.2s ease;
+  
+  &:hover,
+  &:active {
+    border-color: $navbar-light-hover-color;
+  }
+  
+  &:focus {
+    border-color: $yarn-blue;
   }
 }
 
-.algolia-autocomplete {
-  vertical-align: top;
+::-webkit-input-placeholder { color: $navbar-light-color; }
+:-moz-placeholder           { color: $navbar-light-color; opacity: 1; }
+::-moz-placeholder          { color: $navbar-light-color; opacity: 1; }
+:-ms-input-placeholder      { color: $navbar-light-color; }
+:placeholder-shown          { color: $navbar-light-color; }
+
+[type="search"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
 }
 
 /* Bottom border of each suggestion */
