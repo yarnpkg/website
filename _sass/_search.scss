@@ -37,6 +37,11 @@
   margin-left: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 100%;
+
+  span.algolia-autocomplete {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1150px) {
@@ -56,7 +61,7 @@ input#algolia-doc-search {
   border: none;
   color: $navbar-light-color;
   outline: none;
-  width: 160px;
+  width: 100%;
 
   transition: border-color .2s ease, width .2s ease;
   -webkit-transition: border-color .2s ease, width .2s ease;
