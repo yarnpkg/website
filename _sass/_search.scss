@@ -1,21 +1,21 @@
 /** Algolia Doc Search **/
 
 ::-webkit-input-placeholder { /* Safari, Chrome */
-  color: $navbar-light-color;
+  color: white;
 }
 :-moz-placeholder { /* Mozilla Firefox <= 18 */
-  color:    $navbar-light-color;
+  color:    white;
   opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    $navbar-light-color;
+  color:    white;
   opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer */
-  color:    $navbar-light-color;
+  color:    white;
 }
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    $navbar-light-color;
+  color:    white;
 }
 
 [type="search"] {
@@ -27,7 +27,8 @@
 .nav-item.algolia-search-wrapper {
   display: inline-block;
   vertical-align: top;
-  margin-left: 15px;
+  margin-left: 40px;
+  margin-top: 18px;
 }
 
 @media screen and (max-width: 1150px) {
@@ -44,9 +45,9 @@ input#algolia-doc-search {
   padding-left: 30px;
   margin-top: 6px;
   font-size: 16px;
-  background-color: #FFFFFF;
+  background-color: inherit;
   border: none;
-  color: $navbar-light-color;
+  color: white;
   outline: none;
   width: 160px;
 
