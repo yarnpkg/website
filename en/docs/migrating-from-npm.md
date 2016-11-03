@@ -47,11 +47,11 @@ your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lo
 | ***(N/A)***                                 | `yarn install --pure-lockfile`              |
 | `npm install [package]`                     | ***(N/A)***                                 |
 | `npm install --save [package]`              | `yarn add [package]`                        |
-| `npm install --save-dev [package]`          | `yarn add [package] --dev` or `-D`          |
-| ***(N/A)***                                 | `yarn add [package] --peer` or `-P`         |
-| `npm install --save-optional [package]`     | `yarn add [package] --optional` or `-O`     |
-| `npm install --save-exact [package]`        | `yarn add [package] --exact` or `-E`        |
-| ***(N/A)***                                 | `yarn add [package] --tilde` or `-T`        |
+| `npm install --save-dev [package]`          | `yarn add [package] [--dev/-D]`             |
+| ***(N/A)***                                 | `yarn add [package] [--peer/-P]`            |
+| `npm install --save-optional [package]`     | `yarn add [package] [--optional/-O]`        |
+| `npm install --save-exact [package]`        | `yarn add [package] [--exact/-E]`           |
+| ***(N/A)***                                 | `yarn add [package] [--tilde/-T]`           |
 | `npm install --global [package]`            | `yarn global add [package]`                 |
 | `npm rebuild`                               | `yarn install --force`                      |
 | `npm uninstall [package]`                   | ***(N/A)***                                 |
