@@ -1,13 +1,8 @@
 /** Algolia Doc Search **/
 
-
 .search {
   display: inline-block;
   vertical-align: top;
-  margin-left: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
   
   .algolia-autocomplete {
     width: 100%;
@@ -16,34 +11,9 @@
 }
 
 .search-input {
-  width: 100%;
-  font-size: 1rem;
   padding: 1rem 1.5rem 1rem 2rem;
-  border: 1px solid $navbar-light-color;
   background: white url('/assets/search.svg') no-repeat 0.5rem center;
   background-size: 1rem 1rem;
-  transition: border-color 0.2s ease;
-  
-  &:hover,
-  &:active {
-    border-color: $navbar-light-hover-color;
-  }
-  
-  &:focus {
-    border-color: $yarn-blue;
-  }
-}
-
-::-webkit-input-placeholder { color: $navbar-light-color; }
-:-moz-placeholder           { color: $navbar-light-color; opacity: 1; }
-::-moz-placeholder          { color: $navbar-light-color; opacity: 1; }
-:-ms-input-placeholder      { color: $navbar-light-color; }
-:placeholder-shown          { color: $navbar-light-color; }
-
-[type="search"] {
-  -moz-appearance: textfield;
-  -webkit-appearance: textfield;
-  appearance: textfield;
 }
 
 /* Bottom border of each suggestion */
