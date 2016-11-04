@@ -15,6 +15,7 @@ scripts:
 {% capture windows      %}{% include_relative _installations/windows.md      %}{% endcapture %}
 {% capture linux        %}{% include_relative _installations/linux.md        %}{% endcapture %}
 {% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
+{% capture nightly      %}{% include_relative _installations/nightly.md      %}{% endcapture %}
 
 <div class="tabs">
   <div class="nav nav-tabs bg-faded text-xs-center">
@@ -23,6 +24,7 @@ scripts:
       <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
       <a id="linux-tab" class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
       <a id="alternatives-tab" class="nav-item nav-link text-success" data-toggle="tab" href="#alternatives">{{i18n.install_os_alternatives}}</a>
+      <a id="nightly-tab" class="nav-item nav-link text-danger" data-toggle="tab" href="#nightly">Nightly Builds</a>
     </ul>
   </div>
 
@@ -36,6 +38,7 @@ scripts:
     <div class="tab-pane" id="windows">{{windows | markdownify}}</div>
     <div class="tab-pane" id="linux">{{linux | markdownify}}</div>
     <div class="tab-pane" id="alternatives">{{alternatives | markdownify}}</div>
+    <div class="tab-pane" id="nightly">{{nightly | markdownify}}</div>
   </div>
 </div>
 
