@@ -18,7 +18,7 @@ scripts:
 
 <div class="tabs">
   <div class="nav nav-tabs bg-faded text-xs-center">
-    <ul class="nav navbar-nav nav-inline">
+    <ul class="nav navbar-nav nav-inline install-nav">
       <a id="mac-tab" class="nav-item nav-link" data-toggle="tab" href="#mac">{{i18n.install_os_mac}}</a>
       <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
       <a id="linux-tab" class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
@@ -66,7 +66,7 @@ scripts:
     <strong>{{i18n.install_problems_title}}</strong>
     {{i18n.install_problems_description}}
   </p>
-  <p>
+  <p class="problem-links">
     <a class="text-success" href="{{searchHref}}">{{i18n.install_problems_search}}</a>
     &middot;
     <a class="text-danger" href="{{newIssueHref}}">{{i18n.install_problems_new_issue}}</a>
