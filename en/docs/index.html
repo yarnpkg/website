@@ -7,6 +7,13 @@ layout: page
 
 {% assign guides_size = site.data.guides | size | minus: 1 %}
 
+<div class="row">
+  <div class="col-xs-12 col-lg-6 push-lg-3 m-b-2 search">
+    <label class="search-label sr-only" for="algolia-doc-search" >Search documentation</label>
+    <input class="search-input form-control" id="algolia-doc-search" type="search" placeholder="Search documentation"/>
+  </div>
+</div>
+
 {% for index in (0..guides_size) %}
   {% assign index_mod = index | modulo: 3 %}
 

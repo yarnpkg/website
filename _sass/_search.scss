@@ -1,74 +1,25 @@
 /** Algolia Doc Search **/
 
-::-webkit-input-placeholder { /* Safari, Chrome */
-  color: $navbar-light-color;
-}
-:-moz-placeholder { /* Mozilla Firefox <= 18 */
-  color:    $navbar-light-color;
-  opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    $navbar-light-color;
-  opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer */
-  color:    $navbar-light-color;
-}
-:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color:    $navbar-light-color;
-}
-
-[type="search"] {
-  -moz-appearance:    textfield;
-  -webkit-appearance: textfield;
-  appearance:         textfield;
-}
-
-.nav-item.algolia-search-wrapper {
+.search {
   display: inline-block;
   vertical-align: top;
-  margin-left: 15px;
-}
-
-@media screen and (max-width: 1150px) {
-  .nav-item.algolia-search-wrapper {
-    display: none;
+  
+  .algolia-autocomplete {
+    width: 100%;
+    vertical-align: top;
   }
 }
 
-input#algolia-doc-search {
-
-  background: transparent url('/assets/search.svg') no-repeat left center;
-  background-size: 16px 16px;
-
-  padding-left: 30px;
-  margin-top: 6px;
-  font-size: 16px;
-  background-color: #FFFFFF;
-  border: none;
-  color: $navbar-light-color;
-  outline: none;
-  width: 160px;
-
-  transition: border-color .2s ease, width .2s ease;
-  -webkit-transition: border-color .2s ease, width .2s ease;
-  -moz-transition: border-color .2s ease, width .2s ease;
-  -o-transition: border-color .2s ease, width .2s ease;
+.search-input {
+  padding: 1rem 1.5rem 1rem 2.5rem;
+  background: white url('/assets/search.svg') no-repeat 1rem center;
+  background-size: 1rem 1rem;
 }
 
-input#algolia-doc-search:focus {
-  border-color: #05A5D1;
-  width: 240px;
-}
-
-@media screen and (max-width: 1200px) {
-  input#algolia-doc-search:focus {
-    width: 178px;
-  }
-}
-
-.algolia-autocomplete {
-  vertical-align: top;
+/* Override */
+.aa-dropdown-menu {
+  min-width: auto !important;
+  width: 100% !important;
 }
 
 /* Bottom border of each suggestion */
