@@ -11,3 +11,6 @@ dependencies:
   cache_directories:
     - "~/.yarn-cache"
 ```
+
+> Let CircleCI know if you want Yarn to be
+> [installed by default](https://discuss.circleci.com/t/preinstall-yarn/7353).
