@@ -1,4 +1,4 @@
-Yarn is [now preinstalled on AppVeyor](https://www.appveyor.com/updates/2016/11/01/),
+Yarn is [preinstalled on AppVeyor](https://www.appveyor.com/updates/2016/11/01/),
 so you don't need to do anything extra in order to use it as part of your
 build.
 
