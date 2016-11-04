@@ -85,6 +85,10 @@
   color: white;
   -webkit-font-smoothing: antialiased;
   border-left: 4px solid $yarn-blue;
+
+  .c {
+    color: $gray-light;
+  }
 }
 
 pre {
