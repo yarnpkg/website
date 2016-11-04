@@ -86,8 +86,26 @@
   -webkit-font-smoothing: antialiased;
   border-left: 4px solid $yarn-blue;
 
+  // Install alternate tab
   .c {
-    color: $gray-light;
+    color: $gray-lighter;
+  }
+
+  .nb {
+    color: white;
+  }
+
+  .k {
+    color: white;
+  }
+
+  // Install linux tab
+  .s2 {
+    color: $gray-lighter;
+  }
+
+  .o {
+    color: white;
   }
 }
 

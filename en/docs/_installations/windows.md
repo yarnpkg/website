@@ -11,7 +11,7 @@ Yarn on Windows.
 If you use the installer you will first need to install
 [Node.js](https://nodejs.org/).
 
-<a class="btn btn-primary" href="/latest.msi">Download Installer</a>
+<a class="btn btn-primary install-btn-windows" href="/latest.msi">Download Installer</a>
 
 #### Install via Chocolatey
 

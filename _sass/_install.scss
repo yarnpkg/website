@@ -1,0 +1,23 @@
+.install-nav {
+
+  .nav-link {
+    color: $yarn-blue-darkest !important;
+  }
+}
+
+.problem-links {
+
+  .text-success {
+    color: $green-darkest !important;
+  }
+
+  .text-danger {
+    color: $red-darker !important;
+  }
+}
+
+.install-btn-windows {
+  color: white;
+  border-color: $yarn-blue-darkest !important;
+  background-color: $yarn-blue-darkest !important;
+}
