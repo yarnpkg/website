@@ -52,16 +52,11 @@ scripts:
 {% capture issueBody %}
 <!-- *Before creating an issue please make sure you are using the latest version of yarn.* -->
 
-**Do you want to request a *feature* or report a *bug*?**
-<!-- Is the feature a substantial feature request? Please use https://github.com/yarnpkg/rfcs -->
+**Please mention your operating system, node.js and yarn versions.**
 
-**What is the current behavior?**
 
-**If the current behavior is a bug, please provide the steps to reproduce.**
+**Please describe the steps you took when trying to install Yarn and what went wrong:**
 
-**What is the expected behavior?**
-
-**Please mention your node.js, yarn and operating system version.**
 
 {% endcapture %}
 {% assign issueBodyEscaped = issueBody | uri_escape %}
