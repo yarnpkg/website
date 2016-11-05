@@ -24,7 +24,6 @@ scripts:
       <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
       <a id="linux-tab" class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
       <a id="alternatives-tab" class="nav-item nav-link text-success" data-toggle="tab" href="#alternatives">{{i18n.install_os_alternatives}}</a>
-      <a id="nightly-tab" class="nav-item nav-link text-danger" data-toggle="tab" href="#nightly">Nightly Builds</a>
     </ul>
   </div>
 
@@ -38,7 +37,6 @@ scripts:
     <div class="tab-pane" id="windows">{{windows | markdownify}}</div>
     <div class="tab-pane" id="linux">{{linux | markdownify}}</div>
     <div class="tab-pane" id="alternatives">{{alternatives | markdownify}}</div>
-    <div class="tab-pane" id="nightly">{{nightly | markdownify}}</div>
   </div>
 </div>
 
@@ -50,6 +48,17 @@ scripts:
 
 {% endhighlight %}
 <div class="language-sh highlighter-rouge"><pre class="rougeHighlight"><code>yarn --version</code></pre>
+</div>
+
+<h3>{{i18n.install_nightly_title}}</h3>
+<p>{{i18n.install_nightly_intro}}</p>
+<p>
+  <a id="nightlyHeading" class="collapsed" role="button" data-toggle="collapse" href="#nightly" aria-expanded="false" aria-controls="nightly">
+    {{i18n.install_nightly_learn_more}}
+  </a>
+</p>
+<div id="nightly" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nightlyHeading">
+  {{nightly | markdownify}}
 </div>
 
 {% capture issueBody %}

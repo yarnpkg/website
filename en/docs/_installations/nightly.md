@@ -1,7 +1,3 @@
-### Nightly Builds
-
-Nightly builds are the latest and greatest versions of Yarn, built using the very latest Yarn source code. Nightly builds are useful to try new features or test bug fixes that have not yet been released as part of a stable release. However, these builds are **not guaranteed to be stable** and may have bugs. See [the nightly build site](https://nightly.yarnpkg.com/) for more information.
-
 The easiest way of installing a nightly build is via our shell script:
 ```sh
 wget https://yarnpkg.com/install.sh
@@ -17,3 +13,5 @@ sudo apt-get update && sudo apt-get install yarn
 ```
 
 On Windows, the [Windows installer](https://nightly.yarnpkg.com/latest.msi) can be used.
+
+See [the nightly build site](https://nightly.yarnpkg.com/) for more information.
