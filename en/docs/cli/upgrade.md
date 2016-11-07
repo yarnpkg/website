@@ -101,7 +101,7 @@ This will update your `package.json` to look like this:
 This will upgrade a package to the version identified by `tag`.
 [Tag]({{url_base}}/docs/cli/tag#toc-what-are-tags) names are chosen by project
 maintainers, typically you use this command to install an experimental or long
-term support release of an actively developed pacakge. The tag you choose will
+term support release of an actively developed package. The tag you choose will
 be the version that appears in your `package.json` file.
 
 ```sh
