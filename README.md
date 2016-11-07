@@ -33,3 +33,7 @@ On Windows, `make` is not available, so you need to execute `bundle` and `jekyll
 bundle install
 bundle exec jekyll serve
 ```
+
+---
+
+**Special thanks to [Netlify](https://www.netlify.com/) for powering the website.**
