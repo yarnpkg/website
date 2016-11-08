@@ -8,7 +8,7 @@ layout: page
 {% assign guides_size = site.data.guides | size | minus: 1 %}
 
 <div class="row">
-  <div class="col-xs-12 col-lg-6 push-lg-3 m-b-2 search">
+  <div class="col-xs-12 col-lg-6 push-lg-3 mb-4 search">
     <label class="search-label sr-only" for="algolia-doc-search" >Search documentation</label>
     <input class="search-input form-control" id="algolia-doc-search" type="search" placeholder="Search documentation"/>
   </div>
@@ -28,7 +28,7 @@ layout: page
         <h4 class="card-title">{{i18n[guide.title]}}</h4>
         <p class="card-text text-muted">
           {{i18n[guide.description]}}
-          <span class="pull-xs-right text-primary">Read more</span>
+          <span class="float-xs-right text-primary">Read more</span>
         </p>
       </div>
     </a>

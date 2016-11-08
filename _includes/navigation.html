@@ -8,9 +8,7 @@
       <span class="sr-only">Yarn</span>
     </a>
 
-    <button class="navbar-toggler hidden-lg-up pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
-      <!-- &#9776; -->
-    </button>
+    <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation"></button>
 
     <div class="collapse navbar-toggleable-md" id="navbar">
       <ul class="nav navbar-nav">
@@ -25,7 +23,7 @@
         </li>
       </ul>
 
-      <ul class="nav navbar-nav pull-lg-right">
+      <ul class="nav navbar-nav float-lg-right">
         {% assign path = page.url | split: '/' %}
         {% unless path[1] == 'blog' %}
           <li class="nav-item dropdown">

@@ -30,7 +30,7 @@ layout: page
 
     <p class="guide-controls">
       {% if guide_prev_index > -1 %}
-        <span class="pull-md-left">
+        <span class="float-md-left">
           &larr;
           {{i18n.guides_prev}}:
           <a href="{{url_base}}{{guide_prev.path}}">{{i18n[guide_prev.id]}}</a>
@@ -38,7 +38,7 @@ layout: page
       {% endif %}
 
       {% if guide_next %}
-        <span class="pull-md-right">
+        <span class="float-md-right">
           {{i18n.guides_next}}:
           <a href="{{url_base}}{{guide_next.path}}">{{i18n[guide_next.id]}}</a>
           &rarr;
