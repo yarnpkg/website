@@ -19,3 +19,13 @@ yarn ls vx.x.x
 │  └─ package-3@^2.1.0
 └─ package-3@2.7.0
 ```
+##### `yarn ls <pkgname>` <a class="toc" id="toc-yarn-ls-name" href="#toc-yarn-ls-name"></a>
+
+```sh
+yarn ls gulp
+```
+
+```
+yarn ls vx.x.x
+└─ gulp@3.9.1
+`
