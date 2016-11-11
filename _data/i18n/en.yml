@@ -225,6 +225,16 @@ install_problems_description: >
 install_problems_search: Search for an existing issue
 install_problems_new_issue: Open a new issue
 
+install_nightly_title: Nightly Builds
+install_nightly_intro: >
+  Nightly builds are the latest and greatest versions of Yarn, built using the
+  very latest Yarn source code. Nightly builds are useful to try new features or
+  test bug fixes that have not yet been released as part of a stable release.
+  However, these builds are <strong>not guaranteed to be stable</strong> and may
+  have bugs.
+install_nightly_learn_more: See how to install nightly builds
+
+
 docs_install_ci: Continuous Integration
 ci_intro: >
   Yarn can easily be used in various continuous integration systems. To speed up
