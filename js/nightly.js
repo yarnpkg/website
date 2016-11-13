@@ -5,13 +5,23 @@
   var SEC_PER_DAY = 86400;
   function formatTimeSince(timestamp) {
     var diff = Date.now() / MS_PER_SEC - timestamp;
+    var singlarString, pluralString, divisor;
     if (diff < SEC_PER_HOUR) {
-      return Math.floor(diff / SEC_PER_MINUTE) + ' minutes ago';
+      // TODO: Localize these.
+      singularString = '1 minute ago';
+      pluralString = '{count} minutes ago';
+      divisor = SEC_PER_MINUTE;
     } else if (diff < SEC_PER_DAY) {
-      return Math.floor(diff / SEC_PER_HOUR) + ' hours ago';
+      singularString = '1 hour ago';
+      pluralString = '{count} hours ago';
+      divisor = SEC_PER_HOUR;
     } else {
-      return Math.floor(diff / SEC_PER_DAY) + ' days ago';
+      singularString = '1 day ago';
+      pluralString = '{count} days ago';
+      divisor = SEC_PER_DAY;
     }
+    diff = Math.floor(diff / divisor);
+    return (diff === 1 ? singularString : pluralString).replace('{count}', diff);
   }
 
   function load() {
