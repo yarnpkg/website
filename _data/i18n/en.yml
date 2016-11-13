@@ -225,7 +225,7 @@ install_problems_description: >
 install_problems_search: Search for an existing issue
 install_problems_new_issue: Open a new issue
 
-install_nightly_title: Nightly Builds
+docs_nightly: Nightly Builds
 install_nightly_intro: >
   Nightly builds are the latest and greatest versions of Yarn, built using the
   very latest Yarn source code. Nightly builds are useful to try new features or
@@ -234,6 +234,23 @@ install_nightly_intro: >
   have bugs.
 install_nightly_learn_more: See how to install nightly builds
 
+nightly_latest_version: Latest Version
+nightly_older_versions: Older Versions
+nightly_select_build_type: Select a build type above to see older builds
+install_table_name: Name
+# "Type" refers to type of artifact - tarball, Windows installer, Debian package, etc.
+install_table_type: Type
+install_table_size: Size
+install_table_date: Date
+loading: Loading...
+
+install_file:
+  deb: Debian package
+  js: Standalone JS
+  js-legacy: Standalone JS (Node < 4.0)
+  msi: Windows installer
+  rpm: RPM
+  tar: Tarball
 
 docs_install_ci: Continuous Integration
 ci_intro: >

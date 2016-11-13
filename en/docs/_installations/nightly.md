@@ -1,3 +1,5 @@
+{{i18n.install_nightly_intro}}
+
 The easiest way of installing a nightly build is via our shell script:
 ```sh
 wget https://yarnpkg.com/install.sh
@@ -13,5 +15,3 @@ sudo apt-get update && sudo apt-get install yarn
 ```
 
 On Windows, the [Windows installer](https://nightly.yarnpkg.com/latest.msi) can be used.
-
-See [the nightly build site](https://nightly.yarnpkg.com/) for more information.

@@ -15,7 +15,6 @@ scripts:
 {% capture windows      %}{% include_relative _installations/windows.md      %}{% endcapture %}
 {% capture linux        %}{% include_relative _installations/linux.md        %}{% endcapture %}
 {% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
-{% capture nightly      %}{% include_relative _installations/nightly.md      %}{% endcapture %}
 
 <div class="tabs">
   <div class="nav nav-tabs bg-faded text-xs-center">
@@ -50,16 +49,13 @@ scripts:
 <div class="language-sh highlighter-rouge"><pre class="rougeHighlight"><code>yarn --version</code></pre>
 </div>
 
-<h3>{{i18n.install_nightly_title}}</h3>
+<h3>{{i18n.docs_nightly}}</h3>
 <p>{{i18n.install_nightly_intro}}</p>
 <p>
-  <a id="nightlyHeading" class="collapsed" role="button" data-toggle="collapse" href="#nightly" aria-expanded="false" aria-controls="nightly">
+  <a href="{{url_base}}/docs/nightly">
     {{i18n.install_nightly_learn_more}}
   </a>
 </p>
-<div id="nightly" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nightlyHeading">
-  {{nightly | markdownify}}
-</div>
 
 {% capture issueBody %}
 **Which operating system are you using:**
