@@ -27,7 +27,9 @@ $link-color: saturate(darken($brand-primary, 8%), 20%);
 
 $npm-red: #C12127;
 
+@import "_variable-overrides.scss";
 @import "bootstrap/scss/bootstrap.scss";
+@import "_component-overrides.scss";
 @import "_base.scss";
 @import "_navbar.scss";
 @import "_icons.scss";

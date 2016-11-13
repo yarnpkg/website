@@ -1,0 +1,14 @@
+/* Bootstrap component overrides */
+
+// Nav override
+.nav-tabs {
+
+  .nav-link {
+
+    &.text-success {
+      color: $green-darkest !important;
+    }
+
+  }
+
+}
