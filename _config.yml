@@ -6,7 +6,7 @@ baseurl: ""
 url: "https://yarnpkg.com"
 twitter_username: yarnpkg
 github_username:  yarnpkg
-latest_version: 0.16.1
+latest_version: 0.17.0
 gacode: "UA-85522875-1"
 
 exclude:
