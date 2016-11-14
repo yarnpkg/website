@@ -4,7 +4,7 @@ On Debian or Ubuntu Linux, you can install Yarn via our Debian package
 repository. You will first need to configure the repository:
 
 ```sh
-sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+sudo apt-key adv --fetch-keys https://dl.yarnpkg.com/debian/pubkey.gpg
 echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
 
