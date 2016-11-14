@@ -9,8 +9,6 @@
     path: /docs/install
   - id: docs_usage
     path: /docs/usage
-  - id: docs_nightly
-    path: /docs/nightly
 
 - id: docs_yarn_workflow
   title: docs_yarn_workflow_title
