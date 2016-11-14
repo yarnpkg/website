@@ -1,0 +1,77 @@
+---
+id: docs_nightly
+guide: docs_getting_started
+layout: guide
+scripts:
+  - "/js/nightly.js"
+---
+
+{% include vars.html %}
+
+{% capture nightly %}{% include_relative _installations/nightly.md %}{% endcapture %}
+{{nightly | markdownify}}
+
+<h2>{{i18n.nightly_latest_version}}</h2>
+<table>
+  <thead>
+    <tr>
+      <th width="45%">{{i18n.install_table_name}}</th>
+      <th width="25%">{{i18n.install_table_type}}</th>
+      <th width="15%">{{i18n.install_table_size}}</th>
+      <th width="15%">{{i18n.install_table_date}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for type in site.data.nightly_types %}
+      <tr id="row_{{type}}">
+        <td>
+          <a class="link" href="https://nightly.yarnpkg.com/latest.{{type}}">
+            <span class="filename">{{i18n.loading}}</span>
+          </a>
+        </td>
+        <td>{{i18n.install_file[type]}}</td>
+        <td class="size"></td>
+        <td class="date"></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>{{i18n.nightly_older_versions}}</h2>
+<div class="tabs">
+  <div id="older-versions" class="nav nav-tabs bg-faded text-xs-center">
+    <ul class="nav navbar-nav nav-inline">
+      {% for type in site.data.nightly_types %}
+        <a id="{{type}}-tab" class="nav-item nav-link" data-type="{{type}}" data-toggle="tab" href="#{{type}}">
+          {{i18n.install_file[type]}}
+        </a>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <div id="select-platform" class="tab-pane bg-faded active">
+      <p class="text-xs-center my-4 text-muted">
+        {{i18n.nightly_select_build_type}}
+      </p>
+    </div>
+    {% for type in site.data.nightly_types %}
+      <div class="tab-pane" id="{{type}}">
+        <table>
+          <thead>
+            <tr>
+              <th width="60%">{{i18n.install_table_name}}</th>
+              <th width="20%">{{i18n.install_table_size}}</th>
+              <th width="20%">{{i18n.install_table_date}}</th>
+            </tr>
+          </thead>
+          <tbody id="{{type}}-body">
+            <tr>
+              <td colspan="3">{{i18n.loading}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {% endfor %}
+  </div>
+</div>
