@@ -56,6 +56,6 @@ All `yarn.lock` files should be checked into source control (e.g. git or
 mercurial). This allows Yarn to install the same exact dependency tree across
 all machines, whether it be your coworker's laptop or a CI server.
 
-You should also check `yarn.lock` into source control when working on
-libraries. Don't worry about publishing the `yarn.lock` file, it won't have
+Framework and library authors should also check `yarn.lock` into source 
+control. Don't worry about publishing the `yarn.lock` file as it won't have
 any effect on users of the library.
