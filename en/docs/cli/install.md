@@ -20,8 +20,8 @@ Running `yarn` with no command will run `yarn install`, passing through any prov
 
 ##### `yarn install` <a class="toc" id="toc-yarn-install" href="#toc-yarn-install"></a>
 
-Install all the dependencies listed within `package.json` in the local
-`node_modules` folder.
+Install all the dependencies listed within `yarn.lock` in the local
+`node_modules` folder. Note: `package.json` will be used if `yarn.lock` is not present.
 
 ##### `yarn install --flat` <a class="toc" id="toc-yarn-install-flat" href="#toc-yarn-install-flat"></a>
 
