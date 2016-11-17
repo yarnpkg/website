@@ -12,5 +12,7 @@ dependencies:
     - "~/.yarn-cache"
 ```
 
+{% include_relative _ci/deb-specific-version.md %}
+
 > Let CircleCI know if you want Yarn to be
 > [installed by default](https://discuss.circleci.com/t/preinstall-yarn/7353).

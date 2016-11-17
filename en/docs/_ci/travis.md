@@ -12,5 +12,7 @@ cache:
   - $HOME/.yarn-cache
 ```
 
+{% include_relative _ci/deb-specific-version.md %}
+
 > Let Travis CI know if you want Yarn to be
 > [installed by default](https://github.com/travis-ci/travis-ci/issues/6720).
