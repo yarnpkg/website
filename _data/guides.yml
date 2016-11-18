@@ -81,9 +81,9 @@
   - id: docs_cli_logout
     path: /docs/cli/logout
     tags: ["cli-logout"]
-  - id: docs_cli_ls
-    path: /docs/cli/ls
-    tags: ["cli-ls"]
+  - id: docs_cli_list
+    path: /docs/cli/list
+    tags: ["cli-list"]
   - id: docs_cli_outdated
     path: /docs/cli/outdated
     tags: ["cli-outdated"]
