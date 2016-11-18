@@ -8,6 +8,14 @@ your terminal:
 curl -o- -L https://yarnpkg.com/install.sh | bash
 ```
 
+You can also specify a version by running the following code in your terminal:
+
+```sh
+curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version [version]
+```
+
+See [the releases](https://github.com/yarnpkg/yarn/releases) for possible versions.
+
 #### Manual Install via tarball
 
 You can install Yarn by [downloading a tarball]({{site.baseurl}}/latest.tar.gz) and
