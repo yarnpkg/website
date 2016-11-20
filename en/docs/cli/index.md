@@ -19,3 +19,7 @@ While all of the available commands are provided here, in alphabetical order, so
 ## Default Command <a class="toc" id="toc-default-command" href="#toc-default-command"></a>
 
 Running `yarn` with no command will run `yarn install`, passing through any provided flags.
+
+## Concurrency and --mutex
+
+When running multiple instances of yarn as the same user on the same server, you can ensure only one instance runs at any given time (and avoid conflicts) by passing the global flag `--mutex (file|network)`. This will write/read a mutex file `.yarn-single-instance` in the current working directory or open network port 31997. You can specify an alternate or global filename, or an alternate network port by specifying `--mutex file:/tmp/.yarn-mutex` or `--mutex network:31999`.
