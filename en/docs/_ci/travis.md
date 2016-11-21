@@ -10,6 +10,7 @@ use the latter.
 ## `sudo`-enabled builds
 
 ```yml
+sudo: required
 before_install: # if "install" is overridden
   # Repo for Yarn
   - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
@@ -29,6 +30,7 @@ Container-based builds do not have the `sudo` privilege, so they must rely on ot
 For example:
 
 ```yaml
+sudo: false
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
