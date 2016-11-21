@@ -27,7 +27,7 @@ homepage_tagline: Fast, reliable, and secure dependency management.
 
 homepage_feature_fast_title: Ultra Fast.
 homepage_feature_fast_description: |
-  Yarn caches every package it downloads so it never needs to again. It also
+  Yarn caches every package it downloads so it never needs to download it again. It also
   parallelizes operations to maximize resource utilization so install times are
   faster than ever.
 homepage_feature_fast_image_alt: Generic placeholder image
