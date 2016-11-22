@@ -24,4 +24,4 @@ Running `yarn` with no command will run `yarn install`, passing through any prov
 
 When running multiple instances of yarn as the same user on the same server, you can ensure only one instance runs at any given time (and avoid conflicts) by passing the global flag `--mutex` followed by `file` or `network`. 
 
-The `file` option will write/read a mutex file `.yarn-single-instance` in the current working directory by default, or you can specify an alternate or global filename by specifying it in the form `--mutex file:/tmp/.yarn-mutex`. The `network` option will default to network port 31997, or you can specify an alternate port by passing `--mutex network:30330`.
+The `file` option will write/read a mutex file `.yarn-single-instance` in the current working directory by default, or you can specify an alternate or global filename by specifying it in the form `--mutex file:/tmp/.yarn-mutex`. The `network` option will default to network port `31997`, or you can specify an alternate port by passing `--mutex network:30330`.
