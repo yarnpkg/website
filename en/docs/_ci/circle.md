@@ -9,7 +9,9 @@ dependencies:
     - sudo apt-get update -qq
     - sudo apt-get install -y -qq yarn
   cache_directories:
-    - "~/.yarn-cache"
+    - ~/.yarn-cache
+  override:
+    - yarn install
 ```
 
 {% include_relative _ci/deb-specific-version.md %}
