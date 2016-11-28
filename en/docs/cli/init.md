@@ -83,6 +83,16 @@ success Saved package.json
 ✨  Done in 121.53s.
 ```
 
+##### Setting defaults for  `yarn init` <a class="toc" id="toc-yarn-init-defaults" href="#toc-yarn-init-defaults"></a>
+
+The following [config](./config) variables can be used to customize the defaults for `yarn init`:
+
+ * init-author-name
+ * init-author-email
+ * init-author-url
+ * init-version
+ * init-license
+
 ##### `yarn init --yes/-y` <a class="toc" id="toc-yarn-init-yes-y" href="#toc-yarn-init-yes-y"></a>
 
 This command skips the interactive session mentioned above and generates a
