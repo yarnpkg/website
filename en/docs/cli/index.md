@@ -21,7 +21,23 @@ While all of the available commands are provided here, in alphabetical order, so
 Running `yarn` with no command will run `yarn install`, passing through any provided flags.
 
 ## Concurrency and --mutex
+When running multiple instances of yarn as the same user on the same server,
+you can ensure only one instance runs at any given time (and avoid conflicts)
+by passing the global flag `--mutex` followed by `file` or `network`. 
 
-When running multiple instances of yarn as the same user on the same server, you can ensure only one instance runs at any given time (and avoid conflicts) by passing the global flag `--mutex` followed by `file` or `network`. 
+When using `file` Yarn will write/read a mutex file `.yarn-single-instance` in
+the current working directory by default. You can also specify an alternate or
+global filename.
 
-The `file` option will write/read a mutex file `.yarn-single-instance` in the current working directory by default, or you can specify an alternate or global filename by specifying it in the form `--mutex file:/tmp/.yarn-mutex`. The `network` option will default to network port `31997`, or you can specify an alternate port by passing `--mutex network:30330`.
+```sh
+--mutex file
+--mutex file:/tmp/.yarn-mutex
+```
+
+When using `network` Yarn will create a server at port `31997` by default. You
+can also specify an alternate port.
+
+```sh
+--mutex network
+--mutex network:30330
+```
