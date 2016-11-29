@@ -8,8 +8,8 @@ your terminal:
 curl -o- -L https://yarnpkg.com/install.sh | bash
 ```
 
-The installation process includes verifying a GPG signature. The [source
-code for install script](https://github.com/yarnpkg/website/blob/master/install.sh) is available to review on Github.
+The installation process includes verifying a GPG signature.
+[View the source on GitHub](https://github.com/yarnpkg/website/blob/master/install.sh)
 
 You can also specify a version by running the following code in your terminal:
 
