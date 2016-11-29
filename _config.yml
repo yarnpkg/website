@@ -29,6 +29,7 @@ exclude:
 
 include:
   - _redirects
+  - install.sh
 
 gems:
   - jekyll-redirect-from
