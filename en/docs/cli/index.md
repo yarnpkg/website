@@ -20,7 +20,7 @@ While all of the available commands are provided here, in alphabetical order, so
 
 Running `yarn` with no command will run `yarn install`, passing through any provided flags.
 
-## Concurrency and `--mutex` <a class="toc" id="toc-default-command" href="#toc-concurrency-and---mutex"></a>
+## Concurrency and `--mutex` <a class="toc" id="toc-concurrency-and-mutex" href="#toc-concurrency-and-mutex"></a>
 When running multiple instances of yarn as the same user on the same server,
 you can ensure only one instance runs at any given time (and avoid conflicts)
 by passing the global flag `--mutex` followed by `file` or `network`. 
