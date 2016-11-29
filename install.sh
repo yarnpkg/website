@@ -14,7 +14,14 @@ yarn_get_tarball() {
   if [ "$1" = '--nightly' ]; then
     url=https://nightly.yarnpkg.com/latest.tar.gz
   elif [ "$1" = '--version' ]; then
-    url="https://yarnpkg.com/downloads/$2/yarn-v$2.tar.gz"
+    # Validate that the version matches MAJOR.MINOR.PATCH to avoid garbage-in/garbage-out behavior
+    version=$2
+    if echo $version | grep -qP "^\d+\.\d+\.\d+$"; then
+      url="https://yarnpkg.com/downloads/$version/yarn-$version.tar.gz"
+    else
+      printf "$red> Version number must match MAJOR.MINOR.PATCH.$reset\n"
+      exit 1;
+    fi
   else
     url=https://yarnpkg.com/latest.tar.gz
   fi
