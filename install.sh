@@ -17,7 +17,7 @@ yarn_get_tarball() {
     # Validate that the version matches MAJOR.MINOR.PATCH to avoid garbage-in/garbage-out behavior
     version=$2
     if echo $version | grep -qP "^\d+\.\d+\.\d+$"; then
-      url="https://yarnpkg.com/downloads/$version/yarn-$version.tar.gz"
+      url="https://yarnpkg.com/downloads/$version/yarn-v$version.tar.gz"
     else
       printf "$red> Version number must match MAJOR.MINOR.PATCH.$reset\n"
       exit 1;
