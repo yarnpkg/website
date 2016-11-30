@@ -27,6 +27,6 @@ extracting it anywhere.
 ```sh
 cd /opt
 wget https://yarnpkg.com/latest.tar.gz
-tar zvxf yarn-*.tar.gz
+tar zvxf latest.tar.gz
 # Yarn is now in /opt/yarn-[version]/
 ```
