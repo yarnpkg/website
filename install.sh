@@ -27,13 +27,17 @@ yarn_get_tarball() {
   fi
   # Get both the tarball and its GPG signature
   tarball_tmp=`mktemp -t yarn.XXXXXXXXXX.tar.gz`
-  curl -L -o "$tarball_tmp#1" "$url{,.asc}"
-  yarn_verify_integrity $tarball_tmp
+  if curl --fail -L -o "$tarball_tmp#1" "$url{,.asc}"; then
+    yarn_verify_integrity $tarball_tmp
 
-  printf "$cyan> Extracting to ~/.yarn...$reset\n"
-  mkdir .yarn
-  tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
-  rm $tarball_tmp{,.asc}
+    printf "$cyan> Extracting to ~/.yarn...$reset\n"
+    mkdir .yarn
+    tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
+    rm $tarball_tmp{,.asc}
+  else
+    printf "$red> Failed to download $url.$reset\n"
+    exit 1;
+  fi
 }
 
 # Verifies the GPG signature of the tarball
