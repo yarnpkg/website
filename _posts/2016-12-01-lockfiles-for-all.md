@@ -44,7 +44,7 @@ When a package publishes a new version, the author bumps major, minor, or patch
 based on the changes that they have made as a way to communicate them.
 
 Users of packages should typically welcome minor and patch versions but should
-be weary of major versions as they could break your code.
+be wary of major versions as they could break your code.
 
 Version ranges are a way of specifying which types of changes you want to
 accept and which versions you want to prevent.  These version ranges then
