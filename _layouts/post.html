@@ -1,19 +1,27 @@
 ---
-layout: page
+layout: default
 ---
 
-<p class="text-muted">
-  Posted {{page.date | date: "%b %-d, %Y"}} by
-  {% if page.author_url %}
-    <a href="{{page.author_url}}">{{page.author}}</a>
-  {% else %}
-    {{page.author}}
-  {% endif %}
-  {% if page.meta %} · {{page.meta}}{% endif %}
-</p>
+<div class="hero">
+  <div class="container">
+    <h1 class="hero-text display-4 text-md-center">{{page.title}}</h1>
+  </div>
+</div>
 
-<div class="row">
-  <div class="col-md-8">
-    {{content}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 blog-content">
+      <p class="text-muted text-md-center">
+        Posted {{page.date | date: "%b %-d, %Y"}} by
+        {% if page.author_url %}
+          <a href="{{page.author_url}}">{{page.author}}</a>
+        {% else %}
+          {{page.author}}
+        {% endif %}
+        {% if page.meta %} · {{page.meta}}{% endif %}
+      </p>
+
+      {{content}}
+    </div>
   </div>
 </div>
