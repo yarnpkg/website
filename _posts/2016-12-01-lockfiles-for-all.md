@@ -163,7 +163,7 @@ When the `left-pad` incident happened, users discovered it almost immediately.
 Notifying the Babel contributors via GitHub issues, tweets, Facebook messages,
 emails, phone calls, smoke signals, and by carrier pigeon.
 
-Babel contributors couldn't possible prevent users from being affected by every
+Babel contributors couldn't possibly prevent users from being affected by every
 error. In order to do so, every 0.5 seconds they would need to be able to run
 CI, notice the error, find a fix, publish a new version, and get every user to
 upgrade. There's just no way to make this happen.
