@@ -257,7 +257,7 @@ if there is no lockfile, you will have to check the dependencies every time you
 install or re-install them and make sure that everything still works. Otherwise
 the build might be broken or the tests might fail. You could break something
 without even realizing it. You could run into situations where code works on
-your machine and but no one else's.
+your machine but no one else's.
 
 The idea that not using lockfiles in libraries somehow saves users from
 encountering breaking changes is at best extremely rare and at worst is never
