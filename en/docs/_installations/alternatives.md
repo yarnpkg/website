@@ -11,12 +11,10 @@ recommended to install Yarn via our packages instead.
 
 #### Install via npm
 
-> Note: Installation via npm is generally not recommended. Installing via npm is
-significantly slower than all of our other installation methods. npm packages
-are not signed and npm does not perform any integrity checks, which is a
-security risk when installing system-wide apps. Additionally, in an environment
-with a system-wide package manager such as most Linux distributions, apps
-installed via npm are not updated when you update the rest of your system.
+> Note: Installation via npm is generally not recommended. npm is 
+> non-determinstic, packages are not signed and npm does not perform any 
+> integrity checks other than a basic SHA1 hash, which is a security risk 
+> when installing system-wide apps.
 >
 > For these reasons, It is highly recommended that you install Yarn through the
 installation method best suited to your operating system.
