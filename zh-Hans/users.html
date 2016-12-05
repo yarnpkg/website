@@ -1,0 +1,43 @@
+---
+id: users
+layout: page
+---
+
+{% include vars.html %}
+
+<!-- [TODO: Add a million more users] -->
+
+<div class="row">
+  <div class="col-xl-10">
+    <p class="lead m-b-3">
+      <strong>{{i18n.users_lead}}</strong> {{i18n.users_description}}
+    </p>
+
+    <div class="row">
+      {% for user in site.data.users %}
+        <div class="col-lg-4 col-md-6">
+          <div class="user-target" id="{{user.name | slugify}}"></div>
+          <a class="user" href="{{user.url}}">
+            <img src="{{site.baseurl}}/assets/users/{{user.image}}" alt="{{user.name}}">
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="card">
+      <div class="card-block">
+        {{i18n.users_add_prompt}}
+
+        <a href="#">{{i18n.users_add_pr}}</a>
+
+        <br>
+
+        <small>
+          {{i18n.users_add_requirements_image}}
+          <br class="hidden-md-down">
+          {{i18n.users_add_requirements_logo}}
+        </small>
+      </div>
+    </div>
+  </div>
+</div>

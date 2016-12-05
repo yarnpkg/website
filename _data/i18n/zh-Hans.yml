@@ -1,0 +1,199 @@
+###
+# Global
+###
+
+site_title: Yarn
+site_description: 快速、可靠、安全的依赖管理工具。
+
+site_nav_getting_started: 开始使用
+site_nav_documentation: 文档
+site_nav_blog: 博客
+
+site_bsd_license: 以 BSD 许可证分发
+site_code_of_conduct: 行为准则
+site_edit_this_page: 编辑此页
+
+guides_prev: 上一页
+guides_next: 下一页
+guide_additional_reading: 阅读更多
+
+###
+# Homepage
+###
+
+homepage_tagline: 快速、可靠、安全的依赖管理工具。
+
+homepage_feature_fast_title: 超凡快速
+homepage_feature_fast_description: |
+  Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。
+  同时利用并行下载以最大化资源利用率，因此安装速度更快。
+homepage_feature_fast_image_alt: Generic placeholder image
+
+homepage_feature_secure_title: 超群安全
+homepage_feature_secure_description: |
+  在执行代码之前，Yarn 会使用校验和来验证每个已安装的包的完整性。
+homepage_feature_secure_image_alt: Generic placeholder image
+
+homepage_feature_reliable_title: 超级可靠
+homepage_feature_reliable_description: |
+  使用详细简洁的锁文件格式和确定性的安装算法，
+  Yarn 能够保证在不同系统上无差异的工作。
+homepage_feature_reliable_image_alt: Generic placeholder image
+
+homepage_c2a_text: 还在等什么？
+homepage_c2a_button: 开始使用
+homepage_install_button: 安装 Yarn
+
+homepage_featurette_offline_title: 离线模式
+homepage_featurette_offline_description: |
+  您以前安装过的包可以在没有任何互联网连接的情况下重新安装。
+homepage_featurette_deterministic_title: 确定性
+homepage_featurette_deterministic_description: |
+  不管安装顺序如何，相同的依赖关系将在每台机器上以相同的方式安装。
+homepage_featurette_network_performance_title: 网络性能
+homepage_featurette_network_performance_description: |
+  Yarn 有效地对请求进行排队，并避免 request waterfalls，
+  以便最大限度地利用网络。
+homepage_featurette_npm_and_bower_title: 多个 Registries
+homepage_featurette_npm_and_bower_description: |
+  支持从 npm 或 Bower 安装包，并保持安装包的工作流程相同。
+homepage_featurette_network_resillience_title: 网络恢复
+homepage_featurette_network_resillience_description: |
+  单个请求失败不会导致安装失败，而会重试请求。
+homepage_featurette_flat_mode_title: 扁平模式
+homepage_featurette_flat_mode_description: |
+  将不兼容版本的依赖项解析为单个版本，以避免重复下载。
+
+###
+# Titles
+###
+
+docs_getting_started_title: 开始使用
+docs_getting_started_description: |
+  从来没有使用过包管理器？刚刚接触 Yarn？ 
+  几分钟就能学会。
+
+docs_index: 文档
+docs_getting_started: 开始使用
+docs_install: 安装
+docs_usage: 用例
+
+docs_yarn_workflow_title: Yarn 工作流
+docs_yarn_workflow_description: |
+  如何使用 Yarn? 这里介绍使用 Yarn 来创建和使用包的基本工作流程，帮助您快速提高生产力。
+
+docs_yarn_workflow: Yarn 工作流
+docs_creating_a_project: 创建新项目
+docs_managing_dependencies: 管理依赖
+docs_installing_dependencies: 安装依赖
+docs_version_control: 使用版本控制
+
+docs_cli_title: 命令行
+docs_cli_description: |
+  Yarn 提供一系列包的安装，管理，发布等命令。
+
+docs_cli_index: 命令行介绍
+docs_cli_add: yarn add
+docs_cli_bin: yarn bin
+docs_cli_cache: yarn cache
+docs_cli_check: yarn check
+docs_cli_clean: yarn clean
+docs_cli_config: yarn config
+docs_cli_generate_lock_entry: yarn generate-lock-entry
+docs_cli_global: yarn global
+docs_cli_info: yarn info
+docs_cli_init: yarn init
+docs_cli_install: yarn install
+docs_cli_licenses: yarn licenses
+docs_cli_link: yarn link
+docs_cli_login: yarn login
+docs_cli_logout: yarn logout
+docs_cli_ls: yarn ls
+docs_cli_outdated: yarn outdated
+docs_cli_owner: yarn owner
+docs_cli_pack: yarn pack
+docs_cli_publish: yarn publish
+docs_cli_remove: yarn remove
+docs_cli_run: yarn run
+docs_cli_self_update: yarn self-update
+docs_cli_tag: yarn tag
+docs_cli_team: yarn team
+docs_cli_test: yarn test
+docs_cli_unlink: yarn unlink
+docs_cli_upgrade: yarn upgrade
+docs_cli_version: yarn version
+docs_cli_why: yarn why
+
+docs_migrating_from_npm_title: 从 npm 迁移
+docs_migrating_from_npm_description: |
+  Yarn 与 npm 的许多功能相互通用，
+  包括包的元数据格式，可以无痛的迁移。
+
+docs_migrating_from_npm: 从 npm 迁移
+
+docs_creating_a_package_title: 创建包
+docs_creating_a_package_description: |
+  创建和发布 Yarn 包可以通过几个命令和配置完成，让您专注于实际代码。
+
+docs_creating_a_package: 创建包
+docs_publishing_a_package: 发布包
+
+docs_dependencies_title: 依赖和版本
+docs_dependencies_description: |
+  使用 Yarn 管理依赖。让我们来看看不同类型和版本的依赖。
+
+docs_dependencies: 依赖和版本
+docs_dependency_types: 依赖的类型
+docs_dependency_versions: 依赖的版本
+
+docs_configuration_title: 配置
+docs_configuration_description: |
+  了解如何使用 package.json 配置包和依赖关系
+
+docs_configuration_index: 配置
+docs_configuration_package_json: package.json
+docs_configuration_yarn_lock: yarn.lock
+
+yarn_organization_title: Yarn 组织
+yarn_organization_description: |
+  Yarn 组织是许多公司和个人的合作，致力于改善您的包管理体验。
+
+organization: 组织
+code_of_conduct: 行为准则
+contributing: 贡献
+translations: 翻译
+release_process: 发布流程
+governance: 开发管理
+
+users: Yarn 用户
+compare: 对比 Yarn 的性能
+blog: 博客
+
+users_lead: 认识所有 Yarn 的用户。
+users_description: >
+  商标由公司或项目代表添加。
+  不一定需要在主要的项目中使用 Yarn，但是一定在某处使用了。
+users_add_prompt: 像提交你的公司或项目？
+users_add_pr: 提交一个 pull request
+users_add_requirements_image: >
+  商标必须是一个 500x200px (2.5x1) 的 SVG（建议）或 PNG 格式的图片，
+  并且通过 svgo, ImageOptim 或其他图片优化器优化过的。
+users_add_requirements_logo: >
+  请提交一个在白色背景下友好的商标。
+
+install_intro: >
+  开始使用 Yarn 之前，你需要先安装它。
+  这里有好几种安装方案：
+install_select_platform: 选择的你平台
+install_os_mac: macOS
+install_os_windows: Windows
+install_os_linux: Linux
+install_os_alternatives: 备选方案
+
+install_test: "Test that Yarn is installed by running:"
+
+install_problems_title: 有疑问？
+install_problems_description: >
+  如果你使用以上方案都无法安装 Yarn，请在 GitHub 中搜索已存在的 Issue 或提交一个新的 Issue。
+install_problems_search: 搜索已存在的 issue
+install_problems_new_issue: 提交一个新的 issue

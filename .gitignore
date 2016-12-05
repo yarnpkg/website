@@ -31,7 +31,6 @@ sv-SE/
 tr/
 vi/
 uk/
-zh-Hans/
 zh-Hant/
 
 _data/i18n/af.yml
@@ -61,5 +60,4 @@ _data/i18n/sv-SE.yml
 _data/i18n/tr.yml
 _data/i18n/vi.yml
 _data/i18n/uk.yml
-_data/i18n/zh-Hans.yml
 _data/i18n/zh-Hant.yml
