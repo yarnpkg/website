@@ -63,9 +63,9 @@ homepage_featurette_network_performance_title: Network Performance
 homepage_featurette_network_performance_description: |
   Yarn efficiently queues up requests and avoids request waterfalls in order
   to maximize network utilization.
-homepage_featurette_npm_and_bower_title: Multiple Registries
-homepage_featurette_npm_and_bower_description: |
-  Install any package from either npm or Bower and keep your package workflow
+homepage_featurette_npm_title: Same Packages
+homepage_featurette_npm_description: |
+  Install any package from npm and keep your package workflow
   the same.
 homepage_featurette_network_resillience_title: Network Resilience
 homepage_featurette_network_resillience_description: |
