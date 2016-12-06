@@ -5,7 +5,7 @@ layout: guide
 ---
 
 Dependencies serve many different purposes. Some dependencies are needed to
-build your project, others are needed when your running your program. As such
+build your project, others are needed when you're running your program. As such
 there are a number of different types of dependencies that you can have (e.g.
 `dependencies`, `devDependencies`, and `peerDependencies`).
 
