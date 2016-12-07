@@ -17,3 +17,15 @@ Running `yarn cache dir` will print out the path where yarn's global cache is cu
 
 Running this command will clear the local cache. It will be populated again the
 next time `yarn` or `yarn install` is run.
+
+### Change the cache path for yarn <a class="toc" id="toc-change-the-cache-path-for-yarn" href="#toc-change-the-cache-path-for-yarn"></a>
+
+Set `cache-folder` config value to configure the cache directory.
+```sh
+yarn config set cache-folder <path>
+```
+
+You can also specify the cache directory by flag `--cache-folder`:
+```sh
+yarn <command> --cache-folder <path>
+```
