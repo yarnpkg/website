@@ -9,7 +9,6 @@ layout: null
 /latest.msi        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-{{site.latest_version}}.msi          302
 /latest.deb        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn_{{site.latest_version}}_all.deb      302
 /latest.rpm        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-{{site.latest_version}}-1.noarch.rpm 302
-/install.sh        https://raw.githubusercontent.com/yarnpkg/yarn/master/scripts/install-latest.sh
 
 /en  /  302
 

@@ -13,6 +13,8 @@ site_bsd_license: Distributed under BSD License
 site_code_of_conduct: Code of Conduct
 site_edit_this_page: Edit this page
 
+blog_title: Yarn Blog
+
 guides_prev: Previous
 guides_next: Next
 guide_additional_reading: Additional Reading
@@ -27,7 +29,7 @@ homepage_tagline: Fast, reliable, and secure dependency management.
 
 homepage_feature_fast_title: Ultra Fast.
 homepage_feature_fast_description: |
-  Yarn caches every package it downloads so it never needs to again. It also
+  Yarn caches every package it downloads so it never needs to download it again. It also
   parallelizes operations to maximize resource utilization so install times are
   faster than ever.
 homepage_feature_fast_image_alt: Generic placeholder image
@@ -61,9 +63,9 @@ homepage_featurette_network_performance_title: Network Performance
 homepage_featurette_network_performance_description: |
   Yarn efficiently queues up requests and avoids request waterfalls in order
   to maximize network utilization.
-homepage_featurette_npm_and_bower_title: Multiple Registries
-homepage_featurette_npm_and_bower_description: |
-  Install any package from either npm or Bower and keep your package workflow
+homepage_featurette_npm_title: Same Packages
+homepage_featurette_npm_description: |
+  Install any package from npm and keep your package workflow
   the same.
 homepage_featurette_network_resillience_title: Network Resilience
 homepage_featurette_network_resillience_description: |

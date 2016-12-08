@@ -4,6 +4,8 @@ guide: docs_cli
 layout: guide
 ---
 
+{% include vars.html %}
+
 <p class="lead">Interactively creates or updates a package.json file.</p>
 
 ##### `yarn init` <a class="toc" id="toc-yarn-init" href="#toc-yarn-init"></a>
@@ -82,6 +84,17 @@ question license (BSD-2-Clause):
 success Saved package.json
 ✨  Done in 121.53s.
 ```
+
+##### Setting defaults for `yarn init` <a class="toc" id="toc-setting-defaults-for-yarn-init" href="#toc-setting-defaults-for-yarn-init"></a>
+
+The following [config]({{url_base}}/docs/cli/config) variables can be used to
+customize the defaults for `yarn init`:
+
+ - `init-author-name`
+ - `init-author-email`
+ - `init-author-url`
+ - `init-version`
+ - `init-license`
 
 ##### `yarn init --yes/-y` <a class="toc" id="toc-yarn-init-yes-y" href="#toc-yarn-init-yes-y"></a>
 

@@ -32,4 +32,4 @@ dependencies, you can add a flag, `--depth`, along with the desired level to the
 ```
 yarn ls --depth=0
 ```
-Keep in mind, levels are zero-indexd.
+Keep in mind, levels are zero-indexed.
