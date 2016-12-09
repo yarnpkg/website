@@ -271,6 +271,8 @@ Scripts are a great way of automating tasks related to your package, such as sim
 
 Certain script names are special. If defined, the `preinstall` script is called by yarn before your package is installed. For compatibility reasons, scripts called `install`, `postinstall`, and `prepublish` will all be called after your package has finished installing.
 
+The `start` script value defaults to `node server.js`.
+
 ### `config` <a class="toc" id="toc-config" href="#toc-config"></a>
 
 ```json
