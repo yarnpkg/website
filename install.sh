@@ -26,7 +26,7 @@ yarn_get_tarball() {
     url=https://yarnpkg.com/latest.tar.gz
   fi
   # Get both the tarball and its GPG signature
-  tarball_tmp=`mktemp -t yarn.XXXXXXXXXX.tar.gz`
+  tarball_tmp=`mktemp -t yarn.tar.gz.XXXXXXXXXX`
   if curl --fail -L -o "$tarball_tmp#1" "$url{,.asc}"; then
     yarn_verify_integrity $tarball_tmp
 
