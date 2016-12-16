@@ -157,6 +157,7 @@ docs_creating_a_package_description: |
   and configuration settings, leaving you to focus on your actual code.
 
 docs_creating_a_package: Creating a Package
+docs_prepare_to_publish_package: Preparing To Publish
 docs_publishing_a_package: Publishing a Package
 
 docs_dependencies_title: Dependencies & Versions

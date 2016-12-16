@@ -143,6 +143,8 @@
   pages:
   - id: docs_creating_a_package
     path: /docs/creating-a-package
+  - id: docs_prepare_to_publish_package
+    path: /docs/prepare-to-publish-package
   - id: docs_publishing_a_package
     path: /docs/publishing-a-package
 
