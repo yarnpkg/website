@@ -7,5 +7,5 @@ your `appveyor.yml`:
 
 ```yml
 cache:
- - "%LOCALAPPDATA%/Yarn"
+ - "%LOCALAPPDATA%\\Yarn"
 ```
