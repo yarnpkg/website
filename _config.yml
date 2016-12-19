@@ -26,6 +26,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Makefile
+  - _sass/bootstrap
+  - .sass-cache
 
 include:
   - _redirects

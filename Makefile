@@ -10,7 +10,7 @@ install: test-bundler
 	@bundle install
 
 serve: test-jekyll
-	@jekyll serve
+	@jekyll serve --incremental
 
 build: test-jekyll
 	@jekyll build
