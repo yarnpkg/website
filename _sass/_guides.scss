@@ -47,9 +47,6 @@
 }
 
 .guide-controls {
-  margin: 3rem 0;
-  padding: 1rem 0;
-  border: 0 solid $gray-lighter;
-  border-width: 1px 0;
-  @extend .clearfix;
+  margin-top: $spacer-x;
+  margin-bottom: $spacer-x;
 }

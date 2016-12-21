@@ -28,23 +28,25 @@ layout: page
       {{content}}
     </div>
 
-    <p class="guide-controls">
-      {% if guide_prev_index > -1 %}
-        <span class="float-md-left">
-          &larr;
-          {{i18n.guides_prev}}:
-          <a href="{{url_base}}{{guide_prev.path}}">{{i18n[guide_prev.id]}}</a>
-        </span>
-      {% endif %}
+    <div class="guide-controls">
+      <hr>
 
-      {% if guide_next %}
-        <span class="float-md-right">
-          {{i18n.guides_next}}:
-          <a href="{{url_base}}{{guide_next.path}}">{{i18n[guide_next.id]}}</a>
-          &rarr;
-        </span>
-      {% endif %}
-    </p>
+      <div class="clearfix">
+        {% if guide_prev_index > -1 %}
+          <a class="btn btn-outline-primary float-left" href="{{url_base}}{{guide_prev.path}}">
+            &larr;
+            {{i18n[guide_prev.id]}}
+          </a>
+        {% endif %}
+
+        {% if guide_next %}
+          <a class="btn btn-primary float-right" href="{{url_base}}{{guide_next.path}}">
+            {{i18n[guide_next.id]}}
+            &rarr;
+          </a>
+        {% endif %}
+      </div>
+    </div>
 
     {% if page.additional_reading_tags %}
       {% include additional-reading.html tags=page.additional_reading_tags %}
