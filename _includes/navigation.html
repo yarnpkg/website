@@ -30,7 +30,7 @@
         {% unless path[1] == 'blog' %}
           <li class="nav-item dropdown">
             <a id="dropdownNavLanguage" class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {% include svg/language.svg class="navbar-language" %}
+              {% include svg/language.svg class="navbar-icon" %}
               {{vars_active_language.name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownNavLanguage">
@@ -47,16 +47,28 @@
         {% endunless %}
 
         <li class="nav-item">
-          <a class="nav-link" href="https://discord.gg/yarnpkg">Discord</a>
+          <a class="nav-link" href="https://discord.gg/yarnpkg">
+            {% include svg/discord.svg class="navbar-icon" %}
+            <span class="sr-only">Discord</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/yarnpkg">Twitter</a>
+          <a class="nav-link" href="https://twitter.com/yarnpkg">
+            {% include svg/twitter.svg class="navbar-icon" %}
+            <span class="sr-only">Twitter</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.facebook.com/yarnpkg">Facebook</a>
+          <a class="nav-link" href="https://www.facebook.com/yarnpkg">
+            {% include svg/facebook.svg class="navbar-icon" %}
+            <span class="sr-only">Facebook</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/yarnpkg">GitHub</a>
+          <a class="nav-link" href="https://github.com/yarnpkg">
+            {% include svg/github.svg class="navbar-icon" %}
+            <span class="sr-only">GitHub</span>
+          </a>
         </li>
 
         <li class="nav-item">
