@@ -51,3 +51,8 @@ $navbar-height: ($navbar-padding-y * 2) + ($navbar-link-height * 2) + ($font-siz
     clear: both;
   }
 }
+
+// Waiting on next release of bootstrap on cdnjs (.open was renamed to .show)
+.open {
+  @extend .show;
+}
