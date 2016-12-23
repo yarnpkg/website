@@ -1,9 +1,351 @@
+/** Algolia Pkg Search **/
+
+$ais-focus-color: rgba(black,.7);
+$ais-muted-color: rgba(black,.5);
+
+.pkg-search {
+  position: relative;
+  top: -77px;
+  z-index: 9999;
+
+  @include media-breakpoint-down(xs) {
+    top: -44px;
+  }
+
+  .search-by-algolia {
+    position: absolute;
+    top: -30px;
+    right: 16px;
+  }
+
+  .ais-search-box--input {
+    box-shadow: 0 0 0 2px white;
+  }
+
+  .search-btn-clear {
+    position: absolute;
+    top: 17px;
+    right: 2rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url('/assets/search/ico-clear.svg') no-repeat center;
+    opacity: .5;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+.ais-pagination {
+  &--item {
+    display: none;
+  }
+
+  &--item__active,
+  &--item__previous,
+  &--item__next {
+    display: inline-block;
+  }
+
+  &--item__disabled {
+    visibility: visible;
+    opacity: .3;
+    cursor: default;
+  }
+}
+
+.ais-hits {
+  &--item {
+    padding: 1.5rem 1rem 2rem;
+    border-bottom: 1px solid $gray-lighter;
+    position: relative;
+
+    em {
+      font-style: normal;
+    }
+  }
+
+  &__empty {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.ais-hit {
+  &--name {
+    font-size: 1.625rem;
+    font-weight: normal;
+    color: $ais-focus-color;
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+
+    &:hover,
+    &:visited,
+    &:focus {
+      text-decoration: none;
+      color: rgba(black,.9);
+    }
+
+    em {
+      border-bottom: dotted 1px;
+    }
+  }
+
+  &--popular {
+    font-size: .825rem;
+    color: $ais-muted-color;
+    margin-right: 8px;
+    text-transform: uppercase;
+
+    &::before{
+      position: relative;
+      display: inline-block;
+      content: "";
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      background-image: url('/assets/search/ico-download.svg');
+      width: 15px;
+      height: 20px;
+      margin-right: 3px;
+      top: 2px;
+    }
+
+    &.hot-t4::before{
+      background-image: url('/assets/search/ico-hot-t4.svg');
+    }
+
+    &.hot-t3::before{
+      background-image: url('/assets/search/ico-hot-t3.svg');
+    }
+
+    &.hot-t2::before{
+      background-image: url('/assets/search/ico-hot-t2.svg');
+    }
+
+    &.hot-t1::before{
+      background-image: url('/assets/search/ico-hot-t1.svg');
+    }
+  }
+
+  &--license {
+    font-size: .75rem;
+    border: solid 1px #ccc;
+    color: $ais-muted-color;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: .2px;
+  }
+
+  &--version {
+    font-size: .825rem;
+    color: $ais-muted-color;
+    font-weight: bold;
+    max-width: 90px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &--ownerLink {
+    font-size: .69rem;
+    font-weight: bold;
+    color: $ais-focus-color;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    margin-right: 8px;
+  }
+
+  &--ownerAvatar {
+    border-radius: 4px;
+    margin-right: 2px;
+    position: relative;
+    top: -2px;
+  }
+
+  &--description {
+    font-size: .875rem;
+    color: $ais-muted-color;
+    margin: .6rem 0;
+    max-width: calc(100% - 120px);
+
+    @include media-breakpoint-down(xs) {
+      max-width: 100%;
+    }
+
+    &::first-letter {
+      text-transform: uppercase
+    }
+  }
+
+  &--lastUpdate {
+    font-size: .825rem;
+    color: $ais-muted-color;
+    font-style: italic;
+  }
+
+  &--keywords {
+    font-size: .825rem;
+    color: $ais-muted-color;
+    margin-left: 1em;
+    font-style: italic;
+
+    &:before {
+      display: inline-block;
+      content: "";
+      background: url('/assets/search/ico-tag.svg') no-repeat;
+      width: 16px;
+      height: 8px;
+      margin-right: 4px;
+      opacity: .5;
+    }
+  }
+
+  &--keyword {
+    color: $ais-muted-color;
+
+    em {
+      font-style: italic;
+      border-bottom: dotted 1px;
+    }
+
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
+  &--links {
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 1rem;
+
+    @include media-breakpoint-down(xs){
+      position: inherit;
+    }
+  }
+
+  &--link-homepage,
+  &--link-npm,
+  &--link-github {
+    margin-left: .8em;
+    display: block;
+    float: right;
+
+    a {
+      display: block;
+      opacity: .5;
+      text-indent: -9000px;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  &--link-homepage a {
+    background-image: url('/assets/search/ico-home.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &--link-npm a {
+    background-image: url('/assets/search/ico-npm.svg');
+    width: 34px;
+    height: 26px;
+  }
+
+  &--link-github a {
+    background-image: url('/assets/search/ico-github.svg');
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.ais-current-refined-values {
+  &--list {
+    display: inline-block;
+    margin-top: 1em;
+  }
+
+  &--item {
+    display: inline-block;
+    border: 1px solid $gray-lighter;
+    border-radius: 2px;
+    margin-right: .5em;
+    padding: 0 .5em;
+  }
+
+  &--link {
+    &:hover {
+      text-decoration: line-through;
+    }
+
+    > div {
+      font-size: .8125rem;
+      color: $ais-muted-color;
+
+      &::after {
+        display: inline-block;
+        content: "x";
+      }
+    }
+  }
+
+  &--clear-all {
+    display: inline-block;
+
+    > div {
+      font-size: .8125rem;
+      color: $ais-muted-color;
+      margin-left: 1em;
+    }
+  }
+
+  &--count {
+    display: none;
+  }
+}
+
+#pkg-featured {
+  margin-top: 4em;
+
+  .pkg-featured-pkg {
+    padding: 1rem;
+    border-bottom: solid 1px $gray-lighter;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0;
+    }
+
+    .ais-hit--keywords {
+      margin-left: 0;
+
+      a {
+        color: $ais-muted-color;
+      }
+    }
+  }
+}
+
+
 /** Algolia Doc Search **/
 
 .search {
   display: inline-block;
   vertical-align: top;
-  
+
   .algolia-autocomplete {
     width: 100%;
     vertical-align: top;
