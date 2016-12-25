@@ -84,43 +84,54 @@
   function itemTemplate(hit) {
     var pkgLink = 'https://www.npmjs.com/' + encode(hit.name);
 
-    var name = '<a class="ais-hit--name" href="' + pkgLink + '">' + highlight('name', hit) + '</a>';
+    var name = $('<a class="ais-hit--name" />').attr('href', pkgLink).html(highlight('name', hit)).prop('outerHTML');
 
-    var popular = hit.humanDownloadsLast30Days ? '<span class="ais-hit--popular ' + getDownloadBucket(hit.downloadsLast30Days) + ('" title="Downloads last 30 days">' + hit.humanDownloadsLast30Days + '</span>') : '';
+    var popular = hit.humanDownloadsLast30Days ? $('<span class="ais-hit--popular" title="Downloads last 30 days" />')
+      .addClass(getDownloadBucket(hit.downloadsLast30Days))
+      .text(hit.humanDownloadsLast30Days)
+      .prop('outerHTML') : '';
 
-    var license = hit.license ? '<span class="ais-hit--license">' + hit.license + '</span>' : '';
+    var license = hit.license ? $('<span class="ais-hit--license" />').text(hit.license).prop('outerHTML') : '';
 
-    var version = '<span class="ais-hit--version">v' + hit.version + '</span>';
+    var version = $('<span class="ais-hit--version" />').text('v' + hit.version).prop('outerHTML');
 
-    var description = '<p class="ais-hit--description">' + (hit.description ? highlight('description', hit) : 'No description found in package.json.') + '</p>';
+    var description = $('<p class="ais-hit--description" />').html(hit.description ? highlight('description', hit) : 'No description found in package.json.').prop('outerHTML');
 
-    var owner = '<a class="ais-hit--ownerLink" href="' + hit.owner.link + '">\n      <img src="https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/' + hit.owner.avatar + '" width="20" height="20" class="ais-hit--ownerAvatar" />\n      ' + hit.owner.name + '</a>';
+    var owner = $('<a class="ais-hit--ownerLink" />').attr('href', hit.owner.link)
+      .append($('<img width="20" height="20" class="ais-hit--ownerAvatar" />').attr('src', 'https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/' + hit.owner.avatar))
+      .append(document.createTextNode(hit.owner.name))
+      .prop('outerHTML');
 
-    var keywords = 'keywords' in hit._highlightResult && hit.keywords.length > 0 ? '<span class="ais-hit--keywords hidden-sm-down">' + formatKeywords(hit._highlightResult.keywords) + '</span>' : '';
+    var keywords = 'keywords' in hit._highlightResult && hit.keywords.length > 0 ?
+      $('<span class="ais-hit--keywords hidden-sm-down" />').append(formatKeywords(hit._highlightResult.keywords)).prop('outerHTML') : '';
 
-    var lastUpdate = '<span class="ais-hit--lastUpdate">' + moment(hit.modified).fromNow() + '</span>';
+    var lastUpdate = $('<span class="ais-hit--lastUpdate" />').text(moment(hit.modified).fromNow()).prop('outerHTML');
 
-    var githubRepo = hit.githubRepo ? '<span class="ais-hit--link-github"><a href="https://github.com/' + encode(hit.githubRepo.user) + '/' + encode(hit.githubRepo.project) + hit.githubRepo.path + '" title="Github repository of ' + hit.name + '">GitHub</a></span>' : '';
+    var githubRepo = hit.githubRepo ?
+      $('<span class="ais-hit--link-github" />').append(
+        $('<a>GitHub</a>').attr('title', 'Github repository of ' + hit.name)
+          .attr('href', 'https://github.com/' + encode(hit.githubRepo.user) + '/' + encode(hit.githubRepo.project) + hit.githubRepo.path)) : '';
 
-    var homepage = hit.homepage ? '<span class="ais-hit--link-homepage"><a href="' + hit.homepage + '" title="Homepage of ' + hit.name + '">Homepage</a></span>' : '';
+    var homepage = hit.homepage ? $('<span class="ais-hit--link-homepage" />').append(
+      $('<a>Homepage</a>').attr('href', hit.homepage).attr('title', 'Homepage of ' + hit.name )) : '';
 
-    var npm = '<span class="ais-hit--link-npm"><a href="' + pkgLink + '" title="NPM page for ' + hit.name + '">npm</a></span>';
+    var npm = $('<span class="ais-hit--link-npm" />').append($('<a>npm</a>').attr('href', pkgLink).attr('title', 'NPM page for ' + hit.name));
 
-    var links = '<div class="ais-hit--links" >' + npm + githubRepo + homepage + '</div>';
+    var links = $('<div class="ais-hit--links" />').append(npm).append(githubRepo).append(homepage).prop('outerHTML');
 
     return [name, popular, license, version, description, owner, lastUpdate, keywords, links].join(' ');
   }
 
-  function sanitize(str) {
-    return $('<div />').text(str).html();
+  function emptyTemplate(state) {
+    return 'No results matching "' + $('<em />').text(state.query).prop('outerHTML') + '".';
   }
 
-  function emptyTemplate(state) {
-    return 'No results matching "<em>' + sanitize(state.query) + '</em>".';
+  function escapeButHighlight(str) {
+    return $('<div />').text(str).html().replace(/&lt;(\/?)em&gt;/g, '<$1em>');
   }
 
   function highlight(attributeName, hit) {
-    return hit[attributeName] ? hit._highlightResult[attributeName].value : '';
+    return hit[attributeName] ? escapeButHighlight(hit._highlightResult[attributeName].value) : '';
   }
 
   function encode(val) {
@@ -156,11 +167,10 @@
         return k2.matchedWords.join('').length - k1.matchedWords.join('').length;
       }
       return 0;
-    }).slice(0, maxKeywords).map(function (_ref) {
-      var keyword = _ref.value;
-
+    }).slice(0, maxKeywords).map(function (keyword) {
+      var keyword = keyword.value;
       var url = search._createURL(search.helper.state.toggleRefinement('keywords', keyword.replace(/<\/?em>/g, '')), { absolute: true });
-      return '<a class="ais-hit--keyword" href="' + url + '">' + keyword + '</a>';
+      return $('<a class="ais-hit--keyword" />').attr('href', url).html(escapeButHighlight(keyword)).prop('outerHTML');
     }).join(', ');
   }
 
@@ -171,22 +181,31 @@
 
   // init featured packages
   var index = search.client.initIndex('npm-search');
-  var featuredPackages = $home.find('.pkg-featured-pkg').map(function (i, e) {
-    return $(e).data('name');
-  }).toArray();
-  index.getObjects(featuredPackages).then(function (_ref2) {
-    var results = _ref2.results;
+  var featuredPackages = $home.find('.pkg-featured-pkg').map(function (i, e) { return $(e).data('name'); }).toArray();
+  index.getObjects(featuredPackages).then(function (content) {
+    var results = content.results;
 
     results.forEach(function (hit) {
       var $elt = $('.pkg-featured-pkg[data-name="' + hit.objectID + '"');
-      var name = '<a class="ais-hit--name" href="' + (hit.homepage || 'https://www.npmjs.com/' + encode(hit.name)) + '">' + hit.name + '</a>';
-      var description = '<p>' + hit.description + '</p>';
-      var owner = '<a class="ais-hit--ownerLink" href="' + hit.owner.link + '"><img src="https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/' + hit.owner.avatar + '" width="20" height="20" class="ais-hit--ownerAvatar" />' + hit.owner.name + '</a>';
-      var keywords = '<span class="ais-hit--keywords hidden-sm-down">' + (hit.keywords || []).slice(0, 5).map(function (k) {
-        return '<a href="/search?q=' + k + '">' + k + '</a>';
-      }).join(', ') + '</span>';
 
-      $elt.html([owner, name, description, keywords].join(' '));
+      var name = $('<a class="ais-hit--name" />').text(hit.name).attr('href', hit.homepage || 'https://www.npmjs.com/' + encode(hit.name)).prop('outerHTML');
+
+      var description = $('<p />').text(hit.description).prop('outerHTML');
+
+      var owner = $('<a class="ais-hit--ownerLink" />').attr('href', hit.owner.link)
+        .append($('<img width="20" height="20" class="ais-hit--ownerAvatar" />').attr('src', 'https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/' + hit.owner.avatar))
+        .append(document.createTextNode(hit.owner.name))
+        .prop('outerHTML');
+
+      var keywords = $('<span class="ais-hit--keywords hidden-sm-down" />');
+      (hit.keywords || []).slice(0, maxKeywords).forEach(function(k, i) {
+        keywords.append($('<a />').text(k).attr('href', '/search?q=' + k));
+        if (i !== maxKeywords - 1) {
+          keywords.append(document.createTextNode(', '));
+        }
+      });
+
+      $elt.html([owner, name, description, keywords.prop('outerHTML')].join(' '));
     });
   });
 })();
