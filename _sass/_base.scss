@@ -1,4 +1,5 @@
 body {
+  overflow-y: scroll; // Avoid reflows on vertical content change on Linux
   padding-bottom: 3rem;
   color: #5a5a5a;
 }

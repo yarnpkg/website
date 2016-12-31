@@ -7,6 +7,7 @@ site_description: Fast, reliable, and secure dependency management.
 
 site_nav_getting_started: Getting Started
 site_nav_documentation: Docs
+site_nav_packages: Packages
 site_nav_blog: Blog
 
 site_bsd_license: Distributed under BSD License
