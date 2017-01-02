@@ -82,7 +82,7 @@
   search.start();
 
   function itemTemplate(hit) {
-    var pkgLink = 'https://www.npmjs.com/' + encode(hit.name);
+    var pkgLink = 'https://www.npmjs.com/package/' + encode(hit.name);
 
     var name = $('<a class="ais-hit--name" />').attr('href', pkgLink).html(highlight('name', hit)).prop('outerHTML');
 
@@ -188,7 +188,7 @@
     results.forEach(function (hit) {
       var $elt = $('.pkg-featured-pkg[data-name="' + hit.objectID + '"');
 
-      var name = $('<a class="ais-hit--name" />').text(hit.name).attr('href', hit.homepage || 'https://www.npmjs.com/' + encode(hit.name)).prop('outerHTML');
+      var name = $('<a class="ais-hit--name" />').text(hit.name).attr('href', hit.homepage || 'https://www.npmjs.com/package/' + encode(hit.name)).prop('outerHTML');
 
       var description = $('<p />').text(hit.description).prop('outerHTML');
 
