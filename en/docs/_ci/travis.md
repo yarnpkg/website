@@ -19,7 +19,7 @@ before_install: # if "install" is overridden
   - sudo apt-get install -y -qq yarn
 cache:
   directories:
-  - $HOME/.yarn-cache
+  - $HOME/.cache/yarn
 ```
 
 {% include_relative _ci/deb-specific-version.md %}

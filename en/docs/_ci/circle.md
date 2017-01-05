@@ -9,7 +9,7 @@ dependencies:
     - sudo apt-get update -qq
     - sudo apt-get install -y -qq yarn
   cache_directories:
-    - ~/.yarn-cache
+    - ~/.cache/yarn
   override:
     - yarn install
 ```
