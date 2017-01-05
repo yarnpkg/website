@@ -91,10 +91,6 @@ Using `--peer` or `-P` will install one or more packages in your
 Using `--optional` or `-O` will install one or more packages in your
 [`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optionaldependencies).
 
-##### `yarn add <package...> [--ignore-optional]` <a class="toc" id="toc-yarn-add-ignore-optional-o" href="#toc-yarn-add-optional-o"></a>
-Using `--ignore-optional` will skip dependencies labeled as optional in your package.json file
-[`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optionaldependencies).
-
 ##### `yarn add <package...> [--exact/-E]` <a class="toc" id="toc-yarn-add-exact-e" href="#toc-yarn-add-exact-e"></a>
 
 Using `--exact` or `-E` installs the packages as exact versions. The default is
