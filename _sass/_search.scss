@@ -178,6 +178,10 @@ $ais-muted-color: rgba(black,.5);
       max-width: 100%;
     }
 
+    em {
+      border-bottom: dotted 1px;
+    }
+
     &::first-letter {
       text-transform: uppercase
     }
