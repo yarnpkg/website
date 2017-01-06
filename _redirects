@@ -21,5 +21,6 @@ layout: null
     {% endif %}
 
 /{{language.tag}}/docs/install_ci   /{{language.tag}}/docs/install-ci  302
+/{{language.tag}}/docs/cli/ls   /{{language.tag}}/docs/cli/list 302
   {% endif %}
 {% endfor %}
