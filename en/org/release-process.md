@@ -6,12 +6,11 @@ layout: guide
 
 ## To release a new version of Yarn <a class="toc" id="toc-to-release-a-new-version-of-yarn" href="#toc-to-release-a-new-version-of-yarn"></a>
 
-1. Make sure current master branch is green on [Circle](https://circleci.com/gh/yarnpkg/yarn) and [Travis](https://travis-ci.com/yarnpkg/yarn/builds)
-2. Ensure your local copy of Yarn is up-to-date, then run `./scripts/release-branch.sh`. This will create the `0.xx-stable` branch and CircleCI will automatically create a GitHub release from it
-3. Once the GitHub release has been created, attach the `.msi` file from the [AppVeyor build of that branch](https://ci.appveyor.com/project/kittens/yarn) to the GitHub release. Note that this is **not** automated as we will need to Authenticode sign the installers in the future (which will be done externally to AppVeyor)
+1. Make sure current master branch is green on [Circle](https://circleci.com/gh/yarnpkg/yarn), [Travis](https://travis-ci.com/yarnpkg/yarn/builds) and [AppVeyor](https://ci.appveyor.com/project/kittens/yarn)
+2. Ensure your local copy of Yarn is up-to-date, then run `./scripts/release-branch.sh`. This will create the `0.xx-stable` branch and assign tag `0.xx.0` to HEAD and push it all to git `origin`
+3. CircleCI and Appveyor will automatically create a GitHub release if the build is passing. They will build the artifacts and attach them to the Github release. And also they will publish the new version to npm with tag `next` (meaning that it won't be installed for users by default but will be available)
 4. Verify that all artifacts are attached to release (`.tar.gz`, `.deb`, `.rpm` and `.msi`). **Do not continue** until this is checked
-5. Bump `latest_version` in [_config.yml on the website](https://github.com/yarnpkg/website/blob/master/_config.yml#L9). This updates the download URLs (`/latest.tar.gz` etc) to point to the new release. This will eventually be automated ([#187](https://github.com/yarnpkg/website/issues/187))
-6. Debian and CentOS repo should be automatically updated with the latest release within 5 minutes (keep an eye on [the commits](https://github.com/yarnpkg/releases/commits/gh-pages))
+5. Generate new release notes with command `git-release-notes v0.yy.0..v0.xx.0 markdown > release-notes.md` using [git release notes tool](https://www.npmjs.com/package/git-release-notes) where v.0.yy.0 is the last stable tag **Suggestions for alternative tools are welcome**
 
 <!-- [TODO: Instructions for updating Chocolatey should go here - Currrently Daniel does that manually] -->
 
@@ -22,6 +21,17 @@ layout: guide
 - Tag the new release `npm version patch`, it will create a commit with changed
   package.json and tag `v0.xx.1` to that commit
 - Push to origin `git push origin 0.x-stable --follow-tags`
+
+## To mark a release as stable
+
+1. Remove tag `next` from the release on npm and set the version considered as stable to `latest`: 
+```
+npm dist-tag rm yarn next
+npm dist-tag add yarn@<version> latest
+```
+2. Bump `latest_version` in [_config.yml on the website](https://github.com/yarnpkg/website/blob/master/_config.yml#L9). This updates the download URLs (`/latest.tar.gz` etc) to point to the new release. This will eventually be automated ([#187](https://github.com/yarnpkg/website/issues/187))
+3. Debian and CentOS repo should be automatically updated with the latest release within 5 minutes (keep an eye on [the commits](https://github.com/yarnpkg/releases/commits/gh-pages))
+
 
 ## Old Manual Process <a class="toc" id="toc-old-manual-process" href="#toc-old-manual-process"></a>
 
