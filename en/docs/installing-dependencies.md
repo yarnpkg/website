@@ -15,7 +15,7 @@ If you have just checked out a package from [version control](./version-control)
 
 When developing a package, installing dependencies is most commonly done after:
 
-1. You have just checked out code for a project that is creating a package.
+1. You have just checked out code for a project that needs these dependencies to function.
 1. Another developer on the project has added a new dependency that you need to pick up.
 
 ### Installing Options <a class="toc" id="toc-installing-options" href="#toc-installing-options"></a>
