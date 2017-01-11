@@ -87,7 +87,7 @@ Using `--dev` or `-D` will install one or more packages in your
 Using `--peer` or `-P` will install one or more packages in your
 [`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
 
-##### `yarn add <package...> [--optional,-O]` <a class="toc" id="toc-yarn-add-optional-o" href="#toc-yarn-add-optional-o"></a>
+##### `yarn add <package...> [--optional/-O]` <a class="toc" id="toc-yarn-add-optional-o" href="#toc-yarn-add-optional-o"></a>
 
 Using `--optional` or `-O` will install one or more packages in your
 [`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optional-dependencies).
