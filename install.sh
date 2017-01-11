@@ -25,30 +25,19 @@ yarn_get_tarball() {
   else
     url=https://yarnpkg.com/latest.tar.gz
   fi
-
-  download_to_tmp() {
-    if curl --fail -L -o "$1" "$2"; then
-      printf "$green> Downloaded $2.$reset\n"
-    else
-      printf "$red> Failed to download $2.$reset\n"
-      exit 1;
-    fi
-  }
-
-  tarball_tmp=`mktemp -t yarn.tar.gz.XXXXXXXXXX`
-  asc_tmp=`mktemp -t yarn.asc.XXXXXXXXXX`
-
   # Get both the tarball and its GPG signature
-  download_to_tmp $tarball_tmp $url
-  download_to_tmp $asc_tmp $url.asc
+  tarball_tmp=`mktemp -t yarn.tar.gz.XXXXXXXXXX`
+  if curl --fail -L -o "$tarball_tmp#1" "$url{,.asc}"; then
+    yarn_verify_integrity $tarball_tmp
 
-  yarn_verify_integrity $tarball_tmp $asc_tmp
-
-  printf "$cyan> Extracting to ~/.yarn...$reset\n"
-  mkdir .yarn
-  tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
-
-  rm $tarball_tmp $asc_tmp
+    printf "$cyan> Extracting to ~/.yarn...$reset\n"
+    mkdir .yarn
+    tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
+    rm $tarball_tmp*
+  else
+    printf "$red> Failed to download $url.$reset\n"
+    exit 1;
+  fi
 }
 
 # Verifies the GPG signature of the tarball
@@ -68,14 +57,14 @@ yarn_verify_integrity() {
   # Grab the public key if it doesn't already exist
   gpg --list-keys $gpg_key >/dev/null 2>&1 || (curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import)
 
-  if [ ! -f "$2" ]; then
+  if [ ! -f "$1.asc" ]; then
     printf "$red> Could not download GPG signature for this Yarn release. This means the release can not be verified!$reset\n"
     yarn_verify_or_quit "> Do you really want to continue?"
     return
   fi
 
   # Actually perform the verification
-  if gpg --verify $2 $1; then
+  if gpg --verify "$1.asc" $1; then
     printf "$green> GPG signature looks good$reset\n"
   else
     printf "$red> GPG signature for this Yarn release is invalid! This is BAD and may mean the release has been tampered with. It is strongly recommended that you report this to the Yarn developers.$reset\n"
