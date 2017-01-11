@@ -13,6 +13,8 @@ yarn_get_tarball() {
   printf "$cyan> Downloading tarball...$reset\n"
   if [ "$1" = '--nightly' ]; then
     url=https://nightly.yarnpkg.com/latest.tar.gz
+  elif [ "$1" = '--rc' ]; then
+    url=https://yarnpkg.com/latest-rc.tar.gz
   elif [ "$1" = '--version' ]; then
     # Validate that the version matches MAJOR.MINOR.PATCH to avoid garbage-in/garbage-out behavior
     version=$2
@@ -167,6 +169,10 @@ yarn_install() {
       elif [ "$1" = '--version' ]; then
         specified_version=$2
         version_type='specified'
+      elif [ "$1" = '--rc' ]; then
+        latest_url=https://yarnpkg.com/latest-rc-version
+        specified_version=`curl -sS $latest_url`
+        version_type='rc'
       else
         latest_url=https://yarnpkg.com/latest-version
         specified_version=`curl -sS $latest_url`

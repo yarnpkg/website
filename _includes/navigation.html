@@ -76,9 +76,15 @@
 
         <li class="nav-item">
           <span class="sr-only">The current version of Yarn is</span>
+          Stable:
           <strong class="navbar-text">
             v{{site.latest_version}}
           </strong>
+          {% if site.show_rc %}
+            <span aria-hidden="true">&bull;</span>
+            <abbr title="Release Candidate">RC</abbr>:
+            <strong>v{{site.latest_rc_version}}</strong>
+          {% endif %}
         </li>
       </ul>
     </div>
