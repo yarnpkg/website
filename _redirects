@@ -10,6 +10,15 @@ layout: null
 /latest.deb        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn_{{site.latest_version}}_all.deb      302
 /latest.rpm        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_version}}/yarn-{{site.latest_version}}-1.noarch.rpm 302
 
+# Nice short URLs for latest RC
+# If Netlify supported regular expressions in their rewrite rules, these could
+# simply be a part of the rules above. Alas, they don't support it :(
+/latest-rc.tar.gz     https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-v{{site.latest_rc_version}}.tar.gz      302
+/latest-rc.tar.gz.asc https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-v{{site.latest_rc_version}}.tar.gz.asc  302
+/latest-rc.msi        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-{{site.latest_rc_version}}.msi          302
+/latest-rc.deb        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn_{{site.latest_rc_version}}_all.deb      302
+/latest-rc.rpm        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-{{site.latest_rc_version}}-1.noarch.rpm 302
+
 /en  /  302
 
 {% for language in site.data.languages %}
