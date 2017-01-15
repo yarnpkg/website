@@ -30,6 +30,17 @@
     code {
       background-color: $gray-lighter;
     }
+
+    .problem-links {
+
+      .text-success {
+        color: $green-darkest !important;
+      }
+
+      .text-danger {
+        color: $red-darker !important;
+      }
+    }
   }
 
   table {
