@@ -8,6 +8,10 @@ $yarn-blue-dark:    #2188b6;
 $yarn-blue-darker:  #1b7eab;
 $yarn-blue-darkest: #1476A2;
 
+$green-darkest:     #367d36;
+
+$red-darker:        #bc2e29;
+
 $text-muted:    #52585e;
 $text-muted-er: #6d767d;
 
@@ -42,3 +46,4 @@ $npm-red: #C12127;
 @import "_toc.scss";
 @import "_footer.scss";
 @import "_search.scss";
+@import "_install.scss";
