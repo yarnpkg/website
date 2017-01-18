@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
-reset="\e[0m"
-red="\e[0;31m"
-green="\e[0;32m"
-yellow="\e[0;33m"
-cyan="\e[0;36m"
-white="\e[0;37m"
+reset="\033[0m"
+red="\033[31m"
+green="\033[32m"
+yellow="\033[33m"
+cyan="\033[36m"
+white="\033[37m"
 gpg_key=9D41F3C3
 
 yarn_get_tarball() {
@@ -35,7 +35,7 @@ yarn_get_tarball() {
     printf "$cyan> Extracting to ~/.yarn...$reset\n"
     mkdir .yarn
     tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
-    rm $tarball_tmp{,.asc}
+    rm $tarball_tmp*
   else
     printf "$red> Failed to download $url.$reset\n"
     exit 1;
