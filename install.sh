@@ -33,7 +33,7 @@ yarn_get_tarball() {
     yarn_verify_integrity $tarball_tmp
 
     printf "$cyan> Extracting to ~/.yarn...$reset\n"
-    mkdir -p .yarn
+    mkdir .yarn
     tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
     rm $tarball_tmp{,.asc}
   else
@@ -182,6 +182,7 @@ yarn_install() {
       yarn_alt_version=`yarn --version`
       if [ "$specified_version" = "$yarn_version" -o "$specified_version" = "$yarn_alt_version" ]; then
         printf "$green> Yarn is already at the $specified_version version.$reset\n"
+        exit 0
       else
         rm -rf "$HOME/.yarn"
       fi
