@@ -33,7 +33,7 @@ yarn_get_tarball() {
     yarn_verify_integrity $tarball_tmp
 
     printf "$cyan> Extracting to ~/.yarn...$reset\n"
-    mkdir .yarn
+    mkdir -p .yarn
     tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
     rm $tarball_tmp{,.asc}
   else
