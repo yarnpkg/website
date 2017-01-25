@@ -140,7 +140,7 @@ $ ls npm-packages-offline-cache/
 is-array-1.0.1.tgz    left-pad-1.1.3.tgz    mime-db-1.25.0.tgz    mime-types-2.1.13.tgz
 ```
 
-> In a nustshell, to enable “Offline mirror” for your project you need:
+> In a nutshell, to enable “Offline mirror” for your project you need:
 - add “yarn-offline-mirror” configuration to .yarnrc file
 - generate a new yarn.lock with “yarn install” command
 
@@ -259,5 +259,3 @@ The “Offline mirror” was implemented early in Yarn's development cycle and w
 
 * The `resolved` field is used both for offline mirror paths and registry URIs. This means that the `yarn.lock` file that React Native team uses internally can't be shared with the open source community because the React Native team does not sync the offline mirror with the open source version of React Native. [Issue](https://github.com/yarnpkg/yarn/issues/394).
 * There is an [improved workflow being considered](https://github.com/yarnpkg/yarn/issues/393) for future versions of Yarn. It is not drastically different but some settings and lock files may change.
-
-
