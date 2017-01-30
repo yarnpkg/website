@@ -58,10 +58,13 @@ scripts:
 </p>
 
 {% capture issueBody %}
-**Which operating system are you using:**
+<!-- *Before creating an issue please make sure you are using the latest version of yarn.* -->
+
+**Please mention your operating system, node.js and yarn versions.**
 
 
 **Please describe the steps you took when trying to install Yarn and what went wrong:**
+
 
 {% endcapture %}
 {% assign issueBodyEscaped = issueBody | uri_escape %}
@@ -76,7 +79,7 @@ scripts:
     <strong>{{i18n.install_problems_title}}</strong>
     {{i18n.install_problems_description}}
   </p>
-  <p>
+  <p class="problem-links">
     <a class="text-success" href="{{searchHref}}">{{i18n.install_problems_search}}</a>
     &middot;
     <a class="text-danger" href="{{newIssueHref}}">{{i18n.install_problems_new_issue}}</a>

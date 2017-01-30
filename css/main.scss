@@ -8,6 +8,10 @@ $yarn-blue-dark:    #2188b6;
 $yarn-blue-darker:  #1b7eab;
 $yarn-blue-darkest: #1476A2;
 
+$green-darkest:     #367d36;
+
+$red-darker:        #bc2e29;
+
 $text-muted:    #52585e;
 $text-muted-er: #6d767d;
 
@@ -23,7 +27,9 @@ $link-color: saturate(darken($brand-primary, 8%), 20%);
 
 $npm-red: #C12127;
 
+@import "_variable-overrides.scss";
 @import "bootstrap/scss/bootstrap.scss";
+@import "_component-overrides.scss";
 @import "_base.scss";
 @import "_navbar.scss";
 @import "_icons.scss";
