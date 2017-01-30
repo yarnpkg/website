@@ -54,6 +54,10 @@ to investigate network performance, and can be analyzed with tools such as
 
 Don't read or generate a `yarn.lock` lockfile.
 
+##### `yarn install --ignore-optional` <a class="toc" id="toc-yarn-install-ignore-optional" href="#toc-yarn-install-ignore-optional"></a>
+Using `--ignore-optional` will skip dependencies labeled as optional in your package.json file. See
+[`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optionaldependencies).
+
 ##### `yarn install --production` <a class="toc" id="toc-yarn-install-production" href="#toc-yarn-install-production"></a>
 
 Using the `--production` flag, or when the `NODE_ENV` environment variable is
