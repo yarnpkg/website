@@ -44,7 +44,7 @@
   accept_languages: ["fi"]
 - name: Français
   tag: fr
-  enabled: No
+  enabled: Yes
   accept_languages: ["fr", "fr-be", "fr-ca", "fr-ch", "fr-lu"]
 - name: עִברִית
   tag: he
@@ -92,7 +92,7 @@
   accept_languages: ["pt"]
 - name: Português (Brasil)
   tag: pt-BR
-  enabled: No
+  enabled: Yes
   accept_languages: ["pt-br"]
 - name: Română
   tag: ro

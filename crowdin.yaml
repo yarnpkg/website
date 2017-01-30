@@ -3,8 +3,8 @@ api_key_env: CROWDIN_API_KEY
 base_path: .
 
 files:
-  - source: '/en/**/*'
-    translation: '/%locale%/**/%original_file_name%'
+  - source: '/lang/en/**/*'
+    translation: '/lang/%locale%/**/%original_file_name%'
     languages_mapping:
       locale:
         af: af

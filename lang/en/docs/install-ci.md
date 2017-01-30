@@ -1,0 +1,3 @@
+---
+layout: pages/install-ci
+---
