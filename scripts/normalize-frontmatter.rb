@@ -1,5 +1,5 @@
-sourceRegex = /^---\n.*?\n---\n/m
-targetRegex = /^\* \* \*\n.*?\n\* \* \*\n/m
+sourceRegex = /^---\n.*?\n---/m
+targetRegex = /^\* \* \*\n.*?\n\* \* \*/m
 
 langsDir = File.join('.', 'lang')
 langs = Dir.entries(langsDir).drop(2).reject {|lang| lang == 'en' }
