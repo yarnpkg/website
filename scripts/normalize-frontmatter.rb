@@ -24,7 +24,9 @@ langs.each {|lang|
     contents = IO.read file
     replacement = english[path]
     if replacement
-      result = contents.gsub(targetRegex) {|c| replacement }
+      result = contents
+        .encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+        .gsub(targetRegex) {|c| replacement }
       File.write(file, result)
     end
   }
