@@ -4,8 +4,14 @@ guide: yarn_organization
 layout: guide
 ---
 
-Currently all of our documentation is written in English. Having multiple translations of the Yarn documentation will help reduce the worldwide barrier to entry for understanding how to use Yarn and how Yarn works.
+Documentation is written in English through the repository on GitHub.
+Translations are managed through [Crowdin](https://crowdin.com/).
 
-As you can see at the top of our website, we have a placeholder specifically to list various translations -- **we would love the help from the community to make these various translations happen**.
+If would like to contribute to translations you can
+[join our team here](http://i18n.yarnpkg.com/project/yarn/invite).
 
-We're not *quite* set up yet (will take a few more days, but once that happens we'll be able to translate via CrowdIn).
+Once you sign up for an account you can click on your language and start
+writing translations.
+
+Remember that the [code of conduct]({{url_base}}/org/code-of-conduct) also
+applies to anything that happens on Crowdin.
