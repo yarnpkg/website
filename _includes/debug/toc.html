@@ -1,3 +1,5 @@
+{% include vars.html %}
+
 {% assign shouldRender = false %}
 
 {% if jekyll.environment == "development" %}
@@ -8,7 +10,7 @@
   {% assign shouldRender = true %}
 {% endif %}
 
-{% if shouldRender %}
+{% if shouldRender and vars_active_language.tag == 'en' %}
   {% assign lines = include.content | newline_to_br | strip_newlines | split: '<br />' %}
 
   {% assign insideCodeBlock = false %}

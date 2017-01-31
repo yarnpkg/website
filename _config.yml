@@ -64,7 +64,7 @@ redcarpet:
   extensions: [with_toc_data]
 
 # Blog Settings
-permalink: /blog/:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title/
 paginate: 1
 
 
