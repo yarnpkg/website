@@ -92,7 +92,7 @@
   accept_languages: ["pt"]
 - name: Português (Brasil)
   tag: pt-BR
-  enabled: No
+  enabled: Yes
   accept_languages: ["pt-br"]
 - name: Română
   tag: ro
