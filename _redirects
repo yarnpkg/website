@@ -48,7 +48,7 @@ layout: null
   {% for language in site.data.languages %}
     {% if language.enabled %}
       {% for accept_language in language.accept_languages %}
-        {% capture redirect %}{{url}}  /lang/{{language.tag}}{{url}}  200  Language={{accept_language}}{% endcapture %}
+        {% capture redirect %}{{url}}  /lang/{{language.tag}}{{url}}  200!  Language={{accept_language}}{% endcapture %}
         {% assign redirects = redirects | push: redirect %}
       {% endfor %}
     {% endif %}
