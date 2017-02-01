@@ -17,7 +17,7 @@ scripts:
 {% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
 
 <div class="tabs">
-  <div class="nav nav-tabs bg-faded text-xs-center">
+  <div class="nav nav-tabs bg-faded text-center">
     <ul class="nav navbar-nav nav-inline">
       <a id="mac-tab" class="nav-item nav-link" data-toggle="tab" href="#mac">{{i18n.install_os_mac}}</a>
       <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
@@ -28,7 +28,7 @@ scripts:
 
   <div class="tab-content">
     <div id="select-platform" class="tab-pane bg-faded active">
-      <p class="text-xs-center my-4 text-muted">
+      <p class="text-center my-4 text-muted">
         {{i18n.install_select_platform}}
       </p>
     </div>
