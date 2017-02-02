@@ -48,11 +48,19 @@ layout: null
   {% for language in site.data.languages %}
     {% if language.enabled %}
       {% for accept_language in language.accept_languages %}
-        {% capture redirect %}{{url}}  /lang/{{language.tag}}{{url}}  200!  Language={{accept_language}}{% endcapture %}
+        {% capture redirect %}{{url}}  /lang/{{language.tag}}{{url}}  200  Language={{accept_language}}{% endcapture %}
         {% assign redirects = redirects | push: redirect %}
       {% endfor %}
     {% endif %}
   {% endfor %}
+{% endfor %}
+
+{% assign redirects = redirects | push: "" %}
+{% assign redirects = redirects | push: "# default redirects" %}
+
+{% for url in urls_filtered %}
+  {% capture redirect %}{{url}}  /lang/en{{url}}  200{% endcapture %}
+  {% assign redirects = redirects | push: redirect %}
 {% endfor %}
 
 {% capture newline %}
