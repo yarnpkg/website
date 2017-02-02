@@ -19,6 +19,24 @@ shitty: Yes
         <iframe src="https://ghbtns.com/github-btn.html?user=yarnpkg&repo=yarn&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" title="{{i18n.iframe_github_stars}}"></iframe>
       </span>
     </div>
+
+    <div class="mt-4">
+      {{i18n.site_nav_stable_version}}:
+      <strong class="navbar-text">
+        <a href="https://github.com/yarnpkg/yarn/releases/tag/v{{site.latest_version}}">
+          v{{site.latest_version}}
+        </a>
+      </strong>
+      {% if site.show_rc %}
+        <span aria-hidden="true">&bull;</span>
+        {{i18n.site_nav_rc_version}}
+        <strong>
+          <a href="https://github.com/yarnpkg/yarn/releases/tag/v{{site.latest_rc_version}}">
+            v{{site.latest_rc_version}}
+          </a>
+        </strong>
+      {% endif %}
+    </div>
   </div>
 </div>
 

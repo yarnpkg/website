@@ -8,6 +8,11 @@
 
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
 }
 
 .hero::before,
@@ -86,6 +91,10 @@
     background-color: white;
     border-color: white;
   }
+}
+
+.hero a.hero-btn {
+  text-decoration: none;
 }
 
 .hero-ghbtn {

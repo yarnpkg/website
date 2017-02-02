@@ -74,25 +74,6 @@
             <span class="sr-only">GitHub</span>
           </a>
         </li>
-
-        <li class="nav-item">
-          <span class="sr-only">The current version of Yarn is</span>
-          {{i18n.site_nav_stable_version}}:
-          <strong class="navbar-text">
-            <a href="https://github.com/yarnpkg/yarn/releases/tag/v{{site.latest_version}}">
-              v{{site.latest_version}}
-            </a>
-          </strong>
-          {% if site.show_rc %}
-            <span aria-hidden="true">&bull;</span>
-              <abbr title="{{i18n.site_nav_rc_version}}">RC</abbr>:
-              <strong>
-                <a href="https://github.com/yarnpkg/yarn/releases/tag/v{{site.latest_rc_version}}">
-                  v{{site.latest_rc_version}}
-                </a>
-              </strong>
-          {% endif %}
-        </li>
       </ul>
     </div>
   </div>

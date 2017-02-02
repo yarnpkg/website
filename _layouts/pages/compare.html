@@ -1,5 +1,4 @@
 ---
-id: compare
 layout: page
 ---
 
@@ -48,17 +47,17 @@ layout: page
 
   <div class="compare">
     <h4 class="compare-heading">
-      <span class="tag tag-{% if comparison.warm_cache %}success{% else %}default{% endif %}">
+      <span class="badge badge-{% if comparison.warm_cache %}success{% else %}default{% endif %}">
         {% if comparison.warm_cache %}✔{% else %}✗{% endif %}
         Warm Cache
       </span>
 
-      <span class="tag tag-{% if comparison.node_modules %}success{% else %}default{% endif %}">
+      <span class="badge badge-{% if comparison.node_modules %}success{% else %}default{% endif %}">
         {% if comparison.node_modules %}✔{% else %}✗{% endif %}
         node_modules
       </span>
 
-      <span class="tag tag-{% if comparison.lockfile %}success{% else %}default{% endif %}">
+      <span class="badge badge-{% if comparison.lockfile %}success{% else %}default{% endif %}">
         {% if comparison.lockfile %}✔{% else %}✗{% endif %}
         Lockfile/Shrinkwrap
       </span>

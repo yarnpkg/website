@@ -40,6 +40,10 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js" integrity="sha256-ifihHN6L/pNU1ZQikrAb7CnyMBvisKG3SUAab0F3kVU=" crossorigin="anonymous"></script>
 
+    {% for script in layout.scripts %}
+      <script type="text/javascript" src="{{script}}"></script>
+    {% endfor %}
+
     {% for script in page.scripts %}
       <script type="text/javascript" src="{{script}}"></script>
     {% endfor %}
