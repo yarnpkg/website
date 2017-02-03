@@ -2,11 +2,10 @@
 
 <nav class="navbar navbar-static-top navbar-light">
   <div class="container">
-
-      <a {% if vars_active_language.tag == "en" %} href="{{site.baseurl}}/" {% else %} href="{{url_base}}/" {% endif %}>
-        {% include svg/yarn-kitten-full.svg class="navbar-logo" %}
-        <span class="sr-only">Yarn</span>
-      </a>
+    <a {% if vars_active_language.tag == "en" %} href="{{site.baseurl}}/" {% else %} href="{{url_base}}/" {% endif %}>
+      {% include svg/yarn-kitten-full.svg class="navbar-logo" %}
+      <span class="sr-only">Yarn</span>
+    </a>
 
     <div class="clearfix hidden-lg-up">
       <button class="navbar-toggler hidden-lg-up float-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation"></button>
