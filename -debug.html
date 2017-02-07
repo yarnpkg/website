@@ -16,4 +16,14 @@ layout: default
 
   <h2>Redirects</h2>
   <pre><code>{% include_relative _redirects %}</code></pre>
+
+  <h3>Pages</h2>
+
+  {% assign urls_sorted = site.pages | map: "url" | sort %}
+
+  <ul>
+    {% for url in urls_sorted %}
+      <li><a href="{{url}}">{{url}}</a></li>
+    {% endfor %}
+  </ul>
 </div>

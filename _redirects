@@ -18,53 +18,42 @@ layout: null
 /latest-rc.msi        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-{{site.latest_rc_version}}.msi          302
 /latest-rc.deb        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn_{{site.latest_rc_version}}_all.deb      302
 /latest-rc.rpm        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-{{site.latest_rc_version}}-1.noarch.rpm 302
-
 {% capture _redirects %}
 
-{% assign urls_sorted = site.pages | map: "url" | sort %}
-{% assign urls_filtered = "" | split: "," | pop %}
+  {% assign urls_sorted = site.pages | map: "url" | sort %}
+  {% assign urls_filtered = "" | split: "," | pop %}
 
-{% for url in urls_sorted %}
-  {% assign first_nine_chars = url | slice: 0, 9 %}
-  {% if first_nine_chars == "/lang/en/" %}
-    {% assign url_stripped = url | replace: "/lang/en/", "/" %}
-    {% assign urls_filtered = urls_filtered | push: url_stripped %}
-  {% endif %}
-{% endfor %}
-
-{% assign redirects = "" | split: "," | pop %}
-
-{% assign redirects = redirects | push: "# old /en/ url redirects" %}
-
-{% for url in urls_filtered %}
-  {% capture redirect %}/en{{url}}  {{url}}  301{% endcapture %}
-  {% assign redirects = redirects | push: redirect %}
-{% endfor %}
-
-{% assign redirects = redirects | push: "" %}
-{% assign redirects = redirects | push: "# language redirects" %}
-
-{% for url in urls_filtered %}
-  {% for language in site.data.languages %}
-    {% if language.enabled %}
-      {% for accept_language in language.accept_languages %}
-        {% capture redirect %}{{url}}  /lang/{{language.tag}}{{url}}  200  Language={{accept_language}}{% endcapture %}
-        {% assign redirects = redirects | push: redirect %}
-      {% endfor %}
+  {% for url in urls_sorted %}
+    {% assign first_nine_chars = url | slice: 0, 9 %}
+    {% if first_nine_chars == "/lang/en/" %}
+      {% assign url_stripped = url | replace: "/lang/en/", "/" %}
+      {% assign urls_filtered = urls_filtered | push: url_stripped %}
     {% endif %}
   {% endfor %}
-{% endfor %}
 
-{% assign redirects = redirects | push: "" %}
-{% assign redirects = redirects | push: "# default redirects" %}
+  {% assign redirectsBase = "" | split: "," | pop %}
+  {% assign redirectsLang = "" | split: "," | pop %}
 
-{% for url in urls_filtered %}
-  {% capture redirect %}{{url}}  /lang/en{{url}}  200{% endcapture %}
-  {% assign redirects = redirects | push: redirect %}
-{% endfor %}
+  {% for url in urls_filtered %}
+    {% for language in site.data.languages %}
+      {% if language.enabled %}
+        {% for accept_language in language.accept_languages %}
+          {% capture redirect %}{{url}}  /{{language.tag}}{{url}}  302  Language={{accept_language}}{% endcapture %}
+          {% assign redirectsBase = redirectsBase | push: redirect %}
+        {% endfor %}
+
+        {% capture redirect %}/{{language.tag}}{{url}}  /lang/{{language.tag}}{{url}}  200{% endcapture %}
+        {% assign redirectsLang = redirectsLang | push: redirect %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
 
 {% capture newline %}
 {% endcapture %}
 
 {% endcapture %}
-{{redirects | join: newline}}
+# With Language
+{{redirectsLang | join: newline}}
+
+# Without Language
+{{redirectsBase | join: newline}}

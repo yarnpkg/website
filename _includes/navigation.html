@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-static-top navbar-light">
   <div class="container">
-    <a {% if vars_active_language.tag == "en" %} href="{{site.baseurl}}/" {% else %} href="{{url_base}}/" {% endif %}>
+    <a href="{{url_base}}/">
       {% include svg/yarn-kitten-full.svg class="navbar-logo" %}
       <span class="sr-only">Yarn</span>
     </a>
@@ -38,7 +38,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownNavLanguage" id="dropdownNavLanguageMenu">
               {% for language in site.data.languages %}
                 {% if language.enabled %}
-                  <a href="{{site.baseurl}}/lang/{{language.tag}}/{{vars_url_relative}}"
+                  <a href="{{site.baseurl}}/{{language.tag}}/{{vars_url_relative}}"
                     class="dropdown-item{% if vars_active_language.tag == language.tag %} active{% endif %}"
                     data-lang="{{language.accept_languages[0]}}">
                     {{language.name}}

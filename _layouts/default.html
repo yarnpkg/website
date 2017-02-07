@@ -58,11 +58,11 @@
           var langMenuItem = langMenuItems[i];
 
           langMenuItem.addEventListener('click', function(event) {
-            event.preventDefault();
             var target = event.currentTarget;
             var lang = target.dataset.lang;
-            document.cookie = 'nf_lang=' + lang;
-            location.reload();
+            var date = new Date();
+            date.setFullYear(date.getFullYear() + 1);
+            document.cookie = 'nf_lang=' + lang + ';path=/;expires=' + date.toUTCString();
           });
         }
       </script>

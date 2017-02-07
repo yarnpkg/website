@@ -22,14 +22,15 @@ serve-production: test-jekyll
 build-production: test-jekyll
 	@make crowdin-download
 	@JEKYLL_ENV=production jekyll build
+	@ruby ./scripts/validate-translations.rb
 
 crowdin-upload: test-crowdin
 	@crowdin-cli upload sources --auto-update -b master
 
 crowdin-download: test-crowdin
 	@crowdin-cli download -b master
-	@ruby ./scripts/normalize-frontmatter.rb
-	@ruby ./scripts/normalize-toc.rb
+	@ruby ./scripts/remove-unused-languages.rb
+	@ruby ./scripts/normalize-translations.rb
 
 ###
 # Misc stuff:
