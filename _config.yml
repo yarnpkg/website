@@ -34,6 +34,7 @@ exclude:
   - Makefile
   - _sass/bootstrap
   - .sass-cache
+  - node_modules
 
 include:
   - _redirects

@@ -5,24 +5,28 @@ start:
 	@make install
 	@make serve
 
-install: test-bundler
+install: test-builddeps
 	@git submodule update --init --recursive
 	@bundle install
+	@yarn install
 
-serve: test-jekyll
-	@jekyll serve --incremental
+serve: test-builddeps
+	@yarn start& bundle exec jekyll serve --incremental
 
-build: test-jekyll
-	@jekyll build
+build: test-builddeps
+	@yarn build
+	@bundle exec jekyll build
 
-serve-production: test-jekyll
+serve-production: test-builddeps
 	@make crowdin-download
-	@JEKYLL_ENV=production jekyll serve
+	@NODE_ENV=production yarn run build
+	@JEKYLL_ENV=production bundle exec jekyll serve
 
-build-production: test-jekyll
+build-production: test-builddeps
 	@make crowdin-download
-	@JEKYLL_ENV=production jekyll build
 	@ruby ./scripts/validate-translations.rb
+	@NODE_ENV=production yarn run build
+	@JEKYLL_ENV=production bundle exec jekyll build
 
 crowdin-upload: test-crowdin
 	@crowdin-cli upload sources --auto-update -b master
@@ -37,17 +41,15 @@ crowdin-download: test-crowdin
 ###
 
 BUNDLE_EXISTS := $(shell command -v bundle 2> /dev/null)
-JEKYLL_EXISTS := $(shell command -v jekyll 2> /dev/null)
 CROWDIN_EXISTS := $(shell command -v crowdin-cli 2> /dev/null)
+YARN_EXISTS := $(shell command -v yarn 2> /dev/null)
 
-test-bundler:
+test-builddeps:
 ifndef BUNDLE_EXISTS
 	$(error bundler is not installed. Run `gem install bundler`)
 endif
-
-test-jekyll:
-ifndef JEKYLL_EXISTS
-	$(error Jekyll is not installed. Run `make install`)
+ifndef YARN_EXISTS
+	$(error yarn is not installed. Follow the instructions on https://yarnpkg.com/docs/install)
 endif
 
 test-crowdin:
