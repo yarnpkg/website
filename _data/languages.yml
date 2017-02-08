@@ -48,7 +48,7 @@
   accept_languages: ["fi"]
 - name: Français
   tag: fr
-  enabled: No
+  enabled: Yes
   accept_languages: ["fr", "fr-be", "fr-ca", "fr-ch", "fr-lu"]
 - name: עִברִית
   tag: he
