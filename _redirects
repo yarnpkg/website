@@ -62,3 +62,6 @@ layout: null
 
 # Without Language
 {{redirectsBase | join: newline}}
+
+# ls was renamed to list
+/:language/docs/cli/ls   /:language/docs/cli/list 301

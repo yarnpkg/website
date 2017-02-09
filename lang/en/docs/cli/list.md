@@ -1,12 +1,12 @@
 ---
-id: docs_cli_ls
+id: docs_cli_list
 guide: docs_cli
 layout: guide
 ---
 
 <p class="lead">List installed packages.</p>
 
-##### `yarn list` <a class="toc" id="toc-yarn-ls" href="#toc-yarn-ls"></a>
+##### `yarn list` <a class="toc" id="toc-yarn-list" href="#toc-yarn-list"></a>
 
 ```sh
 yarn list
@@ -24,7 +24,7 @@ yarn list vx.x.x
 └─ package-3@2.7.0
 ```
 
-##### `yarn list [--depth]` <a class="toc" id="toc-yarn-ls-depth" href="#toc-yarn-ls-depth"></a>
+##### `yarn list [--depth]` <a class="toc" id="toc-yarn-list-depth" href="#toc-yarn-list-depth"></a>
 
 By default, all packages and their dependencies will be displayed. To restrict the depth of the
 dependencies, you can add a flag, `--depth`, along with the desired level to the `list` command. 
