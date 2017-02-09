@@ -1,4 +1,7 @@
+const path = require('path');
 const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -10,7 +13,7 @@ module.exports = {
   },
   output: {
     path: './js/build',
-    filename: '[name].js',
+    filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash].js' : '[name].[hash].js',
   },
   module: {
     rules: [
@@ -23,12 +26,22 @@ module.exports = {
       }
     ]
   },
-  plugins:[
+  plugins: [
+    new CleanWebpackPlugin(['build'], {
+      root: path.resolve(__dirname + '/js'),
+      verbose: false,
+      dry: false,
+      exclude: ['shared.js']
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new ManifestPlugin({
+      fileName: '../../_data/webpack.json',
+      basePath: '/js/build/'
+    })
   ]
 }

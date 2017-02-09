@@ -35,6 +35,7 @@ exclude:
   - _sass/bootstrap
   - .sass-cache
   - node_modules
+  - js/src
 
 include:
   - _redirects
