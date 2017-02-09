@@ -186,7 +186,7 @@ index.getObjects(featuredPackages).then(content => {
   const results = content.results;
 
   results.forEach(hit => {
-    const $elt = $(`.pkg-featured-pkg[data-name="${hit.objectID}"`);
+    const $elt = $(`.pkg-featured-pkg[data-name="${hit.objectID}"]`);
 
     const name = $('<a class="ais-hit--name" />').text(hit.name).attr('href', hit.homepage || `https://www.npmjs.com/package/${encode(hit.name)}`).prop('outerHTML');
 
