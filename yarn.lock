@@ -41,7 +41,7 @@ algoliasearch-helper@^2.18.0:
     qs "^6.2.1"
     util "^0.10.3"
 
-algoliasearch@^3.15.0, algoliasearch@^3.20.4:
+algoliasearch@^3.15.0, algoliasearch@^3.20.3:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.21.0.tgz#04b5860785180ccec304c123fe7c5bd1f772a3a8"
   dependencies:
@@ -1283,7 +1283,7 @@ extsprintf@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
 
-fbjs@^0.8.1, fbjs@^0.8.4:
+fbjs@^0.8.1:
   version "0.8.9"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.9.tgz#180247fbd347dcc9004517b904f865400a0c8f14"
   dependencies:
@@ -1571,21 +1571,6 @@ inherits@2.0.1:
 ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
-
-instantsearch.js@^1.10.5:
-  version "1.10.5"
-  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-1.10.5.tgz#abf118415ca8e430ac5a3b06a472d83fae149b2e"
-  dependencies:
-    algoliasearch "^3.20.4"
-    algoliasearch-helper "^2.18.0"
-    classnames "^2.2.5"
-    events "^1.1.0"
-    hogan.js "^3.0.2"
-    lodash "^4.17.4"
-    react "^15.4.2"
-    react-dom "^15.4.2"
-    react-nouislider "^1.14.2"
-    to-factory "^1.0.0"
 
 interpret@^1.0.0:
   version "1.0.1"
@@ -2024,10 +2009,6 @@ normalize-path@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.0.1.tgz#47886ac1662760d4261b7d979d241709d3ce3f7a"
 
-nouislider-algolia-fork@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/nouislider-algolia-fork/-/nouislider-algolia-fork-10.0.0.tgz#66d0a941aaa0ca64e58379e67bd320956f3cf3ce"
-
 npm-zepto@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/npm-zepto/-/npm-zepto-1.1.7.tgz#f47eb2eb22bf1a517abebf58a9662bae011db116"
@@ -2165,9 +2146,36 @@ pkg-dir@^1.0.0:
   dependencies:
     find-up "^1.0.0"
 
+preact-compat@^3.13.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.13.1.tgz#efe46e072a8eee0774a41e362b4b253c1d66726a"
+  dependencies:
+    preact-render-to-string "^3.2.1"
+    preact-transition-group "^1.1.0"
+    proptypes "^0.14.3"
+    standalone-react-addons-pure-render-mixin "^0.1.1"
+
+preact-render-to-string@^3.2.1:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-3.5.0.tgz#35c741d4683e95404a94170ec7251ea5f71037b6"
+  dependencies:
+    pretty-format "^3.5.1"
+
+preact-transition-group@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.0.tgz#97d0beff0790d721faecd2560c02cd30d5426f23"
+
+preact@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-7.2.0.tgz#8aacc97465a65509bc556604a7750d48e2fa7ad1"
+
 preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
+
+pretty-format@^3.5.1:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
 
 private@^0.1.6:
   version "0.1.7"
@@ -2190,6 +2198,10 @@ promise@^7.1.1:
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.1.1.tgz#489654c692616b8aa55b0724fa809bb7db49c5bf"
   dependencies:
     asap "~2.0.3"
+
+proptypes@^0.14.3:
+  version "0.14.4"
+  resolved "https://registry.yarnpkg.com/proptypes/-/proptypes-0.14.4.tgz#1ead7600d44472a614aa1cf0c4cccee7d867997d"
 
 prr@~0.0.0:
   version "0.0.0"
@@ -2257,19 +2269,14 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-nouislider@^1.14.2:
-  version "1.14.2"
-  resolved "https://registry.yarnpkg.com/react-nouislider/-/react-nouislider-1.14.2.tgz#44be62ba53fa10bd3b7ceaaabd685dd98ff46e5e"
+react-instantsearch@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-3.1.0.tgz#db94e6365a9ff34f59eb53781ac0eff63d13d475"
   dependencies:
-    nouislider-algolia-fork "^10.0.0"
-
-react@^15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
-  dependencies:
-    fbjs "^0.8.4"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
+    algoliasearch "^3.20.3"
+    algoliasearch-helper "^2.18.0"
+    classnames "^2.2.5"
+    lodash "^4.17.4"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -2522,6 +2529,10 @@ sshpk@^1.7.0:
     jodid25519 "^1.0.0"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
+
+standalone-react-addons-pure-render-mixin@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/standalone-react-addons-pure-render-mixin/-/standalone-react-addons-pure-render-mixin-0.1.1.tgz#3c7409f4c79c40de9ac72c616cf679a994f37551"
 
 stream-browserify@^2.0.1:
   version "2.0.1"
