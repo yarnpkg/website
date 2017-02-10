@@ -5,8 +5,6 @@ export function fillLanguageDropdown() {
   const langMenu = document.getElementById('dropdownNavLanguageMenu');
   const langMenuItems = langMenu.querySelectorAll('dropdown-item');
 
-  console.log(typeof langMenuItems);
-
   langMenuItems.forEach((langMenuItem) => {
     langMenuItem.addEventListener('click', event => {
       event.preventDefault();

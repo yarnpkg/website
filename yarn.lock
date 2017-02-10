@@ -41,7 +41,7 @@ algoliasearch-helper@^2.18.0:
     qs "^6.2.1"
     util "^0.10.3"
 
-algoliasearch@^3.15.0, algoliasearch@^3.20.3:
+algoliasearch@^3.15.0, algoliasearch@^3.20.3, algoliasearch@^3.20.4:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.21.0.tgz#04b5860785180ccec304c123fe7c5bd1f772a3a8"
   dependencies:
@@ -1580,6 +1580,21 @@ ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
 
+instantsearch.js@^1.10.5:
+  version "1.10.5"
+  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-1.10.5.tgz#abf118415ca8e430ac5a3b06a472d83fae149b2e"
+  dependencies:
+    algoliasearch "^3.20.4"
+    algoliasearch-helper "^2.18.0"
+    classnames "^2.2.5"
+    events "^1.1.0"
+    hogan.js "^3.0.2"
+    lodash "^4.17.4"
+    react "^15.4.2"
+    react-dom "^15.4.2"
+    react-nouislider "^1.14.2"
+    to-factory "^1.0.0"
+
 interpret@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
@@ -2017,6 +2032,10 @@ normalize-path@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.0.1.tgz#47886ac1662760d4261b7d979d241709d3ce3f7a"
 
+nouislider-algolia-fork@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/nouislider-algolia-fork/-/nouislider-algolia-fork-10.0.0.tgz#66d0a941aaa0ca64e58379e67bd320956f3cf3ce"
+
 npm-zepto@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/npm-zepto/-/npm-zepto-1.1.7.tgz#f47eb2eb22bf1a517abebf58a9662bae011db116"
@@ -2285,6 +2304,12 @@ react-instantsearch@^3.1.0:
     algoliasearch-helper "^2.18.0"
     classnames "^2.2.5"
     lodash "^4.17.4"
+
+react-nouislider@^1.14.2:
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/react-nouislider/-/react-nouislider-1.14.2.tgz#44be62ba53fa10bd3b7ceaaabd685dd98ff46e5e"
+  dependencies:
+    nouislider-algolia-fork "^10.0.0"
 
 react@^15.4.2:
   version "15.4.2"

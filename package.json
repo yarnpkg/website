@@ -23,6 +23,7 @@
   "private": true,
   "dependencies": {
     "docsearch.js": "^1.5.0",
+    "instantsearch.js": "^1.10.5",
     "moment": "^2.17.1",
     "preact": "^7.2.0",
     "preact-compat": "^3.13.1",
