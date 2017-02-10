@@ -11,7 +11,8 @@ install: test-builddeps
 	@yarn install
 
 serve: test-builddeps
-	@yarn start& bundle exec jekyll serve --incremental
+	@yarn build
+	@bundle exec jekyll serve --incremental& yarn start
 
 build: test-builddeps
 	@yarn build
