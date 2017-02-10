@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: './js/build',
-    filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash].js' : '[name].[hash].js',
+    filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash].js' : '[name].js',
   },
   module: {
     rules: [
@@ -27,12 +27,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['build'], {
-      root: path.resolve(__dirname + '/js'),
-      verbose: false,
-      dry: false,
-      exclude: ['shared.js']
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
