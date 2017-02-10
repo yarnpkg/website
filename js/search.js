@@ -11,7 +11,6 @@
     indexName: 'npm-search',
     urlSync: {
       trackedParameters: ['query', 'page', 'facetsRefinements'],
-      updateOnEveryKeyStroke: false,
       threshold: 900
     },
     searchParameters: {
@@ -34,8 +33,10 @@
   });
 
   search.on('render', function () {
-    $home.hide();
-    $results.show();
+    if (search.helper.state.query !== '') {
+      $home.hide();
+      $results.show();
+    }
   });
 
   $inputClear.on('click', function () {
