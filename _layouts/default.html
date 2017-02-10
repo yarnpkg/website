@@ -1,3 +1,7 @@
+---
+scripts:
+  - '/js/build/common.js'
+---
 {% include vars.html %}
 <!doctype html>
 <html lang="{% if vars_active_language.tag %}{{vars_active_language.tag}}{% else %}en{% endif %}">
@@ -25,12 +29,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/react-instantsearch-theme-algolia@3.0.0/style.min.css">
   </head>
   <body>
     {% include debug/url.html url=page.url %}
     {% include debug/todo.html content=page.content %}
 
-    {% include navigation.html %}
+    {% include navigation.html %} 
+    <div style="background-color: #0675A4; color: white" ><div class="container"><div id="search">search bar comes here</div></div></div>
     {{content}}
     {% include footer.html %}
 
@@ -41,31 +47,11 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js" integrity="sha256-ifihHN6L/pNU1ZQikrAb7CnyMBvisKG3SUAab0F3kVU=" crossorigin="anonymous"></script>
 
     {% for script in layout.scripts %}
-      <script type="text/javascript" src="{{script}}"></script>
+      <script type="text/javascript" src="{{site.data.webpack[script]}}"></script>
     {% endfor %}
 
     {% for script in page.scripts %}
-      <script type="text/javascript" src="{{script}}"></script>
+      <script type="text/javascript" src="{{site.data.webpack[script]}}"></script>
     {% endfor %}
-
-    {% if jekyll.environment == "production" %}
-      <script>
-        // Takes over language dropdown to set cookie
-        var langMenu = document.getElementById('dropdownNavLanguageMenu');
-        var langMenuItems = langMenu.getElementsByClassName('dropdown-item');
-
-        for (var i = 0; i < langMenuItems.length; i++) {
-          var langMenuItem = langMenuItems[i];
-
-          langMenuItem.addEventListener('click', function(event) {
-            var target = event.currentTarget;
-            var lang = target.dataset.lang;
-            var date = new Date();
-            date.setFullYear(date.getFullYear() + 1);
-            document.cookie = 'nf_lang=' + lang + ';path=/;expires=' + date.toUTCString();
-          });
-        }
-      </script>
-    {% endif %}
   </body>
 </html>

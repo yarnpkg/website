@@ -1,0 +1,34 @@
+{
+  "name": "yarn-website",
+  "version": "1.0.0",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.15",
+    "webpack": "^2.2.1",
+    "webpack-manifest-plugin": "^1.1.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yarnpkg/website.git"
+  },
+  "private": true,
+  "dependencies": {
+    "docsearch.js": "^1.5.0",
+    "instantsearch.js": "^1.10.5",
+    "moment": "^2.17.1",
+    "preact": "^7.2.0",
+    "preact-compat": "^3.13.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-instantsearch": "^3.1.0"
+  }
+}
