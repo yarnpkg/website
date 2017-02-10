@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { InstantSearch, Hits } from 'react-instantsearch/dom';
+import { InstantSearch, Hits, SearchBox } from 'react-instantsearch/dom';
 import { fillLanguageDropdown } from './lib/production';
 
 if (process.env.NODE_ENV === 'production') {
@@ -13,12 +13,13 @@ const Search = () => (
     apiKey='f54e21fa3a2a0160595bb058179bfb1e'
     indexName='npm-search'
   >
+    <SearchBox />
     <Hits />
   </InstantSearch>
 );
 
 
 ReactDOM.render(
-  Search,
+  <Search />,
   document.getElementById('search')
 );

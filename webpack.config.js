@@ -15,12 +15,12 @@ module.exports = {
     path: './js/build',
     filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash].js' : '[name].js',
   },
-  // resolve: {
-  //   alias: {
-  //     'react': 'preact-compat',
-  //     'react-dom': 'preact-compat',
-  //   },
-  // },
+  resolve: {
+    alias: {
+      // 'react': 'preact-compat',
+      // 'react-dom': 'preact-compat',
+    },
+  },
   module: {
     rules: [
       {
