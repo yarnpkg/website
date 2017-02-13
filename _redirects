@@ -24,9 +24,11 @@ layout: null
   {% assign urls_filtered = "" | split: "," | pop %}
 
   {% for url in urls_sorted %}
-    {% assign first_nine_chars = url | slice: 0, 9 %}
-    {% if first_nine_chars == "/lang/en/" %}
-      {% assign url_stripped = url | replace: "/lang/en/", "/" %}
+    {% assign prefix = "/lang/en/" %}
+    {% assign prefix_size = prefix | size %}
+    {% assign prefix_chars = url | slice: 0, prefix_size %}
+    {% if prefix_chars == prefix %}
+      {% assign url_stripped = url | replace: prefix, "/" %}
       {% assign urls_filtered = urls_filtered | push: url_stripped %}
     {% endif %}
   {% endfor %}
