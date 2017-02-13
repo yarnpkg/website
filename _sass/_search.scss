@@ -32,27 +32,19 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-pagination {
-  margin: 3em 0 0 0;
-
-  &--item {
-    display: none;
+.ais-Pagination {
+  &__root {
+    margin: 3em 0 0 0;
   }
 
-  &--item__active,
-  &--item__previous,
-  &--item__next {
-    display: inline-block;
-  }
-
-  &--item__disabled {
+  &__itemDisabled {
     visibility: visible;
     opacity: .3;
     cursor: default;
   }
 }
 
-.ais-hits {
+.ais-Hits {
   &--item {
     padding: 1.5rem 1rem 2rem;
     border-bottom: 1px solid $gray-lighter;
@@ -69,7 +61,7 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-hit {
+.ais-Hit {
   &--name {
     font-size: 1.625rem;
     font-weight: normal;

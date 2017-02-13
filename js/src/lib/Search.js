@@ -96,35 +96,6 @@ function getDownloadBucket(dl) {
 }
 
 function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
-  // if (isEmpty(keywords)) return keywords;
-  // const sorted = keywords.sort((k1, k2) => {
-  //   // sort keywords by match level
-  //   const i1 = keywords.findIndex(el => el === k1);
-  //   const i2 = keywords.findIndex(el => el === k2);
-  //   if (highlightedKeywords[i1].matchLevel !== highlightedKeywords[i2].matchLevel) {
-  //     if (highlightedKeywords[i1].matchLevel === 'full') return -1;
-  //     if (highlightedKeywords[i2].matchLevel === 'full') return 1;
-  //     return highlightedKeywords[i1].matchLevel === 'partial' ? -1 : 1;
-  //   }
-  //   if (highlightedKeywords[i1].matchedWords.length !== highlightedKeywords[i2].matchedWords.length) {
-  //     return highlightedKeywords[i2].matchedWords.length - highlightedKeywords[i1].matchedWords.length;
-  //   }
-  //   if (highlightedKeywords[i1].matchedWords.join('').length !== highlightedKeywords[i2].matchedWords.join('').length) {
-  //     return highlightedKeywords[i2].matchedWords.join('').length - highlightedKeywords[i1].matchedWords.join('').length;
-  //   }
-  //   return 0;
-  // }).slice(0, maxKeywords);
-
-  // console.log(keywords);
-
-  // return sorted.map(_keyword => {
-  //   let keyword = _keyword.value;
-  //   // const url = search._createURL(search.helper.state.toggleRefinement('keywords', keyword.replace(/<\/?em>/g, '')), { absolute: true });
-  //   return (
-  //     <a class="ais-Hit--keyword" href={''/*url*/}>{keyword}</a>
-  //   )
-  // }).reduce((prev, curr) => [prev, ', ', curr]);
-
   if (isEmpty(keywords)) return keywords;
   return highlightedKeywords.sort((k1, k2) => {
     // sort keywords by match level
@@ -144,7 +115,6 @@ function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
     let keyword = _keyword.value;
     // const url = search._createURL(search.helper.state.toggleRefinement('keywords', keyword.replace(/<\/?em>/g, '')), { absolute: true });
     const highlighted = parseHighlightedAttribute({highlightedValue: keyword});
-    console.log(highlighted);
     const content = highlighted.map((v, i) => {
       const key = `split-${i}-${v.value}`;
       if (!v.isHighlighted) {
@@ -159,30 +129,30 @@ function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
 };
 
 const Hit = ({hit}) => (
-  <div class="ais-Hits--item">
-    <a class="ais-Hit--name" href={`/packages/${hit.name}`}>
+  <div className="ais-Hits--item">
+    <a className="ais-Hit--name" href={`/packages/${hit.name}`}>
       <Highlight attributeName="name" hit={hit}/>
     </a>
-    <span class="ais-Hit--popular" title="Downloads last 30 days">{hit.downloadsLast30Days}</span>
-    <span class="ais-Hit--license">{hit.license}</span>
-    <span class="ais-Hit--version">{hit.version}</span>
-    <p class="ais-Hit--description">
+    <span className="ais-Hit--popular" title="Downloads last 30 days">{hit.downloadsLast30Days}</span>
+    <span className="ais-Hit--license">{hit.license}</span>
+    <span className="ais-Hit--version">{hit.version}</span>
+    <p className="ais-Hit--description">
       <Highlight attributeName="description" hit={hit} />
     </p>
-    <a class="ais-Hit--ownerLink" href={hit.owner}>
-      <img width="20" height="20" class="ais-Hit--ownerAvatar" src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${hit.owner.avatar}`} />{hit.owner.name}
+    <a className="ais-Hit--ownerLink" href={hit.owner.link}>
+      <img width="20" height="20" className="ais-Hit--ownerAvatar" src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${hit.owner.avatar}`} />{hit.owner.name}
     </a>
-    <span class="ais-Hit--lastUpdate">{moment(hit.modified).fromNow()}</span>
-    <span class="ais-Hit--keywords hidden-sm-down">
+    <span className="ais-Hit--lastUpdate">{moment(hit.modified).fromNow()}</span>
+    <span className="ais-Hit--keywords hidden-sm-down">
       {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
     </span>
-    <div class="ais-Hit--links">
-      <span class="ais-Hit--link-npm">
+    <div className="ais-Hit--links">
+      <span className="ais-Hit--link-npm">
         <a href={`https://www.npmjs.com/package/${hit.name}`} title={`NPM page for ${hit.name}`}>npm</a>
       </span>
       {
         hit.githubRepo ? 
-          <span class="ais-Hit--link-github">
+          <span className="ais-Hit--link-github">
             <a title={`Github repository of ${hit.name}`} href={`https://github.com/${encode(hit.githubRepo.user)}/${encode(hit.githubRepo.project)}${hit.githubRepo.path}`}>GitHub</a>
           </span>
           : ''
