@@ -17,7 +17,7 @@ const Results = createConnector({
     return <div>No results have been found for {query}</div>;
   } else {
     return <div>
-      <Hits hitComponent={Hit} id="pkg-search-Hits" />
+      <Hits hitComponent={Hit} />
       <Pagination
         showFirst={false}
         showLast={false}

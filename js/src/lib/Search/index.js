@@ -11,7 +11,6 @@ class Search extends React.Component {
   }
 
   onSearchStateChange(nextSearchState) {
-    console.dir(nextSearchState.configure.optionalFacetFilters);
     this.setState({
       query: nextSearchState.query
     });
