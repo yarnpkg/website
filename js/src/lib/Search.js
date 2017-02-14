@@ -134,7 +134,11 @@ const Hit = ({hit}) => (
       <Highlight attributeName="name" hit={hit}/>
     </a>
     <span className={`ais-Hit--popular ${getDownloadBucket(hit.downloadsLast30Days)}`} title="Downloads last 30 days">{hit.humanDownloadsLast30Days}</span>
-    <span className="ais-Hit--license">{hit.license}</span>
+    {
+      hit.license ?
+        <span className="ais-Hit--license">{hit.license}</span>
+        : ''
+    }
     <span className="ais-Hit--version">{hit.version}</span>
     <p className="ais-Hit--description">
       <Highlight attributeName="description" hit={hit} />
