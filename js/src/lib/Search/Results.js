@@ -16,8 +16,8 @@ const Results = createConnector({
   } else if (noResults) {
     return <div>No results have been found for {query}</div>;
   } else {
-    return <div>
-      <Hits hitComponent={Hit} />
+    return <div className="container">
+      <Hits hitComponent={Hit}/>
       <Pagination
         showFirst={false}
         showLast={false}
@@ -26,6 +26,5 @@ const Results = createConnector({
     </div>;
   }
 });
-
 
 export default Results;
