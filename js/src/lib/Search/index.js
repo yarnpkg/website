@@ -10,10 +10,10 @@ class Search extends React.Component {
     }
   }
 
-  onSearchStateChanged(nextSearchState) {
-    console.dir(nextSearchState);
+  onSearchStateChange(nextSearchState) {
+    console.dir(nextSearchState.configure.optionalFacetFilters);
     this.setState({
-      query: nextSearchState
+      query: nextSearchState.query
     });
   }
 
@@ -24,8 +24,10 @@ class Search extends React.Component {
         apiKey='f54e21fa3a2a0160595bb058179bfb1e'
         indexName='npm-search'
         className='pkg-search'
+        onSearchStateChange={this.onSearchStateChange.bind(this)}
       >
         <Configure
+          key={this.state.query}
           hitsPerPage={5}
           optionalFacetFilters={`name:${this.state.query}`}
         />
