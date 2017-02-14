@@ -29,6 +29,7 @@ class Search extends React.Component {
           key={this.state.query}
           hitsPerPage={5}
           optionalFacetFilters={`name:${this.state.query}`}
+          facets={['keywords']}
         />
         <SearchBox />
         <Results />
