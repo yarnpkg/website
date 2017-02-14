@@ -1,5 +1,5 @@
 import instantsearch from 'instantsearch.js/dist/instantsearch-preact.js';
-import moment from 'moment';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
 const $results = $('#pkg-search-results');
 const $home = $('#pkg-featured');
@@ -105,7 +105,7 @@ function itemTemplate(hit) {
   const keywords = 'keywords' in hit._highlightResult && hit.keywords.length > 0 ?
     $('<span class="ais-hit--keywords hidden-sm-down" />').append(formatKeywords(hit._highlightResult.keywords)).prop('outerHTML') : '';
 
-  const lastUpdate = $('<span class="ais-hit--lastUpdate" />').text(moment(hit.modified).fromNow()).prop('outerHTML');
+  const lastUpdate = $('<span class="ais-hit--lastUpdate" />').text(distanceInWordsToNow(new Date(hit.modified))).prop('outerHTML');
 
   const githubRepo = hit.githubRepo ?
     $('<span class="ais-hit--link-github" />').append(

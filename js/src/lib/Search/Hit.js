@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { Highlight } from 'react-instantsearch/dom';
 
 import { getDownloadBucket, formatKeywords, encode } from './util';
@@ -22,7 +22,7 @@ const Hit = ({hit}) => (
     <a className="ais-Hit--ownerLink" href={hit.owner.link}>
       <img width="20" height="20" className="ais-Hit--ownerAvatar" src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${hit.owner.avatar}`} />{hit.owner.name}
     </a>
-    <span className="ais-Hit--lastUpdate">{moment(hit.modified).fromNow()}</span>
+    <span className="ais-Hit--lastUpdate">{distanceInWordsToNow(new Date(hit.modified))}</span>
     <span className="ais-Hit--keywords hidden-sm-down">
       {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
     </span>
