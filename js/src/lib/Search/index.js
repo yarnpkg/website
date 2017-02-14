@@ -31,7 +31,11 @@ class Search extends React.Component {
           optionalFacetFilters={`name:${this.state.query}`}
           facets={['keywords']}
         />
-        <SearchBox />
+        <SearchBox 
+          translations={{
+            placeholder: "Search packages (i.e. babel, webpack, react…)"
+          }}
+        />
         <Results />
       </InstantSearch>
     );
