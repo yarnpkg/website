@@ -3,34 +3,57 @@
 $ais-focus-color: rgba(black,.7);
 $ais-muted-color: rgba(black,.5);
 
-.pkg-search {
-  position: relative;
-  top: -77px;
-  z-index: 9999;
-
-  @include media-breakpoint-down(xs) {
-    top: -44px;
+.ais-SearchBox {
+  &__root {
+    background-color: #0675A4;
+    padding: 1em 0;
   }
 
-  .ais-search-box--input {
-    box-shadow: 0 0 0 2px white;
+  &__wrapper {
+    @extend .container;
+    display: flex;
+    height: 2em;
   }
 
-  .search-btn-clear {
-    position: absolute;
-    top: 17px;
-    right: 2rem;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background: url('/assets/search/ico-clear.svg') no-repeat center;
-    opacity: .5;
+  &__input {
+    order: 2;
+    flex-grow: 1;
+    background: none;
+    border: none;
+    font: inherit;
+    color: white;
 
-    &:hover {
-      opacity: .7;
+    @include placeholder {
+      color: #BADAE8 !important;
+      font-style: italic !important;
+      font-weight: 100 !important;
     }
   }
+
+  &__reset, &__submit {
+    width: 2em;
+    height: 2em;
+    background: none;
+    border: none;
+    color: white;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: white;
+    }
+  }
+
+  &__submit {
+    order: 1;
+  }
+
+  &__reset {
+    order: 3;
+  }
 }
+
+
 
 .ais-Pagination {
   &__root {
