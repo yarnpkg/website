@@ -6,7 +6,7 @@ import { getDownloadBucket, formatKeywords, encode } from './util';
 
 const Hit = ({hit}) => (
   <div className="ais-Hits--item">
-    <a className="ais-Hit--name" href={`/packages/${hit.name}`}>
+    <a className="ais-Hit--name" href={`https://www.npmjs.com/package/${hit.name}`} target="_blank" rel="noopener noreferrer">
       <Highlight attributeName="name" hit={hit}/>
     </a>
     <span className={`ais-Hit--popular ${getDownloadBucket(hit.downloadsLast30Days)}`} title="Downloads last 30 days">{hit.humanDownloadsLast30Days}</span>
