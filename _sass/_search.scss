@@ -52,7 +52,7 @@ $ais-muted-color: rgba(black,.5);
     &:active,
     &:focus {
       outline: none;
-      background-color: #11668c;
+      box-shadow: 0 .2em 0 #11668c;
     }
 
     @include placeholder {
