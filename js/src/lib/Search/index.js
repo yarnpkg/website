@@ -38,7 +38,6 @@ class Search extends React.Component {
   createURL = state => `?${qs.stringify(state)}`;
 
   render() {
-    console.log(this.state.searchState);
     return (
       <InstantSearch
         appId='OFCNCOG2CU'
@@ -49,7 +48,6 @@ class Search extends React.Component {
         onSearchStateChange={this.onSearchStateChange.bind(this)}
       >
         <Configure
-          key={this.state.searchState.query}
           hitsPerPage={5}
           optionalFacetFilters={`name:${this.state.searchState.query}`}
           facets={['keywords']}
