@@ -5,7 +5,7 @@ $ais-muted-color: rgba(black,.5);
 
 .ais-SearchBox {
   &__root {
-    background-color: #0675A4;
+    background-color: $yarn-blue-darkest;
     padding: 1em 0;
     box-sizing: border-box;
     position: relative;
@@ -49,10 +49,16 @@ $ais-muted-color: rgba(black,.5);
     font: inherit;
     color: white;
 
+    &:active,
+    &:focus {
+      outline: none;
+      background-color: #11668c;
+    }
+
     @include placeholder {
-      color: #BADAE8 !important;
-      font-style: italic !important;
-      font-weight: 100 !important;
+      color: $yarn-blue-light;
+      font-style: italic;
+      font-weight: 100;
     }
   }
 
