@@ -18,8 +18,7 @@ before_install: # if "install" is overridden
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq yarn
 cache:
-  directories:
-  - $HOME/.cache/yarn
+  yarn: true
 ```
 
 {% include_relative _ci/deb-specific-version.md %}
@@ -34,4 +33,6 @@ sudo: false
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
+cache:
+  yarn: true
 ```
