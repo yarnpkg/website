@@ -1,5 +1,6 @@
 import React from 'react';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
+import { connectToggle } from 'react-instantsearch/connectors';
 
 export const isEmpty = (item) => typeof item === 'undefined' || item.length < 1;
 
@@ -19,8 +20,17 @@ export function getDownloadBucket(dl) {
   }
 }
 
+const ToggleKeyword = ({content, refine}) => (
+  <span className="ais-Hit--keyword" onClick={refine}>{content}</span>
+);
+
+const ConnectedToggle = connectToggle(ToggleKeyword);
+
 export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
   if (isEmpty(keywords)) return keywords;
+  highlightedKeywords.forEach((el, i) => {
+    el.originalValue = keywords[i];
+  })
   return highlightedKeywords.sort((k1, k2) => {
     // sort keywords by match level
     if (k1.matchLevel !== k2.matchLevel) {
@@ -46,12 +56,12 @@ export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
       }
       return <em key={key} className="ais-Highlight__highlighted">{v.value}</em>;
     });
+//      <a className="ais-Hit--keyword" href={''/*url*/}>{content}</a>
     return (
-      <a className="ais-Hit--keyword" href={''/*url*/}>{content}</a>
+      <ConnectedToggle attributeName='keywords' value={_keyword.originalValue} label="label" content={content}/>
     )
   }).reduce((prev, curr) => [prev, ', ', curr]);
 };
-
 
 function parseHighlightedAttribute({
   preTag = highlightTags.highlightPreTag,

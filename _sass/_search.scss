@@ -332,13 +332,14 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-current-refined-values {
-  &--list {
+.ais-CurrentRefinements {
+  &__items {
     display: inline-block;
     margin-top: 1em;
+    font-size: .8125rem;
   }
 
-  &--item {
+  &__item:not(&__itemParent) {
     display: inline-block;
     border: 1px solid $gray-lighter;
     border-radius: 2px;
@@ -346,34 +347,9 @@ $ais-muted-color: rgba(black,.5);
     padding: 0 .5em;
   }
 
-  &--link {
-    &:hover {
-      text-decoration: line-through;
-    }
-
-    > div {
-      font-size: .8125rem;
-      color: $ais-muted-color;
-
-      &::after {
-        display: inline-block;
-        content: "x";
-      }
-    }
-  }
-
-  &--clear-all {
-    display: inline-block;
-
-    > div {
-      font-size: .8125rem;
-      color: $ais-muted-color;
-      margin-left: 1em;
-    }
-  }
-
-  &--count {
-    display: none;
+  &__itemClear {
+    background: none;
+    border: none;
   }
 }
 

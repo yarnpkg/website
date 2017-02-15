@@ -4,6 +4,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+  devtool: "source-map",
   entry: {
     common: './js/src/common.js',
     documentation: './js/src/documentation.js',
@@ -37,7 +38,9 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    }),
     new ManifestPlugin({
       fileName: '../../_data/webpack.json',
       basePath: '/js/build/'

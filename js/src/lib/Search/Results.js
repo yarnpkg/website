@@ -1,6 +1,6 @@
 import React from 'react';
 import { createConnector } from 'react-instantsearch';
-import { Hits, Pagination } from 'react-instantsearch/dom';
+import { Hits, Pagination, CurrentRefinements, RefinementList } from 'react-instantsearch/dom';
 import Hit from './Hit';
 import { isEmpty } from './util';
 
@@ -22,6 +22,8 @@ const Results = createConnector({
   } else {
     body.classList.add('searching');
     return <div className="container">
+      <CurrentRefinements />
+      <RefinementList attributeName="keywords"/>
       <Hits hitComponent={Hit}/>
       <div className="d-flex">
         <Pagination
