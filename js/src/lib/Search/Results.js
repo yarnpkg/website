@@ -30,6 +30,9 @@ const Results = createConnector({
           scrollTo={true}
         />
       </div>
+      <div className="search-footer">
+        Search by Algolia – <a href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319">read how it works</a>.
+      </div>
     </div>;
   }
 });
