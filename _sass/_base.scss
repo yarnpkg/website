@@ -20,6 +20,16 @@ svg {
   display: block;
 }
 
+.searching {
+  main {
+    display: none;
+  }
+
+  .ais-SearchBox__reset {
+    display: block;
+  }
+}
+
 @mixin placeholder {
   &::-webkit-input-placeholder {
     @content
