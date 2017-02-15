@@ -20,8 +20,10 @@ export function getDownloadBucket(dl) {
   }
 }
 
-const ToggleKeyword = ({content, refine}) => (
-  <span className="ais-Hit--keyword" onClick={refine}>{content}</span>
+const ToggleKeyword = ({createURL, refine, value, content}) => (
+  <span className="ais-Hit--keyword" onClick={() => {
+    refine() //value, true/false
+  }}>{content}</span>
 );
 
 const ConnectedToggle = connectToggle(ToggleKeyword);
@@ -46,8 +48,7 @@ export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
     }
     return 0;
   }).slice(0, maxKeywords).map(_keyword => {
-    let keyword = _keyword.value;
-    // const url = search._createURL(search.helper.state.toggleRefinement('keywords', keyword.replace(/<\/?em>/g, '')), { absolute: true });
+    const keyword = _keyword.value;
     const highlighted = parseHighlightedAttribute({highlightedValue: keyword});
     const content = highlighted.map((v, i) => {
       const key = `split-${i}-${v.value}`;

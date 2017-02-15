@@ -23,7 +23,6 @@ const Results = createConnector({
     body.classList.add('searching');
     return <div className="container">
       <CurrentRefinements />
-      <RefinementList attributeName="keywords"/>
       <Hits hitComponent={Hit}/>
       <div className="d-flex">
         <Pagination
