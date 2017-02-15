@@ -28,10 +28,8 @@ class Search extends React.Component {
     const newPush = Date.now();
     this.setState({lastPush: newPush, searchState: nextSearchState});
     delete nextSearchState.configure; // <Configure /> goes first
-    if (this.state.lastPush && newPush - this.state.lastPush <= THRESHOLD) {
+    if (this.state.lastPush && newPush - this.state.lastPush >= THRESHOLD) {
       history.replaceState(nextSearchState, document.title, this.createURL(nextSearchState));
-    } else {
-      history.pushState(nextSearchState, document.title, this.createURL(nextSearchState));
     }
   }
 
