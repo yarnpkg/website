@@ -1,8 +1,6 @@
 ---
 layout: null
 ---
-/package/:package  /package/index.html 200
-
 /downloads/:version/:file https://github.com/yarnpkg/yarn/releases/download/v:version/:file
 
 # Nice short URLs to download the latest release
