@@ -27,6 +27,7 @@
     "instantsearch.js": "^1.11.1",
     "preact": "^7.2.0",
     "preact-compat": "^3.13.1",
+    "qs": "^6.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-instantsearch": "^3.2.0"
