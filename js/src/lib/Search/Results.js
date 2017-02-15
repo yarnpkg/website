@@ -18,11 +18,13 @@ const Results = createConnector({
   } else {
     return <div className="container">
       <Hits hitComponent={Hit}/>
-      <Pagination
-        showFirst={false}
-        showLast={false}
-        scrollTo={true}
-      />
+      <div className="d-flex">
+        <Pagination
+          showFirst={false}
+          showLast={false}
+          scrollTo={true}
+        />
+      </div>
     </div>;
   }
 });

@@ -83,7 +83,7 @@ $ais-muted-color: rgba(black,.5);
 
 .ais-Pagination {
   &__root {
-    margin: 3em 0 0 0;
+    margin: 2em auto;
     @extend .pagination;
   }
 
