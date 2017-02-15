@@ -37,6 +37,13 @@ const Hit = ({hit}) => (
           </span>
           : ''
       }
+      {
+        hit.homepage ? 
+          <span className="ais-Hit--link-homepage">
+            <a title={`Homepage of ${hit.name}`} href={hit.homepage}>Homepage</a>
+          </span>
+          : ''
+      }
     </div>
   </div>
 );
