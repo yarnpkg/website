@@ -7,9 +7,10 @@ import Results from './Results';
 class Search extends React.Component {
   constructor(props) {
     super(props);
+    this.lastPush = 0;
+    this.originalURL = location.href;
+    this.previousURL = '';
     this.state = {
-      lastPush: 0,
-      originalURL: location.href,
       searchState: {
         ...qs.parse(location.search.substring(1))
       }
@@ -28,12 +29,16 @@ class Search extends React.Component {
     const THRESHOLD = 700;
     const newPush = Date.now();
     this.setState({searchState: nextSearchState});
+    console.log(nextSearchState.configure, nextSearchState);
     delete nextSearchState.configure; // <Configure /> goes first
     if (nextSearchState.query.length < 1) {
-      history.pushState({}, document.title, this.state.originalURL);
-    } else if (newPush - this.state.lastPush >= THRESHOLD) {
-      this.setState({lastPush: newPush});
-      history.replaceState(nextSearchState, document.title, this.createURL(nextSearchState));
+      if (this.previousURL !== this.originalURL) {
+        this.previousURL = this.originalURL;
+        history.pushState({}, document.title, this.originalURL);
+      }
+    } else if (newPush - this.lastPush >= THRESHOLD) {
+      this.lastPush = newPush;
+      history.replaceState({}, 'Yarn Search', this.createURL(nextSearchState));
     }
   }
 
