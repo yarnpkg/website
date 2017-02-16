@@ -20,14 +20,6 @@ export function getDownloadBucket(dl) {
   }
 }
 
-const ToggleKeyword = ({createURL, refine, value, content}) => (
-  <span className="ais-Hit--keyword" onClick={() => {
-    refine(`keywords:${value}`) //value, true/false
-  }}>{content}</span>
-);
-
-const ConnectedToggle = connectToggle(ToggleKeyword);
-
 export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
   if (isEmpty(keywords)) return keywords;
   highlightedKeywords.forEach((el, i) => {
@@ -58,7 +50,7 @@ export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
       return <em key={key} className="ais-Highlight__highlighted">{v.value}</em>;
     });
     return (
-      <ConnectedToggle attributeName='keywords' value={_keyword.originalValue} label="label" content={content}/>
+      <span className="ais-Hit--keyword">{content}</span>
     )
   }).reduce((prev, curr) => [prev, ', ', curr]);
 };
