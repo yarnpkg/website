@@ -8,7 +8,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
+      lastPush: 0,
       searchState: {
         ...qs.parse(location.search.substring(1))
       }
@@ -26,9 +26,10 @@ class Search extends React.Component {
   onSearchStateChange(nextSearchState) {
     const THRESHOLD = 700;
     const newPush = Date.now();
-    this.setState({lastPush: newPush, searchState: nextSearchState});
+    this.setState({searchState: nextSearchState});
     delete nextSearchState.configure; // <Configure /> goes first
-    if (this.state.lastPush && newPush - this.state.lastPush >= THRESHOLD) {
+    if (newPush - this.state.lastPush >= THRESHOLD) {
+      this.setState({lastPush: newPush});
       history.replaceState(nextSearchState, document.title, this.createURL(nextSearchState));
     }
   }
