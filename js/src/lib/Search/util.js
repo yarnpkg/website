@@ -22,7 +22,7 @@ export function getDownloadBucket(dl) {
 
 const ToggleKeyword = ({createURL, refine, value, content}) => (
   <span className="ais-Hit--keyword" onClick={() => {
-    refine() //value, true/false
+    refine(`keywords:${value}`) //value, true/false
   }}>{content}</span>
 );
 
@@ -57,7 +57,6 @@ export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
       }
       return <em key={key} className="ais-Highlight__highlighted">{v.value}</em>;
     });
-//      <a className="ais-Hit--keyword" href={''/*url*/}>{content}</a>
     return (
       <ConnectedToggle attributeName='keywords' value={_keyword.originalValue} label="label" content={content}/>
     )
