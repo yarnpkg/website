@@ -10,6 +10,7 @@ module.exports = {
     documentation: './js/src/documentation.js',
     install: './js/src/install.js',
     nightly: './js/src/nightly.js',
+    packages: './js/src/packages.js',
   },
   output: {
     path: './js/build',
