@@ -9,6 +9,7 @@ class Search extends React.Component {
     super(props);
     this.state = {
       lastPush: 0,
+      originalURL: location.href,
       searchState: {
         ...qs.parse(location.search.substring(1))
       }
@@ -28,13 +29,15 @@ class Search extends React.Component {
     const newPush = Date.now();
     this.setState({searchState: nextSearchState});
     delete nextSearchState.configure; // <Configure /> goes first
-    if (newPush - this.state.lastPush >= THRESHOLD) {
+    if (nextSearchState.query.length < 1) {
+      history.pushState({}, document.title, this.state.originalURL);
+    } else if (newPush - this.state.lastPush >= THRESHOLD) {
       this.setState({lastPush: newPush});
       history.replaceState(nextSearchState, document.title, this.createURL(nextSearchState));
     }
   }
 
-  createURL = state => `?${qs.stringify(state)}`;
+  createURL = state => `/packages?${qs.stringify(state)}`;
 
   render() {
     return (
