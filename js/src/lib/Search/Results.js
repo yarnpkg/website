@@ -1,6 +1,6 @@
 import React from 'react';
 import { createConnector } from 'react-instantsearch';
-import { Hits, Pagination, CurrentRefinements, RefinementList } from 'react-instantsearch/dom';
+import { Hits, Pagination, CurrentRefinements } from 'react-instantsearch/dom';
 import Hit from './Hit';
 import { isEmpty } from './util';
 
