@@ -8,29 +8,33 @@ let plugins = [
     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
   }),
   new HappyPack({
-    loaders: [{
-      loader: 'babel-loader',
-      query: {
-        cacheDirectory: true
-      }
-    }],
+    loaders: [
+      {
+        loader: 'babel-loader',
+        query: {
+          cacheDirectory: true,
+        },
+      },
+    ],
   }),
   new ManifestPlugin({
     fileName: '../../_data/webpack.json',
-    basePath: '/js/build/'
-  })
+    basePath: '/js/build/',
+  }),
 ];
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    })
-  )
+      sourceMap: true,
+    }),
+  );
 }
 
 export default {
-  devtool: process.env.NODE_ENV === 'production' ? "source-map" : 'cheap-module-eval-source-map',
+  devtool: process.env.NODE_ENV === 'production'
+    ? 'source-map'
+    : 'cheap-module-eval-source-map',
   entry: {
     common: './js/src/common.js',
     documentation: './js/src/documentation.js',
@@ -40,18 +44,18 @@ export default {
   },
   output: {
     path: './js/build',
-    filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash].js' : '[name].js',
+    filename: process.env.NODE_ENV === 'production'
+      ? '[name].[chunkhash].js'
+      : '[name].js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: [
-          'happypack/loader',
-        ],
-        exclude: /node_modules/
-      }
-    ]
+        use: ['happypack/loader'],
+        exclude: /node_modules/,
+      },
+    ],
   },
-  plugins
+  plugins,
 };
