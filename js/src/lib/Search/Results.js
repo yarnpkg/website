@@ -39,7 +39,7 @@ const Results = createConnector({
     return <span />;
   } else if (noResults) {
     body.classList.add('searching');
-    return <div>No results have been found for {query}</div>;
+    return <div className="container text-center mt-5">No package {query} was found</div>;
   } else {
     body.classList.add('searching');
     return <ResultsFound />;
