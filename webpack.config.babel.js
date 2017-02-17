@@ -21,6 +21,17 @@ let plugins = [
     fileName: '../../_data/webpack.json',
     basePath: '/js/build/',
   }),
+  new webpack.ProvidePlugin({
+    jQuery: 'jquery/dist/jquery.slim.js',
+    $: 'jquery/dist/jquery.slim.js',
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    minChunks: module => {
+      // this assumes your vendor imports exist in the node_modules directory
+      return module.context && module.context.indexOf('node_modules') !== -1;
+    },
+  }),
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -57,5 +68,11 @@ export default {
       },
     ],
   },
+  resolve: {
+    alias: {
+      jquery: 'jquery/dist/jquery.slim.js',
+    },
+  },
   plugins,
+  stats: 'minimal',
 };

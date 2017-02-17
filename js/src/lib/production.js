@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import 'babel-polyfill'; // allows forEach on NodeLists
 
 export function fillLanguageDropdown() {
   // Takes over language dropdown to set cookie

@@ -42,17 +42,14 @@
     <main>{{content}}</main>
     {% include footer.html %}
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha256-/5pHDZh2fv1eZImyfiThtB5Ag4LqDjyittT7fLjdT/8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha256-j+XrvkQ4jJ99Hj0pJKPr6k0RCgxDDSTs3PBqLrX2EMc=" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="{{site.data.webpack['/js/build/common.js']}}"></script>
+    {% include i18n-as-script.html %}
+    <script src="{{site.data.webpack['/js/build/vendor.js']}}"></script>
+    <script src="{{site.data.webpack['/js/build/common.js']}}"></script>
     {% for script in layout.scripts %}
-      <script type="text/javascript" src="{{site.data.webpack[script]}}"></script>
+      <script src="{{site.data.webpack[script]}}"></script>
     {% endfor %}
-
     {% for script in page.scripts %}
-      <script type="text/javascript" src="{{site.data.webpack[script]}}"></script>
+      <script src="{{site.data.webpack[script]}}"></script>
     {% endfor %}
   </body>
 </html>

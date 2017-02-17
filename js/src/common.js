@@ -1,3 +1,6 @@
+import 'jquery';
+import 'bootstrap/js/src/dropdown.js';
+import 'bootstrap/js/src/tab.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fillLanguageDropdown } from './lib/production';

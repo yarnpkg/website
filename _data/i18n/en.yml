@@ -267,3 +267,5 @@ ci_circle: CircleCI
 ci_codeship: Codeship
 ci_travis: Travis
 ci_semaphore: Semaphore
+
+search_placeholder: Search packages (i.e. babel, webpack, react…)

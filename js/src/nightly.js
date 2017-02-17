@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const MS_PER_SEC = 1000;
 const SEC_PER_MINUTE = 60;
 const SEC_PER_HOUR = 3600;
@@ -5,7 +7,7 @@ const SEC_PER_DAY = 86400;
 
 function formatTimeSince(timestamp) {
   let diff = Date.now() / MS_PER_SEC - timestamp;
-  let singlarString;
+  let singularString;
   let pluralString;
   let divisor;
   if (diff < SEC_PER_HOUR) {

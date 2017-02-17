@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import 'bootstrap/js/src/dropdown.js';
+import 'bootstrap/js/src/tab.js';
+
 export function handleTabs() {
   // show the tab of the current hash
   if (location.hash) {
