@@ -11,7 +11,6 @@ export default App => class extends Component {
   constructor() {
     super();
     this.state = {searchState: queryStringToSearchState(location.search.slice(1))};
-    console.log(this.state)
     window.addEventListener( // check we are on a search result
       'popstate',
       ({state: searchState}) => {
