@@ -9,12 +9,14 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "happypack": "^3.0.2",
+    "prettier": "^0.18.0",
     "webpack": "^2.2.1",
     "webpack-manifest-plugin": "^1.1.0"
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack --watch"
+    "start": "webpack --watch",
+    "prettier": "prettier --write --single-quote --trailing-comma 'js/src/**/*'"
   },
   "repository": {
     "type": "git",

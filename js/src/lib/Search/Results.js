@@ -11,28 +11,32 @@ const ResultsFound = () => (
     <CurrentRefinements />
     <Hits hitComponent={Hit} />
     <div className="d-flex">
-      <Pagination
-        showFirst={false}
-        showLast={false}
-        scrollTo={true}
-      />
+      <Pagination showFirst={false} showLast={false} scrollTo={true} />
     </div>
     <div className="search-footer">
-      Search by Algolia – <a href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319">read how it works</a>.
+      Search by Algolia –{' '}
+      <a
+        href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319"
+      >
+        read how it works
+      </a>
+      .
+    </div>
   </div>
-  </div>
-)
+);
 
 const Results = createConnector({
   displayName: 'ConditionalResults',
   getProvidedProps(props, searchState, searchResults) {
-    const noResults = searchResults.results ? searchResults.results.nbHits === 0 : false;
+    const noResults = searchResults.results
+      ? searchResults.results.nbHits === 0
+      : false;
     return { query: searchState.query, noResults };
   },
-})(({noResults, query}) => {
+})(({ noResults, query }) => {
   if (isEmpty(query)) {
     body.classList.remove('searching');
-    return <span></span>;
+    return <span />;
   } else if (noResults) {
     body.classList.add('searching');
     return <div>No results have been found for {query}</div>;
