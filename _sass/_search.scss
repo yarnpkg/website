@@ -400,53 +400,6 @@ $ais-muted-color: rgba(black,.5);
   background-size: 1rem 1rem;
 }
 
-/* Override */
-.aa-dropdown-menu {
-  min-width: auto !important;
-  width: 100% !important;
-}
-
-/* Bottom border of each suggestion */
-.algolia-docsearch-suggestion {
-  border-bottom-color: $yarn-blue;
-}
-/* Main category headers */
-.algolia-docsearch-suggestion--category-header {
-  background-color: $yarn-blue;
-}
-/* Highlighted search terms */
-.algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
-  color: $yarn-blue-dark;
-}
-.algolia-docsearch-suggestion--title .algolia-docsearch-suggestion--highlight,
-.algolia-docsearch-suggestion--subcategory-column .algolia-docsearch-suggestion--highlight {
-    color: $yarn-blue-darker;
-}
-.algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
-  background-color: $yarn-blue-darkest;
-}
-/* Currently selected suggestion */
-.aa-cursor .algolia-docsearch-suggestion--content {
-  color: $yarn-blue;
-}
-.aa-cursor .algolia-docsearch-suggestion {
-  background: $yarn-blue-darker;
-}
-
-/* For bigger screens, when displaying results in two columns */
-@media (min-width: 768px) {
-  /* Bottom border of each suggestion */
-  .algolia-docsearch-suggestion {
-    border-bottom-color: $yarn-blue;
-  }
-  /* Left column, with secondary category header */
-  .algolia-docsearch-suggestion--subcategory-column {
-    border-right-color: $yarn-blue;
-    background-color: $yarn-blue-darker;
-    color: $yarn-blue-dark;
-  }
-}
-
 .search-footer {
   text-align: center;
 }
