@@ -43,7 +43,7 @@ class FeaturedPackage extends React.Component {
           {keywords
             .slice(0, MAX_KEYWORDS)
             .map(keyword => (
-              <a href={`/packages?query=${keyword}`} key={`${name}-${keyword}`}>
+              <a href={`/packages?q=${keyword}`} key={`${name}-${keyword}`}>
                 {keyword}
               </a>
             ))
