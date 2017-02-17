@@ -74,11 +74,16 @@ $ais-muted-color: rgba(black,.5);
     background: none;
     border: none;
     color: white;
+    position: relative;
 
     svg {
-      width: 100%;
-      height: 100%;
+      width: 1.6em;
+      height: 1.6em;
+      padding: .2em;
       fill: white;
+      position: absolute;
+      top: .2em;
+      left: .2em;
     }
   }
 
