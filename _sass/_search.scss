@@ -5,6 +5,7 @@ $ais-muted-color: rgba(black,.5);
 
 #search {
   min-height: 3.5em;
+  margin-top: .5em;
 }
 
 .ais-SearchBox {
@@ -53,11 +54,11 @@ $ais-muted-color: rgba(black,.5);
     border-radius: 0;
     font: inherit;
     color: white;
+    margin-left: .5em;
 
     &:active,
     &:focus {
       outline: none;
-      box-shadow: 0 .2em 0 #11668c;
     }
 
     @include placeholder {
