@@ -34,14 +34,14 @@ export default App => class extends Component {
 
     if (searchState.query === '') {
       if (location.pathname !== originalPathName) {
-        window.history.pushState(null, null, originalPathName);
+        window.history.pushState(null, 'Search packages | Yarn', originalPathName);
       }
     } else {
       this.debouncedSetState = setTimeout(
         () => {
           window.history.pushState(
             searchState,
-            null,
+            'Search packages | Yarn',
             searchStateToUrl(searchState),
           );
         },
