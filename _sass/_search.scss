@@ -362,6 +362,7 @@ $ais-muted-color: rgba(black,.5);
 
   .pkg-featured-pkg {
     padding: 1rem;
+    min-height: 120px;
     border-bottom: solid 1px $gray-lighter;
 
     p {
