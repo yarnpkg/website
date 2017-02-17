@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import qs from 'qs';
 
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({ q: searchState.query });
+const searchStateToQueryString = searchState => ({ q: searchState.query, p: searchState.page });
 const searchStateToUrl = searchState =>
   searchState
     ? `/packages?${qs.stringify(searchStateToQueryString(searchState))}`
