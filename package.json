@@ -9,6 +9,8 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "happypack": "^3.0.2",
+    "lint-staged": "^3.3.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^0.18.0",
     "webpack": "^2.2.1",
     "webpack-manifest-plugin": "^1.1.0"
@@ -16,8 +18,15 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack --watch",
-    "prettier": "prettier --write --single-quote --trailing-comma 'js/src/**/*'"
+    "lint:staged": "lint-staged"
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --trailing-comma",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint:staged",
   "repository": {
     "type": "git",
     "url": "https://github.com/yarnpkg/website.git"
