@@ -64,7 +64,11 @@ export default {
       {
         test: /\.js$/,
         use: ['happypack/loader'],
-        exclude: /node_modules/,
+        include: [
+          path.join(__dirname, 'js/src'),
+          // bootstrap 4 also has js/dist but those files are not requireable
+          path.join(__dirname, 'node_modules/bootstrap/js/src'),
+        ],
       },
     ],
   },
