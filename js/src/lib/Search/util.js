@@ -39,9 +39,8 @@ export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
       return k2.matchedWords.join('').length - k1.matchedWords.join('').length;
     }
     return 0;
-  }).slice(0, maxKeywords).map(_keyword => {
-    const keyword = _keyword.value;
-    const highlighted = parseHighlightedAttribute({highlightedValue: keyword});
+  }).slice(0, maxKeywords).map(({value: highlightedKeyword, originalValue: keyword}, keywordIndex) => {
+    const highlighted = parseHighlightedAttribute({highlightedValue: highlightedKeyword});
     const content = highlighted.map((v, i) => {
       const key = `split-${i}-${v.value}`;
       if (!v.isHighlighted) {
@@ -50,7 +49,7 @@ export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
       return <em key={key} className="ais-Highlight__highlighted">{v.value}</em>;
     });
     return (
-      <span className="ais-Hit--keyword">{content}</span>
+      <span className="ais-Hit--keyword" key={`${keyword}${keywordIndex}`}>{content}</span>
     )
   }).reduce((prev, curr) => [prev, ', ', curr]);
 };
