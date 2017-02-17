@@ -36,7 +36,7 @@ class FeaturedPackage extends React.Component {
           {
             keywords
               .slice(0, MAX_KEYWORDS)
-              .map(keyword => <a href={`/packages?query=${keyword}`}>{keyword}</a>)
+              .map(keyword => <a href={`/packages?query=${keyword}`} key={`${name}-${keyword}`}>{keyword}</a>)
               .reduce((prev, curr) => [prev, ', ', curr])
           }
         </span>
@@ -70,9 +70,9 @@ class Featured extends React.Component {
       <div className="row">
         {
           hasContent ?
-            groups.map(packages => (
-              <div className="col-md-6">
-                {packages.map(pkg => <FeaturedPackage {...pkg}/>)}
+            groups.map((packages, i) => (
+              <div className="col-md-6" key={i}>
+                {packages.map(pkg => <FeaturedPackage {...pkg} key={pkg.objectID}/>)}
               </div>
             ))
           : ''
