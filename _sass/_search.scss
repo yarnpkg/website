@@ -3,6 +3,10 @@
 $ais-focus-color: rgba(black,.7);
 $ais-muted-color: rgba(black,.5);
 
+#search {
+  min-height: 3.5em;
+}
+
 .ais-SearchBox {
   &__root {
     background-color: $yarn-blue-darkest;
