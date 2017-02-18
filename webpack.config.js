@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HappyPack = require('happypack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 let plugins = [
@@ -44,7 +43,6 @@ if (process.env.NODE_ENV === 'production') {
   plugins.push(new LodashModuleReplacementPlugin());
   plugins.push(new webpack.optimize.UglifyJsPlugin({ sourceMap: true }));
   plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
-  plugins.push(new BundleAnalyzerPlugin());
 }
 
 module.exports = {
