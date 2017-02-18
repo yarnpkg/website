@@ -11,7 +11,4 @@
     "react"
     // Transpile React components to JavaScript
   ],
-  "plugins": [
-    "lodash"
-  ]
 }
