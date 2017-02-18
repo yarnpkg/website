@@ -55,6 +55,7 @@ module.exports = {
     install: './js/src/install.js',
     nightly: './js/src/nightly.js',
     packages: './js/src/packages.js',
+    package: './js/src/package.js',
   },
   output: {
     path: './js/build',

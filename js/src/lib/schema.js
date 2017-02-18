@@ -1,0 +1,38 @@
+export default {
+  name: '…',
+  downloadsLast30Days: 0,
+  downloadsRatio: 0,
+  humanDownloadsLast30Days: '0',
+  popular: false,
+  version: '0.0.0',
+  description: '…',
+  githubRepo: { user: '', project: '', path: '' },
+  owner: {
+    name: '',
+    avatar: 'https://avatars3.githubusercontent.com/u/22247014?v=3&s=200',
+    link: '',
+  },
+  deprecated: false,
+  homepage: '',
+  license: '',
+  keywords: [],
+  created: Date.now(),
+  modified: Date.now(),
+  lastPublisher: {
+    name: '',
+    email: '',
+    avatar: 'https://avatars3.githubusercontent.com/u/22247014?v=3&s=200',
+    link: '',
+  },
+  owners: [
+    {
+      name: '',
+      email: '',
+      avatar: 'https://avatars3.githubusercontent.com/u/22247014?v=3&s=200',
+      link: '',
+    },
+  ],
+  lastCrawl: '',
+  popularName: '',
+  objectID: '',
+};
