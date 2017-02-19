@@ -132,7 +132,7 @@
   accept_languages: ["vi"]
 - name: 中文
   tag: zh-Hans
-  enabled: No
+  enabled: Yes
   accept_languages: ["zh-cn", "zh-hk", "zh-tw", "zh-sg"]
 - name: 繁體中文
   tag: zh-Hant

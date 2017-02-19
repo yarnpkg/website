@@ -11,3 +11,15 @@ a.card {
     text-decoration: underline;
   }
 }
+
+.guide-card {
+  .card-text {
+    @include media-breakpoint-up('lg') {
+      min-height: $line-height-base * $font-size-base * 5;
+    }
+
+    @include media-breakpoint-up('xl') {
+      min-height: $line-height-base * $font-size-base * 4;
+    }
+  }
+}
