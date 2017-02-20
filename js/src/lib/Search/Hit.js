@@ -8,14 +8,12 @@ import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { Highlight } from 'react-instantsearch/dom';
 >>>>>>> switch out moment for date-fns
 
+const packageLink = '/package' +
+  (process.env.NODE_ENV === 'production' ? '/' : '?');
+
 const Hit = ({ hit }) => (
   <div className="ais-Hits--item">
-    <a
-      className="ais-Hit--name"
-      href={`https://www.npmjs.com/package/${hit.name}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a className="ais-Hit--name" href={packageLink + hit.name}>
       <Highlight attributeName="name" hit={hit} />
     </a>
     <span
