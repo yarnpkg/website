@@ -1,5 +1,8 @@
 <script>
-var i18n = {
+{% comment %}
+  get the current translations from Jekyll, to be used in scripts
+{% endcomment %}
+window.i18n = {
   search_placeholder: {{ i18n.search_placeholder | jsonify }}
 };
 </script>
