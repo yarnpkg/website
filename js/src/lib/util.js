@@ -20,7 +20,26 @@ export function getDownloadBucket(dl) {
   }
 }
 
-export function formatKeywords(keywords, highlightedKeywords, maxKeywords = 4) {
+export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
+  return isEmpty(keywords)
+    ? null
+    : <span className="ais-Hit--keywords hidden-sm-down">
+        {keywords
+          .slice(0, maxKeywords)
+          .map(keyword => (
+            <a href={`/packages?q=${keyword}`} key={`${name}-${keyword}`}>
+              {keyword}
+            </a>
+          ))
+          .reduce((prev, curr) => [prev, ', ', curr])}
+      </span>;
+};
+
+export function formatKeywords(
+  keywords = [],
+  highlightedKeywords = [],
+  maxKeywords = 4,
+) {
   if (isEmpty(keywords)) return keywords;
   highlightedKeywords.forEach((el, i) => {
     el.originalValue = keywords[i];
@@ -110,3 +129,6 @@ function parseHighlightedAttribute(
 
   return elements;
 }
+
+export const packageLink = '/package' +
+  (process.env.NODE_ENV === 'production' ? '/' : '?');

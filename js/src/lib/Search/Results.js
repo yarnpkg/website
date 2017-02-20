@@ -5,8 +5,8 @@ import Pagination from 'react-instantsearch/src/widgets/Pagination';
 import CurrentRefinements
   from 'react-instantsearch/src/widgets/CurrentRefinements';
 
-import Hit from './Hit';
-import { isEmpty } from './util';
+import Hit from '../Hit';
+import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
