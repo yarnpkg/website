@@ -11,6 +11,40 @@ import { Highlight } from 'react-instantsearch/dom';
 const packageLink = '/package' +
   (process.env.NODE_ENV === 'production' ? '/' : '?');
 
+export const Links = ({ name, homepage, githubRepo }) => (
+  <div className="ais-Hit--links">
+    <span className="ais-Hit--link-npm">
+      <a
+        href={`https://www.npmjs.com/package/${name}`}
+        title={`NPM page for ${name}`}
+      >
+        npm
+      </a>
+    </span>
+    {githubRepo
+      ? <span className="ais-Hit--link-github">
+          <a
+            title={`Github repository of ${githubRepo.name}`}
+            href={
+              `https://github.com/${encode(githubRepo.user)}/${encode(
+                githubRepo.project,
+              )}${githubRepo.path}`
+            }
+          >
+            GitHub
+          </a>
+        </span>
+      : null}
+    {homepage
+      ? <span className="ais-Hit--link-homepage">
+          <a title={`Homepage of ${name}`} href={homepage}>
+            Homepage
+          </a>
+        </span>
+      : null}
+  </div>
+);
+
 const Hit = ({ hit }) => (
   <div className="ais-Hits--item">
     <a className="ais-Hit--name" href={packageLink + hit.name}>
@@ -51,43 +85,14 @@ const Hit = ({ hit }) => (
       {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
 >>>>>>> switch out moment for date-fns
     </span>
-
-    {isEmpty(hit.keywords)
-      ? null
-      : <span className="ais-Hit--keywords hidden-sm-down">
-          {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
-        </span>}
-    <div className="ais-Hit--links">
-      <span className="ais-Hit--link-npm">
-        <a
-          href={`https://www.npmjs.com/package/${hit.name}`}
-          title={`NPM page for ${hit.name}`}
-        >
-          npm
-        </a>
-      </span>
-      {hit.githubRepo
-        ? <span className="ais-Hit--link-github">
-            <a
-              title={`Github repository of ${hit.name}`}
-              href={
-                `https://github.com/${encode(hit.githubRepo.user)}/${encode(
-                  hit.githubRepo.project,
-                )}${hit.githubRepo.path}`
-              }
-            >
-              GitHub
-            </a>
-          </span>
-        : null}
-      {hit.homepage
-        ? <span className="ais-Hit--link-homepage">
-            <a title={`Homepage of ${hit.name}`} href={hit.homepage}>
-              Homepage
-            </a>
-          </span>
-        : null}
-    </div>
+    <span className="ais-Hit--keywords hidden-sm-down">
+      {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
+    </span>
+    <Links
+      name={hit.name}
+      homepage={hit.homepage}
+      githubRepo={hit.githubRepo}
+    />
   </div>
 );
 
