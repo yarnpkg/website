@@ -24,7 +24,9 @@ const Hit = ({ hit }) => (
     >
       {hit.humanDownloadsLast30Days}
     </span>
-    {hit.license ? <span className="ais-Hit--license">{hit.license}</span> : ''}
+    {hit.license
+      ? <span className="ais-Hit--license">{hit.license}</span>
+      : null}
     <span className="ais-Hit--version">{hit.version}</span>
     <p className="ais-Hit--description">
       <Highlight attributeName="description" hit={hit} />
@@ -77,14 +79,14 @@ const Hit = ({ hit }) => (
               GitHub
             </a>
           </span>
-        : ''}
+        : null}
       {hit.homepage
         ? <span className="ais-Hit--link-homepage">
             <a title={`Homepage of ${hit.name}`} href={hit.homepage}>
               Homepage
             </a>
           </span>
-        : ''}
+        : null}
     </div>
   </div>
 );
