@@ -20,8 +20,7 @@ const Search = props => (
     />
     <SearchBox
       translations={{
-        placeholder: window.i18n.search_placeholder ||
-          'Search packages (i.e. babel, webpack, react…)',
+        placeholder: window.i18n.search_placeholder,
       }}
     />
     <Results />
