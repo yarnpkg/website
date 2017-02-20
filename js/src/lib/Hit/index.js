@@ -11,8 +11,8 @@ import { Highlight } from 'react-instantsearch/dom';
 const packageLink = '/package' +
   (process.env.NODE_ENV === 'production' ? '/' : '?');
 
-export const Links = ({ name, homepage, githubRepo }) => (
-  <div className="ais-Hit--links">
+export const Links = ({ name, homepage, githubRepo, className }) => (
+  <div className={className}>
     <span className="ais-Hit--link-npm">
       <a
         href={`https://www.npmjs.com/package/${name}`}
@@ -89,6 +89,7 @@ const Hit = ({ hit }) => (
       {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
     </span>
     <Links
+      className="ais-Hit--links"
       name={hit.name}
       homepage={hit.homepage}
       githubRepo={hit.githubRepo}

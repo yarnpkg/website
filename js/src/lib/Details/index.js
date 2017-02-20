@@ -1,7 +1,7 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
 
-import { License, Owner, Links } from '../Hit';
+import { License, Owner } from '../Hit';
 import { Keywords } from '../util';
 import schema from '../schema';
 
@@ -33,11 +33,6 @@ class Details extends React.Component {
         <Owner {...this.state.owner} />
         <License type={this.state.license} />
         <Keywords keywords={this.state.keywords} />
-        <Links
-          name={this.state.name}
-          homepage={this.state.homepage}
-          githubRepo={this.state.githubRepo}
-        />
         <pre>
           {JSON.stringify(this.state, null, '  ')}
         </pre>
