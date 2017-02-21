@@ -127,6 +127,7 @@ class SearchBox extends Component {
   onSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
+    this.input.blur();
 
     const { refine, searchAsYouType } = this.props;
     if (!searchAsYouType) {
