@@ -9,7 +9,7 @@ $ais-muted-color: rgba(black,.5);
 
 .ais-SearchBox {
   &__root {
-    background-color: darken($yarn-blue, 8%);
+    background-color: mix(black, $yarn-blue, 15%);
     transition: background-color .1s ease;
     padding: 1em 0;
     box-sizing: border-box;
@@ -45,7 +45,7 @@ $ais-muted-color: rgba(black,.5);
     }
 
     &.active {
-      background-color: darken($yarn-blue,15%);
+      background-color: mix(black, $yarn-blue, 30%);
     }
   }
 
@@ -106,8 +106,6 @@ $ais-muted-color: rgba(black,.5);
     visibility: hidden;
   }
 }
-
-
 
 .ais-Pagination {
   &__root {
