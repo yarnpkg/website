@@ -1,6 +1,7 @@
 import React from 'react';
 import qs from 'qs';
-import { InstantSearch, Configure, SearchBox } from 'react-instantsearch/dom';
+import { InstantSearch, Configure } from 'react-instantsearch/dom';
+import SearchBox from './SearchBox';
 import isEqual from 'lodash/isEqual';
 import Results from './Results';
 import withUrlSync from './withUrlSync';
