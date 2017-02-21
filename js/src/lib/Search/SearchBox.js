@@ -216,6 +216,9 @@ class SearchBox extends Component {
             placeholder={translate('placeholder')}
             autoFocus={autoFocus}
             autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
             required
             value={query}
             name="q"
