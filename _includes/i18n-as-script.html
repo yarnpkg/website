@@ -1,8 +1,11 @@
+{% comment %} get the current translations from Jekyll, to be used in scripts {% endcomment %}
 <script>
-{% comment %}
-  get the current translations from Jekyll, to be used in scripts
-{% endcomment %}
-window.i18n = {
-  search_placeholder: {{ i18n.search_placeholder | jsonify }}
-};
+  window.i18n = {
+    url_base: '{{url_base}}',
+    active_language: '{{vars_active_language.tag}}',
+    search_placeholder: '{{ i18n.search_placeholder }}',
+    search_by_algolia: '{{ i18n.search_by_algolia }}',
+    search_by_read_more: '{{ i18n.search_by_read_more }}',
+  }
+
 </script>

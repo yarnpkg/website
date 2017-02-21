@@ -14,11 +14,12 @@ const ResultsFound = () => (
       <Pagination showFirst={false} showLast={false} scrollTo={true} />
     </div>
     <div className="search-footer">
-      Search by Algolia –{' '}
+      {window.i18n.search_by_algolia}
+      {' - '}
       <a
         href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319"
       >
-        read how it works
+        {window.i18n.search_by_read_more}
       </a>
       .
     </div>
