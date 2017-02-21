@@ -6,12 +6,14 @@ import { isEmpty } from './util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = () => (
+const ResultsFound = ({ pagination }) => (
   <div className="container">
     <CurrentRefinements />
     <Hits hitComponent={Hit} />
     <div className="d-flex">
-      <Pagination showFirst={false} showLast={false} scrollTo={true} />
+      {pagination
+        ? <Pagination showFirst={false} showLast={false} scrollTo={true} />
+        : <div style={{ height: '3rem' }} />}
     </div>
     <div className="search-footer">
       {window.i18n.search_by_algolia}
@@ -29,12 +31,15 @@ const ResultsFound = () => (
 const Results = createConnector({
   displayName: 'ConditionalResults',
   getProvidedProps(props, searchState, searchResults) {
+    const pagination = searchResults.results
+      ? searchResults.results.nbPages > 1
+      : false;
     const noResults = searchResults.results
       ? searchResults.results.nbHits === 0
       : false;
-    return { query: searchState.query, noResults };
+    return { query: searchState.query, noResults, pagination };
   },
-})(({ noResults, query }) => {
+})(({ noResults, pagination, query }) => {
   if (isEmpty(query)) {
     body.classList.remove('searching');
     return <span />;
@@ -47,7 +52,7 @@ const Results = createConnector({
     );
   } else {
     body.classList.add('searching');
-    return <ResultsFound />;
+    return <ResultsFound pagination={pagination} />;
   }
 });
 
