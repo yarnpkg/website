@@ -8,8 +8,17 @@ import schema from '../schema';
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
 
+const images = {
+  homepage: '/assets/search/ico-home.svg',
+  npm: '/assets/search/ico-npm.svg',
+  github: '/assets/search/ico-github.svg',
+};
+
 const Link = ({ site, url }) => (
-  <a href={url} className={`details-link--${site}`}>{url}</a>
+  <a href={url} className={`detail-links--link detail-links--link__${site}`}>
+    <img src={images[site]} alt="" />
+    {url}
+  </a>
 );
 
 const Links = ({ name, homepage, githubRepo, className }) => (
@@ -25,7 +34,7 @@ const Links = ({ name, homepage, githubRepo, className }) => (
           }
         />
       : null}
-    {homepage ? <Link name="homepage" url={homepage} /> : null}
+    {homepage ? <Link site="homepage" url={homepage} /> : null}
   </div>
 );
 

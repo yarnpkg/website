@@ -356,6 +356,34 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
+.detail-links {
+  &--link {
+    color: grey;
+    padding: 1em;
+    border: 1px solid black;
+    // &__homepage:before {
+    //   background-image: url('/assets/search/ico-home.svg');
+    //   width: 26px;
+    //   height: 26px;
+    // }
+
+    // &__npm:before {
+    //   content: '';
+    //   background-image: url('/assets/search/ico-npm.svg');
+    //   width: 34px;
+    //   height: 26px;
+
+    // }
+
+    // &__github:before {
+    //   content: '';
+    //   background-image: url('/assets/search/ico-github.svg');
+    //   width: 26px;
+    //   height: 26px;
+    // }
+  }
+}
+
 .ais-CurrentRefinements {
   &__items {
     display: inline-block;
