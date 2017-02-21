@@ -2,7 +2,7 @@ import React from 'react';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import { Highlight } from 'react-instantsearch/dom';
 
-import { getDownloadBucket, formatKeywords, encode } from './util';
+import { getDownloadBucket, formatKeywords, encode, isEmpty } from './util';
 
 const Hit = ({ hit }) => (
   <div className="ais-Hits--item">
@@ -41,9 +41,12 @@ const Hit = ({ hit }) => (
     <span className="ais-Hit--lastUpdate">
       {distanceInWordsToNow(new Date(hit.modified))}
     </span>
-    <span className="ais-Hit--keywords hidden-sm-down">
-      {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
-    </span>
+
+    {isEmpty(hit.keywords)
+      ? null
+      : <span className="ais-Hit--keywords hidden-sm-down">
+          {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
+        </span>}
     <div className="ais-Hit--links">
       <span className="ais-Hit--link-npm">
         <a
