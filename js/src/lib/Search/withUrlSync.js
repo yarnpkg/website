@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import qs from 'qs';
 
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({ q: searchState.query, p: searchState.page });
+const searchStateToQueryString = searchState => ({
+  q: searchState.query,
+  p: searchState.page,
+});
+
 const searchStateToUrl = searchState =>
   searchState
-    ? `/packages?${qs.stringify(searchStateToQueryString(searchState))}`
+    ? `${window.i18n.url_base}/packages?${qs.stringify(
+        searchStateToQueryString(searchState),
+      )}`
     : '';
+
 const queryStringToSearchState = queryString => ({
   query: qs.parse(queryString).q,
 });
+
 const originalPathName = location.pathname;
 
 export default App => class extends Component {
@@ -34,7 +42,11 @@ export default App => class extends Component {
 
     if (searchState.query === '') {
       if (location.pathname !== originalPathName) {
-        window.history.pushState(null, 'Search packages | Yarn', originalPathName);
+        window.history.pushState(
+          null,
+          'Search packages | Yarn',
+          originalPathName,
+        );
       }
     } else {
       this.debouncedSetState = setTimeout(
