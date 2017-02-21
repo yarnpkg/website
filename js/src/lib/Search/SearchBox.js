@@ -185,6 +185,7 @@ class SearchBox extends Component {
         onSubmit={this.props.onSubmit ? this.props.onSubmit : this.onSubmit}
         onReset={this.onReset}
         className={`${cx({ element: 'root' })} ${this.state.classes.root}`}
+        action={`${window.i18n.url_base}/packages`}
       >
         <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
           <symbol
@@ -217,6 +218,7 @@ class SearchBox extends Component {
             autoComplete="off"
             required
             value={query}
+            name="q"
             onChange={this.onChange}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
