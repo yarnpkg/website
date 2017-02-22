@@ -3,10 +3,6 @@
 $ais-focus-color: rgba(black,.7);
 $ais-muted-color: rgba(black,.5);
 
-#search {
-  min-height: 3.5em;
-}
-
 .ais-SearchBox {
   &__root {
     background-color: mix(black, $yarn-blue, 15%);
@@ -43,16 +39,22 @@ $ais-muted-color: rgba(black,.5);
         background-image: $image-border-white;
       }
     }
-
-    &.active {
-      background-color: mix(black, $yarn-blue, 30%);
-    }
   }
 
   &__wrapper {
     @extend .container;
     display: flex;
-    height: 2em;
+    background-color: white;
+    border-radius: .2em;
+    padding: .2em;
+    min-height: 2.2em;
+    transition: box-shadow .4s ease, background .4s ease;
+    box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
+
+    .active & {
+      background-color: mix(black, white, 2%);
+      box-shadow: none;
+    }
   }
 
   &__input {
@@ -62,7 +64,7 @@ $ais-muted-color: rgba(black,.5);
     border: none;
     border-radius: 0;
     font: inherit;
-    color: white;
+    color: $yarn-blue;
     margin-left: .5em;
 
     &:active,
@@ -71,7 +73,7 @@ $ais-muted-color: rgba(black,.5);
     }
 
     @include placeholder {
-      color: $yarn-blue-light;
+      color: lighten($yarn-blue, 10%);
       font-style: italic;
       font-weight: 100;
     }
@@ -82,7 +84,6 @@ $ais-muted-color: rgba(black,.5);
     height: 2em;
     background: none;
     border: none;
-    color: white;
     position: relative;
     cursor: pointer;
 
@@ -90,7 +91,7 @@ $ais-muted-color: rgba(black,.5);
       width: 1.6em;
       height: 1.6em;
       padding: .2em;
-      fill: white;
+      fill: $yarn-blue;
       position: absolute;
       top: .2em;
       left: .2em;
