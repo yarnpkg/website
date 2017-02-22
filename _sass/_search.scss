@@ -7,7 +7,7 @@ $ais-muted-color: rgba(black,.5);
   &__root {
     background-color: mix(black, $yarn-blue, 15%);
     transition: background-color .1s ease;
-    padding: 1.4em 0;
+    padding: 1.4em .3em;
     box-sizing: border-box;
     position: relative;
 
@@ -47,7 +47,7 @@ $ais-muted-color: rgba(black,.5);
     background-color: white;
     border-radius: .2em;
     padding: .2em;
-    min-height: 2.2em;
+    min-height: 38.8px;
     transition: box-shadow .4s ease, background .4s ease;
     box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
 
