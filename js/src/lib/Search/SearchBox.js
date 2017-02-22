@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { connectSearchBox } from 'react-instantsearch/connectors';
+import connectSearchBox
+  from 'react-instantsearch/src/connectors/connectSearchBox';
 import translatable from 'react-instantsearch/src/core/translatable';
 
 const cx = ({ prefix = 'ais', block = 'SearchBox', element }) =>

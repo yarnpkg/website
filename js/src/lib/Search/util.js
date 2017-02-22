@@ -1,6 +1,6 @@
 import React from 'react';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
-import { connectToggle } from 'react-instantsearch/connectors';
+import connectToggle from 'react-instantsearch/src/connectors/connectToggle';
 
 export const isEmpty = item => typeof item === 'undefined' || item.length < 1;
 

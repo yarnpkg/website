@@ -1,6 +1,16 @@
 import React from 'react';
 import qs from 'qs';
-import { InstantSearch, Configure } from 'react-instantsearch/dom';
+import Configure from 'react-instantsearch/src/widgets/Configure';
+
+import createInstantSearch
+  from 'react-instantsearch/src/core/createInstantSearch';
+import algoliasearch from 'algoliasearch';
+
+const InstantSearch = createInstantSearch(algoliasearch, {
+  Root: 'div',
+  props: { className: 'ais-InstantSearch__root' },
+});
+
 import SearchBox from './SearchBox';
 import isEqual from 'lodash/isEqual';
 import Results from './Results';
