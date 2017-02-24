@@ -1,11 +1,11 @@
 ---
 layout     : post
-title      : "The recent Cloudflare security incident and impact on Yarn users"
+title      : "Cloudflare security incident and impact on Yarn users"
 author     : Sebastian McKenzie
 author_url : "https://twitter.com/sebmck"
 date       : 2017-02-24 14:00:00
 categories : announcements
-share_text : "Yarn statement on recent Cloudflare security incident"
+share_text : "Yarn statement on Cloudflare security incident"
 ---
 
 Yarn uses its own proxy to the npm registry in order to allow us to experiment
