@@ -21,7 +21,7 @@ that Cloudflare had a serious bug that was leading to requests from other websit
 being leaked into HTTP responses.
 
 When it comes to registry authentication, the Yarn client differs from the npm
-client  n that when we perform authentication we do not store the resulting token
+client in that when we perform authentication we do not store the resulting token
 and invalidate it after it's used.
 
 However, Yarn still allows you to login with your npm account to perform actions
