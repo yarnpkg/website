@@ -36,7 +36,7 @@ with this assurance we'd recommend that if you're one of those 30 people using Y
 for registry authentication that you reset your password as a precautionary measure.
 
 As a result of this we're evaluating our security policy and have created a new email
-address security@yarnpkg.com (mailto:security@yarnpkg.com) that can be used to report
+address [security@yarnpkg.com](mailto:security@yarnpkg.com) that can be used to report
 security vulnerabilities without going through the public issue tracker, we're also in
 the process of setting up a HackerOne account and will make an announcement when this
 is available.
