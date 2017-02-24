@@ -32,8 +32,8 @@ being leaked.
 
 **Since the Cloudflare announcement we've been in contact and have been assured
 that Yarn has not been affected and no Yarn users data has been leaked. Even with
-this assurance we'd recommend that if you're one of those 30 people using Yarn for
-registry authentication that you reset your password as a precautionary measure.**
+this assurance we'd recommend that if you're one of those 30 people a day using Yarn
+for registry authentication that you reset your password as a precautionary measure.**
 
 As a result of this we're evaluating our security policy and have created a new email
 address [security@yarnpkg.com](mailto:security@yarnpkg.com) that can be used to report
