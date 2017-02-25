@@ -3,56 +3,138 @@
 $ais-focus-color: rgba(black,.7);
 $ais-muted-color: rgba(black,.5);
 
-.pkg-search {
-  position: relative;
-  top: -77px;
-  z-index: 9999;
+.ais-SearchBox {
+  &__root {
+    background-color: mix(black, $yarn-blue, 15%);
+    transition: background-color .1s ease;
+    padding: 1.4em .3em;
+    box-sizing: border-box;
+    position: relative;
 
-  @include media-breakpoint-down(xs) {
-    top: -44px;
-  }
-
-  .ais-search-box--input {
-    box-shadow: 0 0 0 2px white;
-  }
-
-  .search-btn-clear {
-    position: absolute;
-    top: 17px;
-    right: 2rem;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background: url('/assets/search/ico-clear.svg') no-repeat center;
-    opacity: .5;
-
-    &:hover {
-      opacity: .7;
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: {
+        repeat: repeat-x;
+        size: 144px auto;
+      }
     }
+
+    &:before {
+      top: -3.5px;
+      background-image: $image-border-white;
+    }
+
+    &:after {
+      bottom: -3.5px;
+      background-image: $image-border-yarn-blue;
+
+      .searching & {
+        background-image: $image-border-white;
+      }
+    }
+  }
+
+  &__wrapper {
+    @extend .container;
+    display: flex;
+    background-color: white;
+    border-radius: .2em;
+    padding: .2em;
+    min-height: 38.8px;
+    transition: box-shadow .4s ease, background .4s ease;
+    box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
+
+    .active & {
+      background-color: mix(black, white, 2%);
+      box-shadow: none;
+    }
+  }
+
+  &__input {
+    order: 2;
+    flex-grow: 1;
+    background: none;
+    border: none;
+    border-radius: 0;
+    font: inherit;
+    color: $yarn-blue;
+    margin-left: .5em;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    @include placeholder {
+      color: lighten($yarn-blue, 10%);
+      font-style: italic;
+      font-weight: 100;
+    }
+  }
+
+  &__reset, &__submit {
+    width: 2em;
+    height: 2em;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+
+    svg {
+      width: 1.6em;
+      height: 1.6em;
+      padding: .2em;
+      fill: $yarn-blue;
+      position: absolute;
+      top: .2em;
+      left: .2em;
+    }
+  }
+
+  &__submit {
+    order: 1;
+  }
+
+  &__reset {
+    order: 3;
+    visibility: hidden;
   }
 }
 
-.ais-pagination {
-  margin: 3em 0 0 0;
-
-  &--item {
-    display: none;
+.ais-Pagination {
+  &__root {
+    margin: 2em auto;
+    @extend .pagination;
   }
 
-  &--item__active,
-  &--item__previous,
-  &--item__next {
-    display: inline-block;
+  &__item {
+    @extend .page-item;
   }
 
-  &--item__disabled {
+  &__itemLink {
+    @extend .page-link;
+  }
+
+  &__itemSelected {
+    @extend .active;
+  }
+
+  &__itemDisabled {
+    @extend .disabled;
     visibility: visible;
     opacity: .3;
     cursor: default;
   }
 }
 
-.ais-hits {
+.ais-Hits {
   &--item {
     padding: 1.5rem 1rem 2rem;
     border-bottom: 1px solid $gray-lighter;
@@ -69,7 +151,7 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-hit {
+.ais-Hit {
   &--name {
     font-size: 1.625rem;
     font-weight: normal;
@@ -159,7 +241,7 @@ $ais-muted-color: rgba(black,.5);
 
   &--ownerAvatar {
     border-radius: 4px;
-    margin-right: 2px;
+    margin-right: 4px;
     position: relative;
     top: -2px;
   }
@@ -270,13 +352,14 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-current-refined-values {
-  &--list {
+.ais-CurrentRefinements {
+  &__items {
     display: inline-block;
     margin-top: 1em;
+    font-size: .8125rem;
   }
 
-  &--item {
+  &__item:not(&__itemParent) {
     display: inline-block;
     border: 1px solid $gray-lighter;
     border-radius: 2px;
@@ -284,34 +367,9 @@ $ais-muted-color: rgba(black,.5);
     padding: 0 .5em;
   }
 
-  &--link {
-    &:hover {
-      text-decoration: line-through;
-    }
-
-    > div {
-      font-size: .8125rem;
-      color: $ais-muted-color;
-
-      &::after {
-        display: inline-block;
-        content: "x";
-      }
-    }
-  }
-
-  &--clear-all {
-    display: inline-block;
-
-    > div {
-      font-size: .8125rem;
-      color: $ais-muted-color;
-      margin-left: 1em;
-    }
-  }
-
-  &--count {
-    display: none;
+  &__itemClear {
+    background: none;
+    border: none;
   }
 }
 
@@ -320,6 +378,7 @@ $ais-muted-color: rgba(black,.5);
 
   .pkg-featured-pkg {
     padding: 1rem;
+    min-height: 120px;
     border-bottom: solid 1px $gray-lighter;
 
     p {
@@ -329,7 +388,7 @@ $ais-muted-color: rgba(black,.5);
       margin-bottom: 0;
     }
 
-    .ais-hit--keywords {
+    .ais-Hit--keywords {
       margin-left: 0;
 
       a {
@@ -356,53 +415,6 @@ $ais-muted-color: rgba(black,.5);
   padding: 1rem 1.5rem 1rem 2.5rem;
   background: white url('/assets/search.svg') no-repeat 1rem center;
   background-size: 1rem 1rem;
-}
-
-/* Override */
-.aa-dropdown-menu {
-  min-width: auto !important;
-  width: 100% !important;
-}
-
-/* Bottom border of each suggestion */
-.algolia-docsearch-suggestion {
-  border-bottom-color: $yarn-blue;
-}
-/* Main category headers */
-.algolia-docsearch-suggestion--category-header {
-  background-color: $yarn-blue;
-}
-/* Highlighted search terms */
-.algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
-  color: $yarn-blue-dark;
-}
-.algolia-docsearch-suggestion--title .algolia-docsearch-suggestion--highlight,
-.algolia-docsearch-suggestion--subcategory-column .algolia-docsearch-suggestion--highlight {
-    color: $yarn-blue-darker;
-}
-.algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
-  background-color: $yarn-blue-darkest;
-}
-/* Currently selected suggestion */
-.aa-cursor .algolia-docsearch-suggestion--content {
-  color: $yarn-blue;
-}
-.aa-cursor .algolia-docsearch-suggestion {
-  background: $yarn-blue-darker;
-}
-
-/* For bigger screens, when displaying results in two columns */
-@media (min-width: 768px) {
-  /* Bottom border of each suggestion */
-  .algolia-docsearch-suggestion {
-    border-bottom-color: $yarn-blue;
-  }
-  /* Left column, with secondary category header */
-  .algolia-docsearch-suggestion--subcategory-column {
-    border-right-color: $yarn-blue;
-    background-color: $yarn-blue-darker;
-    color: $yarn-blue-dark;
-  }
 }
 
 .search-footer {

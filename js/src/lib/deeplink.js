@@ -1,8 +1,12 @@
+import $ from 'jquery';
+import 'bootstrap/js/src/dropdown.js';
+import 'bootstrap/js/src/tab.js';
+
 export function handleTabs() {
   // show the tab of the current hash
   if (location.hash) {
     var $hashTab = $(location.hash);
-    
+
     if ($hashTab.hasClass('nav-link')) {
       $hashTab.tab('show');
     }
@@ -13,7 +17,7 @@ export function handleTabs() {
     history.replaceState(
       history.state,
       document.title,
-      location.pathname + '#' + e.currentTarget.id
+      location.pathname + '#' + e.currentTarget.id,
     );
   });
 }
@@ -23,7 +27,7 @@ export function handleOS() {
   [
     [/Windows/i, '#windows-tab'],
     [/Mac OS/i, '#mac-tab'],
-    [/Linux|Ubuntu|Debian/i, '#linux-tab']
+    [/Linux|Ubuntu|Debian/i, '#linux-tab'],
   ].find(function(os) {
     return os[0].test(navigator.userAgent) && $(os[1]).tab('show');
   });

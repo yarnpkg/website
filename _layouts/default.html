@@ -1,7 +1,3 @@
----
-scripts:
-  - '/js/build/common.js'
----
 {% include vars.html %}
 <!doctype html>
 <html lang="{% if vars_active_language.tag %}{{vars_active_language.tag}}{% else %}en{% endif %}">
@@ -26,30 +22,34 @@ scripts:
     {% for stylesheet in page.stylesheets %}
       <link rel="stylesheet" href="{{stylesheet}}" />
     {% endfor %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
   </head>
   <body>
     {% include debug/url.html url=page.url %}
     {% include debug/todo.html content=page.content %}
 
     {% include navigation.html %}
-    {{content}}
+    <!-- Here to avoid flash of unstyled content on page load -->
+    <div id="search">
+      <div class="ais-InstantSearch__root">
+        <form novalidate="" class="ais-SearchBox__root">
+          <div role="search" class="ais-SearchBox__wrapper"></div>
+        </form>
+      </div>
+    </div>
+    <main>{{content}}</main>
     {% include footer.html %}
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha256-/5pHDZh2fv1eZImyfiThtB5Ag4LqDjyittT7fLjdT/8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha256-j+XrvkQ4jJ99Hj0pJKPr6k0RCgxDDSTs3PBqLrX2EMc=" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js" integrity="sha256-ifihHN6L/pNU1ZQikrAb7CnyMBvisKG3SUAab0F3kVU=" crossorigin="anonymous"></script>
-
+    {% include i18n-as-script.html %}
+    <script src="{{site.data.webpack['/js/build/vendor.js']}}"></script>
+    <script src="{{site.data.webpack['/js/build/common.js']}}"></script>
     {% for script in layout.scripts %}
-      <script type="text/javascript" src="{{site.data.webpack[script]}}"></script>
+      <script src="{{site.data.webpack[script]}}"></script>
     {% endfor %}
-
     {% for script in page.scripts %}
-      <script type="text/javascript" src="{{site.data.webpack[script]}}"></script>
+      <script src="{{site.data.webpack[script]}}"></script>
     {% endfor %}
   </body>
 </html>

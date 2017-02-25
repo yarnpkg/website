@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const MS_PER_SEC = 1000;
 const SEC_PER_MINUTE = 60;
 const SEC_PER_HOUR = 3600;
@@ -5,7 +7,7 @@ const SEC_PER_DAY = 86400;
 
 function formatTimeSince(timestamp) {
   let diff = Date.now() / MS_PER_SEC - timestamp;
-  let singlarString;
+  let singularString;
   let pluralString;
   let divisor;
   if (diff < SEC_PER_HOUR) {
@@ -56,10 +58,12 @@ $('#older-versions .nav-item').on('shown.bs.tab', e => {
     allBuilds.forEach(build => {
       tbody.append(
         $('<tr>').append(
-          $('<td>').append($('<a>').attr('href', build.url).text(build.filename)),
+          $('<td>').append(
+            $('<a>').attr('href', build.url).text(build.filename),
+          ),
           $('<td>').text(build.size),
-          $('<td>').text(formatTimeSince(build.date))
-        )
+          $('<td>').text(formatTimeSince(build.date)),
+        ),
       );
     });
     tbody.replaceAll(`#${selectedType}-body`);

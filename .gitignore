@@ -12,3 +12,4 @@ _data/i18n/*.yml
 node_modules/
 js/build
 _data/webpack.json
+.happypack/

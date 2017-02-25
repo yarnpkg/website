@@ -8,7 +8,8 @@
     </a>
 
     <div class="clearfix hidden-lg-up">
-      <button class="navbar-toggler hidden-lg-up float-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <button class="navbar-toggler hidden-lg-up float-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="exCollapsingNavbar2"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
     </div>
 
     <div class="collapse navbar-toggleable-md" id="navbar">
@@ -20,7 +21,7 @@
           <a class="nav-link" href="{{url_base}}/docs">{{i18n.site_nav_documentation}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{site.baseurl}}/search">{{i18n.site_nav_packages}}</a>
+          <a class="nav-link" href="{{url_base}}/packages">{{i18n.site_nav_packages}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{site.baseurl}}/blog">{{i18n.site_nav_blog}}</a>
@@ -28,25 +29,21 @@
       </ul>
 
       <ul class="nav navbar-nav float-lg-right">
-        {% assign path = page.url | split: '/' %}
-        {% unless path[1] == 'blog' %}
-          <li class="nav-item dropdown">
-            <a id="dropdownNavLanguage" class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {% include svg/language.svg class="navbar-icon" %}
-              {{vars_active_language.name}}
+        {% assign path = page.url | split: '/' %} {% unless path[1] == 'blog' %}
+        <li class="nav-item dropdown">
+          <a id="dropdownNavLanguage" class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {% include svg/language.svg class="navbar-icon" %} {{vars_active_language.name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownNavLanguage" id="dropdownNavLanguageMenu">
-              {% for language in site.data.languages %}
-                {% if language.enabled %}
-                  <a href="{{site.baseurl}}/{{language.tag}}/{{vars_url_relative}}"
-                    class="dropdown-item{% if vars_active_language.tag == language.tag %} active{% endif %}"
-                    data-lang="{{language.accept_languages[0]}}">
-                    {{language.name}}
-                  </a>
-                {% endif %}
-              {% endfor %}
+              {% for language in site.data.languages %} {% if language.enabled %}
+              <a href="{{site.baseurl}}/{{language.tag}}/{{vars_url_relative}}" class="dropdown-item{% if vars_active_language.tag == language.tag %} active{% endif %}"
+                data-lang="{{language.accept_languages[0]}}">
+                {{language.name}}
+                </a>
+                {% endif %} {% endfor %}
             </div>
-          </li>
+        </li>
         {% endunless %}
 
         <li class="nav-item">

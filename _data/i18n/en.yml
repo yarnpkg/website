@@ -197,6 +197,8 @@ users: Yarn Users
 compare: Compare Yarn Performance
 blog: Blog
 
+packages: Packages
+
 users_lead: Meet all the users of Yarn.
 users_description: >
   Logos are added by company or project representatives. They may or may not be
@@ -265,3 +267,7 @@ ci_circle: CircleCI
 ci_codeship: Codeship
 ci_travis: Travis
 ci_semaphore: Semaphore
+
+search_placeholder: Search packages (i.e. babel, webpack, react…)
+search_by_algolia: Search by Algolia
+search_by_read_more: read how it works
