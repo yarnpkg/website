@@ -99,7 +99,7 @@ yarn_link() {
     echo "> If this isn't the profile of your current shell then please add the following to your correct profile:"
     printf "   $SOURCE_STR$reset\n"
 
-    version=`./.yarn/bin/yarn --version` || (
+    version=`$HOME/.yarn/bin/yarn --version` || (
       printf "$red> Yarn was installed, but doesn't seem to be working :(.$reset\n"
       exit 1;
     )
