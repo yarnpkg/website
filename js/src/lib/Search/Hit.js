@@ -1,7 +1,12 @@
 import React from 'react';
+<<<<<<< HEAD
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import Highlight from 'react-instantsearch/src/widgets/Highlight';
 import { getDownloadBucket, formatKeywords, encode, isEmpty } from './util';
+=======
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import { Highlight } from 'react-instantsearch/dom';
+>>>>>>> switch out moment for date-fns
 
 const Hit = ({ hit }) => (
   <div className="ais-Hits--item">
@@ -37,8 +42,14 @@ const Hit = ({ hit }) => (
       />
       {hit.owner.name}
     </a>
+<<<<<<< HEAD
     <span className="ais-Hit--lastUpdate">
       {distanceInWordsToNow(new Date(hit.modified))}
+=======
+    <span className="ais-Hit--lastUpdate">{distanceInWordsToNow(new Date(hit.modified))}</span>
+    <span className="ais-Hit--keywords hidden-sm-down">
+      {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
+>>>>>>> switch out moment for date-fns
     </span>
 
     {isEmpty(hit.keywords)
