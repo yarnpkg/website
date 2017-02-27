@@ -32,20 +32,12 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "algoliasearch": "^3.21.1",
     "bootstrap": "4.0.0-alpha.5",
     "date-fns": "^1.27.2",
     "docsearch.js": "^1.5.0",
     "jquery": "^3.1.1",
     "qs": "^6.3.1",
-=======
-    "date-fns": "^1.27.2",
-    "docsearch.js": "^1.5.0",
-    "instantsearch.js": "^1.10.5",
-    "preact": "^7.2.0",
-    "preact-compat": "^3.13.1",
->>>>>>> switch out moment for date-fns
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-instantsearch": "^3.2.0"

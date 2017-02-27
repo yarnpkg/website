@@ -26,7 +26,7 @@ class FeaturedPackage extends React.Component {
     return (
       <div className="pkg-featured-pkg">
         <Owner {...owner} />
-        <a className="ais-Hit--name" href={packageLink + name}>
+        <a className="ais-Hit--name" href={packageLink(name)}>
           {name}
         </a>
         <p>{description}</p>

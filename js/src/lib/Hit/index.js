@@ -1,15 +1,38 @@
 import React from 'react';
-<<<<<<< HEAD
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import Highlight from 'react-instantsearch/src/widgets/Highlight';
-import { getDownloadBucket, formatKeywords, encode, isEmpty } from './util';
-=======
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
-import { Highlight } from 'react-instantsearch/dom';
->>>>>>> switch out moment for date-fns
+import {
+  getDownloadBucket,
+  formatKeywords,
+  encode,
+  packageLink,
+} from '../util';
 
-const packageLink = '/package' +
-  (process.env.NODE_ENV === 'production' ? '/' : '?');
+export const License = ({ type }) =>
+  type ? <span className="ais-Hit--license">{type}</span> : null;
+
+export const Owner = ({ link, avatar, name }) => (
+  <a className="ais-Hit--ownerLink" href={link}>
+    <img
+      width="20"
+      height="20"
+      className="ais-Hit--ownerAvatar"
+      src={
+        `https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${avatar}`
+      }
+    />
+    {name}
+  </a>
+);
+
+export const Downloads = ({ downloads, humanDownloads }) => (
+  <span
+    className={`ais-Hit--popular ${getDownloadBucket(downloads)}`}
+    title="Downloads last 30 days"
+  >
+    {humanDownloads}
+  </span>
+);
 
 export const Links = ({ name, homepage, githubRepo, className }) => (
   <div className={className}>
@@ -47,43 +70,21 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
 
 const Hit = ({ hit }) => (
   <div className="ais-Hits--item">
-    <a className="ais-Hit--name" href={packageLink + hit.name}>
+    <a className="ais-Hit--name" href={packageLink(hit.name)}>
       <Highlight attributeName="name" hit={hit} />
     </a>
-    <span
-      className={
-        `ais-Hit--popular ${getDownloadBucket(hit.downloadsLast30Days)}`
-      }
-      title="Downloads last 30 days"
-    >
-      {hit.humanDownloadsLast30Days}
-    </span>
-    {hit.license
-      ? <span className="ais-Hit--license">{hit.license}</span>
-      : null}
+    <Downloads
+      downloads={hit.downloadsLast30Days}
+      humanDownloads={hit.humanDownloadsLast30Days}
+    />
+    <License type={hit.license} />
     <span className="ais-Hit--version">{hit.version}</span>
     <p className="ais-Hit--description">
       <Highlight attributeName="description" hit={hit} />
     </p>
-    <a className="ais-Hit--ownerLink" href={hit.owner.link}>
-      <img
-        width="20"
-        height="20"
-        className="ais-Hit--ownerAvatar"
-        src={
-          `https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${hit.owner.avatar}`
-        }
-      />
-      {hit.owner.name}
-    </a>
-<<<<<<< HEAD
-    <span className="ais-Hit--lastUpdate">
+    <Owner {...hit.owner} />
+    <span className="ais-Hit--lastUpdate" title="last updated">
       {distanceInWordsToNow(new Date(hit.modified))}
-=======
-    <span className="ais-Hit--lastUpdate">{distanceInWordsToNow(new Date(hit.modified))}</span>
-    <span className="ais-Hit--keywords hidden-sm-down">
-      {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
->>>>>>> switch out moment for date-fns
     </span>
     <span className="ais-Hit--keywords hidden-sm-down">
       {formatKeywords(hit.keywords, hit._highlightResult.keywords)}

@@ -130,5 +130,7 @@ function parseHighlightedAttribute(
   return elements;
 }
 
-export const packageLink = '/package' +
-  (process.env.NODE_ENV === 'production' ? '/' : '?');
+export const packageLink = name =>
+  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production'
+    ? '/'
+    : '?'}${name}`;
