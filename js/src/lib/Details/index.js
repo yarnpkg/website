@@ -23,7 +23,7 @@ const Link = ({ site, url }) => (
 
 const Links = ({ name, homepage, githubRepo, className }) => (
   <div className="detail-links">
-    <Link site="npm" url={`https://www.npmjs.com/package/${name}`} />
+    {homepage ? <Link site="homepage" url={homepage} /> : null}
     {githubRepo
       ? <Link
           site="github"
@@ -34,7 +34,7 @@ const Links = ({ name, homepage, githubRepo, className }) => (
           }
         />
       : null}
-    {homepage ? <Link site="homepage" url={homepage} /> : null}
+    <Link site="npm" url={`https://www.npmjs.com/package/${name}`} />
   </div>
 );
 
