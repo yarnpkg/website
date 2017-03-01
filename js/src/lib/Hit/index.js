@@ -6,6 +6,7 @@ import {
   formatKeywords,
   encode,
   packageLink,
+  isEmpty,
 } from '../util';
 
 export const License = ({ type }) =>
@@ -86,9 +87,11 @@ const Hit = ({ hit }) => (
     <span className="ais-Hit--lastUpdate" title="last updated">
       {distanceInWordsToNow(new Date(hit.modified))}
     </span>
-    <span className="ais-Hit--keywords hidden-sm-down">
-      {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
-    </span>
+    {isEmpty(hit.keywords)
+      ? null
+      : <span className="ais-Hit--keywords hidden-sm-down">
+          {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
+        </span>}
     <Links
       className="ais-Hit--links"
       name={hit.name}
