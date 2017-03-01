@@ -64,7 +64,7 @@ class Details extends React.Component {
         this.setState(content);
         document.title = `${this.props.objectID} | Yarn`;
       })
-      .catch(error => location.href = '/package-not-found');
+      .catch(error => alert(error) /*location.href = '/package-not-found'*/);
   }
 
   render() {

@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-/package/:pkg /package/ 200
+/:lang/package/* /:lang/package 200
 
 /downloads/:version/:file https://github.com/yarnpkg/yarn/releases/download/v:version/:file
 
