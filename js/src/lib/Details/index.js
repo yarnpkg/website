@@ -2,7 +2,7 @@ import React from 'react';
 import algoliasearch from 'algoliasearch';
 
 import { License, Owner } from '../Hit';
-import { Keywords, encode } from '../util';
+import { Keywords, encode, packageLink } from '../util';
 import schema from '../schema';
 
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
@@ -71,6 +71,21 @@ class Details extends React.Component {
         <pre>
           {JSON.stringify(this.state, null, '  ')}
         </pre>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': 'SoftwareApplication',
+            name: this.state.name,
+            description: this.state.description,
+            url: packageLink(this.state.name),
+            keywords: this.state.keywords.join(','),
+            applicationCategory: 'DeveloperApplication',
+            offers: {
+              '@type': 'Offer',
+              price: '0.00',
+            },
+          })}
+        </script>
       </div>
     );
   }
