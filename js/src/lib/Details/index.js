@@ -104,6 +104,13 @@ class Details extends React.Component {
             <code>
               {`$ yarn add ${this.state.name}`}
             </code>
+            <a
+              href={`https://runkit.com/npm/${this.state.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              R
+            </a>
           </div>
           <article className="details-side--popularity">
             <h1>Popularity</h1>
