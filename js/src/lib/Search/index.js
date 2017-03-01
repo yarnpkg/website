@@ -26,7 +26,7 @@ const Search = props => (
   >
     <Configure
       hitsPerPage={5}
-      // optionalFacetFilters={`name:${this.state.searchState.query}`}
+      optionalFacetFilters={`name:${props.searchState.query}`}
       facets={['keywords']}
     />
     <SearchBox
