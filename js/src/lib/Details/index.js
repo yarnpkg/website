@@ -1,5 +1,5 @@
 import React from 'react';
-import algoliasearch from 'algoliasearch/lite';
+import algoliasearch from 'algoliasearch';
 
 import { License, Owner, Downloads } from '../Hit';
 import { Keywords, encode, packageLink } from '../util';
@@ -64,7 +64,7 @@ class Details extends React.Component {
         this.setState(content);
         document.title = `${this.props.objectID} | Yarn`;
       })
-      .catch(error => location.href = '/package-not-found');
+      .catch(error => alert(error) /*location.href = '/package-not-found'*/);
   }
 
   render() {
