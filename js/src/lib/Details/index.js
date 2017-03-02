@@ -72,21 +72,24 @@ class Details extends React.Component {
       <div className="details row">
         <section className="details-main col-lg-8">
           <header className="details-main--header">
-            <h2 className="details-main--title">{this.state.name}</h2>
-            <Owner className="details-main--owner" {...this.state.owner} />
-            <Downloads
-              className="details-main--downloads"
-              downloads={this.state.downloadsLast30Days}
-              humanDownloads={this.state.humanDownloadsLast30Days}
-            />
-            <License
-              className="details-main--license"
-              type={this.state.license}
-            />
-            <Keywords
-              className="details-main--keywords"
-              keywords={this.state.keywords}
-            />
+            <h2 className="details-main--title d-inline m-2">
+              {this.state.name}
+            </h2>
+            <span className="details-main--owner">
+              <Owner {...this.state.owner} />
+            </span>
+            <span className="details-main--downloads">
+              <Downloads
+                downloads={this.state.downloadsLast30Days}
+                humanDownloads={this.state.humanDownloadsLast30Days}
+              />
+            </span>
+            <span className="details-main--license">
+              <License type={this.state.license} />
+            </span>
+            <span className="details-main--keywords">
+              <Keywords keywords={this.state.keywords} />
+            </span>
           </header>
           <pre>
             {JSON.stringify(this.state, null, '  ')}
