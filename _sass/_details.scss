@@ -1,0 +1,24 @@
+.detail {
+  &-links {
+    &--link {
+      color: grey;
+      padding: .5em 1em;
+      margin: .2em;
+      border-radius: .2em;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      display: block;
+      font-size: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      img {
+        margin-right: .2em;
+        height: 1em;
+        width: 2em;
+        object-fit: contain;
+        opacity: .5;
+      }
+    }
+  }
+}
