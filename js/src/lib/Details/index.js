@@ -15,7 +15,7 @@ const images = {
 };
 
 const Link = ({ site, url, display }) => (
-  <a href={url} className={`detail-links--link detail-links--link__${site}`}>
+  <a href={url} className={`details-links--link details-links--link__${site}`}>
     <img src={images[site]} alt="" />
     {display}
   </a>
@@ -104,14 +104,15 @@ class Details extends React.Component {
             <code>
               {`$ yarn add ${this.state.name}`}
             </code>
-            <a
-              href={`https://runkit.com/npm/${this.state.name}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              R
-            </a>
           </div>
+          <a
+            className="details-side--runkit"
+            href={`https://runkit.com/npm/${this.state.name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Try in RunKit
+          </a>
           <article className="details-side--popularity">
             <h1>Popularity</h1>
           </article>

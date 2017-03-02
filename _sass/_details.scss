@@ -1,4 +1,4 @@
-.detail {
+.details {
   &-links {
     &--link {
       color: grey;
@@ -18,6 +18,19 @@
         width: 2em;
         object-fit: contain;
         opacity: .5;
+      }
+    }
+  }
+
+  &-side {
+    &--runkit {
+
+      &:after {
+        content: '';
+        width: 1em;
+        height: 1em;
+        background-size: contain;
+        background-image: url('/assets/search/ico-runkit.svg');
       }
     }
   }
