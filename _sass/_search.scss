@@ -365,6 +365,9 @@ $ais-muted-color: rgba(black,.5);
     border: 1px solid rgba(0, 0, 0, 0.5);
     display: block;
     font-size: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     img {
       margin-right: .2em;
