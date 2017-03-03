@@ -137,15 +137,22 @@ class Copyable extends React.Component {
 
   render() {
     return (
-      <div>
-        <code>
+      <div className="copyable">
+        <code className="copyable--code">
           {this.props.pre}
           <span ref={sample => this.installSample = sample}>
             {this.props.text}
           </span>
         </code>
-        <button onClick={() => this.copy(this.installSample)}>
-          <img src={this.state.statusImage} alt="" />
+        <button
+          onClick={() => this.copy(this.installSample)}
+          className="copyable--button"
+        >
+          <img
+            src={this.state.statusImage}
+            alt=""
+            className="copyable--button__img"
+          />
           copy
         </button>
       </div>
@@ -160,9 +167,7 @@ const Aside = ({ name, homepage, githubRepo, contributors }) => (
     </article>
     <article className="details-side--copy">
       <h1>Use it</h1>
-      <div className="mb-1">
-        <Copyable pre="$ " text={`yarn add ${name}`} />
-      </div>
+      <Copyable pre="$ " text={`yarn add ${name}`} />
       <div>
         <a
           className="details-side--runkit"
