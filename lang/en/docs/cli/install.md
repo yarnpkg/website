@@ -50,6 +50,10 @@ to investigate network performance, and can be analyzed with tools such as
 [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/) or
 [HAR Viewer](http://www.softwareishard.com/blog/har-viewer/).
 
+##### `yarn install --modules-folder <path>` <a class="toc" id="toc-yarn-install-modules-folder" href="#toc-yarn-install-modules-folder"></a>
+
+Specifies an alternate location for the `node_modules` directory, instead of the default `./node_modules`.
+
 ##### `yarn install --no-lockfile` <a class="toc" id="toc-yarn-install-no-lockfile" href="#toc-yarn-install-no-lockfile"></a>
 
 Don't read or generate a `yarn.lock` lockfile.
