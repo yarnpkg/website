@@ -12,6 +12,11 @@ const images = {
   homepage: '/assets/search/ico-home.svg',
   npm: '/assets/search/ico-npm.svg',
   github: '/assets/search/ico-github.svg',
+  copy: {
+    default: '/assets/search/ico-github.svg',
+    success: '/assets/search/ico-home.svg',
+    failed: '/assets/search/ico-npm.svg',
+  },
 };
 
 const Link = ({ site, url, display }) => (
@@ -93,6 +98,62 @@ const Header = (
   </header>
 );
 
+class Copyable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      statusImage: images.copy.default,
+    };
+  }
+
+  copy(toCopy, timeout = 2000) {
+    const log = image => {
+      const old = this.state.statusImage;
+      this.setState({
+        statusImage: image,
+      });
+      setTimeout(
+        () => {
+          this.setState({
+            statusImage: old,
+          });
+        },
+        timeout,
+      );
+    };
+
+    let range = document.createRange();
+    range.selectNode(toCopy);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    try {
+      // Now that we've selected the anchor text, execute the copy command
+      const copy = document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      log(copy ? images.copy.success : images.copy.failed);
+    } catch (err) {
+      log(images.copy.failed);
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <code>
+          {this.props.pre}
+          <span ref={sample => this.installSample = sample}>
+            {this.props.text}
+          </span>
+        </code>
+        <button onClick={() => this.copy(this.installSample)}>
+          <img src={this.state.statusImage} alt="" />
+          copy
+        </button>
+      </div>
+    );
+  }
+}
+
 const Aside = ({ name, homepage, githubRepo, contributors }) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
@@ -100,17 +161,19 @@ const Aside = ({ name, homepage, githubRepo, contributors }) => (
     </article>
     <article className="details-side--copy">
       <h1>Use it</h1>
-      <code>
-        {`$ yarn add ${name}`}
-      </code>
-      <a
-        className="details-side--runkit"
-        href={`https://runkit.com/npm/${name}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Try in RunKit
-      </a>
+      <div className="mb-1">
+        <Copyable pre="$ " text={`yarn add ${name}`} />
+      </div>
+      <div>
+        <a
+          className="details-side--runkit"
+          href={`https://runkit.com/npm/${name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Try in RunKit
+        </a>
+      </div>
     </article>
     <article className="details-side--popularity">
       <h1>Popularity</h1>
@@ -122,7 +185,9 @@ const Aside = ({ name, homepage, githubRepo, contributors }) => (
       <h1>Contributors</h1>
       <ul className="list-unstyled m-2">
         {contributors.map(contributor => (
-          <li className="mb-1"><Owner {...contributor} /></li>
+          <li className="mb-1" key={contributor.name}>
+            <Owner {...contributor} />
+          </li>
         ))}
       </ul>
     </article>
@@ -138,13 +203,11 @@ class Details extends React.Component {
   }
 
   componentWillMount() {
-    index
-      .getObject(this.props.objectID)
-      .then(content => {
-        this.setState(content);
-        document.title = `${this.props.objectID} | Yarn`;
-      })
-      .catch(error => alert(error) /*location.href = '/package-not-found'*/);
+    index.getObject(this.props.objectID).then(content => {
+      this.setState(content);
+      document.title = `${this.props.objectID} | Yarn`;
+    });
+    //.catch(error => location.href = '/package-not-found');
   }
 
   render() {
