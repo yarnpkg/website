@@ -13,9 +13,8 @@ const images = {
   npm: '/assets/search/ico-npm.svg',
   github: '/assets/search/ico-github.svg',
   copy: {
-    default: '/assets/search/ico-github.svg',
-    success: '/assets/search/ico-home.svg',
-    failed: '/assets/search/ico-npm.svg',
+    default: '/assets/search/ico-copy-default.svg',
+    success: '/assets/search/ico-copy-success.svg',
   },
 };
 
@@ -130,9 +129,9 @@ class Copyable extends React.Component {
       // Now that we've selected the anchor text, execute the copy command
       const copy = document.execCommand('copy');
       window.getSelection().removeAllRanges();
-      log(copy ? images.copy.success : images.copy.failed);
+      log(copy ? images.copy.success : images.copy.default);
     } catch (err) {
-      log(images.copy.failed);
+      log(images.copy.default);
     }
   }
 
