@@ -23,6 +23,14 @@
   }
 
   &-side {
+    h1 {
+      font-size: 1.4em;
+    }
+
+    article {
+      margin-bottom: 2em;
+    }
+
     &--runkit {
 
       &:after {

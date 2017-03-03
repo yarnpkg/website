@@ -93,27 +93,25 @@ const Header = (
   </header>
 );
 
-const Aside = ({ name, homepage, githubRepo }) => (
+const Aside = ({ name, homepage, githubRepo, contributors }) => (
   <aside className="details-side col-lg-4">
-    <Links
-      className="details-side--links"
-      name={name}
-      homepage={homepage}
-      githubRepo={githubRepo}
-    />
-    <div className="details-side--copy">
+    <article className="details-side--links">
+      <Links name={name} homepage={homepage} githubRepo={githubRepo} />
+    </article>
+    <article className="details-side--copy">
+      <h1>Use it</h1>
       <code>
         {`$ yarn add ${name}`}
       </code>
-    </div>
-    <a
-      className="details-side--runkit"
-      href={`https://runkit.com/npm/${name}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Try in RunKit
-    </a>
+      <a
+        className="details-side--runkit"
+        href={`https://runkit.com/npm/${name}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Try in RunKit
+      </a>
+    </article>
     <article className="details-side--popularity">
       <h1>Popularity</h1>
     </article>
@@ -122,6 +120,11 @@ const Aside = ({ name, homepage, githubRepo }) => (
     </article>
     <article className="details-side--contributors">
       <h1>Contributors</h1>
+      <ul className="list-unstyled m-2">
+        {contributors.map(contributor => (
+          <li className="mb-1"><Owner {...contributor} /></li>
+        ))}
+      </ul>
     </article>
   </aside>
 );
@@ -165,6 +168,7 @@ class Details extends React.Component {
           name={this.state.name}
           githubRepo={this.state.githubRepo}
           homepage={this.state.homepage}
+          contributors={this.state.owners}
         />
 
         <JSONLDItem
