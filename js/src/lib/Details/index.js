@@ -37,9 +37,12 @@ class Details extends React.Component {
             license={this.state.license}
             keywords={this.state.keywords}
           />
-          <pre>
-            {JSON.stringify(this.state, null, '  ')}
-          </pre>
+          <details>
+            <summary>full json</summary>
+            <pre>
+              {JSON.stringify(this.state, null, '  ')}
+            </pre>
+          </details>
         </section>
 
         <Aside
