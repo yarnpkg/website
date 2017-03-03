@@ -1,5 +1,6 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
+import marked from 'marked-promise';
 
 import Aside from './Aside';
 import Header from './Header';
@@ -21,8 +22,24 @@ class Details extends React.Component {
     index.getObject(this.props.objectID).then(content => {
       this.setState(content);
       document.title = `${this.props.objectID} | Yarn`;
+      this.getDocuments();
     });
     //.catch(error => location.href = '/package-not-found');
+  }
+
+  getDocuments() {
+    if (this.state.githubRepo) {
+      fetch(
+        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+          ? this.state.githubRepo.path.replace('/tree/', '')
+          : 'master'}/README.md`,
+      )
+        .then(res => res.text())
+        .then(res => marked(res))
+        .then(res => this.setState({
+          readme: res,
+        }));
+    }
   }
 
   render() {
@@ -37,6 +54,18 @@ class Details extends React.Component {
             license={this.state.license}
             keywords={this.state.keywords}
           />
+          {this.state.readme &&
+            <section id="readme">
+              <h3>Readme</h3>
+              <div dangerouslySetInnerHTML={{ __html: this.state.readme }} />
+            </section>}
+          {this.state.changelog &&
+            <section id="readme">
+              <h3>Changelog</h3>
+              <div>
+                {this.state.changelog}
+              </div>
+            </section>}
           <details>
             <summary>full json</summary>
             <pre>
