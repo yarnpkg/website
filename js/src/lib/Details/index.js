@@ -28,17 +28,28 @@ class Details extends React.Component {
   }
 
   getDocuments() {
-    if (this.state.githubRepo) {
-      fetch(
-        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
-          ? this.state.githubRepo.path.replace('/tree/', '')
-          : 'master'}/README.md`,
-      )
+    const get = (url, item) =>
+      fetch(url)
         .then(res => res.text())
-        .then(res => marked(res))
+        .then(res => marked(res, { sanitize: true, smartypants: true }))
         .then(res => this.setState({
-          readme: res,
+          [item]: res,
         }));
+    if (this.state.githubRepo) {
+      Promise.all([
+        get(
+          `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+            ? this.state.githubRepo.path.replace(/\/tree\//, '')
+            : 'master'}/README.md`,
+          'readme',
+        ),
+        get(
+          `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+            ? this.state.githubRepo.path.replace(/\/tree\//, '')
+            : 'master'}/CHANGELOG.md`,
+          'CHANGELOG',
+        ),
+      ]);
     }
   }
 
@@ -60,11 +71,9 @@ class Details extends React.Component {
               <div dangerouslySetInnerHTML={{ __html: this.state.readme }} />
             </section>}
           {this.state.changelog &&
-            <section id="readme">
+            <section id="changelog">
               <h3>Changelog</h3>
-              <div>
-                {this.state.changelog}
-              </div>
+              <div dangerouslySetInnerHTML={{ __html: this.state.changelog }} />
             </section>}
           <details>
             <summary>full json</summary>
