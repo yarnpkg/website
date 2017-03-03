@@ -49,6 +49,83 @@ const Links = ({ name, homepage, githubRepo, className }) => (
   </div>
 );
 
+const JSONLDItem = ({ name, description, keywords }) => (
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'http://schema.org',
+      '@type': 'SoftwareApplication',
+      name: name,
+      description: description,
+      url: packageLink(name),
+      keywords: keywords.join(','),
+      applicationCategory: 'DeveloperApplication',
+      offers: {
+        '@type': 'Offer',
+        price: '0.00',
+      },
+    })}
+  </script>
+);
+
+const Header = (
+  {
+    name,
+    owner,
+    downloadsLast30Days,
+    humanDownloadsLast30Days,
+    license,
+    keywords,
+  },
+) => (
+  <header className="details-main--header">
+    <h2 className="details-main--title d-inline-block m-2">
+      {name}
+    </h2>
+    <div className="details-main--info d-inline-block m-2">
+      <Owner {...owner} />
+      <Downloads
+        downloads={downloadsLast30Days}
+        humanDownloads={humanDownloadsLast30Days}
+      />
+      <License type={license} />
+      <Keywords keywords={keywords} />
+    </div>
+  </header>
+);
+
+const Aside = ({ name, homepage, githubRepo }) => (
+  <aside className="details-side col-lg-4">
+    <Links
+      className="details-side--links"
+      name={name}
+      homepage={homepage}
+      githubRepo={githubRepo}
+    />
+    <div className="details-side--copy">
+      <code>
+        {`$ yarn add ${name}`}
+      </code>
+    </div>
+    <a
+      className="details-side--runkit"
+      href={`https://runkit.com/npm/${name}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Try in RunKit
+    </a>
+    <article className="details-side--popularity">
+      <h1>Popularity</h1>
+    </article>
+    <article className="details-side--activity">
+      <h1>Activity</h1>
+    </article>
+    <article className="details-side--contributors">
+      <h1>Contributors</h1>
+    </article>
+  </aside>
+);
+
 class Details extends React.Component {
   constructor(props) {
     super(props);
@@ -71,77 +148,30 @@ class Details extends React.Component {
     return (
       <div className="details row">
         <section className="details-main col-lg-8">
-          <header className="details-main--header">
-            <h2 className="details-main--title d-inline m-2">
-              {this.state.name}
-            </h2>
-            <span className="details-main--owner">
-              <Owner {...this.state.owner} />
-            </span>
-            <span className="details-main--downloads">
-              <Downloads
-                downloads={this.state.downloadsLast30Days}
-                humanDownloads={this.state.humanDownloadsLast30Days}
-              />
-            </span>
-            <span className="details-main--license">
-              <License type={this.state.license} />
-            </span>
-            <span className="details-main--keywords">
-              <Keywords keywords={this.state.keywords} />
-            </span>
-          </header>
+          <Header
+            name={this.state.name}
+            owner={this.state.owner}
+            downloadsLast30Days={this.state.downloadsLast30Days}
+            humanDownloadsLast30Days={this.state.humanDownloadsLast30Days}
+            license={this.state.license}
+            keywords={this.state.keywords}
+          />
           <pre>
             {JSON.stringify(this.state, null, '  ')}
           </pre>
         </section>
 
-        <aside className="details-side col-lg-4">
-          <Links
-            className="details-side--links"
-            name={this.state.name}
-            homepage={this.state.homepage}
-            githubRepo={this.state.githubRepo}
-          />
-          <div className="details-side--copy">
-            <code>
-              {`$ yarn add ${this.state.name}`}
-            </code>
-          </div>
-          <a
-            className="details-side--runkit"
-            href={`https://runkit.com/npm/${this.state.name}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Try in RunKit
-          </a>
-          <article className="details-side--popularity">
-            <h1>Popularity</h1>
-          </article>
-          <article className="details-side--activity">
-            <h1>Activity</h1>
-          </article>
-          <article className="details-side--contributors">
-            <h1>Contributors</h1>
-          </article>
-        </aside>
+        <Aside
+          name={this.state.name}
+          githubRepo={this.state.githubRepo}
+          homepage={this.state.homepage}
+        />
 
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'http://schema.org',
-            '@type': 'SoftwareApplication',
-            name: this.state.name,
-            description: this.state.description,
-            url: packageLink(this.state.name),
-            keywords: this.state.keywords.join(','),
-            applicationCategory: 'DeveloperApplication',
-            offers: {
-              '@type': 'Offer',
-              price: '0.00',
-            },
-          })}
-        </script>
+        <JSONLDItem
+          name={this.state.name}
+          description={this.state.description}
+          keywords={this.state.keywords}
+        />
       </div>
     );
   }
