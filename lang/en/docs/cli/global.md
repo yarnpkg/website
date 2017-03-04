@@ -12,6 +12,8 @@ layout: guide
 
 `yarn global` is a prefix used for a number of commands like `add`, `bin`, `ls` and `remove`. They behave identically to their normal versions except that they use a global directory to store packages. The `global` command makes binaries available to use on your operating system.
 
+*Note: Unlike the `--global` flag in npm, `global` is a command which must immediately follow `yarn`. Entering `yarn add global package-name` will add the packages named `global` and `package-name` locally instead of adding `package-name` globally.*
+
 This is useful for developer tooling that is not part of any individual project but instead is used for local commands. One such example is [create-react-app](https://github.com/facebookincubator/create-react-app) which can be installed globally like this:
 
 ```sh
