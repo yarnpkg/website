@@ -30,6 +30,19 @@ const Search = props => (
         props.searchState.query && `name:${props.searchState.query}`
       }
       facets={['keywords']}
+      attributesToRetrieve={[
+        'name',
+        'downloadsLast30Days',
+        'humanDownloadsLast30Days',
+        'license',
+        'version',
+        'description',
+        'modified',
+        'keywords',
+        'homepage',
+        'githubRepo',
+        'owner',
+      ]}
     />
     <SearchBox
       translations={{
