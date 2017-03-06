@@ -10,26 +10,6 @@ import schema from '../schema';
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
 
-const markedRenderer = new marked.Renderer();
-markedRenderer.image = function(href, title, text) {
-  return `<img src="${href.indexOf('//') > 0
-    ? href
-    : `https://raw.githubusercontent.com/${'algolia'}/${'instantsearch.js'}/${'develop'}/${href.replace(
-        /\.\//,
-        '',
-      )}`}" ${title ? `title="${title}"` : ''} ${text
-    ? `alt="${text}"`
-    : ''}  />`;
-};
-
-const markdown = res => new Promise((resolve, reject) => {
-  marked(
-    res,
-    { renderer: markedRenderer, sanitize: true, smartypants: true },
-    (err, content) => err ? reject(err) : resolve(content),
-  );
-});
-
 class Details extends React.Component {
   constructor(props) {
     super(props);
@@ -47,12 +27,41 @@ class Details extends React.Component {
     //.catch(error => location.href = '/package-not-found');
   }
 
+  markdown = res => new Promise((resolve, reject) => {
+    const markedRenderer = new marked.Renderer();
+    markedRenderer.image = (href, title, text) => {
+      return `<img src="${href.indexOf('//') > 0
+        ? href
+        : `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+            ? this.state.githubRepo.path.replace(/\/tree\//, '')
+            : 'master'}/${href.replace(/\.\//, '')}`}" ${title
+        ? `title="${title}"`
+        : ''} ${text ? `alt="${text}"` : ''}  />`;
+    };
+    marked(
+      res,
+      { renderer: markedRenderer, sanitize: true, smartypants: true },
+      (err, content) => err ? reject(err) : resolve(content),
+    );
+  });
+
   getDocuments() {
+    const status = res => new Promise((resolve, reject) => {
+      if (res.status >= 200 && res.status < 300) {
+        resolve(res);
+      } else {
+        reject(res.status);
+      }
+    });
+
     const get = (url, item) =>
       fetch(url)
+        .then(status)
         .then(res => res.text())
-        .then(res => markdown(res))
-        .then(res => this.setState({ [item]: res }));
+        .then(res => this.markdown(res))
+        .then(res => this.setState({ [item]: res }))
+        .catch(err => console.warn(err, url));
+
     if (this.state.githubRepo) {
       get(
         `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
