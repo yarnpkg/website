@@ -19,16 +19,17 @@ const index = client.initIndex('npm-search');
 //   ? `title="${title}"`
 //   : ''} ${text ? `alt="${text}"` : ''}  />`;
 
+const prefixGitHub = (uri, head) => uri;
+
 const Markdown = ({ source, githubRepo: { user, project, path }, gitHead }) => (
   <ReactMarkdown
     source={source}
     transformLinkUri={uri => {
-      console.log('link', uri);
-      return uriTransformer(uri);
+      return prefixGitHub(uriTransformer(uri), gitHead);
     }}
     transformImageUri={uri => {
       console.log('image', uri);
-      return uriTransformer(uri);
+      return prefixGitHub(uriTransformer(uri), gitHead);
     }}
   />
 );
@@ -70,6 +71,12 @@ class Details extends React.Component {
       get(
         `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
           ? this.state.githubRepo.path.replace(/\/tree\//, '')
+          : 'master'}/README.md`,
+        'readme',
+      );
+      get(
+        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+          ? this.state.githubRepo.path.replace(/\/tree\//, '')
           : 'master'}/CHANGELOG.md`,
         'changelog',
       );
@@ -91,12 +98,20 @@ class Details extends React.Component {
           {this.state.readme &&
             <section id="readme">
               <h3>Readme</h3>
-              <Markdown source={this.state.readme} />
+              <Markdown
+                source={this.state.readme}
+                githubRepo={this.state.githubRepo}
+                gitHead={this.state.gitHead}
+              />
             </section>}
           {this.state.changelog &&
             <section id="changelog">
               <h3>Changelog</h3>
-              <Markdown source={this.state.changelog} />
+              <Markdown
+                source={this.state.changelog}
+                githubRepo={this.state.githubRepo}
+                gitHead={this.state.gitHead}
+              />
             </section>}
           <details>
             <summary>full json</summary>
