@@ -1,6 +1,6 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
-import marked from 'marked-promise';
+import marked from 'marked';
 
 import Aside from './Aside';
 import Header from './Header';
@@ -9,6 +9,26 @@ import schema from '../schema';
 
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
+
+const markedRenderer = new marked.Renderer();
+markedRenderer.image = function(href, title, text) {
+  return `<img src="${href.indexOf('//') > 0
+    ? href
+    : `https://raw.githubusercontent.com/${'algolia'}/${'instantsearch.js'}/${'develop'}/${href.replace(
+        /\.\//,
+        '',
+      )}`}" ${title ? `title="${title}"` : ''} ${text
+    ? `alt="${text}"`
+    : ''}  />`;
+};
+
+const markdown = res => new Promise((resolve, reject) => {
+  marked(
+    res,
+    { renderer: markedRenderer, sanitize: true, smartypants: true },
+    (err, content) => err ? reject(err) : resolve(content),
+  );
+});
 
 class Details extends React.Component {
   constructor(props) {
@@ -31,25 +51,21 @@ class Details extends React.Component {
     const get = (url, item) =>
       fetch(url)
         .then(res => res.text())
-        .then(res => marked(res, { sanitize: true, smartypants: true }))
-        .then(res => this.setState({
-          [item]: res,
-        }));
+        .then(res => markdown(res))
+        .then(res => this.setState({ [item]: res }));
     if (this.state.githubRepo) {
-      Promise.all([
-        get(
-          `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
-            ? this.state.githubRepo.path.replace(/\/tree\//, '')
-            : 'master'}/README.md`,
-          'readme',
-        ),
-        get(
-          `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
-            ? this.state.githubRepo.path.replace(/\/tree\//, '')
-            : 'master'}/CHANGELOG.md`,
-          'CHANGELOG',
-        ),
-      ]);
+      get(
+        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+          ? this.state.githubRepo.path.replace(/\/tree\//, '')
+          : 'master'}/README.md`,
+        'readme',
+      );
+      get(
+        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
+          ? this.state.githubRepo.path.replace(/\/tree\//, '')
+          : 'master'}/CHANGELOG.md`,
+        'changelog',
+      );
     }
   }
 
