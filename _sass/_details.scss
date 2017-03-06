@@ -46,6 +46,7 @@
 
 .copyable {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   background-color: $gray-lighter;
   padding: 1em;
