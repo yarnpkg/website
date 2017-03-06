@@ -7,6 +7,7 @@ export default {
   version: '0.0.0',
   description: '…',
   githubRepo: { user: '', project: '', path: '' },
+  gitHead: '',
   owner: {
     name: '',
     avatar: 'https://avatars3.githubusercontent.com/u/22247014?v=3&s=200',
