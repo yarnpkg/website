@@ -19,6 +19,8 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
     <link rel="icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
 
+    <link rel="search" href="/opensearch.xml" type="application/opensearchdescription+xml">
+
     {% for stylesheet in page.stylesheets %}
       <link rel="stylesheet" href="{{stylesheet}}" />
     {% endfor %}
