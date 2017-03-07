@@ -16,8 +16,9 @@ const prefixURL = (url, { base, user, project, head, path }) => {
     return url;
   } else {
     return new URL(
-      url.replace(/^(\.?\/?)/, ''),
-      `${base}/${user}/${project}/${head}/${path}`,
+      (path ? path.replace(/^\//, '') + '/' : '') +
+        url.replace(/^(\.?\/?)/, ''),
+      `${base}/${user}/${project}/${path ? '' : `${head}/`}`,
     );
   }
 };
