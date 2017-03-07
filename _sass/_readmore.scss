@@ -14,6 +14,12 @@
     }
   }
 
+  &--content {
+    img {
+      max-width: 100%;
+    }
+  }
+
   &--button {
     margin-left: 2em;
     padding: .3em .8em;
@@ -25,7 +31,7 @@
 
     &:active, &:focus {
       outline: none;
-      border: 2px solid #CBCBCB;
+      box-shadow: inset 0 0 0 1px #CBCBCB;
     }
 
     img {
