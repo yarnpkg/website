@@ -16,9 +16,21 @@
 
   &--button {
     margin-left: 2em;
+    padding: .3em .8em;
+    padding-right: 0;
+    border-radius: 0.2em;
+    color: #666;
+    border: 1px solid #CBCBCB;
+    background-color: transparent;
+
+    &:active, &:focus {
+      outline: none;
+      border: 2px solid #CBCBCB;
+    }
+
     img {
-      width: 1em;
-      margin-left: .4em;
+      width: .8em;
+      margin: 0 1em;
     }
   }
 }
