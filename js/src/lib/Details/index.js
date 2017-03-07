@@ -88,6 +88,7 @@ class Details extends React.Component {
       );
 
       if (
+        typeof this.state.readme === 'undefined' ||
         this.state.readme.length === 0 ||
         this.state.readme === 'ERROR: No README data found!'
       ) {
