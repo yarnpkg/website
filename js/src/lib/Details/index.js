@@ -116,6 +116,7 @@ class Details extends React.Component {
             owner={this.state.owner}
             downloadsLast30Days={this.state.downloadsLast30Days}
             humanDownloadsLast30Days={this.state.humanDownloadsLast30Days}
+            description={this.state.description}
             license={this.state.license}
             keywords={this.state.keywords}
           />

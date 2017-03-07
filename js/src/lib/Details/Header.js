@@ -8,6 +8,7 @@ const Header = (
     owner,
     downloadsLast30Days,
     humanDownloadsLast30Days,
+    description,
     license,
     keywords,
   },
@@ -23,8 +24,9 @@ const Header = (
         humanDownloads={humanDownloadsLast30Days}
       />
       <License type={license} />
-      <Keywords keywords={keywords} />
     </div>
+    <p>{description}</p>
+    <Keywords keywords={keywords} />
   </header>
 );
 
