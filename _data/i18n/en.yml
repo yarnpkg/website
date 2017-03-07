@@ -273,3 +273,7 @@ search_by_algolia: Search by Algolia
 search_by_read_more: read how it works
 
 package_detail_title: Package detail
+
+display_full_readme: Display full readme
+display_full_changelog: Display full changelog
+collapse: Collapse

@@ -5,6 +5,7 @@ import ReactMarkdown, { uriTransformer } from 'react-markdown';
 import Aside from './Aside';
 import Header from './Header';
 import JSONLDItem from './JSONLDItem';
+import ReadMore from './ReadMore';
 import schema from '../schema';
 
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
@@ -15,7 +16,7 @@ const prefixURL = (url, { base, user, project, head, path }) => {
     return url;
   } else {
     return new URL(
-      url.replace(/^\.?\//, ''),
+      url.replace(/^(\.?\/?)/, ''),
       `${base}/${user}/${project}/${head}/${path}`,
     );
   }
@@ -76,17 +77,31 @@ class Details extends React.Component {
 
     if (this.state.githubRepo) {
       get(
-        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
-          ? this.state.githubRepo.path.replace(/\/tree\//, '')
-          : 'master'}/README.md`,
-        'readme',
-      );
-      get(
-        `https://raw.githubusercontent.com/${this.state.githubRepo.user}/${this.state.githubRepo.project}/${this.state.githubRepo.path
-          ? this.state.githubRepo.path.replace(/\/tree\//, '')
-          : 'master'}/CHANGELOG.md`,
+        prefixURL(uriTransformer('CHANGELOG.md'), {
+          base: 'https://raw.githubusercontent.com',
+          user: this.state.githubRepo.user,
+          project: this.state.githubRepo.project,
+          head: this.state.gitHead ? this.state.gitHead : 'master',
+          path: this.state.githubRepo.path.replace(/\/tree\//, ''),
+        }),
         'changelog',
       );
+
+      if (
+        this.state.readme.length === 0 ||
+        this.state.readme === 'ERROR: No README data found!'
+      ) {
+        get(
+          prefixURL(uriTransformer('README.md'), {
+            base: 'https://raw.githubusercontent.com',
+            user: this.state.githubRepo.user,
+            project: this.state.githubRepo.project,
+            head: this.state.gitHead ? this.state.gitHead : 'master',
+            path: this.state.githubRepo.path.replace(/\/tree\//, ''),
+          }),
+          'readme',
+        );
+      }
     }
   }
 
@@ -105,21 +120,25 @@ class Details extends React.Component {
           <section id="readme">
             <h3>Readme</h3>
             {this.state.readme
-              ? <Markdown
-                  source={this.state.readme}
-                  githubRepo={this.state.githubRepo}
-                  gitHead={this.state.gitHead}
-                />
+              ? <ReadMore text={window.i18n.display_full_readme}>
+                  <Markdown
+                    source={this.state.readme}
+                    githubRepo={this.state.githubRepo}
+                    gitHead={this.state.gitHead}
+                  />
+                </ReadMore>
               : <div>no readme found 😢</div>}
           </section>
           {this.state.changelog &&
             <section id="changelog">
               <h3>Changelog</h3>
-              <Markdown
-                source={this.state.changelog}
-                githubRepo={this.state.githubRepo}
-                gitHead={this.state.gitHead}
-              />
+              <ReadMore text={window.i18n.display_full_changelog}>
+                <Markdown
+                  source={this.state.changelog}
+                  githubRepo={this.state.githubRepo}
+                  gitHead={this.state.gitHead}
+                />
+              </ReadMore>
             </section>}
           <details>
             <summary>full json</summary>
