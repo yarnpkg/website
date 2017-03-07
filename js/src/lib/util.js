@@ -27,7 +27,7 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
         {keywords
           .slice(0, maxKeywords)
           .map(keyword => (
-            <a href={`/packages?q=${keyword}`} key={`${name}-${keyword}`}>
+            <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
               {keyword}
             </a>
           ))
@@ -134,3 +134,6 @@ export const packageLink = name =>
   `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production'
     ? '/'
     : '?'}${name}`;
+
+export const searchLink = query =>
+  `${window.i18n.url_base}/packages?q=${query}`;
