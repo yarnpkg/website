@@ -120,8 +120,10 @@ class Details extends React.Component {
             license={this.state.license}
             keywords={this.state.keywords}
           />
-          <section id="readme">
-            <h3>Readme</h3>
+          <section id="readme" className="details-doc">
+            <h3 className="details-doc--title details-doc--title__readme">
+              <a href="#readme">readme</a>
+            </h3>
             {this.state.readme
               ? <ReadMore text={window.i18n.display_full_readme}>
                   <Markdown
@@ -133,8 +135,10 @@ class Details extends React.Component {
               : <div>no readme found 😢</div>}
           </section>
           {this.state.changelog &&
-            <section id="changelog">
-              <h3>Changelog</h3>
+            <section id="changelog" className="details-doc">
+              <h3 className="details-doc--title details-doc--title__changelog">
+                <a href="#changelog">changelog</a>
+              </h3>
               <ReadMore text={window.i18n.display_full_changelog}>
                 <Markdown
                   source={this.state.changelog}

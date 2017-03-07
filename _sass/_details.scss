@@ -28,6 +28,44 @@
     }
   }
 
+  &-doc {
+    margin: 2em;
+    margin-right: 0;
+
+    &--title {
+      display: inline-block;
+      color: #666;
+      border-bottom: dotted 1px;
+      position: relative;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -1em;
+        top: .2em;
+        width: 0.8em;
+        height: 0.8em;
+        background: {
+          repeat: no-repeat;
+          size: contain;
+        }
+      }
+      
+      &__readme:before {
+        background-image: url('/assets/search/ico-readme.svg');
+      }
+
+      &__changelog:before {
+        background-image: url('/assets/search/ico-changelog.svg');
+      }
+    }
+  }
+
   &-side {
 
     h1 {
