@@ -2,6 +2,7 @@
   &--collapsed &--content{
     overflow: hidden;
     position: relative;
+    margin-bottom: .2em;
 
     &:after {
       content: '';
