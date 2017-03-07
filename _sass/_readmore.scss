@@ -1,0 +1,24 @@
+.readMore {
+  &--collapsed &--content{
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 250px;
+      width: 100%;
+      box-shadow: inset 0 -100px 60px -60px white;
+    }
+  }
+
+  &--button {
+    margin-left: 2em;
+    img {
+      width: 1em;
+      margin-left: .4em;
+    }
+  }
+}
