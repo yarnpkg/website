@@ -150,7 +150,7 @@ The URL to your project's issue tracker. This can also be something like an emai
 }
 ```
 
-The repository is the location where your the actual code for your package lives.
+The repository is the location where the actual code for your package lives.
 
 ## Maintainers <a class="toc" id="toc-maintainers" href="#toc-maintainers"></a>
 
