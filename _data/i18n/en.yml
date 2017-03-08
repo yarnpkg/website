@@ -175,11 +175,19 @@ docs_dependency_versions_description: |
 
 docs_configuration_title: Configuration
 docs_configuration_description: |
-  Learn how to use package.json to configure your package and dependencies
+  Learn how to use package.json to configure your packages and dependencies.
 
 docs_configuration_index: Configuration
 docs_configuration_package_json: package.json
 docs_configuration_yarn_lock: yarn.lock
+
+docs_offline_mirror: Configuring an Offline Mirror
+docs_offline_mirror_title: Offline Mirror
+docs_offline_mirror_description: |
+  Maintain offline copies of your packages for more repeatable and reliable
+  builds.
+
+docs_prune_offline_mirror: Pruning an Offline Mirror
 
 yarn_organization_title: Yarn Organization
 yarn_organization_description: |
