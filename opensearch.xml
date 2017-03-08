@@ -2,7 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Yarn</ShortName>
   <Description>Package Search</Description>
-  <Url type="text/html" method="get" template="https://www.yarnpkg.com/packages?q={searchTerms}"/>
+  <Url type="text/html" method="get" template="https://www.yarnpkg.com/en/packages?q={searchTerms}"/>
   <InputEncoding>UTF-8</InputEncoding>
   <Image height="32" width="32" type="image/x-icon">https://yarnpkg.com/favicon.ico</Image>
 </OpenSearchDescription>
