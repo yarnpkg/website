@@ -41,6 +41,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-instantsearch": "^3.2.0",
-    "react-markdown": "^2.4.5"
+    "react-markdown": "^2.4.5",
+    "unfetch": "^2.1.2"
   }
 }

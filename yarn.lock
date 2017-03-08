@@ -3162,6 +3162,10 @@ uid-number@~0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
+unfetch@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/unfetch/-/unfetch-2.1.2.tgz#684fee4d8acdb135bdb26c0364c642fc326ca95b"
+
 url@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"

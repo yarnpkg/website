@@ -1,6 +1,7 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
 import ReactMarkdown, { uriTransformer } from 'react-markdown';
+import fetch from 'unfetch';
 
 import Aside from './Aside';
 import Header from './Header';
