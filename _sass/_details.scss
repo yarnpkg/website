@@ -64,6 +64,15 @@
         background-image: url('/assets/search/ico-changelog.svg');
       }
     }
+
+    &--content {
+      h1 {@extend .h4}
+      h2 {@extend .h5}
+      h3 {@extend .h6}
+      h4 {@extend .h6}
+      h5 {@extend .h6}
+      h6 {@extend .h6}
+    }
   }
 
   &-side {

@@ -126,7 +126,10 @@ class Details extends React.Component {
               <a href="#readme">readme</a>
             </h3>
             {this.state.readme
-              ? <ReadMore text={window.i18n.display_full_readme}>
+              ? <ReadMore
+                  text={window.i18n.display_full_readme}
+                  className="details-doc--content"
+                >
                   <Markdown
                     source={this.state.readme}
                     githubRepo={this.state.githubRepo}
@@ -140,7 +143,10 @@ class Details extends React.Component {
               <h3 className="details-doc--title details-doc--title__changelog">
                 <a href="#changelog">changelog</a>
               </h3>
-              <ReadMore text={window.i18n.display_full_changelog}>
+              <ReadMore
+                text={window.i18n.display_full_changelog}
+                className="details-doc--content"
+              >
                 <Markdown
                   source={this.state.changelog}
                   githubRepo={this.state.githubRepo}

@@ -17,11 +17,17 @@ class ReadMore extends React.Component {
   };
 
   render() {
-    const { children, text } = this.props;
+    const { children, text, className } = this.props;
     const { collapsed } = this.state;
 
     return (
-      <div className={`readMore ${collapsed ? 'readMore--collapsed' : ''}`}>
+      <div
+        className={
+          `${className ? className : ''} readMore ${collapsed
+            ? 'readMore--collapsed'
+            : ''}`
+        }
+      >
         <div
           className="readMore--content"
           style={{ maxHeight: collapsed ? this.maxHeight : '' }}
