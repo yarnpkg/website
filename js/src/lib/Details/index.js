@@ -119,6 +119,7 @@ class Details extends React.Component {
             description={this.state.description}
             license={this.state.license}
             keywords={this.state.keywords}
+            version={this.state.version}
           />
           <section id="readme" className="details-doc">
             <h3 className="details-doc--title details-doc--title__readme">

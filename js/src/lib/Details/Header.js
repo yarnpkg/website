@@ -11,6 +11,7 @@ const Header = (
     description,
     license,
     keywords,
+    version,
   },
 ) => (
   <header className="details-main--header">
@@ -24,6 +25,7 @@ const Header = (
         humanDownloads={humanDownloadsLast30Days}
       />
       <License type={license} />
+      <span className="ais-Hit--version">{version}</span>
     </div>
     <p>{description}</p>
     <Keywords keywords={keywords} />
