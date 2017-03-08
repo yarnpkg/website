@@ -2,9 +2,10 @@ import React from 'react';
 
 import Copyable from './Copyable';
 import Links from './Links';
+import Activity from './Activity';
 import { Owner } from '../Hit';
 
-const Aside = ({ name, homepage, githubRepo, contributors }) => (
+const Aside = ({ name, homepage, githubRepo, contributors, activity }) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
@@ -26,9 +27,7 @@ const Aside = ({ name, homepage, githubRepo, contributors }) => (
     <article className="details-side--popularity">
       <h1>Popularity</h1>
     </article>
-    <article className="details-side--activity">
-      <h1>Activity</h1>
-    </article>
+    <Activity data={activity} />
     <article className="details-side--contributors">
       <h1>Contributors</h1>
       <ul className="list-unstyled m-2">

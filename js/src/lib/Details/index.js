@@ -64,47 +64,70 @@ class Details extends React.Component {
   getDocuments() {
     const status = res => new Promise((resolve, reject) => {
       if (res.status >= 200 && res.status < 300) {
+        if (res.status === 202) {
+          reject(res);
+        }
         resolve(res);
       } else {
-        reject(res.status);
+        reject(res);
       }
     });
 
-    const get = (url, item) =>
+    const get = ({ url, item, type }) =>
       fetch(url)
         .then(status)
-        .then(res => res.text())
+        .then(res => res[type]())
         .then(res => this.setState({ [item]: res }))
-        .catch(err => console.warn(err, url));
+        .catch(err => {
+          // github uses 202 to make you try again a bit later
+          if (err.status === 202) {
+            setTimeout(
+              () => {
+                get(url, item);
+              },
+              200,
+            );
+          } else {
+            console.warn(err);
+          }
+        });
 
     if (this.state.githubRepo) {
-      get(
-        prefixURL(uriTransformer('CHANGELOG.md'), {
+      get({
+        url: prefixURL(uriTransformer('CHANGELOG.md'), {
           base: 'https://raw.githubusercontent.com',
           user: this.state.githubRepo.user,
           project: this.state.githubRepo.project,
           head: this.state.gitHead ? this.state.gitHead : 'master',
           path: this.state.githubRepo.path.replace(/\/tree\//, ''),
         }),
-        'changelog',
-      );
+        item: 'changelog',
+        type: 'text',
+      });
 
       if (
         typeof this.state.readme === 'undefined' ||
         this.state.readme.length === 0 ||
         this.state.readme === 'ERROR: No README data found!'
       ) {
-        get(
-          prefixURL(uriTransformer('README.md'), {
+        get({
+          url: prefixURL(uriTransformer('README.md'), {
             base: 'https://raw.githubusercontent.com',
             user: this.state.githubRepo.user,
             project: this.state.githubRepo.project,
             head: this.state.gitHead ? this.state.gitHead : 'master',
             path: this.state.githubRepo.path.replace(/\/tree\//, ''),
           }),
-          'readme',
-        );
+          item: 'readme',
+          type: 'text',
+        });
       }
+
+      get({
+        url: `https://api.github.com/repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}/stats/commit_activity`,
+        item: 'activity',
+        type: 'json',
+      });
     }
   }
 
@@ -168,6 +191,7 @@ class Details extends React.Component {
           githubRepo={this.state.githubRepo}
           homepage={this.state.homepage}
           contributors={this.state.owners}
+          activity={this.state.activity}
         />
 
         <JSONLDItem
