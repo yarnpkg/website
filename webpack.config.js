@@ -44,11 +44,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  devtool: (
-    process.env.NODE_ENV === 'production'
-      ? 'source-map'
-      : 'cheap-module-eval-source-map'
-  ),
+  devtool: process.env.NODE_ENV === 'production'
+    ? 'source-map'
+    : 'cheap-module-eval-source-map',
   entry: {
     common: './js/src/common.js',
     documentation: './js/src/documentation.js',
@@ -59,11 +57,9 @@ module.exports = {
   },
   output: {
     path: './js/build',
-    filename: (
-      process.env.NODE_ENV === 'production'
-        ? '[name].[chunkhash].js'
-        : '[name].js'
-    ),
+    filename: process.env.NODE_ENV === 'production'
+      ? '[name].[chunkhash].js'
+      : '[name].js',
   },
   module: {
     rules: [
@@ -81,6 +77,8 @@ module.exports = {
   resolve: {
     alias: {
       jquery: 'jquery/dist/jquery.slim.js',
+      react: 'preact-compat/dist/preact-compat',
+      'react-dom': 'preact-compat/dist/preact-compat',
     },
   },
   plugins,
