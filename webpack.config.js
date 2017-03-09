@@ -77,8 +77,6 @@ module.exports = {
   resolve: {
     alias: {
       jquery: 'jquery/dist/jquery.slim.js',
-      react: 'preact-compat/dist/preact-compat',
-      'react-dom': 'preact-compat/dist/preact-compat',
     },
   },
   plugins,

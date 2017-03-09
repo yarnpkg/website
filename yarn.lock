@@ -2508,29 +2508,6 @@ pre-commit@^1.2.2:
     spawn-sync "^1.0.15"
     which "1.2.x"
 
-preact-compat@^3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.14.0.tgz#bad57f5b09e31070a8e23f3038af96f867c633b2"
-  dependencies:
-    preact-render-to-string "^3.6.0"
-    preact-transition-group "^1.1.0"
-    proptypes "^0.14.3"
-    standalone-react-addons-pure-render-mixin "^0.1.1"
-
-preact-render-to-string@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-3.6.0.tgz#03a49d2d755a766c3d421e8b06d6edbb33ed6bde"
-  dependencies:
-    pretty-format "^3.5.1"
-
-preact-transition-group@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.0.tgz#97d0beff0790d721faecd2560c02cd30d5426f23"
-
-preact@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-7.2.0.tgz#8aacc97465a65509bc556604a7750d48e2fa7ad1"
-
 preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
@@ -2556,10 +2533,6 @@ pretty-format@^18.1.0:
   dependencies:
     ansi-styles "^2.2.1"
 
-pretty-format@^3.5.1:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
-
 private@^0.1.6:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -2581,10 +2554,6 @@ promise@^7.1.1:
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.1.1.tgz#489654c692616b8aa55b0724fa809bb7db49c5bf"
   dependencies:
     asap "~2.0.3"
-
-proptypes@^0.14.3:
-  version "0.14.4"
-  resolved "https://registry.yarnpkg.com/proptypes/-/proptypes-0.14.4.tgz#1ead7600d44472a614aa1cf0c4cccee7d867997d"
 
 prr@~0.0.0:
   version "0.0.0"
@@ -2991,10 +2960,6 @@ sshpk@^1.7.0:
 staged-git-files@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/staged-git-files/-/staged-git-files-0.0.4.tgz#d797e1b551ca7a639dec0237dc6eb4bb9be17d35"
-
-standalone-react-addons-pure-render-mixin@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/standalone-react-addons-pure-render-mixin/-/standalone-react-addons-pure-render-mixin-0.1.1.tgz#3c7409f4c79c40de9ac72c616cf679a994f37551"
 
 stream-browserify@^2.0.1:
   version "2.0.1"
