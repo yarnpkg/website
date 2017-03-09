@@ -16,6 +16,8 @@
   }
 
   &--content {
+    overflow-x: auto;
+
     img {
       max-width: 100%;
     }
