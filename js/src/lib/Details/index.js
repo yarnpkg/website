@@ -83,7 +83,7 @@ class Details extends React.Component {
           if (err.status === 202) {
             setTimeout(
               () => {
-                get(url, item);
+                get({ url, item, type });
               },
               200,
             );
