@@ -29,7 +29,7 @@ export const Owner = ({ link, avatar, name }) => (
 export const Downloads = ({ downloads, humanDownloads }) => (
   <span
     className={`ais-Hit--popular ${getDownloadBucket(downloads)}`}
-    title="Downloads last 30 days"
+    title={`${downloads.toLocaleString()} downloads in the last 30 days`}
   >
     {humanDownloads}
   </span>

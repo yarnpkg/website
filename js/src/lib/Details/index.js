@@ -192,6 +192,8 @@ class Details extends React.Component {
           homepage={this.state.homepage}
           contributors={this.state.owners}
           activity={this.state.activity}
+          downloads={this.state.downloadsLast30Days}
+          humanDownloads={this.state.humanDownloadsLast30Days}
         />
 
         <JSONLDItem
