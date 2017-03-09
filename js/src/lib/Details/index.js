@@ -92,7 +92,7 @@ class Details extends React.Component {
           }
         });
 
-    if (this.state.githubRepo) {
+    if (this.state.githubRepo.user && this.state.githubRepo.project) {
       get({
         url: prefixURL(uriTransformer('CHANGELOG.md'), {
           base: 'https://raw.githubusercontent.com',
