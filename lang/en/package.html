@@ -1,7 +1,56 @@
+--- 
+id: package_detail_title 
+layout: page 
+scripts: 
+- "/js/build/package.js" 
 ---
-id: package_detail_title
-layout: page
-scripts:
-  - "/js/build/package.js"
----
-<div id="pkg-detail"></div>
+<div id="pkg-detail">
+  <div class="details row">
+    <section class="details-main col-lg-8">
+      <header class="details-main--header">
+        <h2 class="details-main--title d-inline-block m-2">…</h2>
+        <div class="details-main--info d-inline-block m-2">
+          <a class="ais-Hit--ownerLink" href=""><img width="20" height="20" class="ais-Hit--ownerAvatar" src="https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/https://avatars3.githubusercontent.com/u/22247014?v=3&amp;s=200">
+            <!-- react-text: 8 -->
+            <!-- /react-text -->
+          </a><span class="ais-Hit--popular null" title="0 downloads in the last 30 days">0</span>
+          <!-- react-empty: 10 --><span class="ais-Hit--version">0.0.0</span></div>
+        <p class="m-2 lead">…</p>
+        <!-- react-empty: 13 -->
+      </header>
+      <section id="readme" class="details-doc">
+        <h3 class="details-doc--title details-doc--title__readme"><a href="#readme">readme</a></h3>
+        <div></div>
+      </section>
+    </section>
+    <aside class="details-side col-lg-4">
+      <article class="details-side--links">
+        <div class="detail-links">
+          <a href="" class="details-links--link details-links--link__github"><img src="/assets/search/ico-github.svg" alt="">
+          </a>
+          <a href="" class="details-links--link details-links--link__npm"><img src="/assets/search/ico-npm.svg" alt="">
+          </a>
+        </div>
+      </article>
+      <article class="details-side--copy">
+        <h1>Use it</h1>
+        <div class="copyable"><code class="copyable--code"><!-- react-text: 31 -->$ <!-- /react-text --><span>yarn add …</span></code><button class="copyable--button"><img src="/assets/search/ico-copy-default.svg" alt="" class="copyable--button__img"><!-- react-text: 35 -->copy<!-- /react-text --></button></div>
+        <div><a class="details-side--runkit" href="https://runkit.com/npm/…" target="_blank" rel="noopener noreferrer">Try in RunKit</a></div>
+      </article>
+      <article class="details-side--popularity">
+        <h1>Popularity</h1>
+        <dl>
+        </dl>
+      </article>
+      <article class="details-side--activity">
+        <h1>Activity</h1>
+        <dl></dl>
+      </article>
+      <article class="details-side--contributors">
+        <h1>Contributors</h1>
+        <ul class="list-unstyled m-2">
+        </ul>
+      </article>
+    </aside>
+  </div>
+</div>
