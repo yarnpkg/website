@@ -27,6 +27,7 @@ const prefixURL = (url, { base, user, project, head, path }) => {
 const Markdown = ({ source, githubRepo: { user, project, path }, gitHead }) => (
   <ReactMarkdown
     source={source}
+    containerTagName="article"
     transformLinkUri={url => prefixURL(uriTransformer(url), {
       base: 'https://github.com',
       user,
