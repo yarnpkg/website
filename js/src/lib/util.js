@@ -63,7 +63,10 @@ export function formatKeywords(
     })
     .slice(0, maxKeywords)
     .map((
-      { value: highlightedKeyword, originalValue: keyword },
+      {
+        value: highlightedKeyword,
+        originalValue: keyword,
+      },
       keywordIndex,
     ) => {
       const highlighted = parseHighlightedAttribute({
@@ -137,3 +140,15 @@ export const packageLink = name =>
 
 export const searchLink = query =>
   `${window.i18n.url_base}/packages?q=${query}`;
+
+export const prefixURL = (url, { base, user, project, head, path }) => {
+  if (url.indexOf('//') > 0) {
+    return url;
+  } else {
+    return new URL(
+      (path ? path.replace(/^\//, '') + '/' : '') +
+        url.replace(/^(\.?\/?)/, ''),
+      `${base}/${user}/${project}/${path ? '' : `${head}/`}`,
+    );
+  }
+};

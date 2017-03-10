@@ -1,72 +1,17 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
-import marked from 'marked';
-import xss from 'xss';
 import fetch from 'unfetch';
 
 import Aside from './Aside';
 import Header from './Header';
 import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
+import Markdown from './Markdown';
 import schema from '../schema';
+import { prefixURL } from '../util';
 
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
-
-const prefixURL = (url, { base, user, project, head, path }) => {
-  if (url.indexOf('//') > 0) {
-    return url;
-  } else {
-    return new URL(
-      (path ? path.replace(/^\//, '') + '/' : '') +
-        url.replace(/^(\.?\/?)/, ''),
-      `${base}/${user}/${project}/${path ? '' : `${head}/`}`,
-    );
-  }
-};
-
-const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
-  const renderer = new marked.Renderer();
-
-  if (githubRepo) {
-    const { user, project, path } = githubRepo;
-    renderer.image = function(href, title, text) {
-      return `<img src="${prefixURL(href, {
-        base: 'https://raw.githubusercontent.com',
-        user,
-        project,
-        head: gitHead ? gitHead : 'master',
-        path,
-      })}" title="${title}" alt="${text}"/>`;
-    };
-
-    renderer.link = function(href, title, text) {
-      return `<a href="${prefixURL(href, {
-        base: 'https://github.com',
-        user,
-        project,
-        head: gitHead ? `tree/${gitHead}` : 'tree/master',
-        path,
-      })}" title="${title}">${text}</a>`;
-    };
-  }
-
-  const html = marked(source, { renderer });
-  const escaped = xss(html);
-  return escaped;
-};
-
-const Markdown = ({ source, githubRepo, gitHead }) => (
-  <aside
-    dangerouslySetInnerHTML={{
-      __html: renderAndEscapeMarkdown({
-        source,
-        githubRepo,
-        gitHead,
-      }),
-    }}
-  />
-);
 
 class Details extends React.Component {
   constructor(props) {
