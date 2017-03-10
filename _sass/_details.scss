@@ -22,8 +22,8 @@
     }
   }
 
-  &-main {
-    @media (min-width:map-get($grid-breakpoints, lg)){
+  @include media-breakpoint-up(lg) {
+    &-main {
       border-right: 1px solid #CBCBCB;
     }
   }
@@ -72,6 +72,8 @@
       h4 {@extend .h6}
       h5 {@extend .h6}
       h6 {@extend .h6}
+      blockquote {@extend .blockquote}
+      table {@extend .table}
     }
   }
 
