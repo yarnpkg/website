@@ -1,6 +1,7 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
-import ReactMarkdown, { uriTransformer } from 'react-markdown';
+import marked from 'marked';
+import xss from 'xss';
 import fetch from 'unfetch';
 
 import Aside from './Aside';
@@ -24,24 +25,46 @@ const prefixURL = (url, { base, user, project, head, path }) => {
   }
 };
 
-const Markdown = ({ source, githubRepo: { user, project, path }, gitHead }) => (
-  <ReactMarkdown
-    source={source}
-    containerTagName="article"
-    transformLinkUri={url => prefixURL(uriTransformer(url), {
-      base: 'https://github.com',
-      user,
-      project,
-      head: gitHead ? `tree/${gitHead}` : 'tree/master',
-      path,
-    })}
-    transformImageUri={url => prefixURL(uriTransformer(url), {
-      base: 'https://raw.githubusercontent.com',
-      user,
-      project,
-      head: gitHead ? gitHead : 'master',
-      path,
-    })}
+const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
+  const renderer = new marked.Renderer();
+
+  if (githubRepo) {
+    const { user, project, path } = githubRepo;
+    renderer.image = function(href, title, text) {
+      return `<img src="${prefixURL(href, {
+        base: 'https://raw.githubusercontent.com',
+        user,
+        project,
+        head: gitHead ? gitHead : 'master',
+        path,
+      })}" title="${title}" alt="${text}"/>`;
+    };
+
+    renderer.link = function(href, title, text) {
+      return `<a href="${prefixURL(href, {
+        base: 'https://github.com',
+        user,
+        project,
+        head: gitHead ? `tree/${gitHead}` : 'tree/master',
+        path,
+      })}" title="${title}">${text}</a>`;
+    };
+  }
+
+  const html = marked(source, { renderer });
+  const escaped = xss(html);
+  return escaped;
+};
+
+const Markdown = ({ source, githubRepo, gitHead }) => (
+  <aside
+    dangerouslySetInnerHTML={{
+      __html: renderAndEscapeMarkdown({
+        source,
+        githubRepo,
+        gitHead,
+      }),
+    }}
   />
 );
 
@@ -95,7 +118,7 @@ class Details extends React.Component {
 
     if (this.state.githubRepo.user && this.state.githubRepo.project) {
       get({
-        url: prefixURL(uriTransformer('CHANGELOG.md'), {
+        url: prefixURL('CHANGELOG.md', {
           base: 'https://raw.githubusercontent.com',
           user: this.state.githubRepo.user,
           project: this.state.githubRepo.project,
@@ -112,7 +135,7 @@ class Details extends React.Component {
         this.state.readme === 'ERROR: No README data found!'
       ) {
         get({
-          url: prefixURL(uriTransformer('README.md'), {
+          url: prefixURL('README.md', {
             base: 'https://raw.githubusercontent.com',
             user: this.state.githubRepo.user,
             project: this.state.githubRepo.project,

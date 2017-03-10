@@ -37,12 +37,13 @@
     "date-fns": "^1.27.2",
     "docsearch.js": "^1.5.0",
     "jquery": "^3.1.1",
+    "marked": "^0.3.6",
     "qs": "^6.3.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-instantsearch": "^3.2.0",
-    "react-markdown": "^2.4.5",
     "react-sparklines": "^1.6.0",
-    "unfetch": "^2.1.2"
+    "unfetch": "^2.1.2",
+    "xss": "^0.3.3"
   }
 }
