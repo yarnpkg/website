@@ -22,7 +22,7 @@ const Activity = ({ data = [] }) => (
       data={data.map(week => week.total)}
       width={100}
       height={20}
-      limit={51}
+      limit={12 /*three months*/}
     >
       <SparklinesLine color="#2C8EBB" />
     </Sparklines>
