@@ -28,14 +28,18 @@ const Activity = ({ data = [] }) => (
     </Sparklines>
     <dl>
       {!isEmpty(data) &&
-        <div>
+        <div className="d-flex flex-items-between w-100">
           <dt>Commits last 3 months</dt>
-          <dd>{commitsLastThreemonths({ weeklyData: data })}</dd>
+          <dd>
+            {commitsLastThreemonths({ weeklyData: data })}
+          </dd>
         </div>}
       {!isEmpty(data) &&
-        <div>
+        <div className="d-flex flex-items-between w-100">
           <dt>Last commit</dt>
-          <dd>{weeksAgoSinceLastCommit({ weeklyData: data })}</dd>
+          <dd>
+            {weeksAgoSinceLastCommit({ weeklyData: data })}
+          </dd>
         </div>}
     </dl>
   </article>
