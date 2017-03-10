@@ -27,7 +27,7 @@ const Header = (
       <License type={license} />
       <span className="ais-Hit--version">{version}</span>
     </div>
-    <p className="m-2">{description}</p>
+    <p className="m-2 lead">{description}</p>
     <Keywords keywords={keywords} />
   </header>
 );
