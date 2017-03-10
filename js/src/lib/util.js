@@ -1,4 +1,5 @@
 import React from 'react';
+import fetch from 'unfetch';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
 import connectToggle from 'react-instantsearch/src/connectors/connectToggle';
 
@@ -152,3 +153,29 @@ export const prefixURL = (url, { base, user, project, head, path }) => {
     );
   }
 };
+
+const status = res => new Promise((resolve, reject) => {
+  if (res.status >= 200 && res.status < 300) {
+    if (res.status === 202) {
+      reject(res);
+    }
+    resolve(res);
+  } else {
+    reject(res);
+  }
+});
+
+export const get = ({ url, type }) =>
+  fetch(url).then(status).then(res => res[type]()).catch(err => {
+    // github uses 202 to make you try again a bit later
+    if (err.status === 202) {
+      setTimeout(
+        () => {
+          get({ url, type });
+        },
+        200,
+      );
+    } else {
+      console.warn(err);
+    }
+  });

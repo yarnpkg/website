@@ -1,6 +1,5 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch';
-import fetch from 'unfetch';
 
 import Aside from './Aside';
 import Header from './Header';
@@ -8,7 +7,7 @@ import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
 import Markdown from './Markdown';
 import schema from '../schema';
-import { prefixURL } from '../util';
+import { prefixURL, get } from '../util';
 
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
@@ -31,36 +30,6 @@ class Details extends React.Component {
   }
 
   getDocuments() {
-    const status = res => new Promise((resolve, reject) => {
-      if (res.status >= 200 && res.status < 300) {
-        if (res.status === 202) {
-          reject(res);
-        }
-        resolve(res);
-      } else {
-        reject(res);
-      }
-    });
-
-    const get = ({ url, item, type }) =>
-      fetch(url)
-        .then(status)
-        .then(res => res[type]())
-        .then(res => this.setState({ [item]: res }))
-        .catch(err => {
-          // github uses 202 to make you try again a bit later
-          if (err.status === 202) {
-            setTimeout(
-              () => {
-                get({ url, item, type });
-              },
-              200,
-            );
-          } else {
-            console.warn(err);
-          }
-        });
-
     if (this.state.githubRepo.user && this.state.githubRepo.project) {
       get({
         url: prefixURL('CHANGELOG.md', {
@@ -70,9 +39,8 @@ class Details extends React.Component {
           head: this.state.gitHead ? this.state.gitHead : 'master',
           path: this.state.githubRepo.path.replace(/\/tree\//, ''),
         }),
-        item: 'changelog',
         type: 'text',
-      });
+      }).then(res => this.setState({ changelog: res }));
 
       if (
         typeof this.state.readme === 'undefined' ||
@@ -87,16 +55,14 @@ class Details extends React.Component {
             head: this.state.gitHead ? this.state.gitHead : 'master',
             path: this.state.githubRepo.path.replace(/\/tree\//, ''),
           }),
-          item: 'readme',
           type: 'text',
-        });
+        }).then(res => this.setState({ readme: res }));
       }
 
       get({
         url: `https://api.github.com/repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}/stats/commit_activity`,
-        item: 'activity',
         type: 'json',
-      });
+      }).then(res => this.setState({ activity: res }));
     }
   }
 
