@@ -4,6 +4,9 @@ import xss from 'xss';
 
 import { prefixURL } from '../util';
 
+marked.Lexer.rules.gfm.heading = marked.Lexer.rules.normal.heading;
+marked.Lexer.rules.tables.heading = marked.Lexer.rules.normal.heading;
+
 const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
   const renderer = new marked.Renderer();
 
