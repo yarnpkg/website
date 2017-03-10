@@ -113,12 +113,6 @@ class Details extends React.Component {
                 />
               </ReadMore>
             </section>}
-          <details>
-            <summary>full json</summary>
-            <pre>
-              {JSON.stringify(this.state, null, '  ')}
-            </pre>
-          </details>
         </section>
 
         <Aside
