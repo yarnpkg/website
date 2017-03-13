@@ -1,6 +1,5 @@
 .copyable {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   background-color: $gray-lighter;
   padding: 1em;
@@ -10,6 +9,10 @@
     flex-grow: 1;
     background: none;
     color: #666666;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &--button {
@@ -17,6 +20,8 @@
     border: none;
     border-radius: 0;
     color: #666666;
+    white-space: nowrap;
+
     &__img {
       height: 1em;
       width: 1em;
