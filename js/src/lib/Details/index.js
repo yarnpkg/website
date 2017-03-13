@@ -15,6 +15,7 @@ const index = client.initIndex('npm-search');
 class Details extends React.Component {
   constructor(props) {
     super(props);
+    this.getGithub = this.getGithub.bind(this);
     this.state = {
       ...schema,
     };
@@ -27,6 +28,19 @@ class Details extends React.Component {
       this.getDocuments();
     });
     //.catch(error => location.href = '/package-not-found');
+  }
+
+  getGithub({ url, state }) {
+    return get({
+      url: `https://api.github.com/${url}`,
+      type: 'json',
+    })
+      .then(res => this.setState({ [state]: res }))
+      .catch(err => {
+        if (err === 'retry') {
+          this.getGithub({ url, state });
+        }
+      });
   }
 
   getDocuments() {
@@ -59,10 +73,10 @@ class Details extends React.Component {
         }).then(res => this.setState({ readme: res }));
       }
 
-      get({
-        url: `https://api.github.com/repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}/stats/commit_activity`,
-        type: 'json',
-      }).then(res => this.setState({ activity: res }));
+      this.getGithub({
+        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}/stats/commit_activity`,
+        state: 'activity',
+      });
     }
   }
 

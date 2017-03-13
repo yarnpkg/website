@@ -156,7 +156,7 @@ export const prefixURL = (url, { base, user, project, head, path }) => {
 
 const status = res => new Promise((resolve, reject) => {
   if (res.status >= 200 && res.status < 300) {
-    if (res.status === 202) {
+    if (res.status === 202 || res.status === 204) {
       reject(res);
     }
     resolve(res);
@@ -167,14 +167,8 @@ const status = res => new Promise((resolve, reject) => {
 
 export const get = ({ url, type }) =>
   fetch(url).then(status).then(res => res[type]()).catch(err => {
-    // github uses 202 to make you try again a bit later
-    if (err.status === 202) {
-      setTimeout(
-        () => {
-          get({ url, type });
-        },
-        200,
-      );
+    if (err.status === 202 || err.status === 204) {
+      throw 'retry';
     } else {
       console.warn(err);
     }
