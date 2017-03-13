@@ -30,6 +30,7 @@ const Activity = ({ data = [] }) => (
       {!isEmpty(data) &&
         <div className="d-flex flex-items-between w-100">
           <dt>Commits last 3 months</dt>
+          <span className="dotted flex-grow" />
           <dd>
             {commitsLastThreemonths({ weeklyData: data })}
           </dd>
@@ -37,6 +38,7 @@ const Activity = ({ data = [] }) => (
       {!isEmpty(data) &&
         <div className="d-flex flex-items-between w-100">
           <dt>Last commit</dt>
+          <span className="dotted flex-grow" />
           <dd>
             {weeksAgoSinceLastCommit({ weeklyData: data })}
           </dd>

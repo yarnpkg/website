@@ -7,12 +7,14 @@ const Popularity = ({ stars, downloads, humanDownloads, dependents }) => (
       {stars &&
         <div className="d-flex flex-items-between w-100">
           <dt>GitHub stargazers</dt>
+          <span className="dotted flex-grow" />
           <dd>{stars}</dd>
         </div>}
       {downloads &&
         humanDownloads &&
         <div className="d-flex flex-items-between w-100">
           <dt>Downloads in the last 30 days</dt>
+          <span className="dotted flex-grow" />
           <dd title={downloads.toLocaleString()}>
             {humanDownloads}
           </dd>
@@ -20,6 +22,7 @@ const Popularity = ({ stars, downloads, humanDownloads, dependents }) => (
       {dependents &&
         <div className="d-flex flex-items-between w-100">
           <dt>Dependents</dt>
+          <span className="dotted flex-grow" />
           <dd>{dependents}</dd>
         </div>}
     </dl>

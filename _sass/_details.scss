@@ -79,6 +79,14 @@
 
   &-side {
 
+    dd {
+      margin-bottom: 0;
+    }
+
+    dl div {
+      margin-bottom: .5em;
+    }
+
     h1 {
       font-size: 1.2em;
     }
@@ -98,4 +106,13 @@
       }
     }
   }
+}
+
+.dotted {
+  border-bottom: 1px dotted #666;
+  margin: 0 .5em 5px .5em;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
