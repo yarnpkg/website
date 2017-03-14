@@ -21,7 +21,7 @@ const Activity = ({ data = [] }) => (
     <Sparklines
       data={data.map(week => week.total)}
       width={100}
-      height={20}
+      height={15}
       limit={12 /*three months*/}
     >
       <SparklinesLine color="#2C8EBB" />
