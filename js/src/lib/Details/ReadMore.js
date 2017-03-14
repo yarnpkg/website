@@ -4,9 +4,10 @@ class ReadMore extends React.Component {
   constructor(props) {
     super(props);
 
-    this.maxHeight = '250px';
+    this.maxHeight = `${props.height}px`;
     this.state = {
       collapsed: true,
+      collapsible: true,
     };
   }
 
@@ -16,36 +17,51 @@ class ReadMore extends React.Component {
     });
   };
 
+  componentWillUpdate(nextProps, nextState) {
+    const { height } = this.content.getBoundingClientRect();
+    if (nextState.collapsible && height < nextProps.height) {
+      this.setState({
+        collapsible: false,
+        collapsed: false,
+      });
+    }
+  }
+
   render() {
     const { children, text, className } = this.props;
-    const { collapsed } = this.state;
+    const { collapsed, collapsible } = this.state;
 
     return (
       <div
         className={
-          `${className ? className : ''} readMore ${collapsed
-            ? 'readMore--collapsed'
-            : ''}`
+          `${className} readMore ${collapsed ? 'readMore--collapsed' : ''}`
         }
       >
         <div
           className="readMore--content"
           style={{ maxHeight: collapsed ? this.maxHeight : '' }}
+          ref={div => this.content = div}
         >
           {children}
         </div>
-        <button className="readMore--button" onClick={this.toggleCollapse}>
-          {collapsed ? text : window.i18n.collapse}
-          <img
-            src="/assets/search/ico-readmore.svg"
-            alt=""
-            className="readMore--icon"
-            style={{ transform: collapsed ? '' : 'rotate(180deg)' }}
-          />
-        </button>
+        {collapsible &&
+          <button className="readMore--button" onClick={this.toggleCollapse}>
+            {collapsed ? text : window.i18n.collapse}
+            <img
+              src="/assets/search/ico-readmore.svg"
+              alt=""
+              className="readMore--icon"
+              style={{ transform: collapsed ? '' : 'rotate(180deg)' }}
+            />
+          </button>}
       </div>
     );
   }
 }
+
+ReadMore.defaultProps = {
+  height: 250,
+  className: '',
+};
 
 export default ReadMore;
