@@ -46,13 +46,15 @@ class Details extends React.Component {
   getDocuments() {
     if (this.state.githubRepo.user && this.state.githubRepo.project) {
       get({
-        url: prefixURL('CHANGELOG.md', {
-          base: 'https://raw.githubusercontent.com',
-          user: this.state.githubRepo.user,
-          project: this.state.githubRepo.project,
-          head: this.state.gitHead ? this.state.gitHead : 'master',
-          path: this.state.githubRepo.path.replace(/\/tree\//, ''),
-        }),
+        url: this.state.changelogFileName
+          ? this.state.changelogFileName
+          : prefixURL('CHANGELOG.md', {
+              base: 'https://raw.githubusercontent.com',
+              user: this.state.githubRepo.user,
+              project: this.state.githubRepo.project,
+              head: this.state.gitHead ? this.state.gitHead : 'master',
+              path: this.state.githubRepo.path.replace(/\/tree\//, ''),
+            }),
         type: 'text',
       }).then(res => this.setState({ changelog: res }));
 
