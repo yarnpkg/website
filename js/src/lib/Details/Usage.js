@@ -6,6 +6,7 @@ const Usage = ({ dependencies }) => (
     <dl>
       {dependencies &&
         <div className="d-flex flex-items-between w-100">
+          <img src="/assets/detail/ico-dependencies.svg" alt="" />
           <dt>
             {Object.keys(dependencies).length > 0
               ? <details>
