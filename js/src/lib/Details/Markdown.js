@@ -39,7 +39,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
 };
 
 const Markdown = ({ source, githubRepo, gitHead }) => (
-  <aside
+  <article
     dangerouslySetInnerHTML={{
       __html: renderAndEscapeMarkdown({
         source,
