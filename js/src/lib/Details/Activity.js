@@ -10,10 +10,18 @@ const weeksAgoSinceLastCommit = ({ weeklyData }) =>
     weeklyData.reverse().findIndex(({ total }) => total !== 0),
   );
 
-const formatWeeksSinceLastCommit = weeks =>
-  weeks === -1
-    ? 'over a year ago'
-    : `${weeks < 1 ? 'less than a' : weeks} week${weeks > 1 ? 's' : ''} ago`;
+const formatWeeksSinceLastCommit = weeks => {
+  if (weeks === -1) {
+    return 'over a year ago';
+  }
+  if (weeks < 1) {
+    return 'less than a week ago';
+  }
+  if (weeks === 1) {
+    return 'one week ago';
+  }
+  return `${weeks} weeks ago`;
+};
 
 const Activity = ({ data = [] }) => !isEmpty(data) &&
 <article className="details-side--activity">
