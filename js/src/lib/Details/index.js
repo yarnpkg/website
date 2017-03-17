@@ -38,7 +38,7 @@ class Details extends React.Component {
       .then(res => this.setState({ [state]: res }))
       .catch(err => {
         if (err === 'retry') {
-          this.getGithub({ url, state });
+          setTimeout(this.getGithub({ url, state }), 200);
         }
       });
   }
@@ -78,6 +78,11 @@ class Details extends React.Component {
       this.getGithub({
         url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}/stats/commit_activity`,
         state: 'activity',
+      });
+
+      this.getGithub({
+        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}`,
+        state: 'github',
       });
     }
   }
@@ -139,6 +144,12 @@ class Details extends React.Component {
           activity={this.state.activity}
           downloads={this.state.downloadsLast30Days}
           humanDownloads={this.state.humanDownloadsLast30Days}
+          dependencies={this.state.dependencies}
+          dependents={this.state.dependents}
+          humanDependents={this.state.humanDependents}
+          stargazers={
+            this.state.github ? this.state.github.stargazers_count : false
+          }
         />
 
         <JSONLDItem
