@@ -1,4 +1,5 @@
 export default {
+  activity: Array.from({ length: 12 }, () => ({ total: 0 })),
   changelogFilename: '',
   created: 1489597229367,
   dependents: 0,
