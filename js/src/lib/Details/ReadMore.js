@@ -48,7 +48,7 @@ class ReadMore extends React.Component {
           <button className="readMore--button" onClick={this.toggleCollapse}>
             {collapsed ? text : window.i18n.collapse}
             <img
-              src="/assets/search/ico-readmore.svg"
+              src="/assets/detail/ico-readmore.svg"
               alt=""
               className="readMore--icon"
               style={{ transform: collapsed ? '' : 'rotate(180deg)' }}

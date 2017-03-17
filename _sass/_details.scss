@@ -57,11 +57,11 @@
       }
       
       &__readme:before {
-        background-image: url('/assets/search/ico-readme.svg');
+        background-image: url('/assets/detail/ico-readme.svg');
       }
 
       &__changelog:before {
-        background-image: url('/assets/search/ico-changelog.svg');
+        background-image: url('/assets/detail/ico-changelog.svg');
       }
     }
 
@@ -102,7 +102,7 @@
         width: 1em;
         height: 1em;
         background-size: contain;
-        background-image: url('/assets/search/ico-runkit.svg');
+        background-image: url('/assets/detail/ico-runkit.svg');
       }
     }
   }

@@ -1,8 +1,8 @@
 import React from 'react';
 
 const images = {
-  default: '/assets/search/ico-copy-default.svg',
-  success: '/assets/search/ico-copy-success.svg',
+  default: '/assets/detail/ico-copy-default.svg',
+  success: '/assets/detail/ico-copy-success.svg',
 };
 
 export default class Copyable extends React.Component {
