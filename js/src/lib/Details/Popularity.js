@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Popularity = ({ stars, downloads, humanDownloads, dependents }) => (
+const Popularity = (
+  { stargazers, downloads, humanDownloads, dependents, humanDependents },
+) => (
   <article className="details-side--popularity">
     <h1>Popularity</h1>
     <dl>
-      {stars &&
+      {stargazers &&
         <div className="d-flex flex-items-between w-100">
           <dt>GitHub stargazers</dt>
           <span className="dotted flex-grow" />
-          <dd>{stars}</dd>
+          <dd>{stargazers.toLocaleString()}</dd>
         </div>}
       {downloads &&
         humanDownloads &&
@@ -23,7 +25,7 @@ const Popularity = ({ stars, downloads, humanDownloads, dependents }) => (
         <div className="d-flex flex-items-between w-100">
           <dt>Dependents</dt>
           <span className="dotted flex-grow" />
-          <dd>{dependents}</dd>
+          <dd title={dependents.toLocaleString()}>{humanDependents}</dd>
         </div>}
     </dl>
   </article>

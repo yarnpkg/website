@@ -4,6 +4,7 @@ import Copyable from './Copyable';
 import Links from './Links';
 import Activity from './Activity';
 import Popularity from './Popularity';
+import Usage from './Usage';
 import { Owner } from '../Hit';
 
 const Aside = (
@@ -15,8 +16,10 @@ const Aside = (
     activity,
     downloads,
     humanDownloads,
-    stars,
+    stargazers,
     dependents,
+    humanDependents,
+    dependencies,
   },
 ) => (
   <aside className="details-side col-lg-4">
@@ -40,10 +43,12 @@ const Aside = (
     <Popularity
       downloads={downloads}
       humanDownloads={humanDownloads}
-      stars={stars}
+      stargazers={stargazers}
       dependents={dependents}
+      humanDependents={humanDependents}
     />
     <Activity data={activity} />
+    <Usage dependencies={dependencies} />
     <article className="details-side--contributors">
       <h1>Contributors</h1>
       <ul className="list-unstyled m-2">
