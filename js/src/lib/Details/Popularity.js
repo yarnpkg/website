@@ -17,7 +17,7 @@ const Popularity = (
         humanDownloads &&
         <div className="d-flex flex-items-between w-100">
           <img src="/assets/detail/ico-downloads.svg" alt="" />
-          <dt>Downloads in the last 30 days</dt>
+          <dt>Downloads last 30 days</dt>
           <span className="dotted flex-grow" />
           <dd title={downloads.toLocaleString()}>
             {humanDownloads}
