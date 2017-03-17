@@ -79,12 +79,24 @@
 
   &-side {
 
+    dt {
+      font-weight: normal;
+    }
+
     dd {
       margin-bottom: 0;
     }
 
     dl div {
       margin-bottom: .5em;
+
+      img {
+        height: 1.2em;
+        width: 1.2em;
+        margin-right: .4em;
+        object-fit: contain;
+        align-self: center;
+      }
     }
 
     h1 {
