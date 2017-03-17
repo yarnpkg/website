@@ -12,7 +12,6 @@ const InstantSearch = createInstantSearch(algoliasearch, {
 });
 
 import SearchBox from './SearchBox';
-import isEqual from 'lodash/isEqual';
 import Results from './Results';
 import withUrlSync from './withUrlSync';
 
