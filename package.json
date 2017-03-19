@@ -9,7 +9,6 @@
     "babel-preset-stage-2": "^6.22.0",
     "happypack": "^3.0.2",
     "lint-staged": "^3.3.0",
-    "lodash-webpack-plugin": "^0.11.2",
     "pre-commit": "^1.2.2",
     "prettier": "^0.18.0",
     "webpack": "^2.2.1",

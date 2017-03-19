@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HappyPack = require('happypack');
-var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 let plugins = [
   new webpack.EnvironmentPlugin({
@@ -37,9 +36,6 @@ let plugins = [
     minimize: true,
   }),
   new webpack.NamedModulesPlugin(),
-  new LodashModuleReplacementPlugin({
-    paths: true,
-  }),
 ];
 
 if (process.env.NODE_ENV === 'production') {
