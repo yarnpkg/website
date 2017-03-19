@@ -2,7 +2,7 @@ import React from 'react';
 
 const Usage = ({ dependencies }) => (
   <article className="details-side--usage">
-    <h1>Usage</h1>
+    <h1>{window.i18n.detail.dependencies}</h1>
     <dl>
       {dependencies &&
         <div className="d-flex flex-items-between w-100">
@@ -10,7 +10,7 @@ const Usage = ({ dependencies }) => (
           <dt>
             {Object.keys(dependencies).length > 0
               ? <details>
-                  <summary>Dependencies</summary>
+                  <summary>{window.i18n.detail.usage}</summary>
                   {Object.keys(dependencies).join(', ')}
                 </details>
               : 'Dependencies'}

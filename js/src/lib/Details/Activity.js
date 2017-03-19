@@ -12,20 +12,20 @@ const weeksAgoSinceLastCommit = ({ weeklyData }) =>
 
 const formatWeeksSinceLastCommit = weeks => {
   if (weeks === -1) {
-    return 'over a year ago';
+    return window.i18n.detail.over_a_year_ago;
   }
   if (weeks < 1) {
-    return 'less than a week ago';
+    return window.i18n.detail.less_than_a_week_ago;
   }
   if (weeks === 1) {
-    return 'one week ago';
+    return window.i18n.detail.one_week_ago;
   }
-  return `${weeks} weeks ago`;
+  return `${weeks} ${window.i18n.detail.weeks_ago}`;
 };
 
 const Activity = ({ data = [] }) => !isEmpty(data) &&
 <article className="details-side--activity">
-  <h1>Activity</h1>
+  <h1>{window.i18n.detail.activity}</h1>
   <Sparklines
     data={data.map(week => week.total)}
     width={100}
@@ -37,7 +37,7 @@ const Activity = ({ data = [] }) => !isEmpty(data) &&
   <dl>
     <div className="d-flex flex-items-between w-100">
       <img src="/assets/detail/ico-commits.svg" alt="" />
-      <dt>Commits last 3 months</dt>
+      <dt>{window.i18n.detail.commits_last_three_months}</dt>
       <span className="dotted flex-grow" />
       <dd>
         {commitsLastThreemonths({ weeklyData: data })}
@@ -45,7 +45,7 @@ const Activity = ({ data = [] }) => !isEmpty(data) &&
     </div>
     <div className="d-flex flex-items-between w-100">
       <img src="/assets/detail/ico-commits-last.svg" alt="" />
-      <dt>Last commit</dt>
+      <dt>{window.i18n.detail.last_commit}</dt>
       <span className="dotted flex-grow" />
       <dd>
         {weeksAgoSinceLastCommit({ weeklyData: data })}

@@ -103,11 +103,11 @@ class Details extends React.Component {
           />
           <section id="readme" className="details-doc">
             <h3 className="details-doc--title details-doc--title__readme">
-              <a href="#readme">readme</a>
+              <a href="#readme">{window.i18n.detail.readme}</a>
             </h3>
             {this.state.readme
               ? <ReadMore
-                  text={window.i18n.display_full_readme}
+                  text={window.i18n.detail.display_full_readme}
                   className="details-doc--content"
                 >
                   <Markdown
@@ -116,15 +116,15 @@ class Details extends React.Component {
                     gitHead={this.state.gitHead}
                   />
                 </ReadMore>
-              : <div>no readme found 😢</div>}
+              : <div>{window.i18n.detail.no_readme_found}</div>}
           </section>
           {this.state.changelog &&
             <section id="changelog" className="details-doc">
               <h3 className="details-doc--title details-doc--title__changelog">
-                <a href="#changelog">changelog</a>
+                <a href="#changelog">{window.i18n.detail.changelog}</a>
               </h3>
               <ReadMore
-                text={window.i18n.display_full_changelog}
+                text={window.i18n.detail.display_full_changelog}
                 className="details-doc--content"
               >
                 <Markdown

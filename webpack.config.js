@@ -37,9 +37,6 @@ let plugins = [
     minimize: true,
   }),
   new webpack.NamedModulesPlugin(),
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-  }),
   new LodashModuleReplacementPlugin({
     paths: true,
   }),

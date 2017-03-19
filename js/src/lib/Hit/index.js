@@ -29,7 +29,9 @@ export const Owner = ({ link, avatar, name }) => (
 export const Downloads = ({ downloads, humanDownloads }) => (
   <span
     className={`ais-Hit--popular ${getDownloadBucket(downloads)}`}
-    title={`${downloads.toLocaleString()} downloads in the last 30 days`}
+    title={
+      `${downloads.toLocaleString()} ${window.i18n.downloads_in_last_30_days}`
+    }
   >
     {humanDownloads}
   </span>
@@ -40,29 +42,29 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
     <span className="ais-Hit--link-npm">
       <a
         href={`https://www.npmjs.com/package/${name}`}
-        title={`NPM page for ${name}`}
+        title={`${window.i18n.npm_page_for} ${name}`}
       >
-        npm
+        {window.i18n.npm}
       </a>
     </span>
     {githubRepo
       ? <span className="ais-Hit--link-github">
           <a
-            title={`Github repository of ${githubRepo.name}`}
+            title={`${window.i18n.github_repo_of} ${githubRepo.name}`}
             href={
               `https://github.com/${encode(githubRepo.user)}/${encode(
                 githubRepo.project,
               )}${githubRepo.path}`
             }
           >
-            GitHub
+            {window.i18n.github}
           </a>
         </span>
       : null}
     {homepage
       ? <span className="ais-Hit--link-homepage">
           <a title={`Homepage of ${name}`} href={homepage}>
-            Homepage
+            {window.i18n.homepage}
           </a>
         </span>
       : null}

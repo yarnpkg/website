@@ -4,12 +4,12 @@ const Popularity = (
   { stargazers, downloads, humanDownloads, dependents, humanDependents },
 ) => (
   <article className="details-side--popularity">
-    <h1>Popularity</h1>
+    <h1>{window.i18n.detail.popularity}</h1>
     <dl>
       {stargazers &&
         <div className="d-flex flex-items-between w-100">
           <img src="/assets/detail/ico-stargazers.svg" alt="" />
-          <dt>GitHub stargazers</dt>
+          <dt>{window.i18n.detail.github_stargazers}</dt>
           <span className="dotted flex-grow" />
           <dd>{stargazers.toLocaleString()}</dd>
         </div>}
@@ -17,7 +17,7 @@ const Popularity = (
         humanDownloads &&
         <div className="d-flex flex-items-between w-100">
           <img src="/assets/detail/ico-downloads.svg" alt="" />
-          <dt>Downloads last 30 days</dt>
+          <dt>{window.i18n.detail.downloads_last_30_days}</dt>
           <span className="dotted flex-grow" />
           <dd title={downloads.toLocaleString()}>
             {humanDownloads}
@@ -26,7 +26,7 @@ const Popularity = (
       {dependents &&
         <div className="d-flex flex-items-between w-100">
           <img src="/assets/detail/ico-dependents.svg" alt="" />
-          <dt>Dependents</dt>
+          <dt>{window.i18n.detail.dependents}</dt>
           <span className="dotted flex-grow" />
           <dd title={dependents.toLocaleString()}>{humanDependents}</dd>
         </div>}

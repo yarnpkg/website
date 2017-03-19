@@ -27,7 +27,7 @@ const Aside = (
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
     </article>
     <article className="details-side--copy">
-      <h1>Use it</h1>
+      <h1>{window.i18n.detail.use_it}</h1>
       <Copyable pre="$ " text={`yarn add ${name}`} />
       <div>
         <a
@@ -36,7 +36,7 @@ const Aside = (
           target="_blank"
           rel="noopener noreferrer"
         >
-          Try in RunKit
+          {window.i18n.detail.try_in_runkit}
         </a>
       </div>
     </article>
@@ -50,7 +50,7 @@ const Aside = (
     <Activity data={activity} />
     <Usage dependencies={dependencies} />
     <article className="details-side--contributors">
-      <h1>Contributors</h1>
+      <h1>{window.i18n.detail.contributors}</h1>
       <ul className="list-unstyled m-2">
         {contributors.map(contributor => (
           <li className="mb-1" key={contributor.name}>

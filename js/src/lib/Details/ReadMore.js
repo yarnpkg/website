@@ -46,7 +46,7 @@ class ReadMore extends React.Component {
         </div>
         {collapsible &&
           <button className="readMore--button" onClick={this.toggleCollapse}>
-            {collapsed ? text : window.i18n.collapse}
+            {collapsed ? text : window.i18n.detail.collapse}
             <img
               src="/assets/detail/ico-readmore.svg"
               alt=""

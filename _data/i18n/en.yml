@@ -272,8 +272,34 @@ search_placeholder: Search packages (i.e. babel, webpack, react…)
 search_by_algolia: Search by Algolia
 search_by_read_more: read how it works
 
-package_detail_title: Package detail
+downloads_in_last_30_days: downloads in the last 30 days
+npm_page_for: NPM page for
+github_repo_of: Github repository of
+npm: npm
+github: GitHub
+homepage: Homepage
 
-display_full_readme: Display full readme
-display_full_changelog: Display full changelog
-collapse: Collapse
+detail:
+  title: Package detail
+  over_a_year_ago: over a year ago
+  less_than_a_week_ago: less than a week ago
+  one_week_ago: one week ago
+  weeks_ago: weeks ago
+  activity: Activity
+  commits_last_three_months: Commits last 3 months
+  last_commit: Last commit
+  use_it: Use it
+  try_in_runkit: Try in RunKit
+  contributors: Contributors
+  display_full_readme: Display full readme
+  display_full_changelog: Display full changelog
+  collapse: Collapse
+  readme: readme
+  no_readme_found: no readme found 😢
+  changelog: changelog
+  popularity: Popularity
+  github_stargazers: GitHub stargazers
+  downloads_last_30_days: Downloads last 30 days
+  dependents: Dependents
+  dependencies: Dependencies
+  usage: Usage
