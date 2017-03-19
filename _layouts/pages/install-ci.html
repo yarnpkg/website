@@ -13,6 +13,8 @@ scripts:
 {% capture appveyor  %}{% include_relative _ci/appveyor.md  %}{% endcapture %}
 {% capture circle    %}{% include_relative _ci/circle.md    %}{% endcapture %}
 {% capture codeship  %}{% include_relative _ci/codeship.md  %}{% endcapture %}
+{% capture solano    %}{% include_relative _ci/solano.md    %}{% endcapture %}
+
 
 <div class="tabs">
   <div class="nav nav-tabs bg-faded text-center">
@@ -22,6 +24,7 @@ scripts:
       <a id="codeship-tab" class="nav-item nav-link" data-toggle="tab" href="#codeship">{{i18n.ci_codeship}}</a>
       <a id="travis-tab" class="nav-item nav-link" data-toggle="tab" href="#travis">{{i18n.ci_travis}}</a>
       <a id="semaphore-tab" class="nav-item nav-link" data-toggle="tab" href="#semaphore">{{i18n.ci_semaphore}}</a>
+      <a id="solano-tab" class="nav-item nav-link" data-toggle="tab" href="#solano">{{i18n.ci_solano}}</a>
     </ul>
   </div>
 
@@ -36,5 +39,6 @@ scripts:
     <div class="tab-pane" id="codeship">{{ codeship | markdownify }}</div>
     <div class="tab-pane" id="travis">{{ travis | markdownify }}</div>
     <div class="tab-pane" id="semaphore">{{ semaphore | markdownify }}</div>
+    <div class="tab-pane" id="solano">{{ solano | markdownify }}</div>
   </div>
 </div>
