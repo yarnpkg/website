@@ -104,7 +104,7 @@ class Details extends React.Component {
             version={this.state.version}
           />
           <section id="readme" className="details-doc">
-            <h3 className="details-doc--title details-doc--title__readme">
+            <h3 className="details-doc--title details-doc--title__readme py-1">
               <a href="#readme">{window.i18n.detail.readme}</a>
             </h3>
             {this.state.readme
@@ -122,7 +122,9 @@ class Details extends React.Component {
           </section>
           {this.state.changelog &&
             <section id="changelog" className="details-doc">
-              <h3 className="details-doc--title details-doc--title__changelog">
+              <h3
+                className="details-doc--title details-doc--title__changelog py-1"
+              >
                 <a href="#changelog">{window.i18n.detail.changelog}</a>
               </h3>
               <ReadMore
