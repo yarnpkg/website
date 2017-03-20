@@ -31,9 +31,9 @@ ajv@^4.7.0:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-algoliasearch-helper@^2.18.0:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.18.1.tgz#ebac9f70b4aacf684d04932095c6ee5c5eb77c55"
+algoliasearch-helper@2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.19.0.tgz#cdc8c623720be8ff2b97216d1e57e02d9642f5a5"
   dependencies:
     events "^1.1.0"
     lodash "^4.13.1"
@@ -41,7 +41,7 @@ algoliasearch-helper@^2.18.0:
     qs "^6.2.1"
     util "^0.10.3"
 
-algoliasearch@^3.15.0, algoliasearch@^3.20.3, algoliasearch@^3.21.1:
+algoliasearch@^3.15.0, algoliasearch@^3.21.1:
   version "3.21.1"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.21.1.tgz#fdc3a47495a6eeeef061c201caba1a363a703c92"
   dependencies:
@@ -2594,12 +2594,12 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-instantsearch@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-3.2.0.tgz#bd798e39cb05db579241512e27bf7984a8273875"
+react-instantsearch@^3.2.2-beta0:
+  version "3.2.2-beta0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-3.2.2-beta0.tgz#1740631362928432c353276b087be96c7ca39943"
   dependencies:
-    algoliasearch "^3.20.3"
-    algoliasearch-helper "^2.18.0"
+    algoliasearch "^3.21.1"
+    algoliasearch-helper "2.19.0"
     classnames "^2.2.5"
     lodash "^4.17.4"
 

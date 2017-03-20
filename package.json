@@ -41,7 +41,7 @@
     "qs": "^6.3.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-instantsearch": "^3.2.0",
+    "react-instantsearch": "^3.2.2-beta0",
     "react-sparklines": "^1.6.0",
     "unfetch": "^2.1.2",
     "xss": "^0.3.3"
