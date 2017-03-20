@@ -20,7 +20,7 @@ const formatWeeksSinceLastCommit = weeks => {
   if (weeks === 1) {
     return window.i18n.detail.one_week_ago;
   }
-  return `${weeks} ${window.i18n.detail.weeks_ago}`;
+  return window.i18n.detail.weeks_ago.replace('{count}', weeks);
 };
 
 const Activity = ({ data = [] }) => {

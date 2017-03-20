@@ -42,7 +42,7 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
     <span className="ais-Hit--link-npm">
       <a
         href={`https://www.npmjs.com/package/${name}`}
-        title={`${window.i18n.npm_page_for} ${name}`}
+        title={window.i18n.npm_page_for.replace('{name}', name)}
       >
         {window.i18n.npm}
       </a>
@@ -50,11 +50,9 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
     {githubRepo
       ? <span className="ais-Hit--link-github">
           <a
-            title={`${window.i18n.github_repo_of} ${githubRepo.name}`}
+            title={window.i18n.github_repo_of.replace('{name}', name)}
             href={
-              `https://github.com/${encode(githubRepo.user)}/${encode(
-                githubRepo.project,
-              )}${githubRepo.path}`
+              `https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}${githubRepo.path}`
             }
           >
             {window.i18n.github}
