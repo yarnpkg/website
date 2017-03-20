@@ -22,12 +22,14 @@ class Details extends React.Component {
   }
 
   componentWillMount() {
-    index.getObject(this.props.objectID).then(content => {
-      this.setState(content);
-      document.title = `${this.props.objectID} | Yarn`;
-      this.getDocuments();
-    });
-    //.catch(error => location.href = '/package-not-found');
+    index
+      .getObject(this.props.objectID)
+      .then(content => {
+        this.setState(content);
+        document.title = `${this.props.objectID} | Yarn`;
+        this.getDocuments();
+      })
+      .catch(error => location.href = '/package-not-found');
   }
 
   getGithub({ url, state }) {
