@@ -1,4 +1,5 @@
 import React from 'react';
+import { packageLink } from '../util';
 
 const Usage = ({ dependencies }) => (
   <article className="details-side--usage">
@@ -11,7 +12,11 @@ const Usage = ({ dependencies }) => (
             {Object.keys(dependencies).length > 0
               ? <details>
                   <summary>{window.i18n.detail.dependencies}</summary>
-                  {Object.keys(dependencies).join(', ')}
+                  {Object.keys(dependencies)
+                    .map((name, index) => (
+                      <a href={packageLink(name)} key={index}>{name}</a>
+                    ))
+                    .reduce((prev, curr) => [prev, ', ', curr])}
                 </details>
               : 'Dependencies'}
           </dt>
