@@ -12,6 +12,8 @@ import { prefixURL, get } from '../util';
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
 
+const readmeErrorMessage = 'ERROR: No README data found!';
+
 class Details extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +48,11 @@ class Details extends React.Component {
   }
 
   getDocuments() {
-    if (this.state.githubRepo.user && this.state.githubRepo.project) {
+    if (
+      this.state.githubRepo &&
+      this.state.githubRepo.user &&
+      this.state.githubRepo.project
+    ) {
       get({
         url: this.state.changelogFileName
           ? this.state.changelogFileName
@@ -63,7 +69,7 @@ class Details extends React.Component {
       if (
         typeof this.state.readme === 'undefined' ||
         this.state.readme.length === 0 ||
-        this.state.readme === 'ERROR: No README data found!'
+        this.state.readme === readmeErrorMessage
       ) {
         get({
           url: prefixURL('README.md', {
@@ -89,6 +95,29 @@ class Details extends React.Component {
     }
   }
 
+  maybeRenderReadme() {
+    if (this.state.loaded) {
+      const { readme } = this.state;
+      if (readme.length === 0 || readme === readmeErrorMessage) {
+        return <div>{window.i18n.detail.no_readme_found}</div>;
+      }
+      return (
+        <ReadMore
+          text={window.i18n.detail.display_full_readme}
+          className="details-doc--content"
+        >
+          <Markdown
+            source={this.state.readme}
+            githubRepo={this.state.githubRepo}
+            gitHead={this.state.gitHead}
+          />
+        </ReadMore>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
       <div className="details row">
@@ -107,20 +136,7 @@ class Details extends React.Component {
             <h3 className="details-doc--title details-doc--title__readme py-1">
               <a href="#readme">{window.i18n.detail.readme}</a>
             </h3>
-            {this.state.readme
-              ? <ReadMore
-                  text={window.i18n.detail.display_full_readme}
-                  className="details-doc--content"
-                >
-                  <Markdown
-                    source={this.state.readme}
-                    githubRepo={this.state.githubRepo}
-                    gitHead={this.state.gitHead}
-                  />
-                </ReadMore>
-              : this.state.loaded
-                  ? <div>{window.i18n.detail.no_readme_found}</div>
-                  : null}
+            {this.maybeRenderReadme()}
           </section>
           {this.state.changelog &&
             <section id="changelog" className="details-doc">
