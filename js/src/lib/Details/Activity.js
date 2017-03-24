@@ -2,8 +2,12 @@ import React from 'react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { isEmpty } from '../util';
 
+const threeMonths = 12; // 4 weeks * 3 = 12
+
 const commitsLastThreemonths = ({ weeklyData }) =>
-  weeklyData.slice(-13).reduce((acc, { total }) => acc + total, 0);
+  weeklyData
+    .slice(-(threeMonths + 1))
+    .reduce((acc, { total }) => acc + total, 0);
 
 const weeksAgoSinceLastCommit = ({ weeklyData }) =>
   formatWeeksSinceLastCommit(
@@ -34,7 +38,7 @@ const Activity = ({ data = [] }) => {
         data={data.map(week => week.total)}
         width={100}
         height={15}
-        limit={12 /*three months*/}
+        limit={threeMonths}
       >
         <SparklinesLine color="#2C8EBB" />
       </Sparklines>
