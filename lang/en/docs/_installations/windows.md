@@ -1,7 +1,7 @@
 
 ### Windows
 
-There are two options for installing Yarn on Windows.
+There are three options for installing Yarn on Windows.
 
 #### Download the installer
 
@@ -27,6 +27,26 @@ choco install yarn
 ```
 
 This will also ensure that you have [Node.js](https://nodejs.org/) installed.
+
+#### Install via Scoop
+
+[Scoop](http://scoop.sh) is a command-line installer for Windows, you can
+install Scoop by following
+[these instructions](https://github.com/lukesampson/scoop/wiki/Quick-Start).
+
+Once you have Scoop installed, you may install yarn by running the
+following code in your console:
+
+```powershell
+scoop install yarn
+```
+
+If [Node.js](https://nodejs.org/) is not installed, scoop will give you a suggestion to install it.
+Example:
+
+```powershell
+scoop install nodejs
+```
 
 #### Notice
 
