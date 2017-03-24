@@ -52,12 +52,11 @@ const Activity = ({ data = [], githubRepo }) => {
           data={commitsPerWeekLastThreeMonths({ weeklyData: data })}
           width={100}
           height={15}
-          limit={threeMonths}
         >
           <SparklinesLine color="#2C8EBB" />
         </Sparklines>
       </a>
-      <p className="text-center">
+      <p className="text-center mb-0">
         {window.i18n.detail.commits_last_three_months}
       </p>
       <dl>
