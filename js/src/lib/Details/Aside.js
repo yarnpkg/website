@@ -47,7 +47,10 @@ const Aside = (
       dependents={dependents}
       humanDependents={humanDependents}
     />
-    <Activity data={activity} githubRepo={githubRepo} />
+    {githubRepo &&
+      githubRepo.user &&
+      githubRepo.project &&
+      <Activity data={activity} githubRepo={githubRepo} />}
     <Usage dependencies={dependencies} />
     <article className="details-side--contributors">
       <h1>{window.i18n.detail.contributors}</h1>
