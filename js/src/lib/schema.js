@@ -44,5 +44,6 @@ export default {
   popular: false,
   popularName: '',
   readme: '',
-  version: '0.0.0',
+  version: '',
+  loaded: false,
 };

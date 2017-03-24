@@ -25,7 +25,7 @@ class Details extends React.Component {
     index
       .getObject(this.props.objectID)
       .then(content => {
-        this.setState(content);
+        this.setState(prevState => ({ ...content, loaded: true }));
         document.title = `${this.props.objectID} | Yarn`;
         this.getDocuments();
       })
@@ -118,7 +118,9 @@ class Details extends React.Component {
                     gitHead={this.state.gitHead}
                   />
                 </ReadMore>
-              : <div>{window.i18n.detail.no_readme_found}</div>}
+              : this.state.loaded
+                  ? <div>{window.i18n.detail.no_readme_found}</div>
+                  : null}
           </section>
           {this.state.changelog &&
             <section id="changelog" className="details-doc">
