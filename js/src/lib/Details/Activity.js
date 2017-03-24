@@ -5,9 +5,16 @@ import { isEmpty } from '../util';
 const threeMonths = 12; // 4 weeks * 3 = 12
 
 const commitsLastThreemonths = ({ weeklyData }) =>
-  weeklyData
-    .slice(-(threeMonths + 1))
-    .reduce((acc, { total }) => acc + total, 0);
+  weeklyData.slice(-(threeMonths + 1));
+
+const countCommitsLastThreeMonths = ({ weeklyData }) =>
+  commitsLastThreemonths({ weeklyData }).reduce(
+    (acc, { total }) => acc + total,
+    0
+  );
+
+const commitsPerWeekLastThreeMonths = ({ weeklyData }) =>
+  commitsLastThreemonths({ weeklyData }).map(week => week.total);
 
 const weeksAgoSinceLastCommit = ({ weeklyData }) =>
   formatWeeksSinceLastCommit(
@@ -35,7 +42,7 @@ const Activity = ({ data = [] }) => {
     <article className="details-side--activity">
       <h1>{window.i18n.detail.activity}</h1>
       <Sparklines
-        data={data.map(week => week.total)}
+        data={commitsPerWeekLastThreeMonths({ weeklyData: data })}
         width={100}
         height={15}
         limit={threeMonths}
@@ -48,7 +55,7 @@ const Activity = ({ data = [] }) => {
           <dt>{window.i18n.detail.commits_last_three_months}</dt>
           <span className="dotted flex-grow" />
           <dd>
-            {commitsLastThreemonths({ weeklyData: data })}
+            {countCommitsLastThreeMonths({ weeklyData: data })}
           </dd>
         </div>
         <div className="d-flex flex-items-between w-100">
