@@ -44,7 +44,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'source-map',
+  devtool: process.env.NODE_ENV === 'production'
+    ? 'source-map'
+    : 'cheap-source-map',
   entry: {
     common: './js/src/common.js',
     documentation: './js/src/documentation.js',
