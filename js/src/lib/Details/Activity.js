@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
-import { isEmpty } from '../util';
+import { isEmpty, encode } from '../util';
 
 const threeMonths = 12; // 4 weeks * 3 = 12
 
@@ -34,21 +34,32 @@ const formatWeeksSinceLastCommit = weeks => {
   return window.i18n.detail.weeks_ago.replace('{count}', weeks);
 };
 
-const Activity = ({ data = [] }) => {
+const Activity = ({ data = [], githubRepo }) => {
   if (isEmpty(data)) {
     return null;
   }
   return (
     <article className="details-side--activity">
       <h1>{window.i18n.detail.activity}</h1>
-      <Sparklines
-        data={commitsPerWeekLastThreeMonths({ weeklyData: data })}
-        width={100}
-        height={15}
-        limit={threeMonths}
+      <a
+        href={
+          `https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}/graphs/commit-activity`
+        }
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <SparklinesLine color="#2C8EBB" />
-      </Sparklines>
+        <Sparklines
+          data={commitsPerWeekLastThreeMonths({ weeklyData: data })}
+          width={100}
+          height={15}
+          limit={threeMonths}
+        >
+          <SparklinesLine color="#2C8EBB" />
+        </Sparklines>
+      </a>
+      <p className="text-center">
+        {window.i18n.detail.commits_last_three_months}
+      </p>
       <dl>
         <div className="d-flex flex-items-between w-100">
           <img src="/assets/detail/ico-commits.svg" alt="" />

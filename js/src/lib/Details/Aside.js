@@ -20,7 +20,7 @@ const Aside = (
     dependents,
     humanDependents,
     dependencies,
-  },
+  }
 ) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
@@ -47,7 +47,7 @@ const Aside = (
       dependents={dependents}
       humanDependents={humanDependents}
     />
-    <Activity data={activity} />
+    <Activity data={activity} githubRepo={githubRepo} />
     <Usage dependencies={dependencies} />
     <article className="details-side--contributors">
       <h1>{window.i18n.detail.contributors}</h1>
