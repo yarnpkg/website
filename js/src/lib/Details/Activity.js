@@ -56,9 +56,6 @@ const Activity = ({ data = [], githubRepo }) => {
           <SparklinesLine color="#2C8EBB" />
         </Sparklines>
       </a>
-      <p className="text-center mb-0">
-        {window.i18n.detail.commits_last_three_months}
-      </p>
       <dl>
         <div className="d-flex flex-items-between w-100">
           <img src="/assets/detail/ico-commits.svg" alt="" />
