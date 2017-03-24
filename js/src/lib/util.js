@@ -39,7 +39,7 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
 export function formatKeywords(
   keywords = [],
   highlightedKeywords = [],
-  maxKeywords = 4,
+  maxKeywords = 4
 ) {
   if (isEmpty(keywords)) return keywords;
   highlightedKeywords.forEach((el, i) => {
@@ -63,13 +63,10 @@ export function formatKeywords(
       return 0;
     })
     .slice(0, maxKeywords)
-    .map((
-      {
-        value: highlightedKeyword,
-        originalValue: keyword,
-      },
-      keywordIndex,
-    ) => {
+    .map(({
+      value: highlightedKeyword,
+      originalValue: keyword,
+    }, keywordIndex) => {
       const highlighted = parseHighlightedAttribute({
         highlightedValue: highlightedKeyword,
       });
@@ -100,7 +97,7 @@ function parseHighlightedAttribute(
     preTag = highlightTags.highlightPreTag,
     postTag = highlightTags.highlightPostTag,
     highlightedValue,
-  },
+  }
 ) {
   const splitByPreTag = highlightedValue.split(preTag);
   const firstValue = splitByPreTag.shift();
@@ -135,9 +132,7 @@ function parseHighlightedAttribute(
 }
 
 export const packageLink = name =>
-  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production'
-    ? '/'
-    : '?'}${name}`;
+  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production' ? '/' : '?'}${name}`;
 
 export const searchLink = query =>
   `${window.i18n.url_base}/packages?q=${query}`;
@@ -149,24 +144,28 @@ export const prefixURL = (url, { base, user, project, head, path }) => {
     return new URL(
       (path ? path.replace(/^\//, '') + '/' : '') +
         url.replace(/^(\.?\/?)/, ''),
-      `${base}/${user}/${project}/${path ? '' : `${head}/`}`,
+      `${base}/${user}/${project}/${path ? '' : `${head}/`}`
     );
   }
 };
 
-const status = res => new Promise((resolve, reject) => {
-  if (res.status >= 200 && res.status < 300) {
-    if (res.status === 202 || res.status === 204) {
+const status = res =>
+  new Promise((resolve, reject) => {
+    if (res.status >= 200 && res.status < 300) {
+      // GitHub will return status 202 or 204 if things like contributor activity are
+      // valid, but not yet computed, and will return an empty response
+      if (res.status === 202 || res.status === 204) {
+        reject(res);
+      }
+      resolve(res);
+    } else {
       reject(res);
     }
-    resolve(res);
-  } else {
-    reject(res);
-  }
-});
+  });
 
 export const get = ({ url, type }) =>
   fetch(url).then(status).then(res => res[type]()).catch(err => {
+    // in case it's a useless response by GitHub, tell the caller to retry
     if (err.status === 202 || err.status === 204) {
       throw 'retry';
     } else {
