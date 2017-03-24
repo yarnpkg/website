@@ -14,18 +14,17 @@ export default class Copyable extends React.Component {
   }
 
   copy(toCopy, timeout = 2000) {
-    const log = image => {
-      const old = this.state.statusImage;
-      this.setState({
+    const setAndUnset = ({ image, timeout }) => {
+      this.setState(() => ({
         statusImage: image,
-      });
+      }));
       setTimeout(
         () => {
-          this.setState({
-            statusImage: old,
-          });
+          this.setState(() => ({
+            statusImage: images.default,
+          }));
         },
-        timeout,
+        timeout
       );
     };
 
@@ -37,9 +36,13 @@ export default class Copyable extends React.Component {
       // Now that we've selected the anchor text, execute the copy command
       const copy = document.execCommand('copy');
       window.getSelection().removeAllRanges();
-      log(copy ? images.success : images.default);
+      if (copy === true) {
+        setAndUnset({ image: images.success, timeout });
+      }
     } catch (err) {
-      log(images.default);
+      this.setState(() => ({
+        statusImage: images.default,
+      }));
     }
   }
 

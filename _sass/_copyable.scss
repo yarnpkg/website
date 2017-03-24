@@ -23,6 +23,10 @@
     white-space: nowrap;
     cursor: pointer;
 
+    &:focus {
+      outline: none;
+    }
+
     &__img {
       height: 1em;
       width: 1em;
