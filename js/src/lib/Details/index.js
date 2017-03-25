@@ -8,9 +8,10 @@ import ReadMore from './ReadMore';
 import Markdown from './Markdown';
 import schema from '../schema';
 import { prefixURL, get } from '../util';
+import { algolia } from '../config';
 
-const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
-const index = client.initIndex('npm-search');
+const client = algoliasearch(algolia.appId, algolia.apiKey);
+const index = client.initIndex(algolia.indexName);
 
 const readmeErrorMessage = 'ERROR: No README data found!';
 
