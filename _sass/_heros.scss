@@ -162,6 +162,10 @@
 @include media-breakpoint-up('lg') {
   .hero {
     padding: 5rem 0;
+
+    &.small {
+      padding: 2rem 0;
+    }
   }
 
   .hero-title {

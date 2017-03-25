@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import algoliasearch from 'algoliasearch';
+import { Owner } from './lib/Hit';
+import { packageLink, Keywords } from './lib/util';
 
 const FEATURED = ['babel-core', 'react', 'async', 'lodash', 'debug', 'qs'];
-const MAX_KEYWORDS = 4;
 
 const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
 const index = client.initIndex('npm-search');
@@ -24,31 +25,12 @@ class FeaturedPackage extends React.Component {
     const { name, owner, homepage, description, keywords } = this.props;
     return (
       <div className="pkg-featured-pkg">
-        <a className="ais-Hit--ownerLink" href={owner.link}>
-          <img
-            width="20"
-            height="20"
-            className="ais-Hit--ownerAvatar"
-            src={
-              `https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${owner.avatar}`
-            }
-          />
-          {owner.name}
-        </a>
-        <a className="ais-Hit--name" href={homepage}>
+        <Owner {...owner} />
+        <a className="ais-Hit--name" href={packageLink(name)}>
           {name}
         </a>
         <p>{description}</p>
-        <span className="ais-Hit--keywords hidden-sm-down">
-          {keywords
-            .slice(0, MAX_KEYWORDS)
-            .map(keyword => (
-              <a href={`/packages?q=${keyword}`} key={`${name}-${keyword}`}>
-                {keyword}
-              </a>
-            ))
-            .reduce((prev, curr) => [prev, ', ', curr])}
-        </span>
+        <Keywords keywords={keywords} />
       </div>
     );
   }

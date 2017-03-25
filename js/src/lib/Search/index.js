@@ -12,7 +12,6 @@ const InstantSearch = createInstantSearch(algoliasearch, {
 });
 
 import SearchBox from './SearchBox';
-import isEqual from 'lodash/isEqual';
 import Results from './Results';
 import withUrlSync from './withUrlSync';
 
@@ -26,7 +25,9 @@ const Search = props => (
   >
     <Configure
       hitsPerPage={5}
-      // optionalFacetFilters={`name:${this.state.searchState.query}`}
+      optionalFacetFilters={
+        props.searchState.query && `name:${props.searchState.query}`
+      }
       facets={['keywords']}
       attributesToRetrieve={[
         'name',
