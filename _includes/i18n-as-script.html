@@ -7,10 +7,8 @@
   
   // give defaults
   for (var key in window.i18n) {
-    if (window.i18n.hasOwnProperty(key)) {
-      if (window.i18n[key] === null) {
-        window.i18n[key] = i18n_default[key];
-      }
+    if (window.i18n.hasOwnProperty(key) === false || window.i18n[key] === null) {
+      window.i18n[key] = i18n_default[key];
     }
   }
 </script>
