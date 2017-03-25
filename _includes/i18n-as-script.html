@@ -1,7 +1,7 @@
 %} get the current translations from Jekyll, to be used in scripts %}
 <script>
   var i18n_default = {{ site.data.i18n.en.script | jsonify }};
-  window.i18n = {{ i18n.script | jsonify }};
+  window.i18n = {{ i18n.script | jsonify }} || {};
   window.i18n.url_base = {{ url_base | jsonify }};
   window.i18n.active_language = {{ vars_active_language.tag | jsonify }};
   
