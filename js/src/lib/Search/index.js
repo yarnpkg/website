@@ -14,12 +14,13 @@ const InstantSearch = createInstantSearch(algoliasearch, {
 import SearchBox from './SearchBox';
 import Results from './Results';
 import withUrlSync from './withUrlSync';
+import { algolia } from '../config';
 
 const Search = props => (
   <InstantSearch
-    appId="OFCNCOG2CU"
-    apiKey="f54e21fa3a2a0160595bb058179bfb1e"
-    indexName="npm-search"
+    appId={algolia.appId}
+    apiKey={algolia.apiKey}
+    indexName={algolia.indexName}
     searchState={props.searchState}
     onSearchStateChange={props.onSearchStateChange}
   >
