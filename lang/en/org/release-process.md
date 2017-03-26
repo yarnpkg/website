@@ -49,7 +49,7 @@ This is the old way releases were done, for reference (in case any of the automa
 2. `powershell .\scripts\build-dist.ps1`
 3. Build Windows installer: `yarn run build-win-installer`
     * TODO: Add Authenticode signing for installer ([#619](https://github.com/yarnpkg/yarn/issues/619))
-4. Build Chocolately package: `yarn run build-chocolatey`
+4. Build Chocolatey package: `yarn run build-chocolatey`
 5. Attach resulting `.msi` file from `artifacts` directory to Github release
 6. [Upload Chocolatey package](https://chocolatey.org/packages/upload) (in the future we should automate this).
     * Note: Only do this once the MSI is attached to the Github release, as Chocolatey pulls the MSI via the download link
