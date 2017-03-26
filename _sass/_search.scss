@@ -398,6 +398,9 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
+.search-footer {
+  text-align: center;
+}
 
 /** Algolia Doc Search **/
 
@@ -415,8 +418,66 @@ $ais-muted-color: rgba(black,.5);
   padding: 1rem 1.5rem 1rem 2.5rem;
   background: white url('/assets/search.svg') no-repeat 1rem center;
   background-size: 1rem 1rem;
+
+  &[aria-expanded=true] {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
-.search-footer {
-  text-align: center;
+/* Override */
+.ds-dropdown-menu {
+  min-width: auto !important;
+  width: 100% !important;
+  background-color: white;
+  border: 1px solid $yarn-blue;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  border-top: none;
+}
+
+/* Bottom border of each suggestion */
+.algolia-docsearch-suggestion {
+  border-bottom-color: $yarn-blue;
+}
+
+/* Main category headers */
+.algolia-docsearch-suggestion--category-header {
+  background-color: $yarn-blue;
+}
+
+/* Highlighted search terms */
+.algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+  color: $yarn-blue-dark;
+}
+.algolia-docsearch-suggestion--title .algolia-docsearch-suggestion--highlight,
+.algolia-docsearch-suggestion--subcategory-column .algolia-docsearch-suggestion--highlight,
+.algolia-docsearch-suggestion--subcategory-inline .algolia-docsearch-suggestion--highlight {
+  color: $yarn-blue-darker;
+}
+
+.algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
+  background-color: $yarn-blue-darkest;
+}
+
+/* Currently selected suggestion */
+.ds-cursor .algolia-docsearch-suggestion--content {
+  color: $yarn-blue;
+}
+
+.ds-cursor .algolia-docsearch-suggestion {
+  background: lighten($yarn-blue, 50);
+}
+
+/* For bigger screens, when displaying results in two columns */
+@media (min-width: 768px) {
+  /* Bottom border of each suggestion */
+  .algolia-docsearch-suggestion {
+    border-bottom-color: $yarn-blue;
+  }
+  /* Left column, with secondary category header */
+  .algolia-docsearch-suggestion--subcategory-column {
+    border-right-color: $yarn-blue;
+    color: $yarn-blue-dark;
+  }
 }
