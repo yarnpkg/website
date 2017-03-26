@@ -286,7 +286,7 @@ script:
   search_by_algolia: Search by Algolia
   search_by_read_more: read how it works
 
-  downloads_in_last_30_days: downloads in the last 30 days
+  downloads_in_last_30_days: '{count} downloads in the last 30 days'
   npm_page_for: 'npm page for {name}'
   github_repo_of: 'GitHub repository of {name}'
   npm: npm
