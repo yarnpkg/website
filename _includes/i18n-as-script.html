@@ -1,44 +1,14 @@
-{% comment %} get the current translations from Jekyll, to be used in scripts {% endcomment %}
+%} get the current translations from Jekyll, to be used in scripts %}
 <script>
-  window.i18n = {
-    url_base: {{url_base | jsonify }},
-    active_language: {{vars_active_language.tag | jsonify }},
-    search_placeholder: {{ i18n.search_placeholder | jsonify }},
-    search_by_algolia: {{ i18n.search_by_algolia | jsonify }},
-    search_by_read_more: {{ i18n.search_by_read_more | jsonify }},
-    downloads_in_last_30_days: {{ i18n.downloads_in_last_30_days | jsonify }},
-    npm_page_for: {{ i18n.npm_page_for | jsonify }},
-    github_repo_of: {{ i18n.github_repo_of | jsonify }},
-    npm: {{ i18n.npm | jsonify }},
-    github: {{ i18n.github | jsonify }},
-    homepage: {{ i18n.homepage | jsonify }},
-    detail: {
-      display_full_readme: {{ i18n.detail.display_full_readme | jsonify }},
-      display_full_changelog: {{ i18n.detail.display_full_changelog | jsonify }},
-      collapse: {{ i18n.detail.collapse | jsonify }},
-      title: {{ i18n.detail.title | jsonify}},
-      over_a_year_ago: {{ i18n.detail.over_a_year_ago | jsonify}},
-      less_than_a_week_ago: {{ i18n.detail.less_than_a_week_ago | jsonify}},
-      one_week_ago: {{ i18n.detail.one_week_ago | jsonify}},
-      weeks_ago: {{ i18n.detail.weeks_ago | jsonify}},
-      activity: {{ i18n.detail.activity | jsonify}},
-      commits_last_three_months: {{ i18n.detail.commits_last_three_months | jsonify}},
-      last_commit: {{ i18n.detail.last_commit | jsonify}},
-      use_it: {{ i18n.detail.use_it | jsonify}},
-      try_in_runkit: {{ i18n.detail.try_in_runkit | jsonify}},
-      contributors: {{ i18n.detail.contributors | jsonify}},
-      display_full_readme: {{ i18n.detail.display_full_readme | jsonify}},
-      display_full_changelog: {{ i18n.detail.display_full_changelog | jsonify}},
-      collapse: {{ i18n.detail.collapse | jsonify}},
-      readme: {{ i18n.detail.readme | jsonify}},
-      no_readme_found: {{ i18n.detail.no_readme_found | jsonify}},
-      changelog: {{ i18n.detail.changelog | jsonify}},
-      popularity: {{ i18n.detail.popularity | jsonify}},
-      github_stargazers: {{ i18n.detail.github_stargazers | jsonify}},
-      downloads_last_30_days: {{ i18n.detail.downloads_last_30_days | jsonify}},
-      dependents: {{ i18n.detail.dependents | jsonify}},
-      dependencies: {{ i18n.detail.dependencies | jsonify}},
-      usage: {{ i18n.detail.usage | jsonify}},
+  var i18n_default = {{ site.data.i18n.en.script | jsonify }};
+  window.i18n = {{ i18n.script | jsonify }} || {};
+  window.i18n.url_base = {{ url_base | jsonify }};
+  window.i18n.active_language = {{ vars_active_language.tag | jsonify }};
+  
+  // give defaults
+  for (var key in i18n_default) {
+    if (window.i18n.hasOwnProperty(key) === false || window.i18n[key] === null) {
+      window.i18n[key] = i18n_default[key];
     }
   }
 </script>
