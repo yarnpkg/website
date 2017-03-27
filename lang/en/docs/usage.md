@@ -24,6 +24,16 @@ yarn add [package]@[version]
 yarn add [package]@[tag]
 ```
 
+**Adding a dependency to different categories of dependencies**
+
+Add to `devDependencies`, `peerDependencies`, and `optionalDependencies` respectively:
+
+```sh
+yarn add [package] --dev
+yarn add [package] --peer 
+yarn add [package] --optional
+```
+
 **Upgrading a dependency**
 
 ```sh
