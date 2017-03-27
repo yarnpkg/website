@@ -15,12 +15,12 @@ instead of a version number.
 
 For example, if you had a **stable** release channel and a **canary** release
 channel, you could use tags as a way to allow the user to type:
-
+<!--email_off-->
 ```sh
 yarn add your-package-name@stable
 yarn add your-package-name@canary
 ```
-
+<!--/email_off-->
 Different tags have different meanings:
 
 - `latest`: The current version of the package
@@ -46,12 +46,12 @@ version to install when no version is specified.
 
 You cannot use tags that match potential version numbers since they share
 a namespace:
-
+<!--email_off-->
 ```sh
 yarn add your-package-name@<version>
 yarn add your-package-name@<tag>
 ```
-
+<!--/email_off-->
 Any tag that can also be used as a valid semver range will be rejected.
 For example, you cannot have a tag named `v2.3` because in semver it means
 `>=2.3.0 <2.4.0`.
@@ -60,9 +60,9 @@ In general, avoid using tags that look like versions, they typically only
 confuse people anyways.
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
-
+<!--email_off-->
 ##### `yarn tag add <package>@<version> <tag>` <a class="toc" id="toc-yarn-tag-add" href="#toc-yarn-tag-add"></a>
-
+<!--/email_off-->
 Add a tag named `<tag>` for a specific `<version>` of a `<package>`.
 
 ##### `yarn tag rm <package> <tag>` <a class="toc" id="toc-yarn-tag-rm" href="#toc-yarn-tag-rm"></a>

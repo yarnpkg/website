@@ -36,14 +36,14 @@ yarn info react --json
 ```
 
 ### Information for a specific version <a class="toc" id="toc-information-for-a-specific-version" href="#toc-information-for-a-specific-version"></a>
-
+<!--email_off-->
 Append `@[version]` to the package argument to provide information specific to
 that version:
 
 ```sh
 yarn info react@15.3.0
 ```
-
+<!--/email_off-->
 ```
 yarn info vx.x.x
 { name: 'react',
