@@ -1,4 +1,6 @@
-%} get the current translations from Jekyll, to be used in scripts %}
+{% comment %}
+  get the current translations from Jekyll, to be used in scripts
+{% endcomment }%}
 <script>
   var i18n_default = {{ site.data.i18n.en.script | jsonify }};
   window.i18n = {{ i18n.script | jsonify }} || {};
