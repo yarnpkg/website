@@ -44,7 +44,7 @@ yarn licenses v0.14.0
 │  └─ URL: https://github.com/sindresorhus/ansi-regex.git
 ...
 ```
-<!--email_off-->
+<!--/email_off-->
 ##### `yarn licenses generate-disclaimer` <a class="toc" id="toc-yarn-licenses-generate-disclaimer" href="#toc-yarn-licenses-generate-disclaimer"></a>
 
 Running this command will return a sorted list of licenses from all the
