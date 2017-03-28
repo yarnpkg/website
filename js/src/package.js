@@ -11,7 +11,22 @@ const id = process.env.NODE_ENV == 'production'
   ? location.pathname.split('/').slice(3).join('/')
   : location.search.substring(1);
 
+if (!NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
+function languageDropdownAddPackage(pkg) {
+  const langMenu = document.getElementById('dropdownNavLanguageMenu');
+  const langMenuItems = langMenu.querySelectorAll('.dropdown-item');
+
+  langMenuItems.forEach(langMenuItem => {
+    langMenuItem.href += `/${pkg}`;
+  });
+}
+
+languageDropdownAddPackage(id);
+
 ReactDOM.render(
   <Details objectID={id} />,
-  document.getElementById('pkg-detail'),
+  document.getElementById('pkg-detail')
 );
