@@ -11,17 +11,15 @@ const id = process.env.NODE_ENV == 'production'
   ? location.pathname.split('/').slice(3).join('/')
   : location.search.substring(1);
 
-if (!NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
-
 function languageDropdownAddPackage(pkg) {
   const langMenu = document.getElementById('dropdownNavLanguageMenu');
   const langMenuItems = langMenu.querySelectorAll('.dropdown-item');
 
-  langMenuItems.forEach(langMenuItem => {
-    langMenuItem.href += `/${pkg}`;
-  });
+  const addPackage = langMenuItem => langMenuItem.href += `/${pkg}`;
+
+  for (let i = 0; i < langMenuItems.length; i++) {
+    addPackage(langMenuItems[i]);
+  }
 }
 
 languageDropdownAddPackage(id);
