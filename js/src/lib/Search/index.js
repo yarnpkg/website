@@ -50,6 +50,7 @@ const Search = props => (
       ]}
     />
     <SearchBox
+      autoFocus={window.location.pathname.includes('/packages')}
       translations={{
         placeholder: window.i18n.search_placeholder,
       }}
