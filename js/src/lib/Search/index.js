@@ -16,6 +16,10 @@ import Results from './Results';
 import withUrlSync from './withUrlSync';
 import { algolia } from '../config';
 
+// add concatenated name for more relevance for people spelling without spaces
+// think: createreactnative instead of create-react-native-app
+const concat = string => string.replace(/[-/@_.]+/g, '');
+
 const Search = props => (
   <InstantSearch
     appId={algolia.appId}
@@ -27,7 +31,8 @@ const Search = props => (
     <Configure
       hitsPerPage={5}
       optionalFacetFilters={
-        props.searchState.query && `name:${props.searchState.query}`
+        props.searchState.query &&
+          `concatenatedName:${concat(props.searchState.query)}`
       }
       facets={['keywords']}
       attributesToRetrieve={[
