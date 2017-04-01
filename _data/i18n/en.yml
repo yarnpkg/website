@@ -315,4 +315,7 @@ script:
     downloads_last_30_days: Downloads last 30 days
     dependents: Dependents
     dependencies: Dependencies
+    devDependencies: DevDependencies
     usage: Usage
+    packageJSON: package.json
+    link: link
