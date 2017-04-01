@@ -33,20 +33,20 @@ homepage_feature_fast_description: |
   Yarn caches every package it downloads so it never needs to download it again. It also
   parallelizes operations to maximize resource utilization so install times are
   faster than ever.
-homepage_feature_fast_image_alt: Generic placeholder image
+homepage_feature_fast_image_alt: Watercolour of cat riding a rocketship
 
 homepage_feature_secure_title: Mega Secure.
 homepage_feature_secure_description: |
   Yarn uses checksums to verify the integrity of every installed package
   before its code is executed.
-homepage_feature_secure_image_alt: Generic placeholder image
+homepage_feature_secure_image_alt: Watercolour of cat driving a robot suit
 
 homepage_feature_reliable_title: Super Reliable.
 homepage_feature_reliable_description: |
   Using a detailed, but concise, lockfile format, and a deterministic algorithm
   for installs, Yarn is able to guarantee that an install that worked on one
   system will work exactly the same way on any other system.
-homepage_feature_reliable_image_alt: Generic placeholder image
+homepage_feature_reliable_image_alt: Watercolour of cat waving from seat behind computer screens
 
 homepage_c2a_text: What are you waiting for?
 homepage_c2a_button: Get Started
