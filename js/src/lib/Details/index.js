@@ -54,18 +54,12 @@ class Details extends React.Component {
       this.state.githubRepo.user &&
       this.state.githubRepo.project
     ) {
-      get({
-        url: this.state.changelogFileName
-          ? this.state.changelogFileName
-          : prefixURL('CHANGELOG.md', {
-              base: 'https://raw.githubusercontent.com',
-              user: this.state.githubRepo.user,
-              project: this.state.githubRepo.project,
-              head: this.state.gitHead ? this.state.gitHead : 'master',
-              path: this.state.githubRepo.path.replace(/\/tree\//, ''),
-            }),
-        type: 'text',
-      }).then(res => this.setState({ changelog: res }));
+      if (this.state.changelogFilename) {
+        get({
+          url: this.state.changelogFileName,
+          type: 'text',
+        }).then(res => this.setState({ changelog: res }));
+      }
 
       if (
         typeof this.state.readme === 'undefined' ||

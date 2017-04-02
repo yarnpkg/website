@@ -13,7 +13,7 @@ const packageJSONLink = ({ githubRepo, gitHead }) => {
     const { user, project, path } = githubRepo;
 
     return {
-      packageJSONLink: prefixURL(href, {
+      packageJSONLink: prefixURL('package.json', {
         base: 'https://github.com',
         user,
         project,
@@ -74,7 +74,7 @@ const Aside = (
     <Usage
       dependencies={dependencies}
       devDependencies={devDependencies}
-      {...packageJSONLink(githubRepo, gitHead)}
+      {...packageJSONLink({ githubRepo, gitHead })}
     />
     <article className="details-side--contributors">
       <h1>{window.i18n.detail.contributors}</h1>
