@@ -56,7 +56,7 @@ class Details extends React.Component {
     ) {
       if (this.state.changelogFilename) {
         get({
-          url: this.state.changelogFileName,
+          url: this.state.changelogFilename,
           type: 'text',
         }).then(res => this.setState({ changelog: res }));
       }
