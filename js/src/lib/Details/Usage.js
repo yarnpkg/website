@@ -39,9 +39,11 @@ const Usage = ({ dependencies, devDependencies, packageJSONLink }) => (
       {packageJSONLink &&
         <div className="d-flex flex-items-between w-100">
           <img src={`/assets/detail/ico-package-json.svg`} alt="" />
-          <dt>{window.i18n.detail.package_json}</dt>
+          <dt>{window.i18n.detail.packages}</dt>
           <span className="dotted flex-grow" />
-          <dd><a href={packageJSONLink}>{window.i18n.detail.link}</a></dd>
+          <dd>
+            <a href={packageJSONLink}>{window.i18n.detail.see_package_json}</a>
+          </dd>
         </div>}
     </dl>
   </article>
