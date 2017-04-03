@@ -6,24 +6,7 @@ import Activity from './Activity';
 import Popularity from './Popularity';
 import Usage from './Usage';
 import { Owner } from '../Hit';
-import { encode, prefixURL } from '../util';
-
-const packageJSONLink = ({ githubRepo, gitHead }) => {
-  if (githubRepo) {
-    const { user, project, path } = githubRepo;
-
-    return {
-      packageJSONLink: prefixURL('package.json', {
-        base: 'https://github.com',
-        user,
-        project,
-        head: gitHead ? `tree/${gitHead}` : 'tree/master',
-        path,
-      }),
-    };
-  }
-  return {};
-};
+import { encode, prefixURL, packageJSONLink } from '../util';
 
 const Aside = (
   {
