@@ -1,15 +1,17 @@
 import React from 'react';
 import { packageLink } from '../util';
 
-const Deps = ({ dependencies, text, id }) =>
-  dependencies
-    ? <div className="d-flex flex-items-between w-100">
+const Deps = ({ dependencies, text, id }) => {
+  if (dependencies) {
+    const dependencyNames = Object.keys(dependencies);
+    return (
+      <div className="d-flex flex-items-between w-100">
         <img src={`/assets/detail/ico-${id}.svg`} alt="" />
         <dt>
-          {Object.keys(dependencies).length > 0
+          {dependencyNames.length > 0
             ? <details>
                 <summary>{text}</summary>
-                {Object.keys(dependencies)
+                {dependencyNames
                   .map((name, index) => (
                     <a href={packageLink(name)} key={index}>{name}</a>
                   ))
@@ -18,9 +20,12 @@ const Deps = ({ dependencies, text, id }) =>
             : text}
         </dt>
         <span className="dotted flex-grow" />
-        <dd>{Object.keys(dependencies).length}</dd>
+        <dd>{dependencyNames.length}</dd>
       </div>
-    : null;
+    );
+  }
+  return null;
+};
 
 const Usage = ({ dependencies, devDependencies, packageJSONLink }) => (
   <article className="details-side--usage">
@@ -38,7 +43,7 @@ const Usage = ({ dependencies, devDependencies, packageJSONLink }) => (
       />
       {packageJSONLink &&
         <div className="d-flex flex-items-between w-100">
-          <img src={`/assets/detail/ico-package-json.svg`} alt="" />
+          <img src="/assets/detail/ico-package-json.svg" alt="" />
           <dt>{window.i18n.detail.packages}</dt>
           <span className="dotted flex-grow" />
           <dd>
