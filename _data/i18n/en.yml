@@ -316,5 +316,8 @@ script:
     github_stargazers: GitHub stargazers
     downloads_last_30_days: Downloads last 30 days
     dependents: Dependents
-    dependencies: Dependencies
     usage: Usage
+    dependencies: Dependencies
+    devdependencies: DevDependencies
+    packages: Packages
+    see_package_json: see package.json
