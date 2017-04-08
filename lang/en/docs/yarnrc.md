@@ -11,7 +11,7 @@ layout: guide
 ### `yarn-offline-mirror` <a class="toc" id="toc-yarn-offline-mirror" href="#toc-yarn-offline-mirror"></a>
 
 ```ini
-yarn-offline-mirror ./packages-cache
+yarn-offline-mirror "./packages-cache"
 ```
 
 Maintain offline copies of your packages for more repeatable and reliable builds. [Find more information here]({{url_base}}/docs/offline-mirror/).
