@@ -37,3 +37,13 @@ disable-self-update-check true
 When installing packages, Yarn will provide upgrade instructions if you have an outdated CLI installation. You can disable this check here.
 
 Value must be a boolean, defaults to `false`.
+
+### `CHILD_CONCURRENCY` <a class="toc" id="toc-child-concurrency" href="#toc-child-concurrency"></a>
+
+```ini
+CHILD_CONCURRENCY #number#
+```
+
+Controls the number of child processes run parallely to build node modules. 
+
+Setting this number to 1 will cause the node modules to be built sequentially which can avoid linker errors on windows with node-gyp.

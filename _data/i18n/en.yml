@@ -181,6 +181,7 @@ docs_configuration_index: Configuration
 docs_configuration_package_json: package.json
 docs_configuration_yarn_lock: yarn.lock
 docs_configuration_yarnrc: .yarnrc
+docs_configuration_envvars: envvars
 
 docs_offline_mirror: Configuring an Offline Mirror
 docs_offline_mirror_title: Offline Mirror
