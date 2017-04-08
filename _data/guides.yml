@@ -170,6 +170,9 @@
   - id: docs_configuration_package_json
     path: /docs/package-json
     tags: ["package-json"]
+  - id: docs_configuration_envvars
+    path: /docs/envvars
+    tags: ["envvars"]
   - id: docs_configuration_yarnrc
     path: /docs/yarnrc
     tags: ["yarnrc"]
