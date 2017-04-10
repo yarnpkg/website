@@ -49,9 +49,15 @@ const Results = createConnector({
     return <span />;
   } else if (noResults) {
     body.classList.add('searching');
+    const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
+    docMessage[docMessage.indexOf('documentation_link')] = (
+      <a href={`${window.i18n.url_base}/docs`}>{window.i18n.documentation}</a>
+    );
+
     return (
       <div className="container text-center mt-5">
-        No package {query} was found
+        <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
+        <p>{docMessage.map((val, index) => <span key={index}>{val}</span>)}</p>
       </div>
     );
   } else {
