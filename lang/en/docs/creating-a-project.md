@@ -50,7 +50,7 @@ Now you should have a `package.json` that looks similar to this:
 }
 ```
 
-When you run `yarn init`, all it is doing is creating this file, nothing
+When you run `yarn init`, all it is doing is creating this file. Nothing
 happens in the background. You can feel free to edit this file as much as you
 want.
 
