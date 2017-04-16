@@ -36,11 +36,10 @@ sudo yum install yarn
 
 ### Arch Linux
 
-On Arch Linux yarn can be installed through the **AUR**.
+On Arch Linux, Yarn can be installed through the official package manager.
 
-If you use an [AUR Helper](https://wiki.archlinux.org/index.php/AUR_helpers) such as yaourt you can simply run: 
 ```sh
-yaourt -S yarn
+pacman -S yarn
 ```
 
 ### Solus
