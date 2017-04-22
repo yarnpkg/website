@@ -54,7 +54,7 @@
           size: contain;
         }
       }
-      
+
       &__readme:before {
         background-image: url('/assets/detail/ico-readme.svg');
       }
@@ -115,6 +115,58 @@
         height: 1em;
         background-size: contain;
         background-image: url('/assets/detail/ico-runkit.svg');
+      }
+    }
+  }
+
+  &-files {
+    &__list {
+      list-style-type: none;
+      padding-left: 0;
+
+      // Add padding for subdirectories
+      & & {
+        padding-left: 1.5em;
+      }
+    }
+
+    // File and directory names
+    &__dirname, &__filename {
+      line-height: 2em;
+    }
+    &__dirname::before, &__filename::before {
+      content: '';
+      display: inline-block;
+      height: 22px;
+      margin-right: 4px;
+      width: 22px;
+      vertical-align: middle;
+    }
+    &__dirname::before {
+      background-image: url(/assets/detail/ico-folder.svg);
+    }
+    &__filename::before {
+      background-image: url(/assets/detail/ico-file.svg);
+    }
+
+    // Expand animation for subdirectories
+    &-enter {
+      max-height: 0;
+      opacity: 0;
+      transition: all 500ms ease-in;
+      &-active {
+        max-height: 500px;
+        opacity: 1;
+      }
+    }
+    // Collapse animation for subdirectories
+    &-leave {
+      max-height: 500px;
+      opacity: 1;
+      transition: all 500ms ease-out;
+      &-active {
+        max-height: 0;
+        opacity: 0;
       }
     }
   }

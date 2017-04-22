@@ -23,6 +23,8 @@ const Aside = (
     humanDependents,
     dependencies,
     devDependencies,
+
+    onOpenFileBrowser,
   }
 ) => (
   <aside className="details-side col-lg-4">
@@ -40,6 +42,10 @@ const Aside = (
           rel="noopener noreferrer"
         >
           {window.i18n.detail.try_in_runkit}
+        </a>
+        {' \xB7 '}
+        <a href="#" onClick={onOpenFileBrowser}>
+          {window.i18n.detail.browse_files}
         </a>
       </div>
     </article>

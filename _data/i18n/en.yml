@@ -306,11 +306,16 @@ script:
     activity: Activity
     commits_last_three_months: Commits last 3 months
     last_commit: Last commit
+    loading: Loading...
     use_it: Use it
     try_in_runkit: Try in RunKit
+    back_to_details: Back to Details
+    browse_files: Browse Files
     contributors: Contributors
     display_full_readme: Display full readme
     display_full_changelog: Display full changelog
+    files_error: 'Could not load file listing: {error}'
+    files_header: 'Files in {name}'
     collapse: Collapse
     readme: readme
     no_readme_found: no readme found 😢
