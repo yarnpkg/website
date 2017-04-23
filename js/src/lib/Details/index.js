@@ -2,6 +2,7 @@ import React from 'react';
 import algoliasearch from 'algoliasearch';
 
 import Aside from './Aside';
+import FileBrowser from './FileBrowser';
 import Header from './Header';
 import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
@@ -21,6 +22,7 @@ class Details extends React.Component {
     this.getGithub = this.getGithub.bind(this);
     this.state = {
       ...schema,
+      isBrowsingFiles: false,
     };
   }
 
@@ -114,6 +116,12 @@ class Details extends React.Component {
   }
 
   render() {
+    return this.state.isBrowsingFiles
+      ? this._renderFileBrowser()
+      : this._renderDetails();
+  }
+
+  _renderDetails() {
     return (
       <div className="details row">
         <section className="details-main col-lg-8">
@@ -153,23 +161,7 @@ class Details extends React.Component {
             </section>}
         </section>
 
-        <Aside
-          name={this.state.name}
-          githubRepo={this.state.githubRepo}
-          gitHead={this.state.gitHead}
-          homepage={this.state.homepage}
-          contributors={this.state.owners}
-          activity={this.state.activity}
-          downloads={this.state.downloadsLast30Days}
-          humanDownloads={this.state.humanDownloadsLast30Days}
-          dependencies={this.state.dependencies}
-          devDependencies={this.state.devDependencies}
-          dependents={this.state.dependents}
-          humanDependents={this.state.humanDependents}
-          stargazers={
-            this.state.github ? this.state.github.stargazers_count : false
-          }
-        />
+        {this._renderSidebar()}
 
         <JSONLDItem
           name={this.state.name}
@@ -179,6 +171,54 @@ class Details extends React.Component {
       </div>
     );
   }
+
+  _renderSidebar() {
+    return (
+      <Aside
+        name={this.state.name}
+        githubRepo={this.state.githubRepo}
+        gitHead={this.state.gitHead}
+        homepage={this.state.homepage}
+        contributors={this.state.owners}
+        activity={this.state.activity}
+        downloads={this.state.downloadsLast30Days}
+        humanDownloads={this.state.humanDownloadsLast30Days}
+        dependencies={this.state.dependencies}
+        devDependencies={this.state.devDependencies}
+        dependents={this.state.dependents}
+        humanDependents={this.state.humanDependents}
+        stargazers={
+          this.state.github ? this.state.github.stargazers_count : false
+        }
+        onOpenFileBrowser={this._openFileBrowser}
+      />
+    );
+  }
+
+  _renderFileBrowser() {
+    return (
+      <div className="details row">
+        <section className="details-main col-lg-8">
+          <FileBrowser
+            objectID={this.props.objectID}
+            version={this.state.version}
+            onBackToDetails={this._closeFileBrowser}
+          />
+        </section>
+        {this._renderSidebar()}
+      </div>
+    );
+  }
+
+  _openFileBrowser = evt => {
+    this.setState({ isBrowsingFiles: true });
+    evt.preventDefault();
+  };
+
+  _closeFileBrowser = evt => {
+    this.setState({ isBrowsingFiles: false });
+    evt.preventDefault();
+  };
 }
 
 export default Details;
