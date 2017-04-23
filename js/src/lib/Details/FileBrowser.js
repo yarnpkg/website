@@ -23,6 +23,12 @@ export default class FileBrowser extends React.PureComponent {
     this._fetchFiles();
   }
 
+  componentDidMount() {
+    if (this._backRef) {
+      this._backRef.focus();
+    }
+  }
+
   _fetchFiles() {
     this.setState({ error: null, files: null });
     const url = this._getBaseURL() + '?json';
@@ -43,7 +49,7 @@ export default class FileBrowser extends React.PureComponent {
             this.props.objectID
           )}
         </h2>
-        <a href="#" onClick={this.props.onBackToDetails}>
+        <a href="#" ref={this._setBackRef} onClick={this.props.onBackToDetails}>
           ← {window.i18n.detail.back_to_details}
         </a>
         {this._renderInner()}
@@ -91,6 +97,10 @@ export default class FileBrowser extends React.PureComponent {
         [dir.path]: shouldBeExpanded,
       },
     });
+  };
+
+  _setBackRef = ref => {
+    this._backRef = ref;
   };
 }
 

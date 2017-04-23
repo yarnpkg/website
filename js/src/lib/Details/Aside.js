@@ -23,7 +23,6 @@ const Aside = (
     humanDependents,
     dependencies,
     devDependencies,
-
     onOpenFileBrowser,
   }
 ) => (
@@ -43,7 +42,7 @@ const Aside = (
         >
           {window.i18n.detail.try_in_runkit}
         </a>
-        {' \xB7 '}
+        {' · '}
         <a href="#" onClick={onOpenFileBrowser}>
           {window.i18n.detail.browse_files}
         </a>

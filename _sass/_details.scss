@@ -153,7 +153,7 @@
     &-enter {
       max-height: 0;
       opacity: 0;
-      transition: all 500ms ease-in;
+      transition: all 200ms ease-in;
       &-active {
         max-height: 500px;
         opacity: 1;
@@ -163,7 +163,7 @@
     &-leave {
       max-height: 500px;
       opacity: 1;
-      transition: all 500ms ease-out;
+      transition: all 200ms ease-out;
       &-active {
         max-height: 0;
         opacity: 0;
