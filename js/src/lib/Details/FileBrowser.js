@@ -109,6 +109,7 @@ class Directory extends React.PureComponent {
           className="details-files__dirname"
           href={url}
           target="_blank"
+          rel="noopener noreferrer"
           onClick={this._toggleDir}
         >
           {getBasename(dir.path)}
