@@ -18,7 +18,7 @@ const commitsPerWeekLastThreeMonths = ({ weeklyData }) =>
 
 const weeksAgoSinceLastCommit = ({ weeklyData }) =>
   formatWeeksSinceLastCommit(
-    weeklyData.reverse().findIndex(({ total }) => total !== 0)
+    weeklyData.slice().reverse().findIndex(({ total }) => total !== 0)
   );
 
 const formatWeeksSinceLastCommit = weeks => {
