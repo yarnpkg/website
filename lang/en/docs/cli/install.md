@@ -69,3 +69,7 @@ set to `production`, Yarn will not install any package listed in
 ##### `yarn install --pure-lockfile` <a class="toc" id="toc-yarn-install-pure-lockfile" href="#toc-yarn-install-pure-lockfile"></a>
 
 Don't generate a `yarn.lock` lockfile.
+
+##### `yarn install --offline` <a class="toc" id="toc-yarn-install-offline" href="#toc-yarn-install-offline"></a>
+
+Run yarn install in offline mode.
