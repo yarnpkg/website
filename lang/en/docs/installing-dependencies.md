@@ -5,13 +5,15 @@ layout: guide
 additional_reading_tags: ["dependencies", "package-json", "yarn-lock", "cli-install"]
 ---
 
-If you have just checked out a package from [version control](./version-control), you will need to install those dependencies.
+{% include vars.html %}
 
-> If you are [adding dependencies](./managing-dependencies#toc-adding-a-dependency) for your project, then those dependencies are automatically installed during that process.
+If you have just checked out a package from [version control]({{url_base}}/docs/version-control), you will need to install those dependencies.
+
+> If you are [adding dependencies]({{url_base}}/docs/managing-dependencies#toc-adding-a-dependency) for your project, then those dependencies are automatically installed during that process.
 
 ### Installing Dependencies <a class="toc" id="toc-installing-dependencies" href="#toc-installing-dependencies"></a>
 
-[`yarn install`](./cli/install) is used to install all dependencies for a project. The dependencies are retrieved from your project's `package.json` file, and stored in the `yarn.lock` file.
+[`yarn install`]({{url_base}}/docs/cli/install) is used to install all dependencies for a project. The dependencies are retrieved from your project's `package.json` file, and stored in the `yarn.lock` file.
 
 When developing a package, installing dependencies is most commonly done after:
 
@@ -27,4 +29,4 @@ There are many options for installing dependencies, including:
 1. Forcing a re-download of all packages: `yarn install --force`
 1. Installing only production dependencies: `yarn install --production`
 
-See [the full list](./cli/install) of flags you can pass to `yarn install`.
+See [the full list]({{url_base}}/docs/cli/install) of flags you can pass to `yarn install`.
