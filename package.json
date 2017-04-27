@@ -2,6 +2,7 @@
   "name": "yarn-website",
   "version": "1.0.0",
   "devDependencies": {
+    "algolia-sitemap": "^1.0.1",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
@@ -16,6 +17,8 @@
   },
   "scripts": {
     "build": "webpack",
+    "build:sitemaps": "./scripts/sitemaps.js",
+    "build:production": "npm run build && npm run build:sitemaps",
     "start": "webpack --watch",
     "lint:staged": "lint-staged"
   },

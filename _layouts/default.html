@@ -11,6 +11,7 @@
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og_image.png" />
     <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | strip_html | strip_newlines }}{% endif %}" />
+    <meta name="google-site-verification" content="DIcCyEkVaGHm864NWzItnt2n6Gg7hz3l47RBIRyxvcQ" />
 
     <title>{% if page.layout == "post" %}{{page.title}} | {{ i18n.blog_title }}{% elsif page.title %}{{page.title}} | {{ i18n.site_title }}{% elsif page.id %}{{ i18n[page.id] }} | {{ i18n.site_title }}{% else %}{{ i18n.site_title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ i18n.site_description }}{% endif %}">

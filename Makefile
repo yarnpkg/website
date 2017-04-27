@@ -19,13 +19,13 @@ build: test-builddeps
 
 serve-production: test-builddeps
 	@make crowdin-download
-	@NODE_ENV=production yarn run build
+	@NODE_ENV=production yarn build:production
 	@JEKYLL_ENV=production bundle exec jekyll serve
 
 build-production: test-builddeps
 	@make crowdin-download
 	@ruby ./scripts/validate-translations.rb
-	@NODE_ENV=production yarn run build
+	@NODE_ENV=production yarn build:production
 	@JEKYLL_ENV=production bundle exec jekyll build
 
 crowdin-upload: test-crowdin
