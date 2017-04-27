@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import algoliasearch from 'algoliasearch';
 
 import Aside from './Aside';
@@ -16,7 +16,7 @@ const index = client.initIndex(algolia.indexName);
 
 const readmeErrorMessage = 'ERROR: No README data found!';
 
-class Details extends React.Component {
+class Details extends Component {
   constructor(props) {
     super(props);
     this.getGithub = this.getGithub.bind(this);
@@ -27,14 +27,11 @@ class Details extends React.Component {
   }
 
   componentWillMount() {
-    index
-      .getObject(this.props.objectID)
-      .then(content => {
-        this.setState(prevState => ({ ...content, loaded: true }));
-        document.title = `${this.props.objectID} | Yarn`;
-        this.getDocuments();
-      })
-      .catch(error => location.href = '/package-not-found');
+    index.getObject(this.props.objectID).then(content => {
+      this.setState(prevState => ({ ...content, loaded: true }));
+      document.title = `${this.props.objectID} | Yarn`;
+      this.getDocuments();
+    });
   }
 
   getGithub({ url, state }) {
