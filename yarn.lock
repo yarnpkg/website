@@ -31,6 +31,13 @@ ajv@^4.7.0:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
+algolia-sitemap@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/algolia-sitemap/-/algolia-sitemap-1.0.1.tgz#8b4b48b910f457618c3d0bb29463130703b6231c"
+  dependencies:
+    algoliasearch "^3.22.1"
+    xmlbuilder "^8.2.2"
+
 algoliasearch-helper@2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.19.0.tgz#cdc8c623720be8ff2b97216d1e57e02d9642f5a5"
@@ -3232,6 +3239,10 @@ wrap-ansi@^2.0.0:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+xmlbuilder@^8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-8.2.2.tgz#69248673410b4ba42e1a6136551d2922335aa773"
 
 xss@^0.3.3:
   version "0.3.3"
