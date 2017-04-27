@@ -6,6 +6,7 @@
 //   console.log('sitemap generation skipped');
 // } else {
 const algoliaSitemap = require('algolia-sitemap');
+const { mkdirSync } = require('fs');
 
 const algoliaConfig = {
   appId: 'OFCNCOG2CU',
@@ -29,11 +30,15 @@ function hitToParams(hit) {
   };
 }
 
+const path = `${__dirname}/../sitemaps`;
+
+mkdirSync(`${__dirname}/../sitemaps`);
+
 algoliaSitemap({
   algoliaConfig,
   sitemapLocation: {
     href: 'https://yarnpkg.com/sitemaps',
-    path: `${__dirname}/sitemaps`,
+    path,
   },
   hitToParams,
 });
