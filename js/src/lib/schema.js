@@ -10,6 +10,9 @@ export default {
   downloadsLast30Days: 0,
   downloadsRatio: 0,
   gitHead: '',
+  github: {
+    stargazers_count: 0,
+  },
   githubRepo: {
     user: '',
     project: '',
@@ -47,5 +50,6 @@ export default {
   popularName: '',
   readme: '',
   version: '',
+  versions: [''],
   loaded: false,
 };
