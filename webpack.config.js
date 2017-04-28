@@ -56,7 +56,7 @@ module.exports = {
     package: './js/src/package.js',
   },
   output: {
-    path: './js/build',
+    path: path.join(__dirname, './js/build'),
     filename: process.env.NODE_ENV === 'production'
       ? '[name].[chunkhash].js'
       : '[name].js',

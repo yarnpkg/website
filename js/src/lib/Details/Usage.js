@@ -27,7 +27,12 @@ const Deps = ({ dependencies, text, id }) => {
   return null;
 };
 
-const Usage = ({ dependencies, devDependencies, packageJSONLink }) => (
+const Usage = ({
+  dependencies,
+  devDependencies,
+  packageJSONLink,
+  versions,
+}) => (
   <article className="details-side--usage">
     <h1>{window.i18n.detail.usage}</h1>
     <dl>

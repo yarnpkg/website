@@ -50,6 +50,6 @@ export default {
   popularName: '',
   readme: '',
   version: '',
-  versions: [''],
+  versions: {},
   loaded: false,
 };

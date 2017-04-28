@@ -140,9 +140,7 @@ class Details extends Component {
           </section>
           {this.state.changelog &&
             <section id="changelog" className="details-doc">
-              <h3
-                className="details-doc--title details-doc--title__changelog py-1"
-              >
+              <h3 className="details-doc--title details-doc--title__changelog py-1">
                 <a href="#changelog">{window.i18n.detail.changelog}</a>
               </h3>
               <ReadMore
@@ -187,6 +185,7 @@ class Details extends Component {
         stargazers={
           this.state.github ? this.state.github.stargazers_count : false
         }
+        versions={this.state.versions}
         onOpenFileBrowser={this._openFileBrowser}
       />
     );
