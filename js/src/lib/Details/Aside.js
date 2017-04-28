@@ -5,27 +5,27 @@ import Links from './Links';
 import Activity from './Activity';
 import Popularity from './Popularity';
 import Usage from './Usage';
+import Versions from './Versions';
 import { Owner } from '../Hit';
 import { encode, prefixURL, packageJSONLink } from '../util';
 
-const Aside = (
-  {
-    name,
-    homepage,
-    githubRepo,
-    gitHead,
-    contributors,
-    activity,
-    downloads,
-    humanDownloads,
-    stargazers,
-    dependents,
-    humanDependents,
-    dependencies,
-    devDependencies,
-    onOpenFileBrowser,
-  }
-) => (
+const Aside = ({
+  name,
+  homepage,
+  githubRepo,
+  gitHead,
+  contributors,
+  activity,
+  downloads,
+  humanDownloads,
+  stargazers,
+  dependents,
+  humanDependents,
+  dependencies,
+  versions,
+  devDependencies,
+  onOpenFileBrowser,
+}) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
@@ -64,6 +64,7 @@ const Aside = (
       devDependencies={devDependencies}
       {...packageJSONLink({ githubRepo, gitHead })}
     />
+    <Versions versions={versions} />
     <article className="details-side--contributors">
       <h1>{window.i18n.detail.contributors}</h1>
       <ul className="list-unstyled m-2">
