@@ -4,17 +4,17 @@ import { isEmpty, encode } from '../util';
 
 const threeMonths = 12; // 4 weeks * 3 = 12
 
-const commitsLastThreemonths = ({ weeklyData }) =>
+const commitsLastThreeMonths = ({ weeklyData }) =>
   weeklyData.slice(-(threeMonths + 1));
 
 const countCommitsLastThreeMonths = ({ weeklyData }) =>
-  commitsLastThreemonths({ weeklyData }).reduce(
+  commitsLastThreeMonths({ weeklyData }).reduce(
     (acc, { total }) => acc + total,
     0
   );
 
 const commitsPerWeekLastThreeMonths = ({ weeklyData }) =>
-  commitsLastThreemonths({ weeklyData }).map(week => week.total);
+  commitsLastThreeMonths({ weeklyData }).map(week => week.total);
 
 const weeksAgoSinceLastCommit = ({ weeklyData }) =>
   formatWeeksSinceLastCommit(
