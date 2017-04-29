@@ -32,7 +32,14 @@ export default class Versions extends Component {
           {versionsToShow.map(version => (
             <div key={version} className="d-flex flex-items-between w-100">
               <dt>
-                {new Date(versions[version]).toDateString()}
+                {new Date(versions[version]).toLocaleDateString(
+                  window.i18n.active_language,
+                  {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  }
+                )}
               </dt>
               <span className="dotted flex-grow" />
               <dd>{version}</dd>
