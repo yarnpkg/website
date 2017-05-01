@@ -10,7 +10,7 @@ import {
 } from '../util';
 
 export const License = ({ type }) =>
-  type ? <span className="ais-Hit--license">{type}</span> : null;
+  (type ? <span className="ais-Hit--license">{type}</span> : null);
 
 export const Owner = ({ link, avatar, name }) => (
   <a className="ais-Hit--ownerLink" href={link}>
@@ -18,9 +18,7 @@ export const Owner = ({ link, avatar, name }) => (
       width="20"
       height="20"
       className="ais-Hit--ownerAvatar"
-      src={
-        `https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${avatar}`
-      }
+      src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${avatar}`}
     />
     {name}
   </a>
@@ -31,7 +29,7 @@ export const Downloads = ({ downloads, humanDownloads }) => (
     className={`ais-Hit--popular ${getDownloadBucket(downloads)}`}
     title={window.i18n.downloads_in_last_30_days.replace(
       '{count}',
-      downloads.toLocaleString()
+      downloads.toLocaleString(window.i18n.active_language)
     )}
   >
     {humanDownloads}
@@ -52,9 +50,7 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
       ? <span className="ais-Hit--link-github">
           <a
             title={window.i18n.github_repo_of.replace('{name}', name)}
-            href={
-              `https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}${githubRepo.path}`
-            }
+            href={`https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}${githubRepo.path}`}
           >
             {window.i18n.github}
           </a>
