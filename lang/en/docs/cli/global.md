@@ -28,6 +28,6 @@ Read more about the commands that can be used together with `yarn global`:
 
 - [`yarn add`]({{url_base}}/docs/cli/add): add a package to use in your current package. 
 - [`yarn bin`]({{url_base}}/docs/cli/bin): displays the location of the yarn bin folder.
-- [`yarn ls`]({{url_base}}/docs/cli/ls): list installed packages.
+- [`yarn list`]({{url_base}}/docs/cli/ls): list installed packages.
 - [`yarn remove`]({{url_base}}/docs/cli/remove): remove a package that will no longer be used in your current package.
 - [`yarn upgrade`]({{url_base}}/docs/cli/upgrade): upgrades packages to their latest version based on the specified range.
