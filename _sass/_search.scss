@@ -108,32 +108,6 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-Pagination {
-  &__root {
-    margin: 2em auto;
-    @extend .pagination;
-  }
-
-  &__item {
-    @extend .page-item;
-  }
-
-  &__itemLink {
-    @extend .page-link;
-  }
-
-  &__itemSelected {
-    @extend .active;
-  }
-
-  &__itemDisabled {
-    @extend .disabled;
-    visibility: visible;
-    opacity: .3;
-    cursor: default;
-  }
-}
-
 .ais-Hits {
   &--item {
     padding: 1.5rem 1rem 2rem;
@@ -148,6 +122,19 @@ $ais-muted-color: rgba(black,.5);
   &__empty {
     padding: 2.5rem 0 2rem;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.ais-InfiniteHits {
+  &__root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__loadMore {
+    margin: 1em auto;
+    @extend .btn;
+    @extend .btn-primary;
   }
 }
 

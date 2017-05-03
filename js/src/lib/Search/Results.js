@@ -1,7 +1,6 @@
 import React from 'react';
 import createConnector from 'react-instantsearch/src/core/createConnector';
-import Hits from 'react-instantsearch/src/widgets/Hits';
-import Pagination from 'react-instantsearch/src/widgets/Pagination';
+import Hits from 'react-instantsearch/src/widgets/InfiniteHits';
 import CurrentRefinements
   from 'react-instantsearch/src/widgets/CurrentRefinements';
 
@@ -10,21 +9,14 @@ import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = ({ pagination }) => (
+const ResultsFound = () => (
   <div className="container">
     <CurrentRefinements />
     <Hits hitComponent={Hit} />
-    <div className="d-flex">
-      {pagination
-        ? <Pagination showFirst={false} showLast={false} scrollTo={true} />
-        : <div style={{ height: '3rem' }} />}
-    </div>
     <div className="search-footer">
       {window.i18n.search_by_algolia}
       {' - '}
-      <a
-        href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319"
-      >
+      <a href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319">
         {window.i18n.search_by_read_more}
       </a>
       .
@@ -35,15 +27,12 @@ const ResultsFound = ({ pagination }) => (
 const Results = createConnector({
   displayName: 'ConditionalResults',
   getProvidedProps(props, searchState, searchResults) {
-    const pagination = searchResults.results
-      ? searchResults.results.nbPages > 1
-      : false;
     const noResults = searchResults.results
       ? searchResults.results.nbHits === 0
       : false;
-    return { query: searchState.query, noResults, pagination };
+    return { query: searchState.query, noResults };
   },
-})(({ noResults, pagination, query }) => {
+})(({ noResults, query }) => {
   if (isEmpty(query)) {
     body.classList.remove('searching');
     return <span />;
@@ -62,7 +51,7 @@ const Results = createConnector({
     );
   } else {
     body.classList.add('searching');
-    return <ResultsFound pagination={pagination} />;
+    return <ResultsFound />;
   }
 });
 
