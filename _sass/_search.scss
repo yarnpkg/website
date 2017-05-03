@@ -125,19 +125,6 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-InfiniteHits {
-  &__root {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__loadMore {
-    margin: 1em auto;
-    @extend .btn;
-    @extend .btn-primary;
-  }
-}
-
 .ais-Hit {
   &--name {
     font-size: 1.625rem;
@@ -336,6 +323,32 @@ $ais-muted-color: rgba(black,.5);
     background-image: url('/assets/search/ico-github.svg');
     width: 26px;
     height: 26px;
+  }
+}
+
+.ais-Pagination {
+  &__root {
+    margin: 2em auto;
+    @extend .pagination;
+  }
+
+  &__item {
+    @extend .page-item;
+  }
+
+  &__itemLink {
+    @extend .page-link;
+  }
+
+  &__itemSelected {
+    @extend .active;
+  }
+
+  &__itemDisabled {
+    @extend .disabled;
+    visibility: visible;
+    opacity: .3;
+    cursor: default;
   }
 }
 

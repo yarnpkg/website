@@ -1,6 +1,7 @@
 import React from 'react';
 import createConnector from 'react-instantsearch/src/core/createConnector';
-import Hits from 'react-instantsearch/src/widgets/InfiniteHits';
+import Hits from 'react-instantsearch/src/widgets/Hits';
+import Pagination from 'react-instantsearch/src/widgets/Pagination';
 import CurrentRefinements
   from 'react-instantsearch/src/widgets/CurrentRefinements';
 import Stats from 'react-instantsearch/src/widgets/Stats';
@@ -10,13 +11,18 @@ import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = () => (
+const ResultsFound = ({ pagination }) => (
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
       <Stats />
     </div>
     <Hits hitComponent={Hit} />
+    <div className="d-flex">
+      {pagination
+        ? <Pagination showFirst={false} showLast={false} scrollTo={true} />
+        : <div style={{ height: '3rem' }} />}
+    </div>
     <div className="search-footer">
       {window.i18n.search_by_algolia}
       {' - '}
@@ -31,12 +37,15 @@ const ResultsFound = () => (
 const Results = createConnector({
   displayName: 'ConditionalResults',
   getProvidedProps(props, searchState, searchResults) {
+    const pagination = searchResults.results
+      ? searchResults.results.nbPages > 1
+      : false;
     const noResults = searchResults.results
       ? searchResults.results.nbHits === 0
       : false;
-    return { query: searchState.query, noResults };
+    return { query: searchState.query, noResults, pagination };
   },
-})(({ noResults, query }) => {
+})(({ noResults, query, pagination }) => {
   if (isEmpty(query)) {
     body.classList.remove('searching');
     return <span />;
@@ -55,7 +64,7 @@ const Results = createConnector({
     );
   } else {
     body.classList.add('searching');
-    return <ResultsFound />;
+    return <ResultsFound pagination={pagination} />;
   }
 });
 
