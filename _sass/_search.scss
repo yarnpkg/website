@@ -108,32 +108,6 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
-.ais-Pagination {
-  &__root {
-    margin: 2em auto;
-    @extend .pagination;
-  }
-
-  &__item {
-    @extend .page-item;
-  }
-
-  &__itemLink {
-    @extend .page-link;
-  }
-
-  &__itemSelected {
-    @extend .active;
-  }
-
-  &__itemDisabled {
-    @extend .disabled;
-    visibility: visible;
-    opacity: .3;
-    cursor: default;
-  }
-}
-
 .ais-Hits {
   &--item {
     padding: 1.5rem 1rem 2rem;
@@ -349,6 +323,32 @@ $ais-muted-color: rgba(black,.5);
     background-image: url('/assets/search/ico-github.svg');
     width: 26px;
     height: 26px;
+  }
+}
+
+.ais-Pagination {
+  &__root {
+    margin: 2em auto;
+    @extend .pagination;
+  }
+
+  &__item {
+    @extend .page-item;
+  }
+
+  &__itemLink {
+    @extend .page-link;
+  }
+
+  &__itemSelected {
+    @extend .active;
+  }
+
+  &__itemDisabled {
+    @extend .disabled;
+    visibility: visible;
+    opacity: .3;
+    cursor: default;
   }
 }
 

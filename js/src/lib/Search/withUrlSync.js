@@ -8,15 +8,17 @@ const searchStateToQueryString = searchState => ({
 });
 
 const searchStateToUrl = searchState =>
-  searchState
-    ? `${window.i18n.url_base}/packages?${qs.stringify(
-        searchStateToQueryString(searchState),
-      )}`
-    : '';
+  (searchState
+    ? `${window.i18n.url_base}/packages?${qs.stringify(searchStateToQueryString(searchState))}`
+    : '');
 
-const queryStringToSearchState = queryString => ({
-  query: qs.parse(queryString).q,
-});
+const queryStringToSearchState = queryString => {
+  const { p, q } = qs.parse(queryString);
+  return {
+    query: q,
+    page: p,
+  };
+};
 
 const originalPathName = location.pathname;
 
@@ -45,20 +47,17 @@ export default App => class extends Component {
         window.history.pushState(
           null,
           'Search packages | Yarn',
-          originalPathName,
+          originalPathName
         );
       }
     } else {
-      this.debouncedSetState = setTimeout(
-        () => {
-          window.history.pushState(
-            searchState,
-            'Search packages | Yarn',
-            searchStateToUrl(searchState),
-          );
-        },
-        updateAfter,
-      );
+      this.debouncedSetState = setTimeout(() => {
+        window.history.pushState(
+          searchState,
+          'Search packages | Yarn',
+          searchStateToUrl(searchState)
+        );
+      }, updateAfter);
     }
 
     this.setState({ searchState });

@@ -4,6 +4,7 @@ import Hits from 'react-instantsearch/src/widgets/Hits';
 import Pagination from 'react-instantsearch/src/widgets/Pagination';
 import CurrentRefinements
   from 'react-instantsearch/src/widgets/CurrentRefinements';
+import Stats from 'react-instantsearch/src/widgets/Stats';
 
 import Hit from '../Hit';
 import { isEmpty } from '../util';
@@ -12,7 +13,10 @@ const body = document.querySelector('body');
 
 const ResultsFound = ({ pagination }) => (
   <div className="container">
-    <CurrentRefinements />
+    <div className="mx-3">
+      <CurrentRefinements />
+      <Stats />
+    </div>
     <Hits hitComponent={Hit} />
     <div className="d-flex">
       {pagination
@@ -22,9 +26,7 @@ const ResultsFound = ({ pagination }) => (
     <div className="search-footer">
       {window.i18n.search_by_algolia}
       {' - '}
-      <a
-        href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319"
-      >
+      <a href="https://discourse.algolia.com/t/2016-algolia-community-gift-yarn-package-search/319">
         {window.i18n.search_by_read_more}
       </a>
       .
@@ -43,7 +45,7 @@ const Results = createConnector({
       : false;
     return { query: searchState.query, noResults, pagination };
   },
-})(({ noResults, pagination, query }) => {
+})(({ noResults, query, pagination }) => {
   if (isEmpty(query)) {
     body.classList.remove('searching');
     return <span />;
