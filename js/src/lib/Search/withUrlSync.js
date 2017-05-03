@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import qs from 'qs';
 
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({ q: searchState.query });
+const searchStateToQueryString = searchState => ({
+  q: searchState.query,
+  p: searchState.page,
+});
 
 const searchStateToUrl = searchState =>
   (searchState
     ? `${window.i18n.url_base}/packages?${qs.stringify(searchStateToQueryString(searchState))}`
     : '');
 
-const queryStringToSearchState = queryString => ({
-  query: qs.parse(queryString).q,
-});
+const queryStringToSearchState = queryString => {
+  const { p, q } = qs.parse(queryString);
+  return {
+    query: q,
+    page: p,
+  };
+};
 
 const originalPathName = location.pathname;
 
