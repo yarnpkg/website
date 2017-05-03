@@ -3,6 +3,7 @@ import createConnector from 'react-instantsearch/src/core/createConnector';
 import Hits from 'react-instantsearch/src/widgets/InfiniteHits';
 import CurrentRefinements
   from 'react-instantsearch/src/widgets/CurrentRefinements';
+import Stats from 'react-instantsearch/src/widgets/Stats';
 
 import Hit from '../Hit';
 import { isEmpty } from '../util';
@@ -11,7 +12,10 @@ const body = document.querySelector('body');
 
 const ResultsFound = () => (
   <div className="container">
-    <CurrentRefinements />
+    <div className="mx-3">
+      <CurrentRefinements />
+      <Stats />
+    </div>
     <Hits hitComponent={Hit} />
     <div className="search-footer">
       {window.i18n.search_by_algolia}
