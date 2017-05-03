@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import qs from 'qs';
 
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({
-  q: searchState.query,
-  p: searchState.page,
-});
+const searchStateToQueryString = searchState => ({ q: searchState.query });
 
 const searchStateToUrl = searchState =>
-  searchState
-    ? `${window.i18n.url_base}/packages?${qs.stringify(
-        searchStateToQueryString(searchState),
-      )}`
-    : '';
+  (searchState
+    ? `${window.i18n.url_base}/packages?${qs.stringify(searchStateToQueryString(searchState))}`
+    : '');
 
 const queryStringToSearchState = queryString => ({
   query: qs.parse(queryString).q,
@@ -45,20 +40,17 @@ export default App => class extends Component {
         window.history.pushState(
           null,
           'Search packages | Yarn',
-          originalPathName,
+          originalPathName
         );
       }
     } else {
-      this.debouncedSetState = setTimeout(
-        () => {
-          window.history.pushState(
-            searchState,
-            'Search packages | Yarn',
-            searchStateToUrl(searchState),
-          );
-        },
-        updateAfter,
-      );
+      this.debouncedSetState = setTimeout(() => {
+        window.history.pushState(
+          searchState,
+          'Search packages | Yarn',
+          searchStateToUrl(searchState)
+        );
+      }, updateAfter);
     }
 
     this.setState({ searchState });
