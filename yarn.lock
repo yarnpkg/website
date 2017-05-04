@@ -2540,7 +2540,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.6:
+prop-types@^15.5.6, prop-types@^15.5.8:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -2623,14 +2623,15 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-instantsearch@^3.2.2-beta0:
-  version "3.2.2-beta0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-3.2.2-beta0.tgz#1740631362928432c353276b087be96c7ca39943"
+react-instantsearch@4.0.0-beta.6:
+  version "4.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/react-instantsearch/-/react-instantsearch-4.0.0-beta.6.tgz#bcc651ffa8f7f9d7bc79640d6bb9ca136de3517f"
   dependencies:
     algoliasearch "^3.21.1"
     algoliasearch-helper "2.19.0"
     classnames "^2.2.5"
     lodash "^4.17.4"
+    prop-types "^15.5.8"
 
 react-sparklines@^1.6.0:
   version "1.6.0"
