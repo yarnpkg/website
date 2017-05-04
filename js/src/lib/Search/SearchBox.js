@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import SearchBox from 'react-instantsearch/src/widgets/SearchBox';
+import { SearchBox } from 'react-instantsearch/dom';
 
 class WrappedSearchBox extends Component {
   constructor(props) {

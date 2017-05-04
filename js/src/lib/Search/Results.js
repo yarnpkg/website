@@ -1,10 +1,11 @@
 import React from 'react';
-import createConnector from 'react-instantsearch/src/core/createConnector';
-import Hits from 'react-instantsearch/src/widgets/Hits';
-import Pagination from 'react-instantsearch/src/widgets/Pagination';
-import CurrentRefinements
-  from 'react-instantsearch/src/widgets/CurrentRefinements';
-import Stats from 'react-instantsearch/src/widgets/Stats';
+import { createConnector } from 'react-instantsearch';
+import {
+  Hits,
+  Pagination,
+  CurrentRefinements,
+  Stats,
+} from 'react-instantsearch/dom';
 
 import Hit from '../Hit';
 import { isEmpty } from '../util';
