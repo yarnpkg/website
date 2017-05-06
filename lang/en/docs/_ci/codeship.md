@@ -1,6 +1,4 @@
-On [Codeship Basic](https://codeship.com/features/basic), you can install Yarn
-as part of your build by adding this to your _Setup Commands_ in your project
-settings:
+Yarn is pre-installed [Codeship Basic](https://codeship.com/features/basic).
 
 ```sh
 curl -o- -L https://yarnpkg.com/install.sh | bash
