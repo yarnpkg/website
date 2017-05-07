@@ -142,6 +142,11 @@ docs_cli_team: yarn team
 docs_cli_test: yarn test
 docs_cli_unlink: yarn unlink
 docs_cli_upgrade: yarn upgrade
+docs_cli_upgrade_description: |
+  Upgrades packages to their latest version based on the specified range.
+docs_cli_upgrade_interactive: yarn upgrade-interactive
+docs_cli_upgrade_interactive_description: |
+  Provides an easy and interactive way to update outdated packages.
 docs_cli_version: yarn version
 docs_cli_why: yarn why
 
