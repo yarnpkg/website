@@ -22,8 +22,8 @@
   }
 
   @include media-breakpoint-up(lg) {
-    &-main {
-      border-right: 1px solid #CBCBCB;
+    &-side {
+      border-left: 1px solid #CBCBCB;
     }
   }
 
