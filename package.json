@@ -44,7 +44,7 @@
     "qs": "^6.4.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-instantsearch": "4.0.0-beta.6",
+    "react-instantsearch": "^4.0.0-beta.6",
     "react-sparklines": "^1.6.0",
     "react-transition-group": "^1.1.2",
     "unfetch": "^2.1.2",
