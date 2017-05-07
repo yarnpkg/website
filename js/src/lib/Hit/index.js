@@ -1,6 +1,6 @@
 import React from 'react';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-import Highlight from 'react-instantsearch/src/widgets/Highlight';
+import { Highlight } from 'react-instantsearch/dom';
 import {
   getDownloadBucket,
   formatKeywords,

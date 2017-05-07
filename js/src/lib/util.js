@@ -1,7 +1,7 @@
 import React from 'react';
 import fetch from 'unfetch';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
-import connectToggle from 'react-instantsearch/src/connectors/connectToggle';
+import { connectToggle } from 'react-instantsearch/connectors';
 
 export const isEmpty = item => typeof item === 'undefined' || item.length < 1;
 
@@ -57,48 +57,46 @@ export function formatKeywords(
         return k2.matchedWords.length - k1.matchedWords.length;
       }
       if (k1.matchedWords.join('').length !== k2.matchedWords.join('').length) {
-        return k2.matchedWords.join('').length -
-          k1.matchedWords.join('').length;
+        return (
+          k2.matchedWords.join('').length - k1.matchedWords.join('').length
+        );
       }
       return 0;
     })
     .slice(0, maxKeywords)
-    .map(({
-      value: highlightedKeyword,
-      originalValue: keyword,
-    }, keywordIndex) => {
-      const highlighted = parseHighlightedAttribute({
-        highlightedValue: highlightedKeyword,
-      });
-      const content = highlighted.map((v, i) => {
-        const key = `split-${i}-${v.value}`;
-        if (!v.isHighlighted) {
+    .map(
+      ({ value: highlightedKeyword, originalValue: keyword }, keywordIndex) => {
+        const highlighted = parseHighlightedAttribute({
+          highlightedValue: highlightedKeyword,
+        });
+        const content = highlighted.map((v, i) => {
+          const key = `split-${i}-${v.value}`;
+          if (!v.isHighlighted) {
+            return (
+              <span key={key} className="ais-Highlight__nonHighlighted">
+                {v.value}
+              </span>
+            );
+          }
           return (
-            <span key={key} className="ais-Highlight__nonHighlighted">
-              {v.value}
-            </span>
+            <em key={key} className="ais-Highlight__highlighted">{v.value}</em>
           );
-        }
+        });
         return (
-          <em key={key} className="ais-Highlight__highlighted">{v.value}</em>
+          <span className="ais-Hit--keyword" key={`${keyword}${keywordIndex}`}>
+            {content}
+          </span>
         );
-      });
-      return (
-        <span className="ais-Hit--keyword" key={`${keyword}${keywordIndex}`}>
-          {content}
-        </span>
-      );
-    })
+      }
+    )
     .reduce((prev, curr) => [prev, ', ', curr]);
 }
 
-function parseHighlightedAttribute(
-  {
-    preTag = highlightTags.highlightPreTag,
-    postTag = highlightTags.highlightPostTag,
-    highlightedValue,
-  }
-) {
+function parseHighlightedAttribute({
+  preTag = highlightTags.highlightPreTag,
+  postTag = highlightTags.highlightPostTag,
+  highlightedValue,
+}) {
   const splitByPreTag = highlightedValue.split(preTag);
   const firstValue = splitByPreTag.shift();
   const elements = firstValue === ''
