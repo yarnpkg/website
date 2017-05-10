@@ -221,10 +221,10 @@ index 11ce116..f5d81ba 100644
 ...
 -shelljs@0.6.0:
 -  version "0.6.0"
--  resolved shelljs-0.6.0.tgz#ce1ed837b4b0e55b5ec3dab84251ab9dbdc0c7ec
+-  resolved https://registry.yarnpkg.com/shelljs/-/shelljs-0.6.0.tgz#ce1ed837b4b0e55b5ec3dab84251ab9dbdc0c7ec
 +shelljs@0.7.0:
 +  version "0.7.0"
-+  resolved shelljs-0.7.0.tgz#3f6f2e4965cec565f65ff3861d644f879281a576
++  resolved https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.0.tgz#3f6f2e4965cec565f65ff3861d644f879281a576
 +  dependencies:
 +    glob "^7.0.0"
 +    interpret "^1.0.0"
