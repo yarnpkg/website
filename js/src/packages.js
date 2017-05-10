@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import algoliasearch from 'algoliasearch';
+import algoliasearch from 'algoliasearch/lite';
 import { Owner } from './lib/Hit';
 import { packageLink, Keywords } from './lib/util';
 
@@ -78,5 +78,5 @@ class Featured extends React.Component {
 
 ReactDOM.render(
   <Featured packages={FEATURED} />,
-  document.getElementById('pkg-featured'),
+  document.getElementById('pkg-featured')
 );

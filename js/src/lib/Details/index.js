@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import algoliasearch from 'algoliasearch';
+import algoliasearch from 'algoliasearch/lite';
 
 import Aside from './Aside';
 import FileBrowser from './FileBrowser';
