@@ -1,7 +1,6 @@
 import React from 'react';
 import qs from 'qs';
 import { Configure, InstantSearch } from 'react-instantsearch/dom';
-import algoliasearch from 'algoliasearch';
 
 import SearchBox from './SearchBox';
 import Results from './Results';
