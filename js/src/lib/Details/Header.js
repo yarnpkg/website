@@ -2,18 +2,16 @@ import React from 'react';
 import { License, Owner, Downloads } from '../Hit';
 import { Keywords } from '../util';
 
-const Header = (
-  {
-    name,
-    owner,
-    downloadsLast30Days,
-    humanDownloadsLast30Days,
-    description,
-    license,
-    keywords,
-    version,
-  },
-) => (
+const Header = ({
+  name,
+  owner,
+  downloadsLast30Days,
+  humanDownloadsLast30Days,
+  description,
+  license,
+  keywords,
+  version,
+}) => (
   <header className="details-main--header">
     <h2 className="details-main--title d-inline-block m-2">
       {name}

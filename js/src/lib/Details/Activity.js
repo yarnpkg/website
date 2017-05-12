@@ -42,9 +42,7 @@ const Activity = ({ data = [], githubRepo }) => {
     <article className="details-side--activity">
       <h1>{window.i18n.detail.activity}</h1>
       <a
-        href={
-          `https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}/graphs/commit-activity`
-        }
+        href={`https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}/graphs/commit-activity`}
         target="_blank"
         rel="noopener noreferrer"
       >

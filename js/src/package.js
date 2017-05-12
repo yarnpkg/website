@@ -15,7 +15,7 @@ function languageDropdownAddPackage(pkg) {
   const langMenu = document.getElementById('dropdownNavLanguageMenu');
   const langMenuItems = langMenu.querySelectorAll('.dropdown-item');
 
-  const addPackage = langMenuItem => langMenuItem.href += `/${pkg}`;
+  const addPackage = langMenuItem => (langMenuItem.href += `/${pkg}`);
 
   for (let i = 0; i < langMenuItems.length; i++) {
     addPackage(langMenuItems[i]);

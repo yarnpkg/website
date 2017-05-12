@@ -10,7 +10,7 @@ import {
 } from '../util';
 
 export const License = ({ type }) =>
-  (type ? <span className="ais-Hit--license">{type}</span> : null);
+  type ? <span className="ais-Hit--license">{type}</span> : null;
 
 export const Owner = ({ link, avatar, name }) => (
   <a className="ais-Hit--ownerLink" href={link}>
