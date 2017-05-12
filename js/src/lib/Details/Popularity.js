@@ -34,7 +34,11 @@ const Popularity = ({
           <dt>{window.i18n.detail.dependents}</dt>
           <span className="dotted flex-grow" />
           <dd title={dependents.toLocaleString(window.i18n.active_language)}>
-            <a href={`https://www.npmjs.com/browse/depended/${name}`}>
+            <a
+              href={`https://www.npmjs.com/browse/depended/${name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {humanDependents}
             </a>
           </dd>
