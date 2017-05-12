@@ -1,7 +1,7 @@
 ---
 layout     : post
 title      : "Yarn Create & Yarn 1.0"
-author     : Mael Nisson
+author     : Maël Nison
 author_url : "https://twitter.com/arcanis"
 date       : 2017-05-12 8:00:00
 categories : announcements
