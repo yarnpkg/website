@@ -8,13 +8,30 @@ import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
 import Markdown from './Markdown';
 import schema from '../schema';
-import { prefixURL, get } from '../util';
+import { prefixURL, get, packageLink } from '../util';
 import { algolia } from '../config';
 
 const client = algoliasearch(algolia.appId, algolia.apiKey);
 const index = client.initIndex(algolia.indexName);
 
 const readmeErrorMessage = 'ERROR: No README data found!';
+
+function setHead({ name, description }) {
+  const head = document.querySelector('head');
+  const permalink = `https://yarnpkg.com${packageLink(name)}`;
+  head.querySelector('meta[property="og:title"]').setAttribute('content', name);
+  document.title = `${name} | Yarn`;
+  head
+    .querySelector('meta[name=description]')
+    .setAttribute('content', description);
+  head
+    .querySelector('meta[property="og:description"]')
+    .setAttribute('content', description);
+  head
+    .querySelector('meta[property="og:url"]')
+    .setAttribute('content', permalink);
+  head.querySelector('link[rel=canonical]').setAttribute('href', permalink);
+}
 
 class Details extends Component {
   constructor(props) {
@@ -29,7 +46,7 @@ class Details extends Component {
   componentWillMount() {
     index.getObject(this.props.objectID).then(content => {
       this.setState(prevState => ({ ...content, loaded: true }));
-      document.title = `${this.props.objectID} | Yarn`;
+      setHead(content);
       this.getDocuments();
     });
   }
