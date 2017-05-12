@@ -54,6 +54,7 @@ const Aside = ({
       stargazers={stargazers}
       dependents={dependents}
       humanDependents={humanDependents}
+      name={name}
     />
     {githubRepo &&
       githubRepo.user &&

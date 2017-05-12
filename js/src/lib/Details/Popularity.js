@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Popularity = ({
+  name,
   stargazers,
   downloads,
   humanDownloads,
@@ -33,7 +34,9 @@ const Popularity = ({
           <dt>{window.i18n.detail.dependents}</dt>
           <span className="dotted flex-grow" />
           <dd title={dependents.toLocaleString(window.i18n.active_language)}>
-            {humanDependents}
+            <a href={`https://www.npmjs.com/browse/depended/${name}`}>
+              {humanDependents}
+            </a>
           </dd>
         </div>}
     </dl>
