@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /-debug/
+Disallow: /page*/
+
+Sitemap: http://yarnpkg.com/sitemaps/sitemap-index.xml
