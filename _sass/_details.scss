@@ -21,6 +21,10 @@
     }
   }
 
+  &-main {
+    overflow: auto;
+  }
+
   @include media-breakpoint-up(lg) {
     &-side {
       border-left: 1px solid #CBCBCB;
