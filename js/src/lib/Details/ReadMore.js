@@ -33,14 +33,12 @@ class ReadMore extends React.Component {
 
     return (
       <div
-        className={
-          `${className} readMore ${collapsed ? 'readMore--collapsed' : ''}`
-        }
+        className={`${className} readMore ${collapsed ? 'readMore--collapsed' : ''}`}
       >
         <div
           className="readMore--content"
           style={{ maxHeight: collapsed ? this.maxHeight : '' }}
-          ref={div => this.content = div}
+          ref={div => (this.content = div)}
         >
           {children}
         </div>

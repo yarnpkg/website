@@ -18,14 +18,11 @@ export default class Copyable extends React.Component {
       this.setState(() => ({
         statusImage: image,
       }));
-      setTimeout(
-        () => {
-          this.setState(() => ({
-            statusImage: images.default,
-          }));
-        },
-        timeout
-      );
+      setTimeout(() => {
+        this.setState(() => ({
+          statusImage: images.default,
+        }));
+      }, timeout);
     };
 
     let range = document.createRange();
@@ -51,7 +48,7 @@ export default class Copyable extends React.Component {
       <div className="copyable">
         <code className="copyable--code">
           {this.props.pre}
-          <span ref={sample => this.installSample = sample}>
+          <span ref={sample => (this.installSample = sample)}>
             {this.props.text}
           </span>
         </code>

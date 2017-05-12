@@ -27,11 +27,7 @@ const Links = ({ name, homepage, githubRepo, className }) => (
     {githubRepo
       ? <Link
           site="github"
-          url={
-            `https://github.com/${encode(githubRepo.user)}/${encode(
-              githubRepo.project,
-            )}${githubRepo.path}`
-          }
+          url={`https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}${githubRepo.path}`}
           display={`${githubRepo.user}/${githubRepo.project}`}
         />
       : null}
