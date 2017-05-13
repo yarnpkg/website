@@ -302,6 +302,7 @@ script:
   npm: npm
   github: GitHub
   homepage: Homepage
+  deprecated: deprecated
 
   detail:
     over_a_year_ago: over a year ago

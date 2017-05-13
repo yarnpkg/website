@@ -146,6 +146,7 @@ class Details extends Component {
             humanDownloadsLast30Days={this.state.humanDownloadsLast30Days}
             description={this.state.description}
             license={this.state.license}
+            deprecated={this.state.deprecated}
             keywords={this.state.keywords}
             version={this.state.version}
           />

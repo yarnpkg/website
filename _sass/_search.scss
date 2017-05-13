@@ -192,6 +192,18 @@ $ais-muted-color: rgba(black,.5);
     letter-spacing: .2px;
   }
 
+  &--deprecated {
+    font-size: .75rem;
+    text-transform: uppercase;
+    background-color: #ccc;
+    border: solid 1px #ccc;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: .2px;
+  }
+
   &--version {
     font-size: .825rem;
     color: $ais-muted-color;

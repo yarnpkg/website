@@ -27,17 +27,18 @@ const Search = props => (
       }
       facets={['keywords']}
       attributesToRetrieve={[
-        'name',
-        'downloadsLast30Days',
-        'humanDownloadsLast30Days',
-        'license',
-        'version',
+        'deprecated',
         'description',
-        'modified',
-        'keywords',
-        'homepage',
+        'downloadsLast30Days',
         'githubRepo',
+        'homepage',
+        'humanDownloadsLast30Days',
+        'keywords',
+        'license',
+        'modified',
+        'name',
         'owner',
+        'version',
       ]}
     />
     <SearchBox

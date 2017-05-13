@@ -1,5 +1,5 @@
 import React from 'react';
-import { License, Owner, Downloads } from '../Hit';
+import { License, Deprecated, Owner, Downloads } from '../Hit';
 import { Keywords } from '../util';
 
 const Header = ({
@@ -9,6 +9,7 @@ const Header = ({
   humanDownloadsLast30Days,
   description,
   license,
+  deprecated,
   keywords,
   version,
 }) => (
@@ -23,6 +24,7 @@ const Header = ({
         humanDownloads={humanDownloadsLast30Days}
       />
       <License type={license} />
+      <Deprecated deprecated={deprecated} />
       <span className="ais-Hit--version">{version}</span>
     </div>
     <p className="m-2 lead">{description}</p>

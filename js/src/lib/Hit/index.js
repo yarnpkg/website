@@ -12,6 +12,11 @@ import {
 export const License = ({ type }) =>
   type ? <span className="ais-Hit--license">{type}</span> : null;
 
+export const Deprecated = ({ deprecated }) =>
+  deprecated
+    ? <span className="ais-Hit--deprecated">{window.i18n.deprecated}</span>
+    : null;
+
 export const Owner = ({ link, avatar, name }) => (
   <a className="ais-Hit--ownerLink" href={link}>
     <img
@@ -76,6 +81,7 @@ const Hit = ({ hit }) => (
       humanDownloads={hit.humanDownloadsLast30Days}
     />
     <License type={hit.license} />
+    <Deprecated deprecated={hit.deprecated} />
     <span className="ais-Hit--version">{hit.version}</span>
     <p className="ais-Hit--description">
       <Highlight attributeName="description" hit={hit} />
