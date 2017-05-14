@@ -37,6 +37,7 @@
   "dependencies": {
     "algoliasearch": "^3.22.1",
     "bootstrap": "4.0.0-alpha.5",
+    "bytes": "^2.5.0",
     "date-fns": "^1.28.4",
     "docsearch.js": "^2.3.3",
     "jquery": "^3.2.1",
