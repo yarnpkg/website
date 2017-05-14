@@ -12,7 +12,7 @@ const Popularity = ({
     <h1>{window.i18n.detail.popularity}</h1>
     <dl>
       {stargazers > 0 &&
-        <div className="d-flex flex-items-between w-100">
+        <div className="d-flex justify-items-between w-100">
           <img src="/assets/detail/ico-stargazers.svg" alt="" />
           <dt>{window.i18n.detail.github_stargazers}</dt>
           <span className="dotted flex-grow" />
@@ -20,7 +20,7 @@ const Popularity = ({
         </div>}
       {downloads > 0 &&
         humanDownloads &&
-        <div className="d-flex flex-items-between w-100">
+        <div className="d-flex justify-items-between w-100">
           <img src="/assets/detail/ico-downloads.svg" alt="" />
           <dt>{window.i18n.detail.downloads_last_30_days}</dt>
           <span className="dotted flex-grow" />
@@ -29,7 +29,7 @@ const Popularity = ({
           </dd>
         </div>}
       {dependents > 0 &&
-        <div className="d-flex flex-items-between w-100">
+        <div className="d-flex justify-items-between w-100">
           <img src="/assets/detail/ico-dependents.svg" alt="" />
           <dt>{window.i18n.detail.dependents}</dt>
           <span className="dotted flex-grow" />

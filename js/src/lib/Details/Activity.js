@@ -55,7 +55,7 @@ const Activity = ({ data = [], githubRepo }) => {
         </Sparklines>
       </a>
       <dl>
-        <div className="d-flex flex-items-between w-100">
+        <div className="d-flex justify-items-between w-100">
           <img src="/assets/detail/ico-commits.svg" alt="" />
           <dt>{window.i18n.detail.commits_last_three_months}</dt>
           <span className="dotted flex-grow" />
@@ -63,7 +63,7 @@ const Activity = ({ data = [], githubRepo }) => {
             {countCommitsLastThreeMonths({ weeklyData: data })}
           </dd>
         </div>
-        <div className="d-flex flex-items-between w-100">
+        <div className="d-flex justify-items-between w-100">
           <img src="/assets/detail/ico-commits-last.svg" alt="" />
           <dt>{window.i18n.detail.last_commit}</dt>
           <span className="dotted flex-grow" />

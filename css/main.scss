@@ -48,9 +48,15 @@ $npm-red: #C12127;
 @import "_copyable.scss";
 
 // should come from bootstrap but it doesn't
-.flex-items-between {
+.justify-items-between {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.align-items-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
 }

@@ -1,11 +1,11 @@
----
-layout: pages/detail
+--- 
+layout: pages/detail 
 scripts:
-- "/js/build/package.js"
+  - "/js/build/package.js" 
 ---
-{% comment %}
-this is the default package view to make the load percieve smoother,
-for the implementation, look at /js/lib/Details/index.js etc.
+{% comment %} 
+this is the default package view to make the load percieve smoother, 
+for the implementation, look at /js/lib/Details/index.js etc. 
 {% endcomment %}
 <div id="pkg-detail">
   <div data-reactroot="" class="details row">
@@ -52,15 +52,15 @@ for the implementation, look at /js/lib/Details/index.js etc.
       <article class="details-side--usage">
         <h1>Usage</h1>
         <dl>
-          <div class="d-flex flex-items-between w-100"><img src="/assets/detail/ico-dependencies.svg" alt="">
+          <div class="d-flex justify-items-between w-100"><img src="/assets/detail/ico-dependencies.svg" alt="">
             <dt>Dependencies</dt><span class="dotted flex-grow"></span>
             <dd>0</dd>
           </div>
-          <div class="d-flex flex-items-between w-100"><img src="/assets/detail/ico-devdependencies.svg" alt="">
+          <div class="d-flex justify-items-between w-100"><img src="/assets/detail/ico-devdependencies.svg" alt="">
             <dt>DevDependencies</dt><span class="dotted flex-grow"></span>
             <dd>0</dd>
           </div>
-          <div class="d-flex flex-items-between w-100"><img src="/assets/detail/ico-package-json.svg" alt="">
+          <div class="d-flex justify-items-between w-100"><img src="/assets/detail/ico-package-json.svg" alt="">
             <dt>Packages</dt><span class="dotted flex-grow"></span>
             <dd><a href="https://github.com///tree/master/package.json">see package.json</a></dd>
           </div>

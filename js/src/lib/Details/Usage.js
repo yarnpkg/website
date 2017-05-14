@@ -5,7 +5,7 @@ const Deps = ({ dependencies, text, id }) => {
   if (dependencies) {
     const dependencyNames = Object.keys(dependencies);
     return (
-      <div className="d-flex flex-items-between w-100">
+      <div className="d-flex justify-items-between w-100">
         <img src={`/assets/detail/ico-${id}.svg`} alt="" />
         <dt>
           {dependencyNames.length > 0
@@ -47,7 +47,7 @@ const Usage = ({
         id="devdependencies"
       />
       {packageJSONLink &&
-        <div className="d-flex flex-items-between w-100">
+        <div className="d-flex justify-items-between w-100">
           <img src="/assets/detail/ico-package-json.svg" alt="" />
           <dt>{window.i18n.detail.packages}</dt>
           <span className="dotted flex-grow" />

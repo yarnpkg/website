@@ -3,6 +3,8 @@ import React from 'react';
 
 import fetch from 'unfetch';
 
+import bytes from 'bytes';
+
 const SORT_ORDER = { directory: 1, file: 2 };
 
 function getBasename(path) {
@@ -169,6 +171,7 @@ class Directory extends React.PureComponent {
                 file={file}
                 key={file.path}
                 url={this.props.baseURL + file.path.substr(1)}
+                size={file.size}
               />
             );
           }
@@ -183,10 +186,14 @@ class Directory extends React.PureComponent {
   };
 }
 
-const File = ({ file, url }) => (
-  <li key={file.path}>
+const File = ({ file, url, size }) => (
+  <li
+    key={file.path}
+    className="d-flex justify-items-between align-items-baseline"
+  >
     <a className="details-files__filename" href={url} target="_blank">
       {getBasename(file.path)}
     </a>
+    <small>{bytes(size)}</small>
   </li>
 );

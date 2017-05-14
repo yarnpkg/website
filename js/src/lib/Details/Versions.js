@@ -30,7 +30,7 @@ export default class Versions extends Component {
         <h1>{window.i18n.detail.versions}</h1>
         <dl>
           {versionsToShow.map(version => (
-            <div key={version} className="d-flex flex-items-between w-100">
+            <div key={version} className="d-flex justify-items-between w-100">
               <dt>
                 {new Date(versions[version]).toLocaleDateString(
                   window.i18n.active_language,
