@@ -19,13 +19,13 @@ password to do so.
 ```sh
 yarn login
 ```
-
+<!--email_off-->
 ```sh
 yarn login vx.x.x
 question npm username: my-username
 question npm email: my-username@example.com
 ✨  Done in 6.03s.
 ```
-
+<!--/email_off-->
 Using [`yarn logout`]({{url_base}}/docs/cli/logout) you can delete your
 username and email.

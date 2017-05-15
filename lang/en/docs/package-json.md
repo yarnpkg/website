@@ -36,13 +36,13 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 ```
 
 **Rules**
-
+<!--email_off-->
 - Must be less than or equal to 214 characters (including the `@scope/` for
   scoped packages).
 - Must not start with a dot (`.`) or an underscore (`_`).
 - Must not have an uppercase letter in the name.
 - Must use only URL-safe characters.
-
+<!--/email_off-->
 **Tips**
 
 - Don't use the same name as a core Node.js module

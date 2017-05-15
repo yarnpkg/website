@@ -45,7 +45,7 @@ You can also add other
 You can specify which version of a package you want to install by specifying
 either a [dependency version]({{url_base}}/docs/dependency-versions) or a
 [tag]({{url_base}}/docs/cli/tag).
-
+<!--email_off-->
 ```sh
 yarn add [package]@[version]
 yarn add [package]@[tag]
@@ -61,7 +61,7 @@ yarn add package-1@1.2.3
 yarn add package-2@^1.0.0
 yarn add package-3@beta
 ```
-
+<!--/email_off-->
 ```json
 {
   "dependencies": {
@@ -75,13 +75,13 @@ yarn add package-3@beta
 
 
 ### Upgrading a dependency <a class="toc" id="toc-upgrading-a-dependency" href="#toc-upgrading-a-dependency"></a>
-
+<!--email_off-->
 ```sh
 yarn upgrade [package]
 yarn upgrade [package]@[version]
 yarn upgrade [package]@[tag]
 ```
-
+<!--/email_off-->
 This will upgrade your `package.json` and your `yarn.lock` file.
 
 ```diff

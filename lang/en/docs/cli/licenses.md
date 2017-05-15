@@ -15,7 +15,7 @@ to the source code) associated with each package.
 ```sh
 yarn licenses ls
 ```
-
+<!--email_off-->
 ```
 yarn licenses v0.14.0
 ├─ abab@1.0.3
@@ -44,7 +44,7 @@ yarn licenses v0.14.0
 │  └─ URL: https://github.com/sindresorhus/ansi-regex.git
 ...
 ```
-
+<!--/email_off-->
 ##### `yarn licenses generate-disclaimer` <a class="toc" id="toc-yarn-licenses-generate-disclaimer" href="#toc-yarn-licenses-generate-disclaimer"></a>
 
 Running this command will return a sorted list of licenses from all the

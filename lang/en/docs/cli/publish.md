@@ -23,11 +23,11 @@ Publishes the package contained in the specified folder.
 `<folder>/package.json` should specify the package details.
 
 ##### `yarn publish --tag <tag>` <a class="toc" id="toc-yarn-publish-tag" href="#toc-yarn-publish-tag"></a>
-
+<!--email_off-->
 Provided a tag to `yarn publish` lets you publish packages with a specific tag.
 For example, if you do a `yarn publish --tag beta`, and your package is named
 `blorp`, then someone else can install that package with `yarn add blorp@beta`.
-
+<!--/email_off-->
 ##### `yarn publish --access <public|restricted>` <a class="toc" id="toc-yarn-publish-access" href="#toc-yarn-publish-access"></a>
 
 The `--access` flag controls whether the npm registry publishes this package as 

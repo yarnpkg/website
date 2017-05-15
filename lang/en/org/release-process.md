@@ -23,7 +23,7 @@ layout: guide
 - Push to origin `git push origin 0.x-stable --follow-tags`
 
 ## To mark a release as stable
-
+<!--email_off-->
 1. Remove tag `rc` from the release on npm and set the version considered as stable to `latest`: 
 ```
 npm dist-tag rm yarn rc
@@ -31,7 +31,7 @@ npm dist-tag add yarn@<version> latest
 ```
 2. Bump `latest_version` in [_config.yml on the website](https://github.com/yarnpkg/website/blob/master/_config.yml#L9). This updates the download URLs (`/latest.tar.gz` etc) to point to the new release. This will eventually be automated ([#187](https://github.com/yarnpkg/website/issues/187))
 3. Debian and CentOS repo should be automatically updated with the latest release within 5 minutes (keep an eye on [the commits](https://github.com/yarnpkg/releases/commits/gh-pages))
-
+<!--/email_off-->
 
 ## Old Manual Process <a class="toc" id="toc-old-manual-process" href="#toc-old-manual-process"></a>
 

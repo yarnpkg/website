@@ -17,7 +17,7 @@ yarn init
 ```
 
 **Adding a dependency**
-
+<!--email_off-->
 ```sh
 yarn add [package]
 yarn add [package]@[version]
@@ -31,7 +31,7 @@ yarn upgrade [package]
 yarn upgrade [package]@[version]
 yarn upgrade [package]@[tag]
 ```
-
+<!--/email_off-->
 **Removing a dependency**
 
 ```sh
