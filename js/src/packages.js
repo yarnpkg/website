@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import algoliasearch from 'algoliasearch/lite';
 import { Owner } from './lib/Hit';
 import { packageLink, Keywords } from './lib/util';
+import { algolia } from './lib/config';
 
 const FEATURED = ['babel-core', 'react', 'async', 'lodash', 'debug', 'qs'];
 
-const client = algoliasearch('OFCNCOG2CU', 'f54e21fa3a2a0160595bb058179bfb1e');
-const index = client.initIndex('npm-search');
+const client = algoliasearch(algolia.appId, algolia.apiKey);
+const index = client.initIndex(algolia.indexName);
 
-class FeaturedPackage extends React.Component {
-  PropTypes = {
+class FeaturedPackage extends Component {
+  propTypes = {
     name: PropTypes.string.isRequired,
     owner: {
       link: PropTypes.string.isRequired,
@@ -37,7 +38,7 @@ class FeaturedPackage extends React.Component {
   }
 }
 
-class Featured extends React.Component {
+class Featured extends Component {
   constructor(props) {
     super(props);
     this.state = {
