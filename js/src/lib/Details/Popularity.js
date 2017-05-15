@@ -1,4 +1,5 @@
 import React from 'react';
+import { Di } from './';
 
 const Popularity = ({
   name,
@@ -12,37 +13,37 @@ const Popularity = ({
     <h1>{window.i18n.detail.popularity}</h1>
     <dl>
       {stargazers > 0 &&
-        <div className="d-flex justify-items-between w-100">
-          <img src="/assets/detail/ico-stargazers.svg" alt="" />
-          <dt>{window.i18n.detail.github_stargazers}</dt>
-          <span className="dotted flex-grow" />
-          <dd>{stargazers.toLocaleString(window.i18n.active_language)}</dd>
-        </div>}
+        <Di
+          icon="stargazers"
+          title={window.i18n.detail.github_stargazers}
+          description={stargazers.toLocaleString(window.i18n.active_language)}
+        />}
       {downloads > 0 &&
         humanDownloads &&
-        <div className="d-flex justify-items-between w-100">
-          <img src="/assets/detail/ico-downloads.svg" alt="" />
-          <dt>{window.i18n.detail.downloads_last_30_days}</dt>
-          <span className="dotted flex-grow" />
-          <dd title={downloads.toLocaleString(window.i18n.active_language)}>
-            {humanDownloads}
-          </dd>
-        </div>}
+        <Di
+          icon="downloads"
+          title={window.i18n.detail.downloads_last_30_days}
+          description={
+            <span title={downloads.toLocaleString(window.i18n.active_language)}>
+              {humanDownloads}
+            </span>
+          }
+        />}
       {dependents > 0 &&
-        <div className="d-flex justify-items-between w-100">
-          <img src="/assets/detail/ico-dependents.svg" alt="" />
-          <dt>{window.i18n.detail.dependents}</dt>
-          <span className="dotted flex-grow" />
-          <dd title={dependents.toLocaleString(window.i18n.active_language)}>
+        <Di
+          icon="dependents"
+          title={window.i18n.detail.dependents}
+          description={
             <a
               href={`https://www.npmjs.com/browse/depended/${name}`}
               target="_blank"
               rel="noopener noreferrer"
+              title={dependents.toLocaleString(window.i18n.active_language)}
             >
               {humanDependents}
             </a>
-          </dd>
-        </div>}
+          }
+        />}
     </dl>
   </article>
 );

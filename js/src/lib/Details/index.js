@@ -16,6 +16,15 @@ const index = client.initIndex(algolia.indexName);
 
 const readmeErrorMessage = 'ERROR: No README data found!';
 
+export const Di = ({ icon, title, description }) => (
+  <div className="d-flex justify-items-between w-100">
+    {icon && <img src={`/assets/detail/ico-${icon}.svg`} alt="" />}
+    <dt>{title}</dt>
+    <span className="dotted flex-grow" />
+    <dd>{description}</dd>
+  </div>
+);
+
 function setHead({ name, description }) {
   const head = document.querySelector('head');
   const permalink = `https://yarnpkg.com${packageLink(name)}`;

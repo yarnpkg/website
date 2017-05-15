@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import { Di } from './';
+
+const _localeVersion = pubDate =>
+  new Date(pubDate).toLocaleDateString(window.i18n.active_language, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
 export default class Versions extends Component {
   constructor(props) {
@@ -30,20 +38,11 @@ export default class Versions extends Component {
         <h1>{window.i18n.detail.versions}</h1>
         <dl>
           {versionsToShow.map(version => (
-            <div key={version} className="d-flex justify-items-between w-100">
-              <dt>
-                {new Date(versions[version]).toLocaleDateString(
-                  window.i18n.active_language,
-                  {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  }
-                )}
-              </dt>
-              <span className="dotted flex-grow" />
-              <dd>{version}</dd>
-            </div>
+            <Di
+              key={version}
+              title={_localeVersion(versions[version])}
+              description={version}
+            />
           ))}
         </dl>
         {versionsToShow.length > 2 &&

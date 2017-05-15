@@ -1,30 +1,26 @@
 import React from 'react';
 import { packageLink } from '../util';
+import { Di } from './';
 
-const Deps = ({ dependencies, text, id }) => {
+const deps = ({ dependencies, title }) => {
   if (dependencies) {
     const dependencyNames = Object.keys(dependencies);
-    return (
-      <div className="d-flex justify-items-between w-100">
-        <img src={`/assets/detail/ico-${id}.svg`} alt="" />
-        <dt>
-          {dependencyNames.length > 0
-            ? <details>
-                <summary>{text}</summary>
-                {dependencyNames
-                  .map((name, index) => (
-                    <a href={packageLink(name)} key={index}>{name}</a>
-                  ))
-                  .reduce((prev, curr) => [prev, ', ', curr])}
-              </details>
-            : text}
-        </dt>
-        <span className="dotted flex-grow" />
-        <dd>{dependencyNames.length}</dd>
-      </div>
-    );
+
+    return {
+      title: dependencyNames.length > 0
+        ? <details>
+            <summary>{title}</summary>
+            {dependencyNames
+              .map((name, index) => (
+                <a href={packageLink(name)} key={index}>{name}</a>
+              ))
+              .reduce((prev, curr) => [prev, ', ', curr])}
+          </details>
+        : title,
+      description: dependencyNames.length,
+    };
   }
-  return null;
+  return {};
 };
 
 const Usage = ({
@@ -36,27 +32,30 @@ const Usage = ({
   <article className="details-side--usage">
     <h1>{window.i18n.detail.usage}</h1>
     <dl>
-      <Deps
-        dependencies={dependencies}
-        text={window.i18n.detail.dependencies}
-        id="dependencies"
+      <Di
+        icon="dependencies"
+        {...deps({
+          title: window.i18n.detail.dependencies,
+          dependencies: dependencies,
+        })}
       />
-      <Deps
-        dependencies={devDependencies}
-        text={window.i18n.detail.devdependencies}
-        id="devdependencies"
+      <Di
+        icon="devdependencies"
+        {...deps({
+          title: window.i18n.detail.devdependencies,
+          dependencies: devDependencies,
+        })}
       />
       {packageJSONLink &&
-        <div className="d-flex justify-items-between w-100">
-          <img src="/assets/detail/ico-package-json.svg" alt="" />
-          <dt>{window.i18n.detail.packages}</dt>
-          <span className="dotted flex-grow" />
-          <dd>
+        <Di
+          icon="package-json"
+          title={window.i18n.detail.packages}
+          description={
             <a target="_blank" rel="noopener noreferrer" href={packageJSONLink}>
               {window.i18n.detail.see_package_json}
             </a>
-          </dd>
-        </div>}
+          }
+        />}
     </dl>
   </article>
 );

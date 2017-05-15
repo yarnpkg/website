@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { isEmpty, encode } from '../util';
+import { Di } from './';
 
 const threeMonths = 12; // 4 weeks * 3 = 12
 
@@ -55,22 +56,16 @@ const Activity = ({ data = [], githubRepo }) => {
         </Sparklines>
       </a>
       <dl>
-        <div className="d-flex justify-items-between w-100">
-          <img src="/assets/detail/ico-commits.svg" alt="" />
-          <dt>{window.i18n.detail.commits_last_three_months}</dt>
-          <span className="dotted flex-grow" />
-          <dd>
-            {countCommitsLastThreeMonths({ weeklyData: data })}
-          </dd>
-        </div>
-        <div className="d-flex justify-items-between w-100">
-          <img src="/assets/detail/ico-commits-last.svg" alt="" />
-          <dt>{window.i18n.detail.last_commit}</dt>
-          <span className="dotted flex-grow" />
-          <dd>
-            {weeksAgoSinceLastCommit({ weeklyData: data })}
-          </dd>
-        </div>
+        <Di
+          icon="commits"
+          title={window.i18n.detail.commits_last_three_months}
+          description={countCommitsLastThreeMonths({ weeklyData: data })}
+        />
+        <Di
+          icon="commits-last"
+          title={window.i18n.detail.last_commit}
+          description={weeksAgoSinceLastCommit({ weeklyData: data })}
+        />
       </dl>
     </article>
   );
