@@ -9,7 +9,12 @@ const images = {
 };
 
 export const Link = ({ site, url, display }) => (
-  <a href={url} className={`details-links--link details-links--link__${site}`}>
+  <a
+    target="_blank"
+    rel="noopener noreferrer"
+    href={url}
+    className={`details-links--link details-links--link__${site}`}
+  >
     <img src={images[site]} alt="" />
     {display}
   </a>

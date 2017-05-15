@@ -52,7 +52,9 @@ const Usage = ({
           <dt>{window.i18n.detail.packages}</dt>
           <span className="dotted flex-grow" />
           <dd>
-            <a href={packageJSONLink}>{window.i18n.detail.see_package_json}</a>
+            <a target="_blank" rel="noopener noreferrer" href={packageJSONLink}>
+              {window.i18n.detail.see_package_json}
+            </a>
           </dd>
         </div>}
     </dl>
