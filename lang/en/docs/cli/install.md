@@ -25,7 +25,7 @@ Install all the dependencies listed within `package.json` in the local
 
 ##### `yarn install --check-files` <a class="toc" id="toc-yarn-install-check-files" href="#toc-yarn-install-check-files"></a>
 
-Verifies that already installed dependencies match with yarn's lock file.
+Verifies that already installed files in `node_modules` did not get removed.
 
 ##### `yarn install --flat` <a class="toc" id="toc-yarn-install-flat" href="#toc-yarn-install-flat"></a>
 
