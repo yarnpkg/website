@@ -12,9 +12,10 @@ additional_reading_tags: ["dependencies"]
 
 ### Adding dependencies <a class="toc" id="toc-adding-dependencies" href="#toc-adding-dependencies"></a>
 
-When you want to use another package, you first need to add it to your
-dependencies. This means running `yarn add [package-name]` to install it into
-your project.
+In general, a package is simply a folder with code and a `package.json` file
+that describes the contents. When you want to use another package, you first
+need to add it to your dependencies. This means running `yarn add [package-name]`
+to install it into your project.
 
 This will also update your `package.json` and your `yarn.lock` so that other
 developers working on the project will get the same dependencies as you when
@@ -32,10 +33,6 @@ You can specify versions using one of these:
   the registry.
 3. `yarn add package-name@tag` installs a specific
   ["tag"]({{url_base}}/docs/cli/tag) (e.g. `beta`, `next`, or `latest`).
-
-In general, a package is simply a folder with code and a `package.json` file
-that describes the contents. You can refer to a package a number of different
-ways:
 
 You can also specify packages from different locations:
 
