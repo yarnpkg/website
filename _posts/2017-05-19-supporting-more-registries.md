@@ -34,7 +34,7 @@ As you can see, the archive's URL does not contain the actual feed name anymore 
 
 ### Introducing custom host suffixes
 
-Starting with version `0.0.26`, Yarn now understands a new configuration option called `custom-host-suffix`. This allows you to keep the same strict URL validations for most of your package URLs but also selectively loosen that check for a specific registry provider so that Yarn will now match the URLs where the host part ends with the value from this new option.
+Starting with version `0.26.0`, Yarn now understands a new configuration option called `custom-host-suffix`. This allows you to keep the same strict URL validations for most of your package URLs but also selectively loosen that check for a specific registry provider so that Yarn will now match the URLs where the host part ends with the value from this new option.
 
 Simply add `custom-host-suffix` to either your global user-level `.npmrc` or your project's individual `.npmrc` and Yarn will be able to download your packages as desired.
 In the above example of Visual Studio Team Services, the `.npmrc` should contain an entry like this:
