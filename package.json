@@ -49,6 +49,7 @@
     "react-instantsearch": "^4.0.0-beta.6",
     "react-sparklines": "^1.6.0",
     "react-transition-group": "^1.1.3",
+    "unescape": "^0.2.0",
     "unfetch": "^2.1.2",
     "xss": "^0.3.3"
   }

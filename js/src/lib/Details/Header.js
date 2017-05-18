@@ -1,6 +1,11 @@
 import React from 'react';
+import marked from 'marked';
+import xss from 'xss';
+import unescape from 'unescape';
 import { License, Deprecated, Owner, Downloads } from '../Hit';
 import { Keywords } from '../util';
+
+const safeMarkdown = input => ({ __html: xss(marked(unescape(input))) });
 
 const Header = ({
   name,
@@ -27,7 +32,10 @@ const Header = ({
       <Deprecated deprecated={deprecated} />
       <span className="ais-Hit--version">{version}</span>
     </div>
-    <p className="m-2 lead">{description}</p>
+    <p
+      className="m-2 lead"
+      dangerouslySetInnerHTML={safeMarkdown(description)}
+    />
     <Keywords keywords={keywords} />
   </header>
 );
