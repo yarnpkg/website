@@ -12,19 +12,18 @@ const client = algoliasearch(algolia.appId, algolia.apiKey);
 const index = client.initIndex(algolia.indexName);
 
 class FeaturedPackage extends Component {
-  propTypes = {
+  static propTypes = {
     name: PropTypes.string.isRequired,
-    owner: {
+    owner: PropTypes.shape({
       link: PropTypes.string.isRequired,
       avatar: PropTypes.string.isRequired,
-    },
-    homepage: PropTypes.string.isRequired,
+    }),
     description: PropTypes.string.isRequired,
     keywords: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
   render() {
-    const { name, owner, homepage, description, keywords } = this.props;
+    const { name, owner, description, keywords } = this.props;
     return (
       <div className="pkg-featured-pkg">
         <Owner {...owner} />
