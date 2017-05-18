@@ -7,6 +7,7 @@ import {
   encode,
   packageLink,
   isEmpty,
+  HighlightedMarkdown,
 } from '../util';
 
 export const License = ({ type }) =>
@@ -84,7 +85,7 @@ const Hit = ({ hit }) => (
     <Deprecated deprecated={hit.deprecated} />
     <span className="ais-Hit--version">{hit.version}</span>
     <p className="ais-Hit--description">
-      <Highlight attributeName="description" hit={hit} />
+      <HighlightedMarkdown attributeName="description" hit={hit} />
     </p>
     <Owner {...hit.owner} />
     <span className="ais-Hit--lastUpdate" title="last updated">

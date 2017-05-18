@@ -1,11 +1,6 @@
 import React from 'react';
-import marked from 'marked';
-import xss from 'xss';
-import unescape from 'unescape';
 import { License, Deprecated, Owner, Downloads } from '../Hit';
-import { Keywords } from '../util';
-
-const safeMarkdown = input => ({ __html: xss(marked(unescape(input))) });
+import { Keywords, safeMarkdown } from '../util';
 
 const Header = ({
   name,

@@ -1,7 +1,13 @@
 import React from 'react';
 import fetch from 'unfetch';
+import marked from 'marked';
+import xss from 'xss';
+import unescape from 'unescape';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
-import { connectToggle } from 'react-instantsearch/connectors';
+import {
+  connectToggle,
+  connectHighlight,
+} from 'react-instantsearch/connectors';
 
 export const isEmpty = item => typeof item === 'undefined' || item.length < 1;
 
@@ -71,15 +77,17 @@ export function formatKeywords(
         });
         const content = highlighted.map((v, i) => {
           const key = `split-${i}-${v.value}`;
-          if (!v.isHighlighted) {
+          if (v.isHighlighted) {
             return (
-              <span key={key} className="ais-Highlight__nonHighlighted">
+              <em key={key} className="ais-Highlight__highlighted">
                 {v.value}
-              </span>
+              </em>
             );
           }
           return (
-            <em key={key} className="ais-Highlight__highlighted">{v.value}</em>
+            <span key={key} className="ais-Highlight__nonHighlighted">
+              {v.value}
+            </span>
           );
         });
         return (
@@ -187,3 +195,37 @@ export const get = ({ url, type }) =>
       console.warn(err);
     }
   });
+
+export const HighlightedMarkdown = connectHighlight(
+  ({ highlight, attributeName, hit }) => (
+    <span className="ais-Hit--keyword">
+      {highlight({
+        attributeName,
+        hit,
+        highlightProperty: '_highlightResult',
+      }).map(
+        (v, i) =>
+          v.isHighlighted
+            ? <em
+                key={`split-${i}-${v.value}`}
+                className="ais-Highlight__highlighted"
+                dangerouslySetInnerHTML={safeMarkdown(v.value)}
+              />
+            : <span
+                key={`split-${i}-${v.value}`}
+                className="ais-Highlight__nonHighlighted"
+                dangerouslySetInnerHTML={safeMarkdown(v.value)}
+              />
+      )}
+    </span>
+  )
+);
+
+const inlineRenderer = new marked.Renderer();
+inlineRenderer.paragraph = function(text) {
+  return text;
+};
+
+export const safeMarkdown = input => ({
+  __html: xss(marked(unescape(input), { renderer: inlineRenderer })),
+});
