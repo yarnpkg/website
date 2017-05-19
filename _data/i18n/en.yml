@@ -33,20 +33,20 @@ homepage_feature_fast_description: |
   Yarn caches every package it downloads so it never needs to download it again. It also
   parallelizes operations to maximize resource utilization so install times are
   faster than ever.
-homepage_feature_fast_image_alt: Generic placeholder image
+homepage_feature_fast_image_alt: Watercolour of cat riding a rocketship
 
 homepage_feature_secure_title: Mega Secure.
 homepage_feature_secure_description: |
   Yarn uses checksums to verify the integrity of every installed package
   before its code is executed.
-homepage_feature_secure_image_alt: Generic placeholder image
+homepage_feature_secure_image_alt: Watercolour of cat driving a robot suit
 
 homepage_feature_reliable_title: Super Reliable.
 homepage_feature_reliable_description: |
   Using a detailed, but concise, lockfile format, and a deterministic algorithm
   for installs, Yarn is able to guarantee that an install that worked on one
   system will work exactly the same way on any other system.
-homepage_feature_reliable_image_alt: Generic placeholder image
+homepage_feature_reliable_image_alt: Watercolour of cat waving from seat behind computer screens
 
 homepage_c2a_text: What are you waiting for?
 homepage_c2a_button: Get Started
@@ -142,6 +142,11 @@ docs_cli_team: yarn team
 docs_cli_test: yarn test
 docs_cli_unlink: yarn unlink
 docs_cli_upgrade: yarn upgrade
+docs_cli_upgrade_description: |
+  Upgrades packages to their latest version based on the specified range.
+docs_cli_upgrade_interactive: yarn upgrade-interactive
+docs_cli_upgrade_interactive_description: |
+  Provides an easy and interactive way to update outdated packages.
 docs_cli_version: yarn version
 docs_cli_why: yarn why
 
@@ -180,6 +185,8 @@ docs_configuration_description: |
 docs_configuration_index: Configuration
 docs_configuration_package_json: package.json
 docs_configuration_yarn_lock: yarn.lock
+docs_configuration_yarnrc: .yarnrc
+docs_configuration_envvars: envvars
 
 docs_offline_mirror: Configuring an Offline Mirror
 docs_offline_mirror_title: Offline Mirror
@@ -275,8 +282,59 @@ ci_circle: CircleCI
 ci_codeship: Codeship
 ci_travis: Travis
 ci_semaphore: Semaphore
+ci_solano: Solano
 
 search_docs: Search documentation
-search_placeholder: Search packages (i.e. babel, webpack, react…)
-search_by_algolia: Search by Algolia
-search_by_read_more: read how it works
+detail:
+  title: Package detail
+
+script:
+  search_placeholder: Search packages (i.e. babel, webpack, react…)
+  search_by_algolia: Search by Algolia
+  search_by_read_more: read how it works
+  no_package_found: 'No package {name} was found'
+  no_results_docsearch: 'Were you looking for something in the {documentation_link}?'
+  documentation: documentation
+
+  downloads_in_last_30_days: '{count} downloads in the last 30 days'
+  npm_page_for: 'npm page for {name}'
+  github_repo_of: 'GitHub repository of {name}'
+  npm: npm
+  github: GitHub
+  homepage: Homepage
+  deprecated: deprecated
+
+  detail:
+    over_a_year_ago: over a year ago
+    less_than_a_week_ago: less than a week ago
+    one_week_ago: one week ago
+    weeks_ago: '{count} weeks ago'
+    activity: Activity
+    commits_last_three_months: Commits last 3 months
+    last_commit: Last commit
+    loading: Loading...
+    use_it: Use it
+    try_in_runkit: Try in RunKit
+    back_to_details: Back to Details
+    browse_files: Browse Files
+    contributors: Contributors
+    display_full_readme: Display full readme
+    display_full_changelog: Display full changelog
+    files_error: 'Could not load file listing: {error}'
+    files_header: 'Files in {name}'
+    collapse: Collapse
+    readme: readme
+    no_readme_found: no readme found 😢
+    changelog: changelog
+    popularity: Popularity
+    github_stargazers: GitHub stargazers
+    downloads_last_30_days: Downloads last 30 days
+    dependents: Dependents
+    usage: Usage
+    dependencies: Dependencies
+    devdependencies: DevDependencies
+    packages: Packages
+    see_package_json: see package.json
+    versions: Versions
+    display_all: Display all
+    hide: Hide

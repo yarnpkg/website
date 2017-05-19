@@ -16,8 +16,8 @@ github_username:  yarnpkg
 #
 # Thanks!
 ###
-latest_version: 0.21.3 # Look up ^
-latest_rc_version: 0.22.0
+latest_version: 0.24.5
+latest_rc_version: 0.25.2
 
 # Whether to show the RC version on the site. Set this to false if the latest
 # stable version is newer than the RC (ie. if an RC has not been released since

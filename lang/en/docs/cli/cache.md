@@ -15,7 +15,7 @@ Running `yarn cache dir` will print out the path where yarn's global cache is cu
 
 ##### `yarn cache clean` <a class="toc" id="toc-yarn-cache-clean" href="#toc-yarn-cache-clean"></a>
 
-Running this command will clear the local cache. It will be populated again the
+Running this command will clear the global cache. It will be populated again the
 next time `yarn` or `yarn install` is run.
 
 ### Change the cache path for yarn <a class="toc" id="toc-change-the-cache-path-for-yarn" href="#toc-change-the-cache-path-for-yarn"></a>

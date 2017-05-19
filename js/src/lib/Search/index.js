@@ -1,48 +1,48 @@
 import React from 'react';
 import qs from 'qs';
-import Configure from 'react-instantsearch/src/widgets/Configure';
-
-import createInstantSearch
-  from 'react-instantsearch/src/core/createInstantSearch';
-import algoliasearch from 'algoliasearch';
-
-const InstantSearch = createInstantSearch(algoliasearch, {
-  Root: 'div',
-  props: { className: 'ais-InstantSearch__root' },
-});
+import { Configure, InstantSearch } from 'react-instantsearch/dom';
 
 import SearchBox from './SearchBox';
-import isEqual from 'lodash/isEqual';
 import Results from './Results';
 import withUrlSync from './withUrlSync';
+import { algolia } from '../config';
+
+// add concatenated name for more relevance for people spelling without spaces
+// think: createreactnative instead of create-react-native-app
+const concat = string => string.replace(/[-/@_.]+/g, '');
 
 const Search = props => (
   <InstantSearch
-    appId="OFCNCOG2CU"
-    apiKey="f54e21fa3a2a0160595bb058179bfb1e"
-    indexName="npm-search"
+    appId={algolia.appId}
+    apiKey={algolia.apiKey}
+    indexName={algolia.indexName}
     searchState={props.searchState}
     onSearchStateChange={props.onSearchStateChange}
   >
     <Configure
       hitsPerPage={5}
-      // optionalFacetFilters={`name:${this.state.searchState.query}`}
+      optionalFacetFilters={
+        props.searchState.query &&
+          `concatenatedName:${concat(props.searchState.query)}`
+      }
       facets={['keywords']}
       attributesToRetrieve={[
-        'name',
-        'downloadsLast30Days',
-        'humanDownloadsLast30Days',
-        'license',
-        'version',
+        'deprecated',
         'description',
-        'modified',
-        'keywords',
-        'homepage',
+        'downloadsLast30Days',
         'githubRepo',
+        'homepage',
+        'humanDownloadsLast30Days',
+        'keywords',
+        'license',
+        'modified',
+        'name',
         'owner',
+        'version',
       ]}
     />
     <SearchBox
+      autoFocus={window.location.pathname.includes('/packages')}
       translations={{
         placeholder: window.i18n.search_placeholder,
       }}

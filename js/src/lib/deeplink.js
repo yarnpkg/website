@@ -17,7 +17,7 @@ export function handleTabs() {
     history.replaceState(
       history.state,
       document.title,
-      location.pathname + '#' + e.currentTarget.id,
+      location.pathname + '#' + e.currentTarget.id
     );
   });
 }

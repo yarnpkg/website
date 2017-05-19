@@ -1,0 +1,82 @@
+--- 
+layout: pages/detail 
+scripts:
+  - "/js/build/package.js" 
+---
+{% comment %} 
+this is the default package view to make the load percieve smoother, 
+for the implementation, look at /js/lib/Details/index.js etc. 
+{% endcomment %}
+<div id="pkg-detail">
+  <div data-reactroot="" class="details row">
+    <section class="details-main col-lg-8">
+      <header class="details-main--header">
+        <h2 class="details-main--title d-inline-block m-2">…</h2>
+        <div class="details-main--info d-inline-block m-2">
+          <a class="ais-Hit--ownerLink" href=""><img width="20" height="20" class="ais-Hit--ownerAvatar" src="https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/https://avatars3.githubusercontent.com/u/22247014?v=3&amp;s=200">
+            <!-- react-text: 8 -->
+            <!-- /react-text -->
+          </a><span class="ais-Hit--popular null" title="0 downloads in the last 30 days">0</span>
+          <!-- react-empty: 10 --><span class="ais-Hit--version"></span></div>
+        <p class="m-2 lead">…</p>
+        <!-- react-empty: 13 -->
+      </header>
+      <section id="readme" class="details-doc">
+        <h3 class="details-doc--title details-doc--title__readme py-1"><a href="#readme">readme</a></h3>
+      </section>
+    </section>
+    <aside class="details-side col-lg-4">
+      <article class="details-side--links">
+        <div class="detail-links">
+          <a href="https://github.com//" class="details-links--link details-links--link__github"><img src="/assets/search/ico-github.svg" alt="">
+            <!-- react-text: 22 -->/
+            <!-- /react-text -->
+          </a>
+          <a href="https://www.npmjs.com/package/…" class="details-links--link details-links--link__npm"><img src="/assets/search/ico-npm.svg" alt="">
+            <!-- react-text: 25 -->…
+            <!-- /react-text -->
+          </a>
+        </div>
+      </article>
+      <article class="details-side--copy">
+        <h1>Use it</h1>
+        <div class="copyable"><code class="copyable--code"><!-- react-text: 30 -->$ <!-- /react-text --><span>yarn add …</span></code><button class="copyable--button"><img src="/assets/detail/ico-copy-default.svg" alt="" class="copyable--button__img"><!-- react-text: 34 -->copy<!-- /react-text --></button></div>
+        <div><a class="details-side--runkit" href="https://runkit.com/npm/…" target="_blank" rel="noopener noreferrer">Try in RunKit</a></div>
+      </article>
+      <article class="details-side--popularity">
+        <h1>Popularity</h1>
+        <dl></dl>
+      </article>
+      <!-- react-text: 40 -->
+      <!-- /react-text -->
+      <article class="details-side--usage">
+        <h1>Usage</h1>
+        <dl>
+          <div class="d-flex justify-items-between w-100"><img src="/assets/detail/ico-dependencies.svg" alt="">
+            <dt>Dependencies</dt><span class="dotted flex-grow"></span>
+            <dd>0</dd>
+          </div>
+          <div class="d-flex justify-items-between w-100"><img src="/assets/detail/ico-devdependencies.svg" alt="">
+            <dt>DevDependencies</dt><span class="dotted flex-grow"></span>
+            <dd>0</dd>
+          </div>
+          <div class="d-flex justify-items-between w-100"><img src="/assets/detail/ico-package-json.svg" alt="">
+            <dt>Packages</dt><span class="dotted flex-grow"></span>
+            <dd><a href="https://github.com///tree/master/package.json">see package.json</a></dd>
+          </div>
+        </dl>
+      </article>
+      <article class="details-side--contributors">
+        <h1>Contributors</h1>
+        <ul class="list-unstyled m-2">
+          <li class="mb-1">
+            <a class="ais-Hit--ownerLink" href=""><img width="20" height="20" class="ais-Hit--ownerAvatar" src="https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/https://avatars3.githubusercontent.com/u/22247014?v=3&amp;s=200">
+              <!-- react-text: 66 -->
+              <!-- /react-text -->
+            </a>
+          </li>
+        </ul>
+      </article>
+    </aside>
+  </div>
+</div>

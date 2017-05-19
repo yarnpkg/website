@@ -1,11 +1,16 @@
-{% comment %} get the current translations from Jekyll, to be used in scripts {% endcomment %}
+{% comment %}
+  get the current translations from Jekyll, to be used in scripts
+{% endcomment }%}
 <script>
-  window.i18n = {
-    url_base: {{url_base | jsonify }},
-    active_language: {{vars_active_language.tag | jsonify }},
-    search_placeholder: {{ i18n.search_placeholder | jsonify }},
-    search_by_algolia: {{ i18n.search_by_algolia | jsonify }},
-    search_by_read_more: {{ i18n.search_by_read_more | jsonify }},
+  var i18n_default = {{ site.data.i18n.en.script | jsonify }};
+  window.i18n = {{ i18n.script | jsonify }} || {};
+  window.i18n.url_base = {{ url_base | jsonify }};
+  window.i18n.active_language = {{ vars_active_language.tag | jsonify }};
+  
+  // give defaults
+  for (var key in i18n_default) {
+    if (window.i18n.hasOwnProperty(key) === false || window.i18n[key] === null) {
+      window.i18n[key] = i18n_default[key];
+    }
   }
-
 </script>

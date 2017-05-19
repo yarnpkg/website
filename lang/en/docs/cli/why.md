@@ -13,8 +13,10 @@ other packages depend upon it, for example, or whether it was explicitly marked
 as a dependency in the `package.json` manifest.
 
 ```sh
-$ yarn why jest
+yarn why jest
+```
 
+```
 yarn why vx.x.x
 [1/4] 🤔  Why do we have the module "jest"...?
 [2/4] 🚚  Initialising dependency graph...

@@ -43,3 +43,20 @@ $npm-red: #C12127;
 @import "_toc.scss";
 @import "_footer.scss";
 @import "_search.scss";
+@import "_details.scss";
+@import "_readmore.scss";
+@import "_copyable.scss";
+
+// should come from bootstrap but it doesn't
+.justify-items-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.align-items-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}

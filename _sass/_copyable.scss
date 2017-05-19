@@ -1,0 +1,36 @@
+.copyable {
+  display: flex;
+  width: 100%;
+  background-color: $gray-lighter;
+  padding: 1em;
+  margin: .5em 0 .5em;
+
+  &--code {
+    flex-grow: 1;
+    background: none;
+    color: #666666;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &--button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: #666666;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &__img {
+      height: 1em;
+      width: 1em;
+      margin-right: .3em;
+    }
+  }
+}

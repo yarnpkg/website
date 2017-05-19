@@ -23,6 +23,10 @@ Running `yarn` with no command will run `yarn install`, passing through any prov
 Install all the dependencies listed within `package.json` in the local
 `node_modules` folder.
 
+##### `yarn install --check-files` <a class="toc" id="toc-yarn-install-check-files" href="#toc-yarn-install-check-files"></a>
+
+Verifies that already installed files in `node_modules` did not get removed.
+
 ##### `yarn install --flat` <a class="toc" id="toc-yarn-install-flat" href="#toc-yarn-install-flat"></a>
 
 Only allow one version of a package. On the first run this will prompt you to
@@ -50,6 +54,10 @@ to investigate network performance, and can be analyzed with tools such as
 [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/) or
 [HAR Viewer](http://www.softwareishard.com/blog/har-viewer/).
 
+##### `yarn install --ignore-scripts` <a class="toc" id="toc-yarn-install-ignore-scripts" href="#toc-yarn-install-ignore-scripts"></a>
+
+Do not execute any scripts defined in the project package.json and its dependencies.
+
 ##### `yarn install --modules-folder <path>` <a class="toc" id="toc-yarn-install-modules-folder" href="#toc-yarn-install-modules-folder"></a>
 
 Specifies an alternate location for the `node_modules` directory, instead of the default `./node_modules`.
@@ -70,6 +78,12 @@ set to `production`, Yarn will not install any package listed in
 
 Don't generate a `yarn.lock` lockfile.
 
+
 ##### `yarn install --ignore-engines` <a class="toc" id="toc-yarn-install-pure-lockfile" href="#toc-yarn-install-ignore-engines"></a>
 
 Ignore engines check.
+
+##### `yarn install --offline` <a class="toc" id="toc-yarn-install-offline" href="#toc-yarn-install-offline"></a>
+
+Run yarn install in offline mode.
+
