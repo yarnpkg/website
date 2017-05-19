@@ -56,7 +56,7 @@ to investigate network performance, and can be analyzed with tools such as
 
 ##### `yarn install --ignore-scripts` <a class="toc" id="toc-yarn-install-ignore-scripts" href="#toc-yarn-install-ignore-scripts"></a>
 
-Do not execute any scripts defined in the package.json.
+Do not execute any scripts defined in the project package.json and its dependencies.
 
 ##### `yarn install --modules-folder <path>` <a class="toc" id="toc-yarn-install-modules-folder" href="#toc-yarn-install-modules-folder"></a>
 
