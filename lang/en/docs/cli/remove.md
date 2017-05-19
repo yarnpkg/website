@@ -18,3 +18,6 @@ When you remove a package, it is removed from all types of dependencies:
 > **Note**: `yarn remove` will always update your `package.json` and
 > `yarn.lock`. This ensures that different developers on the same project get
 > the same set of dependencies. It is not possible to disable this behavior.
+
+> **Note**: `yarn remove <package> --<flag>` will passed `flag` to `yarn install` when updating
+> `yarn.lock`.

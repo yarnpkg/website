@@ -54,6 +54,10 @@ to investigate network performance, and can be analyzed with tools such as
 [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/) or
 [HAR Viewer](http://www.softwareishard.com/blog/har-viewer/).
 
+##### `yarn install --ignore-scripts` <a class="toc" id="toc-yarn-install-ignore-scripts" href="#toc-yarn-install-ignore-scripts"></a>
+
+Do not execute any scripts defined in the package.json.
+
 ##### `yarn install --modules-folder <path>` <a class="toc" id="toc-yarn-install-modules-folder" href="#toc-yarn-install-modules-folder"></a>
 
 Specifies an alternate location for the `node_modules` directory, instead of the default `./node_modules`.
