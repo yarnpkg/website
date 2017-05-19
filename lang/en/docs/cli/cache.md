@@ -29,3 +29,9 @@ You can also specify the cache directory by flag `--cache-folder`:
 ```sh
 yarn <command> --cache-folder <path>
 ```
+
+You can also specify the cache directory by environment variable `YARN_CACHE_FOLDER`:
+```sh
+YARN_CACHE_FOLDER=<path> yarn <command>
+```
+
