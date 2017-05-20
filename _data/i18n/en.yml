@@ -117,8 +117,11 @@ docs_cli_cache: yarn cache
 docs_cli_check: yarn check
 docs_cli_clean: yarn clean
 docs_cli_config: yarn config
+docs_cli_create: yarn create
 docs_cli_generate_lock_entry: yarn generate-lock-entry
 docs_cli_global: yarn global
+docs_cli_help: yarn help
+docs_cli_import: yarn import
 docs_cli_info: yarn info
 docs_cli_init: yarn init
 docs_cli_install: yarn install
@@ -148,6 +151,7 @@ docs_cli_upgrade_interactive: yarn upgrade-interactive
 docs_cli_upgrade_interactive_description: |
   Provides an easy and interactive way to update outdated packages.
 docs_cli_version: yarn version
+docs_cli_versions: yarn versions
 docs_cli_why: yarn why
 
 docs_migrating_from_npm_title: Migrating from npm client
