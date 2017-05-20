@@ -54,12 +54,21 @@
   - id: docs_cli_config
     path: /docs/cli/config
     tags: ["cli-config"]
+  - id: docs_cli_create
+    path: /docs/cli/create
+    tags: ["cli-create"]
   - id: docs_cli_generate_lock_entry
     path: /docs/cli/generate-lock-entry
     tags: ["cli-generate-lock-entry"]
   - id: docs_cli_global
     path: /docs/cli/global
     tags: ["cli-global"]
+  - id: docs_cli_help
+    path: /docs/cli/help
+    tags: ["cli-help"]
+  - id: docs_cli_import
+    path: /docs/cli/import
+    tags: ["cli-import"]
   - id: docs_cli_info
     path: /docs/cli/info
     tags: ["cli-info"]
@@ -127,6 +136,9 @@
   - id: docs_cli_version
     path: /docs/cli/version
     tags: ["cli-version"]
+  - id: docs_cli_versions
+    path: /docs/cli/versions
+    tags: ["cli-versions"]
   - id: docs_cli_why
     path: /docs/cli/why
     tags: ["cli-why"]
