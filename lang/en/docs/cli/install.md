@@ -29,7 +29,7 @@ Verifies that already installed files in `node_modules` did not get removed.
 
 ##### `yarn install --flat` <a class="toc" id="toc-yarn-install-flat" href="#toc-yarn-install-flat"></a>
 
-Only allow one version of a package. On the first run this will prompt you to
+Install all the dependencies, but only allow one version for each package. On the first run this will prompt you to
 choose a single version for each package that is depended on at multiple
 version ranges. These will be added to your `package.json` under a
 `resolutions` field.
