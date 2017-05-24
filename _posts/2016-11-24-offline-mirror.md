@@ -163,6 +163,15 @@ is-array-1.0.1.tgz    left-pad-1.1.3.tgz    mime-db-1.25.0.tgz    mime-types-2.1
 
 ## A few tips and tricks
 
+### Updating your package
+
+If you want to make sure you have a clean cached modules, here are few of the steps you can take:
+- Remove the package first. Make sure you have "yarn-offline-mirror-pruning" set to true in your .yarnrc file
+- Clear the yarn cache with "yarn cache clean" before adding the updated version of the package
+- Add your package
+
+The "yarn-offline-mirror-pruning" will help clean up any unlinked dependencies. When you add the updated package, it will check the yarn cache first and pull any missing dependencies from there. This will prevent yarn adding new tarball back with the updated package. You want to make sure the yarn cache is all clean before you do any adding for cache module. 
+
 ### You can check in “Offline mirror” into git or mercurial repository
 
 The “Offline Mirror” can be shared between build servers or development machines in any way that is convenient: a Box / Dropbox folder, stored in source control or on a network drive. At Facebook the offline mirror lives inside of our big Mercurial “monorepo”.
