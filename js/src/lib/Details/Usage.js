@@ -12,7 +12,13 @@ const deps = ({ dependencies, title }) => {
             <summary>{title}</summary>
             {dependencyNames
               .map((name, index) => (
-                <a href={packageLink(name)} key={index}>{name}</a>
+                <a
+                  href={packageLink(name)}
+                  key={index}
+                  title={`${name}@${dependencies[name]}`}
+                >
+                  {name}
+                </a>
               ))
               .reduce((prev, curr) => [prev, ', ', curr])}
           </details>
