@@ -11,6 +11,16 @@ additional_reading_tags: ["cli-add", "cli-tag", "dependencies-versions", "cli-up
 
 ##### `yarn upgrade-interactive` <a class="toc" id="toc-yarn-upgrade-interactive" href="#toc-yarn-upgrade-interactive"></a>
 
+The default mode installs and updates the packages to use major versions.
+
+##### `yarn upgrade-interactive [--tilde/-T]` <a class="toc" id="toc-yarn-upgrade-interactive-t" href="#toc-yarn-upgrade-interactive-t"></a>
+
+Using `--tilde` or `-T` installs and updates them as minor versions.
+
+##### `yarn upgrade-interactive [--exact/-E]` <a class="toc" id="toc-yarn-upgrade-interactive-e" href="#toc-yarn-upgrade-interactive-e"></a>
+
+Using `--exact` or `-E` installs and updates them as exact versions.
+
 ```
 [1/? Choose which packages to update. (Press <space> to select, <a> to toggle all, <i> to inverse s
 election)
