@@ -49,6 +49,13 @@ On Solus, you can install yarn via the Solus repository.
 sudo eopkg install yarn
 ```
 
+### Alpine
+
+On Alpine Linux (3.6+), you can install yarn with apk.
+```sh
+apk add yarn
+```
+
 ### Path Setup
 
 {% include_relative _installations/unix_path_setup.md %}
