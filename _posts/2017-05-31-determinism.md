@@ -3,7 +3,7 @@ layout     : post
 title      : "Yarn determinism"
 author     : Sebastian McKenzie
 author_url : "https://twitter.com/sebmck"
-date       : 2017-05-31 19:00:00
+date       : 2017-05-31 09:00:00
 categories : announcements
 share_text : "What does Yarn determinism actually mean?"
 ---
