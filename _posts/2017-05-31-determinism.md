@@ -88,6 +88,6 @@ This means that npm has better assurances around hoisting position across npm ve
 
 Each lock file format has different tradeoffs and there doesn’t appear to be a perfect format without disadvantages. It’s important to evaluate what sort of guarantees you’re looking for when deciding what package manager to use.
 
-Npm has stronger guarantees across versions and has a stronger deterministic lockfile, but Yarn only has those guarantees when you’re on the same version in favor of a lighter lockfile that is better for review. It’s possible that there’s a lockfile solution that has the best of both worlds, but for now this is current state of the ecosystem and possible convergence could happen in the future.
+npm 5 has stronger guarantees across versions and has a stronger deterministic lockfile, but Yarn only has those guarantees when you’re on the same version in favor of a lighter lockfile that is better for review. It’s possible that there’s a lockfile solution that has the best of both worlds, but for now this is current state of the ecosystem and possible convergence could happen in the future.
 
 Hopefully this post has highlighted the determinism guarantees that differ between Yarn and npm and helped you decide what works better for your company or project.
