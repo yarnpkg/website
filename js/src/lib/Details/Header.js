@@ -2,6 +2,20 @@ import React from 'react';
 import { License, Deprecated, Owner, Downloads } from '../Hit';
 import { Keywords, safeMarkdown } from '../util';
 
+const Description = ({ description, deprecated }) => (
+  <div>
+    {deprecated
+      ? <p className="m-2">
+          <strong dangerouslySetInnerHTML={safeMarkdown(deprecated)} />
+        </p>
+      : null}
+    <p
+      className="m-2 lead"
+      dangerouslySetInnerHTML={safeMarkdown(description)}
+    />
+  </div>
+);
+
 const Header = ({
   name,
   owner,
@@ -27,10 +41,7 @@ const Header = ({
       <Deprecated deprecated={deprecated} />
       <span className="ais-Hit--version">{version}</span>
     </div>
-    <p
-      className="m-2 lead"
-      dangerouslySetInnerHTML={safeMarkdown(description)}
-    />
+    <Description description={description} deprecated={deprecated} />
     <Keywords keywords={keywords} />
   </header>
 );

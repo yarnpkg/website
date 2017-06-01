@@ -87,7 +87,9 @@ const Hit = ({ hit }) => (
     <Deprecated deprecated={hit.deprecated} />
     <span className="ais-Hit--version">{hit.version}</span>
     <p className="ais-Hit--description">
-      <HighlightedMarkdown attributeName="description" hit={hit} />
+      {hit.deprecated
+        ? hit.deprecated
+        : <HighlightedMarkdown attributeName="description" hit={hit} />}
     </p>
     <Owner {...hit.owner} />
     <span className="ais-Hit--lastUpdate" title="last updated">
