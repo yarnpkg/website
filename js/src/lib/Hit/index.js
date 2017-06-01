@@ -15,7 +15,9 @@ export const License = ({ type }) =>
 
 export const Deprecated = ({ deprecated }) =>
   deprecated
-    ? <span className="ais-Hit--deprecated">{window.i18n.deprecated}</span>
+    ? <span className="ais-Hit--deprecated" title={deprecated}>
+        {window.i18n.deprecated}
+      </span>
     : null;
 
 export const Owner = ({ link, avatar, name }) => (
