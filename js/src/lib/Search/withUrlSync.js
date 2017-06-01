@@ -16,7 +16,7 @@ const queryStringToSearchState = queryString => {
   const { p, q } = qs.parse(queryString);
   return {
     query: q,
-    page: p,
+    page: p || 1,
   };
 };
 
@@ -36,7 +36,7 @@ export default App =>
           return;
         }
 
-        this.setState({ searchState: { query: '' } });
+        this.setState({ searchState: { query: '', page: 1 } });
       });
     }
 
