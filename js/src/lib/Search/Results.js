@@ -16,7 +16,17 @@ const ResultsFound = ({ pagination }) => (
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
-      <Stats />
+      <Stats
+        translations={{
+          stats: (num, time) =>
+            window.i18n.result_stats
+              .replace(
+                '{number_packages}',
+                num.toLocaleString(window.i18n.active_language)
+              )
+              .replace('{time_search}', time),
+        }}
+      />
     </div>
     <Hits hitComponent={Hit} />
     <div className="d-flex">

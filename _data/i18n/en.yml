@@ -307,6 +307,7 @@ script:
   github: GitHub
   homepage: Homepage
   deprecated: deprecated
+  result_stats: 'found {number_packages} packages in {time_search}ms'
 
   detail:
     over_a_year_ago: over a year ago
