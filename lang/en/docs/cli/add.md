@@ -52,6 +52,8 @@ You can also specify packages from different locations:
 
 ### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
 
+Yarn does not support scoped packages requiring authentication (a.k.a., private scoped packages) at this time.
+
 If you have used a package manager like npm previously, you may be looking for
 how to add global dependencies.
 
