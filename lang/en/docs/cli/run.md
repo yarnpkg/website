@@ -43,6 +43,12 @@ Running this command will execute `jest -o --watch`.
 
 `[script]` can also be any locally installed executable that is inside `node_modules/.bin/`.
 
+##### `yarn run env` <a class="toc" id="toc-yarn-run-env" href="#toc-yarn-run-env"></a>
+
+Running this command will list environment variables available to the scripts at runtime.
+
+If you want to override this command, you can do so by defining your own `"env"` script in `package.json`.
+
 ##### `yarn run` <a class="toc" id="toc-yarn-run" href="#toc-yarn-run"></a>
 
 If you do not specify a script to the `yarn run` command, the `run` command
