@@ -8,9 +8,9 @@ layout: guide
 
 <p class="lead">Install packages globally on your operating system.</p>
 
-##### `yarn global <add/bin/ls/remove/upgrade> [--prefix]` <a class="toc" id="toc-yarn-global" href="#toc-yarn-global"></a>
+##### `yarn global <add/bin/list/remove/upgrade> [--prefix]` <a class="toc" id="toc-yarn-global" href="#toc-yarn-global"></a>
 
-`yarn global` is a prefix used for a number of commands like `add`, `bin`, `ls` and `remove`. They behave identically to their normal versions except that they use a global directory to store packages. The `global` command makes binaries available to use on your operating system.
+`yarn global` is a prefix used for a number of commands like `add`, `bin`, `list` and `remove`. They behave identically to their normal versions except that they use a global directory to store packages. The `global` command makes binaries available to use on your operating system.
 
 *Note: Unlike the `--global` flag in npm, `global` is a command which must immediately follow `yarn`. Entering `yarn add global package-name` will add the packages named `global` and `package-name` locally instead of adding `package-name` globally.*
 
@@ -26,7 +26,7 @@ $ create-react-app
 
 Read more about the commands that can be used together with `yarn global`:
 
-- [`yarn add`]({{url_base}}/docs/cli/add): add a package to use in your current package. 
+- [`yarn add`]({{url_base}}/docs/cli/add): add a package to use in your current package.
 - [`yarn bin`]({{url_base}}/docs/cli/bin): displays the location of the yarn bin folder.
 - [`yarn list`]({{url_base}}/docs/cli/list): list installed packages.
 - [`yarn remove`]({{url_base}}/docs/cli/remove): remove a package that will no longer be used in your current package.
