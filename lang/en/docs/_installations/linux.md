@@ -1,10 +1,17 @@
 ### Debian/Ubuntu Linux
 
 On Debian or Ubuntu Linux, you can install Yarn via our Debian package
-repository. You will first need to configure the repository:
+repository.
+
+You will first need to make sure you have 'apt-transport-https' installed:
 
 ```sh
 dpkg -s apt-transport-https > /dev/null || bash -c "sudo apt-get update; sudo apt-get install apt-transport-https -y"
+```
+
+Then you need to configure the repository:
+
+```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
