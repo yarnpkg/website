@@ -38,6 +38,34 @@ success Saved 867 new dependencies.
 ✨  Done in 20.79s.
 ```
 
+##### `yarn upgrade [--latest\-L]` <a class="toc" id="toc-yarn-upgrade" href="#toc-yarn-upgrade"></a>
+
+This command updates all dependencies to the version specified by the `latest`
+tag (potentially upgrading the packages across major versions).
+
+```sh
+yarn upgrade --latest
+```
+
+```
+yarn upgrade vx.x.x
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Saved lockfile.
+success Saved 867 new dependencies.
+[...]
+├─ jest-cli@16.0.1
+│  ├─ yargs-parser@3.2.0
+│  └─ yargs@5.0.0
+├─ jest-diff@16.0.0
+│  └─ diff@3.0.1
+[...]
+└─ yargs@4.8.1
+✨  Done in 20.79s.
+```
+
 ##### `yarn upgrade [package]` <a class="toc" id="toc-yarn-upgrade-package" href="#toc-yarn-upgrade-package"></a>
 
 This upgrades a single named package to the version specified by the `latest`
