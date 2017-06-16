@@ -3,7 +3,7 @@ layout     : post
 title      : "Private Registry Support"
 author     : Lukas Spieß
 author_url : "https://twitter.com/lumaxis"
-date       : 2017-05-19 12:00:00
+date       : 2017-06-16 12:00:00
 categories : announcements
 share_text : "Yarn now supports even more private registries"
 ---
