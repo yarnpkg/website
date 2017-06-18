@@ -31,6 +31,32 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
         path,
       })}" title="${title}">${text}</a>`;
     };
+
+    renderer.html = function(html) {
+      return html
+        .replace(
+          /(<img src=")([^"]*)/g,
+          (match, pre, href) =>
+            `${pre}${prefixURL(href, {
+              base: 'https://raw.githubusercontent.com',
+              user,
+              project,
+              head: gitHead ? gitHead : 'master',
+              path,
+            })}`
+        )
+        .replace(
+          /(<a href=")([^"]*)/g,
+          (match, pre, href) =>
+            `${pre}${prefixURL(href, {
+              base: 'https://github.com',
+              user,
+              project,
+              head: gitHead ? `tree/${gitHead}` : 'tree/master',
+              path,
+            })}`
+        );
+    };
   }
 
   const html = marked(source, { renderer });
