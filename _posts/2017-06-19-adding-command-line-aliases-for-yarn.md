@@ -12,7 +12,7 @@ One of the core design philosophies of Yarn is to strive for simpleness; a lean 
 
 We’ve also noticed, however, that it is among one of the most common feature requests we received from the community. People do use aliases for several reasons, for example, to replicate their experiences from the `npm` command. The good news is, all modern shell environments actually support command aliases in one form or another, and we encourage you to improve your CLI experience using these ways that are baked into your favorite shell already.
 
-Let’s say you check for package distribution tags information pretty often, are a report message addict as well as an emoji hater, and you’d like to have a handy shorthand for this common task. Below we’ve compiled a list of ways to add the command alias of `yarn info --verbose --no-emoji` in a number of popular shells for your convenience:
+Let’s say you check for package distribution tags information pretty often, are a report message addict as well as an emoji hater, and you’d like to have a handy shorthand for this common task. Below we’ve compiled a list of ways to add the command alias of `yarn info --verbose --no-emoji <package> dist-tags` in a number of popular shells for your convenience:
 
 ## Bash & Zsh
 
