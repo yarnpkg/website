@@ -4,6 +4,11 @@ import xss from 'xss';
 
 import { prefixURL } from '../util';
 
+const GITHUB = {
+  main: 'https://github.com',
+  raw: 'https://raw.githubusercontent.com',
+};
+
 marked.Lexer.rules.gfm.heading = marked.Lexer.rules.normal.heading;
 marked.Lexer.rules.tables.heading = marked.Lexer.rules.normal.heading;
 
@@ -12,24 +17,27 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
 
   if (githubRepo) {
     const { user, project, path } = githubRepo;
-    renderer.image = function(href, title, text) {
-      return `<img src="${prefixURL(href, {
-        base: 'https://raw.githubusercontent.com',
+    const prefix = (href, base) =>
+      prefixURL(href, {
+        base,
         user,
         project,
         head: gitHead ? gitHead : 'master',
         path,
-      })}" title="${title}" alt="${text}"/>`;
-    };
+      });
 
-    renderer.link = function(href, title, text) {
-      return `<a href="${prefixURL(href, {
-        base: 'https://github.com',
-        user,
-        project,
-        head: gitHead ? `tree/${gitHead}` : 'tree/master',
-        path,
-      })}" title="${title}">${text}</a>`;
+    renderer.image = (href, title, text) =>
+      `<img src="${prefix(href, GITHUB.raw)}" title="${title}" alt="${text}"/>`;
+
+    renderer.link = (href, title, text) =>
+      `<a href="${prefix(href, GITHUB.main)}" title="${title}">${text}</a>`;
+
+    renderer.html = function(html) {
+      return html.replace(
+        /(src|href)="([^"]*)/g,
+        (match, type, href) =>
+          `${type}="${prefix(href, type === 'href' ? GITHUB.main : GITHUB.raw)}`
+      );
     };
   }
 
