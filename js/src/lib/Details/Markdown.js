@@ -33,15 +33,11 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
       `<a href="${prefix(href, GITHUB.main)}" title="${title}">${text}</a>`;
 
     renderer.html = function(html) {
-      return html
-        .replace(
-          /src="([^"]*)/g,
-          (match, href) => `src="${prefix(href, GITHUB.raw)}`
-        )
-        .replace(
-          /href="([^"]*)/g,
-          (match, href) => `href="${prefix(href, GITHUB.main)}`
-        );
+      return html.replace(
+        /(src|href)="([^"]*)/g,
+        (match, type, href) =>
+          `${type}="${prefix(href, type === 'href' ? GITHUB.main : GITHUB.raw)}`
+      );
     };
   }
 
