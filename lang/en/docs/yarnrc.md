@@ -38,10 +38,10 @@ When installing packages, Yarn will provide upgrade instructions if you have an 
 
 Value must be a boolean, defaults to `false`.
 
-### `CHILD_CONCURRENCY` <a class="toc" id="toc-child-concurrency" href="#toc-child-concurrency"></a>
+### `child-concurrency` <a class="toc" id="toc-child-concurrency" href="#toc-child-concurrency"></a>
 
 ```ini
-CHILD_CONCURRENCY #number#
+child-concurrency #number#
 ```
 
 Controls the number of child processes run parallely to build node modules. 
