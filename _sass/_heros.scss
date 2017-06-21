@@ -13,6 +13,11 @@
     color: white;
     text-decoration: underline;
   }
+
+  .alert {
+    // Pull alert back into the margin on top of the hero, when visible.
+    margin-top: -1.5rem;
+  }
 }
 
 .hero::after {
@@ -119,6 +124,10 @@
   .hero {
     margin: 0 0 3rem 0;
     padding: 4rem 0;
+
+    .alert {
+      margin-top: -3rem;
+    }
   }
 
   .hero-title {
@@ -165,6 +174,10 @@
 
     &.small {
       padding: 2rem 0;
+    }
+
+    .alert {
+      margin-top: -4rem;
     }
   }
 
