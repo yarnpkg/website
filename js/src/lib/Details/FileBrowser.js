@@ -186,7 +186,7 @@ class Directory extends React.PureComponent {
   };
 }
 
-const File = ({ file, url, size }) => (
+const File = ({ file, url, size }) =>
   <li
     key={file.path}
     className="d-flex justify-items-between align-items-baseline"
@@ -195,5 +195,4 @@ const File = ({ file, url, size }) => (
       {getBasename(file.path)}
     </a>
     <small>{bytes(size)}</small>
-  </li>
-);
+  </li>;

@@ -8,7 +8,7 @@ const images = {
   github: '/assets/search/ico-github.svg',
 };
 
-export const Link = ({ site, url, display }) => (
+export const Link = ({ site, url, display }) =>
   <a
     target="_blank"
     rel="noopener noreferrer"
@@ -17,10 +17,9 @@ export const Link = ({ site, url, display }) => (
   >
     <img src={images[site]} alt="" />
     {display}
-  </a>
-);
+  </a>;
 
-const Links = ({ name, homepage, githubRepo, className }) => (
+const Links = ({ name, homepage, githubRepo, className }) =>
   <div className="detail-links">
     {homepage
       ? <Link
@@ -32,7 +31,9 @@ const Links = ({ name, homepage, githubRepo, className }) => (
     {githubRepo
       ? <Link
           site="github"
-          url={`https://github.com/${encode(githubRepo.user)}/${encode(githubRepo.project)}${githubRepo.path}`}
+          url={`https://github.com/${encode(githubRepo.user)}/${encode(
+            githubRepo.project
+          )}${githubRepo.path}`}
           display={`${githubRepo.user}/${githubRepo.project}`}
         />
       : null}
@@ -41,7 +42,6 @@ const Links = ({ name, homepage, githubRepo, className }) => (
       url={`https://www.npmjs.com/package/${name}`}
       display={name}
     />
-  </div>
-);
+  </div>;
 
 export default Links;

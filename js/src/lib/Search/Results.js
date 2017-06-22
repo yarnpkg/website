@@ -12,7 +12,7 @@ import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = ({ pagination }) => (
+const ResultsFound = ({ pagination }) =>
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
@@ -42,8 +42,7 @@ const ResultsFound = ({ pagination }) => (
       </a>
       .
     </div>
-  </div>
-);
+  </div>;
 
 const Results = createConnector({
   displayName: 'ConditionalResults',

@@ -310,6 +310,8 @@ script:
   homepage: Homepage
   deprecated: deprecated
   result_stats: 'found {number_packages} packages in {time_search}ms'
+  time_ago: '{time_distance} ago'
+  last_updated: 'last updated {update_date}'
 
   detail:
     over_a_year_ago: over a year ago

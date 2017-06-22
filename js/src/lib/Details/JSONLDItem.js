@@ -19,7 +19,7 @@ import { packageLink } from '../util';
  * read more about it on: http://json-ld.org
  */
 
-const JSONLDItem = ({ name, description, keywords }) => (
+const JSONLDItem = ({ name, description, keywords }) =>
   <script type="application/ld+json">
     {JSON.stringify({
       '@context': 'http://schema.org',
@@ -34,7 +34,6 @@ const JSONLDItem = ({ name, description, keywords }) => (
         price: '0.00',
       },
     })}
-  </script>
-);
+  </script>;
 
 export default JSONLDItem;

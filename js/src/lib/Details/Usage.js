@@ -11,7 +11,7 @@ const deps = ({ dependencies, title }) => {
         ? <details>
             <summary>{title}</summary>
             {dependencyNames
-              .map((name, index) => (
+              .map((name, index) =>
                 <a
                   href={packageLink(name)}
                   key={index}
@@ -19,7 +19,7 @@ const deps = ({ dependencies, title }) => {
                 >
                   {name}
                 </a>
-              ))
+              )
               .reduce((prev, curr) => [prev, ', ', curr])}
           </details>
         : title,
@@ -29,12 +29,7 @@ const deps = ({ dependencies, title }) => {
   return {};
 };
 
-const Usage = ({
-  dependencies,
-  devDependencies,
-  packageJSONLink,
-  versions,
-}) => (
+const Usage = ({ dependencies, devDependencies, packageJSONLink, versions }) =>
   <article className="details-side--usage">
     <h1>{window.i18n.detail.usage}</h1>
     <dl>
@@ -63,7 +58,6 @@ const Usage = ({
           }
         />}
     </dl>
-  </article>
-);
+  </article>;
 
 export default Usage;
