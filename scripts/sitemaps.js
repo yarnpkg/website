@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const algoliaSitemap = require('algolia-sitemap');
-const { mkdirSync, rmdirSync } = require('fs');
+const { mkdirSync, rmdirSync, existsSync } = require('fs');
 
 const algoliaConfig = {
   appId: 'OFCNCOG2CU',
@@ -27,8 +27,9 @@ function hitToParams(hit) {
 
 const path = `${__dirname}/../sitemaps`;
 
-rmdirSync(path);
-mkdirSync(path);
+if (!existsSync(path)) {
+  mkdirSync(path);
+}
 
 algoliaSitemap({
   algoliaConfig,
