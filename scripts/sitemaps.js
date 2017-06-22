@@ -36,4 +36,9 @@ algoliaSitemap({
   sitemapLoc: 'https://yarnpkg.com/sitemaps',
   outputFolder: path,
   hitToParams,
-});
+})
+  .then(() => console.log('Sitemap generated successfully'))
+  .catch(e => {
+    console.log(e);
+    process.exit(1);
+  });
