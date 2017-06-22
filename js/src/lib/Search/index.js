@@ -11,7 +11,7 @@ import { algolia } from '../config';
 // think: createreactnative instead of create-react-native-app
 const concat = string => string.replace(/[-/@_.]+/g, '');
 
-const Search = props => (
+const Search = props =>
   <InstantSearch
     appId={algolia.appId}
     apiKey={algolia.apiKey}
@@ -23,7 +23,7 @@ const Search = props => (
       hitsPerPage={5}
       optionalFacetFilters={
         props.searchState.query &&
-          `concatenatedName:${concat(props.searchState.query)}`
+        `concatenatedName:${concat(props.searchState.query)}`
       }
       facets={['keywords']}
       attributesToRetrieve={[
@@ -48,7 +48,6 @@ const Search = props => (
       }}
     />
     <Results />
-  </InstantSearch>
-);
+  </InstantSearch>;
 
 export default withUrlSync(Search);

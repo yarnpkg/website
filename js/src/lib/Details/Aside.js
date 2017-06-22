@@ -25,7 +25,7 @@ const Aside = ({
   versions,
   devDependencies,
   onOpenFileBrowser,
-}) => (
+}) =>
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
@@ -69,14 +69,13 @@ const Aside = ({
     <article className="details-side--contributors">
       <h1>{window.i18n.detail.contributors}</h1>
       <ul className="list-unstyled m-2">
-        {contributors.map(contributor => (
+        {contributors.map(contributor =>
           <li className="mb-1" key={contributor.name}>
             <Owner {...contributor} />
           </li>
-        ))}
+        )}
       </ul>
     </article>
-  </aside>
-);
+  </aside>;
 
 export default Aside;

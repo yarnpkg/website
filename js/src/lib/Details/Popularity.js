@@ -8,7 +8,7 @@ const Popularity = ({
   humanDownloads,
   dependents,
   humanDependents,
-}) => (
+}) =>
   <article className="details-side--popularity">
     <h1>{window.i18n.detail.popularity}</h1>
     <dl>
@@ -45,7 +45,6 @@ const Popularity = ({
           }
         />}
     </dl>
-  </article>
-);
+  </article>;
 
 export default Popularity;

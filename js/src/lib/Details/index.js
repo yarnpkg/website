@@ -16,14 +16,13 @@ const index = client.initIndex(algolia.indexName);
 
 const readmeErrorMessage = 'ERROR: No README data found!';
 
-export const Di = ({ icon, title, description }) => (
+export const Di = ({ icon, title, description }) =>
   <div className="d-flex justify-items-between w-100">
     {icon && <img src={`/assets/detail/ico-${icon}.svg`} alt="" />}
     <dt>{title}</dt>
     <span className="dotted flex-grow" />
     <dd>{description}</dd>
-  </div>
-);
+  </div>;
 
 function setHead({ name, description }) {
   const head = document.querySelector('head');
@@ -104,12 +103,14 @@ class Details extends Component {
       }
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}/stats/commit_activity`,
+        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo
+          .project}/stats/commit_activity`,
         state: 'activity',
       });
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo.project}`,
+        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo
+          .project}`,
         state: 'github',
       });
     }

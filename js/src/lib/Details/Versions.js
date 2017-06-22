@@ -37,13 +37,13 @@ export default class Versions extends Component {
       <article className="details-side--versions">
         <h1>{window.i18n.detail.versions}</h1>
         <dl>
-          {versionsToShow.map(version => (
+          {versionsToShow.map(version =>
             <Di
               key={version}
               title={_localeVersion(versions[version])}
               description={version}
             />
-          ))}
+          )}
         </dl>
         {versionsToShow.length > 2 &&
           <button

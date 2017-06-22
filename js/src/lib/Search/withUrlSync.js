@@ -9,7 +9,9 @@ const searchStateToQueryString = searchState => ({
 
 const searchStateToUrl = searchState =>
   searchState
-    ? `${window.i18n.url_base}/packages?${qs.stringify(searchStateToQueryString(searchState))}`
+    ? `${window.i18n.url_base}/packages?${qs.stringify(
+        searchStateToQueryString(searchState)
+      )}`
     : '';
 
 const queryStringToSearchState = queryString => {

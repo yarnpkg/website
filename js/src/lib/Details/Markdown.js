@@ -46,7 +46,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
   return escaped;
 };
 
-const Markdown = ({ source, githubRepo, gitHead }) => (
+const Markdown = ({ source, githubRepo, gitHead }) =>
   <article
     dangerouslySetInnerHTML={{
       __html: renderAndEscapeMarkdown({
@@ -55,7 +55,6 @@ const Markdown = ({ source, githubRepo, gitHead }) => (
         gitHead,
       }),
     }}
-  />
-);
+  />;
 
 export default Markdown;
