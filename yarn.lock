@@ -44,9 +44,9 @@ ajv@^5.1.5:
     json-schema-traverse "^0.3.0"
     json-stable-stringify "^1.0.1"
 
-algolia-sitemap@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/algolia-sitemap/-/algolia-sitemap-2.0.5.tgz#ed8bfba21e06bbd63badc55d113e8d65a2dce44e"
+algolia-sitemap@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/algolia-sitemap/-/algolia-sitemap-2.0.6.tgz#ba336b979fc93d5cfc64398fd8629164d566c66a"
   dependencies:
     algoliasearch "^3.22.2"
     jsx-string "^2.0.0"
