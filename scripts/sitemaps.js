@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-if (process.env.CONTEXT === 'deploy-preview') {
+if (process.env.CONTEXT !== 'deploy-preview') {
   console.log('sitemap generation skipped');
 } else {
   const algoliaSitemap = require('algolia-sitemap');
-  const { mkdirSync } = require('fs');
+  const { mkdirSync, rmdirSync } = require('fs');
 
   const algoliaConfig = {
     appId: 'OFCNCOG2CU',
@@ -31,14 +31,13 @@ if (process.env.CONTEXT === 'deploy-preview') {
 
   const path = `${__dirname}/../sitemaps`;
 
-  mkdirSync(`${__dirname}/../sitemaps`);
+  rmdirSync(path);
+  mkdirSync(path);
 
   algoliaSitemap({
     algoliaConfig,
-    sitemapLocation: {
-      href: 'https://yarnpkg.com/sitemaps',
-      path,
-    },
+    sitemapLoc: 'https://yarnpkg.com/sitemaps',
+    outputFolder: path,
     hitToParams,
   });
 }

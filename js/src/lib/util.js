@@ -2,7 +2,7 @@ import React from 'react';
 import fetch from 'unfetch';
 import marked from 'marked';
 import xss from 'xss';
-import unescape from 'unescape';
+import unescape from 'unescape-html';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
 import {
   connectToggle,
@@ -33,11 +33,11 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
     : <span className="ais-Hit--keywords hidden-sm-down">
         {keywords
           .slice(0, maxKeywords)
-          .map(keyword => (
+          .map(keyword =>
             <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
               {keyword}
             </a>
-          ))
+          )
           .reduce((prev, curr) => [prev, ', ', curr])}
       </span>;
 };
@@ -155,7 +155,9 @@ export function packageJSONLink({ githubRepo, gitHead }) {
 }
 
 export const packageLink = name =>
-  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production' ? '/' : '?'}${name}`;
+  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production'
+    ? '/'
+    : '?'}${name}`;
 
 export const searchLink = query =>
   `${window.i18n.url_base}/packages?q=${query}`;
@@ -197,7 +199,7 @@ export const get = ({ url, type }) =>
   });
 
 export const HighlightedMarkdown = connectHighlight(
-  ({ highlight, attributeName, hit }) => (
+  ({ highlight, attributeName, hit }) =>
     <span className="ais-Hit--keyword">
       {highlight({
         attributeName,
@@ -218,7 +220,6 @@ export const HighlightedMarkdown = connectHighlight(
               />
       )}
     </span>
-  )
 );
 
 const inlineRenderer = new marked.Renderer();
