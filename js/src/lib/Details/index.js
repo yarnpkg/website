@@ -3,6 +3,7 @@ import algoliasearch from 'algoliasearch/lite';
 
 import Aside from './Aside';
 import FileBrowser from './FileBrowser';
+import Copyable from './Copyable';
 import Header from './Header';
 import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
@@ -41,6 +42,8 @@ function setHead({ name, description }) {
   head.querySelector('link[rel=canonical]').setAttribute('href', permalink);
 }
 
+const OBJECT_DOESNT_EXIST = 'ObjectID does not exist';
+
 class Details extends Component {
   constructor(props) {
     super(props);
@@ -52,11 +55,20 @@ class Details extends Component {
   }
 
   componentWillMount() {
-    index.getObject(this.props.objectID).then(content => {
-      this.setState(prevState => ({ ...content, loaded: true }));
-      setHead(content);
-      this.getDocuments();
-    });
+    index
+      .getObject(this.props.objectID)
+      .then(content => {
+        this.setState(prevState => ({ ...content, loaded: true }));
+        setHead(content);
+        this.getDocuments();
+      })
+      .catch(e => {
+        if (e.message === OBJECT_DOESNT_EXIST) {
+          this.setState({
+            objectDoesntExist: true,
+          });
+        }
+      });
   }
 
   getGithub({ url, state }) {
@@ -140,9 +152,34 @@ class Details extends Component {
   }
 
   render() {
-    return this.state.isBrowsingFiles
-      ? this._renderFileBrowser()
-      : this._renderDetails();
+    if (this.state.isBrowsingFiles) {
+      return this._renderFileBrowser();
+    }
+    if (this.state.objectDoesntExist) {
+      return this._renderInvalidPackage();
+    }
+    return this._renderDetails();
+  }
+
+  _renderInvalidPackage() {
+    return (
+      <section className="text-center d-flex flex-column">
+        <h2 className="details-main--title d-inline-block m-2">
+          {window.i18n.detail.not_found.whoa.replace(
+            '{package_name}',
+            this.props.objectID
+          )}
+        </h2>
+        <p>{window.i18n.detail.not_found.yours}</p>
+        <div className="text-left mx-auto">
+          <Copyable pre="$ " text={`mkdir ${this.props.objectID}`} />
+          <Copyable pre="$ " text={`cd ${this.props.objectID}`} />
+          <Copyable pre="$ " text="yarn init" />
+          <p className="text-center">{window.i18n.detail.not_found.make}</p>
+          <Copyable pre="$ " text="yarn publish" />
+        </div>
+      </section>
+    );
   }
 
   _renderDetails() {

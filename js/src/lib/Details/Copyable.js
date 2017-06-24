@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const images = {
   default: '/assets/detail/ico-copy-default.svg',
   success: '/assets/detail/ico-copy-success.svg',
 };
 
-export default class Copyable extends React.Component {
+export default class Copyable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,14 +47,14 @@ export default class Copyable extends React.Component {
     return (
       <div className="copyable">
         <code className="copyable--code">
-          {this.props.pre}
+          <span className="user-select-none">{this.props.pre}</span>
           <span ref={sample => (this.installSample = sample)}>
             {this.props.text}
           </span>
         </code>
         <button
           onClick={() => this.copy(this.installSample)}
-          className="copyable--button"
+          className="copyable--button user-select-none"
         >
           <img
             src={this.state.statusImage}
