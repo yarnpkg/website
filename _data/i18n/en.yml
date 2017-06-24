@@ -347,3 +347,8 @@ script:
     versions: Versions
     display_all: Display all
     hide: Hide
+
+    not_found: 
+      whoa: Whoa, {package_name} does not exist yet
+      yours: But that means it is now yours!
+      make: Make your package
