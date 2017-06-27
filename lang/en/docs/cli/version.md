@@ -72,10 +72,10 @@ version string:
 yarn config set version-git-message "v%s"
 ```
 
-You can also turn signing git tags on or off using `version-git-sign`:
+You can also turn signing git tags on or off using `version-sign-git-tag`:
 
 ```sh
-yarn config set version-git-sign false
+yarn config set version-sign-git-tag false
 ```
 
 You can even enabled or disable the git tagging behavior entirely by using
