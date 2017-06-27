@@ -18,6 +18,21 @@
         width: 2em;
         opacity: .5;
       }
+
+      &__yarn {
+        display: flex;
+        align-items: center;
+
+        .copyable {
+          background-color: inherit;
+          padding: 0;
+          margin: 0;
+
+          &--button {
+            padding: 0;
+          }
+        }
+      }
     }
   }
 
@@ -69,19 +84,34 @@
     }
 
     &--content {
-      h1 {@extend .h4}
-      h2 {@extend .h5}
-      h3 {@extend .h6}
-      h4 {@extend .h6}
-      h5 {@extend .h6}
-      h6 {@extend .h6}
-      blockquote {@extend .blockquote}
-      table {@extend .table}
+      h1 {
+        @extend .h4;
+      }
+      h2 {
+        @extend .h5;
+      }
+      h3 {
+        @extend .h6;
+      }
+      h4 {
+        @extend .h6;
+      }
+      h5 {
+        @extend .h6;
+      }
+      h6 {
+        @extend .h6;
+      }
+      blockquote {
+        @extend .blockquote;
+      }
+      table {
+        @extend .table;
+      }
     }
   }
 
   &-side {
-
     dt {
       font-weight: normal;
       align-self: flex-end;
@@ -112,7 +142,6 @@
     }
 
     &--runkit {
-
       &:after {
         content: '';
         width: 1em;

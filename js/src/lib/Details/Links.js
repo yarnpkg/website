@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { encode } from '../util';
+import Copyable from './Copyable';
 
 const images = {
   homepage: '/assets/search/ico-home.svg',
@@ -9,8 +10,8 @@ const images = {
   yarn: '/assets/search/ico-yarn.svg',
 };
 
-export const Link = ({ site, url, display }) =>
-  <a
+export const Link = ({ site, url, display, Tag = 'a' }) =>
+  <Tag
     target="_blank"
     rel="noopener noreferrer"
     href={url}
@@ -18,14 +19,15 @@ export const Link = ({ site, url, display }) =>
   >
     <img src={images[site]} alt="" />
     {display}
-  </a>;
+  </Tag>;
 
 const Links = ({ name, homepage, githubRepo, className }) =>
   <div className="detail-links">
     <Link
       site="yarn"
       url={`https://yarn.fyi/${name}`}
-      display={`yarn.fyi/${name}`}
+      display={<Copyable>yarn.fyi/{name}</Copyable>}
+      Tag="div"
     />
     {homepage
       ? <Link
