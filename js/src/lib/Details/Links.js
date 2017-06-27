@@ -6,6 +6,7 @@ const images = {
   homepage: '/assets/search/ico-home.svg',
   npm: '/assets/search/ico-npm.svg',
   github: '/assets/search/ico-github.svg',
+  yarn: '/assets/search/ico-yarn.svg',
 };
 
 export const Link = ({ site, url, display }) =>
@@ -21,6 +22,11 @@ export const Link = ({ site, url, display }) =>
 
 const Links = ({ name, homepage, githubRepo, className }) =>
   <div className="detail-links">
+    <Link
+      site="yarn"
+      url={`https://yarn.fyi/${name}`}
+      display={`yarn.fyi/${name}`}
+    />
     {homepage
       ? <Link
           site="homepage"
