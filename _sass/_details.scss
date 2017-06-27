@@ -19,23 +19,23 @@
         opacity: .5;
       }
 
+      .copyable {
+        background-color: inherit;
+        padding: 0;
+        margin: 0;
+
+        a {
+          color: #666666;
+        }
+
+        &--button {
+          padding: 0;
+        }
+      }
+
       &__yarn {
         display: flex;
         align-items: center;
-
-        .copyable {
-          background-color: inherit;
-          padding: 0;
-          margin: 0;
-
-          a {
-            color: #666666;
-          }
-
-          &--button {
-            padding: 0;
-          }
-        }
       }
     }
   }
