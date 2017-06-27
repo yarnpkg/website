@@ -44,16 +44,18 @@ export default class Copyable extends React.Component {
   }
 
   render() {
+    const { tag = 'div', pre, children } = this.props;
+    const Content = tag;
     return (
       <div className="copyable">
-        <code className="copyable--code">
-          {this.props.pre}
-          <span ref={sample => (this.installSample = sample)}>
-            {this.props.text}
+        <Content className="copyable--content">
+          {pre}
+          <span ref={text => (this.copyText = text)}>
+            {children}
           </span>
-        </code>
+        </Content>
         <button
-          onClick={() => this.copy(this.installSample)}
+          onClick={() => this.copy(this.copyText)}
           className="copyable--button"
         >
           <img

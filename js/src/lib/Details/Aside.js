@@ -32,7 +32,9 @@ const Aside = ({
     </article>
     <article className="details-side--copy">
       <h1>{window.i18n.detail.use_it}</h1>
-      <Copyable pre="$ " text={`yarn add ${name}`} />
+      <Copyable pre="$ " tag="code">
+        yarn add {name}
+      </Copyable>
       <div>
         <a
           className="details-side--runkit"
