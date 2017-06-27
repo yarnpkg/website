@@ -36,7 +36,7 @@ const Links = ({ name, homepage, githubRepo, className }) =>
       ? <Link
           site="homepage"
           url={homepage}
-          display={homepage.replace(/(http)?s?(:\/\/)?(www)?/, '')}
+          display={homepage.replace(/(http)?s?(:\/\/)?(www\.)?/, '')}
         />
       : null}
     {githubRepo
