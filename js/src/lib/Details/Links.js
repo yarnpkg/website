@@ -25,8 +25,11 @@ const Links = ({ name, homepage, githubRepo, className }) =>
   <div className="detail-links">
     <Link
       site="yarn"
-      url={`https://yarn.fyi/${name}`}
-      display={<Copyable>yarn.fyi/{name}</Copyable>}
+      display={
+        <Copyable>
+          <a href={`https://yarn.fyi/${name}`}>yarn.fyi/{name}</a>
+        </Copyable>
+      }
       Tag="div"
     />
     {homepage
