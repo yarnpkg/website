@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e
 
 reset="\033[0m"
@@ -45,12 +45,12 @@ yarn_get_tarball() {
 # Verifies the GPG signature of the tarball
 yarn_verify_integrity() {
   # Check if GPG is installed
-  if [[ -z "$(command -v gpg)" ]]; then
+  if [ -z "$(command -v gpg)" ]; then
     printf "$yellow> WARNING: GPG is not installed, integrity can not be verified!$reset\n"
     return
   fi
 
-  if [ "$YARN_GPG" == "no" ]; then
+  if [ "$YARN_GPG" = "no" ]; then
     printf "$cyan> WARNING: Skipping GPG integrity check!$reset\n"
     return
   fi
@@ -88,7 +88,7 @@ yarn_link() {
     command printf "${SOURCE_STR}"
   else
     if ! grep -q 'yarn' "$YARN_PROFILE"; then
-      if [[ $YARN_PROFILE == *"fish"* ]]; then
+      if [ $YARN_PROFILE = *"fish"* ]; then
         command fish -c 'set -U fish_user_paths $fish_user_paths ~/.yarn/bin'
       else
         command printf "$SOURCE_STR" >> "$YARN_PROFILE"
@@ -201,11 +201,11 @@ yarn_install() {
 yarn_verify_or_quit() {
   read -p "$1 [y/N] " -n 1 -r
   echo
-  if [[ ! $REPLY =~ ^[Yy]$ ]]
-  then
+  case $REPLY in [^yY]* )
     printf "$red> Aborting$reset\n"
     exit 1
-  fi
+    ;;
+  esac
 }
 
 cd ~
