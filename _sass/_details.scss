@@ -1,7 +1,7 @@
 .details {
   &-links {
     &--link {
-      color: grey;
+      color: #666666;
       padding: .5em 1em;
       margin: .2em;
       border-radius: .2em;
@@ -17,6 +17,26 @@
         height: 1em;
         width: 2em;
         opacity: .5;
+      }
+
+      .copyable {
+        background-color: inherit;
+        padding: 0;
+        margin: 0;
+        width: calc(100% - 2.2em);
+
+        a {
+          color: #666666;
+        }
+
+        &--button {
+          padding: 0;
+        }
+      }
+
+      &__yarn {
+        display: flex;
+        align-items: center;
       }
     }
   }
@@ -69,19 +89,34 @@
     }
 
     &--content {
-      h1 {@extend .h4}
-      h2 {@extend .h5}
-      h3 {@extend .h6}
-      h4 {@extend .h6}
-      h5 {@extend .h6}
-      h6 {@extend .h6}
-      blockquote {@extend .blockquote}
-      table {@extend .table}
+      h1 {
+        @extend .h4;
+      }
+      h2 {
+        @extend .h5;
+      }
+      h3 {
+        @extend .h6;
+      }
+      h4 {
+        @extend .h6;
+      }
+      h5 {
+        @extend .h6;
+      }
+      h6 {
+        @extend .h6;
+      }
+      blockquote {
+        @extend .blockquote;
+      }
+      table {
+        @extend .table;
+      }
     }
   }
 
   &-side {
-
     dt {
       font-weight: normal;
       align-self: flex-end;
@@ -112,7 +147,6 @@
     }
 
     &--runkit {
-
       &:after {
         content: '';
         width: 1em;

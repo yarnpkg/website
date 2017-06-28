@@ -1,15 +1,17 @@
 import React from 'react';
 
 import { encode } from '../util';
+import Copyable from './Copyable';
 
 const images = {
   homepage: '/assets/search/ico-home.svg',
   npm: '/assets/search/ico-npm.svg',
   github: '/assets/search/ico-github.svg',
+  yarn: '/assets/search/ico-yarn.svg',
 };
 
-export const Link = ({ site, url, display }) =>
-  <a
+export const Link = ({ site, url, display, Tag = 'a' }) =>
+  <Tag
     target="_blank"
     rel="noopener noreferrer"
     href={url}
@@ -17,15 +19,24 @@ export const Link = ({ site, url, display }) =>
   >
     <img src={images[site]} alt="" />
     {display}
-  </a>;
+  </Tag>;
 
 const Links = ({ name, homepage, githubRepo, className }) =>
   <div className="detail-links">
+    <Link
+      site="yarn"
+      display={
+        <Copyable>
+          <a href={`https://yarn.fyi/${name}`}>https://yarn.fyi/{name}</a>
+        </Copyable>
+      }
+      Tag="div"
+    />
     {homepage
       ? <Link
           site="homepage"
           url={homepage}
-          display={homepage.replace(/(http)?s?(:\/\/)?(www)?/, '')}
+          display={homepage.replace(/(http)?s?(:\/\/)?(www\.)?/, '')}
         />
       : null}
     {githubRepo
