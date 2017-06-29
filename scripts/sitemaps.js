@@ -17,7 +17,7 @@ if (process.env.CONTEXT === 'deploy-preview') {
       `https://yarnpkg.com/${lang}/package/${name}`;
     const loc = url({ lang: 'en', name: hit.name });
     const lastmod = new Date(hit.modified).toISOString();
-    const priority = hit.downloadsRatio;
+    const priority = hit.downloadsRatio || 0.5;
     return {
       loc,
       lastmod,
