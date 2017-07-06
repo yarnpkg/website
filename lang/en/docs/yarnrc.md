@@ -48,7 +48,7 @@ Controls the number of child processes run parallely to build node modules.
 
 Setting this number to 1 will cause the node modules to be built sequentially which can avoid linker errors on windows with node-gyp.
 
-### CLI arguments saved in .yarnrc
+### CLI arguments saved in .yarnrc <a class="toc" id="toc-cli-args" href="#toc-cli-args"></a>
 
 Setting `--<command><flag> <value>` would be the same as running `yarn <command> --<flag> <value>`.
 
