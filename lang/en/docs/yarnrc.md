@@ -47,3 +47,23 @@ child-concurrency #number#
 Controls the number of child processes run parallely to build node modules. 
 
 Setting this number to 1 will cause the node modules to be built sequentially which can avoid linker errors on windows with node-gyp.
+
+### CLI arguments saved in .yarnrc
+
+Setting `--<command><flag> <value>` would be the same as running `yarn <command> --<flag> <value>`.
+
+Example:
+```
+$> cat .yarnrc
+--install.check-files true
+```
+Is the same running `yarn install --check-files`
+
+Example 2:
+```
+$> cat .yarnrc
+--cache-folder /tmp/yarn-cache/
+
+$> yarn cache dir
+/tmp/yarn-cache/v1
+```
