@@ -20,9 +20,13 @@ const readmeErrorMessage = 'ERROR: No README data found!';
 export const Di = ({ icon, title, description }) =>
   <div className="d-flex justify-items-between w-100">
     {icon && <img src={`/assets/detail/ico-${icon}.svg`} alt="" />}
-    <dt>{title}</dt>
+    <dt>
+      {title}
+    </dt>
     <span className="dotted flex-grow" />
-    <dd>{description}</dd>
+    <dd>
+      {description}
+    </dd>
   </div>;
 
 function setHead({ name, description }) {
@@ -132,7 +136,11 @@ class Details extends Component {
     if (this.state.loaded) {
       const { readme } = this.state;
       if (readme.length === 0 || readme === readmeErrorMessage) {
-        return <div>{window.i18n.detail.no_readme_found}</div>;
+        return (
+          <div>
+            {window.i18n.detail.no_readme_found}
+          </div>
+        );
       }
       return (
         <ReadMore
@@ -170,13 +178,21 @@ class Details extends Component {
             this.props.objectID
           )}
         </h2>
-        <p>{window.i18n.detail.not_found.yours}</p>
+        <p>
+          {window.i18n.detail.not_found.yours}
+        </p>
         <div className="text-left mx-auto">
-          <Copyable pre="$ " text={`mkdir ${this.props.objectID}`} />
-          <Copyable pre="$ " text={`cd ${this.props.objectID}`} />
-          <Copyable pre="$ " text="yarn init" />
-          <p className="text-center">{window.i18n.detail.not_found.make}</p>
-          <Copyable pre="$ " text="yarn publish" />
+          <Copyable pre="$ ">
+            mkdir {this.props.objectID}
+          </Copyable>
+          <Copyable pre="$ ">
+            cd {this.props.objectID}
+          </Copyable>
+          <Copyable pre="$ ">yarn init</Copyable>
+          <p className="text-center">
+            {window.i18n.detail.not_found.make}
+          </p>
+          <Copyable pre="$ ">yarn publish</Copyable>
         </div>
       </section>
     );
@@ -199,14 +215,18 @@ class Details extends Component {
           />
           <section id="readme" className="details-doc">
             <h3 className="details-doc--title details-doc--title__readme py-1">
-              <a href="#readme">{window.i18n.detail.readme}</a>
+              <a href="#readme">
+                {window.i18n.detail.readme}
+              </a>
             </h3>
             {this.maybeRenderReadme()}
           </section>
           {this.state.changelog &&
             <section id="changelog" className="details-doc">
               <h3 className="details-doc--title details-doc--title__changelog py-1">
-                <a href="#changelog">{window.i18n.detail.changelog}</a>
+                <a href="#changelog">
+                  {window.i18n.detail.changelog}
+                </a>
               </h3>
               <ReadMore
                 text={window.i18n.detail.display_full_changelog}
