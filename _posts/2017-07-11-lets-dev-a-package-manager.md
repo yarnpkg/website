@@ -24,23 +24,23 @@ To fully understand how things work, we're gonna go step by step, incrementally,
 
     *Or: where we download package tarballs*
 
-* **[#](#chapter-2--one-pinned-reference-to-rule-them-all) Chapter 2 - One (Pinned) Reference to Rule Them All**
+* **[#](#chapter-2---one-reference-to-rule-them-all) Chapter 2 - One (Pinned) Reference to Rule Them All**
 
     *Or: where we resolve package ranges*
 
-* **[#](#chapter-3--dependencies-of-our-dependencies-are-our-dependencies) Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies**
+* **[#](#chapter-3---dependencies-of-our-dependencies-are-our-dependencies) Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies**
 
     *Or: where we extract dependencies from packages*
 
-* **[#](#chapter-4--super-dependency-world) Chapter 4 - Super Dependency World**
+* **[#](#chapter-4---super-dependency-world) Chapter 4 - Super Dependency World**
 
     *Or: where we do the same thing, but recursively*
 
-* **[#](#chapter-5--links-awakening) Chapter 5 - Links Awakening**
+* **[#](#chapter-5---links-awakening) Chapter 5 - Links Awakening**
 
     *Or: where we install our dependencies on the filesystem*
 
-* **[#](#chapter-6--lord-of-the-optimization) Chapter 6 - Lord of the Optimization**
+* **[#](#chapter-6---lord-of-the-optimization) Chapter 6 - Lord of the Optimization**
 
     *Or: where we try not to install the whole world on our system*
 
@@ -113,7 +113,9 @@ async function fetchPackage({name, reference}) {
 }
 ```
 
-Simple, right?
+What do you think? Pretty simple, right?
+
+* * *
 
 ## Chapter 2 - One (Pinned) Reference to Rule Them All
 
@@ -161,6 +163,8 @@ Note that we don't need to do anything particular with semver versions, direct U
 
 Thanks to this function, we can now rest assured that our references will always be pinned references! Another day, another great victory for us.
 
+* * *
+
 ## Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies
 
 In Chapter 1 we saw how to make a magic function that would download any package from anywhere, and return it. In Chapter 2, we saw how to convert volatile dependencies into pinned dependencies. That's a great start! But now we'll need to resolve a bigger issue: dependencies. See, the Node ecosystem being what it is, most packages rely on other packages in order to work properly. Fortunately, they all agreed on using a single standard to list those dependencies (remember the `package.json` file we've seen above), and so we should be able to make good use of this. Let's write our function. Given a package, we want it to return the dependencies this package relies on.
@@ -195,6 +199,8 @@ async function getPackageDependencies({name, reference}) {
 ```
 
 What do you think? We've even been able to use our very own `fetchPackage` implementation! From now on, whatever package people send us, we'll be able to know what other packages it depends on. We'll now have to expand this ability a bit further: instead of resolving the first level of dependencies only, we'll want to resolve *everything*. And that's what the next chapter is about!
+
+* * *
 
 ## Chapter 4 - Super Dependency World
 
@@ -388,6 +394,8 @@ If we go back to our babel-core example, it will go like this:
 
 Awesome. We now have a working algorithm to compute our full dependency tree. We're almost done, just two more mandatory steps before we reach the fun and optional parts!
 
+* * *
+
 ## Chapter 5 - Links Awakening
 
 In Chapter 4, we saw how to obtain a complete tree of all of our dependencies. Now, we just have to download their tarballs somewhere, and extract them on the disk. The first part being made trivial by this awesome `fetchPackage` function we've conveniently written not so long ago, our linker will only be a matter of a few lines:
@@ -495,6 +503,8 @@ async function linkPackages({name, reference, dependencies}, cwd) {
 
 Now, calling our linker function will install everything we need on the filesystem! Better yet, all build scripts will be run correctly, meaning you will end up with a working node_modules! Good job! Next chapter will be about performance, now things start to get interesting.
 
+* * *
+
 ## Chapter 6 - Lord of the Optimization
 
 Our package manager is working! However, you may notice something ... Because we're not taking advantage of Node's resolution algorithm, and because we don't try to remove duplicates from our package tree, we might end up with a really huge node_modules folder! You might think that it's not that much of an problem, but it has proven to [cause issues in the past](https://scottaddie.com/2015/08/16/npm-vs-windows-max_path-limitation/). For example, on most Windows installations, paths have a hard limit of 260 characters. For packages that are deeply nested, this limit is often exceeded and it breaks things. Fortunately, Node's resolution algorithm help us by allowing us to move the dependencies lower in the tree, as long as there is no conflict.
@@ -562,6 +572,8 @@ And that's it. We'll just have to call this function after resolving and before 
 >
 > Solving this would require adding some fields into our resolution tree nodes that we would then use to track the nodes original locations in the tree. The linker would then be able to link the binaries directly inside its children in a post-processing pass. Unfortunately, it would also make the code much less clear, so we opted not to implement this here. Such is the tough life of package manager writers...
 
+* * *
+
 ## Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)
 
 Finally! After all this time, we finally have our tiny package manager! You can even see its full code on [this repository](https://github.com/yarnpkg/lets-dev-demo) - try it, it really works! It is admittedly pretty basic, kind of slow, and without much features, but we love it nevertheless and that's all that matters. And because it's young, there is still room for some evolution and improvements:
@@ -580,4 +592,4 @@ This is only a short list, far from being exhaustive! Package managers can imple
 
 * * *
 
-I hope you've enjoyed this article as much as I've taken pleasure in writing it! If you want to discuss it, whether it's to correct some mistake or to just talk about package managers, ping me on Twitter via [@arcanis](https://twitter.com/arcanis), or on Yarn's [Discord](https://discord.gg/yarnpkg) server where the core team regularly lurks :)
+> I hope you've enjoyed this article as much as I've taken pleasure in writing it! If you want to discuss it, whether it's to correct some mistake or to just talk about package managers, ping me on Twitter via [@arcanis](https://twitter.com/arcanis), or on Yarn's [Discord](https://discord.gg/yarnpkg) server where the core team regularly lurks :)
