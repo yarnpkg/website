@@ -3,7 +3,7 @@ layout     : post
 title      : "Let's Dev: A Package Manager"
 author     : Maël Nison
 author_url : "https://twitter.com/arcanis"
-date       : 2016-07-11 8:00:00
+date       : 2016-07-01 8:00:00
 categories : announcements
 share_text : "Let's Dev: A Package Manager"
 ---
@@ -13,7 +13,7 @@ Hello everyone! Today, we're gonna write a new package manager, even better than
 > **The devil is in the details**
 >
 > This article omits small details and environment quirks, and focuses on the high-level architecture of a package manager, in an effort to stay succinct. For example, we're gonna assume that all paths are regular POSIX paths.
-> 
+>
 > That being said, there's much to say about these compatibility layers, and maybe talking about them could be an interesting follow up! Feel free to tweet at [@yarnpkg](https://twitter.com/yarnpkg) if you're interested to know more about them! 😃
 
 To fully understand how things work, we're gonna go step by step, incrementally, adding or extending a single function at a time. We'll treat each of those steps as a separate chapter, and you will find an index of all chapters below this paragraph. Don't worry - they're all relatively short! Note that ES2017 features will be used all through the article - if you're unfamiliar with them, we recommend you to take a look at the great books [Explore ES6](http://exploringjs.com/es6/) and/or [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read), and [Explore ES2017](http://exploringjs.com/es2016-es2017/). Good lecture!
@@ -23,23 +23,23 @@ To fully understand how things work, we're gonna go step by step, incrementally,
 * **Chapter 1 - Bravely Download**
 
     *Or: where we download package tarballs*
-    
+
 * **Chapter 2 - One Reference to Rule Them All**
 
     *Or: where we resolve package ranges*
-    
+
 * **Chapter 3 - Dependencies of our Dependencies are our Dependencies**
 
     *Or: where we extract dependencies from packages*
-    
+
 * **Chapter 4 - Super Dependency World**
 
     *Or: where we do the same extraction, but recursively*
-    
+
 * **Chapter 5 - Links Awakening**
 
     *Or: where we install our dependencies on the filesystem*
-    
+
 * **Chapter 6 - Lord of the Optimization**
 
     *Or: where we try not to install the whole world on our system*
@@ -58,12 +58,12 @@ import fetch from 'node-fetch';
 async function fetchPackage(reference) {
 
     let response = await fetch(reference);
-    
+
     if (!response.ok)
         throw new Error(`Couldn't fetch package "${reference}"`);
 
     return await response.buffer();
-    
+
 }
 ```
 
@@ -91,7 +91,7 @@ async function fetchPackage({name, reference}) {
         return await fetchPackage({name, reference: `https://registry.yarnpkg.com/${name}/-/${name}-${reference}.tgz`});
 
     // ... same code as before
-    
+
 }
 ```
 
@@ -107,7 +107,7 @@ async function fetchPackage({name, reference}) {
         return await fs.readFile(reference);
 
     // ... same code as before
-    
+
 }
 ```
 
@@ -125,7 +125,7 @@ async function getPinnedReference({name, reference}) {
     // 1.0.0 is a valid range per semver syntax, but since it's also a pinned
     // reference, we don't actually need to process it. Less work, yeay!~
     if (semver.validRange(reference) && !semver.valid(reference)) {
-    
+
         let response = await fetch(`https://registry.yarnpkg.com/${name}`);
         let info = await response.json();
 
@@ -134,13 +134,13 @@ async function getPinnedReference({name, reference}) {
 
         if (maxSatisfying === null)
             throw new Error(`Couldn't find a version matching "${reference}" for package "${name}"`);
-        
+
         reference = maxSatisfying;
-        
+
     }
 
     return {name, reference};
-    
+
 }
 
 // getPinnedReference({name: "react", reference: "~15.3.0"})
@@ -157,7 +157,7 @@ And ... that's it! If we see a semver range, we just have to query the NPM regis
 
 Note that we don't need to do anything particular with semver versions, direct URLs, nor filesystem paths, since they'll always refer to a single package at any given time. So when we encounter them, we can just return them back without doing anything fancy.
 
-Thanks to this function, we can now rest assured that our references will always be pinned references! Another day, another great victory for us. 
+Thanks to this function, we can now rest assured that our references will always be pinned references! Another day, another great victory for us.
 
 ## Chapter 3 - Dependencies of our dependencies are our dependencies
 
@@ -202,14 +202,14 @@ Time we go full recursion. See, the idea is that before being able to install yo
 async function getPackageDependencyTree({name, reference, dependencies}) {
 
     return {name, reference, dependencies: await Promise.all(dependencies.map(async (volatileDependency) => {
-    
+
         let pinnedDependency = await getPinnedReference(volatileDependency);
         let subDependencies = await getPackageDependencies(pinnedDependency);
 
         return await getPackageDependencyTree(Object.assign({}, pinnedDependency, {dependencies: subDependencies}));
-        
+
     }))};
-    
+
 }
 ```
 
@@ -347,7 +347,7 @@ async function getPackageDependencyTree({name, reference, dependencies}, availab
             return false;
 
         return true;
-        
+
     }).map(async (volatileDependency) => {
 
         let pinnedDependency = await getPinnedReference(volatileDependency);
@@ -357,9 +357,9 @@ async function getPackageDependencyTree({name, reference, dependencies}, availab
         subAvailable.set(pinnedDependency.name, pinnedDependency.reference);
 
         return await getPackageDependencyTree(Object.assign({}, pinnedDependency, {dependencies: subDependencies}), subAvailable);
-        
+
     }))};
-    
+
 }
 ```
 
@@ -373,12 +373,12 @@ If we go back to our babel-core example, it will go like this:
   - is it available in a parent module? NO
   - resolve it to babel-core@6.25.0
   - resolve its dependencies
-  
+
     - seeing babel-register@^6.24.1
     - is it available in a parent module? NO
     - resolve it to babel-register@6.24.1
     - resolve its dependencies
-    
+
       - seeing babel-core@^6.24.1
       - is it available in a parent module? YES, BECAUSE 6.25.0 MATCHES ^6.24.1
       - skip resolution
@@ -422,12 +422,12 @@ import path from 'path';
 async function linkPackages({name, reference, dependencies}, cwd) {
 
     // ... same code as before, except for the end:
-    
+
     await Promise.all(dependencies.map(async ({name, reference, dependencies}) => {
 
         let target = `${cwd}/node_modules/${name}`;
         let binTarget = `${cwd}/node_modules/.bin`;
-        
+
         await linkPackages({name, reference, dependencies}, target);
 
         let dependencyPackageJson = require(`${target}/package.json`);
@@ -437,13 +437,13 @@ async function linkPackages({name, reference, dependencies}, cwd) {
             bin = {[name]: bin};
 
         for (let binName of Object.keys(bin)) {
-        
+
             let source = resolve(target, bin[binName]);
             let dest = `${binTarget}/${binName}`;
 
             await fs.mkdirp(`${cwd}/node_modules/.bin`);
             await fs.symlink(relative(binTarget, source), dest);
-            
+
         }
 
     }));
@@ -462,7 +462,7 @@ const exec = util.promisify(cp.exec);
 async function linkPackages({name, reference, dependencies}, cwd) {
 
     // ... same code as before except the end:
-    
+
     await Promise.all(dependencies.map(async ({name, reference, dependencies}) => {
 
         // ... same code as before
@@ -471,14 +471,14 @@ async function linkPackages({name, reference, dependencies}, cwd) {
             for (let scriptName of [`preinstall`, `install`, `postinstall`]) {
 
                 let script = dependencyPackageJson.scripts[scriptName];
-            
+
                 if (!script)
                     continue;
-                    
+
                 await exec(script, {cwd: target, env: Object.assign({}, process.env, {
                     PATH: `${target}/node_modules/.bin:${process.env.PATH}`
                 })});
-                
+
             }
         }
 
@@ -529,7 +529,7 @@ function optimizePackageTree({name, reference, dependencies}) {
             let availableDependency = dependencies.find(dependency => {
                 return dependency.name === subDependency.name;
             });
-            
+
             // If there's none, great! It means that there won't be any collision
             // if we decide to adopt this one, so we can just go ahead.
             if (!availableDependency.length)
@@ -574,5 +574,4 @@ This is only a short list, far from being exhaustive! Package managers can imple
 
 * * *
 
-I hope you've enjoyed this article as much as I've taken pleasure in writing it! If you want to discuss it, whether it's to correct some mistake or to just talk about package managers, ping me on Twitter via [@arcanis](https://twitter.com/arcanis), or on Yarn's [Discord](https://discord.gg/yarnpkg) server where the core team regularly lurks :) 
-
+I hope you've enjoyed this article as much as I've taken pleasure in writing it! If you want to discuss it, whether it's to correct some mistake or to just talk about package managers, ping me on Twitter via [@arcanis](https://twitter.com/arcanis), or on Yarn's [Discord](https://discord.gg/yarnpkg) server where the core team regularly lurks :)
