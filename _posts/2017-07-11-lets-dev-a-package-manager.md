@@ -1,7 +1,7 @@
 ---
 layout     : post
 title      : "Let's Dev: A Package Manager"
-author     : Maël Nison
+author     : Mael Nison
 author_url : "https://twitter.com/arcanis"
 date       : 2017-07-11 8:00:00
 categories : announcements
