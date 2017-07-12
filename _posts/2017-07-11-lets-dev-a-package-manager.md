@@ -3,7 +3,7 @@ layout     : post
 title      : "Let's Dev: A Package Manager"
 author     : Maël Nison
 author_url : "https://twitter.com/arcanis"
-date       : 2016-07-01 8:00:00
+date       : 2017-07-11 8:00:00
 categories : announcements
 share_text : "Let's Dev: A Package Manager"
 ---
@@ -20,35 +20,37 @@ To fully understand how things work, we're gonna go step by step, incrementally,
 
 * * *
 
-* **Chapter 1 - Bravely Download**
+* **[#](#chapter-1---bravely-download) Chapter 1 - Bravely Download**
 
     *Or: where we download package tarballs*
 
-* **Chapter 2 - One Reference to Rule Them All**
+* **[#](#chapter-2--one-pinned-reference-to-rule-them-all) Chapter 2 - One (Pinned) Reference to Rule Them All**
 
     *Or: where we resolve package ranges*
 
-* **Chapter 3 - Dependencies of our Dependencies are our Dependencies**
+* **[#](#chapter-3--dependencies-of-our-dependencies-are-our-dependencies) Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies**
 
     *Or: where we extract dependencies from packages*
 
-* **Chapter 4 - Super Dependency World**
+* **[#](#chapter-4--super-dependency-world) Chapter 4 - Super Dependency World**
 
-    *Or: where we do the same extraction, but recursively*
+    *Or: where we do the same thing, but recursively*
 
-* **Chapter 5 - Links Awakening**
+* **[#](#chapter-5--links-awakening) Chapter 5 - Links Awakening**
 
     *Or: where we install our dependencies on the filesystem*
 
-* **Chapter 6 - Lord of the Optimization**
+* **[#](#chapter-6--lord-of-the-optimization) Chapter 6 - Lord of the Optimization**
 
     *Or: where we try not to install the whole world on our system*
 
-* **Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)**
+* **[#](#conclusion---there-really-was-a-cakehttpsgithubcomyarnpkglets-dev-demo) Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)**
 
     *Or: where we reflect on what we've learned*
 
-## Chapter 1 - Bravely download
+* * *
+
+## Chapter 1 - Bravely Download
 
 So, where should we start? First we have to think about what a package manager is. Let's forget the caches, the mirrors, the lockfiles, and all of the fancy command-line stuff, and let's focus on the very core: a package manager is a download manager. You ask it to download a package, and it happily executes. That's how we'll begin our adventure: with a very basic function that simply downloads something from the internet.
 
@@ -113,7 +115,7 @@ async function fetchPackage({name, reference}) {
 
 Simple, right?
 
-## Chapter 2 - One reference to rule them all
+## Chapter 2 - One (Pinned) Reference to Rule Them All
 
 Our `fetchPackage` function is great, but it has one shortcoming, and a big one: As we said, our function can currently only serve pinned references. Ranges such as `^1.0.0` cannot be served, because they can potentially refer to multiple different versions, each of them having their own tarballs. So, in order to serve them, we'll need to find a way to extract a unique pinned reference from those ranges. Fortunately, it's not that hard! See for yourself:
 
@@ -159,7 +161,7 @@ Note that we don't need to do anything particular with semver versions, direct U
 
 Thanks to this function, we can now rest assured that our references will always be pinned references! Another day, another great victory for us.
 
-## Chapter 3 - Dependencies of our dependencies are our dependencies
+## Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies
 
 In Chapter 1 we saw how to make a magic function that would download any package from anywhere, and return it. In Chapter 2, we saw how to convert volatile dependencies into pinned dependencies. That's a great start! But now we'll need to resolve a bigger issue: dependencies. See, the Node ecosystem being what it is, most packages rely on other packages in order to work properly. Fortunately, they all agreed on using a single standard to list those dependencies (remember the `package.json` file we've seen above), and so we should be able to make good use of this. Let's write our function. Given a package, we want it to return the dependencies this package relies on.
 
@@ -194,7 +196,7 @@ async function getPackageDependencies({name, reference}) {
 
 What do you think? We've even been able to use our very own `fetchPackage` implementation! From now on, whatever package people send us, we'll be able to know what other packages it depends on. We'll now have to expand this ability a bit further: instead of resolving the first level of dependencies only, we'll want to resolve *everything*. And that's what the next chapter is about!
 
-## Chapter 4 - The dreaded Dependency Tree
+## Chapter 4 - Super Dependency World
 
 Time we go full recursion. See, the idea is that before being able to install your packages into your `node_modules` folder, we'll first have to “install” them in memory. Why, you say? Well, proceeding this way will allow us to manipulate the tree before actually persisting it on the filesystem. Whether it's deduplication or hoisting, everything will have to be applied on this tree rather than on the actual disk (which would be really slow otherwise). But we'll cover that in another chapter! Right now, let's focus on extracting a complete dependency tree from a single root dependency. Since we've already written all the needed pieces (first the function to convert a volatile reference to a pinned reference, then the function to obtain a package dependencies), it will be quick. Let's get down to it:
 
@@ -253,7 +255,7 @@ If everything goes According To Plan, here's what you should obtain (or similar,
 
 > **Undefined Reference**
 >
-> The following snippet introduces a weird reference: `undefined`, which is used on the root package only. In this particular case, it's actually expected! Your root package, the one we extracted from your current directory, has no reference. In a real-life situation, we would probably want to have a special reference (for example `root:///path/to/package`), but here it's not necessary.
+> You might notice a weird reference on the following snippet: `undefined`. It's actually expected! This reference is used on the root package only in order to tell the linker (more on that later) that this package is a bit special. In a real-life situation, we would probably want to use a special type reference (for example `root:///path/to/package`), but here it's not necessary.
 
 ```js
 { name: "my-awesome-package",
@@ -564,10 +566,14 @@ And that's it. We'll just have to call this function after resolving and before 
 
 Finally! After all this time, we finally have our tiny package manager! You can even see its full code on [this repository](https://github.com/yarnpkg/lets-dev-demo) - try it, it really works! It is admittedly pretty basic, kind of slow, and without much features, but we love it nevertheless and that's all that matters. And because it's young, there is still room for some evolution and improvements:
 
-* We could implement a powerful CLI that would be similar to Yarn!
+* We could implement a powerful CLI that would be similar to Yarn! With progress bars, and emojis, and all those fancy things! In fact, the demo already has progress bars, so that's a good start!
+
 * We could split our functions into modules! Our package manager would then be a simple CLI, and our fetchers / resolvers / linkers would be loaded from a configuration file. Want to link everything using symlinks or hardlinks instead of copying files? Just use another linker than the default one! Want to add support for extra fetchers? Add them to your config files and be done with it! In fact, we even [started experimenting with something similar in Yarn](https://github.com/yarnpkg/yarn/pull/3501).
+
 * We could also improve our optimizer so that it would actually work in every case! ;) And assuming a plugin architecture like the one we talked in the previous item, we could implement multiple optimization strategies — from the `[--flat](https://yarnpkg.com/lang/en/docs/cli/install/#toc-yarn-install-flat)` option to ensure that we wouldn't use multiple versions of any single package, up to the more esoteric optimizers that would use more complex strategies, such as [SAT solvers](https://github.com/yarnpkg/yarn/issues/422) — and all without any risk of hurting the core package manager experience!
+
 * We could persist our resolution tree to a file on the disk, which we would call `yarn.lock`, and each time we would need to process a package from within our `getPinnedReference` and `getPackageDependencies` functions, we would instead extract that information from the file instead of over the network! (In case you're wondering, that's exactly how Yarn's yarn.lock works, and NPM 5's `package-lock.json`)
+
 * We could save the tarballs in some sort of a cache, so that we wouldn't have to download them from the network multiple times.
 
 This is only a short list, far from being exhaustive! Package managers can implement a wide range of features, which can each be improved in a lot of different ways. As you can see, the future looks bright: who can tell what new improvements will come over the next years? No one can tell for sure, but what I can tell you is to watch this blog for the next Yarn announcement!
