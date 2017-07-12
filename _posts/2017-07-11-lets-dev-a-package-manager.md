@@ -1,12 +1,14 @@
 ---
 layout     : post
 title      : "Let's Dev: A Package Manager"
-author     : Mael Nison
+author     : "Maël Nison"
 author_url : "https://twitter.com/arcanis"
 date       : 2017-07-11 8:00:00
 categories : announcements
 share_text : "Let's Dev: A Package Manager"
 ---
+
+test
 
 Hello everyone! Today, we're gonna write a new package manager, even better than Yarn! Ok, maybe not, but at least we're gonna have some fun, learn how package managers work, and think about what could come next on Yarn.
 
