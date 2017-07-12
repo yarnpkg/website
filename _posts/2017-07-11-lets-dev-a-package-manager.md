@@ -24,7 +24,7 @@ To fully understand how things work, we're gonna go step by step, incrementally,
 
     *Or: where we download package tarballs*
 
-* **[#](#chapter-2---one-reference-to-rule-them-all) Chapter 2 - One (Pinned) Reference to Rule Them All**
+* **[#](#chapter-2---one-reference-to-rule-them-all) Chapter 2 - One Reference to Rule Them All**
 
     *Or: where we resolve package ranges*
 
@@ -117,7 +117,7 @@ What do you think? Pretty simple, right?
 
 * * *
 
-## Chapter 2 - One (Pinned) Reference to Rule Them All
+## Chapter 2 - One Reference to Rule Them All
 
 Our `fetchPackage` function is great, but it has one shortcoming, and a big one: As we said, our function can currently only serve pinned references. Ranges such as `^1.0.0` cannot be served, because they can potentially refer to multiple different versions, each of them having their own tarballs. So, in order to serve them, we'll need to find a way to extract a unique pinned reference from those ranges. Fortunately, it's not that hard! See for yourself:
 
@@ -157,11 +157,11 @@ async function getPinnedReference({name, reference}) {
 //     → {name: "react", reference: "/tmp/react-15.3.2.tar.gz"}
 ```
 
-And ... that's it! If we see a semver range, we just have to query the NPM registry to retrieve the list of all available versions. One we obtain it, it's just a matter of selecting the best one thanks to the `maxSatisfying` function provided by the semver module, and we're all set.
+And ... that's it! If we see a semver range, we just have to query the NPM registry to retrieve the list of all available versions. Once we've obtained it, it's just a matter of selecting the best one (which is made easy thanks to the `maxSatisfying` function provided by the semver module), and we're all set.
 
 Note that we don't need to do anything particular with semver versions, direct URLs, nor filesystem paths, since they'll always refer to a single package at any given time. So when we encounter them, we can just return them back without doing anything fancy.
 
-Thanks to this function, we can now rest assured that our references will always be pinned references! Another day, another great victory for us.
+Thanks to this function, we can now rest assured that the references we'll send to our `fetchPackage` function will always be pinned references! Another day, another great victory for us.
 
 * * *
 
@@ -171,7 +171,7 @@ In Chapter 1 we saw how to make a magic function that would download any package
 
 > **Can't escape the tooling**
 >
-> Even if this article tries to stay focused on the core principle of package managers, we will need some utility function from to time. When you encounter a symbol imported from `./utilities`, just don't bother understanding how it works under the hood. It's usually some boring and verbose code. That being said, all sources are available in annex, including the utilities, so if you're really interested, give it a look later!
+> Even if this article tries to stay focused on the core principle of package managers, we will need some utility function from time to time. When you encounter a symbol imported from `./utilities`, just don't bother understanding how it works under the hood. It's usually some boring and verbose code. That being said, all sources are available in the repository linked at the end of this post, including the utilities, so if you're really interested, give it a look later!
 
 ```js
 // This function reads a file stored within an archive
@@ -198,7 +198,7 @@ async function getPackageDependencies({name, reference}) {
 //        {name: "prop-types", reference: "^15.5.10"}]
 ```
 
-What do you think? We've even been able to use our very own `fetchPackage` implementation! From now on, whatever package people send us, we'll be able to know what other packages it depends on. We'll now have to expand this ability a bit further: instead of resolving the first level of dependencies only, we'll want to resolve *everything*. And that's what the next chapter is about!
+What do you think? We've even been able to use our very own `fetchPackage` implementation to get the archive from where we extract the package information! From now on, whatever package people send us, we'll be able to know what other packages it depends on. That's a good start, but we'll now have to expand this ability a bit further: instead of resolving the first level of dependencies only, we'll want to resolve *everything*. And that's what the next chapter is about!
 
 * * *
 
@@ -261,7 +261,7 @@ If everything goes According To Plan, here's what you should obtain (or similar,
 
 > **Undefined Reference**
 >
-> You might notice a weird reference on the following snippet: `undefined`. It's actually expected! This reference is used on the root package only in order to tell the linker (more on that later) that this package is a bit special. In a real-life situation, we would probably want to use a special type reference (for example `root:///path/to/package`), but here it's not necessary.
+> You might notice a weird reference on the following snippet: `undefined`. It's actually expected! This reference is used on the root package in order to inform the linker (more on that later) that this package is a bit special. In a real-life situation, we would probably want to use a special type of reference (for example `root:///path/to/package`), but in our case it's not necessary.
 
 ```js
 { name: "my-awesome-package",
@@ -328,7 +328,7 @@ Still waiting.
 ...
 Still... wait, is this script still running? That's not good, right?
 
-At this point we can safely assume that there's something wrong in our code - Babel is not that large, and the execution should have stopped a long time ago. In order to better understand what happened, open the [babel-core](https://yarnpkg.com/en/package/babel-core) page on Yarnpkg, and check its dependencies. You should see babel-register. Good. Now, open the [babel-register](https://yarnpkg.com/en/package/babel-runtime) page on Yarnpkg, and check its dependencies. You should see... Yup. Babel-core. Now can you guess what happened? Because of the circular dependency, we've been iterating over babel-core, then babel-register, then babel-core, then... etc. Eventually, our code will end up using too much RAM and will get killed by the OS. That's really not good.
+At this point we can safely assume that there's something wrong in our code - Babel is not that large, and the execution should have stopped a long time ago. In order to better understand what happened, open the [babel-core](https://yarnpkg.com/en/package/babel-core) page on Yarnpkg, and check its dependencies. You should see babel-register. Good. Now, open the [babel-register](https://yarnpkg.com/en/package/babel-runtime) page on Yarnpkg, and check its own dependencies. You should see... Yup. Babel-core. Now can you guess what happened? Because of the circular dependency, we've been iterating over babel-core, then babel-register, then babel-core, then... etc. Eventually, our code will end up using too much RAM and will get killed by the OS. That's really not good.
 
 Fortunately, the fix is fairly easy! Remember that in Node, `node_modules` directories can be nested. If a package can't be located inside the current directory `node_modules`, Node will try looking for it inside the parent directory `node_modules`, then its grandparent `node_modules`, etc, until it finds a satisfying match. Let's take advantage of that:
 
@@ -423,7 +423,7 @@ async function linkPackages({name, reference, dependencies}, cwd) {
 }
 ```
 
-And that's about it. This code will traverse your tree, unpack each package inside its designated directory (check the appendices for the `extractArchiveTo` implementation if you care about it), then iterate over its children and do the same for each of them. Seems good enough, but I feel like we might be forgetting something... oh right! The binaries! See, NPM's `package.json` files offers a way for packages to expose utilities to the public (more details [here](https://docs.npmjs.com/files/package.json#bin)). We'll need to add a few extra lines to support for this use case:
+And that's about it. This code will traverse your tree, unpack each package inside its designated directory (check the repository at the end of the article for the `extractArchiveTo` implementation if you care about it), then iterate over its children and do the same for each of them. Seems good enough, but I feel like we might be forgetting something... oh right! The binaries! See, NPM's `package.json` files offers a way for packages to expose utilities to the public (more details [here](https://docs.npmjs.com/files/package.json#bin)). We'll need to add a few extra lines to support this use case:
 
 ```js
 import fs from 'fs-extra';
@@ -499,17 +499,17 @@ async function linkPackages({name, reference, dependencies}, cwd) {
 
 > **All your environments are belong to it**
 >
-> Note that we've only set the PATH environment variable inside this snippet, but packages usually have access to a whole lot of extra environment variables (more details [here](https://docs.npmjs.com/misc/scripts#environment)). They are rarely used, but if you plan to write a package manager then you'll have to make sure that you actually define them one way or the other.
+> Note that we've only set the `PATH` environment variable inside this snippet, but packages usually have access to a whole lot of extra environment variables (more details [here](https://docs.npmjs.com/misc/scripts#environment)). They are rarely used, but if you plan to write a package manager then you'll have to make sure that you actually define them one way or the other.
 
-Now, calling our linker function will install everything we need on the filesystem! Better yet, all build scripts will be run correctly, meaning you will end up with a working node_modules! Good job! Next chapter will be about performance, now things start to get interesting.
+Now, calling our linker function will install everything we need on the filesystem! Better yet, all build scripts will be run correctly, meaning you will end up with a working `node_modules` directory! Good job! Our next chapter will be about performances, things will now start to get really interesting.
 
 * * *
 
 ## Chapter 6 - Lord of the Optimization
 
-Our package manager is working! However, you may notice something ... Because we're not taking advantage of Node's resolution algorithm, and because we don't try to remove duplicates from our package tree, we might end up with a really huge node_modules folder! You might think that it's not that much of an problem, but it has proven to [cause issues in the past](https://scottaddie.com/2015/08/16/npm-vs-windows-max_path-limitation/). For example, on most Windows installations, paths have a hard limit of 260 characters. For packages that are deeply nested, this limit is often exceeded and it breaks things. Fortunately, Node's resolution algorithm help us by allowing us to move the dependencies lower in the tree, as long as there is no conflict.
+Our package manager is working! However, you may notice something ... Because we're not taking advantage of Node's resolution algorithm, and because we don't try to remove duplicates from our package tree, we might end up with a really huge `node_modules` folder! You might think that it's not that much of a problem, but it has proven to [cause issues in the past](https://scottaddie.com/2015/08/16/npm-vs-windows-max_path-limitation/). For example, on most Windows installations, paths have a hard limit of 260 characters. For packages that are deeply nested, this limit is often exceeded and it breaks things. Fortunately, Node's resolution algorithm help us by allowing us to move the dependencies lower in the tree, as long as there is no conflicts.
 
-So let's go! Our job in this chapter will be to decrease the number of packages that get installed on the filesystem, by any means necessary. However, we will do the best we can to keep our algorithm both simple and encapsulated, so that it can be easily understood by maintainers and contributors alike, and can be switched or disabled in a single line if we need to.
+So let's go! Our job in this chapter will be to decrease the number of packages that get installed on the filesystem, by any means necessary. However, we will also do the best we can to keep our algorithm both simple and encapsulated, so that it can be easily understood by maintainers and contributors alike, and can be switched or disabled in a single line if we need to.
 
 Here's a possible implementation. It's not perfect, but it's a good start! Don't be scared by its length, most of this is just comments:
 
@@ -568,7 +568,7 @@ And that's it. We'll just have to call this function after resolving and before 
 
 > **The devil really was in the details**
 >
-> As we saw in the introduction of this article, a large amount of what makes package managers complex software lies in the details. Our optimizer code suffers from this: despite it working in many cases, it actually has an unfortunate bug related to how binaries are linked. With the code shown above, package binaries will not be installed where they should, because when optimizing we lose the information that would allow the linker to correctly link each binary to the right location. Because of this, they will not be found when running the `build` scripts. Oops!
+> As we saw in the introduction of this article, a large amount of what makes package managers complex software lies in the details. Our optimizer code suffers from this: despite it working in many cases, it actually has an unfortunate bug related to how binaries are linked. With the code shown above, package binaries will not be installed where they should, because when optimizing we lost the information that would allow the linker to correctly link each binary to the right location. Because of this, they will not be found when running the `build` scripts. Oops!
 >
 > Solving this would require adding some fields into our resolution tree nodes that we would then use to track the nodes original locations in the tree. The linker would then be able to link the binaries directly inside its children in a post-processing pass. Unfortunately, it would also make the code much less clear, so we opted not to implement this here. Such is the tough life of package manager writers...
 
@@ -576,19 +576,19 @@ And that's it. We'll just have to call this function after resolving and before 
 
 ## Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)
 
-Finally! After all this time, we finally have our tiny package manager! You can even see its full code on [this repository](https://github.com/yarnpkg/lets-dev-demo) - try it, it really works! It is admittedly pretty basic, kind of slow, and without much features, but we love it nevertheless and that's all that matters. And because it's young, there is still room for some evolution and improvements:
+Finally! After all this time, we have our tiny package manager! You can even see its full code on [this repository](https://github.com/yarnpkg/lets-dev-demo) - you can try it, it really works! It is admittedly pretty basic, kind of slow, and without much features, but we love it nevertheless and that's all that matters. And because it's young, there is still room for a lot of evolutions and improvements:
 
 * We could implement a powerful CLI that would be similar to Yarn! With progress bars, and emojis, and all those fancy things! In fact, the demo already has progress bars, so that's a good start!
 
 * We could split our functions into modules! Our package manager would then be a simple CLI, and our fetchers / resolvers / linkers would be loaded from a configuration file. Want to link everything using symlinks or hardlinks instead of copying files? Just use another linker than the default one! Want to add support for extra fetchers? Add them to your config files and be done with it! In fact, we even [started experimenting with something similar in Yarn](https://github.com/yarnpkg/yarn/pull/3501).
 
-* We could also improve our optimizer so that it would actually work in every case! ;) And assuming a plugin architecture like the one we talked in the previous item, we could implement multiple optimization strategies — from the `[--flat](https://yarnpkg.com/lang/en/docs/cli/install/#toc-yarn-install-flat)` option to ensure that we wouldn't use multiple versions of any single package, up to the more esoteric optimizers that would use more complex strategies, such as [SAT solvers](https://github.com/yarnpkg/yarn/issues/422) — and all without any risk of hurting the core package manager experience!
+* We could also improve our optimizer so that it would actually work in every case! ;) And assuming a plugin architecture like the one we talked about in the previous bullet point, we could even implement different optimization strategies — from the `[--flat](https://yarnpkg.com/lang/en/docs/cli/install/#toc-yarn-install-flat)` option to ensure that we wouldn't use multiple versions of any single package, up to the more esoteric ones that would use more complex algorithms, such as [SAT solvers](https://github.com/yarnpkg/yarn/issues/422) — and all the while without any risk of hurting the package manager core experience!
 
-* We could persist our resolution tree to a file on the disk, which we would call `yarn.lock`, and each time we would need to process a package from within our `getPinnedReference` and `getPackageDependencies` functions, we would instead extract that information from the file instead of over the network! (In case you're wondering, that's exactly how Yarn's yarn.lock works, and NPM 5's `package-lock.json`)
+* We could persist our resolution tree to a file on the disk, which we would call `yarn.lock`, and each time we would need to process a package from within our `getPinnedReference` and `getPackageDependencies` functions, we would instead extract that information from the file instead of over the network! (In case you're wondering, that's exactly how both Yarn's `yarn.lock` and NPM@5's `package-lock.json` files work)
 
-* We could save the tarballs in some sort of a cache, so that we wouldn't have to download them from the network multiple times.
+* We could save the tarballs in some sort of a cache, so that we wouldn't have to download them from the network multiple times. By doing this we could even install our packages offline, if our cache is sufficiently well furnished!
 
-This is only a short list, far from being exhaustive! Package managers can implement a wide range of features, which can each be improved in a lot of different ways. As you can see, the future looks bright: who can tell what new improvements will come over the next years? No one can tell for sure, but what I can tell you is to watch this blog for the next Yarn announcement!
+This is only a short list, far from being exhaustive! Package managers can implement a wide range of features, and all of them can each be improved in a lot of different ways. As you can see, the future looks bright: who can tell what new features and improvements will come during the incoming years? No one can tell for sure, but what I *can* tell you is to watch this blog for the next Yarn announcement!
 
 * * *
 
