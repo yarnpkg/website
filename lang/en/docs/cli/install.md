@@ -18,6 +18,8 @@ more information, see
 
 Running `yarn` with no command will run `yarn install`, passing through any provided flags.
 
+If you need reproducible dependencies, which is usually the case with the continuous integration systems, you should pass `--frozen-lockfile` flag.
+
 ##### `yarn install` <a class="toc" id="toc-yarn-install" href="#toc-yarn-install"></a>
 
 Install all the dependencies listed within `package.json` in the local
@@ -76,6 +78,9 @@ Yarn will not install any package listed in `devDependencies` if the `NODE_ENV` 
 
 Don't generate a `yarn.lock` lockfile.
 
+##### `yarn install --frozen-lockfile` <a class="toc" id="toc-yarn-install-frozen-lockfile" href="#toc-yarn-install-frozen-lockfile"></a>
+
+Don't generate a `yarn.lock` lockfile and fail if an update is needed.
 
 ##### `yarn install --ignore-engines` <a class="toc" id="toc-yarn-install-pure-lockfile" href="#toc-yarn-install-ignore-engines"></a>
 
