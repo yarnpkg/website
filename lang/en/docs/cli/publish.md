@@ -24,7 +24,7 @@ Publishes the package contained in the specified folder.
 
 ##### `yarn publish --tag <tag>` <a class="toc" id="toc-yarn-publish-tag" href="#toc-yarn-publish-tag"></a>
 
-Provided a tag to `yarn publish` lets you publish packages with a specific tag.
+Providing a tag to `yarn publish` lets you publish packages with a specific tag.
 For example, if you do a `yarn publish --tag beta`, and your package is named
 `blorp`, then someone else can install that package with `yarn add blorp@beta`.
 
