@@ -35,8 +35,6 @@ to match this specified version.
 You can use any [SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning)
 version number or range.
 
-`@scope/` : When a scope is specified, only packages that begin with that scope will be upgraded. A scope must begin with '@'.
-
 `--ignore-engines` : This flag can be used to skip the engines check.
 
 Examples:
@@ -48,7 +46,7 @@ yarn upgrade left-pad grunt
 yarn upgrade @angular
 ```
 
-##### `yarn upgrade [package | @scope/]... --latest|-L [--caret | --tilde | --exact]` <a class="toc" id="toc-yarn-upgrade-latest" href="#toc-yarn-upgrade-latest"></a>
+##### `yarn upgrade [package]... --latest|-L [--caret | --tilde | --exact]` <a class="toc" id="toc-yarn-upgrade-latest" href="#toc-yarn-upgrade-latest"></a>
 
 The `upgrade --latest` command upgrades packages the same as the `upgrade` command,
 but ignores the version range specified in `package.json`.
@@ -67,4 +65,18 @@ Examples:
 yarn upgrade --latest
 yarn upgrade left-pad --latest
 yarn upgrade left-pad grunt --latest --tilde
+```
+
+##### `yarn upgrade (--scope|-S) @scope [--latest]` <a class="toc" id="toc-yarn-upgrade-scope" href="#toc-yarn-upgrade-scope"></a>
+
+`--scope @scope/` : When a scope is specified, only packages that begin with that scope will be upgraded. A scope must begin with '@'.
+
+`--latest` : Ignores the version range specified in `package.json`.
+Instead, the version specified by the `latest` tag will be used
+(potentially upgrading the packages across major versions).
+
+Examples:
+```sh
+yarn upgrade --scope @angular
+yarn upgrade -S @angular
 ```
