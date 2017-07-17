@@ -22,6 +22,10 @@ Publishes the package defined by a `.tgz` gzipped tarball.
 Publishes the package contained in the specified folder.
 `<folder>/package.json` should specify the package details.
 
+##### `yarn publish --new-version <version>` <a class="toc" id="toc-yarn-publish-new-version" href="#toc-yarn-publish-new-version"></a>
+
+Skips the prompt for new version by using the value of `version` instead.
+
 ##### `yarn publish --tag <tag>` <a class="toc" id="toc-yarn-publish-tag" href="#toc-yarn-publish-tag"></a>
 
 Provided a tag to `yarn publish` lets you publish packages with a specific tag.
