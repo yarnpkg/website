@@ -9,17 +9,18 @@ additional_reading_tags: ["cli-add", "cli-tag", "dependencies-versions", "cli-up
 
 <p class="lead">This is similar to npm-check interactive update mode. It provides an easy way to update outdated packages.</p>
 
-##### `yarn upgrade-interactive` <a class="toc" id="toc-yarn-upgrade-interactive" href="#toc-yarn-upgrade-interactive"></a>
+##### `yarn upgrade-interactive [--latest]` <a class="toc" id="toc-yarn-upgrade-interactive" href="#toc-yarn-upgrade-interactive"></a>
 
-The default mode installs and updates the packages to use minor versions.
+The `upgrade-interactive` command takes the same parameters as, and functions the same as the base `upgrade` command.
+This command will display the outdated packages before performing any upgrade, allowing the user to select which packages to upgrade.
+Yarn will respect the version ranges in `package.json` when determining the version to upgrade to.
 
-##### `yarn upgrade-interactive [--tilde/-T]` <a class="toc" id="toc-yarn-upgrade-interactive-t" href="#toc-yarn-upgrade-interactive-t"></a>
+You can think of `yarn upgrade-interactive` as a combination of the `yarn outdated` and `yarn upgrade [package...]` commands.
+Where `yarn outdated` displays the list of outdated packages and `yarn upgrade [package...]` can then be used to upgrade desired packages,
+`yarn upgrade-interactive` displays the same outdated package list and lets you immediately chose which to upgrade.
 
-Using `--tilde` or `-T` installs and updates them as patch versions.
-
-##### `yarn upgrade-interactive [--exact/-E]` <a class="toc" id="toc-yarn-upgrade-interactive-e" href="#toc-yarn-upgrade-interactive-e"></a>
-
-Using `--exact` or `-E` installs and updates them as exact versions.
+`--latest` : This flag tells yarn to ignore the specified version ranges in `package.json` and instead use the version tagged `latest`
+in the registry.
 
 ```
 [1/? Choose which packages to update. (Press <space> to select, <a> to toggle all, <i> to inverse s
