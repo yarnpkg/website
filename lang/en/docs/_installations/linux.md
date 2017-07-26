@@ -34,6 +34,8 @@ curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 Then you can simply:
 ```sh
 sudo yum install yarn
+## OR ##
+sudo dnf install yarn
 ```
 
 ### Arch Linux
