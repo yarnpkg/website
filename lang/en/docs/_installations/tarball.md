@@ -30,3 +30,11 @@ wget https://yarnpkg.com/latest.tar.gz
 tar zvxf latest.tar.gz
 # Yarn is now in /opt/yarn-[version]/
 ```
+
+Before extracting Yarn, it is recommended that you verify the tarball using GPG:
+```sh
+wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import
+wget https://yarnpkg.com/latest.tar.gz.asc
+gpg --verify latest.tar.gz.asc
+# Look for "Good signature from 'Yarn Packaging'" in the output
+```
