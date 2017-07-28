@@ -2,9 +2,7 @@
 
 The easiest way of installing a nightly build is via our shell script:
 ```sh
-wget https://yarnpkg.com/install.sh
-chmod +x install.sh
-./install.sh --nightly
+curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
 ```
 
 An Ubuntu/Debian repository of the nightly builds is also available. To enable it, run the following commands:
