@@ -128,7 +128,7 @@ To keep things simple I'll describe two small workspaces packages.
 }`
 ```
 
-An approach that a wrapper like Lerna takes is to run run `yarn install` for each package.json separately and then run `yarn link` for packages that depend on each other.
+An approach that a wrapper like Lerna takes is to run `yarn install` for each package.json separately and then run `yarn link` for packages that depend on each other.
 
 We would get a folder structure like this.
 
