@@ -8,8 +8,6 @@ categories : announcements
 share_text : "Yarn Workspaces: the evolution of multipackage projects"
 ---
 
-# Workspaces in Yarn
-
 ## Monorepos
 
 Projects tend to grow over time, and, occasionally, some pieces of a project can be useful elsewhere in other projects. For example, [Jest](http://facebook.github.io/jest/), being a generic testing tool, gave birth to many packages, one of them is [jest-snapshot](https://yarnpkg.com/en/package/jest-snapshot) that is now used in other projects like [snapguidist](https://yarnpkg.com/en/package/snapguidist) and [chai-jest-snapshot](https://yarnpkg.com/en/package/chai-jest-snapshot).
