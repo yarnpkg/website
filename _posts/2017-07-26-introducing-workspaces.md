@@ -3,7 +3,7 @@ layout     : post
 title      : "Workspaces in Yarn"
 author     : Konstantin Raev
 author_url : "https://twitter.com/bestander_nz"
-date       : 2017-07-26 8:00:00
+date       : 2017-08-02 8:00:00
 categories : announcements
 share_text : "Yarn Workspaces: the evolution of multipackage projects"
 ---
