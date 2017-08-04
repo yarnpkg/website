@@ -11,11 +11,11 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "happypack": "^4.0.0-beta.1",
-    "lint-staged": "^4.0.0",
+    "lint-staged": "^4.0.2",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.4.4",
-    "webpack": "^3.0.0",
-    "webpack-manifest-plugin": "^1.1.0"
+    "prettier": "^1.5.3",
+    "webpack": "^3.4.1",
+    "webpack-manifest-plugin": "^1.2.1"
   },
   "scripts": {
     "build": "webpack",
@@ -37,7 +37,7 @@
   },
   "private": true,
   "dependencies": {
-    "algoliasearch": "^3.24.0",
+    "algoliasearch": "^3.24.3",
     "bootstrap": "4.0.0-alpha.5",
     "bytes": "^2.5.0",
     "date-fns": "^2.0.0-alpha.1",
@@ -48,8 +48,8 @@
     "qs": "^6.5.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-instantsearch": "^4.0.6",
-    "react-sparklines": "^1.6.0",
+    "react-instantsearch": "^4.0.9",
+    "react-sparklines": "1.6.0",
     "react-transition-group": "^1.2.0",
     "unescape-html": "^1.0.0",
     "unfetch": "^3.0.0",
