@@ -1,6 +1,7 @@
 import React from 'react';
 import marked from 'marked';
 import xss from 'xss';
+import highlight from 'highlight.js';
 
 import { prefixURL } from '../util';
 
@@ -41,9 +42,17 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
     };
   }
 
-  const html = marked(source, { renderer });
-  const escaped = xss(html);
-  return escaped;
+  renderer.code = (code, lang) => {
+    const highlighted = highlight.highlightAuto(code).value;
+    console.log(highlighted);
+    return `<pre><code class="rougeHighlight">${highlighted}</code></pre>`;
+  };
+
+  const html = marked(source, {
+    renderer,
+  });
+  // const escaped = xss(html);
+  return html;
 };
 
 const Markdown = ({ source, githubRepo, gitHead }) =>
