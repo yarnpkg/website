@@ -45,7 +45,8 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
 export function formatKeywords(
   keywords = [],
   highlightedKeywords = [],
-  maxKeywords = 4
+  maxKeywords = 4,
+  onClick
 ) {
   if (isEmpty(keywords)) return keywords;
   highlightedKeywords.forEach((el, i) => {
@@ -91,7 +92,11 @@ export function formatKeywords(
           );
         });
         return (
-          <span className="ais-Hit--keyword" key={`${keyword}${keywordIndex}`}>
+          <span
+            className="ais-Hit--keyword"
+            key={`${keyword}${keywordIndex}`}
+            onClick={() => onClick([keyword])}
+          >
             {content}
           </span>
         );
@@ -107,9 +112,8 @@ function parseHighlightedAttribute({
 }) {
   const splitByPreTag = highlightedValue.split(preTag);
   const firstValue = splitByPreTag.shift();
-  const elements = firstValue === ''
-    ? []
-    : [{ value: firstValue, isHighlighted: false }];
+  const elements =
+    firstValue === '' ? [] : [{ value: firstValue, isHighlighted: false }];
 
   if (postTag === preTag) {
     let isHighlighted = true;
