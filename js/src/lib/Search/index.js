@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import qs from 'qs';
 import { Configure, InstantSearch } from 'react-instantsearch/dom';
 import { connectRefinementList } from 'react-instantsearch/connectors';
 
