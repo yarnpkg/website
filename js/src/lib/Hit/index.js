@@ -11,7 +11,11 @@ import {
 } from '../util';
 
 export const License = ({ type }) =>
-  type ? <span className="ais-Hit--license">{type}</span> : null;
+  type
+    ? <span className="ais-Hit--license">
+        {type}
+      </span>
+    : null;
 
 export const Deprecated = ({ deprecated }) =>
   deprecated
@@ -73,7 +77,7 @@ export const Links = ({ name, homepage, githubRepo, className }) =>
       : null}
   </div>;
 
-const Hit = ({ hit }) =>
+const Hit = ({ hit, onTagClick }) =>
   <div className="ais-Hits--item">
     <a className="ais-Hit--name" href={packageLink(hit.name)}>
       <Highlight attributeName="name" hit={hit} />
@@ -84,7 +88,9 @@ const Hit = ({ hit }) =>
     />
     <License type={hit.license} />
     <Deprecated deprecated={hit.deprecated} />
-    <span className="ais-Hit--version">{hit.version}</span>
+    <span className="ais-Hit--version">
+      {hit.version}
+    </span>
     <p className="ais-Hit--description">
       {hit.deprecated
         ? hit.deprecated
@@ -106,7 +112,12 @@ const Hit = ({ hit }) =>
     {isEmpty(hit.keywords)
       ? null
       : <span className="ais-Hit--keywords hidden-sm-down">
-          {formatKeywords(hit.keywords, hit._highlightResult.keywords)}
+          {formatKeywords(
+            hit.keywords,
+            hit._highlightResult.keywords,
+            4,
+            onTagClick
+          )}
         </span>}
     <Links
       className="ais-Hit--links"

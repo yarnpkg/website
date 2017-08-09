@@ -282,9 +282,8 @@ $ais-muted-color: rgba(black,.5);
       border-bottom: dotted 1px;
     }
 
-    &:hover,
-    &:visited {
-      text-decoration: none;
+    &:hover {
+      cursor: pointer;
     }
   }
 

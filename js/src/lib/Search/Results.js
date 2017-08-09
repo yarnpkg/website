@@ -12,7 +12,7 @@ import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = ({ pagination }) =>
+const ResultsFound = ({ pagination, onTagClick }) =>
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
@@ -28,7 +28,9 @@ const ResultsFound = ({ pagination }) =>
         }}
       />
     </div>
-    <Hits hitComponent={Hit} />
+    <Hits
+      hitComponent={({ hit }) => <Hit onTagClick={onTagClick} hit={hit} />}
+    />
     <div className="d-flex">
       {pagination
         ? <Pagination showFirst={false} showLast={false} scrollTo={true} />
@@ -55,7 +57,7 @@ const Results = createConnector({
       : false;
     return { query: searchState.query, noResults, pagination };
   },
-})(({ noResults, query, pagination }) => {
+})(({ noResults, query, pagination, onTagClick }) => {
   if (isEmpty(query)) {
     body.classList.remove('searching');
     return <span />;
@@ -63,18 +65,28 @@ const Results = createConnector({
     body.classList.add('searching');
     const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
     docMessage[docMessage.indexOf('documentation_link')] = (
-      <a href={`${window.i18n.url_base}/docs`}>{window.i18n.documentation}</a>
+      <a href={`${window.i18n.url_base}/docs`}>
+        {window.i18n.documentation}
+      </a>
     );
 
     return (
       <div className="container text-center mt-5">
-        <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
-        <p>{docMessage.map((val, index) => <span key={index}>{val}</span>)}</p>
+        <p>
+          {window.i18n.no_package_found.replace('{name}', query)}
+        </p>
+        <p>
+          {docMessage.map((val, index) =>
+            <span key={index}>
+              {val}
+            </span>
+          )}
+        </p>
       </div>
     );
   } else {
     body.classList.add('searching');
-    return <ResultsFound pagination={pagination} />;
+    return <ResultsFound pagination={pagination} onTagClick={onTagClick} />;
   }
 });
 
