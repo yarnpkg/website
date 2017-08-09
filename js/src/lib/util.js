@@ -95,7 +95,7 @@ export function formatKeywords(
           <span
             className="ais-Hit--keyword"
             key={`${keyword}${keywordIndex}`}
-            onClick={() => onClick([keyword])}
+            onClick={() => onClick(keyword)}
           >
             {content}
           </span>

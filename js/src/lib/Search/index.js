@@ -12,17 +12,49 @@ import { algolia } from '../config';
 // think: createreactnative instead of create-react-native-app
 const concat = string => string.replace(/[-/@_.]+/g, '');
 
-const VirtualRefinementList = connectRefinementList(() => null);
+const equals = (arr1, arr2) =>
+  arr1.length == arr2.length && arr1.reduce((a, b, i) => a && arr2[i], true);
+
+class RefinementList extends Component {
+  componentWillReceiveProps(newProps) {
+    const { currentRefinement, defaultRefinement, onRefine, refine } = newProps;
+    const {
+      currentRefinement: oldCurrentRefinement,
+      defaultRefinement: oldDefaultRefinement,
+    } = this.props;
+
+    if (!equals(currentRefinement, oldCurrentRefinement)) {
+      refine(currentRefinement);
+      onRefine(currentRefinement);
+    }
+
+    if (!equals(defaultRefinement, oldDefaultRefinement)) {
+      refine(defaultRefinement);
+      onRefine(defaultRefinement);
+    }
+  }
+
+  render() {
+    return null;
+  }
+}
+
+const VirtualRefinementList = connectRefinementList(RefinementList);
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = { tags: new Set() };
-    this.saveTags = this.saveTags.bind(this);
+    this.addTag = this.addTag.bind(this);
+    this.onRefine = this.onRefine.bind(this);
   }
 
-  saveTags(newTags) {
-    this.setState(({ tags }) => ({ tags: tags.add(...newTags) }));
+  addTag(newTag) {
+    this.setState(({ tags }) => ({ tags: tags.add(newTag) }));
+  }
+
+  onRefine(newTags) {
+    this.setState(() => ({ tags: new Set(newTags) }));
   }
 
   render() {
@@ -31,6 +63,7 @@ class Search extends Component {
       onSearchStateChange,
       searchState: { query },
     } = this.props;
+
     return (
       <InstantSearch
         appId={algolia.appId}
@@ -67,8 +100,9 @@ class Search extends Component {
         <VirtualRefinementList
           attributeName="keywords"
           defaultRefinement={[...this.state.tags]}
+          onRefine={this.onRefine}
         />
-        <Results onTagClick={this.saveTags} />
+        <Results onTagClick={this.addTag} />
       </InstantSearch>
     );
   }
