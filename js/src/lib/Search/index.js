@@ -57,11 +57,7 @@ class Search extends Component {
   }
 
   render() {
-    const {
-      searchState,
-      onSearchStateChange,
-      searchState: { query },
-    } = this.props;
+    const { searchState, onSearchStateChange } = this.props;
 
     return (
       <InstantSearch
@@ -73,7 +69,9 @@ class Search extends Component {
       >
         <Configure
           hitsPerPage={5}
-          optionalFacetFilters={query && `concatenatedName:${concat(query)}`}
+          optionalFacetFilters={
+            searchState.query && `concatenatedName:${concat(searchState.query)}`
+          }
           facets={['keywords']}
           attributesToRetrieve={[
             'deprecated',
