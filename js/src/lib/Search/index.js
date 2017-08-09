@@ -12,7 +12,7 @@ import { algolia } from '../config';
 const concat = string => string.replace(/[-/@_.]+/g, '');
 
 const equals = (arr1, arr2) =>
-  arr1.length == arr2.length && arr1.reduce((a, b, i) => a && arr2[i], true);
+  arr1.length === arr2.length && arr1.reduce((a, b, i) => a && arr2[i], true);
 
 class RefinementList extends Component {
   componentWillReceiveProps(newProps) {
