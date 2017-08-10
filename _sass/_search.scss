@@ -409,6 +409,12 @@ $ais-muted-color: rgba(black,.5);
   }
 }
 
+.ais-RefinementList {
+  &__itemBox {
+    margin: 0.2em;
+  }
+}
+
 .search-footer {
   text-align: center;
 }

@@ -5,6 +5,7 @@ import {
   Pagination,
   CurrentRefinements,
   Stats,
+  RefinementList,
 } from 'react-instantsearch/dom';
 
 import Hit from '../Hit';
@@ -28,9 +29,16 @@ const ResultsFound = ({ pagination, onTagClick }) =>
         }}
       />
     </div>
-    <Hits
-      hitComponent={({ hit }) => <Hit onTagClick={onTagClick} hit={hit} />}
-    />
+    <div className="row">
+      <div className="col-md-8 col-lg-10">
+        <Hits
+          hitComponent={({ hit }) => <Hit onTagClick={onTagClick} hit={hit} />}
+        />
+      </div>
+      <div className="col-md-4 col-lg-2">
+        <RefinementList attributeName="keywords" />
+      </div>
+    </div>
     <div className="d-flex">
       {pagination
         ? <Pagination showFirst={false} showLast={false} scrollTo={true} />
