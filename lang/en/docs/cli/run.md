@@ -39,7 +39,7 @@ You can pass additional arguments to your script by using `--`.
 yarn run test -- -o --watch
 ```
 
-Running this command will execute `jest -o --watch`.
+Running this command will execute `test -o --watch`.
 
 `[script]` can also be any locally installed executable that is inside `node_modules/.bin/`.
 
