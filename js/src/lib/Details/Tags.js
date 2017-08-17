@@ -12,7 +12,7 @@ export default class Tags extends Component {
     return (
       <article className="details-side--tags">
         <h1>
-          {window.i18n.detail.tags || 'Tags'}
+          {window.i18n.detail.tags}
         </h1>
         <dl>
           {tagNames.map(tag =>
