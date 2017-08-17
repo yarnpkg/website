@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Copyable from './Copyable';
+import Install from './Install';
 import Links from './Links';
 import Activity from './Activity';
 import Popularity from './Popularity';
 import Usage from './Usage';
 import Versions from './Versions';
-import { Owner } from '../Hit';
+import Contributors from './Contributors';
 import { encode, prefixURL, packageJSONLink } from '../util';
 
 const Aside = ({
@@ -22,6 +22,7 @@ const Aside = ({
   dependents,
   humanDependents,
   dependencies,
+  tags,
   versions,
   devDependencies,
   onOpenFileBrowser,
@@ -30,26 +31,7 @@ const Aside = ({
     <article className="details-side--links">
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
     </article>
-    <article className="details-side--copy">
-      <h1>{window.i18n.detail.use_it}</h1>
-      <Copyable pre="$ " tag="code">
-        yarn add {name}
-      </Copyable>
-      <div>
-        <a
-          className="details-side--runkit"
-          href={`https://runkit.com/npm/${name}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {window.i18n.detail.try_in_runkit}
-        </a>
-        {' · '}
-        <a href="#" onClick={onOpenFileBrowser}>
-          {window.i18n.detail.browse_files}
-        </a>
-      </div>
-    </article>
+    <Install name={name} onOpenFileBrowser={onOpenFileBrowser} />
     <Popularity
       downloads={downloads}
       humanDownloads={humanDownloads}
@@ -68,16 +50,7 @@ const Aside = ({
       {...packageJSONLink({ githubRepo, gitHead })}
     />
     <Versions versions={versions} />
-    <article className="details-side--contributors">
-      <h1>{window.i18n.detail.contributors}</h1>
-      <ul className="list-unstyled m-2">
-        {contributors.map(contributor =>
-          <li className="mb-1" key={contributor.name}>
-            <Owner {...contributor} />
-          </li>
-        )}
-      </ul>
-    </article>
+    <Contributors contributors={contributors} />
   </aside>;
 
 export default Aside;
