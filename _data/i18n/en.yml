@@ -344,6 +344,7 @@ script:
     devdependencies: DevDependencies
     packages: Packages
     see_package_json: see package.json
+    tags: Tags
     versions: Versions
     display_all: Display all
     hide: Hide

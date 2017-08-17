@@ -271,6 +271,7 @@ class Details extends Component {
           this.state.github ? this.state.github.stargazers_count : false
         }
         versions={this.state.versions}
+        tags={this.state.tags}
         onOpenFileBrowser={this._openFileBrowser}
       />
     );
