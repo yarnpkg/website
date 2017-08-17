@@ -25,17 +25,19 @@ export default class Versions extends Component {
   render() {
     const { versions } = this.props;
     const { isShowingMore } = this.state;
-
+    const versionKeys = Object.keys(versions);
     const buttonText = isShowingMore
       ? window.i18n.detail.hide
       : window.i18n.detail.display_all;
     const versionsToShow = isShowingMore
-      ? Object.keys(versions).reverse()
-      : Object.keys(versions).reverse().slice(0, 3);
+      ? versionKeys.reverse()
+      : versionKeys.reverse().slice(0, 3);
 
     return (
       <article className="details-side--versions">
-        <h1>{window.i18n.detail.versions}</h1>
+        <h1>
+          {window.i18n.detail.versions}
+        </h1>
         <dl>
           {versionsToShow.map(version =>
             <Di
@@ -45,7 +47,7 @@ export default class Versions extends Component {
             />
           )}
         </dl>
-        {versionsToShow.length > 3 &&
+        {versionKeys.length > 3 &&
           <button
             onClick={() => this._toggleShowMore()}
             className="readMore--button"
