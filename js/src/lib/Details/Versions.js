@@ -45,7 +45,7 @@ export default class Versions extends Component {
             />
           )}
         </dl>
-        {versionsToShow.length > 2 &&
+        {versionsToShow.length > 3 &&
           <button
             onClick={() => this._toggleShowMore()}
             className="readMore--button"
