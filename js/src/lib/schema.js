@@ -51,5 +51,6 @@ export default {
   readme: '',
   version: '',
   versions: {},
+  tags: {},
   loaded: false,
 };

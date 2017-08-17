@@ -7,6 +7,7 @@ import Popularity from './Popularity';
 import Usage from './Usage';
 import Versions from './Versions';
 import Contributors from './Contributors';
+import Tags from './Tags';
 import { encode, prefixURL, packageJSONLink } from '../util';
 
 const Aside = ({
@@ -49,6 +50,7 @@ const Aside = ({
       devDependencies={devDependencies}
       {...packageJSONLink({ githubRepo, gitHead })}
     />
+    <Tags tags={tags} name={name} />
     <Versions versions={versions} />
     <Contributors contributors={contributors} />
   </aside>;
