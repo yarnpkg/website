@@ -27,11 +27,9 @@ const Links = ({ name, homepage, githubRepo, className }) =>
       site="yarn"
       display={
         <Copyable>
-          <a href={`https://yarn.fyi/${name}`}>
-            <span className="text-hide">
-              https://
-            </span>
-            yarn.fyi/{name}
+          <a href={`https://yarn.pm/${name}`}>
+            <span className="text-hide">https://</span>
+            yarn.pm/{name}
           </a>
         </Copyable>
       }
