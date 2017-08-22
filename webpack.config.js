@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HappyPack = require('happypack');
 
-let plugins = [
+const plugins = [
   new webpack.EnvironmentPlugin({
     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
   }),
@@ -27,10 +27,8 @@ let plugins = [
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
-    minChunks: module => {
-      // this assumes your vendor imports exist in the node_modules directory
-      return module.context && module.context.indexOf('node_modules') !== -1;
-    },
+    minChunks: module =>
+      module.context && module.context.includes('node_modules'), // this assumes your vendor imports exist in the node_modules directory,
   }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,
@@ -44,9 +42,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  devtool: process.env.NODE_ENV === 'production'
-    ? 'source-map'
-    : 'cheap-source-map',
+  devtool:
+    process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-source-map',
   entry: {
     common: './js/src/common.js',
     documentation: './js/src/documentation.js',
@@ -57,9 +54,10 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './js/build'),
-    filename: process.env.NODE_ENV === 'production'
-      ? '[name].[chunkhash].js'
-      : '[name].js',
+    filename:
+      process.env.NODE_ENV === 'production'
+        ? '[name].[chunkhash].js'
+        : '[name].js',
   },
   module: {
     rules: [
