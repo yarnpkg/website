@@ -37,14 +37,14 @@ install Scoop by following
 Once you have Scoop installed, you may install yarn by running the
 following code in your console:
 
-```powershell
+```sh
 scoop install yarn
 ```
 
 If [Node.js](https://nodejs.org/) is not installed, scoop will give you a suggestion to install it.
 Example:
 
-```powershell
+```sh
 scoop install nodejs
 ```
 
