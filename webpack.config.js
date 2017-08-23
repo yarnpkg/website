@@ -27,8 +27,9 @@ const plugins = [
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
+    // this assumes your vendor imports exist in the node_modules directory
     minChunks: module =>
-      module.context && module.context.includes('node_modules'), // this assumes your vendor imports exist in the node_modules directory,
+      module.context && module.context.includes('node_modules'),
   }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,
