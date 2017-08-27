@@ -39,6 +39,9 @@
     path: /docs/cli/add
     tags: ["cli-add"]
     description: docs_cli_add_description
+  - id: docs_cli_autoclean
+    path: /docs/cli/autoclean
+    tags: ["cli-autoclean"]
   - id: docs_cli_bin
     path: /docs/cli/bin
     tags: ["cli-bin"]
@@ -48,9 +51,6 @@
   - id: docs_cli_check
     path: /docs/cli/check
     tags: ["cli-check"]
-  - id: docs_cli_autoclean
-    path: /docs/cli/autoclean
-    tags: ["cli-autoclean"]
   - id: docs_cli_config
     path: /docs/cli/config
     tags: ["cli-config"]

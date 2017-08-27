@@ -22,6 +22,12 @@ When the `.yarnclean` file exists in a package, autoclean functionality will be 
 
 The clean is performed by reading each line of the `.yarnclean` file and using each as a glob pattern of files to delete.
 
+**Options:**
+
+`-I/--init` : Creates the `.yarnclean` file if it does not exist, and adds the default entries. This file should then be reviewed and edited to customize which files will be cleaned. If the file already exists, it will not be overwritten.
+
+`-F/--force` : If a `.yarnclean` file exists, run the clean process. If the file does not exist, do nothing.
+
 **Example:**
 
 You decide all YAML and Markdown files in all your dependencies installed in `node_modules` can be safely deleted. You make a `.yarnclean` file containing:
@@ -32,9 +38,3 @@ You decide all YAML and Markdown files in all your dependencies installed in `no
 ```
 
 You then run `yarn install` or `yarn autoclean --force`. The clean process will delete all `*.yaml` and `*.md` files within `node_modules/` recursively (including nested transient dependencies).
-
-**Options:**
-
-`-I/--init` : Creates the `.yarnclean` file if it does not exist, and adds the default entries. This file should then be reviewed and edited to customize which files will be cleaned. If the file already exists, it will not be overwritten.
-
-`-F/--force` : If a `.yarnclean` file exists, run the clean process. If the file does not exist, do nothing.
