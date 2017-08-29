@@ -33,7 +33,7 @@ export default class FileBrowser extends React.PureComponent {
 
   _fetchFiles() {
     this.setState({ error: null, files: null });
-    const url = this._getBaseURL() + '?json';
+    const url = this._getBaseURL() + '?meta';
     fetch(url)
       .then(response => response.json())
       .then(
