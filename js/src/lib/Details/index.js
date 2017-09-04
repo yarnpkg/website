@@ -267,9 +267,7 @@ class Details extends Component {
         devDependencies={this.state.devDependencies}
         dependents={this.state.dependents}
         humanDependents={this.state.humanDependents}
-        stargazers={
-          this.state.github ? this.state.github.stargazers_count : false
-        }
+        stargazers={this.state.github ? this.state.github.stargazers_count : 0}
         versions={this.state.versions}
         tags={this.state.tags}
         onOpenFileBrowser={this._openFileBrowser}
