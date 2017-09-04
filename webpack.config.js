@@ -45,16 +45,19 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   devtool:
     process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-source-map',
+
+  context: path.resolve(__dirname, 'js/src'),
+
   entry: {
-    common: './js/src/common.js',
-    documentation: './js/src/documentation.js',
-    install: './js/src/install.js',
-    nightly: './js/src/nightly.js',
-    packages: './js/src/packages.js',
-    package: './js/src/package.js',
+    common: './common.js',
+    documentation: './documentation.js',
+    install: './install.js',
+    nightly: './nightly.js',
+    packages: './packages.js',
+    package: './package.js',
   },
   output: {
-    path: path.join(__dirname, './js/build'),
+    path: path.resolve(__dirname, 'js/build'),
     filename:
       process.env.NODE_ENV === 'production'
         ? '[name].[chunkhash].js'
@@ -66,9 +69,9 @@ module.exports = {
         test: /\.js$/,
         use: ['happypack/loader'],
         include: [
-          path.join(__dirname, 'js/src'),
+          path.resolve(__dirname, 'js/src'),
           // bootstrap 4 also has js/dist but those files are not requireable
-          path.join(__dirname, 'node_modules/bootstrap/js/src'),
+          path.resolve(__dirname, 'node_modules/bootstrap/js/src'),
         ],
       },
     ],
