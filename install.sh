@@ -33,8 +33,7 @@ yarn_get_tarball() {
     yarn_verify_integrity $tarball_tmp
 
     printf "$cyan> Extracting to ~/.yarn...$reset\n"
-    mkdir .yarn
-    tar zxf $tarball_tmp -C .yarn --strip 1 # extract tarball
+    temp=$(mktemp -d) && tar zxf $tarball_tmp -C "$temp" && mkdir .yarn && mv "$temp"/*/* .yarn && rm -rf "$temp"
     rm $tarball_tmp*
   else
     printf "$red> Failed to download $url.$reset\n"
