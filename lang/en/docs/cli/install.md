@@ -68,7 +68,7 @@ Specifies an alternate location for the `node_modules` directory, instead of the
 
 Don't read or generate a `yarn.lock` lockfile.
 
-##### `yarn install --production[=true|false]` <a class="toc" id="toc-yarn-install-production" href="#toc-yarn-install-production"></a>
+##### `yarn install --production[=true|false]` <a class="toc" id="toc-yarn-install-production-true-false" href="#toc-yarn-install-production-true-false"></a>
 
 Yarn will not install any package listed in `devDependencies` if the `NODE_ENV` environment variable is set to `production`. Use this flag to instruct Yarn to ignore `NODE_ENV` and take its production-or-not status from this flag instead.
 
@@ -82,7 +82,7 @@ Don't generate a `yarn.lock` lockfile.
 
 Don't generate a `yarn.lock` lockfile and fail if an update is needed.
 
-##### `yarn install --ignore-engines` <a class="toc" id="toc-yarn-install-pure-lockfile" href="#toc-yarn-install-ignore-engines"></a>
+##### `yarn install --ignore-engines` <a class="toc" id="toc-yarn-install-ignore-engines" href="#toc-yarn-install-ignore-engines"></a>
 
 Ignore engines check.
 
