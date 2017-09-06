@@ -550,7 +550,7 @@ function optimizePackageTree({name, reference, dependencies}) {
             // If we've adopted the sub-dependency, or if the already existing
             // dependency has the exact same reference than the sub-dependency,
             // then it becames useless and we can simply delete it.
-            if (!availableDependency || availableDependency.name === subDependency.name) {
+            if (!availableDependency || availableDependency.reference === subDependency.reference) {
                 hardDependency.dependencies.splice(hardDependency.dependencies.findIndex(dependency => {
                     return dependency.name === subDependency.name;
                 }));
