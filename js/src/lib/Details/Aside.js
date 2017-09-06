@@ -14,7 +14,6 @@ const Aside = ({
   name,
   homepage,
   githubRepo,
-  gitHead,
   contributors,
   activity,
   downloads,
@@ -48,7 +47,7 @@ const Aside = ({
     <Usage
       dependencies={dependencies}
       devDependencies={devDependencies}
-      {...packageJSONLink({ githubRepo, gitHead })}
+      {...packageJSONLink({ githubRepo })}
     />
     <Tags tags={tags} name={name} />
     <Versions versions={versions} />
