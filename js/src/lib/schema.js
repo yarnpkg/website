@@ -9,7 +9,6 @@ export default {
   description: '…',
   downloadsLast30Days: 0,
   downloadsRatio: 0,
-  gitHead: '',
   github: {
     stargazers_count: 0,
   },
@@ -17,6 +16,7 @@ export default {
     user: '',
     project: '',
     path: '',
+    head: '',
   },
   homepage: '',
   humanDependents: '0',

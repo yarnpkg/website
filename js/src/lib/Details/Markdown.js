@@ -12,17 +12,17 @@ const GITHUB = {
 marked.Lexer.rules.gfm.heading = marked.Lexer.rules.normal.heading;
 marked.Lexer.rules.tables.heading = marked.Lexer.rules.normal.heading;
 
-const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
+const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
   const renderer = new marked.Renderer();
 
   if (githubRepo) {
-    const { user, project, path } = githubRepo;
+    const { user, project, path, head } = githubRepo;
     const prefix = (href, base) =>
       prefixURL(href, {
         base,
         user,
         project,
-        head: gitHead ? gitHead : 'master',
+        head: head ? head : 'master',
         path,
       });
 
@@ -46,13 +46,12 @@ const renderAndEscapeMarkdown = ({ source, githubRepo, gitHead }) => {
   return escaped;
 };
 
-const Markdown = ({ source, githubRepo, gitHead }) =>
+const Markdown = ({ source, githubRepo }) =>
   <article
     dangerouslySetInnerHTML={{
       __html: renderAndEscapeMarkdown({
         source,
         githubRepo,
-        gitHead,
       }),
     }}
   />;
