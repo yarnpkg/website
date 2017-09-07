@@ -21,6 +21,12 @@ layout: null
 /latest-rc.msi        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-{{site.latest_rc_version}}.msi          302
 /latest-rc.deb        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn_{{site.latest_rc_version}}_all.deb      302
 /latest-rc.rpm        https://github.com/yarnpkg/yarn/releases/download/v{{site.latest_rc_version}}/yarn-{{site.latest_rc_version}}-1.noarch.rpm 302
+
+# Comparison page to PNPM's benchmark repo
+/compare https://github.com/pnpm/node-package-manager-benchmark 302
+:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
+lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
+
 {% capture _redirects %}
 
   {% assign urls_sorted = site.pages | map: "url" | sort %}
