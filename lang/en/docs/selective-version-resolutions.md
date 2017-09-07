@@ -1,6 +1,7 @@
 ---
 id: docs_selective_version_resolutions
 guide: docs_dependencies
+description: docs_selective_version_resolutions_description
 layout: guide
 ---
 
