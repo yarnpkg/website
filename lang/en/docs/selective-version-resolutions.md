@@ -48,7 +48,7 @@ Then run `yarn install`.
   - You will receive a warning if your resolution version or range is not valid.
   - You will receive a warning if your resolution version or range is not compatible with the original version range.
 
-### Limitations & Caveheats <a class="toc" id="toc-limitations-caveheats" href="#toc-limitations-caveheats"></a>
+### Limitations & Caveats <a class="toc" id="toc-limitations-Caveats" href="#toc-limitations-Caveats"></a>
 
   - Nested packages may nor work properly.
   - Certain edge-cases may not work properly since this is a fairly new feature.
