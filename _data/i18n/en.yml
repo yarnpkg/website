@@ -182,6 +182,10 @@ docs_dependency_versions_description: |
   Packages in Yarn follow Semantic Versioning, also known as “semver”. When you
   install a new package it will be added with a semver version range.
 
+docs_selective_version_resolutions: Selective dependency resolutions
+docs_selective_version_resolutions_description: |
+  Override sub-dependency version resolutions with Yarn.
+
 docs_configuration_title: Configuration
 docs_configuration_description: |
   Learn how to use package.json to configure your packages and dependencies.
@@ -204,9 +208,6 @@ docs_workspaces: Workspaces
 docs_workspaces_title: Workspaces
 docs_workspaces_description: |
   Link together your projects for easier maintenance.
-
-docs_selective_version_resolutions_description: |
-  Override sub-dependency version resolutions with Yarn.
 
 yarn_organization_title: Yarn Organization
 yarn_organization_description: |

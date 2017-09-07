@@ -176,6 +176,7 @@
     description: docs_dependency_versions_description
   - id: docs_selective_version_resolutions
     path: /docs/selective-version-resolutions
+    tags: ["dependencies-versions"]
     description: docs_selective_version_resolutions_description
 
 - id: docs_configuration
