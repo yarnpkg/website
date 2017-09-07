@@ -32,6 +32,8 @@ langs.each {|lang|
     path = file.sub(File.join(langsDir, lang), '')
     contents = IO.read file
     frontmatter = english[path]
+    # this is for debugging, I want to know which line fails
+    puts result
 
     result = contents
     result = result.unicode_normalize
