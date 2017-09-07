@@ -9,7 +9,7 @@ frontmatterTargetRegex = /^\* \* \*.*?\* \* \*/m
 tocRegex = /\[\]\(#toc-(.*?)\)\{#toc-.*?\}/
 
 langsDir = File.join('.', 'lang')
-langs = Dir.entries(langsDir).drop(2).reject {|lang| lang == 'en' }
+langs = Dir.entries(langsDir).reject {|lang| lang == 'en' || lang == "." || lang == ".."}
 
 # Build up a hashmap with all of the source front-matters
 # { relativePath => frontMatter }
