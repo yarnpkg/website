@@ -205,6 +205,9 @@ docs_workspaces_title: Workspaces
 docs_workspaces_description: |
   Link together your projects for easier maintenance.
 
+docs_selective_version_resolutions_description: |
+  Override sub-dependency version resolutions with Yarn.
+
 yarn_organization_title: Yarn Organization
 yarn_organization_description: |
   The Yarn organization is a collaboration of many companies and
