@@ -25,6 +25,8 @@ englishFiles.each {|file|
 
 langs.each {|lang|
   files = Dir.glob(File.join(langsDir, lang, '**', '*.*'))
+  # debugging: what is `files`?
+  puts files
 
   files.each {|file|
     puts "- Replacing #{file}"
