@@ -24,6 +24,8 @@ layout: null
 
 # Comparison page to PNPM's benchmark repo
 /compare https://github.com/pnpm/node-package-manager-benchmark 302
+:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
+lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
 
 {% capture _redirects %}
 
