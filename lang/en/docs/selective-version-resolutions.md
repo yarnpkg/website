@@ -50,5 +50,5 @@ Then run `yarn install`.
 
 ### Limitations & Caveats <a class="toc" id="toc-limitations-Caveats" href="#toc-limitations-Caveats"></a>
 
-  - Nested packages may nor work properly.
+  - Nested packages may not work properly.
   - Certain edge-cases may not work properly since this is a fairly new feature.
