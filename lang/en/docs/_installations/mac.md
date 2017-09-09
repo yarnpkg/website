@@ -27,3 +27,12 @@ sudo port install yarn
 #### Path Setup
 
 {% include_relative _installations/unix_path_setup.md %}
+
+#### Upgrade Yarn
+
+Yarn will warn you if a new version is available.
+To upgrade Yarn, you can do so with Homebrew.
+
+```sh
+brew upgrade yarn
+```
