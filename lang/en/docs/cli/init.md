@@ -22,12 +22,13 @@ $ yarn init
 
 ```sh
 question name (testdir): my-awesome-package
-question version (1.0.0): 
+question version (1.0.0):
 question description: The best package you will ever find.
-question entry point (index.js): 
+question entry point (index.js):
 question git repository: https://github.com/yarnpkg/example-yarn-package
 question author: Yarn Contributor
-question license (MIT): 
+question license (MIT):
+question private:
 success Saved package.json
 ✨  Done in 87.70s.
 ```
@@ -48,6 +49,8 @@ This results in the following `package.json`:
   "license": "MIT"
 }
 ```
+
+> By default, if answer given to `question private` is passed in as empty. The `private` key will not be added to `package.json`
 
 If you already have an existing `package.json` file, then it will use the
 file's entries as defaults.
@@ -74,13 +77,14 @@ $ yarn init
 ```
 
 ```sh
-question name (my-existing-package): 
-question version (0.1): 
+question name (my-existing-package):
+question version (0.1):
 question description (I exist therefore I am.):
-question entry point (index.js): 
-question git repository (https://github.com/yarnpkg/example-yarn-package): 
+question entry point (index.js):
+question git repository (https://github.com/yarnpkg/example-yarn-package):
 question author: Yarn Contributor
-question license (BSD-2-Clause): 
+question license (BSD-2-Clause):
+question private:
 success Saved package.json
 ✨  Done in 121.53s.
 ```
@@ -95,6 +99,7 @@ customize the defaults for `yarn init`:
  - `init-author-url`
  - `init-version`
  - `init-license`
+ <!--- `init-private` waiting for https://github.com/yarnpkg/yarn/pull/4377 -->
 
 ##### `yarn init --yes/-y` <a class="toc" id="toc-yarn-init-yes-y" href="#toc-yarn-init-yes-y"></a>
 
@@ -121,5 +126,69 @@ Which produces the following `package.json`:
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT"
+}
+```
+
+##### `yarn init --private/-p` <a class="toc" id="toc-yarn-init-private-p" href="#toc-yarn-init-private-p"></a>
+
+> No need to add the `private` key by the way that opens your `package.json` in `editor` anymore
+
+```sh
+$ yarn init --private
+```
+
+The private flag has been set. This will automatically add `private` key is `true`. And you will be need still complete the init process you just called.
+
+```sh
+question name (testdir): my-awesome-package
+question version (1.0.0):
+question description: The best package you will ever find.
+question entry point (index.js):
+question git repository: https://github.com/yarnpkg/example-yarn-package
+question author: Yarn Contributor
+question license (MIT):
+success Saved package.json
+✨  Done in 87.70s.
+```
+
+```json
+{
+  "name": "my-awesome-package",
+  "version": "1.0.0",
+  "description": "The best package you will ever find.",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/yarnpkg/example-yarn-package",
+    "type": "git"
+  },
+  "author": "Yarn Contributor",
+  "license": "MIT",
+  "private": true
+}
+```
+
+**You can use both the `yes` and the `private` flags at the same time**
+
+Like this:
+
+```sh
+$ yarn init -yp
+```
+
+```
+warning The yes flag has been set. This will automatically answer yes to all questions which may have security implications.
+success Saved package.json
+✨  Done in 0.05s.
+```
+
+Which produces the following `package.json`:
+
+```json
+{
+  "name": "yarn-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
 }
 ```
