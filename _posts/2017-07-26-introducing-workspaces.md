@@ -62,7 +62,7 @@ Jest's project structure is typical for an Open Source JavaScript monorepo.
 
 The top-level `package.json` defines the root of the project, and folders with other package.json files are the Workspaces.
 Workspaces usually are published to a registry like npm.
-While the the root is not supposed to be consumed as a package, it usually contains the glue code or business specific code that is not useful for sharing with other projects, that is why we mark it as “private”.
+While the root is not supposed to be consumed as a package, it usually contains the glue code or business specific code that is not useful for sharing with other projects, that is why we mark it as “private”.
 
 The following example is a simplified root `package.json` that enables Workspaces for the project and defines third-party packages needed for the project build and test environment.
 
@@ -156,7 +156,7 @@ With Workspaces enabled, Yarn can produce a much more optimized dependency struc
 | ---- packages/
 | -------- jest-matcher-utils/
 | ------------ node_modules/
-| ---------------- chalk/`
+| ---------------- chalk/
 | ------------ package.json
 | -------- jest-diff/
 | ------------ node_modules/
@@ -165,7 +165,7 @@ With Workspaces enabled, Yarn can produce a much more optimized dependency struc
 ...
 ```
 
-Packages like `diff`, `pretty-format` and the symlink to `jest-matcher-utils` were hoisted to the root node_modules directory, making the installation faster and smaller. The package `chalk` however could not be moved to the root  because the root already depends on an different, incompatible version of `chalk`.
+Packages like `diff`, `pretty-format` and the symlink to `jest-matcher-utils` were hoisted to the root node_modules directory, making the installation faster and smaller. The package `chalk` however could not be moved to the root  because the root already depends on a different, incompatible version of `chalk`.
 
 Both of the structures above are compatible, but the latter is more optimal while still being correct regarding the Node.js module resolution logic.
 
@@ -198,7 +198,7 @@ When you want to change a dependency inside a Workspace, the root yarn.lock will
 
 Do Yarn Workspaces make Lerna obsolete?
 
-Not at all. Yarn Workspaces are easily integrated with Lerna
+Not at all. Yarn Workspaces are easily integrated with Lerna.
 
 Lerna provides a lot more than just bootstrapping a project and it has a community of users around it that have fine-tuned Lerna for their needs. 
 
