@@ -34,7 +34,7 @@ yarn_get_tarball() {
 
     printf "$cyan> Extracting to ~/.yarn...$reset\n"
     # All this dance is because `tar --strip=1` does not work everywhere
-    temp=$(mktemp -d)
+    temp=$(mktemp -d yarn.XXXXXXXXXX)
     tar zxf $tarball_tmp -C "$temp"
     mkdir .yarn
     mv "$temp"/*/* .yarn
