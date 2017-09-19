@@ -1,11 +1,12 @@
 <div class="mt-4">
-  {{i18n.site_nav_stable_version}}:
-  <strong class="navbar-text">
-    <a href="https://github.com/yarnpkg/yarn/releases/tag/v{{site.latest_version}}">
-      v{{site.latest_version}}
-    </a>
-  </strong>
-  {% if site.show_rc %}
+  <div>
+    {{i18n.site_nav_stable_version}}:
+    <strong class="navbar-text">
+      <a href="https://github.com/yarnpkg/yarn/releases/tag/v{{site.latest_version}}">
+        v{{site.latest_version}}
+      </a>
+    </strong>
+    {% if site.show_rc %}
     <span aria-hidden="true">&bull;</span>
     {{i18n.site_nav_rc_version}}
     <strong>
@@ -13,5 +14,12 @@
         v{{site.latest_rc_version}}
       </a>
     </strong>
-  {% endif %}
+    {% endif %}
+  </div>
+  <div>
+    {{i18n.site_nav_node_support}}: 
+    <strong>
+      {{site.node_support}}
+    </strong>
+  </div>
 </div>
