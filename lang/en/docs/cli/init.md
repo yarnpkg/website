@@ -131,7 +131,7 @@ Which produces the following `package.json`:
 
 ##### `yarn init --private/-p` <a class="toc" id="toc-yarn-init-private-p" href="#toc-yarn-init-private-p"></a>
 
-> No need to add the `private` key by the way that opens your `package.json` in `editor` anymore
+> automatically add `private: true` to the `package.json`
 
 ```sh
 $ yarn init --private
