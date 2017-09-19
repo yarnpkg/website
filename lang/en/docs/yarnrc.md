@@ -26,7 +26,7 @@ yarn-offline-mirror-pruning true
 
 Control automatic pruning of the offline mirror. [Find more information here]({{url_base}}/docs/prune-offline-mirror/).
 
-Value must a boolean, defaults to `false`.
+Value must be a boolean, defaults to `false`.
 
 ### `disable-self-update-check` <a class="toc" id="toc-disable-self-update-check" href="#toc-disable-self-update-check"></a>
 
