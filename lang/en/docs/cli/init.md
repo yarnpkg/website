@@ -50,7 +50,7 @@ This results in the following `package.json`:
 }
 ```
 
-> By default, if answer given to `question private` is passed in as empty. The `private` key will not be added to `package.json`
+> By default, if answer given to `question private` is passed in as empty, the `private` key will not be added to `package.json`
 
 If you already have an existing `package.json` file, then it will use the
 file's entries as defaults.
@@ -137,7 +137,7 @@ Which produces the following `package.json`:
 $ yarn init --private
 ```
 
-The private flag has been set. This will automatically add `private` key is `true`. And you will be need still complete the init process you just called.
+If the `private` flag is set, the `private` key will be automatically set to `true` and you still complete the rest of the init process.
 
 ```sh
 question name (testdir): my-awesome-package
