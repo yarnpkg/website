@@ -82,6 +82,10 @@ Don't generate a `yarn.lock` lockfile.
 
 Don't generate a `yarn.lock` lockfile and fail if an update is needed.
 
+##### `yarn install --silent` <a class="toc" id="toc-yarn-install-silent" href="#toc-yarn-install-silent"></a>
+
+Run yarn install without printing installation log
+
 ##### `yarn install --ignore-engines` <a class="toc" id="toc-yarn-install-ignore-engines" href="#toc-yarn-install-ignore-engines"></a>
 
 Ignore engines check.
