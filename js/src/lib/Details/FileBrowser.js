@@ -80,11 +80,7 @@ export default class FileBrowser extends React.PureComponent {
         </div>
       );
     }
-    return (
-      <div>
-        {window.i18n.detail.loading}
-      </div>
-    );
+    return <div>{window.i18n.detail.loading}</div>;
   }
 
   _getBaseURL() {
@@ -186,7 +182,7 @@ class Directory extends React.PureComponent {
   };
 }
 
-const File = ({ file, url, size }) =>
+const File = ({ file, url, size }) => (
   <li
     key={file.path}
     className="d-flex justify-items-between align-items-baseline"
@@ -195,4 +191,5 @@ const File = ({ file, url, size }) =>
       {getBasename(file.path)}
     </a>
     <small>{bytes(size)}</small>
-  </li>;
+  </li>
+);

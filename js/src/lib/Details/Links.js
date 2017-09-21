@@ -10,7 +10,7 @@ const images = {
   yarn: '/assets/search/ico-yarn.svg',
 };
 
-export const Link = ({ site, url, display, Tag = 'a' }) =>
+export const Link = ({ site, url, display, Tag = 'a' }) => (
   <Tag
     target="_blank"
     rel="noopener noreferrer"
@@ -19,9 +19,10 @@ export const Link = ({ site, url, display, Tag = 'a' }) =>
   >
     <img src={images[site]} alt="" />
     {display}
-  </Tag>;
+  </Tag>
+);
 
-const Links = ({ name, homepage, githubRepo, className }) =>
+const Links = ({ name, homepage, githubRepo, className }) => (
   <div className="detail-links">
     <Link
       site="yarn"
@@ -35,27 +36,28 @@ const Links = ({ name, homepage, githubRepo, className }) =>
       }
       Tag="div"
     />
-    {homepage
-      ? <Link
-          site="homepage"
-          url={homepage}
-          display={homepage.replace(/(http)?s?(:\/\/)?(www\.)?/, '')}
-        />
-      : null}
-    {githubRepo
-      ? <Link
-          site="github"
-          url={`https://github.com/${encode(githubRepo.user)}/${encode(
-            githubRepo.project
-          )}${githubRepo.path}`}
-          display={`${githubRepo.user}/${githubRepo.project}`}
-        />
-      : null}
+    {homepage ? (
+      <Link
+        site="homepage"
+        url={homepage}
+        display={homepage.replace(/(http)?s?(:\/\/)?(www\.)?/, '')}
+      />
+    ) : null}
+    {githubRepo ? (
+      <Link
+        site="github"
+        url={`https://github.com/${encode(githubRepo.user)}/${encode(
+          githubRepo.project
+        )}${githubRepo.path}`}
+        display={`${githubRepo.user}/${githubRepo.project}`}
+      />
+    ) : null}
     <Link
       site="npm"
       url={`https://www.npmjs.com/package/${name}`}
       display={name}
     />
-  </div>;
+  </div>
+);
 
 export default Links;

@@ -7,9 +7,13 @@ import Details from './lib/Details';
     - production: https://yarnpkg.com/en/package/@kadira/storybook => @kadira/storybook
     - dev (no rewrite available): http://localhost:4000/lang/en/package/?@kadira/storybook => @kadira/storybook
 */
-const id = process.env.NODE_ENV == 'production'
-  ? location.pathname.split('/').slice(3).join('/')
-  : location.search.substring(1);
+const id =
+  process.env.NODE_ENV == 'production'
+    ? location.pathname
+        .split('/')
+        .slice(3)
+        .join('/')
+    : location.search.substring(1);
 
 function languageDropdownAddPackage(pkg) {
   const langMenu = document.getElementById('dropdownNavLanguageMenu');

@@ -26,7 +26,7 @@ const Aside = ({
   versions,
   devDependencies,
   onOpenFileBrowser,
-}) =>
+}) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
@@ -42,8 +42,9 @@ const Aside = ({
     />
     {githubRepo &&
       githubRepo.user &&
-      githubRepo.project &&
-      <Activity data={activity} githubRepo={githubRepo} />}
+      githubRepo.project && (
+        <Activity data={activity} githubRepo={githubRepo} />
+      )}
     <Usage
       dependencies={dependencies}
       devDependencies={devDependencies}
@@ -52,6 +53,7 @@ const Aside = ({
     <Tags tags={tags} name={name} />
     <Versions versions={versions} />
     <Contributors contributors={contributors} />
-  </aside>;
+  </aside>
+);
 
 export default Aside;

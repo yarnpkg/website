@@ -59,7 +59,9 @@ $('#older-versions .nav-item').on('shown.bs.tab', e => {
       tbody.append(
         $('<tr>').append(
           $('<td>').append(
-            $('<a>').attr('href', build.url).text(build.filename)
+            $('<a>')
+              .attr('href', build.url)
+              .text(build.filename)
           ),
           $('<td>').text(build.size),
           $('<td>').text(formatTimeSince(build.date))

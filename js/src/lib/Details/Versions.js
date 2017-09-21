@@ -35,19 +35,17 @@ export default class Versions extends Component {
 
     return (
       <article className="details-side--versions">
-        <h1>
-          {window.i18n.detail.versions}
-        </h1>
+        <h1>{window.i18n.detail.versions}</h1>
         <dl>
-          {versionsToShow.map(version =>
+          {versionsToShow.map(version => (
             <Di
               key={version}
               title={_localeVersion(versions[version])}
               description={version}
             />
-          )}
+          ))}
         </dl>
-        {versionKeys.length > 3 &&
+        {versionKeys.length > 3 && (
           <button
             onClick={() => this._toggleShowMore()}
             className="readMore--button"
@@ -59,7 +57,8 @@ export default class Versions extends Component {
               className="readMore--icon"
               style={{ transform: isShowingMore ? 'rotate(180deg)' : '' }}
             />
-          </button>}
+          </button>
+        )}
       </article>
     );
   }

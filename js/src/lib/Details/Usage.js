@@ -7,11 +7,12 @@ const deps = ({ dependencies, title }) => {
     const dependencyNames = Object.keys(dependencies);
 
     return {
-      title: dependencyNames.length > 0
-        ? <details>
+      title:
+        dependencyNames.length > 0 ? (
+          <details>
             <summary>{title}</summary>
             {dependencyNames
-              .map((name, index) =>
+              .map((name, index) => (
                 <a
                   href={packageLink(name)}
                   key={index}
@@ -19,17 +20,24 @@ const deps = ({ dependencies, title }) => {
                 >
                   {name}
                 </a>
-              )
+              ))
               .reduce((prev, curr) => [prev, ', ', curr])}
           </details>
-        : title,
+        ) : (
+          title
+        ),
       description: dependencyNames.length,
     };
   }
   return {};
 };
 
-const Usage = ({ dependencies, devDependencies, packageJSONLink, versions }) =>
+const Usage = ({
+  dependencies,
+  devDependencies,
+  packageJSONLink,
+  versions,
+}) => (
   <article className="details-side--usage">
     <h1>{window.i18n.detail.usage}</h1>
     <dl>
@@ -47,7 +55,7 @@ const Usage = ({ dependencies, devDependencies, packageJSONLink, versions }) =>
           dependencies: devDependencies,
         })}
       />
-      {packageJSONLink &&
+      {packageJSONLink && (
         <Di
           icon="package-json"
           title={window.i18n.detail.packages}
@@ -56,8 +64,10 @@ const Usage = ({ dependencies, devDependencies, packageJSONLink, versions }) =>
               {window.i18n.detail.see_package_json}
             </a>
           }
-        />}
+        />
+      )}
     </dl>
-  </article>;
+  </article>
+);
 
 export default Usage;

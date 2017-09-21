@@ -50,9 +50,7 @@ export default class Copyable extends Component {
       <div className="copyable">
         <Content className="copyable--content">
           {pre}
-          <span ref={text => (this.copyText = text)}>
-            {children}
-          </span>
+          <span ref={text => (this.copyText = text)}>{children}</span>
         </Content>
         <button
           onClick={() => this.copy(this.copyText)}

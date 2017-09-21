@@ -12,7 +12,7 @@ import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = ({ pagination, onTagClick }) =>
+const ResultsFound = ({ pagination, onTagClick }) => (
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
@@ -32,9 +32,11 @@ const ResultsFound = ({ pagination, onTagClick }) =>
       hitComponent={({ hit }) => <Hit onTagClick={onTagClick} hit={hit} />}
     />
     <div className="d-flex">
-      {pagination
-        ? <Pagination showFirst={false} showLast={false} scrollTo={true} />
-        : <div style={{ height: '3rem' }} />}
+      {pagination ? (
+        <Pagination showFirst={false} showLast={false} scrollTo={true} />
+      ) : (
+        <div style={{ height: '3rem' }} />
+      )}
     </div>
     <div className="search-footer">
       {window.i18n.search_by_algolia}
@@ -44,7 +46,8 @@ const ResultsFound = ({ pagination, onTagClick }) =>
       </a>
       .
     </div>
-  </div>;
+  </div>
+);
 
 const Results = createConnector({
   displayName: 'ConditionalResults',
@@ -65,23 +68,13 @@ const Results = createConnector({
     body.classList.add('searching');
     const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
     docMessage[docMessage.indexOf('documentation_link')] = (
-      <a href={`${window.i18n.url_base}/docs`}>
-        {window.i18n.documentation}
-      </a>
+      <a href={`${window.i18n.url_base}/docs`}>{window.i18n.documentation}</a>
     );
 
     return (
       <div className="container text-center mt-5">
-        <p>
-          {window.i18n.no_package_found.replace('{name}', query)}
-        </p>
-        <p>
-          {docMessage.map((val, index) =>
-            <span key={index}>
-              {val}
-            </span>
-          )}
-        </p>
+        <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
+        <p>{docMessage.map((val, index) => <span key={index}>{val}</span>)}</p>
       </div>
     );
   } else {

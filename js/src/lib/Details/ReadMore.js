@@ -44,7 +44,7 @@ class ReadMore extends React.Component {
         >
           {children}
         </div>
-        {collapsible &&
+        {collapsible && (
           <button className="readMore--button" onClick={this.toggleCollapse}>
             {collapsed ? text : window.i18n.detail.collapse}
             <img
@@ -53,7 +53,8 @@ class ReadMore extends React.Component {
               className="readMore--icon"
               style={{ transform: collapsed ? '' : 'rotate(180deg)' }}
             />
-          </button>}
+          </button>
+        )}
       </div>
     );
   }

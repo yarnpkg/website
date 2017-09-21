@@ -28,18 +28,18 @@ export function getDownloadBucket(dl) {
 }
 
 export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
-  return isEmpty(keywords)
-    ? null
-    : <span className="ais-Hit--keywords hidden-sm-down">
-        {keywords
-          .slice(0, maxKeywords)
-          .map(keyword =>
-            <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
-              {keyword}
-            </a>
-          )
-          .reduce((prev, curr) => [prev, ', ', curr])}
-      </span>;
+  return isEmpty(keywords) ? null : (
+    <span className="ais-Hit--keywords hidden-sm-down">
+      {keywords
+        .slice(0, maxKeywords)
+        .map(keyword => (
+          <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
+            {keyword}
+          </a>
+        ))
+        .reduce((prev, curr) => [prev, ', ', curr])}
+    </span>
+  );
 };
 
 export function formatKeywords(
@@ -193,17 +193,20 @@ const status = res =>
   });
 
 export const get = ({ url, type }) =>
-  fetch(url).then(status).then(res => res[type]()).catch(err => {
-    // in case it's a useless response by GitHub, tell the caller to retry
-    if (err.status === 202 || err.status === 204) {
-      throw 'retry';
-    } else {
-      console.warn(err);
-    }
-  });
+  fetch(url)
+    .then(status)
+    .then(res => res[type]())
+    .catch(err => {
+      // in case it's a useless response by GitHub, tell the caller to retry
+      if (err.status === 202 || err.status === 204) {
+        throw 'retry';
+      } else {
+        console.warn(err);
+      }
+    });
 
 export const HighlightedMarkdown = connectHighlight(
-  ({ highlight, attributeName, hit }) =>
+  ({ highlight, attributeName, hit }) => (
     <span className="ais-Hit--keyword">
       {highlight({
         attributeName,
@@ -211,19 +214,22 @@ export const HighlightedMarkdown = connectHighlight(
         highlightProperty: '_highlightResult',
       }).map(
         (v, i) =>
-          v.isHighlighted
-            ? <em
-                key={`split-${i}-${v.value}`}
-                className="ais-Highlight__highlighted"
-                dangerouslySetInnerHTML={safeMarkdown(v.value)}
-              />
-            : <span
-                key={`split-${i}-${v.value}`}
-                className="ais-Highlight__nonHighlighted"
-                dangerouslySetInnerHTML={safeMarkdown(v.value)}
-              />
+          v.isHighlighted ? (
+            <em
+              key={`split-${i}-${v.value}`}
+              className="ais-Highlight__highlighted"
+              dangerouslySetInnerHTML={safeMarkdown(v.value)}
+            />
+          ) : (
+            <span
+              key={`split-${i}-${v.value}`}
+              className="ais-Highlight__nonHighlighted"
+              dangerouslySetInnerHTML={safeMarkdown(v.value)}
+            />
+          )
       )}
     </span>
+  )
 );
 
 const inlineRenderer = new marked.Renderer();
