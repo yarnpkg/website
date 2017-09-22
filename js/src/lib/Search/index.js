@@ -87,6 +87,7 @@ class Search extends Component {
             'owner',
             'version',
           ]}
+          attributesToHighlight={['name', 'description', 'keywords']}
         />
         <SearchBox
           autoFocus={window.location.pathname.includes('/packages')}
