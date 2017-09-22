@@ -69,7 +69,7 @@ class Search extends Component {
       >
         <Configure
           hitsPerPage={5}
-          optionalFacetFilters={
+          optionalFilters={
             searchState.query && `concatenatedName:${concat(searchState.query)}`
           }
           facets={['keywords']}
