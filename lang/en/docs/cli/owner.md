@@ -25,7 +25,7 @@ roles, but not at this time.
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
-##### `yarn owner ls <package>` <a class="toc" id="toc-yarn-owner-ls" href="#toc-yarn-owner-ls"></a>
+##### `yarn owner list <package>` <a class="toc" id="toc-yarn-owner-list" href="#toc-yarn-owner-list"></a>
 
 Lists all of the owners of a `<package>`.
 

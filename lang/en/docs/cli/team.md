@@ -28,7 +28,7 @@ Add a user to an existing team.
 
 Remove a user from a team they belong to.
 
-##### `yarn team ls <scope>|<scope:team>` <a class="toc" id="toc-yarn-team-ls" href="#toc-yarn-team-ls"></a>
+##### `yarn team list <scope>|<scope:team>` <a class="toc" id="toc-yarn-team-list" href="#toc-yarn-team-list"></a>
 
 If performed on an organization name, will return a list of existing teams under that organization. If performed on a team, it will instead return a list of all users belonging to that particular team.
 
