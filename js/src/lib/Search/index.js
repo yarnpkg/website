@@ -10,6 +10,12 @@ import { algolia } from '../config';
 const equals = (arr1, arr2) =>
   arr1.length === arr2.length && arr1.reduce((a, b, i) => a && arr2[i], true);
 
+// package overview page
+// home page (/:lang/)
+const shouldFocus = path =>
+  path.includes("/packages") ||
+  path.replace(/\/[a-zA-Z\-]+\/?/, "").length === 0;
+
 class RefinementList extends Component {
   componentWillReceiveProps(newProps) {
     const { currentRefinement, defaultRefinement, onRefine, refine } = newProps;
@@ -83,7 +89,7 @@ class Search extends Component {
           attributesToHighlight={['name', 'description', 'keywords']}
         />
         <SearchBox
-          autoFocus={window.location.pathname.includes('/packages')}
+          autoFocus={shouldFocus(window.location.pathname)}
           translations={{
             placeholder: window.i18n.search_placeholder,
           }}
