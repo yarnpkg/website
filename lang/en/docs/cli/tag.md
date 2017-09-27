@@ -72,7 +72,7 @@ Remove a tag named `<tag>` from a `<package>` that is no longer in use.
 > **Note:** You do not need to delete a tag before moving it to another
 > version in the package. It's better not to.
 
-##### `yarn tag list [<package>]` <a class="toc" id="toc-yarn-tag-list" href="#toc-yarn-tag-list"></a>
+##### `yarn tag list [<package>]` <a class="toc" id="toc-yarn-tag-ls" href="#toc-yarn-tag-ls"></a>
 
 List all of the tags for a `<package>`. If unspecified `<package>` will
 default to the package you're currently inside the directory of.

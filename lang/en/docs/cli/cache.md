@@ -4,7 +4,7 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn cache list` <a class="toc" id="toc-yarn-cache-list" href="#toc-yarn-cache-list"></a>
+##### `yarn cache list` <a class="toc" id="toc-yarn-cache-ls" href="#toc-yarn-cache-ls"></a>
 
 Yarn stores every package in a global cache in your user directory on the file
 system. `yarn cache list` will print out every cached package.
