@@ -21,7 +21,7 @@ You may define [`scripts`]({{url_base}}/docs/package-json#toc-scripts) in your
 }
 ```
 
-##### `yarn run [script] [-- <args>]` <a class="toc" id="toc-yarn-run-script" href="#toc-yarn-run-script"></a>
+##### `yarn run [script] [<args>]` <a class="toc" id="toc-yarn-run-script" href="#toc-yarn-run-script"></a>
 
 If you have defined a `scripts` object in your package, this command will run
 the specified `[script]`. For example:
@@ -33,15 +33,23 @@ yarn run test
 Running this command will execute the script named `"test"` in your
 `package.json`.
 
-You can pass additional arguments to your script by using `--`.
+You can pass additional arguments to your script by passing them after the .
 
 ```sh
-yarn run test -- -o --watch
+yarn run test -o --watch
 ```
 
 Running this command will execute `jest -o --watch`.
 
 `[script]` can also be any locally installed executable that is inside `node_modules/.bin/`.
+
+It's also possible to leave out the `run` in this command, each script can be executed with its name: 
+
+```sh
+yarn test -o --watch
+```
+
+Running this command will do the same as `yarn run test -o --watch`
 
 ##### `yarn run env` <a class="toc" id="toc-yarn-run-env" href="#toc-yarn-run-env"></a>
 
