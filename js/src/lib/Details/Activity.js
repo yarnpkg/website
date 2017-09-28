@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+import { Sparklines, SparklinesLine } from '@haroenv/react-sparklines';
 import { isEmpty, encode } from '../util';
 import { Di } from './';
 

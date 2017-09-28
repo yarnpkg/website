@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@haroenv/react-sparklines@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@haroenv/react-sparklines/-/react-sparklines-1.7.1.tgz#a192dd664b391b0c6c7433a4bbb886f39c6b2618"
+  dependencies:
+    prop-types "^15.5.10"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -1669,18 +1675,6 @@ fbjs@^0.8.16:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
 
-fbjs@^0.8.4:
-  version "0.8.14"
-  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.14.tgz#d1dbe2be254c35a91e09f31f9cd50a40b2a0ed1c"
-  dependencies:
-    core-js "^1.0.0"
-    isomorphic-fetch "^2.1.1"
-    loose-envify "^1.0.0"
-    object-assign "^4.1.0"
-    promise "^7.1.1"
-    setimmediate "^1.0.5"
-    ua-parser-js "^0.7.9"
-
 fbjs@^0.8.9:
   version "0.8.12"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
@@ -2941,13 +2935,6 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-addons-shallow-compare@^15.0.2:
-  version "15.6.0"
-  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.0.tgz#b7a4e5ff9f2704c20cf686dd8a05dd08b26de252"
-  dependencies:
-    fbjs "^0.8.4"
-    object-assign "^4.1.0"
-
 react-dom@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
@@ -2966,12 +2953,6 @@ react-instantsearch@^4.0.10:
     classnames "^2.2.5"
     lodash "^4.17.4"
     prop-types "^15.5.10"
-
-react-sparklines@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/react-sparklines/-/react-sparklines-1.6.0.tgz#0fe5987b1895301ce724c40d78ab9a26e8a9c2bf"
-  dependencies:
-    react-addons-shallow-compare "^15.0.2"
 
 react-transition-group@1.2.0:
   version "1.2.0"

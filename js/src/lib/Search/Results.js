@@ -29,7 +29,9 @@ const ResultsFound = ({ pagination, onTagClick }) => (
       />
     </div>
     <Hits
-      hitComponent={({ hit }) => <Hit onTagClick={onTagClick} hit={hit} />}
+      hitComponent={({ hit }) => (
+        <Hit onTagClick={onTagClick} hit={hit} key={hit.objectID} />
+      )}
     />
     <div className="d-flex">
       {pagination ? (
@@ -49,8 +51,8 @@ const ResultsFound = ({ pagination, onTagClick }) => (
   </div>
 );
 
-const Results = createConnector({
-  displayName: 'ConditionalResults',
+const connectResults = createConnector({
+  displayName: 'ConnectResults',
   getProvidedProps(props, searchState, searchResults) {
     const pagination = searchResults.results
       ? searchResults.results.nbPages > 1
@@ -60,27 +62,33 @@ const Results = createConnector({
       : false;
     return { query: searchState.query, noResults, pagination };
   },
-})(({ noResults, query, pagination, onTagClick }) => {
-  if (isEmpty(query)) {
-    body.classList.remove('searching');
-    return <span />;
-  } else if (noResults) {
-    body.classList.add('searching');
-    const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
-    docMessage[docMessage.indexOf('documentation_link')] = (
-      <a href={`${window.i18n.url_base}/docs`}>{window.i18n.documentation}</a>
-    );
-
-    return (
-      <div className="container text-center mt-5">
-        <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
-        <p>{docMessage.map((val, index) => <span key={index}>{val}</span>)}</p>
-      </div>
-    );
-  } else {
-    body.classList.add('searching');
-    return <ResultsFound pagination={pagination} onTagClick={onTagClick} />;
-  }
 });
+
+const Results = connectResults(
+  ({ noResults, query, pagination, onTagClick }) => {
+    if (isEmpty(query)) {
+      body.classList.remove('searching');
+      return <span />;
+    } else if (noResults) {
+      body.classList.add('searching');
+      const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
+      docMessage[docMessage.indexOf('documentation_link')] = (
+        <a href={`${window.i18n.url_base}/docs`}>{window.i18n.documentation}</a>
+      );
+
+      return (
+        <div className="container text-center mt-5">
+          <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
+          <p>
+            {docMessage.map((val, index) => <span key={index}>{val}</span>)}
+          </p>
+        </div>
+      );
+    } else {
+      body.classList.add('searching');
+      return <ResultsFound pagination={pagination} onTagClick={onTagClick} />;
+    }
+  }
+);
 
 export default Results;

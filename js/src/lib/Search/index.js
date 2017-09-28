@@ -13,8 +13,8 @@ const equals = (arr1, arr2) =>
 // package overview page
 // home page (/:lang/)
 const shouldFocus = path =>
-  path.includes("/packages") ||
-  path.replace(/\/[a-zA-Z\-]+\/?/, "").length === 0;
+  path.includes('/packages') ||
+  path.replace(/\/[a-zA-Z\-]+\/?/, '').length === 0;
 
 class RefinementList extends Component {
   componentWillReceiveProps(newProps) {

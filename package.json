@@ -37,6 +37,7 @@
   },
   "private": true,
   "dependencies": {
+    "@haroenv/react-sparklines": "^1.7.1",
     "algoliasearch": "^3.24.3",
     "bootstrap": "4.0.0-alpha.5",
     "bytes": "^2.5.0",
@@ -49,7 +50,6 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-instantsearch": "^4.0.10",
-    "react-sparklines": "1.6.0",
     "react-transition-group": "1.2.0",
     "unescape-html": "^1.0.0",
     "unfetch": "^3.0.0",
