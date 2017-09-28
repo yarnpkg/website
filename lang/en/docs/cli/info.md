@@ -66,6 +66,20 @@ yarn info vx.x.x
 React is a JavaScript library for building user interfaces.
 ```
 
+Or to check versions available:
+
+```sh
+yarn info react versions
+```
+
+```
+yarn info v1.1.0
+[ '0.0.1',
+  '0.0.2',
+  '0.0.3',
+(etc)
+```
+
 If the specified field is in turn a nested object, the child tree is returned:
 
 ```sh
