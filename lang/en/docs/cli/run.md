@@ -33,7 +33,7 @@ yarn run test
 Running this command will execute the script named `"test"` in your
 `package.json`.
 
-You can pass additional arguments to your script by passing them after the .
+You can pass additional arguments to your script by passing them after the script name.
 
 ```sh
 yarn run test -o --watch
@@ -49,7 +49,7 @@ It's also possible to leave out the `run` in this command, each script can be ex
 yarn test -o --watch
 ```
 
-Running this command will do the same as `yarn run test -o --watch`
+Running this command will do the same as `yarn run test -o --watch`. Note that built-in cli commands will have preference over your scripts, so you shouldn't always rely on this shortcut in other scripts
 
 ##### `yarn run env` <a class="toc" id="toc-yarn-run-env" href="#toc-yarn-run-env"></a>
 
