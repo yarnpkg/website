@@ -4,11 +4,19 @@ guide: docs_cli
 layout: guide
 ---
 
-##### `yarn cache list` <a class="toc" id="toc-yarn-cache-ls" href="#toc-yarn-cache-ls"></a>
+##### `yarn cache list [--pattern]` <a class="toc" id="toc-yarn-cache-list-pattern" href="#toc-yarn-cache-list-pattern"></a>
 
 Yarn stores every package in a global cache in your user directory on the file
 system. `yarn cache list` will print out every cached package.
 
+`yarn cache list --pattern <pattern>` will print out every cached package that matches the pattern provided.
+
+Examples:
+```sh
+yarn cache list --pattern gulp
+yarn cache list --pattern "gulp|grunt"
+yarn cache list --pattern "gulp-(match|newer)"
+```
 ##### `yarn cache dir` <a class="toc" id="toc-yarn-cache-dir" href="#toc-yarn-cache-dir"></a>
 
 Running `yarn cache dir` will print out the path where yarn's global cache is currently stored.
