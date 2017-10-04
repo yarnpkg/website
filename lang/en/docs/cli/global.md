@@ -26,7 +26,7 @@ $ create-react-app
 
 ### Defining install location
 
-`yarn global bin` will output the location where Yarn will install symlinks to your installed excutables. You can configure the base location with `yarn config set prefix <filepath>`. For example, `yarn config set prefix ~/.yarn` will ensure all global packages will have their executables installed to `~/.yarn/bin`.
+`yarn global bin` will output the location where Yarn will install symlinks to your installed executables. You can configure the base location with `yarn config set prefix <filepath>`. For example, `yarn config set prefix ~/.yarn` will ensure all global packages will have their executables installed to `~/.yarn/bin`.
 
 Read more about the commands that can be used together with `yarn global`:
 
