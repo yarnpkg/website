@@ -10,7 +10,7 @@ layout: guide
 
 ##### `yarn global <add/bin/list/remove/upgrade> [--prefix]` <a class="toc" id="toc-yarn-global" href="#toc-yarn-global"></a>
 
-`yarn global` is a prefix used for a number of commands like `add`, `bin`, `list` and `remove`. They behave identically to their normal versions except that they use a global directory to store packages. The `global` command makes binaries available to use on your operating system.
+`yarn global` is a prefix used for a number of commands like `add`, `bin`, `list` and `remove`. They behave identically to their normal versions except that they use a global directory to store packages. The `global` command makes executables available to use on your operating system.
 
 *Note: Unlike the `--global` flag in npm, `global` is a command which must immediately follow `yarn`. Entering `yarn add global package-name` will add the packages named `global` and `package-name` locally instead of adding `package-name` globally.*
 
@@ -26,7 +26,7 @@ $ create-react-app
 
 ### Defining install location
 
-`yarn global bin` will output the location where Yarn will install symlinks to your installed binaries. You can configure the base location with `yarn config set prefix <filepath>`. For example, `yarn config set prefix ~/.yarn` will ensure all global packages will have their binaries installed to `~/.yarn/bin`.
+`yarn global bin` will output the location where Yarn will install symlinks to your installed executables. You can configure the base location with `yarn config set prefix <filepath>`. For example, `yarn config set prefix ~/.yarn` will ensure all global packages will have their executables installed to `~/.yarn/bin`.
 
 Read more about the commands that can be used together with `yarn global`:
 
