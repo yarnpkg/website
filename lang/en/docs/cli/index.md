@@ -20,6 +20,10 @@ While all of the available commands are provided here, in alphabetical order, so
 
 Running `yarn` with no command will run `yarn install`, passing through any provided flags.
 
+## User-defined scripts <a class="toc" id="toc-user-defined-scripts" href="#toc-user-defined-scripts"></a>
+
+Running `yarn <script> [<args>]` will run a user-defined `script`, if there is no such built-in cli command. See [`yarn run`]({{url_base}}/docs/cli/run).
+
 ## Concurrency and `--mutex` <a class="toc" id="toc-concurrency-and-mutex" href="#toc-concurrency-and-mutex"></a>
 When running multiple instances of yarn as the same user on the same server,
 you can ensure only one instance runs at any given time (and avoid conflicts)
