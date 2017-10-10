@@ -9,7 +9,7 @@ additional_reading_tags: ["cli-add", "cli-tag", "dependencies-versions", "cli-up
 
 <p class="lead">Upgrades packages to their latest version based on the specified range.</p>
 
-##### `yarn upgrade [package | package@tag | package@version | @scope/]... [--ignore-engines]` <a class="toc" id="toc-yarn-upgrade" href="#toc-yarn-upgrade"></a>
+##### `yarn upgrade [package | package@tag | package@version | @scope/]... [--ignore-engines] [--pattern]` <a class="toc" id="toc-yarn-upgrade-package-package-tag-package-version-scope-ignore-engines-pattern" href="#toc-yarn-upgrade-package-package-tag-package-version-scope-ignore-engines-pattern"></a>
 
 This command updates dependencies to their latest version based on the
 version range specified in the `package.json` file. The `yarn.lock` file will
@@ -46,7 +46,16 @@ yarn upgrade left-pad grunt
 yarn upgrade @angular
 ```
 
-##### `yarn upgrade [package]... --latest|-L [--caret | --tilde | --exact]` <a class="toc" id="toc-yarn-upgrade-latest" href="#toc-yarn-upgrade-latest"></a>
+`yarn upgrade --pattern <pattern>` will upgrade all packages that match the pattern.
+
+Examples:
+```sh
+yarn upgrade --pattern gulp
+yarn upgrade left-pad --pattern "gulp|grunt"
+yarn upgrade --latest --pattern "gulp-(match|newer)"
+```
+
+##### `yarn upgrade [package]... --latest|-L [--caret | --tilde | --exact] [--pattern]` <a class="toc" id="toc-yarn-upgrade-package-latest-l-caret-tilde-exact-pattern" href="#toc-yarn-upgrade-package-latest-l-caret-tilde-exact-pattern"></a>
 
 The `upgrade --latest` command upgrades packages the same as the `upgrade` command,
 but ignores the version range specified in `package.json`.
@@ -67,7 +76,7 @@ yarn upgrade left-pad --latest
 yarn upgrade left-pad grunt --latest --tilde
 ```
 
-##### `yarn upgrade (--scope|-S) @scope [--latest]` <a class="toc" id="toc-yarn-upgrade-scope" href="#toc-yarn-upgrade-scope"></a>
+##### `yarn upgrade (--scope|-S) @scope [--latest] [--pattern]` <a class="toc" id="toc-yarn-upgrade-scope-s-scope-latest-pattern" href="#toc-yarn-upgrade-scope-s-scope-latest-pattern"></a>
 
 `--scope @scope/` : When a scope is specified, only packages that begin with that scope will be upgraded. A scope must begin with '@'.
 
