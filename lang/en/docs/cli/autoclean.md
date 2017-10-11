@@ -17,7 +17,7 @@ Autoclean functionality is **disabled** by default. To enable it, manually creat
 When the `.yarnclean` file exists in a package, autoclean functionality will be enabled. The clean will be performed:
 
 * After an `install`
-* After as `add`
+* After an `add`
 * If `yarn autoclean --force` is run
 
 The clean is performed by reading each line of the `.yarnclean` file and using each as a glob pattern of files to delete.
