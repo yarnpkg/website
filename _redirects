@@ -69,5 +69,6 @@ lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
 # Without Language
 {{redirectsBase | join: newline}}
 
-# ls was renamed to list
+# renamed commands
 /:language/docs/cli/ls   /:language/docs/cli/list 301
+/:language/docs/cli/clean   /:language/docs/cli/autoclean 301
