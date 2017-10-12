@@ -1,5 +1,6 @@
 import React from 'react';
 import { createConnector } from 'react-instantsearch';
+import { connectStateResults } from 'react-instantsearch/connectors';
 import {
   Hits,
   Pagination,
@@ -51,25 +52,12 @@ const ResultsFound = ({ pagination, onTagClick }) => (
   </div>
 );
 
-const connectResults = createConnector({
-  displayName: 'ConnectResults',
-  getProvidedProps(props, searchState, searchResults) {
-    const pagination = searchResults.results
-      ? searchResults.results.nbPages > 1
-      : false;
-    const noResults = searchResults.results
-      ? searchResults.results.nbHits === 0
-      : false;
-    return { query: searchState.query, noResults, pagination };
-  },
-});
-
-const Results = connectResults(
-  ({ noResults, query, pagination, onTagClick }) => {
-    if (isEmpty(query)) {
+const Results = connectStateResults(
+  ({ searchState, searchResults, onTagClick }) => {
+    if ((searchState && isEmpty(searchState.query)) || !searchState) {
       body.classList.remove('searching');
       return <span />;
-    } else if (noResults) {
+    } else if (searchResults && searchResults.nbHits === 0) {
       body.classList.add('searching');
       const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
       docMessage[docMessage.indexOf('documentation_link')] = (
@@ -86,7 +74,12 @@ const Results = connectResults(
       );
     } else {
       body.classList.add('searching');
-      return <ResultsFound pagination={pagination} onTagClick={onTagClick} />;
+      return (
+        <ResultsFound
+          pagination={searchResults && searchResults.nbPages > 1}
+          onTagClick={onTagClick}
+        />
+      );
     }
   }
 );
