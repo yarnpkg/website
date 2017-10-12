@@ -45,17 +45,23 @@ On Arch Linux, Yarn can be installed through the official package manager.
 ```sh
 pacman -S yarn
 ```
+### openSUSE
 
+On openSUSE, you can install Yarn via our RPM package repository.
+```
+sudo zypper ar -f https://dl.yarnpkg.com/rpm/ Yarn
+sudo zypper in yarn
+```
 ### Solus
 
-On Solus, you can install yarn via the Solus repository.
+On Solus, you can install Yarn via the Solus repository.
 ```sh
 sudo eopkg install yarn
 ```
 
 ### Alpine
 
-On Alpine Linux (3.6+), you can install yarn with apk.
+On Alpine Linux (3.6+), you can install Yarn with apk.
 ```sh
 apk add yarn
 ```
