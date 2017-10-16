@@ -90,15 +90,32 @@ To persist your alias command definition, save it to your autoload directory:
 funcsave ynftag
 ```
 
-## PowerShell
+## Windows PowerShell
 
-For Windows developers, chances are that you’ve been using [PowerShell](https://en.wikipedia.org/wiki/PowerShell) instead. Unlike Unix shells which are built upon text processing and piping, inputs and outputs in PowerShell are .NET objects; as such, aliases in PowerShell do not work as string substitutions, but rather pointers to existing functions. This means that you’ll need to use functions to define your aliases whether additional parameters are involved or not.
+[PowerShell](https://en.wikipedia.org/wiki/PowerShell) is the default shell in current version of Windows. Unlike Unix shells which are built upon text processing and piping, inputs and outputs in PowerShell are .NET objects; as such, aliases in PowerShell do not work as string substitutions, but rather pointers to existing functions. This means that you’ll need to use functions to define your aliases whether additional parameters are involved or not.
 
 Here is a [guidelines-abiding](https://msdn.microsoft.com/en-us/library/ms714428) example of the `ynftag` alias:
 
 ```sh
 function Get-NpmPackageDistributionTags { yarn info --verbose --no-emoji @Args dist-tags }
 New-Alias ynftag Get-NpmPackageDistributionTags
+```
+
+Here's a yarn alias that re-adds the `ls` command to list packages:
+
+```sh
+# yarn broke 'ls'
+# Scope private do we don't call yarn recursively!
+function Private:yarn() {
+	$modifiedArgs = @()
+	foreach ( $arg in $args ) {
+		if ( $arg -cmatch '^ls$' ) {
+			$arg = 'list'
+		}
+		$modifiedArgs += $arg
+	}
+	& yarn $modifiedArgs
+}
 ```
 
 Save the code above to one of the many [PowerShell profiles](https://blogs.technet.microsoft.com/heyscriptingguy/2013/01/04/understanding-and-using-powershell-profiles/) that suits you best to persist the definition.
