@@ -28,6 +28,18 @@ Control automatic pruning of the offline mirror. [Find more information here]({{
 
 Value must be a boolean, defaults to `false`.
 
+### `yarn-path` <a class="toc" id="toc-yarn-path" href="#toc-yarn-path"></a>
+
+```ini
+yarn-path "./bin/yarn"
+```
+
+Instructs yarn to defer to another Yarn binary for execution. Useful if you want to bundle Yarn into your repository
+and have everyone use the same version for consistency. This was introduced in Yarn 1.0, so all developers must have Yarn >= 1.0
+installed.
+
+Value must be a relative file path, or `false` to disable (default).
+
 ### `disable-self-update-check` <a class="toc" id="toc-disable-self-update-check" href="#toc-disable-self-update-check"></a>
 
 ```ini
