@@ -13,7 +13,7 @@ marked.Lexer.rules.gfm.heading = marked.Lexer.rules.normal.heading;
 marked.Lexer.rules.tables.heading = marked.Lexer.rules.normal.heading;
 
 const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
-  const renderer = new marked.Renderer();
+  const renderer = new marked.Renderer({ mangle: false });
 
   if (githubRepo) {
     const { user, project, path, head } = githubRepo;
