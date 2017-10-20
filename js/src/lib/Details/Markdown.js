@@ -1,5 +1,6 @@
 import React from 'react';
 import marked from 'marked';
+import unescape from 'unescape-html';
 import xss from 'xss';
 
 import { prefixURL } from '../util';
@@ -32,10 +33,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     renderer.link = (href, title, text) => {
       // wrongly linked comments
       // see https://github.com/yarnpkg/website/issues/685
-      if (
-        text.startsWith('&#x21;&#45;&#x2d') ||
-        text.startsWith('&#33;&#45;&#x2d;')
-      ) {
+      if (unescape(text).startsWith('!--')) {
         return '';
       }
       return `<a href="${prefix(
