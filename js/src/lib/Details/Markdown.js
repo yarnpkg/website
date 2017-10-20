@@ -29,8 +29,20 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     renderer.image = (href, title, text) =>
       `<img src="${prefix(href, GITHUB.raw)}" title="${title}" alt="${text}"/>`;
 
-    renderer.link = (href, title, text) =>
-      `<a href="${prefix(href, GITHUB.main)}" title="${title}">${text}</a>`;
+    renderer.link = (href, title, text) => {
+      // wrongly linked comments
+      // see https://github.com/yarnpkg/website/issues/685
+      if (
+        text.startsWith('&#x21;&#45;&#x2d') ||
+        text.startsWith('&#33;&#45;&#x2d;')
+      ) {
+        return '';
+      }
+      return `<a href="${prefix(
+        href,
+        GITHUB.main
+      )}" title="${title}">${text}</a>`;
+    };
 
     renderer.html = function(html) {
       return html.replace(
