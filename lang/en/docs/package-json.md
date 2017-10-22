@@ -370,7 +370,7 @@ Note that if your `package.json` contains `"flat": true` and other packages depe
 {
   "resolutions": {
     "transitive-package-1": "0.0.29",
-    "transitive-package-2": "file:./local-forks/transitive-package-2"",
+    "transitive-package-2": "file:./local-forks/transitive-package-2",
     "dependencies-package-1/transitive-package-3": "^2.1.1"
   }
 }
