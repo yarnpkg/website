@@ -1,6 +1,5 @@
 import React from 'react';
 import marked from 'marked';
-import unescape from 'unescape-html';
 import xss from 'xss';
 
 import { prefixURL } from '../util';
@@ -14,7 +13,7 @@ marked.Lexer.rules.gfm.heading = marked.Lexer.rules.normal.heading;
 marked.Lexer.rules.tables.heading = marked.Lexer.rules.normal.heading;
 
 const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
-  const renderer = new marked.Renderer({ mangle: false });
+  const renderer = new marked.Renderer();
 
   if (githubRepo) {
     const { user, project, path, head } = githubRepo;
@@ -33,7 +32,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     renderer.link = (href, title, text) => {
       // wrongly linked comments
       // see https://github.com/yarnpkg/website/issues/685
-      if (unescape(text).startsWith('!--')) {
+      if (text.startsWith('!--')) {
         return '';
       }
       return `<a href="${prefix(
@@ -51,7 +50,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     };
   }
 
-  const html = marked(source, { renderer });
+  const html = marked(source, { renderer, mangle: false });
   const escaped = xss(html);
   return escaped;
 };
