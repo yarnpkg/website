@@ -29,8 +29,17 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     renderer.image = (href, title, text) =>
       `<img src="${prefix(href, GITHUB.raw)}" title="${title}" alt="${text}"/>`;
 
-    renderer.link = (href, title, text) =>
-      `<a href="${prefix(href, GITHUB.main)}" title="${title}">${text}</a>`;
+    renderer.link = (href, title, text) => {
+      // wrongly linked comments
+      // see https://github.com/yarnpkg/website/issues/685
+      if (text.startsWith('!--')) {
+        return '';
+      }
+      return `<a href="${prefix(
+        href,
+        GITHUB.main
+      )}" title="${title}">${text}</a>`;
+    };
 
     renderer.html = function(html) {
       return html.replace(
@@ -41,7 +50,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     };
   }
 
-  const html = marked(source, { renderer });
+  const html = marked(source, { renderer, mangle: false });
   const escaped = xss(html);
   return escaped;
 };
