@@ -38,6 +38,21 @@ $navbar-height: ($navbar-padding-y * 2) + ($navbar-link-height * 2) + ($font-siz
   .navbar-toggleable-md {
     clear: both;
   }
+
+  .navbar-nav-right.navbar-nav .nav-item {
+    float: left;
+    margin-right: $navbar-padding-x;
+  }
+
+  .navbar-nav-right.navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+}
+
+@include media-breakpoint-down('xs') {
+  .navbar-nav-right.navbar-nav .dropdown {
+    float: none;
+  }
 }
 
 // Waiting on next release of bootstrap on cdnjs (.open was renamed to .show)
