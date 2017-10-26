@@ -28,8 +28,8 @@ const queryStringToSearchState = queryString => {
     query: q,
     page: p || 1,
     refinementList: {
-      keywords,
-      'owner.name': owner,
+      ...(keywords && { keywords }),
+      ...(owner && { 'owner.name': owner }),
     },
   };
 };
