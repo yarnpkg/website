@@ -6,8 +6,8 @@ const searchStateToQueryString = searchState => ({
   q: searchState.query,
   p: searchState.page,
   ...(searchState.refinementList && {
-    ...(searchState.refinementList.owner && {
-      owner: searchState.refinementList.owner.name,
+    ...(searchState.refinementList['owner.name'] && {
+      owner: searchState.refinementList['owner.name'],
     }),
     ...(searchState.refinementList.keywords && {
       keywords: searchState.refinementList.keywords,
@@ -29,7 +29,7 @@ const queryStringToSearchState = queryString => {
     page: p || 1,
     refinementList: {
       keywords,
-      owner,
+      'owner.name': owner,
     },
   };
 };

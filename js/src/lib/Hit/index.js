@@ -20,8 +20,15 @@ export const Deprecated = ({ deprecated }) =>
     </span>
   ) : null;
 
-export const Owner = ({ link, avatar, name }) => (
-  <a className="ais-Hit--ownerLink" href={link}>
+export const Owner = ({ link, avatar, name, onClick }) => (
+  <a
+    className="ais-Hit--ownerLink"
+    href={link}
+    onClick={e => {
+      e.preventDefault();
+      onClick(name);
+    }}
+  >
     <img
       width="20"
       height="20"
@@ -76,7 +83,7 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
   </div>
 );
 
-const Hit = ({ hit, onTagClick }) => (
+const Hit = ({ hit, onTagClick, onOwnerClick }) => (
   <div className="ais-Hits--item">
     <a className="ais-Hit--name" href={packageLink(hit.name)}>
       <Highlight attributeName="name" hit={hit} />
@@ -95,7 +102,7 @@ const Hit = ({ hit, onTagClick }) => (
         <HighlightedMarkdown attributeName="description" hit={hit} />
       )}
     </p>
-    <Owner {...hit.owner} />
+    <Owner {...hit.owner} onClick={onOwnerClick} />
     <span
       className="ais-Hit--lastUpdate"
       title={window.i18n.last_updated.replace(

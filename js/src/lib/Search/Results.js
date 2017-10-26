@@ -12,7 +12,7 @@ import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = ({ pagination, onTagClick }) => (
+const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
@@ -30,7 +30,12 @@ const ResultsFound = ({ pagination, onTagClick }) => (
     </div>
     <Hits
       hitComponent={({ hit }) => (
-        <Hit onTagClick={onTagClick} hit={hit} key={hit.objectID} />
+        <Hit
+          onTagClick={onTagClick}
+          onOwnerClick={onOwnerClick}
+          hit={hit}
+          key={hit.objectID}
+        />
       )}
     />
     <div className="d-flex">
@@ -65,7 +70,7 @@ const connectResults = createConnector({
 });
 
 const Results = connectResults(
-  ({ noResults, query, pagination, onTagClick }) => {
+  ({ noResults, query, pagination, onTagClick, onOwnerClick }) => {
     if (isEmpty(query)) {
       body.classList.remove('searching');
       return <span />;
@@ -86,7 +91,13 @@ const Results = connectResults(
       );
     } else {
       body.classList.add('searching');
-      return <ResultsFound pagination={pagination} onTagClick={onTagClick} />;
+      return (
+        <ResultsFound
+          pagination={pagination}
+          onTagClick={onTagClick}
+          onOwnerClick={onOwnerClick}
+        />
+      );
     }
   }
 );
