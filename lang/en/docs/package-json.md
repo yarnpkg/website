@@ -363,6 +363,23 @@ If your package only allows one version of a given dependency, and you'd like to
 
 Note that if your `package.json` contains `"flat": true` and other packages depend on yours (e.g. you are building a library rather than an application), those other packages will also need `"flat": true` in their `package.json` or be installed with `yarn install --flat` on the command line.
 
+### `resolutions` <a class="toc" id="toc-resolutions" href="#toc-resolutions"></a>
+
+
+```json
+{
+  "resolutions": {
+    "transitive-package-1": "0.0.29",
+    "transitive-package-2": "file:./local-forks/transitive-package-2",
+    "dependencies-package-1/transitive-package-3": "^2.1.1"
+  }
+}
+```
+
+Allows you to override a version of a particular nested dependency. See [the Selective Versions Resolutions RFC](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-selective-versions-resolutions.md) for the full spec.
+
+Note that installing dependencies via [`yarn install --flat`] will automatically add a `resolutions` block to your `package.json` file.
+
 ## System <a class="toc" id="toc-system" href="#toc-system"></a>
 
 You can provide system-level information associated with your package, such as operating system compatibility, etc.
