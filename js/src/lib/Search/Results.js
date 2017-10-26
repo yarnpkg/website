@@ -65,13 +65,13 @@ const connectResults = createConnector({
     const noResults = searchResults.results
       ? searchResults.results.nbHits === 0
       : false;
-    return { query: searchState.query, noResults, pagination };
+    return { query: searchState.query, noResults, pagination, searchState };
   },
 });
 
 const Results = connectResults(
-  ({ noResults, query, pagination, onTagClick, onOwnerClick }) => {
-    if (isEmpty(query)) {
+  ({ noResults, pagination, searchState, onTagClick, onOwnerClick }) => {
+    if (Object.keys(searchState).length === 0) {
       body.classList.remove('searching');
       return <span />;
     } else if (noResults) {
@@ -83,7 +83,9 @@ const Results = connectResults(
 
       return (
         <div className="container text-center mt-5">
-          <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
+          <p>
+            {window.i18n.no_package_found.replace('{name}', searchState.query)}
+          </p>
           <p>
             {docMessage.map((val, index) => <span key={index}>{val}</span>)}
           </p>
