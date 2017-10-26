@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import qs from 'qs';
 
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({
-  q: searchState.query,
-  ...(searchState.page > 1 && { p: searchState.page }),
-  ...(searchState.refinementList && {
-    ...(searchState.refinementList['owner.name'] && {
-      owner: searchState.refinementList['owner.name'],
+const searchStateToQueryString = ({ query, page, refinementList }) => ({
+  ...(query && { q: query }),
+  ...(page > 1 && { p: page }),
+  ...(refinementList && {
+    ...(refinementList['owner.name'] && {
+      owner: refinementList['owner.name'],
     }),
-    ...(searchState.refinementList.keywords && {
-      keywords: searchState.refinementList.keywords,
+    ...(refinementList.keywords && {
+      keywords: refinementList.keywords,
     }),
   }),
 });
@@ -51,8 +51,6 @@ export default App =>
           this.setState({ searchState });
           return;
         }
-
-        this.setState({ searchState: { query: '', page: 1 } });
       });
     }
 
