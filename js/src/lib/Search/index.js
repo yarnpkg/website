@@ -45,18 +45,18 @@ const VirtualRefinementList = connectRefinementList(RefinementList);
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { tags: new Set() };
-    this.addTag = this.addTag.bind(this);
-    this.onRefine = this.onRefine.bind(this);
+    this.state = { tags: new Set(), owners: new Set() };
   }
 
-  addTag(newTag) {
-    this.setState(({ tags }) => ({ tags: tags.add(newTag) }));
-  }
+  addTag = newTag => this.setState(({ tags }) => ({ tags: tags.add(newTag) }));
 
-  onRefine(newTags) {
-    this.setState(() => ({ tags: new Set(newTags) }));
-  }
+  addOwner = newOwner =>
+    this.setState(({ owners }) => ({ owners: owners.add(newOwner) }));
+
+  onRefineTag = newTags => this.setState(() => ({ tags: new Set(newTags) }));
+
+  onRefineOwner = newOwners =>
+    this.setState(() => ({ owners: new Set(newOwners) }));
 
   render() {
     const { searchState, onSearchStateChange } = this.props;
@@ -97,9 +97,14 @@ class Search extends Component {
         <VirtualRefinementList
           attributeName="keywords"
           defaultRefinement={[...this.state.tags]}
-          onRefine={this.onRefine}
+          onRefine={this.onRefineTag}
         />
-        <Results onTagClick={this.addTag} />
+        <VirtualRefinementList
+          attributeName="owner.name"
+          defaultRefinement={[...this.state.owners]}
+          onRefine={this.onRefineOwner}
+        />
+        <Results onTagClick={this.addTag} onOwnerClick={this.addOwner} />
       </InstantSearch>
     );
   }

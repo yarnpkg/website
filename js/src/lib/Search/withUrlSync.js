@@ -5,6 +5,14 @@ const updateAfter = 700;
 const searchStateToQueryString = searchState => ({
   q: searchState.query,
   p: searchState.page,
+  ...(searchState.refinementList && {
+    ...(searchState.refinementList['owner.name'] && {
+      owner: searchState.refinementList['owner.name'],
+    }),
+    ...(searchState.refinementList.keywords && {
+      keywords: searchState.refinementList.keywords,
+    }),
+  }),
 });
 
 const searchStateToUrl = searchState =>
@@ -15,10 +23,14 @@ const searchStateToUrl = searchState =>
     : '';
 
 const queryStringToSearchState = queryString => {
-  const { p, q } = qs.parse(queryString);
+  const { p, q, owner, keywords } = qs.parse(queryString);
   return {
     query: q,
     page: p || 1,
+    refinementList: {
+      ...(keywords && { keywords }),
+      ...(owner && { 'owner.name': owner }),
+    },
   };
 };
 
