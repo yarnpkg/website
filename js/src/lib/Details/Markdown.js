@@ -26,8 +26,17 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
         path,
       });
 
+    // manually ask for sanitation of svgs, otherwise it will have wrong content-type
+    const sanitize = href =>
+      `${href}${String.prototype.endsWith && href.endsWith('.svg')
+        ? '?sanitize=true'
+        : ''}`;
+
     renderer.image = (href, title, text) =>
-      `<img src="${prefix(href, GITHUB.raw)}" title="${title}" alt="${text}"/>`;
+      `<img src="${prefix(
+        sanitize(href),
+        GITHUB.raw
+      )}" title="${title}" alt="${text}"/>`;
 
     renderer.link = (href, title, text) => {
       // wrongly linked comments
