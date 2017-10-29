@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import qs from 'qs';
-
+import { searchLink } from '../util';
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({
-  q: searchState.query,
-  p: searchState.page,
-  ...(searchState.refinementList && {
-    ...(searchState.refinementList['owner.name'] && {
-      owner: searchState.refinementList['owner.name'],
-    }),
-    ...(searchState.refinementList.keywords && {
-      keywords: searchState.refinementList.keywords,
-    }),
-  }),
+const searchStateToQueryString = ({
+  query,
+  page,
+  refinementList: { 'owner.name': owner = [], keywords = [] } = {},
+}) => ({
+  q: query,
+  p: page === 1 ? undefined : page,
+  owner: owner.length === 1 ? owner[0] : undefined,
+  keywords: keywords.length > 0 ? keywords : undefined,
 });
 
 const searchStateToUrl = searchState =>
-  searchState
-    ? `${window.i18n.url_base}/packages?${qs.stringify(
-        searchStateToQueryString(searchState)
-      )}`
-    : '';
+  searchState ? searchLink(searchStateToQueryString(searchState)) : '';
 
 const queryStringToSearchState = queryString => {
   const { p, q, owner, keywords } = qs.parse(queryString);
@@ -29,7 +23,7 @@ const queryStringToSearchState = queryString => {
     page: p || 1,
     refinementList: {
       ...(keywords && { keywords }),
-      ...(owner && { 'owner.name': owner }),
+      ...(owner && { 'owner.name': [owner] }),
     },
   };
 };

@@ -3,6 +3,7 @@ import fetch from 'unfetch';
 import marked from 'marked';
 import xss from 'xss';
 import unescape from 'unescape-html';
+import qs from 'qs';
 import highlightTags from 'react-instantsearch/src/core/highlightTags';
 import {
   connectToggle,
@@ -33,7 +34,10 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
       {keywords
         .slice(0, maxKeywords)
         .map(keyword => (
-          <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
+          <a
+            href={searchLink({ query: ' ', keyword })}
+            key={`${name}-${keyword}`}
+          >
             {keyword}
           </a>
         ))
@@ -163,8 +167,8 @@ export const packageLink = name =>
     ? '/'
     : '?'}${name}`;
 
-export const searchLink = query =>
-  `${window.i18n.url_base}/packages?q=${query}`;
+export const searchLink = ({ q, keywords, p, owner }) =>
+  `${window.i18n.url_base}/packages?${qs.stringify({ q, keywords, p, owner })}`;
 
 export const prefixURL = (url, { base, user, project, head, path }) => {
   if (url.indexOf('//') > 0) {
