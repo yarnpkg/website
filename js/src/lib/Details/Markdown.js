@@ -28,7 +28,9 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
 
     // manually ask for sanitation of svgs, otherwise it will have wrong content-type
     const sanitize = href =>
-      `${href}${String.prototype.endsWith && href.endsWith('.svg')
+      `${href}${href.indexOf('//') === -1 &&
+      String.prototype.endsWith &&
+      href.endsWith('.svg')
         ? '?sanitize=true'
         : ''}`;
 
