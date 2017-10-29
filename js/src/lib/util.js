@@ -35,7 +35,7 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
         .slice(0, maxKeywords)
         .map(keyword => (
           <a
-            href={searchLink({ query: ' ', keyword })}
+            href={searchLink({ q: ' ', keywords: [keyword] })}
             key={`${name}-${keyword}`}
           >
             {keyword}
@@ -167,7 +167,7 @@ export const packageLink = name =>
     ? '/'
     : '?'}${name}`;
 
-export const searchLink = ({ q, keywords, p, owner }) =>
+export const searchLink = ({ q, p, keywords, owner }) =>
   `${window.i18n.url_base}/packages?${qs.stringify({ q, keywords, p, owner })}`;
 
 export const prefixURL = (url, { base, user, project, head, path }) => {
