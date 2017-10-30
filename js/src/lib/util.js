@@ -170,6 +170,17 @@ export const packageLink = name =>
 export const searchLink = ({ q, p, keywords, owner }) =>
   `${window.i18n.url_base}/packages?${qs.stringify({ q, keywords, p, owner })}`;
 
+// add up the length of all searchState
+// if it's empty, that means we didn't add any refinement
+// and should hide the search
+export const noRefinements = (
+  {
+    query = '',
+    page = 1,
+    refinementList: { 'owner.name': owners = [], keywords = [] } = {},
+  } = {}
+) => query.length + (page - 1) + owners.length + keywords.length === 0;
+
 export const prefixURL = (url, { base, user, project, head, path }) => {
   if (url.indexOf('//') > 0) {
     return url;

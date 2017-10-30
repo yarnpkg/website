@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import qs from 'qs';
-import { searchLink } from '../util';
+import { searchLink, noRefinements } from '../util';
+
 const updateAfter = 700;
 const searchStateToQueryString = ({
   query,
@@ -37,36 +38,42 @@ export default App =>
       this.state = {
         searchState: queryStringToSearchState(location.search.slice(1)),
       };
-      window.addEventListener('popstate', ({ state: searchState }) => {
-        // check we are on a search result
-        if (searchState !== null) {
-          this.setState({ searchState });
-          return;
-        }
+      // window.addEventListener('popstate', ({ state: searchState }) => {
+      //   // check we are on a search result
+      //   if (searchState !== null) {
+      //     this.setState({ searchState });
+      //     return;
+      //   }
 
-        this.setState({ searchState: { query: '', page: 1 } });
-      });
+      //   this.setState({ searchState: { query: '', page: 1 } });
+      // });
     }
 
     onSearchStateChange = searchState => {
       clearTimeout(this.debouncedSetState);
 
-      if (searchState.query === '') {
+      if (noRefinements(searchState)) {
         if (location.pathname !== originalPathName) {
-          window.history.pushState(
-            null,
-            'Search packages | Yarn',
-            originalPathName
+          setTimeout(
+            () =>
+              window.history.pushState(
+                null,
+                'Search packages | Yarn',
+                originalPathName
+              ),
+            updateAfter
           );
         }
       } else {
-        this.debouncedSetState = setTimeout(() => {
-          window.history.pushState(
-            searchState,
-            'Search packages | Yarn',
-            searchStateToUrl(searchState)
-          );
-        }, updateAfter);
+        this.debouncedSetState = setTimeout(
+          () =>
+            window.history.pushState(
+              searchState,
+              'Search packages | Yarn',
+              searchStateToUrl(searchState)
+            ),
+          updateAfter
+        );
       }
 
       this.setState({ searchState });

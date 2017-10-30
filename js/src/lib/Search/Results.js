@@ -6,13 +6,17 @@ import {
   CurrentRefinements,
   Stats,
 } from 'react-instantsearch/dom';
+import { connectStateResults } from 'react-instantsearch/connectors';
 
-import Hit from '../Hit';
-import { isEmpty } from '../util';
+// import Hit from '../Hit';
+import { isEmpty, noRefinements } from '../util';
 
 const body = document.querySelector('body');
 
-const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
+// testing
+const Hit = () => <div>hello</div>;
+
+const ResultsFound = ({ showPagination, onTagClick, onOwnerClick }) => (
   <div className="container">
     <div className="mx-3">
       <CurrentRefinements />
@@ -28,18 +32,19 @@ const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
         }}
       />
     </div>
-    <Hits
+    {/* hits causes an infinite loop? */}
+    {/*<Hits
       hitComponent={({ hit }) => (
-        <Hit
+          <Hit
           onTagClick={onTagClick}
           onOwnerClick={onOwnerClick}
           hit={hit}
           key={hit.objectID}
         />
       )}
-    />
+    />*/}
     <div className="d-flex">
-      {pagination ? (
+      {showPagination ? (
         <Pagination showFirst={false} showLast={false} scrollTo={true} />
       ) : (
         <div style={{ height: '3rem' }} />
@@ -59,46 +64,48 @@ const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
 const connectResults = createConnector({
   displayName: 'ConnectResults',
   getProvidedProps(props, searchState, searchResults) {
-    const pagination = searchResults.results
-      ? searchResults.results.nbPages > 1
-      : false;
-    const noResults = searchResults.results
-      ? searchResults.results.nbHits === 0
-      : false;
-    return { query: searchState.query, noResults, pagination };
+    return { searchState, searchResults };
   },
 });
 
 const Results = connectResults(
-  ({ noResults, query, pagination, onTagClick, onOwnerClick }) => {
-    if (isEmpty(query)) {
+  ({ searchState = {}, searchResults = {}, onTagClick, onOwnerClick }) => {
+    console.log(searchState, noRefinements(searchState));
+
+    // if this is false, there's an infinite loop !!
+    if (noRefinements(searchState)) {
       body.classList.remove('searching');
       return <span />;
-    } else if (noResults) {
-      body.classList.add('searching');
+    }
+
+    body.classList.add('searching');
+
+    if (searchResults.results && searchResults.results.nbHits === 0) {
       const docMessage = window.i18n.no_results_docsearch.split(/[{}]+/);
       docMessage[docMessage.indexOf('documentation_link')] = (
         <a href={`${window.i18n.url_base}/docs`}>{window.i18n.documentation}</a>
       );
-
       return (
         <div className="container text-center mt-5">
-          <p>{window.i18n.no_package_found.replace('{name}', query)}</p>
+          <p>
+            {window.i18n.no_package_found.replace('{name}', searchState.query)}
+          </p>
           <p>
             {docMessage.map((val, index) => <span key={index}>{val}</span>)}
           </p>
         </div>
       );
-    } else {
-      body.classList.add('searching');
-      return (
-        <ResultsFound
-          pagination={pagination}
-          onTagClick={onTagClick}
-          onOwnerClick={onOwnerClick}
-        />
-      );
     }
+
+    return (
+      <ResultsFound
+        showPagination={
+          searchResults.results && searchResults.results.nbPages > 1
+        }
+        onTagClick={onTagClick}
+        onOwnerClick={onOwnerClick}
+      />
+    );
   }
 );
 
