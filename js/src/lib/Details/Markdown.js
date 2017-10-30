@@ -27,12 +27,16 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
       });
 
     // manually ask for sanitation of svgs, otherwise it will have wrong content-type
-    const sanitize = href =>
-      `${href}${href.indexOf('//') === -1 &&
-      String.prototype.endsWith &&
-      href.endsWith('.svg')
-        ? '?sanitize=true'
-        : ''}`;
+    function sanitize(href) {
+      if (
+        href.indexOf('//') === -1 &&
+        String.prototype.endsWith &&
+        href.endsWith('.svg')
+      ) {
+        return `${href}?sanitize=true`;
+      }
+      return href;
+    }
 
     renderer.image = (href, title, text) =>
       `<img src="${prefix(
