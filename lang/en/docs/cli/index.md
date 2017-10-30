@@ -22,7 +22,11 @@ Running `yarn` with no command will run `yarn install`, passing through any prov
 
 ## User-defined scripts <a class="toc" id="toc-user-defined-scripts" href="#toc-user-defined-scripts"></a>
 
-Running `yarn <script> [<args>]` will run a user-defined `script`, if there is no such built-in cli command. See [`yarn run`]({{url_base}}/docs/cli/run).
+Running `yarn <script> [<args>]` will run a user-defined `script`. See [`yarn run`]({{url_base}}/docs/cli/run).
+
+## Locally installed CLIs <a class="toc" id="locally-installed-clis" href="#locally-installed-clis"></a>
+
+Running `yarn <command> [<args>]` will run the command, if it is matching a locally installed CLI. So you don’t need to setup user-defined scripts for simple use cases.
 
 ## Concurrency and `--mutex` <a class="toc" id="toc-concurrency-and-mutex" href="#toc-concurrency-and-mutex"></a>
 When running multiple instances of yarn as the same user on the same server,
