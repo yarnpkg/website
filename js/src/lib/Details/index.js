@@ -133,7 +133,7 @@ class Details extends Component {
 
   maybeRenderReadme() {
     if (this.state.loaded) {
-      const { readme } = this.state;
+      const { readme = '' } = this.state;
       if (readme.length === 0 || readme === readmeErrorMessage) {
         return <div>{window.i18n.detail.no_readme_found}</div>;
       }
