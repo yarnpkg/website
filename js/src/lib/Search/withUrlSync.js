@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import qs from 'qs';
 
 const updateAfter = 700;
-const searchStateToQueryString = searchState => ({
-  q: searchState.query,
-  p: searchState.page,
-  ...(searchState.refinementList && {
-    ...(searchState.refinementList['owner.name'] && {
-      owner: searchState.refinementList['owner.name'],
+const searchStateToQueryString = ({ query, page, refinementList }) => ({
+  ...(query && { q: query }),
+  ...(page > 1 && { p: page }),
+  ...(refinementList && {
+    ...(refinementList['owner.name'] && {
+      owner: refinementList['owner.name'],
     }),
-    ...(searchState.refinementList.keywords && {
-      keywords: searchState.refinementList.keywords,
+    ...(refinementList.keywords && {
+      keywords: refinementList.keywords,
     }),
   }),
 });
@@ -25,12 +25,14 @@ const searchStateToUrl = searchState =>
 const queryStringToSearchState = queryString => {
   const { p, q, owner, keywords } = qs.parse(queryString);
   return {
-    query: q,
-    page: p || 1,
-    refinementList: {
-      ...(keywords && { keywords }),
-      ...(owner && { 'owner.name': owner }),
-    },
+    ...(q && { query: q }),
+    ...(p && { page: p }),
+    ...((keywords || owner) && {
+      refinementList: {
+        ...(keywords && { keywords }),
+        ...(owner && { 'owner.name': owner }),
+      },
+    }),
   };
 };
 
@@ -49,8 +51,6 @@ export default App =>
           this.setState({ searchState });
           return;
         }
-
-        this.setState({ searchState: { query: '', page: 1 } });
       });
     }
 

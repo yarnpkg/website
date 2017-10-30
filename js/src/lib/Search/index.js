@@ -71,7 +71,6 @@ class Search extends Component {
       >
         <Configure
           hitsPerPage={5}
-          facets={['keywords']}
           attributesToRetrieve={[
             'deprecated',
             'description',
