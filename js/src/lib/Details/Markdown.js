@@ -17,13 +17,21 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
 
   if (githubRepo) {
     const { user, project, path, head } = githubRepo;
-    const prefix = (href, base) =>
+    const prefixImage = (href, base) =>
       prefixURL(href, {
         base,
         user,
         project,
         head: head ? head : 'master',
         path,
+      });
+    const prefixLink = (href, base) =>
+      prefixURL(href, {
+        base,
+        user,
+        project,
+        head: `blob/${head || 'master'}`,
+        path: `${path}`,
       });
 
     // manually ask for sanitation of svgs, otherwise it will have wrong content-type
@@ -39,7 +47,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     }
 
     renderer.image = (href, title, text) =>
-      `<img src="${prefix(
+      `<img src="${prefixImage(
         sanitize(href),
         GITHUB.raw
       )}" title="${title}" alt="${text}"/>`;
@@ -50,7 +58,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
       if (text.startsWith('!--')) {
         return '';
       }
-      return `<a href="${prefix(
+      return `<a href="${prefixLink(
         href,
         GITHUB.main
       )}" title="${title}">${text}</a>`;

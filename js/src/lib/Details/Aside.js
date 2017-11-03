@@ -8,7 +8,7 @@ import Usage from './Usage';
 import Versions from './Versions';
 import Contributors from './Contributors';
 import Tags from './Tags';
-import { encode, prefixURL, packageJSONLink } from '../util';
+import { packageJSONLink } from '../util';
 
 const Aside = ({
   name,
