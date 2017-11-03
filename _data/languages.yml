@@ -68,7 +68,7 @@
   accept_languages: ["it", "it-ch"]
 - name: 日本語
   tag: ja
-  enabled: No
+  enabled: Yes
   accept_languages: ["ja"]
 - name: 한국어
   tag: ko
