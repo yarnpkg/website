@@ -25,8 +25,10 @@ export const Owner = ({ link, avatar, name, onClick }) => (
     className="ais-Hit--ownerLink"
     href={link}
     onClick={e => {
-      e.preventDefault();
-      onClick(name);
+      if (onClick && !(e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        onClick(name);
+      }
     }}
   >
     <img
