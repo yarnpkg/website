@@ -22,7 +22,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
         base: GITHUB.raw,
         user,
         project,
-        head: head ? head : 'master',
+        head: head || 'master',
         path,
       });
     const prefixLink = href =>
