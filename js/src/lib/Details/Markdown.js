@@ -17,17 +17,17 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
 
   if (githubRepo) {
     const { user, project, path, head } = githubRepo;
-    const prefixImage = (href, base) =>
+    const prefixImage = href =>
       prefixURL(href, {
-        base,
+        base: GITHUB.raw,
         user,
         project,
         head: head ? head : 'master',
         path,
       });
-    const prefixLink = (href, base) =>
+    const prefixLink = href =>
       prefixURL(href, {
-        base,
+        base: GITHUB.main,
         user,
         project,
         head: `blob/${head || 'master'}`,
@@ -48,8 +48,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
 
     renderer.image = (href, title, text) =>
       `<img src="${prefixImage(
-        sanitize(href),
-        GITHUB.raw
+        sanitize(href)
       )}" title="${title}" alt="${text}"/>`;
 
     renderer.link = (href, title, text) => {
@@ -58,17 +57,14 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
       if (text.startsWith('!--')) {
         return '';
       }
-      return `<a href="${prefixLink(
-        href,
-        GITHUB.main
-      )}" title="${title}">${text}</a>`;
+      return `<a href="${prefixLink(href)}" title="${title}">${text}</a>`;
     };
 
     renderer.html = function(html) {
       return html.replace(
         /(src|href)="([^"]*)/g,
         (match, type, href) =>
-          `${type}="${prefix(href, type === 'href' ? GITHUB.main : GITHUB.raw)}`
+          `${type}="${type === 'href' ? prefixLink(href) : prefixImage(href)}`
       );
     };
   }
