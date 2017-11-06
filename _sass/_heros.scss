@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   margin: 0;
-  padding: 2.5rem 0;
+  padding: 2rem 0;
   color: white;
   background-color: $yarn-blue-dark;
   background-size: 25px auto;
@@ -21,7 +21,7 @@
 }
 
 .hero::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   z-index: 1;
@@ -56,8 +56,12 @@
   transform: translate(0, -50%);
   height: 140%;
 }
-.hero-logo .logo-primary   { fill: $yarn-blue-darker; }
-.hero-logo .logo-secondary { fill: $yarn-blue; }
+.hero-logo .logo-primary {
+  fill: $yarn-blue-darker;
+}
+.hero-logo .logo-secondary {
+  fill: $yarn-blue;
+}
 
 .hero-title {
   position: relative;
@@ -84,7 +88,7 @@
 
 .hero-btn {
   @include button-outline-variant($yarn-blue-darkest);
-  @include button-size($btn-padding-y-lg * 1.5, $btn-padding-x-lg * 1.5, $font-size-lg * .8, $btn-border-radius-lg);
+  @include button-size($btn-padding-y-lg * 1.5, $btn-padding-x-lg * 1.5, $font-size-lg * 0.8, $btn-border-radius-lg);
   font-size: 1.2rem;
   color: white;
   border-width: 2px;
@@ -119,11 +123,9 @@
   }
 }
 
-
 @include media-breakpoint-up('sm') {
   .hero {
     margin: 0 0 3rem 0;
-    padding: 4rem 0;
 
     .alert {
       margin-top: -3rem;
@@ -170,12 +172,6 @@
 
 @include media-breakpoint-up('lg') {
   .hero {
-    padding: 5rem 0;
-
-    &.small {
-      padding: 2rem 0;
-    }
-
     .alert {
       margin-top: -4rem;
     }
