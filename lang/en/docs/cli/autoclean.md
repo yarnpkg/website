@@ -34,7 +34,7 @@ When the `yarn autoclean --init` comamnd is used to create a `.yarnclean` file, 
 for deletion. This default list is a guess at what is likely not needed. It is impossible to predict all directories and files that
 are actually unnecessary for all existing and future NPM packages, so this default list may cause a package to no longer work.
 
-It is **highly recommended** that you manually review the default entries in `.yarninstall` and customize them to fit your needs.
+It is **highly recommended** that you manually review the default entries in `.yarnclean` and customize them to fit your needs.
 
 If you discover the autoclean process is deleting files that are needed for a package to work properly, then you should remove the
 corresponding entry from the `.yarnclean` file.
