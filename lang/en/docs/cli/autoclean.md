@@ -28,6 +28,17 @@ The clean is performed by reading each line of the `.yarnclean` file and using e
 
 `-F/--force` : If a `.yarnclean` file exists, run the clean process. If the file does not exist, do nothing.
 
+**Defaults:**
+
+When the `yarn autoclean --init` comamnd is used to create a `.yarnclean` file, it will be pre-populated with a set of default items
+for deletion. This default list is a guess at what is likely not needed. It is impossible to predict all directories and files that
+are actually unnecessary for all existing and future NPM packages, so this default list may cause a package to no longer work.
+
+It is **highly recommended** that you manually review the default entries in `.yarnclean` and customize them to fit your needs.
+
+If you discover the autoclean process is deleting files that are needed for a package to work properly, then you should remove the
+corresponding entry from the `.yarnclean` file.
+
 **Example:**
 
 You decide all YAML and Markdown files in all your dependencies installed in `node_modules` can be safely deleted. You make a `.yarnclean` file containing:
@@ -37,4 +48,4 @@ You decide all YAML and Markdown files in all your dependencies installed in `no
 *.md
 ```
 
-You then run `yarn install` or `yarn autoclean --force`. The clean process will delete all `*.yaml` and `*.md` files within `node_modules/` recursively (including nested transient dependencies).
+You then run `yarn install` or `yarn autoclean --force`. The clean process will delete all `*.yaml` and `*.md` files within `node_modules/` recursively (including nested transitive dependencies).
