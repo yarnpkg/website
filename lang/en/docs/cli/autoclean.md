@@ -30,7 +30,7 @@ The clean is performed by reading each line of the `.yarnclean` file and using e
 
 **Defaults:**
 
-When the `yarn autoclean --init` comamnd is used to create a `.yarnclean` file, it will be pre-populated with a set of default items
+When the `yarn autoclean --init` command is used to create a `.yarnclean` file, it will be pre-populated with a set of default items
 for deletion. This default list is a guess at what is likely not needed. It is impossible to predict all directories and files that
 are actually unnecessary for all existing and future NPM packages, so this default list may cause a package to no longer work.
 
