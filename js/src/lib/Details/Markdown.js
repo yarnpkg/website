@@ -77,20 +77,25 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
       try {
         return `<pre><code class="rougeHighlight">${hljs.highlight(lang, code)
           .value}</code></pre>`;
-      } catch (err) {}
+      } catch (err) {
+        console.error('highlight', err);
+      }
     }
 
     try {
       return `<pre><code class="rougeHighlight">${hljs.highlightAuto(code)
         .value}</code></pre>`;
-    } catch (err) {}
+    } catch (err) {
+      console.error('highlightAuto', err);
+    }
 
     return `<pre><code class="rougeHighlight">${code}</code></pre>`;
   };
 
   const html = marked(source, { renderer });
-  const escaped = xss(html);
-  return escaped;
+  console.log('html', html);
+  console.log('escaped', xss(html));
+  return xss(html);
 };
 
 const Markdown = ({ source, githubRepo }) => (
