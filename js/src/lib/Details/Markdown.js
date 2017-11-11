@@ -1,6 +1,7 @@
 import React from 'react';
 import marked from 'marked';
 import xss from 'xss';
+import hljs from 'highlight.js';
 
 import { prefixURL } from '../util';
 
@@ -69,7 +70,21 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     };
   }
 
-  const html = marked(source, { renderer, mangle: false });
+  const highlight = function(code, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, code).value;
+      } catch (err) {}
+    }
+
+    try {
+      return hljs.highlightAuto(code).value;
+    } catch (err) {}
+
+    return code;
+  };
+
+  const html = marked(source, { renderer, mangle: false, highlight });
   const escaped = xss(html);
   return escaped;
 };
