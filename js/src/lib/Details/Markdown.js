@@ -92,9 +92,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     return `<pre><code class="rougeHighlight">${code}</code></pre>`;
   };
 
-  const html = marked(source, { renderer });
-  console.log('html', html);
-  console.log('escaped', xss(html));
+  return marked(source, { renderer, mangle: false, sanitize: true });
   return xss(html);
 };
 
