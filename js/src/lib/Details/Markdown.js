@@ -69,7 +69,10 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
       );
     };
   }
-  const highlight = function(code, lang) {
+
+  renderer.code = function(code, lang) {
+    const { log } = console;
+    log(code, lang); // just for debugging
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre><code class="rougeHighlight">${hljs.highlight(lang, code)
@@ -85,9 +88,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     return `<pre><code class="rougeHighlight">${code}</code></pre>`;
   };
 
-  renderer.code = highlight;
-
-  const html = marked(source, { renderer, mangle: false, highlight });
+  const html = marked(source, { renderer });
   const escaped = xss(html);
   return escaped;
 };
