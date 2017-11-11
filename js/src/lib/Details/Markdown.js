@@ -71,29 +71,23 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
   }
 
   renderer.code = function(code, lang) {
-    const { log } = console;
-    log(code, lang); // just for debugging
+    code = xss(code);
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre><code class="rougeHighlight">${hljs.highlight(lang, code)
           .value}</code></pre>`;
-      } catch (err) {
-        console.error('highlight', err);
-      }
+      } catch (err) {}
     }
 
     try {
       return `<pre><code class="rougeHighlight">${hljs.highlightAuto(code)
         .value}</code></pre>`;
-    } catch (err) {
-      console.error('highlightAuto', err);
-    }
+    } catch (err) {}
 
     return `<pre><code class="rougeHighlight">${code}</code></pre>`;
   };
 
   return marked(source, { renderer, mangle: false, sanitize: true });
-  return xss(html);
 };
 
 const Markdown = ({ source, githubRepo }) => (
