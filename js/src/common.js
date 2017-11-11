@@ -15,3 +15,9 @@ ReactDOM.render(<Search />, document.getElementById('search'));
 if (process.env.NODE_ENV === 'production') {
   fillLanguageDropdown();
 }
+
+$(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});

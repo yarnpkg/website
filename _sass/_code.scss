@@ -1,4 +1,9 @@
-.rougeHighlight pre, .rougeHighlight, pre { background-color: $code-bg; color: darken(#93a1a1, 15%) }
+.rougeHighlight pre {
+  background: $gray-dark;
+  -webkit-font-smoothing: antialiased;
+  border-left: 4px solid $yarn-blue;
+  color: #ddd;
+ }
 .rougeHighlight .hll { background-color: #272822; }
 .rougeHighlight .c { color: #75715e } /* Comment */
 .rougeHighlight .err { color: #960050; background-color: #1e0010 } /* Error */
@@ -73,13 +78,6 @@
   color: $brand-danger;
   background: lighten($brand-danger, 37%);
   display: block;
-}
-
-.language-sh pre {
-  background: $gray-dark;
-  color: white;
-  -webkit-font-smoothing: antialiased;
-  border-left: 4px solid $yarn-blue;
 }
 
 pre {

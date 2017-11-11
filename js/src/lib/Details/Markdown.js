@@ -74,17 +74,15 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     code = xss(code);
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<pre><code class="rougeHighlight">${hljs.highlight(lang, code)
-          .value}</code></pre>`;
+        return hljs.highlight(lang, code).value;
       } catch (err) {}
     }
 
     try {
-      return `<pre><code class="rougeHighlight">${hljs.highlightAuto(code)
-        .value}</code></pre>`;
+      return hljs.highlightAuto(code).value;
     } catch (err) {}
 
-    return `<pre><code class="rougeHighlight">${code}</code></pre>`;
+    return code;
   };
 
   return marked(source, { renderer, mangle: false, sanitize: true });

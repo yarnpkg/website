@@ -3,12 +3,16 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 */
 
 .hljs {
-  display: block;
+  background: #292b2c;
+  -webkit-font-smoothing: antialiased;
+  border-left: 4px solid #2C8EBB;
+  color: #ddd;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+  border-radius: 3px;
+  padding: .6rem 1.2rem;
   overflow-x: auto;
-  padding: 0.5em;
-  background: $code-bg;
-  color: darken(#93a1a1, 15%);
-
+  -webkit-overflow-scrolling: touch;
 }
 
 .hljs-tag,
