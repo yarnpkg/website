@@ -71,7 +71,6 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
   }
 
   renderer.code = function(code, lang) {
-    code = xss(code);
     if (lang && hljs.getLanguage(lang)) {
       try {
         const prepared = hljs.highlight(lang, code);
@@ -87,7 +86,12 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     return `<pre><code>${code}</code></pre>`;
   };
 
-  return marked(source, { renderer, mangle: false, sanitize: true });
+  const html = marked(source, { renderer, mangle: false });
+  return xss(html, {
+    whiteList: Object.assign({}, xss.getDefaultWhiteList(), {
+      code: ['class'],
+    }),
+  });
 };
 
 const Markdown = ({ source, githubRepo }) => (

@@ -1,4 +1,6 @@
-.rougeHighlight pre {
+.rougeHighlight pre,
+.rougeHighlight, pre {
+
   background: $gray-dark;
   -webkit-font-smoothing: antialiased;
   border-left: 4px solid $yarn-blue;

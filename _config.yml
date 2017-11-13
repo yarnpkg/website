@@ -53,10 +53,15 @@ gems:
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: none
+  syntax_highlighter: rouge
 
   syntax_highlighter_opts:
-    disable: true
+    css_class: 'rougeHighlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
 
 sass:
   style: compressed
