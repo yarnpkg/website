@@ -89,10 +89,8 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
   return xss(marked(source, { renderer, mangle: false }), {
     whiteList: {
       ...xss.getDefaultWhiteList(),
-      ...{
-        code: ['class'],
-        span: ['class'],
-      },
+      code: ['class'],
+      span: ['class'],
     },
   });
 };
