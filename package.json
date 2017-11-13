@@ -20,9 +20,8 @@
   "scripts": {
     "build": "webpack",
     "build:sitemaps": "./scripts/sitemaps.js",
-    "build:highlight.js": "./scripts/highlight.sh",
-    "build:production": "npm run build:highlight.js && npm run build && npm run build:sitemaps",
-    "start": "npm run build:highlight.js && webpack --watch",
+    "build:production": "npm run build && npm run build:sitemaps",
+    "start": "webpack --watch",
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
