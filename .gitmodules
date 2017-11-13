@@ -1,3 +1,7 @@
 [submodule "_sass/bootstrap"]
 	path = _sass/bootstrap
 	url = https://github.com/twbs/bootstrap.git
+
+[submodule "_js/highlight"]
+	path = _js/highlight
+	url = https://github.com/isagalaev/highlight.js.git

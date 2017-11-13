@@ -40,6 +40,7 @@ exclude:
   - .sass-cache
   - node_modules
   - js/src
+  - "_js"
 
 include:
   - _redirects

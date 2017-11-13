@@ -1,7 +1,7 @@
 import React from 'react';
 import marked from 'marked';
 import xss from 'xss';
-import hljs from 'highlight.js';
+import hljs from '../../../../_js/highlight/build/highlight.pack';
 
 import { prefixURL } from '../util';
 
@@ -79,7 +79,7 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     }
 
     try {
-      const prepared = hljs.highlightAuto(code).value;
+      const prepared = hljs.highlightAuto(code);
       return `<pre><code class="${prepared.language}">${prepared.value}</code></pre>`;
     } catch (err) {}
 

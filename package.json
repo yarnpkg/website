@@ -20,8 +20,9 @@
   "scripts": {
     "build": "webpack",
     "build:sitemaps": "./scripts/sitemaps.js",
-    "build:production": "npm run build && npm run build:sitemaps",
-    "start": "webpack --watch",
+    "build:highlight.js": "./scripts/highlight.sh",
+    "build:production": "npm run build:highlight.js && npm run build && npm run build:sitemaps",
+    "start": "npm run build:highlight.js && webpack --watch",
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
@@ -43,7 +44,6 @@
     "bytes": "^2.5.0",
     "date-fns": "^2.0.0-alpha.1",
     "docsearch.js": "^2.4.1",
-    "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
     "marked": "^0.3.6",
     "prop-types": "^15.5.10",
