@@ -1,7 +1,7 @@
 import React from 'react';
 import marked from 'marked';
 import xss from 'xss';
-import hljs from '../../../../js/build/highlight.pack';
+import hljs from '../../../../js/src/lib/highlight.pack';
 
 import { prefixURL } from '../util';
 
