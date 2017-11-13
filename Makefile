@@ -25,6 +25,7 @@ serve-production: test-builddeps
 build-production: test-builddeps
 	@make crowdin-download
 	@ruby ./scripts/validate-translations.rb
+	@bash ./scripts/highlight.sh
 	@NODE_ENV=production yarn build:production
 	@JEKYLL_ENV=production bundle exec jekyll build
 
