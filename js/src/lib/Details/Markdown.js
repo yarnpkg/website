@@ -1,6 +1,7 @@
 import React from 'react';
 import marked from 'marked';
 import xss from 'xss';
+import hljs from '../../../../js/src/lib/highlight.pack';
 
 import { prefixURL } from '../util';
 
@@ -69,9 +70,29 @@ const renderAndEscapeMarkdown = ({ source, githubRepo }) => {
     };
   }
 
-  const html = marked(source, { renderer, mangle: false });
-  const escaped = xss(html);
-  return escaped;
+  renderer.code = function(code, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        const prepared = hljs.highlight(lang, code);
+        return `<pre><code class="${prepared.language}">${prepared.value}</code></pre>`;
+      } catch (err) {}
+    }
+
+    try {
+      const prepared = hljs.highlightAuto(code);
+      return `<pre><code class="${prepared.language}">${prepared.value}</code></pre>`;
+    } catch (err) {}
+
+    return `<pre><code>${code}</code></pre>`;
+  };
+
+  return xss(marked(source, { renderer, mangle: false }), {
+    whiteList: {
+      ...xss.getDefaultWhiteList(),
+      code: ['class'],
+      span: ['class'],
+    },
+  });
 };
 
 const Markdown = ({ source, githubRepo }) => (
