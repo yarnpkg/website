@@ -32,7 +32,7 @@ Add the following in a `package.json` file. Starting from now on, we'll call thi
 }
 ```
 
-Note that the `private: true` is required! Workspaces are not meant to be published, so we've added this safety measure to make sure that nothing can accidentaly expose them.
+Note that the `private: true` is required! Workspaces are not meant to be published, so we've added this safety measure to make sure that nothing can accidentally expose them.
 
 After this file has been created, create two new subfolders named `workspace-a` and `workspace-b`. In each of them, create another `package.json` file with the following content:
 
