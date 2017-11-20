@@ -7,11 +7,11 @@
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
-    "babel-preset-env": "1.6.0",
+    "babel-preset-env": "1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "happypack": "^4.0.0-beta.2",
-    "lint-staged": "^4.0.3",
+    "lint-staged": "^5.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.5.3",
     "webpack": "^3.5.5",
@@ -25,10 +25,7 @@
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write --single-quote --trailing-comma=es5",
-      "git add"
-    ]
+    "*.js": ["prettier --write --single-quote --trailing-comma=es5", "git add"]
   },
   "pre-commit": "lint:staged",
   "repository": {
@@ -40,17 +37,17 @@
     "@haroenv/react-sparklines": "^1.7.1",
     "algoliasearch": "^3.24.3",
     "bootstrap": "4.0.0-alpha.5",
-    "bytes": "^2.5.0",
+    "bytes": "^3.0.0",
     "date-fns": "^2.0.0-alpha.1",
     "docsearch.js": "^2.4.1",
     "jquery": "^3.2.1",
     "marked": "^0.3.6",
     "prop-types": "^15.5.10",
     "qs": "^6.5.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "react-instantsearch": "^4.0.10",
-    "react-transition-group": "1.2.0",
+    "react-transition-group": "^1.2.1",
     "unescape-html": "^1.0.0",
     "unfetch": "^3.0.0",
     "xss": "^0.3.3"

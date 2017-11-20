@@ -1,8 +1,6 @@
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import React from 'react';
-
 import fetch from 'unfetch';
-
 import bytes from 'bytes';
 
 const SORT_ORDER = { directory: 1, file: 2 };
@@ -12,14 +10,11 @@ function getBasename(path) {
 }
 
 export default class FileBrowser extends React.PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      expandedDirs: {
-        '/': true,
-      },
-    };
-  }
+  state = {
+    expandedDirs: {
+      '/': true,
+    },
+  };
 
   componentWillMount() {
     this._fetchFiles();
@@ -88,13 +83,12 @@ export default class FileBrowser extends React.PureComponent {
   }
 
   _toggleDir = dir => {
-    const shouldBeExpanded = !this.state.expandedDirs[dir.path];
-    this.setState({
+    this.setState(({ expandedDirs }) => ({
       expandedDirs: {
-        ...this.state.expandedDirs,
-        [dir.path]: shouldBeExpanded,
+        ...expandedDirs,
+        [dir.path]: !expandedDirs[dir.path],
       },
-    });
+    }));
   };
 
   _setBackRef = ref => {
