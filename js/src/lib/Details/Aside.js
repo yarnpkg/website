@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Install from './Install';
+import Cdn from './Cdn';
 import Links from './Links';
 import Activity from './Activity';
 import Popularity from './Popularity';
@@ -32,6 +33,7 @@ const Aside = ({
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
     </article>
     <Install name={name} onOpenFileBrowser={onOpenFileBrowser} />
+    <Cdn name={name} />
     <Popularity
       downloads={downloads}
       humanDownloads={humanDownloads}
