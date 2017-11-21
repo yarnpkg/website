@@ -38,26 +38,22 @@ your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lo
 
 ### CLI commands comparison <a class="toc" id="toc-cli-commands-comparison" href="#toc-cli-commands-comparison"></a>
 
-| npm                                         | Yarn                                        |
+| npm (v5)                                    | Yarn                                        |
 | ------------------------------------------- | ------------------------------------------- |
 | `npm install`                               | `yarn install`                              |
 | ***(N/A)***                                 | `yarn install --flat`                       |
 | ***(N/A)***                                 | `yarn install --har`                        |
-| ***(N/A)***                                 | `yarn install --no-lockfile`                |
+| `npm install --no-package-lock`             | `yarn install --no-lockfile`                |
 | ***(N/A)***                                 | `yarn install --pure-lockfile`              |
-| `npm install [package]`                     | ***(N/A)***                                 |
-| `npm install --save [package]`              | `yarn add [package]`                        |
-| `npm install --save-dev [package]`          | `yarn add [package] [--dev/-D]`             |
-| ***(N/A)***                                 | `yarn add [package] [--peer/-P]`            |
-| `npm install --save-optional [package]`     | `yarn add [package] [--optional/-O]`        |
-| `npm install --save-exact [package]`        | `yarn add [package] [--exact/-E]`           |
-| ***(N/A)***                                 | `yarn add [package] [--tilde/-T]`           |
-| `npm install --global [package]`            | `yarn global add [package]`                 |
-| `npm update --global`                       | `yarn global upgrade`                       |
+| `npm install [package]`                     | `yarn add [package]`                        |
+| `npm install [package] --save-dev`          | `yarn add [package] --dev`                  |
+| ***(N/A)***                                 | `yarn add [package] --peer`                 |
+| `npm install [package] --save-optional`     | `yarn add [package] --optional`             |
+| `npm install [package] --save-exact`        | `yarn add [package] --exact`                |
+| ***(N/A)***                                 | `yarn add [package] --tilde`                |
+| `npm install [package] --global`            | `yarn global add [package]`                 |
+| `npm update --global`                       | `yarn global upgrade`                       |
 | `npm rebuild`                               | `yarn install --force`                      |
-| `npm uninstall [package]`                   | ***(N/A)***                                 |
-| `npm uninstall --save [package]`            | `yarn remove [package]`                     |
-| `npm uninstall --save-dev [package]`        | `yarn remove [package]`                     |
-| `npm uninstall --save-optional [package]`   | `yarn remove [package]`                     |
+| `npm uninstall [package]`                   | `yarn remove [package]`                     |
 | `npm cache clean`                           | `yarn cache clean [package]`                |
 | `rm -rf node_modules && npm install`        | `yarn upgrade`                              |
