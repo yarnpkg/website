@@ -336,6 +336,7 @@ script:
     try_in_runkit: Try in RunKit
     back_to_details: Back to Details
     browse_files: Browse Files
+    cdns: CDNs
     contributors: Contributors
     display_full_readme: Display full readme
     display_full_changelog: Display full changelog
