@@ -24,9 +24,10 @@ export default class FileBrowser extends React.PureComponent {
 
   _fetchFiles() {
     this.setState({ error: null, files: null });
-    const url = `https://data.jsdelivr.com/v1/package/npm/${this.props.objectID}@${this.props.version}`;
+    const url = this._getURLForPackageMetadata();
     fetch(url)
       .then(response => {
+        // If status code >= 400 handle it as an error.
         if (!response.ok) {
           return response.json().then(body => {
             throw body;
@@ -86,6 +87,10 @@ export default class FileBrowser extends React.PureComponent {
 
   _getBaseURL() {
     return `https://cdn.jsdelivr.net/npm/${this.props.objectID}@${this.props.version}`;
+  }
+
+  _getURLForPackageMetadata() {
+    return `https://data.jsdelivr.com/v1/package/npm/${this.props.objectID}@${this.props.version}`;
   }
 
   _toggleDir = path => {
