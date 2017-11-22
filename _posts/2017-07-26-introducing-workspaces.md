@@ -202,7 +202,7 @@ Not at all. Yarn Workspaces are easily integrated with Lerna.
 
 Lerna provides a lot more than just bootstrapping a project and it has a community of users around it that have fine-tuned Lerna for their needs. 
 
-Starting with Lerna 2.0.0, when you pass the flag [--use-workspaces](https://github.com/lerna/lerna#--use-workspaces) when running Lerna commands, it will use Yarn to bootstrap the project and also it will use `package.json/workspaces` field to find the packages instead of `lerna.json/packages`.
+Starting with Lerna 2.0.0, when you pass the flag [`--use-workspaces`](https://github.com/lerna/lerna#--use-workspaces) when running Lerna commands, it will use Yarn to bootstrap the project and also it will use `package.json/workspaces` field to find the packages instead of `lerna.json/packages`.
 
 This is how Lerna is configured for Jest:
 
