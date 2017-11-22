@@ -155,6 +155,14 @@
         background-image: url('/assets/detail/ico-runkit.svg');
       }
     }
+
+    &--cdns {
+      dd {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
   }
 
   &-files {
