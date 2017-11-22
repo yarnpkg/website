@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Di } from './';
 
-const JsDelivr = ({ name }) => (
+const JsDelivr = ({ name, version }) => (
   <Di
     title="jsDelivr"
     description={
       <a
-        href={`https://cdn.jsdelivr.net/npm/${name}/`}
+        href={`https://cdn.jsdelivr.net/npm/${name}@${version}/`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -16,12 +16,12 @@ const JsDelivr = ({ name }) => (
   />
 );
 
-const Unpkg = ({ name }) => (
+const Unpkg = ({ name, version }) => (
   <Di
     title="unpkg"
     description={
       <a
-        href={`https://unpkg.com/${name}/`}
+        href={`https://unpkg.com/${name}@${version}/`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -31,12 +31,12 @@ const Unpkg = ({ name }) => (
   />
 );
 
-const BundleRun = ({ name }) => (
+const BundleRun = ({ name, version }) => (
   <Di
     title="bundle.run"
     description={
       <a
-        href={`https://bundle.run/${name}`}
+        href={`https://bundle.run/${name}@${version}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -52,9 +52,9 @@ class Cdn extends Component {
         <article className="details-side--cdns">
             <h1>{window.i18n.detail.cdns}</h1>
             <dl>
-                <JsDelivr name={this.props.name} />
-                <Unpkg name={this.props.name} />
-                <BundleRun name={this.props.name} />
+                <JsDelivr name={this.props.name} version={this.props.version} />
+                <Unpkg name={this.props.name} version={this.props.version} />
+                <BundleRun name={this.props.name} version={this.props.version} />
             </dl>
         </article>
     );

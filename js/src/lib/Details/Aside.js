@@ -25,6 +25,7 @@ const Aside = ({
   dependencies,
   tags,
   versions,
+  version,
   devDependencies,
   onOpenFileBrowser,
 }) => (
@@ -33,7 +34,7 @@ const Aside = ({
       <Links name={name} homepage={homepage} githubRepo={githubRepo} />
     </article>
     <Install name={name} onOpenFileBrowser={onOpenFileBrowser} />
-    <Cdn name={name} />
+    <Cdn name={name} version={version} />
     <Popularity
       downloads={downloads}
       humanDownloads={humanDownloads}
