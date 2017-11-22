@@ -16,6 +16,36 @@ const JsDelivr = ({ name }) => (
   />
 );
 
+const Unpkg = ({ name }) => (
+  <Di
+    title="unpkg"
+    description={
+      <a
+        href={`https://unpkg.com/${name}/`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        unpkg.com/{name}/
+      </a>
+    }
+  />
+);
+
+const BundleRun = ({ name }) => (
+  <Di
+    title="bundle.run"
+    description={
+      <a
+        href={`https://bundle.run/${name}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        bundle.run/{name}
+      </a>
+    }
+  />
+);
+
 class Cdn extends Component {
   render() {
     return (
@@ -23,6 +53,8 @@ class Cdn extends Component {
             <h1>{window.i18n.detail.cdns}</h1>
             <dl>
                 <JsDelivr name={this.props.name} />
+                <Unpkg name={this.props.name} />
+                <BundleRun name={this.props.name} />
             </dl>
         </article>
     );
