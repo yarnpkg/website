@@ -47,16 +47,34 @@ const BundleRun = ({ name, version }) => (
 );
 
 class Cdn extends Component {
+  constructor(props) {
+    super(props);
+
+    this.cdns = {
+      jsdelivr: JsDelivr,
+      unpkg: Unpkg,
+      bundlerun: BundleRun,
+    };
+
+    this.order = Object.keys(this.cdns).sort(() => {
+      return Math.random() - 0.5;
+    });
+  }
+
   render() {
+    const items = this.order.map(key =>
+      React.createElement(this.cdns[key], {
+        key: key,
+        name: this.props.name,
+        version: this.props.version,
+      })
+    );
+
     return (
-        <article className="details-side--cdns">
-            <h1>{window.i18n.detail.cdns}</h1>
-            <dl>
-                <JsDelivr name={this.props.name} version={this.props.version} />
-                <Unpkg name={this.props.name} version={this.props.version} />
-                <BundleRun name={this.props.name} version={this.props.version} />
-            </dl>
-        </article>
+      <article className="details-side--cdns">
+        <h1>{window.i18n.detail.cdns}</h1>
+        <dl>{items}</dl>
+      </article>
     );
   }
 }
