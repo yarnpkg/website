@@ -62,13 +62,16 @@ class Cdn extends Component {
   }
 
   render() {
-    const items = this.order.map(key =>
-      React.createElement(this.cdns[key], {
-        key: key,
-        name: this.props.name,
-        version: this.props.version,
-      })
-    );
+    const items = this.order.map(key => {
+      const Component = this.cdns[key];
+      return (
+        <Component
+          key={key}
+          name={this.props.name}
+          version={this.props.version}
+        />
+      );
+    });
 
     return (
       <article className="details-side--cdns">
