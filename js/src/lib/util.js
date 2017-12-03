@@ -33,7 +33,10 @@ export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
       {keywords
         .slice(0, maxKeywords)
         .map(keyword => (
-          <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
+          <a
+            href={searchLink({ keyword, query: ' ' })}
+            key={`${name}-${keyword}`}
+          >
             {keyword}
           </a>
         ))
@@ -159,12 +162,14 @@ export function packageJSONLink({ githubRepo }) {
 }
 
 export const packageLink = name =>
-  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production'
-    ? '/'
-    : '?'}${name}`;
+  `${window.i18n.url_base}/package${
+    process.env.NODE_ENV === 'production' ? '/' : '?'
+  }${name}`;
 
-export const searchLink = query =>
-  `${window.i18n.url_base}/packages?q=${query}`;
+export const searchLink = ({ query, keyword }) =>
+  `${window.i18n.url_base}/packages?${query ? `q=${query}` : ''}${
+    keyword ? `&keywords%5B0%5D=${keyword}` : ''
+  }`;
 
 export const prefixURL = (url, { base, user, project, head, path }) => {
   if (url.indexOf('//') > 0) {
