@@ -57,6 +57,9 @@
   - id: docs_cli_create
     path: /docs/cli/create
     tags: ["cli-create"]
+  - id: docs_cli_dedupe
+    path: /docs/cli/dedupe
+    tags: ["cli-dedupe"]
   - id: docs_cli_generate_lock_entry
     path: /docs/cli/generate-lock-entry
     tags: ["cli-generate-lock-entry"]
@@ -84,6 +87,9 @@
   - id: docs_cli_link
     path: /docs/cli/link
     tags: ["cli-link"]
+  - id: docs_cli_lockfile
+    path: /docs/cli/lockfile
+    tags: ["cli-lockfile"]
   - id: docs_cli_login
     path: /docs/cli/login
     tags: ["cli-login"]
@@ -102,6 +108,9 @@
   - id: docs_cli_pack
     path: /docs/cli/pack
     tags: ["cli-pack"]
+  - id: docs_cli_prune
+    path: /docs/cli/prune
+    tags: ["cli-prune"]
   - id: docs_cli_publish
     path: /docs/cli/publish
     tags: ["cli-publish"]
