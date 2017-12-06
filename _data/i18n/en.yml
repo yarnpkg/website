@@ -119,6 +119,7 @@ docs_cli_cache: yarn cache
 docs_cli_check: yarn check
 docs_cli_config: yarn config
 docs_cli_create: yarn create
+docs_cli_dedupe: yarn dedupe
 docs_cli_generate_lock_entry: yarn generate-lock-entry
 docs_cli_global: yarn global
 docs_cli_help: yarn help
@@ -128,12 +129,14 @@ docs_cli_init: yarn init
 docs_cli_install: yarn install
 docs_cli_licenses: yarn licenses
 docs_cli_link: yarn link
+docs_cli_lockfile: yarn lockfile
 docs_cli_login: yarn login
 docs_cli_logout: yarn logout
 docs_cli_list: yarn list
 docs_cli_outdated: yarn outdated
 docs_cli_owner: yarn owner
 docs_cli_pack: yarn pack
+docs_cli_prune: yarn prune
 docs_cli_publish: yarn publish
 docs_cli_remove: yarn remove
 docs_cli_run: yarn run
