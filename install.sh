@@ -184,10 +184,12 @@ yarn_install() {
       fi
       yarn_version=`yarn -V`
       yarn_alt_version=`yarn --version`
+
       if [ "$specified_version" = "$yarn_version" -o "$specified_version" = "$yarn_alt_version" ]; then
         printf "$green> Yarn is already at the $specified_version version.$reset\n"
         exit 0
       else
+      	printf "$yellow> $yarn_alt_version is already installed, Specified version: $specified_version.$reset\n"
         rm -rf "$HOME/.yarn"
       fi
     else
