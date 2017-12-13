@@ -27,6 +27,7 @@ const Aside = ({
   versions,
   version,
   devDependencies,
+  bundlesize,
   onOpenFileBrowser,
 }) => (
   <aside className="details-side col-lg-4">
@@ -51,6 +52,7 @@ const Aside = ({
     <Usage
       dependencies={dependencies}
       devDependencies={devDependencies}
+      bundlesize={bundlesize}
       {...packageJSONLink({ githubRepo })}
     />
     <Tags tags={tags} name={name} />

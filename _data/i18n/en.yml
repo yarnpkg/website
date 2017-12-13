@@ -362,6 +362,7 @@ script:
     versions: Versions
     display_all: Display all
     hide: Hide
+    bundlesize: Size in browser
 
     not_found:
       whoa: Whoa, {package_name} does not exist yet
