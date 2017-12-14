@@ -197,8 +197,8 @@ const status = res =>
     }
   });
 
-export const get = ({ url, type }) =>
-  fetch(url)
+export const get = ({ url, type, headers }) =>
+  fetch(url, { headers })
     .then(status)
     .then(res => res[type]())
     .catch(err => {

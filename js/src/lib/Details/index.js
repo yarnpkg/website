@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import bytes from 'bytes';
 import algoliasearch from 'algoliasearch/lite';
 
 import Aside from './Aside';
@@ -55,7 +56,7 @@ class Details extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     index
       .getObject(this.props.objectID)
       .then(content => {
@@ -118,17 +119,37 @@ class Details extends Component {
       }
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo
-          .project}/stats/commit_activity`,
+        url: `repos/${this.state.githubRepo.user}/${
+          this.state.githubRepo.project
+        }/stats/commit_activity`,
         state: 'activity',
       });
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo
-          .project}`,
+        url: `repos/${this.state.githubRepo.user}/${
+          this.state.githubRepo.project
+        }`,
         state: 'github',
       });
     }
+
+    const { name, version } = this.state;
+
+    get({
+      url: `https://bundlephobia.com/api/size?package=${name}@${version}`,
+      type: 'json',
+      headers: {
+        'X-Bundlephobia-User': 'yarn website',
+      },
+    }).then(res =>
+      this.setState({
+        bundlesize: {
+          href: `https://bundlephobia.com/result?p=${name}@${version}`,
+          size: bytes(res.size),
+          gzip: bytes(res.gzip),
+        },
+      })
+    );
   }
 
   maybeRenderReadme() {
@@ -252,6 +273,7 @@ class Details extends Component {
         versions={this.state.versions}
         version={this.state.version}
         tags={this.state.tags}
+        bundlesize={this.state.bundlesize}
         onOpenFileBrowser={this._openFileBrowser}
       />
     );
