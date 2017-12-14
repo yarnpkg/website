@@ -363,6 +363,7 @@ script:
     display_all: Display all
     hide: Hide
     bundlesize: Size in browser
+    bundlesize_text: 'size: {size}, gzip: {gzip}'
 
     not_found:
       whoa: Whoa, {package_name} does not exist yet

@@ -76,7 +76,9 @@ const Usage = ({
               target="_blank"
               rel="noopener noreferrer"
               href={bundlesize.href}
-              title={`size: ${bundlesize.size}, gzip: ${bundlesize.gzip}`}
+              title={window.i18n.detail.bundlesize_text
+                .replace('{size}', bundlesize.size)
+                .replace('{gzip}', bundlesize.gzip)}
             >
               {bundlesize.size}
             </a>
