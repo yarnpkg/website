@@ -139,7 +139,7 @@ class Details extends Component {
       url: `https://bundlephobia.com/api/size?package=${name}@${version}`,
       type: 'json',
       headers: {
-        'User-Agent': `yarn website; ${navigator.userAgent}`,
+        'X-Bundlephobia-User': 'yarn website',
       },
     }).then(res =>
       this.setState({
