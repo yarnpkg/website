@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDistance } from 'date-fns/esm';
+import formatDistance from 'date-fns/formatDistance';
 import { Highlight } from 'react-instantsearch/dom';
 import {
   getDownloadBucket,
@@ -35,7 +35,9 @@ export const Owner = ({ link, avatar, name, onClick }) => (
       width="20"
       height="20"
       className="ais-Hit--ownerAvatar"
-      src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${avatar}`}
+      src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${
+        avatar
+      }`}
     />
     {name}
   </a>
