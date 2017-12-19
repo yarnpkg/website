@@ -3,11 +3,11 @@ import fetch from 'unfetch';
 import marked from 'marked';
 import xss from 'xss';
 import unescape from 'unescape-html';
-import highlightTags from 'react-instantsearch/src/core/highlightTags';
+import highlightTags from 'react-instantsearch/es/src/core/highlightTags';
 import {
   connectToggle,
   connectHighlight,
-} from 'react-instantsearch/connectors';
+} from 'react-instantsearch/es/connectors';
 
 export const isEmpty = item => typeof item === 'undefined' || item.length < 1;
 

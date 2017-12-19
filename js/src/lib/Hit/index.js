@@ -1,6 +1,6 @@
 import React from 'react';
 import formatDistance from 'date-fns/formatDistance';
-import { Highlight } from 'react-instantsearch/dom';
+import { Highlight } from 'react-instantsearch/es/dom';
 import {
   getDownloadBucket,
   formatKeywords,

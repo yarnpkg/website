@@ -5,7 +5,7 @@ import {
   Pagination,
   CurrentRefinements,
   Stats,
-} from 'react-instantsearch/dom';
+} from 'react-instantsearch/es/dom';
 
 import Hit from '../Hit';
 import { isEmpty } from '../util';
