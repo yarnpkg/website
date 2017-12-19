@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HappyPack = require('happypack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const plugins = [
   new webpack.EnvironmentPlugin({
@@ -36,6 +37,10 @@ const plugins = [
   }),
   new webpack.NamedModulesPlugin(),
 ];
+
+if (process.env.NODE_ENV === 'debug') {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
