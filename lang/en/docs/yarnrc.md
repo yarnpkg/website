@@ -10,7 +10,7 @@ layout: guide
 
 ### `yarn-offline-mirror` <a class="toc" id="toc-yarn-offline-mirror" href="#toc-yarn-offline-mirror"></a>
 
-```ini
+```shell
 yarn-offline-mirror "./packages-cache"
 ```
 
@@ -20,7 +20,7 @@ Value must be a relative file path, or `false` to disable the mirror (default).
 
 ### `yarn-offline-mirror-pruning` <a class="toc" id="toc-yarn-offline-mirror-pruning" href="#toc-yarn-offline-mirror-pruning"></a>
 
-```ini
+```shell
 yarn-offline-mirror-pruning true
 ```
 
@@ -30,7 +30,7 @@ Value must be a boolean, defaults to `false`.
 
 ### `yarn-path` <a class="toc" id="toc-yarn-path" href="#toc-yarn-path"></a>
 
-```ini
+```shell
 yarn-path "./bin/yarn"
 ```
 
@@ -42,7 +42,7 @@ Value must be a relative file path, or `false` to disable (default).
 
 ### `disable-self-update-check` <a class="toc" id="toc-disable-self-update-check" href="#toc-disable-self-update-check"></a>
 
-```ini
+```shell
 disable-self-update-check true
 ```
 
@@ -52,11 +52,11 @@ Value must be a boolean, defaults to `false`.
 
 ### `child-concurrency` <a class="toc" id="toc-child-concurrency" href="#toc-child-concurrency"></a>
 
-```ini
+```shell
 child-concurrency #number#
 ```
 
-Controls the number of child processes run parallely to build node modules. 
+Controls the number of child processes run parallely to build node modules.
 
 Setting this number to 1 will cause the node modules to be built sequentially which can avoid linker errors on windows with node-gyp.
 
