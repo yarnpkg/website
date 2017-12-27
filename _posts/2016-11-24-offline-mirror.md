@@ -99,6 +99,8 @@ Let's move this file to the project root so that offline mirror would be used on
 $ mv ~/.yarnrc ./
 ```
 
+(In the unlikely event that `yarn config` didn't update the file in your home folder, e.g. if you are running `yarn config` as root inside a Docker container, the file being updated might be a different one. Use `yarn config list --verbose` to locate the proper file.)
+
 ### Initialize the new lockfile
 
 Remove node_modules and yarn.lock that were generated previously and run yarn install again:
