@@ -21,7 +21,7 @@ yarn cache list --pattern "gulp-(match|newer)"
 
 Running `yarn cache dir` will print out the path where yarn's global cache is currently stored.
 
-##### `yarn cache clean <module_name>` <a class="toc" id="toc-yarn-cache-clean" href="#toc-yarn-cache-clean"></a>
+##### `yarn cache clean [<module_name>]` <a class="toc" id="toc-yarn-cache-clean" href="#toc-yarn-cache-clean"></a>
 
 Running this command will clear the global cache. It will be populated again the
 next time `yarn` or `yarn install` is run. Additionally, you can specify name of package you want to clean.
