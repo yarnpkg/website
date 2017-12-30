@@ -24,7 +24,7 @@ Destroys an existing team.
 
 Add a user to an existing team.
 
-##### `yarn team rm <scope:team> <user>` <a class="toc" id="toc-yarn-team-rm" href="#toc-yarn-team-rm"></a>
+##### `yarn team remove <scope:team> <user>` <a class="toc" id="toc-yarn-team-rm" href="#toc-yarn-team-rm"></a>
 
 Remove a user from a team they belong to.
 
