@@ -65,7 +65,7 @@ confuse people anyways.
 
 Add a tag named `<tag>` for a specific `<version>` of a `<package>`.
 
-##### `yarn tag rm <package> <tag>` <a class="toc" id="toc-yarn-tag-rm" href="#toc-yarn-tag-rm"></a>
+##### `yarn tag remove <package> <tag>` <a class="toc" id="toc-yarn-tag-rm" href="#toc-yarn-tag-rm"></a>
 
 Remove a tag named `<tag>` from a `<package>` that is no longer in use.
 
