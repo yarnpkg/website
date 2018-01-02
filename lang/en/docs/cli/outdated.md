@@ -15,9 +15,13 @@ and the latest available version.
 For example, say your `package.json` has the following dependencies listed:
 
 ```js
-"dependencies": {
-  "lodash": "4.15.0",
-  "underscore": "~1.6.0"
+{
+  "dependencies": {
+    "underscore": "~1.6.0"
+  },
+  "devDependencies": {
+    "lodash": "4.15.0"
+  }
 }
 ```
 
