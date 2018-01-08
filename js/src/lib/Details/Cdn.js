@@ -6,7 +6,7 @@ const JsDelivr = ({ name, version }) => (
     title="jsDelivr"
     description={
       <a
-        href={`https://cdn.jsdelivr.net/npm/${name}@${version}/`}
+        href={`https://cdn.jsdelivr.net/npm/${name}@${version}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -21,7 +21,7 @@ const Unpkg = ({ name, version }) => (
     title="unpkg"
     description={
       <a
-        href={`https://unpkg.com/${name}@${version}/`}
+        href={`https://unpkg.com/${name}@${version}`}
         target="_blank"
         rel="noopener noreferrer"
       >
