@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import bytes from 'bytes';
 import algoliasearch from 'algoliasearch/lite';
+import qs from 'qs';
 
 import Aside from './Aside';
 import FileBrowser from './FileBrowser';
@@ -63,6 +64,15 @@ class Details extends Component {
         this.setState(prevState => ({ ...content, loaded: true }));
         setHead(content);
         this.getDocuments();
+
+        // Opens the file browser if the search has a 'files' param.
+        const { files } = qs.parse(location.search, {
+          ignoreQueryPrefix: true,
+        });
+
+        if (files !== undefined) {
+          this.setState({ isBrowsingFiles: true });
+        }
       })
       .catch(e => {
         if (e.message === OBJECT_DOESNT_EXIST) {
@@ -71,6 +81,12 @@ class Details extends Component {
           });
         }
       });
+
+    window.addEventListener('popstate', this._onPopState);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this._onPopState);
   }
 
   getGithub({ url, state }) {
@@ -295,13 +311,53 @@ class Details extends Component {
   }
 
   _openFileBrowser = evt => {
-    this.setState({ isBrowsingFiles: true });
+    // Ignore if is already browsing the files (prevent pushing state to the history repeatedly)
+    if (!this.state.isBrowsingFiles) {
+      this._setFilesSearchParam(true);
+
+      this.setState({ isBrowsingFiles: true });
+    }
     evt.preventDefault();
   };
 
   _closeFileBrowser = evt => {
+    this._setFilesSearchParam(false);
+
     this.setState({ isBrowsingFiles: false });
     evt.preventDefault();
+  };
+
+  // Add/remove the 'files' param from the search (push to the history)
+  _setFilesSearchParam = active => {
+    // The strictNullHandling option is used to avoid that the qs includes a '=' at the end of empty params
+    const search = qs.parse(location.search, {
+      ignoreQueryPrefix: true,
+      strictNullHandling: true,
+    });
+
+    if (active) {
+      search.files = null;
+    } else {
+      delete search.files;
+    }
+
+    window.history.pushState(
+      null,
+      null,
+      location.pathname +
+        qs.stringify(search, { addQueryPrefix: true, strictNullHandling: true })
+    );
+  };
+
+  _onPopState = ({ state }) => {
+    // Open or close the file browser based on the current search
+    const { files } = qs.parse(location.search, { ignoreQueryPrefix: true });
+
+    if (files !== undefined) {
+      this.setState({ isBrowsingFiles: true });
+    } else if (this.state.isBrowsingFiles) {
+      this.setState({ isBrowsingFiles: false });
+    }
   };
 }
 

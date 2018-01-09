@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Details from './lib/Details';
+import qs from 'qs';
 
 /*
   To get the package id:
     - production: https://yarnpkg.com/en/package/@kadira/storybook => @kadira/storybook
     - dev (no rewrite available): http://localhost:4000/lang/en/package/?@kadira/storybook => @kadira/storybook
 */
+const search = qs.parse(location.search, { ignoreQueryPrefix: true });
 const id =
   process.env.NODE_ENV == 'production'
     ? location.pathname
         .split('/')
         .slice(3)
         .join('/')
-    : location.search.substring(1);
+    : // Get the first search param. It is necessary because it can have more than one
+      // param, e.g: when using ?files (to open the file browser).
+      Object.keys(search)[0];
 
 function languageDropdownAddPackage(pkg) {
   const langMenu = document.getElementById('dropdownNavLanguageMenu');
