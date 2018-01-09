@@ -344,7 +344,8 @@ class Details extends Component {
     window.history.pushState(
       null,
       null,
-      qs.stringify(search, { addQueryPrefix: true, strictNullHandling: true })
+      location.pathname +
+        qs.stringify(search, { addQueryPrefix: true, strictNullHandling: true })
     );
   };
 
