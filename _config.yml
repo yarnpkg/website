@@ -45,7 +45,7 @@ include:
   - _redirects
   - install.sh
 
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-paginate
 

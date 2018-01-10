@@ -13,7 +13,7 @@
     "happypack": "^4.0.0-beta.2",
     "lint-staged": "^6.0.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.9.2",
+    "prettier": "^1.10.1",
     "webpack": "^3.5.5",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-manifest-plugin": "^1.3.1"
@@ -46,7 +46,7 @@
     "date-fns": "^2.0.0-alpha.1",
     "docsearch.js": "^2.4.1",
     "jquery": "^3.2.1",
-    "marked": "^0.3.6",
+    "marked": "^0.3.12",
     "prop-types": "^15.5.10",
     "qs": "^6.5.0",
     "react": "^16.1.1",
