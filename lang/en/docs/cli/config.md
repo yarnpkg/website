@@ -17,7 +17,6 @@ $ yarn config set init-license BSD-2-Clause
 yarn config vx.x.x
 success Set "init-license" to "BSD-2-Clause".
 ✨  Done in 0.05s.
-
 ```
 
 ##### `yarn config get <key>` <a class="toc" id="toc-yarn-config-get" href="#toc-yarn-config-get"></a>
@@ -69,6 +68,4 @@ info npm config
 { registry: 'https://registry.npmjs.org/',
   '//localhost:4873/:_authToken': 'some-auth-token' }
 ✨  Done in 0.05s.
-
 ```
-

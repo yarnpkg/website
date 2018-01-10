@@ -43,7 +43,7 @@ Running this command will execute `jest -o --watch`.
 
 `[script]` can also be any locally installed executable that is inside `node_modules/.bin/`.
 
-It's also possible to leave out the `run` in this command, each script can be executed with its name: 
+It's also possible to leave out the `run` in this command, each script can be executed with its name:
 
 ```sh
 yarn test -o --watch

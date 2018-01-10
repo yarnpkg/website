@@ -69,6 +69,6 @@ Bundled dependencies should be inside your project. The functionality is basical
 
 Normal dependencies are usually installed from the npm registry. Bundled dependencies are useful in cases normal dependencies are not sufficient:
 
-- When you want to re-use a third party library that doesn't come from the npm registry or that was modified.
-- When you want to re-use your own projects as modules.
-- When you want to distribute some files with your module.
+* When you want to re-use a third party library that doesn't come from the npm registry or that was modified.
+* When you want to re-use your own projects as modules.
+* When you want to distribute some files with your module.

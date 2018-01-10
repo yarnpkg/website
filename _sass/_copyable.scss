@@ -3,7 +3,7 @@
   width: 100%;
   background-color: $gray-lighter;
   padding: 1em;
-  margin: .5em 0 .5em;
+  margin: 0.5em 0 0.5em;
 
   &--content {
     flex-grow: 1;
@@ -30,7 +30,7 @@
     &__img {
       height: 1em;
       width: 1em;
-      margin-right: .3em;
+      margin-right: 0.3em;
     }
   }
 }

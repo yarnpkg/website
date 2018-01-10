@@ -33,9 +33,9 @@ class ReadMore extends React.Component {
 
     return (
       <div
-        className={`${className} readMore ${collapsed
-          ? 'readMore--collapsed'
-          : ''}`}
+        className={`${className} readMore ${
+          collapsed ? 'readMore--collapsed' : ''
+        }`}
       >
         <div
           className="readMore--content"

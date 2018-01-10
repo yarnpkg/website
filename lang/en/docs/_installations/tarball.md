@@ -32,6 +32,7 @@ tar zvxf latest.tar.gz
 ```
 
 Before extracting Yarn, it is recommended that you verify the tarball using GPG:
+
 ```sh
 wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import
 wget https://yarnpkg.com/latest.tar.gz.asc

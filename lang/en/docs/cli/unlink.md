@@ -40,4 +40,4 @@ success Unregistered "react".
 
 Also see:
 
-- [`yarn link`]({{url_base}}/docs/cli/link): symlink a package for local development.
+* [`yarn link`]({{url_base}}/docs/cli/link): symlink a package for local development.

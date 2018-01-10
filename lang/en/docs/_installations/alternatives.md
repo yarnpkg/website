@@ -7,6 +7,7 @@ will not work for you, there are a couple of alternatives. You will need to
 On common Linux distributions such as Debian, Ubuntu and CentOS, it is
 recommended to install Yarn via our packages instead.
 
+<!-- prettier-ignore -->
 {% include_relative _installations/tarball.md %}
 
 #### Install via npm
@@ -33,8 +34,10 @@ npm install --global yarn
 
 #### Unix/Linux/macOS
 
+<!-- prettier-ignore -->
 {% include_relative _installations/unix_path_setup.md %}
 
 #### Windows
 
+<!-- prettier-ignore -->
 {% include_relative _installations/windows_path_setup.md %}

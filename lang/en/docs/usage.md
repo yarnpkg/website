@@ -30,7 +30,7 @@ Add to `devDependencies`, `peerDependencies`, and `optionalDependencies` respect
 
 ```sh
 yarn add [package] --dev
-yarn add [package] --peer 
+yarn add [package] --peer
 yarn add [package] --optional
 ```
 

@@ -1,5 +1,5 @@
 .toc::before {
-  content: "#";
+  content: '#';
 }
 
 @include media-breakpoint-up('md') {

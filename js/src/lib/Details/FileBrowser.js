@@ -86,11 +86,15 @@ export default class FileBrowser extends React.PureComponent {
   }
 
   _getBaseURL() {
-    return `https://cdn.jsdelivr.net/npm/${this.props.objectID}@${this.props.version}`;
+    return `https://cdn.jsdelivr.net/npm/${this.props.objectID}@${
+      this.props.version
+    }`;
   }
 
   _getURLForPackageMetadata() {
-    return `https://data.jsdelivr.com/v1/package/npm/${this.props.objectID}@${this.props.version}`;
+    return `https://data.jsdelivr.com/v1/package/npm/${this.props.objectID}@${
+      this.props.version
+    }`;
   }
 
   _toggleDir = path => {
@@ -162,7 +166,7 @@ class Directory extends React.PureComponent {
                 baseURL={this.props.baseURL}
                 dir={file}
                 name={file.name}
-                path={this.props.path + file.name + "/"}
+                path={this.props.path + file.name + '/'}
                 expandedDirs={this.props.expandedDirs}
                 key={this.props.path + file.name}
                 onToggleDir={this.props.onToggleDir}
@@ -191,10 +195,7 @@ class Directory extends React.PureComponent {
 }
 
 const File = ({ file, url, key, size }) => (
-  <li
-    key={key}
-    className="d-flex justify-items-between align-items-baseline"
-  >
+  <li key={key} className="d-flex justify-items-between align-items-baseline">
     <a className="details-files__filename" href={url} target="_blank">
       {file.name}
     </a>

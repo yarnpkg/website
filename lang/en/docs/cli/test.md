@@ -25,7 +25,8 @@ and the following in your `package.json`:
 {
   "name": "my-tribute-package",
   "version": "1.0.0",
-  "description": "This is not the best package in the world, this is just a tribute.",
+  "description":
+    "This is not the best package in the world, this is just a tribute.",
   "main": "index.js",
   "author": "Yarn Contributor",
   "license": "MIT",
@@ -44,6 +45,7 @@ $ "./scripts/test"
 Hello, world!
 ✨ Done in 0.17s.
 ```
+
 ##### `yarn run test` <a class="toc" id="toc-yarn-run-test" href="#toc-yarn-run-test"></a>
 
 `yarn test` is also a shortcut for `yarn run test`.

@@ -65,13 +65,16 @@ Setting this number to 1 will cause the node modules to be built sequentially wh
 Setting `--<command>.<flag> <value>` in .yarnrc would be the same as running `yarn <command> --<flag> <value>`.
 
 Example:
+
 ```
 $> cat .yarnrc
 --install.check-files true
 ```
+
 Is the same running `yarn install --check-files`
 
 Example 2:
+
 ```
 $> cat .yarnrc
 --cache-folder /tmp/yarn-cache/

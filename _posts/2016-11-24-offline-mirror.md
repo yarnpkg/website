@@ -8,7 +8,7 @@ categories : announcements
 share_text : "installing node_modules with Yarn offline"
 ---
 
-Repeatable and reliable builds for large JavaScript projects  are vital.
+Repeatable and reliable builds for large JavaScript projects are vital.
 If your builds depend on dependencies being downloaded from network, this build system is neither repeatable nor reliable.
 
 One of the main advantages of Yarn is that it can install node_modules from files located in file system.
@@ -18,7 +18,6 @@ We call it “Offline Mirror” because it mirrors the files downloaded from reg
 Caches store already unzipped tarballs downloaded from registry, they also can be implementation specific and may be invalid between multiple versions of CLI tools.
 The tarballs in “Offline mirror” can be consumed by any version Yarn that will build cache based on them.
 It is also easier to store files when they are compressed.
-
 
 ## Let's set up “Offline mirror” for a simple JS project
 
@@ -35,7 +34,6 @@ It is also easier to store files when they are compressed.
   }
 }
 ```
-
 
 When you run `yarn install`, the generated `yarn.lock` file has sections for every dependency:
 
@@ -78,7 +76,7 @@ success Set "yarn-offline-mirror" to "./npm-packages-offline-cache".
 ✨  Done in 0.06s.
 ```
 
-> `./npm-packages-offline-cache` is an example location relative to home folder where all the source` .tar.gz` files will be downloaded to from the registry.
+> `./npm-packages-offline-cache` is an example location relative to home folder where all the source`.tar.gz` files will be downloaded to from the registry.
 
 Offline mirror does not come with removing tarballs. In order to keep the cache folder up to date, you need to add the following to the config file:
 
@@ -90,7 +88,6 @@ yarn config v0.23.2
 success Set "yarn-offline-mirror-pruning" to "true".
 ✨  Done in 0.06s.
 ```
-
 
 This will create a .yarnrc file in your HOME directory.
 Let's move this file to the project root so that offline mirror would be used only for this project.
@@ -153,26 +150,27 @@ is-array-1.0.1.tgz    left-pad-1.1.3.tgz    mime-db-1.25.0.tgz    mime-types-2.1
 ```
 
 > How can you test to make sure it is offline?
-- Clear your global cache with "yarn cache clean"
-- Turn off wifi
-- Run "yarn install --offline". The offline flag will make sure yarn does not reach out to the network
+
+* Clear your global cache with "yarn cache clean"
+* Turn off wifi
+* Run "yarn install --offline". The offline flag will make sure yarn does not reach out to the network
 
 > In a nutshell, to enable “Offline mirror” for your project you need:
-- add “yarn-offline-mirror” configuration to .yarnrc file
-- generate a new yarn.lock with “yarn install” command
 
-
+* add “yarn-offline-mirror” configuration to .yarnrc file
+* generate a new yarn.lock with “yarn install” command
 
 ## A few tips and tricks
 
 ### Updating your package
 
 If you want to make sure you have a clean cached modules, here are few of the steps you can take:
-- Remove the package first. Make sure you have "yarn-offline-mirror-pruning" set to true in your .yarnrc file
-- Clear the yarn cache with "yarn cache clean" before adding the updated version of the package
-- Add your package
 
-The "yarn-offline-mirror-pruning" will help clean up any unlinked dependencies. When you add the updated package, it will check the yarn cache first and pull any missing dependencies from there. This will prevent yarn adding new tarball back with the updated package. You want to make sure the yarn cache is all clean before you do any adding for cache module. 
+* Remove the package first. Make sure you have "yarn-offline-mirror-pruning" set to true in your .yarnrc file
+* Clear the yarn cache with "yarn cache clean" before adding the updated version of the package
+* Add your package
+
+The "yarn-offline-mirror-pruning" will help clean up any unlinked dependencies. When you add the updated package, it will check the yarn cache first and pull any missing dependencies from there. This will prevent yarn adding new tarball back with the updated package. You want to make sure the yarn cache is all clean before you do any adding for cache module.
 
 ### You can check in “Offline mirror” into git or mercurial repository
 
@@ -185,7 +183,6 @@ For example, out of 849 React Native dependencies totaling 23MB, only 10% are la
 
 Many Facebook teams, including the React Native team, decided to check in their “Offline mirror”.
 They all share the same “Offline mirror” which means that most dependencies for new projects are often already checked into that folder, so the cost of storing the packages in source control gets lower the more projects use it.
-
 
 ### Let's compare checking in node_modules to checking in “Offline mirror”
 
@@ -263,8 +260,6 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-
-
 ### Did you know that Yarn is also distributed as a single bundle JS file in [releases](https://github.com/yarnpkg/yarn/releases) that can be used on CI systems without internet access?
 
 ![Files distributed with Yarn releases](/assets/posts/2016-11-24-offline-mirror/yarn-offline-blog-releases.png){:style="max-width: 700px"}
@@ -277,7 +272,6 @@ node ./yarn-0.23.2.js install
 ```
 
 This is quite convenient for teams that use multiple operating systems and want to have atomic updates for Yarn.
-
 
 ### This is going to get better
 

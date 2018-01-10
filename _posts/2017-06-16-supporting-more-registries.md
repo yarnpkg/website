@@ -8,7 +8,6 @@ categories : announcements
 share_text : "Yarn now supports even more private registries"
 ---
 
-
 Today, Yarn already supports a wide variety of different package feeds when fetching and downloading your dependencies. Up until now, there was however a small subset of public and private package feed providers that Yarn could not yet handle very well. One example of these package feed providers that were not yet supported was [Visual Studio Team Services](https://www.visualstudio.com/team-services/) (VSTS).
 
 Let's explain why:

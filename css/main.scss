@@ -3,49 +3,49 @@
 ---
 @charset "utf-8";
 
-$yarn-blue-light: #BADAE8;
-$yarn-blue: #2C8EBB;
+$yarn-blue-light: #badae8;
+$yarn-blue: #2c8ebb;
 $yarn-blue-dark: #2188b6;
 $yarn-blue-darker: #1b7eab;
-$yarn-blue-darkest: #1476A2;
+$yarn-blue-darkest: #1476a2;
 
 $text-muted: #52585e;
 $text-muted-er: #6d767d;
 
-$navbar-light-color: rgba(0, 0, 0, .6);
-$navbar-light-hover-color: rgba(0, 0, 0, .7);
-$navbar-light-active-color: rgba(0, 0, 0, .8);
-$navbar-light-disabled-color: rgba(0, 0, 0, .3);
+$navbar-light-color: rgba(0, 0, 0, 0.6);
+$navbar-light-hover-color: rgba(0, 0, 0, 0.7);
+$navbar-light-active-color: rgba(0, 0, 0, 0.8);
+$navbar-light-disabled-color: rgba(0, 0, 0, 0.3);
 
 $brand-primary: $yarn-blue;
 $progress-bar-color: $brand-primary;
 
 $link-color: saturate(darken($brand-primary, 8%), 20%);
 
-$npm-red: #C12127;
+$npm-red: #c12127;
 
-@import "bootstrap/scss/bootstrap.scss";
-@import "_base.scss";
-@import "_navbar.scss";
-@import "_icons.scss";
-@import "_heros.scss";
-@import "_features.scss";
-@import "_featurettes.scss";
-@import "_guides.scss";
-@import "_code.scss";
-@import "_users.scss";
-@import "_404.scss";
-@import "_tabs.scss";
-@import "_navs.scss";
-@import "_cards.scss";
-@import "_badges.scss";
-@import "_toc.scss";
-@import "_footer.scss";
-@import "_search.scss";
-@import "_details.scss";
-@import "_readmore.scss";
-@import "_copyable.scss";
-@import "_highlight.scss";
+@import 'bootstrap/scss/bootstrap.scss';
+@import '_base.scss';
+@import '_navbar.scss';
+@import '_icons.scss';
+@import '_heros.scss';
+@import '_features.scss';
+@import '_featurettes.scss';
+@import '_guides.scss';
+@import '_code.scss';
+@import '_users.scss';
+@import '_404.scss';
+@import '_tabs.scss';
+@import '_navs.scss';
+@import '_cards.scss';
+@import '_badges.scss';
+@import '_toc.scss';
+@import '_footer.scss';
+@import '_search.scss';
+@import '_details.scss';
+@import '_readmore.scss';
+@import '_copyable.scss';
+@import '_highlight.scss';
 
 // should come from bootstrap but it doesn't
 .justify-items-between {

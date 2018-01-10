@@ -21,6 +21,7 @@ cache:
   yarn: true
 ```
 
+<!-- prettier-ignore -->
 {% include_relative _ci/deb-specific-version.md %}
 
 ## container-based builds

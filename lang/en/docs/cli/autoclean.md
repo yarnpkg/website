@@ -10,7 +10,7 @@ layout: guide
 
 The `autoclean` command frees up space by removing unnecessary files and folders from dependencies. It reduces the number of files in your project's `node_modules` folder which is useful in an environment where packages are checked into version control directly.
 
-*Note: This command is considered for advanced use cases only. Unless you are experiencing issues with the amount of files that are installed as part of `node_modules` it is not recommended to use this command. It will permanently delete files in `node_modules` which could cause packages to stop working.*
+_Note: This command is considered for advanced use cases only. Unless you are experiencing issues with the amount of files that are installed as part of `node_modules` it is not recommended to use this command. It will permanently delete files in `node_modules` which could cause packages to stop working._
 
 Autoclean functionality is **disabled** by default. To enable it, manually create a `.yarnclean` file, or run `yarn autoclean --init` to create the file with default entries. The `.yarnclean` file should be added to version control.
 
