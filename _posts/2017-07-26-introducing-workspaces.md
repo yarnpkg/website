@@ -208,6 +208,7 @@ This is how Lerna is configured for Jest:
 
 ```
 {
+  "lerna": "2.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
