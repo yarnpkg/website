@@ -96,6 +96,8 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
 
 * In the example above, if `workspace-b` depends on a different version than the one referenced in `workspace-a`'s package.json, the dependency will be installed from Github rather than linked from your local filesystem. This is because some packages actually need to use the previous versions in order to build the new ones (Babel is one of them).
 
+* Be careful when publishing packages in a workspace. If you are preparing your next release and you decided to use a new dependency but forgot to declare it in the `package.json` file, your tests might still pass locally if another package already downloaded that dependency into the workspace root. However, it will be broken for consumers that pull it from a registry, since the dependency list is now incomplete so they have no way to download the new dependency. Currently there is no way to throw a warning in this scenario.
+
 * Workspaces must be children of the workspace root in term of folder hierarchy. You cannot and must not reference a workspace that is located outside of this filesystem hierarchy.
 
 * Nested workspaces are not supported at this time.
