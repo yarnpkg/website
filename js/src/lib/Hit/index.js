@@ -41,7 +41,7 @@ export const Owner = ({ link, avatar, name, onClick }) => (
   </a>
 );
 
-export const Downloads = ({ downloads, humanDownloads }) => (
+export const Downloads = ({ downloads = 0, humanDownloads }) => (
   <span
     className={`ais-Hit--popular ${getDownloadBucket(downloads)}`}
     title={window.i18n.downloads_in_last_30_days.replace(
