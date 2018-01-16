@@ -248,7 +248,7 @@ users_add_requirements_logo: >
 
 install_intro: >
   Before you start using Yarn, you'll first need to install it on your system.
-  There is a growing number of different ways to install Yarn:
+  There are a growing number of different ways to install Yarn:
 install_select_platform: Select your platform above
 install_os_mac: macOS
 install_os_windows: Windows
