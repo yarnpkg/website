@@ -75,6 +75,10 @@ const renderAndEscapeMarkdown = ({ source, repository }) => {
       )}" title="${title}" alt="${text}"/>`;
 
     renderer.link = (href, title, text) => {
+      // No need to prefix hashes
+      if (href.startsWith('#')) {
+        return `<a href="${href}" title="${title}">${text}</a>`;
+      }
       // wrongly linked comments
       // see https://github.com/yarnpkg/website/issues/685
       if (text.startsWith('!--')) {
@@ -117,6 +121,12 @@ const renderAndEscapeMarkdown = ({ source, repository }) => {
       ...xss.getDefaultWhiteList(),
       code: ['class'],
       span: ['class'],
+      h1: ['id'],
+      h2: ['id'],
+      h3: ['id'],
+      h4: ['id'],
+      h5: ['id'],
+      h6: ['id'],
     },
   });
 };
