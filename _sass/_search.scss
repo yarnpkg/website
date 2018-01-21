@@ -300,6 +300,8 @@ $ais-muted-color: rgba(black, 0.5);
 
   &--link-homepage,
   &--link-npm,
+  &--link-gitlab,
+  &--link-bitbucket,
   &--link-github {
     margin-left: 0.8em;
     display: block;
@@ -333,6 +335,18 @@ $ais-muted-color: rgba(black, 0.5);
 
   &--link-github a {
     background-image: url('/assets/search/ico-github.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &--link-bitbucket a {
+    background-image: url('/assets/search/ico-bitbucket.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &--link-gitlab a {
+    background-image: url('/assets/search/ico-gitlab.svg');
     width: 26px;
     height: 26px;
   }

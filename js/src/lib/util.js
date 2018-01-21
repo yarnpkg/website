@@ -245,3 +245,16 @@ inlineRenderer.paragraph = function(text) {
 export const safeMarkdown = input => ({
   __html: xss(marked(unescape(input), { renderer: inlineRenderer })),
 });
+
+export const i18nReplaceVars = (message, vars) =>
+  message &&
+  message.replace(/{([^}]+)}/gi, (match, varName) => vars[varName] || match);
+
+// Contains the repositories that we know how to handle
+const knownRepositoryHosts = new Set([
+  'github.com',
+  'gitlab.com',
+  'bitbucket.org',
+]);
+
+export const isKnownRepositoryHost = host => knownRepositoryHosts.has(host);

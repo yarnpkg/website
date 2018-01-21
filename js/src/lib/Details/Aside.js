@@ -15,6 +15,7 @@ const Aside = ({
   name,
   homepage,
   githubRepo,
+  repository,
   contributors,
   activity,
   downloads,
@@ -32,11 +33,12 @@ const Aside = ({
 }) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
-      <Links name={name} homepage={homepage} githubRepo={githubRepo} />
+      <Links name={name} homepage={homepage} repository={repository} />
     </article>
     <Install name={name} onOpenFileBrowser={onOpenFileBrowser} />
     <Cdn name={name} version={version} />
     <Popularity
+      repository={repository}
       downloads={downloads}
       humanDownloads={humanDownloads}
       stargazers={stargazers}

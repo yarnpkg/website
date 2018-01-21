@@ -12,6 +12,9 @@ export default {
   github: {
     stargazers_count: 0,
   },
+  gitlab: {
+    star_count: 0,
+  },
   bundlesize: undefined,
   githubRepo: {
     user: '',

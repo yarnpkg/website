@@ -8,6 +8,8 @@ import {
   packageLink,
   isEmpty,
   HighlightedMarkdown,
+  i18nReplaceVars,
+  isKnownRepositoryHost,
 } from '../util';
 
 export const License = ({ type }) =>
@@ -53,7 +55,27 @@ export const Downloads = ({ downloads = 0, humanDownloads }) => (
   </span>
 );
 
-export const Links = ({ name, homepage, githubRepo, className }) => (
+const Repository = ({ repository, name }) => {
+  const [provider] = repository.host.split('.');
+
+  return (
+    <span className={`ais-Hit--link-${provider}`}>
+      <a
+        title={i18nReplaceVars(window.i18n.repository_of, {
+          provider: window.i18n[provider] || provider,
+          name,
+        })}
+        href={`https://${repository.host}/${encode(repository.user)}/${encode(
+          repository.project
+        )}${repository.path || ''}`}
+      >
+        {window.i18n[provider]}
+      </a>
+    </span>
+  );
+};
+
+export const Links = ({ name, homepage, repository, className }) => (
   <div className={className}>
     <span className="ais-Hit--link-npm">
       <a
@@ -63,17 +85,8 @@ export const Links = ({ name, homepage, githubRepo, className }) => (
         {window.i18n.npm}
       </a>
     </span>
-    {githubRepo ? (
-      <span className="ais-Hit--link-github">
-        <a
-          title={window.i18n.github_repo_of.replace('{name}', name)}
-          href={`https://github.com/${encode(githubRepo.user)}/${encode(
-            githubRepo.project
-          )}${githubRepo.path}`}
-        >
-          {window.i18n.github}
-        </a>
-      </span>
+    {repository && isKnownRepositoryHost(repository.host) ? (
+      <Repository name={name} repository={repository} />
     ) : null}
     {homepage ? (
       <span className="ais-Hit--link-homepage">
@@ -131,7 +144,7 @@ const Hit = ({ hit, onTagClick, onOwnerClick }) => (
       className="ais-Hit--links"
       name={hit.name}
       homepage={hit.homepage}
-      githubRepo={hit.githubRepo}
+      repository={hit.repository}
     />
   </div>
 );

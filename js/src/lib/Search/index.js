@@ -76,7 +76,8 @@ class Search extends Component {
             'deprecated',
             'description',
             'downloadsLast30Days',
-            'githubRepo',
+            'repository',
+            'githubRepo', // TODO: remove when we remove all references to this
             'homepage',
             'humanDownloadsLast30Days',
             'keywords',

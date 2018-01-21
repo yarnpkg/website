@@ -317,9 +317,11 @@ script:
 
   downloads_in_last_30_days: '{count} downloads in the last 30 days'
   npm_page_for: 'npm page for {name}'
-  github_repo_of: 'GitHub repository of {name}'
+  repository_of: '{provider} repository of {name}'
   npm: npm
   github: GitHub
+  gitlab: GitLab
+  bitbucket: Bitbucket
   homepage: Homepage
   deprecated: deprecated
   result_stats: 'found {number_packages} packages in {time_search}ms'
@@ -351,6 +353,7 @@ script:
     changelog: changelog
     popularity: Popularity
     github_stargazers: GitHub stargazers
+    gitlab_stargazers: Gitlab stargazers
     downloads_last_30_days: Downloads last 30 days
     dependents: Dependents
     usage: Usage

@@ -102,54 +102,70 @@ class Details extends Component {
       });
   }
 
-  getDocuments() {
-    if (
-      this.state.githubRepo &&
-      this.state.githubRepo.user &&
-      this.state.githubRepo.project
-    ) {
-      if (this.state.changelogFilename) {
+  // Get repository details, like stars, commit activity and so on
+  getRepositoryDetails({ user, project, host, branch, path }) {
+    const { readme, changelogFilename } = this.state;
+    const hasReadme =
+      readme && readme.length > 0 && readme !== readmeErrorMessage;
+
+    if (host === 'github.com') {
+      if (changelogFilename) {
         get({
-          url: this.state.changelogFilename,
+          url: changelogFilename,
           type: 'text',
         }).then(res => this.setState({ changelog: res }));
       }
 
-      if (
-        typeof this.state.readme === 'undefined' ||
-        this.state.readme.length === 0 ||
-        this.state.readme === readmeErrorMessage
-      ) {
+      if (!hasReadme) {
         get({
           url: prefixURL('README.md', {
             base: 'https://raw.githubusercontent.com',
-            user: this.state.githubRepo.user,
-            project: this.state.githubRepo.project,
-            head: this.state.githubRepo.head
-              ? this.state.githubRepo.head
-              : 'master',
-            path: this.state.githubRepo.path.replace(/\/tree\//, ''),
+            user,
+            project,
+            head: branch,
+            path: path.replace(/\/tree\//, ''),
           }),
           type: 'text',
         }).then(res => this.setState({ readme: res }));
       }
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${
-          this.state.githubRepo.project
-        }/stats/commit_activity`,
+        url: `repos/${user}/${project}/stats/commit_activity`,
         state: 'activity',
       });
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${
-          this.state.githubRepo.project
-        }`,
+        url: `repos/${user}/${project}`,
         state: 'github',
       });
-    }
+    } else if (host === 'gitlab.com') {
+      get({
+        url: `https://gitlab.com/api/v4/projects/${user}%2F${project}`,
+        type: 'json',
+      }).then(res => this.setState({ gitlab: res }));
 
-    const { name, version } = this.state;
+      if (!hasReadme) {
+        // We need to use the Gitlab API because the raw url does not support cors
+        // https://gitlab.com/gitlab-org/gitlab-ce/issues/25736
+        get({
+          url: `https://gitlab.com/api/v4/projects/${user}%2F${project}/repository/files/README.md?ref=${branch}`,
+          type: 'json',
+        }).then(res => {
+          // Make sure we know how to decode the content
+          if (res.encoding === 'base64') {
+            this.setState({ readme: atob(res.content) });
+          }
+        });
+      }
+    }
+  }
+
+  getDocuments() {
+    const { repository, name, version } = this.state;
+
+    if (repository && repository.host) {
+      this.getRepositoryDetails(repository);
+    }
 
     get({
       url: `https://bundlephobia.com/api/size?package=${name}@${version}`,
@@ -181,7 +197,7 @@ class Details extends Component {
         >
           <Markdown
             source={this.state.readme}
-            githubRepo={this.state.githubRepo}
+            repository={this.state.repository}
           />
         </ReadMore>
       );
@@ -253,7 +269,7 @@ class Details extends Component {
               >
                 <Markdown
                   source={this.state.changelog}
-                  githubRepo={this.state.githubRepo}
+                  repository={this.state.repository}
                 />
               </ReadMore>
             </section>
@@ -276,6 +292,7 @@ class Details extends Component {
       <Aside
         name={this.state.name}
         githubRepo={this.state.githubRepo}
+        repository={this.state.repository}
         homepage={this.state.homepage}
         contributors={this.state.owners}
         activity={this.state.activity}
@@ -285,7 +302,7 @@ class Details extends Component {
         devDependencies={this.state.devDependencies}
         dependents={this.state.dependents}
         humanDependents={this.state.humanDependents}
-        stargazers={this.state.github ? this.state.github.stargazers_count : 0}
+        stargazers={this._getRepositoryStarCount()}
         versions={this.state.versions}
         version={this.state.version}
         tags={this.state.tags}
@@ -309,6 +326,26 @@ class Details extends Component {
       </div>
     );
   }
+
+  _getRepositoryStarCount = () => {
+    const { github, gitlab, repository } = this.state;
+
+    if (
+      !repository ||
+      !repository.host ||
+      repository.host === 'bitbucket.org'
+    ) {
+      return -1;
+    }
+
+    if (repository.host === 'github.com' && github) {
+      return this.state.github.stargazers_count;
+    }
+    if (repository.host === 'gitlab.com' && gitlab) {
+      return this.state.gitlab.star_count;
+    }
+    return 0;
+  };
 
   _openFileBrowser = evt => {
     // Ignore if is already browsing the files (prevent pushing state to the history repeatedly)
