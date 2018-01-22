@@ -118,6 +118,7 @@ class Details extends Component {
       }
 
       if (!hasReadme) {
+        this.setState({ readmeLoading: true });
         get({
           url: prefixURL('README.md', {
             base: 'https://raw.githubusercontent.com',
@@ -127,7 +128,9 @@ class Details extends Component {
             path: path.replace(/\/tree\//, ''),
           }),
           type: 'text',
-        }).then(res => this.setState({ readme: res }));
+        })
+          .then(res => this.setState({ readme: res }))
+          .catch(() => this.setState({ readmeLoading: false }));
       }
 
       this.getGithub({
@@ -178,12 +181,16 @@ class Details extends Component {
       });
 
       if (!hasReadme) {
+        this.setState({ readmeLoading: true });
+
         getGitlabFile({
           user,
           project,
           branch,
           filePath: `${path}/README.md`,
-        }).then(res => this.setState({ readme: res }));
+        })
+          .then(res => this.setState({ readme: res }))
+          .catch(() => this.setState({ readmeLoading: false }));
       }
 
       if (changelogFilename) {
@@ -199,13 +206,17 @@ class Details extends Component {
       }
     } else if (host === 'bitbucket.org') {
       if (!hasReadme) {
+        this.setState({ readmeLoading: true });
+
         get({
           url: `https://bitbucket.org/${user}/${project}${
-            path ? path.replace('src', 'raw') : `/raw/${branch}/`
+            path ? path.replace('src', 'raw') : `/raw/${branch}`
           }/README.md`,
           type: 'text',
           redirect: 'error', // Prevent being redirected to login page
-        }).then(res => this.setState({ changelog: res }));
+        })
+          .then(res => this.setState({ changelog: res }))
+          .catch(() => this.setState({ readmeLoading: false }));
       }
 
       // Fetch last commit
@@ -258,8 +269,12 @@ class Details extends Component {
 
   maybeRenderReadme() {
     if (this.state.loaded) {
-      const { readme = '' } = this.state;
+      const { readmeLoading, readme = '' } = this.state;
       if (readme.length === 0 || readme === readmeErrorMessage) {
+        // Still loading
+        if (readmeLoading) {
+          return null;
+        }
         return <div>{window.i18n.detail.no_readme_found}</div>;
       }
       return (
