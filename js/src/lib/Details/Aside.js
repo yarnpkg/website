@@ -58,7 +58,7 @@ const Aside = ({
       dependencies={dependencies}
       devDependencies={devDependencies}
       bundlesize={bundlesize}
-      {...packageJSONLink({ githubRepo })}
+      {...packageJSONLink({ repository })}
     />
     <Tags tags={tags} name={name} />
     <Versions versions={versions} />

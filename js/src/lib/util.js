@@ -144,16 +144,32 @@ function parseHighlightedAttribute({
   return elements;
 }
 
-export function packageJSONLink({ githubRepo }) {
-  if (githubRepo) {
-    const { user, project, path, head } = githubRepo;
+export function packageJSONLink({ repository }) {
+  if (!repository) {
+    return {};
+  }
 
+  const { user, project, path, branch, host } = repository;
+
+  if (host === 'bitbucket.org') {
     return {
       packageJSONLink: prefixURL('package.json', {
-        base: 'https://github.com',
+        base: 'https://bitbucket.org',
         user,
         project,
-        head: head ? `tree/${head}` : 'tree/master',
+        head: `src/${branch}`,
+        path,
+      }),
+    };
+  }
+
+  if (host === 'gitlab.com' || host === 'github.com') {
+    return {
+      packageJSONLink: prefixURL('package.json', {
+        base: `https://${host}`,
+        user,
+        project,
+        head: `tree/${branch}`,
         path,
       }),
     };
