@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import bytes from 'bytes';
 import algoliasearch from 'algoliasearch/lite';
 import qs from 'qs';
+import formatDistance from 'date-fns/formatDistance';
 
 import Aside from './Aside';
 import FileBrowser from './FileBrowser';
@@ -11,7 +12,7 @@ import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
 import Markdown from './Markdown';
 import schema from '../schema';
-import { prefixURL, get, packageLink } from '../util';
+import { prefixURL, get, packageLink, i18nReplaceVars } from '../util';
 import { algolia } from '../config';
 
 const client = algoliasearch(algolia.appId, algolia.apiKey);
@@ -159,6 +160,23 @@ class Details extends Component {
         type: 'json',
       }).then(res => this.setState({ gitlab: res }));
 
+      // Fetch last commit
+      get({
+        url: `https://gitlab.com/api/v4/projects/${user}%2F${project}/repository/commits?per_page=1`,
+        type: 'json',
+      }).then(([{ committed_date }]) => {
+        this.setState({
+          activity: {
+            lastCommit: i18nReplaceVars(window.i18n.time_ago, {
+              time_distance: formatDistance(
+                new Date(committed_date),
+                new Date()
+              ),
+            }),
+          },
+        });
+      });
+
       if (!hasReadme) {
         getGitlabFile({
           user,
@@ -180,10 +198,35 @@ class Details extends Component {
         );
       }
     } else if (host === 'bitbucket.org') {
+      if (!hasReadme) {
+        get({
+          url: `https://bitbucket.org/${user}/${project}${
+            path ? path.replace('src', 'raw') : `/raw/${branch}/`
+          }/README.md`,
+          type: 'text',
+          redirect: 'error', // Prevent being redirected to login page
+        }).then(res => this.setState({ changelog: res }));
+      }
+
+      // Fetch last commit
+      get({
+        url: `https://api.bitbucket.org/2.0/repositories/${user}/${project}/commits?pagelen=1`,
+        type: 'json',
+      }).then(({ values: [{ date }] }) => {
+        this.setState({
+          activity: {
+            lastCommit: i18nReplaceVars(window.i18n.time_ago, {
+              time_distance: formatDistance(new Date(date), new Date()),
+            }),
+          },
+        });
+      });
+
       if (changelogFilename) {
         get({
           url: changelogFilename,
           type: 'text',
+          redirect: 'error', // Prevent being redirected to login page
         }).then(res => this.setState({ changelog: res }));
       }
     }
