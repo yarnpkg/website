@@ -139,34 +139,45 @@ class Details extends Component {
         state: 'github',
       });
     } else if (host === 'gitlab.com') {
+      const getGitlabFile = ({ user, project, branch, filePath }) => {
+        // We need to use the Gitlab API because the raw url does not support cors
+        // https://gitlab.com/gitlab-org/gitlab-ce/issues/25736
+        // So we need to 'translate' raw urls to api urls.
+        // E.g (https://gitlab.com/janslow/gitlab-fetch/raw/master/CHANGELOG.md) -> (https://gitlab.com/api/v4/projects/janslow%2Fgitlab-fetch/repository/files/CHANGELOG.md?ref=master)
+        // Once gitlab adds support, we can get rid of this workaround.
+        const apiUrl = `https://gitlab.com/api/v4/projects/${user}%2F${project}/repository/files/${encodeURIComponent(
+          filePath
+        )}?ref=${branch}`;
+        return get({
+          url: apiUrl,
+          type: 'json',
+        }).then(res => res.encoding === 'base64' && atob(res.content));
+      };
+
       get({
         url: `https://gitlab.com/api/v4/projects/${user}%2F${project}`,
         type: 'json',
       }).then(res => this.setState({ gitlab: res }));
 
       if (!hasReadme) {
-        // We need to use the Gitlab API because the raw url does not support cors
-        // https://gitlab.com/gitlab-org/gitlab-ce/issues/25736
-        get({
-          url: `https://gitlab.com/api/v4/projects/${user}%2F${project}/repository/files/README.md?ref=${branch}`,
-          type: 'json',
-        }).then(res => {
-          // Make sure we know how to decode the content
-          if (res.encoding === 'base64') {
-            this.setState({ readme: atob(res.content) });
-          }
-        });
+        getGitlabFile({
+          user,
+          project,
+          branch,
+          filePath: `${path}/README.md`,
+        }).then(res => this.setState({ readme: res }));
       }
 
       if (changelogFilename) {
-        get({
-          url: changelogFilename,
-          type: 'json',
-        }).then(res => {
-          if (res.encoding === 'base64') {
-            this.setState({ changelog: atob(res.content) });
-          }
-        });
+        // Extract information from raw url
+        // See comment in getGitlabFile
+        const [, user, project, branch, filePath] = changelogFilename.match(
+          /^https?:\/\/gitlab.com\/([^/]+)\/([^/]+)\/raw\/([^/]+)\/(.*)$/i
+        );
+
+        getGitlabFile({ user, project, branch, filePath }).then(res =>
+          this.setState({ changelog: res })
+        );
       }
     } else if (host === 'bitbucket.org') {
       if (changelogFilename) {
