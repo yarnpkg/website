@@ -58,6 +58,7 @@ const Featured = ({ objectIDs }) => (
     <Configure
       hitsPerPage={6}
       attributesToRetrieve={['name', 'owner', 'description', 'keywords']}
+      attributesToHighlight={[]}
     />
     <FilterByIds attributeName="objectID" defaultRefinement={objectIDs} />
     <Hits />
