@@ -9,7 +9,8 @@ import Usage from './Usage';
 import Versions from './Versions';
 import Contributors from './Contributors';
 import Tags from './Tags';
-import { packageJSONLink } from '../util';
+import { packageJSONLink, isKnownRepositoryHost } from '../util';
+import GithubActivity from './GithubActivity';
 
 const Aside = ({
   name,
@@ -46,11 +47,13 @@ const Aside = ({
       humanDependents={humanDependents}
       name={name}
     />
-    {githubRepo &&
-      githubRepo.user &&
-      githubRepo.project && (
-        <Activity data={activity} githubRepo={githubRepo} />
-      )}
+    {repository &&
+      isKnownRepositoryHost(repository.host) &&
+      (repository.host === 'github.com' ? (
+        <GithubActivity data={activity} repository={repository} />
+      ) : (
+        <Activity {...activity} repository={repository} />
+      ))}
     <Usage
       dependencies={dependencies}
       devDependencies={devDependencies}
