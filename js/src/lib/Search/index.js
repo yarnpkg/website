@@ -77,7 +77,6 @@ class Search extends Component {
             'description',
             'downloadsLast30Days',
             'repository',
-            'githubRepo', // TODO: remove when we remove all references to this
             'homepage',
             'humanDownloadsLast30Days',
             'keywords',

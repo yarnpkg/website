@@ -15,7 +15,6 @@ import GithubActivity from './GithubActivity';
 const Aside = ({
   name,
   homepage,
-  githubRepo,
   repository,
   contributors,
   activity,

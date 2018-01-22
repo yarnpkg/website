@@ -16,12 +16,6 @@ export default {
     star_count: 0,
   },
   bundlesize: undefined,
-  githubRepo: {
-    user: '',
-    project: '',
-    path: '',
-    head: '',
-  },
   homepage: '',
   humanDependents: '0',
   humanDownloadsLast30Days: '0',

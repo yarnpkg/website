@@ -378,7 +378,6 @@ class Details extends Component {
     return (
       <Aside
         name={this.state.name}
-        githubRepo={this.state.githubRepo}
         repository={this.state.repository}
         homepage={this.state.homepage}
         contributors={this.state.owners}
