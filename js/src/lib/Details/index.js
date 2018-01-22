@@ -102,7 +102,7 @@ class Details extends Component {
       });
   }
 
-  // Get repository details, like stars, commit activity and so on
+  // Get repository details, like stars, changelog, commit activity and so on
   getRepositoryDetails({ user, project, host, branch, path }) {
     const { readme, changelogFilename } = this.state;
     const hasReadme =
@@ -156,6 +156,24 @@ class Details extends Component {
             this.setState({ readme: atob(res.content) });
           }
         });
+      }
+
+      if (changelogFilename) {
+        get({
+          url: changelogFilename,
+          type: 'json',
+        }).then(res => {
+          if (res.encoding === 'base64') {
+            this.setState({ changelog: atob(res.content) });
+          }
+        });
+      }
+    } else if (host === 'bitbucket.org') {
+      if (changelogFilename) {
+        get({
+          url: changelogFilename,
+          type: 'text',
+        }).then(res => this.setState({ changelog: res }));
       }
     }
   }
