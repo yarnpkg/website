@@ -353,7 +353,7 @@ script:
     changelog: changelog
     popularity: Popularity
     github_stargazers: GitHub stargazers
-    gitlab_stargazers: Gitlab stargazers
+    gitlab_stargazers: GitLab stargazers
     downloads_last_30_days: Downloads last 30 days
     dependents: Dependents
     usage: Usage
