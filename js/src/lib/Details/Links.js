@@ -10,6 +10,7 @@ const images = {
   yarn: '/assets/search/ico-yarn.svg',
   gitlab: '/assets/search/ico-gitlab.svg',
   bitbucket: '/assets/search/ico-bitbucket.svg',
+  generic_repo: '/assets/search/ico-git.svg',
 };
 
 export const Link = ({ site, url, display, Tag = 'a' }) => (
@@ -26,12 +27,14 @@ export const Link = ({ site, url, display, Tag = 'a' }) => (
 
 const RepositoryLink = ({ repository }) => {
   const { host, user, path, project } = repository;
-  const [provider] = repository.host.split('.');
 
-  // TODO: support unknown hosts? create browseable url from URL key?
   if (!isKnownRepositoryHost(repository.host)) {
-    return null;
+    return repository.url ? (
+      <Link site="generic_repo" url={repository.url} display={repository.url} />
+    ) : null;
   }
+
+  const [provider] = repository.host.split('.');
 
   return (
     <Link
@@ -63,9 +66,7 @@ const Links = ({ name, homepage, repository, className }) => (
         display={homepage.replace(/(http)?s?(:\/\/)?(www\.)?/, '')}
       />
     ) : null}
-    {repository && repository.host ? (
-      <RepositoryLink repository={repository} />
-    ) : null}
+    {repository ? <RepositoryLink repository={repository} /> : null}
     <Link
       site="npm"
       url={`https://www.npmjs.com/package/${name}`}
