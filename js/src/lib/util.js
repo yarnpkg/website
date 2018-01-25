@@ -144,22 +144,9 @@ function parseHighlightedAttribute({
   return elements;
 }
 
-export function packageJSONLink({ githubRepo }) {
-  if (githubRepo) {
-    const { user, project, path, head } = githubRepo;
-
-    return {
-      packageJSONLink: prefixURL('package.json', {
-        base: 'https://github.com',
-        user,
-        project,
-        head: head ? `tree/${head}` : 'tree/master',
-        path,
-      }),
-    };
-  }
-  return {};
-}
+export const packageJSONLink = packageName => ({
+  packageJSONLink: `https://cdn.jsdelivr.net/npm/${packageName}/package.json`,
+});
 
 export const packageLink = name =>
   `${window.i18n.url_base}/package${
@@ -197,8 +184,8 @@ const status = res =>
     }
   });
 
-export const get = ({ url, type, headers }) =>
-  fetch(url, { headers })
+export const get = ({ url, type, headers, ...rest }) =>
+  fetch(url, { headers, ...rest })
     .then(status)
     .then(res => res[type]())
     .catch(err => {
@@ -245,3 +232,16 @@ inlineRenderer.paragraph = function(text) {
 export const safeMarkdown = input => ({
   __html: xss(marked(unescape(input), { renderer: inlineRenderer })),
 });
+
+export const i18nReplaceVars = (message, vars) =>
+  message &&
+  message.replace(/{([^}]+)}/gi, (match, varName) => vars[varName] || match);
+
+// Contains the repositories that we know how to handle
+const knownRepositoryHosts = new Set([
+  'github.com',
+  'gitlab.com',
+  'bitbucket.org',
+]);
+
+export const isKnownRepositoryHost = host => knownRepositoryHosts.has(host);

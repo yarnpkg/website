@@ -76,7 +76,7 @@ class Search extends Component {
             'deprecated',
             'description',
             'downloadsLast30Days',
-            'githubRepo',
+            'repository',
             'homepage',
             'humanDownloadsLast30Days',
             'keywords',

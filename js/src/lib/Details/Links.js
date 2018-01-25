@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { encode } from '../util';
+import { encode, isKnownRepositoryHost } from '../util';
 import Copyable from './Copyable';
 
 const images = {
@@ -8,6 +8,9 @@ const images = {
   npm: '/assets/search/ico-npm.svg',
   github: '/assets/search/ico-github.svg',
   yarn: '/assets/search/ico-yarn.svg',
+  gitlab: '/assets/search/ico-gitlab.svg',
+  bitbucket: '/assets/search/ico-bitbucket.svg',
+  generic_repo: '/assets/search/ico-git.svg',
 };
 
 export const Link = ({ site, url, display, Tag = 'a' }) => (
@@ -22,7 +25,27 @@ export const Link = ({ site, url, display, Tag = 'a' }) => (
   </Tag>
 );
 
-const Links = ({ name, homepage, githubRepo, className }) => (
+const RepositoryLink = ({ repository }) => {
+  const { host, user, path, project } = repository;
+
+  if (!isKnownRepositoryHost(repository.host)) {
+    return repository.url ? (
+      <Link site="generic_repo" url={repository.url} display={repository.url} />
+    ) : null;
+  }
+
+  const [provider] = repository.host.split('.');
+
+  return (
+    <Link
+      site={provider}
+      url={`https://${host}/${encode(user)}/${encode(project)}${path || ''}`}
+      display={`${user}/${project}`}
+    />
+  );
+};
+
+const Links = ({ name, homepage, repository, className }) => (
   <div className="detail-links">
     <Link
       site="yarn"
@@ -43,15 +66,7 @@ const Links = ({ name, homepage, githubRepo, className }) => (
         display={homepage.replace(/(http)?s?(:\/\/)?(www\.)?/, '')}
       />
     ) : null}
-    {githubRepo ? (
-      <Link
-        site="github"
-        url={`https://github.com/${encode(githubRepo.user)}/${encode(
-          githubRepo.project
-        )}${githubRepo.path}`}
-        display={`${githubRepo.user}/${githubRepo.project}`}
-      />
-    ) : null}
+    {repository ? <RepositoryLink repository={repository} /> : null}
     <Link
       site="npm"
       url={`https://www.npmjs.com/package/${name}`}

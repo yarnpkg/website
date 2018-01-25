@@ -12,13 +12,10 @@ export default {
   github: {
     stargazers_count: 0,
   },
-  bundlesize: undefined,
-  githubRepo: {
-    user: '',
-    project: '',
-    path: '',
-    head: '',
+  gitlab: {
+    star_count: 0,
   },
+  bundlesize: undefined,
   homepage: '',
   humanDependents: '0',
   humanDownloadsLast30Days: '0',
