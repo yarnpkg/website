@@ -144,38 +144,9 @@ function parseHighlightedAttribute({
   return elements;
 }
 
-export function packageJSONLink({ repository }) {
-  if (!repository) {
-    return {};
-  }
-
-  const { user, project, path, branch, host } = repository;
-
-  if (host === 'bitbucket.org') {
-    return {
-      packageJSONLink: prefixURL('package.json', {
-        base: 'https://bitbucket.org',
-        user,
-        project,
-        head: `src/${branch}`,
-        path,
-      }),
-    };
-  }
-
-  if (host === 'gitlab.com' || host === 'github.com') {
-    return {
-      packageJSONLink: prefixURL('package.json', {
-        base: `https://${host}`,
-        user,
-        project,
-        head: `tree/${branch}`,
-        path,
-      }),
-    };
-  }
-  return {};
-}
+export const packageJSONLink = packageName => ({
+  packageJSONLink: `https://cdn.jsdelivr.net/npm/${packageName}/package.json`,
+});
 
 export const packageLink = name =>
   `${window.i18n.url_base}/package${
