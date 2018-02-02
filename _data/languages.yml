@@ -36,7 +36,7 @@
   accept_languages: ["el"]
 - name: Español
   tag: es-ES
-  enabled: No
+  enabled: Yes
   accept_languages: ["es", "es-mx", "es-gt", "es-cr", "es-pa", "es-do", "es-ve", "es-co", "es-pe", "es-ar", "es-ec", "es-cl", "es-uy", "es-py", "es-bo", "es-sv", "es-hn", "es-ni", "es-pr"]
 - name: فارسی
   tag: fa-IR
@@ -60,7 +60,7 @@
   accept_languages: ["hu", "hu-HU"]
 - name: Bahasa Indonesia
   tag: id-ID
-  enabled: No
+  enabled: Yes
   accept_languages: ["id"]
 - name: Italiano
   tag: it
@@ -120,7 +120,7 @@
   accept_languages: ["sv", "sv-fi"]
 - name: Türkçe
   tag: tr
-  enabled: No
+  enabled: Yes
   accept_languages: ["tr"]
 - name: Українська
   tag: uk
