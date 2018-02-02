@@ -124,7 +124,7 @@
   accept_languages: ["tr"]
 - name: Українська
   tag: uk
-  enabled: No
+  enabled: Yes
   accept_languages: ["uk"]
 - name: Tiếng Việt
   tag: vi
