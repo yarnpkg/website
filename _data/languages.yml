@@ -58,9 +58,9 @@
   tag: hu
   enabled: No
   accept_languages: ["hu", "hu-HU"]
-- name: Bahasa Indonesia #testing
+- name: Bahasa Indonesia
   tag: id-ID
-  enabled: No
+  enabled: Yes
   accept_languages: ["id"]
 - name: Italiano
   tag: it
