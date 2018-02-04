@@ -34,9 +34,9 @@
   tag: el
   enabled: No
   accept_languages: ["el"]
-- name: Español #testing
+- name: Español
   tag: es-ES
-  enabled: No
+  enabled: Yes
   accept_languages: ["es", "es-mx", "es-gt", "es-cr", "es-pa", "es-do", "es-ve", "es-co", "es-pe", "es-ar", "es-ec", "es-cl", "es-uy", "es-py", "es-bo", "es-sv", "es-hn", "es-ni", "es-pr"]
 - name: فارسی
   tag: fa-IR
