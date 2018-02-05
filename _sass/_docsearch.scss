@@ -1,0 +1,17 @@
+/** Algolia DocSearch **/
+
+.search-input {
+  padding: 1rem 1.5rem 1rem 2.5rem;
+  background: white url('/assets/search.svg') no-repeat 1rem center;
+  background-size: 1rem 1rem;
+}
+
+.algolia-autocomplete {
+  width: 100%;
+
+  .ds-dropdown-menu {
+    min-width: unset !important;
+    max-width: unset !important;
+    width: 100% !important;
+  }
+}
