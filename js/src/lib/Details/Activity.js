@@ -25,7 +25,7 @@ const Activity = ({
         </a>
       )}
       <dl>
-        {commitsLastThreeMonths && (
+        {commitsLastThreeMonths >= 0 && (
           <Di
             icon="commits"
             title={window.i18n.detail.commits_last_three_months}
