@@ -98,7 +98,7 @@ To keep things simple I'll describe two small Workspaces packages:
     }
     ```
 
-1. jest-diff Workspace that depends on jest-matcher-utils:
+2. jest-diff Workspace that depends on jest-matcher-utils:
 
     ```
     {
