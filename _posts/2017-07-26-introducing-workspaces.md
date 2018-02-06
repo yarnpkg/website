@@ -83,38 +83,38 @@ To keep things simple I'll describe two small Workspaces packages:
 
 1. jest-matcher-utils Workspace:
 
-```
-{
-  "name": "jest-matcher-utils",
-  "description": "...",
-  "version": "20.0.3",
-  "license": "...",
-  "main": "...",
-  "browser": "...",
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "pretty-format": "^20.0.3"
-  }
-}
-```
+    ```
+    {
+      "name": "jest-matcher-utils",
+      "description": "...",
+      "version": "20.0.3",
+      "license": "...",
+      "main": "...",
+      "browser": "...",
+      "dependencies": {
+        "chalk": "^1.1.3",
+        "pretty-format": "^20.0.3"
+      }
+    }
+    ```
 
 2. jest-diff Workspace that depends on jest-matcher-utils:
 
-```
-{
-  "name": "jest-diff",
-  "version": "20.0.3",
-  "license": "...",
-  "main": "...",
-  "browser": "...",
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "diff": "^3.2.0",
-    "jest-matcher-utils": "^20.0.3",
-    "pretty-format": "^20.0.3"
-  }
-}
-```
+    ```
+    {
+      "name": "jest-diff",
+      "version": "20.0.3",
+      "license": "...",
+      "main": "...",
+      "browser": "...",
+      "dependencies": {
+        "chalk": "^1.1.3",
+        "diff": "^3.2.0",
+        "jest-matcher-utils": "^20.0.3",
+        "pretty-format": "^20.0.3"
+      }
+    }
+    ```
 
 A wrapper like Lerna would first run `yarn install` for each `package.json` separately and then run `yarn link` for packages that depend on each other.
 
