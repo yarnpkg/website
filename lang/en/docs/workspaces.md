@@ -98,6 +98,6 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
 
 * Be careful when publishing packages in a workspace. If you are preparing your next release and you decided to use a new dependency but forgot to declare it in the `package.json` file, your tests might still pass locally if another package already downloaded that dependency into the workspace root. However, it will be broken for consumers that pull it from a registry, since the dependency list is now incomplete so they have no way to download the new dependency. Currently there is no way to throw a warning in this scenario.
 
-* Workspaces must be children of the workspace root in term of folder hierarchy. You cannot and must not reference a workspace that is located outside of this filesystem hierarchy.
+* Workspaces must be children of the workspace root in terms of folder hierarchy. You cannot and must not reference a workspace that is located outside of this filesystem hierarchy.
 
 * Nested workspaces are not supported at this time.
