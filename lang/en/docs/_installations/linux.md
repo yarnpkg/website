@@ -18,6 +18,12 @@ sudo apt-get update && sudo apt-get install yarn
 
 **Note**: Ubuntu 17.04 comes with `cmdtest` installed by default. If you're getting errors from installing `yarn`, you may want to run `sudo apt remove cmdtest` first. Refer to [this](https://github.com/yarnpkg/yarn/issues/2821) for more information.
 
+If using `nvm` you can avoid the `node` installation by doing:
+
+```sh
+sudo apt-get install --no-install-recommends yarn
+```
+
 ### CentOS / Fedora / RHEL
 
 On CentOS, Fedora and RHEL, you can install Yarn via our RPM package repository.
