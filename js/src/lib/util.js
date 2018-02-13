@@ -230,7 +230,7 @@ inlineRenderer.paragraph = function(text) {
 };
 
 export const safeMarkdown = input => ({
-  __html: xss(marked(unescape(input), { renderer: inlineRenderer })),
+  __html: xss(marked(unescape(input), { renderer: inlineRenderer })) || ' ',
 });
 
 export const i18nReplaceVars = (message, vars) =>
