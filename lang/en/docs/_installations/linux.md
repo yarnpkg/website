@@ -31,7 +31,7 @@ sudo apt-get install --no-install-recommends yarn
 On CentOS, Fedora and RHEL, you can install Yarn via our RPM package repository.
 
 ```sh
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 ```
 
 If you do not already have Node.js installed, you should also configure
