@@ -394,7 +394,9 @@ You can provide system-level information associated with your package, such as o
 }
 ```
 
-The engines specify versions of clients that must be used with your package. This checks against `process.versions` as well as the current version of yarn.
+The engines specify versions of clients that must be used with your package. This checks against `process.versions` as well as the current version of yarn. 
+
+This check follows normal semver rules with one exception. It allows prerelease versions to match semvers that do not explicitly specify a prerelease. For example, `1.4.0-rc.0` matches `>=1.3.0`, while it would not match a typical semver check.
 
 ### `os` <a class="toc" id="toc-os" href="#toc-os"></a>
 
