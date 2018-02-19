@@ -92,7 +92,7 @@ Ignore engines check.
 
 ##### `yarn install --ignore-optional` <a class="toc" id="toc-yarn-install-ignore-optional" href="#toc-yarn-install-ignore-optional"></a>
 
-Don't install optioanal dependencies.
+Don't install optional dependencies.
 
 ##### `yarn install --offline` <a class="toc" id="toc-yarn-install-offline" href="#toc-yarn-install-offline"></a>
 
