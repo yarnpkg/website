@@ -101,9 +101,3 @@ Run yarn install in offline mode.
 ##### `yarn install --non-interactive` <a class="toc" id="toc-yarn-install-non-interactive" href="#toc-yarn-install-non-interactive"></a>
 
 Disable interactive prompts, like when there's an invalid version of a dependency.
-
-##### `yarn install --verbose` <a class="toc" id="toc-yarn-install-verbose" href="#toc-yarn-install-verbose"></a>
-
-Print verbose info for the installation (creating directories, copying files, HTTP requests, etc.)
-
-

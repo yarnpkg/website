@@ -50,3 +50,7 @@ can also specify an alternate port.
 --mutex network
 --mutex network:30330
 ```
+
+## Verbose output with `--verbose` <a class="toc" id="toc-verbose" href="#toc-verbose"></a>
+
+Running `yarn <command> --verbose` will print verbose info for the execution (creating directories, copying files, HTTP requests, etc.). 
