@@ -26,7 +26,7 @@ show_rc: false
 
 # The versions of node that Yarn supports
 # This is visible on the install page
-node_support: ^4.8.0 || ^5.7.0 || ^6.2.2 || ^8.0.0
+node_support: ^4.8.0 || ^5.7.0 || ^6.2.2 || >=8.0.0
 
 gacode: "UA-85522875-1"
 
