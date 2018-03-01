@@ -28,6 +28,8 @@ Here are a few quick links to get you started:
 * [Issues need reproduction scripts](https://github.com/yarnpkg/yarn/issues?utf8=%E2%9C%93&q=is%3Aopen%20is%3Aissue%20label%3A%22needs-repro-script%22)
 * [Issues need triaging](https://github.com/yarnpkg/yarn/issues?utf8=%E2%9C%93&q=is%3Aopen%20is%3Aissue%20-label%3Atriaged)
 
+ If you would like to start triaging issues, one easy way to get started is to [subscribe to yarn on CodeTriage](https://www.codetriage.com/yarnpkg/yarn).
+
 ## Building <a class="toc" id="toc-building" href="#toc-building"></a>
 
 ```sh
