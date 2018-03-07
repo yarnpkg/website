@@ -29,7 +29,7 @@ export function getDownloadBucket(dl) {
 
 export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
   return isEmpty(keywords) ? null : (
-    <span className="ais-Hit--keywords hidden-sm-down">
+    <span className="ais-Hit-keywords hidden-sm-down">
       {keywords
         .slice(0, maxKeywords)
         .map(keyword => (
@@ -83,20 +83,20 @@ export function formatKeywords(
           const key = `split-${i}-${v.value}`;
           if (v.isHighlighted) {
             return (
-              <em key={key} className="ais-Highlight__highlighted">
+              <em key={key} className="ais-Highlight-highlighted">
                 {v.value}
               </em>
             );
           }
           return (
-            <span key={key} className="ais-Highlight__nonHighlighted">
+            <span key={key} className="ais-Highlight-nonHighlighted">
               {v.value}
             </span>
           );
         });
         return (
           <span
-            className="ais-Hit--keyword"
+            className="ais-Hit-keyword"
             key={`${keyword}${keywordIndex}`}
             onClick={() => onClick(keyword)}
           >
@@ -198,10 +198,10 @@ export const get = ({ url, type, headers, ...rest }) =>
     });
 
 export const HighlightedMarkdown = connectHighlight(
-  ({ highlight, attributeName, hit }) => (
-    <span className="ais-Hit--keyword">
+  ({ highlight, attribute, hit }) => (
+    <span className="ais-Hit-keyword">
       {highlight({
-        attributeName,
+        attribute,
         hit,
         highlightProperty: '_highlightResult',
       }).map(
@@ -209,13 +209,13 @@ export const HighlightedMarkdown = connectHighlight(
           v.isHighlighted ? (
             <em
               key={`split-${i}-${v.value}`}
-              className="ais-Highlight__highlighted"
+              className="ais-Highlight-highlighted"
               dangerouslySetInnerHTML={safeMarkdown(v.value)}
             />
           ) : (
             <span
               key={`split-${i}-${v.value}`}
-              className="ais-Highlight__nonHighlighted"
+              className="ais-Highlight-nonHighlighted"
               dangerouslySetInnerHTML={safeMarkdown(v.value)}
             />
           )

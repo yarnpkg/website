@@ -37,7 +37,7 @@ const Header = ({
       />
       <License type={license} />
       <Deprecated deprecated={deprecated} />
-      <span className="ais-Hit--version">{version}</span>
+      <span className="ais-Hit-version">{version}</span>
     </div>
     <Description description={description} deprecated={deprecated} />
     <Keywords keywords={keywords} />

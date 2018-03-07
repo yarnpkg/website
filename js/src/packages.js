@@ -15,7 +15,7 @@ const FEATURED = ['babel-core', 'react', 'async', 'lodash', 'debug', 'qs'];
 const FeaturedPackage = ({ name, owner, description, keywords }) => (
   <div className="pkg-featured-pkg">
     <Owner {...owner} />
-    <a className="ais-Hit--name" href={packageLink(name)}>
+    <a className="ais-Hit-name" href={packageLink(name)}>
       {name}
     </a>
     <p>{description}</p>
@@ -60,7 +60,7 @@ const Featured = ({ objectIDs }) => (
       attributesToRetrieve={['name', 'owner', 'description', 'keywords']}
       attributesToHighlight={[]}
     />
-    <FilterByIds attributeName="objectID" defaultRefinement={objectIDs} />
+    <FilterByIds attribute="objectID" defaultRefinement={objectIDs} />
     <Hits />
   </InstantSearch>
 );

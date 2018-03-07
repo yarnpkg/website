@@ -95,12 +95,12 @@ class Search extends Component {
           }}
         />
         <VirtualRefinementList
-          attributeName="keywords"
+          attribute="keywords"
           defaultRefinement={[...this.state.tags]}
           onRefine={this.onRefineTag}
         />
         <VirtualRefinementList
-          attributeName="owner.name"
+          attribute="owner.name"
           defaultRefinement={[...this.state.owners]}
           onRefine={this.onRefineOwner}
         />

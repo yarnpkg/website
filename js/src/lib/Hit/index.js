@@ -13,18 +13,18 @@ import {
 } from '../util';
 
 export const License = ({ type }) =>
-  type ? <span className="ais-Hit--license">{type}</span> : null;
+  type ? <span className="ais-Hit-license">{type}</span> : null;
 
 export const Deprecated = ({ deprecated }) =>
   deprecated ? (
-    <span className="ais-Hit--deprecated" title={deprecated}>
+    <span className="ais-Hit-deprecated" title={deprecated}>
       {window.i18n.deprecated}
     </span>
   ) : null;
 
 export const Owner = ({ link, avatar, name, onClick }) => (
   <a
-    className="ais-Hit--ownerLink"
+    className="ais-Hit-ownerLink"
     href={link}
     onClick={e => {
       if (onClick && !(e.metaKey || e.ctrlKey)) {
@@ -36,7 +36,7 @@ export const Owner = ({ link, avatar, name, onClick }) => (
     <img
       width="20"
       height="20"
-      className="ais-Hit--ownerAvatar"
+      className="ais-Hit-ownerAvatar"
       src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${avatar}`}
     />
     {name}
@@ -45,7 +45,7 @@ export const Owner = ({ link, avatar, name, onClick }) => (
 
 export const Downloads = ({ downloads = 0, humanDownloads }) => (
   <span
-    className={`ais-Hit--popular ${getDownloadBucket(downloads)}`}
+    className={`ais-Hit-popular ${getDownloadBucket(downloads)}`}
     title={window.i18n.downloads_in_last_30_days.replace(
       '{count}',
       downloads.toLocaleString(window.i18n.active_language)
@@ -59,7 +59,7 @@ const Repository = ({ repository, name }) => {
   const [provider] = repository.host.split('.');
 
   return (
-    <span className={`ais-Hit--link-${provider}`}>
+    <span className={`ais-Hit-link-${provider}`}>
       <a
         title={i18nReplaceVars(window.i18n.repository_of, {
           provider: window.i18n[provider] || provider,
@@ -77,7 +77,7 @@ const Repository = ({ repository, name }) => {
 
 export const Links = ({ name, homepage, repository, className }) => (
   <div className={className}>
-    <span className="ais-Hit--link-npm">
+    <span className="ais-Hit-link-npm">
       <a
         href={`https://www.npmjs.com/package/${name}`}
         title={window.i18n.npm_page_for.replace('{name}', name)}
@@ -89,7 +89,7 @@ export const Links = ({ name, homepage, repository, className }) => (
       <Repository name={name} repository={repository} />
     ) : null}
     {homepage ? (
-      <span className="ais-Hit--link-homepage">
+      <span className="ais-Hit-link-homepage">
         <a title={`Homepage of ${name}`} href={homepage}>
           {window.i18n.homepage}
         </a>
@@ -99,9 +99,9 @@ export const Links = ({ name, homepage, repository, className }) => (
 );
 
 const Hit = ({ hit, onTagClick, onOwnerClick }) => (
-  <div className="ais-Hits--item">
-    <a className="ais-Hit--name" href={packageLink(hit.name)}>
-      <Highlight attributeName="name" hit={hit} />
+  <div className="ais-Hits-item">
+    <a className="ais-Hit-name" href={packageLink(hit.name)}>
+      <Highlight attribute="name" hit={hit} />
     </a>
     <Downloads
       downloads={hit.downloadsLast30Days}
@@ -109,17 +109,17 @@ const Hit = ({ hit, onTagClick, onOwnerClick }) => (
     />
     <License type={hit.license} />
     <Deprecated deprecated={hit.deprecated} />
-    <span className="ais-Hit--version">{hit.version}</span>
-    <p className="ais-Hit--description">
+    <span className="ais-Hit-version">{hit.version}</span>
+    <p className="ais-Hit-description">
       {hit.deprecated ? (
         hit.deprecated
       ) : (
-        <HighlightedMarkdown attributeName="description" hit={hit} />
+        <HighlightedMarkdown attribute="description" hit={hit} />
       )}
     </p>
     <Owner {...hit.owner} onClick={onOwnerClick} />
     <span
-      className="ais-Hit--lastUpdate"
+      className="ais-Hit-lastUpdate"
       title={window.i18n.last_updated.replace(
         '{update_date}',
         new Date(hit.modified).toLocaleDateString(window.i18n.active_language)
@@ -131,7 +131,7 @@ const Hit = ({ hit, onTagClick, onOwnerClick }) => (
       )}
     </span>
     {isEmpty(hit.keywords) ? null : (
-      <span className="ais-Hit--keywords hidden-sm-down">
+      <span className="ais-Hit-keywords hidden-sm-down">
         {formatKeywords(
           hit.keywords,
           hit._highlightResult.keywords,
@@ -141,7 +141,7 @@ const Hit = ({ hit, onTagClick, onOwnerClick }) => (
       </span>
     )}
     <Links
-      className="ais-Hit--links"
+      className="ais-Hit-links"
       name={hit.name}
       homepage={hit.homepage}
       repository={hit.repository}
