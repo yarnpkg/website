@@ -40,7 +40,7 @@
   "private": true,
   "dependencies": {
     "@haroenv/react-sparklines": "^1.7.1",
-    "algoliasearch": "^3.25.1",
+    "algoliasearch": "^3.24.9",
     "bootstrap": "4.0.0-alpha.5",
     "bytes": "^3.0.0",
     "date-fns": "^2.0.0-alpha.7",
@@ -56,5 +56,8 @@
     "unescape-html": "^1.0.0",
     "unfetch": "^3.0.0",
     "xss": "^0.3.3"
+  },
+  "resolutions": {
+    "algoliasearch": "3.25.1"
   }
 }
