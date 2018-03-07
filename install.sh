@@ -159,6 +159,8 @@ yarn_reset() {
 }
 
 yarn_install() {
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import
+  
   printf "${white}Installing Yarn!$reset\n"
 
   if [ -d "$HOME/.yarn" ]; then
