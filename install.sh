@@ -7,7 +7,7 @@ green="\033[32m"
 yellow="\033[33m"
 cyan="\033[36m"
 white="\033[37m"
-gpg_key=9D41F3C3
+gpg_key=E074D16EB6FF4DE3
 
 yarn_get_tarball() {
   printf "$cyan> Downloading tarball...$reset\n"
