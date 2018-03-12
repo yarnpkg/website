@@ -101,3 +101,7 @@ Run yarn install in offline mode.
 ##### `yarn install --non-interactive` <a class="toc" id="toc-yarn-install-non-interactive" href="#toc-yarn-install-non-interactive"></a>
 
 Disable interactive prompts, like when there's an invalid version of a dependency.
+
+##### `yarn install --update-checksums` <a class="toc" id="toc-yarn-install-update-checksums" href="#toc-yarn-install-update-checksums"></a>
+
+Update checksums in the `yarn.lock` lockfile if there's a mismatch between them and their package's checksum.
