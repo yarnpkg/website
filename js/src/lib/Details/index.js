@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import bytes from 'bytes';
 import algoliasearch from 'algoliasearch/lite';
+import qs from 'qs';
+import formatDistance from 'date-fns/formatDistance';
 
 import Aside from './Aside';
 import FileBrowser from './FileBrowser';
@@ -9,7 +12,7 @@ import JSONLDItem from './JSONLDItem';
 import ReadMore from './ReadMore';
 import Markdown from './Markdown';
 import schema from '../schema';
-import { prefixURL, get, packageLink } from '../util';
+import { prefixURL, get, packageLink, i18nReplaceVars } from '../util';
 import { algolia } from '../config';
 
 const client = algoliasearch(algolia.appId, algolia.apiKey);
@@ -55,13 +58,22 @@ class Details extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     index
       .getObject(this.props.objectID)
       .then(content => {
         this.setState(prevState => ({ ...content, loaded: true }));
         setHead(content);
         this.getDocuments();
+
+        // Opens the file browser if the search has a 'files' param.
+        const { files } = qs.parse(location.search, {
+          ignoreQueryPrefix: true,
+        });
+
+        if (files !== undefined) {
+          this.setState({ isBrowsingFiles: true });
+        }
       })
       .catch(e => {
         if (e.message === OBJECT_DOESNT_EXIST) {
@@ -70,6 +82,12 @@ class Details extends Component {
           });
         }
       });
+
+    window.addEventListener('popstate', this._onPopState);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this._onPopState);
   }
 
   getGithub({ url, state }) {
@@ -85,56 +103,178 @@ class Details extends Component {
       });
   }
 
-  getDocuments() {
-    if (
-      this.state.githubRepo &&
-      this.state.githubRepo.user &&
-      this.state.githubRepo.project
-    ) {
-      if (this.state.changelogFilename) {
+  // Get repository details, like stars, changelog, commit activity and so on
+  getRepositoryDetails({ user, project, host, branch, path }) {
+    const { readme, changelogFilename } = this.state;
+    const hasReadme =
+      readme && readme.length > 0 && readme !== readmeErrorMessage;
+
+    if (host === 'github.com') {
+      if (changelogFilename) {
         get({
-          url: this.state.changelogFilename,
+          url: changelogFilename,
           type: 'text',
         }).then(res => this.setState({ changelog: res }));
       }
 
-      if (
-        typeof this.state.readme === 'undefined' ||
-        this.state.readme.length === 0 ||
-        this.state.readme === readmeErrorMessage
-      ) {
+      if (!hasReadme) {
+        this.setState({ readmeLoading: true });
         get({
           url: prefixURL('README.md', {
             base: 'https://raw.githubusercontent.com',
-            user: this.state.githubRepo.user,
-            project: this.state.githubRepo.project,
-            head: this.state.githubRepo.head
-              ? this.state.githubRepo.head
-              : 'master',
-            path: this.state.githubRepo.path.replace(/\/tree\//, ''),
+            user,
+            project,
+            head: branch,
+            path: path.replace(/\/tree\//, ''),
           }),
           type: 'text',
-        }).then(res => this.setState({ readme: res }));
+        })
+          .then(res => this.setState({ readme: res }))
+          .catch(() => this.setState({ readmeLoading: false }));
       }
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo
-          .project}/stats/commit_activity`,
+        url: `repos/${user}/${project}/stats/commit_activity`,
         state: 'activity',
       });
 
       this.getGithub({
-        url: `repos/${this.state.githubRepo.user}/${this.state.githubRepo
-          .project}`,
+        url: `repos/${user}/${project}`,
         state: 'github',
       });
+    } else if (host === 'gitlab.com') {
+      const getGitlabFile = ({ user, project, branch, filePath }) => {
+        // We need to use the Gitlab API because the raw url does not support cors
+        // https://gitlab.com/gitlab-org/gitlab-ce/issues/25736
+        // So we need to 'translate' raw urls to api urls.
+        // E.g (https://gitlab.com/janslow/gitlab-fetch/raw/master/CHANGELOG.md) -> (https://gitlab.com/api/v4/projects/janslow%2Fgitlab-fetch/repository/files/CHANGELOG.md?ref=master)
+        // Once gitlab adds support, we can get rid of this workaround.
+        const apiUrl = `https://gitlab.com/api/v4/projects/${user}%2F${project}/repository/files/${encodeURIComponent(
+          filePath
+        )}?ref=${branch}`;
+        return get({
+          url: apiUrl,
+          type: 'json',
+        }).then(res => res.encoding === 'base64' && atob(res.content));
+      };
+
+      get({
+        url: `https://gitlab.com/api/v4/projects/${user}%2F${project}`,
+        type: 'json',
+      }).then(res => this.setState({ gitlab: res }));
+
+      // Fetch last commit
+      get({
+        url: `https://gitlab.com/api/v4/projects/${user}%2F${project}/repository/commits?per_page=1`,
+        type: 'json',
+      }).then(([{ committed_date }]) => {
+        this.setState({
+          activity: {
+            lastCommit: i18nReplaceVars(window.i18n.time_ago, {
+              time_distance: formatDistance(
+                new Date(committed_date),
+                new Date()
+              ),
+            }),
+          },
+        });
+      });
+
+      if (!hasReadme) {
+        this.setState({ readmeLoading: true });
+
+        getGitlabFile({
+          user,
+          project,
+          branch,
+          filePath: `${path}/README.md`,
+        })
+          .then(res => this.setState({ readme: res }))
+          .catch(() => this.setState({ readmeLoading: false }));
+      }
+
+      if (changelogFilename) {
+        // Extract information from raw url
+        // See comment in getGitlabFile
+        const [, user, project, branch, filePath] = changelogFilename.match(
+          /^https?:\/\/gitlab.com\/([^/]+)\/([^/]+)\/raw\/([^/]+)\/(.*)$/i
+        );
+
+        getGitlabFile({ user, project, branch, filePath }).then(res =>
+          this.setState({ changelog: res })
+        );
+      }
+    } else if (host === 'bitbucket.org') {
+      if (!hasReadme) {
+        this.setState({ readmeLoading: true });
+
+        get({
+          url: `https://bitbucket.org/${user}/${project}${
+            path ? path.replace('src', 'raw') : `/raw/${branch}`
+          }/README.md`,
+          type: 'text',
+          redirect: 'error', // Prevent being redirected to login page
+        })
+          .then(res => this.setState({ changelog: res }))
+          .catch(() => this.setState({ readmeLoading: false }));
+      }
+
+      // Fetch last commit
+      get({
+        url: `https://api.bitbucket.org/2.0/repositories/${user}/${project}/commits?pagelen=1`,
+        type: 'json',
+      }).then(({ values: [{ date }] }) => {
+        this.setState({
+          activity: {
+            lastCommit: i18nReplaceVars(window.i18n.time_ago, {
+              time_distance: formatDistance(new Date(date), new Date()),
+            }),
+          },
+        });
+      });
+
+      if (changelogFilename) {
+        get({
+          url: changelogFilename,
+          type: 'text',
+          redirect: 'error', // Prevent being redirected to login page
+        }).then(res => this.setState({ changelog: res }));
+      }
     }
+  }
+
+  getDocuments() {
+    const { repository, name, version } = this.state;
+
+    if (repository && repository.host) {
+      this.getRepositoryDetails(repository);
+    }
+
+    get({
+      url: `https://bundlephobia.com/api/size?package=${name}@${version}`,
+      type: 'json',
+      headers: {
+        'X-Bundlephobia-User': 'yarn website',
+      },
+    }).then(res =>
+      this.setState({
+        bundlesize: {
+          href: `https://bundlephobia.com/result?p=${name}@${version}`,
+          size: bytes(res.size),
+          gzip: bytes(res.gzip),
+        },
+      })
+    );
   }
 
   maybeRenderReadme() {
     if (this.state.loaded) {
-      const { readme = '' } = this.state;
+      const { readmeLoading, readme = '' } = this.state;
       if (readme.length === 0 || readme === readmeErrorMessage) {
+        // Still loading
+        if (readmeLoading) {
+          return null;
+        }
         return <div>{window.i18n.detail.no_readme_found}</div>;
       }
       return (
@@ -144,7 +284,7 @@ class Details extends Component {
         >
           <Markdown
             source={this.state.readme}
-            githubRepo={this.state.githubRepo}
+            repository={this.state.repository}
           />
         </ReadMore>
       );
@@ -216,7 +356,7 @@ class Details extends Component {
               >
                 <Markdown
                   source={this.state.changelog}
-                  githubRepo={this.state.githubRepo}
+                  repository={this.state.repository}
                 />
               </ReadMore>
             </section>
@@ -238,7 +378,7 @@ class Details extends Component {
     return (
       <Aside
         name={this.state.name}
-        githubRepo={this.state.githubRepo}
+        repository={this.state.repository}
         homepage={this.state.homepage}
         contributors={this.state.owners}
         activity={this.state.activity}
@@ -248,9 +388,11 @@ class Details extends Component {
         devDependencies={this.state.devDependencies}
         dependents={this.state.dependents}
         humanDependents={this.state.humanDependents}
-        stargazers={this.state.github ? this.state.github.stargazers_count : 0}
+        stargazers={this._getRepositoryStarCount()}
         versions={this.state.versions}
+        version={this.state.version}
         tags={this.state.tags}
+        bundlesize={this.state.bundlesize}
         onOpenFileBrowser={this._openFileBrowser}
       />
     );
@@ -271,14 +413,74 @@ class Details extends Component {
     );
   }
 
+  _getRepositoryStarCount = () => {
+    const { github, gitlab, repository } = this.state;
+
+    if (
+      !repository ||
+      !repository.host ||
+      repository.host === 'bitbucket.org'
+    ) {
+      return -1;
+    }
+
+    if (repository.host === 'github.com' && github) {
+      return this.state.github.stargazers_count;
+    }
+    if (repository.host === 'gitlab.com' && gitlab) {
+      return this.state.gitlab.star_count;
+    }
+    return 0;
+  };
+
   _openFileBrowser = evt => {
-    this.setState({ isBrowsingFiles: true });
+    // Ignore if is already browsing the files (prevent pushing state to the history repeatedly)
+    if (!this.state.isBrowsingFiles) {
+      this._setFilesSearchParam(true);
+
+      this.setState({ isBrowsingFiles: true });
+    }
     evt.preventDefault();
   };
 
   _closeFileBrowser = evt => {
+    this._setFilesSearchParam(false);
+
     this.setState({ isBrowsingFiles: false });
     evt.preventDefault();
+  };
+
+  // Add/remove the 'files' param from the search (push to the history)
+  _setFilesSearchParam = active => {
+    // The strictNullHandling option is used to avoid that the qs includes a '=' at the end of empty params
+    const search = qs.parse(location.search, {
+      ignoreQueryPrefix: true,
+      strictNullHandling: true,
+    });
+
+    if (active) {
+      search.files = null;
+    } else {
+      delete search.files;
+    }
+
+    window.history.pushState(
+      null,
+      null,
+      location.pathname +
+        qs.stringify(search, { addQueryPrefix: true, strictNullHandling: true })
+    );
+  };
+
+  _onPopState = ({ state }) => {
+    // Open or close the file browser based on the current search
+    const { files } = qs.parse(location.search, { ignoreQueryPrefix: true });
+
+    if (files !== undefined) {
+      this.setState({ isBrowsingFiles: true });
+    } else if (this.state.isBrowsingFiles) {
+      this.setState({ isBrowsingFiles: false });
+    }
   };
 }
 

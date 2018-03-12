@@ -23,15 +23,15 @@ yarn add your-package-name@canary
 
 Different tags have different meanings:
 
-- `latest`: The current version of the package
-- `stable`: The latest stable release of the package, normally the same as
+* `latest`: The current version of the package
+* `stable`: The latest stable release of the package, normally the same as
   latest unless you have Long-term Support (LTS)
-- `beta`: A release before becoming latest and/or stable, used to share
+* `beta`: A release before becoming latest and/or stable, used to share
   upcoming changes before they are finished.
-- `canary`: A "nightly" or pre-beta release, if your project is frequently
+* `canary`: A "nightly" or pre-beta release, if your project is frequently
   updated and depended on by many people you may use this to share even earlier
   code.
-- `dev`: Sometimes you want to be able to test out a single revision through
+* `dev`: Sometimes you want to be able to test out a single revision through
   the registry while you're still working on things, this is useful for that.
 
 Some projects will make up their own tags as they see appropriate or in
@@ -65,7 +65,7 @@ confuse people anyways.
 
 Add a tag named `<tag>` for a specific `<version>` of a `<package>`.
 
-##### `yarn tag rm <package> <tag>` <a class="toc" id="toc-yarn-tag-rm" href="#toc-yarn-tag-rm"></a>
+##### `yarn tag remove <package> <tag>` <a class="toc" id="toc-yarn-tag-rm" href="#toc-yarn-tag-rm"></a>
 
 Remove a tag named `<tag>` from a `<package>` that is no longer in use.
 

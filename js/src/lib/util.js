@@ -3,11 +3,11 @@ import fetch from 'unfetch';
 import marked from 'marked';
 import xss from 'xss';
 import unescape from 'unescape-html';
-import highlightTags from 'react-instantsearch/src/core/highlightTags';
+import highlightTags from 'react-instantsearch/es/src/core/highlightTags';
 import {
   connectToggle,
   connectHighlight,
-} from 'react-instantsearch/connectors';
+} from 'react-instantsearch/es/connectors';
 
 export const isEmpty = item => typeof item === 'undefined' || item.length < 1;
 
@@ -29,11 +29,14 @@ export function getDownloadBucket(dl) {
 
 export const Keywords = ({ keywords = [], maxKeywords = 4 }) => {
   return isEmpty(keywords) ? null : (
-    <span className="ais-Hit--keywords hidden-sm-down">
+    <span className="ais-Hit-keywords hidden-sm-down">
       {keywords
         .slice(0, maxKeywords)
         .map(keyword => (
-          <a href={searchLink(keyword)} key={`${name}-${keyword}`}>
+          <a
+            href={searchLink({ keyword, query: ' ' })}
+            key={`${name}-${keyword}`}
+          >
             {keyword}
           </a>
         ))
@@ -80,20 +83,20 @@ export function formatKeywords(
           const key = `split-${i}-${v.value}`;
           if (v.isHighlighted) {
             return (
-              <em key={key} className="ais-Highlight__highlighted">
+              <em key={key} className="ais-Highlight-highlighted">
                 {v.value}
               </em>
             );
           }
           return (
-            <span key={key} className="ais-Highlight__nonHighlighted">
+            <span key={key} className="ais-Highlight-nonHighlighted">
               {v.value}
             </span>
           );
         });
         return (
           <span
-            className="ais-Hit--keyword"
+            className="ais-Hit-keyword"
             key={`${keyword}${keywordIndex}`}
             onClick={() => onClick(keyword)}
           >
@@ -141,30 +144,19 @@ function parseHighlightedAttribute({
   return elements;
 }
 
-export function packageJSONLink({ githubRepo }) {
-  if (githubRepo) {
-    const { user, project, path, head } = githubRepo;
-
-    return {
-      packageJSONLink: prefixURL('package.json', {
-        base: 'https://github.com',
-        user,
-        project,
-        head: head ? `tree/${head}` : 'tree/master',
-        path,
-      }),
-    };
-  }
-  return {};
-}
+export const packageJSONLink = packageName => ({
+  packageJSONLink: `https://cdn.jsdelivr.net/npm/${packageName}/package.json`,
+});
 
 export const packageLink = name =>
-  `${window.i18n.url_base}/package${process.env.NODE_ENV === 'production'
-    ? '/'
-    : '?'}${name}`;
+  `${window.i18n.url_base}/package${
+    process.env.NODE_ENV === 'production' ? '/' : '?'
+  }${name}`;
 
-export const searchLink = query =>
-  `${window.i18n.url_base}/packages?q=${query}`;
+export const searchLink = ({ query, keyword }) =>
+  `${window.i18n.url_base}/packages?${query ? `q=${query}` : ''}${
+    keyword ? `&keywords%5B0%5D=${keyword}` : ''
+  }`;
 
 export const prefixURL = (url, { base, user, project, head, path }) => {
   if (url.indexOf('//') > 0) {
@@ -192,8 +184,8 @@ const status = res =>
     }
   });
 
-export const get = ({ url, type }) =>
-  fetch(url)
+export const get = ({ url, type, headers, ...rest }) =>
+  fetch(url, { headers, ...rest })
     .then(status)
     .then(res => res[type]())
     .catch(err => {
@@ -206,10 +198,10 @@ export const get = ({ url, type }) =>
     });
 
 export const HighlightedMarkdown = connectHighlight(
-  ({ highlight, attributeName, hit }) => (
-    <span className="ais-Hit--keyword">
+  ({ highlight, attribute, hit }) => (
+    <span className="ais-Hit-keyword">
       {highlight({
-        attributeName,
+        attribute,
         hit,
         highlightProperty: '_highlightResult',
       }).map(
@@ -217,13 +209,13 @@ export const HighlightedMarkdown = connectHighlight(
           v.isHighlighted ? (
             <em
               key={`split-${i}-${v.value}`}
-              className="ais-Highlight__highlighted"
+              className="ais-Highlight-highlighted"
               dangerouslySetInnerHTML={safeMarkdown(v.value)}
             />
           ) : (
             <span
               key={`split-${i}-${v.value}`}
-              className="ais-Highlight__nonHighlighted"
+              className="ais-Highlight-nonHighlighted"
               dangerouslySetInnerHTML={safeMarkdown(v.value)}
             />
           )
@@ -238,5 +230,18 @@ inlineRenderer.paragraph = function(text) {
 };
 
 export const safeMarkdown = input => ({
-  __html: xss(marked(unescape(input), { renderer: inlineRenderer })),
+  __html: xss(marked(unescape(input), { renderer: inlineRenderer })) || ' ',
 });
+
+export const i18nReplaceVars = (message, vars) =>
+  message &&
+  message.replace(/{([^}]+)}/gi, (match, varName) => vars[varName] || match);
+
+// Contains the repositories that we know how to handle
+const knownRepositoryHosts = new Set([
+  'github.com',
+  'gitlab.com',
+  'bitbucket.org',
+]);
+
+export const isKnownRepositoryHost = host => knownRepositoryHosts.has(host);

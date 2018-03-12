@@ -34,7 +34,7 @@ Lists all of the owners of a `<package>`.
 Adds the `<user>` as an owner of the `<package>`. You must already be an owner
 of the `<package>` in order to run this command.
 
-##### `yarn owner rm <user> <package>` <a class="toc" id="toc-yarn-owner-rm" href="#toc-yarn-owner-rm"></a>
+##### `yarn owner remove <user> <package>` <a class="toc" id="toc-yarn-owner-rm" href="#toc-yarn-owner-rm"></a>
 
 Removes the `<user>` as an owner of the `<package>`. You must already be an
 owner of the `<package>` in order to run this command.

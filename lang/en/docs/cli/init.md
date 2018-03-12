@@ -94,12 +94,12 @@ success Saved package.json
 The following [config]({{url_base}}/docs/cli/config) variables can be used to
 customize the defaults for `yarn init`:
 
- - `init-author-name`
- - `init-author-email`
- - `init-author-url`
- - `init-version`
- - `init-license`
- <!--- `init-private` waiting for https://github.com/yarnpkg/yarn/pull/4377 -->
+* `init-author-name`
+* `init-author-email`
+* `init-author-url`
+* `init-version`
+* `init-license`
+  <!--- `init-private` waiting for https://github.com/yarnpkg/yarn/pull/4377 -->
 
 ##### `yarn init --yes/-y` <a class="toc" id="toc-yarn-init-yes-y" href="#toc-yarn-init-yes-y"></a>
 

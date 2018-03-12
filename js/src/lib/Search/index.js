@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Configure, InstantSearch } from 'react-instantsearch/dom';
-import { connectRefinementList } from 'react-instantsearch/connectors';
+import { Configure, InstantSearch } from 'react-instantsearch/es/dom';
+import { connectRefinementList } from 'react-instantsearch/es/connectors';
 
 import SearchBox from './SearchBox';
 import Results from './Results';
@@ -76,7 +76,7 @@ class Search extends Component {
             'deprecated',
             'description',
             'downloadsLast30Days',
-            'githubRepo',
+            'repository',
             'homepage',
             'humanDownloadsLast30Days',
             'keywords',
@@ -95,12 +95,12 @@ class Search extends Component {
           }}
         />
         <VirtualRefinementList
-          attributeName="keywords"
+          attribute="keywords"
           defaultRefinement={[...this.state.tags]}
           onRefine={this.onRefineTag}
         />
         <VirtualRefinementList
-          attributeName="owner.name"
+          attribute="owner.name"
           defaultRefinement={[...this.state.owners]}
           onRefine={this.onRefineOwner}
         />

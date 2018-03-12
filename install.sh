@@ -7,7 +7,7 @@ green="\033[32m"
 yellow="\033[33m"
 cyan="\033[36m"
 white="\033[37m"
-gpg_key=9D41F3C3
+gpg_key=E074D16EB6FF4DE3
 
 yarn_get_tarball() {
   printf "$cyan> Downloading tarball...$reset\n"
@@ -81,7 +81,7 @@ yarn_verify_integrity() {
 yarn_link() {
   printf "$cyan> Adding to \$PATH...$reset\n"
   YARN_PROFILE="$(yarn_detect_profile)"
-  SOURCE_STR="\nexport PATH=\"\$HOME/.yarn/bin:\$PATH\"\n"
+  SOURCE_STR="\nexport PATH=\"\$HOME/.yarn/bin:\$HOME/.config/yarn/global/node_modules/.bin:\$PATH\"\n"
 
   if [ -z "${YARN_PROFILE-}" ] ; then
     printf "$red> Profile not found. Tried ${YARN_PROFILE} (as defined in \$PROFILE), ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.\n"
@@ -184,10 +184,12 @@ yarn_install() {
       fi
       yarn_version=`yarn -V`
       yarn_alt_version=`yarn --version`
+
       if [ "$specified_version" = "$yarn_version" -o "$specified_version" = "$yarn_alt_version" ]; then
         printf "$green> Yarn is already at the $specified_version version.$reset\n"
         exit 0
       else
+      	printf "$yellow> $yarn_alt_version is already installed, Specified version: $specified_version.$reset\n"
         rm -rf "$HOME/.yarn"
       fi
     else

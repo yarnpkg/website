@@ -1,16 +1,27 @@
 import React from 'react';
 import { createConnector } from 'react-instantsearch';
 import {
-  Hits,
   Pagination,
   CurrentRefinements,
   Stats,
-} from 'react-instantsearch/dom';
+} from 'react-instantsearch/es/dom';
+import { connectHits } from 'react-instantsearch/es/connectors';
 
 import Hit from '../Hit';
 import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
+
+const Hits = connectHits(({ hits, onTagClick, onOwnerClick }) =>
+  hits.map(hit => (
+    <Hit
+      onTagClick={onTagClick}
+      onOwnerClick={onOwnerClick}
+      hit={hit}
+      key={hit.objectID}
+    />
+  ))
+);
 
 const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
   <div className="container">
@@ -28,16 +39,7 @@ const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
         }}
       />
     </div>
-    <Hits
-      hitComponent={({ hit }) => (
-        <Hit
-          onTagClick={onTagClick}
-          onOwnerClick={onOwnerClick}
-          hit={hit}
-          key={hit.objectID}
-        />
-      )}
-    />
+    <Hits onTagClick={onTagClick} onOwnerClick={onOwnerClick} />
     <div className="d-flex">
       {pagination ? (
         <Pagination showFirst={false} showLast={false} scrollTo={true} />

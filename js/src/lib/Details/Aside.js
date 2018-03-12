@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Install from './Install';
+import Cdn from './Cdn';
 import Links from './Links';
 import Activity from './Activity';
 import Popularity from './Popularity';
@@ -8,12 +9,13 @@ import Usage from './Usage';
 import Versions from './Versions';
 import Contributors from './Contributors';
 import Tags from './Tags';
-import { packageJSONLink } from '../util';
+import { packageJSONLink, isKnownRepositoryHost } from '../util';
+import GithubActivity from './GithubActivity';
 
 const Aside = ({
   name,
   homepage,
-  githubRepo,
+  repository,
   contributors,
   activity,
   downloads,
@@ -24,15 +26,19 @@ const Aside = ({
   dependencies,
   tags,
   versions,
+  version,
   devDependencies,
+  bundlesize,
   onOpenFileBrowser,
 }) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
-      <Links name={name} homepage={homepage} githubRepo={githubRepo} />
+      <Links name={name} homepage={homepage} repository={repository} />
     </article>
     <Install name={name} onOpenFileBrowser={onOpenFileBrowser} />
+    <Cdn name={name} version={version} />
     <Popularity
+      repository={repository}
       downloads={downloads}
       humanDownloads={humanDownloads}
       stargazers={stargazers}
@@ -40,15 +46,18 @@ const Aside = ({
       humanDependents={humanDependents}
       name={name}
     />
-    {githubRepo &&
-      githubRepo.user &&
-      githubRepo.project && (
-        <Activity data={activity} githubRepo={githubRepo} />
-      )}
+    {repository &&
+      isKnownRepositoryHost(repository.host) &&
+      (repository.host === 'github.com' ? (
+        <GithubActivity data={activity} repository={repository} />
+      ) : (
+        <Activity {...activity} repository={repository} />
+      ))}
     <Usage
       dependencies={dependencies}
       devDependencies={devDependencies}
-      {...packageJSONLink({ githubRepo })}
+      bundlesize={bundlesize}
+      {...packageJSONLink(name)}
     />
     <Tags tags={tags} name={name} />
     <Versions versions={versions} />

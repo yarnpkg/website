@@ -19,7 +19,7 @@ Optionally, one or more package names can be specified.
 When package names are specified, only those packages will be upgraded.
 When no package names are specified, all dependencies will be upgraded.
 
-`[package]` : When a specified package is only a name  then the latest patching version
+`[package]` : When a specified package is only a name then the latest patching version
 of this package will be upgraded to.
 
 `[package@tag]` : When a specified package contains a tag then the specified tag will
@@ -38,6 +38,7 @@ version number or range.
 `--ignore-engines` : This flag can be used to skip the engines check.
 
 Examples:
+
 ```sh
 yarn upgrade
 yarn upgrade left-pad
@@ -49,6 +50,7 @@ yarn upgrade @angular
 `yarn upgrade --pattern <pattern>` will upgrade all packages that match the pattern.
 
 Examples:
+
 ```sh
 yarn upgrade --pattern gulp
 yarn upgrade left-pad --pattern "gulp|grunt"
@@ -70,6 +72,7 @@ One of the flags `--caret`, `--tilde` or `--exact` can be used to explicitely
 specify a range.
 
 Examples:
+
 ```sh
 yarn upgrade --latest
 yarn upgrade left-pad --latest
@@ -85,6 +88,7 @@ Instead, the version specified by the `latest` tag will be used
 (potentially upgrading the packages across major versions).
 
 Examples:
+
 ```sh
 yarn upgrade --scope @angular
 yarn upgrade -S @angular

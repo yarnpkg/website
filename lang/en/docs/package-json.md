@@ -37,19 +37,19 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
 
 **Rules**
 
-- Must be less than or equal to 214 characters (including the `@scope/` for
+* Must be less than or equal to 214 characters (including the `@scope/` for
   scoped packages).
-- Must not start with a dot (`.`) or an underscore (`_`).
-- Must not have an uppercase letter in the name.
-- Must use only URL-safe characters.
+* Must not start with a dot (`.`) or an underscore (`_`).
+* Must not have an uppercase letter in the name.
+* Must use only URL-safe characters.
 
 **Tips**
 
-- Don't use the same name as a core Node.js module
-- Don't put `js` or `node` in the name.
-- Keep names short and descriptive. You want people to understand what it is
+* Don't use the same name as a core Node.js module
+* Don't put `js` or `node` in the name.
+* Keep names short and descriptive. You want people to understand what it is
   from the name, but it will also be used in `require()` calls.
-- Make sure that there isn't something in the
+* Make sure that there isn't something in the
   [registry](https://www.npmjs.com/) with the same name.
 
 ### `version` <a class="toc" id="toc-version" href="#toc-version"></a>
@@ -59,6 +59,7 @@ https://registry.npmjs.org/[name]/-/[name]-[version].tgz
   "version": "1.0.0"
 }
 ```
+
 The current version of your package.
 
 ## Info <a class="toc" id="toc-info" href="#toc-info"></a>
@@ -104,14 +105,14 @@ job it's likely best to check with your company before deciding on a license.
 
 **Must be one of the following:**
 
-- A valid [SPDX license identifier](https://spdx.org/licenses/) if you are
+* A valid [SPDX license identifier](https://spdx.org/licenses/) if you are
   using a standard license.
-- A valid
+* A valid
   [SPDX license expression syntax 2.0 expression](https://www.npmjs.com/package/spdx)
   if you are using multiple standard licenses.
-- A `SEE LICENSE IN <filename>` string that points to a `<filename>` in the top
+* A `SEE LICENSE IN <filename>` string that points to a `<filename>` in the top
   level of your package if you are using a non-standard license.
-- A `UNLICENSED` string if you do not want to grant others the right to use a
+* A `UNLICENSED` string if you do not want to grant others the right to use a
   private or unpublished package under any terms.
 
 ## Links <a class="toc" id="toc-links" href="#toc-links"></a>
@@ -160,7 +161,11 @@ The maintainers of your project.
 
 ```json
 {
-  "author": { "name": "Your Name", "email": "you@example.com", "url": "http://your-website.com" },
+  "author": {
+    "name": "Your Name",
+    "email": "you@example.com",
+    "url": "http://your-website.com"
+  },
   "author": "Your Name <you@example.com> (http://your-website.com)"
 }
 ```
@@ -192,11 +197,7 @@ You can specify files that will be included in your project, along with the main
 
 ```json
 {
-  "files": [
-    "filename.js",
-    "directory/",
-    "glob/*.{js,json}"
-  ]
+  "files": ["filename.js", "directory/", "glob/*.{js,json}"]
 }
 ```
 
@@ -343,9 +344,7 @@ Optional dependencies can be used with your package, but are not required. If th
 
 ```json
 {
-  "bundledDependencies": [
-    "package-4"
-  ]
+  "bundledDependencies": ["package-4"]
 }
 ```
 
@@ -364,7 +363,6 @@ If your package only allows one version of a given dependency, and you'd like to
 Note that if your `package.json` contains `"flat": true` and other packages depend on yours (e.g. you are building a library rather than an application), those other packages will also need `"flat": true` in their `package.json` or be installed with `yarn install --flat` on the command line.
 
 ### `resolutions` <a class="toc" id="toc-resolutions" href="#toc-resolutions"></a>
-
 
 ```json
 {
@@ -396,7 +394,9 @@ You can provide system-level information associated with your package, such as o
 }
 ```
 
-The engines specify versions of clients that must be used with your package. This checks against `process.versions` as well as the current version of yarn.
+The engines specify versions of clients that must be used with your package. This checks against `process.versions` as well as the current version of yarn. 
+
+This check follows normal semver rules with one exception. It allows prerelease versions to match semvers that do not explicitly specify a prerelease. For example, `1.4.0-rc.0` matches `>=1.3.0`, while it would not match a typical semver check.
 
 ### `os` <a class="toc" id="toc-os" href="#toc-os"></a>
 

@@ -13,13 +13,13 @@
   display: none;
 }
 
-#goog-fixurl input[type="text"] {
+#goog-fixurl input[type='text'] {
   @extend .form-control;
   @extend .float-md-left;
   margin-right: 0.5rem;
 }
 
-#goog-fixurl input[type="submit"] {
+#goog-fixurl input[type='submit'] {
   @extend .btn;
   @include button-outline-variant($yarn-blue-darkest);
   color: white;

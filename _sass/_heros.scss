@@ -126,10 +126,6 @@
 @include media-breakpoint-up('sm') {
   .hero {
     margin: 0 0 3rem 0;
-
-    .alert {
-      margin-top: -3rem;
-    }
   }
 
   .hero-title {
@@ -171,12 +167,6 @@
 }
 
 @include media-breakpoint-up('lg') {
-  .hero {
-    .alert {
-      margin-top: -4rem;
-    }
-  }
-
   .hero-title {
     font-size: 4em;
   }

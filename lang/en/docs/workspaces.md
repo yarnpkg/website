@@ -10,11 +10,11 @@ Workspaces are a new way to setup your package architecture that's available by 
 
 ### Why would you want to do this? <a class="toc" id="toc-why-would-you-want-to-do-this" href="#toc-why-would-you-want-to-do-this"></a>
 
-- Your dependencies can be linked together, which means that your workspaces can depend on one another while always using the most up-to-date code available. This is also a better mechanism than `yarn link` since it only affects your workspace tree rather than your whole system.
+* Your dependencies can be linked together, which means that your workspaces can depend on one another while always using the most up-to-date code available. This is also a better mechanism than `yarn link` since it only affects your workspace tree rather than your whole system.
 
-- All your project dependencies will be installed together, giving Yarn more latitude to better optimize them.
+* All your project dependencies will be installed together, giving Yarn more latitude to better optimize them.
 
-- Yarn will use a single lockfile rather than a different one for each project, which means less conflicts and easier reviews.
+* Yarn will use a single lockfile rather than a different one for each project, which means less conflicts and easier reviews.
 
 ### How to use it? <a class="toc" id="toc-how-to-use-it" href="#toc-how-to-use-it"></a>
 
@@ -24,15 +24,12 @@ Add the following in a `package.json` file. Starting from now on, we'll call thi
 
 ```json
 {
-    "private": true,
-    "workspaces": [
-        "workspace-a",
-        "workspace-b"
-    ]
+  "private": true,
+  "workspaces": ["workspace-a", "workspace-b"]
 }
 ```
 
-Note that the `private: true` is required! Workspaces are not meant to be published, so we've added this safety measure to make sure that nothing can accidentaly expose them.
+Note that the `private: true` is required! Workspaces are not meant to be published, so we've added this safety measure to make sure that nothing can accidentally expose them.
 
 After this file has been created, create two new subfolders named `workspace-a` and `workspace-b`. In each of them, create another `package.json` file with the following content:
 
@@ -40,12 +37,12 @@ After this file has been created, create two new subfolders named `workspace-a` 
 
 ```json
 {
-    "name": "workspace-a",
-    "version": "1.0.0",
+  "name": "workspace-a",
+  "version": "1.0.0",
 
-    "dependencies": {
-        "cross-env": "5.0.5"
-    }
+  "dependencies": {
+    "cross-env": "5.0.5"
+  }
 }
 ```
 
@@ -53,13 +50,13 @@ After this file has been created, create two new subfolders named `workspace-a` 
 
 ```json
 {
-    "name": "workspace-b",
-    "version": "1.0.0",
+  "name": "workspace-b",
+  "version": "1.0.0",
 
-    "dependencies": {
-        "cross-env": "5.0.5",
-        "workspace-a": "1.0.0"
-    }
+  "dependencies": {
+    "cross-env": "5.0.5",
+    "workspace-a": "1.0.0"
+  }
 }
 ```
 
@@ -85,20 +82,22 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
 
 ### Tips & Tricks <a class="toc" id="toc-tips-tricks" href="#toc-tips-tricks"></a>
 
-  - The `workspaces` field is an array containing the paths to each workspace. Since it might be tedious to keep track of each of them, this field also accepts glob patterns! For example, Babel reference all of their packages through a single `packages/*` directive.
+* The `workspaces` field is an array containing the paths to each workspace. Since it might be tedious to keep track of each of them, this field also accepts glob patterns! For example, Babel reference all of their packages through a single `packages/*` directive.
 
-  - Workspaces are stable enough to be used in large-scale applications and shouldn't change anything to the way the regular installs work, but if you think they're breaking something, you can disable them by adding the following line into your Yarnrc file:
+* Workspaces are stable enough to be used in large-scale applications and shouldn't change anything to the way the regular installs work, but if you think they're breaking something, you can disable them by adding the following line into your Yarnrc file:
 
-    ```
-    workspaces-experimental false
-    ```
+  ```
+  workspaces-experimental false
+  ```
 
 ### Limitations & Caveats <a class="toc" id="toc-limitations-caveats" href="#toc-limitations-caveats"></a>
 
-  - The package layout will be different between your workspace and what your users will get (the workspace dependencies will be hoisted higher into the filesystem hierarchy). Making assumptions about this layout was already hazardous since the hoisting process is not standardized, so theoretically nothing new here.
+* The package layout will be different between your workspace and what your users will get (the workspace dependencies will be hoisted higher into the filesystem hierarchy). Making assumptions about this layout was already hazardous since the hoisting process is not standardized, so theoretically nothing new here.
 
-  - In the example above, if `workspace-b` depends on a different version than the one referenced in `workspace-a`'s package.json, the dependency will be installed from Github rather than linked from your local filesystem. This is because some packages actually need to use the previous versions in order to build the new ones (Babel is one of them).
+* In the example above, if `workspace-b` depends on a different version than the one referenced in `workspace-a`'s package.json, the dependency will be installed from Github rather than linked from your local filesystem. This is because some packages actually need to use the previous versions in order to build the new ones (Babel is one of them).
 
-  - Workspaces must be children of the workspace root in term of folder hierarchy. You cannot and must not reference a workspace that is located outside of this filesystem hierarchy.
+* Be careful when publishing packages in a workspace. If you are preparing your next release and you decided to use a new dependency but forgot to declare it in the `package.json` file, your tests might still pass locally if another package already downloaded that dependency into the workspace root. However, it will be broken for consumers that pull it from a registry, since the dependency list is now incomplete so they have no way to download the new dependency. Currently there is no way to throw a warning in this scenario.
 
-  - Nested workspaces are not supported at this time.
+* Workspaces must be children of the workspace root in terms of folder hierarchy. You cannot and must not reference a workspace that is located outside of this filesystem hierarchy.
+
+* Nested workspaces are not supported at this time.

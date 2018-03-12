@@ -30,25 +30,25 @@ You can specify versions using one of these:
 
 1. `yarn add package-name` installs the "latest" version of the package.
 2. `yarn add package-name@1.2.3` installs a specific version of a package from
-  the registry.
+   the registry.
 3. `yarn add package-name@tag` installs a specific
-  ["tag"]({{url_base}}/docs/cli/tag) (e.g. `beta`, `next`, or `latest`).
+   ["tag"]({{url_base}}/docs/cli/tag) (e.g. `beta`, `next`, or `latest`).
 
 You can also specify packages from different locations:
 
 1. `yarn add package-name` installs the package from the
-  [npm registry](https://www.npmjs.com/) unless you have specified another one
-  in your `package.json`.
+   [npm registry](https://www.npmjs.com/) unless you have specified another one
+   in your `package.json`.
 2. `yarn add file:/path/to/local/folder` installs a package that is on your
-  local file system. This is useful to test out other packages of yours that
-  haven't been published to the registry.
+   local file system. This is useful to test out other packages of yours that
+   haven't been published to the registry.
 3. `yarn add file:/path/to/local/tarball.tgz` installs a package from a gzipped
-  tarball which could be used to share a package before publishing it.
+   tarball which could be used to share a package before publishing it.
 4. `yarn add <git remote url>` installs a package from a remote git repository.
 5. `yarn add <git remote url>#<branch/commit/tag>` installs a package from a remote
-  git repository at specific git branch, git commit or git tag.
+   git repository at specific git branch, git commit or git tag.
 6. `yarn add https://my-project.org/package.tgz` installs a package from a
-  remote gzipped tarball.
+   remote gzipped tarball.
 
 ### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
 

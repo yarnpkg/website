@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, viewport-fit=cover">
 
     <meta property="og:url" content="{{ page.url | replace: 'index.html', '' | replace: '/lang', '' | prepend: site.baseurl | prepend: site.url }}" />
     <meta property="og:site_name" content="{{ site.title }}"/>
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?t={{ site.time | date_to_xmlschema }}">
     <script src="https://cdn.polyfill.io/v2/polyfill.js?unknown=polyfill&excludes=Element"></script>
-    
     <meta name="google-site-verification" content="DIcCyEkVaGHm864NWzItnt2n6Gg7hz3l47RBIRyxvcQ" />
   </head>
   <body>
@@ -37,9 +36,9 @@
     {% include navigation.html %}
     <div id="search">
       <!-- Here to avoid flash of unstyled content on page load -->
-      <div class="ais-InstantSearch__root">
-        <form novalidate="" class="ais-SearchBox__root">
-          <div role="search" class="ais-SearchBox__wrapper"></div>
+      <div class="ais-InstantSearch-root">
+        <form novalidate="" class="ais-SearchBox">
+          <div role="search" class="ais-SearchBox-form"></div>
         </form>
       </div>
     </div>

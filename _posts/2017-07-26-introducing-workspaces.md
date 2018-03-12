@@ -33,7 +33,7 @@ Issues such as these convinced us, as package manager developers, that we should
 
 Yarn Workspaces is a feature that allows users to install dependencies from multiple package.json files in subfolders of a single root package.json file, all in one go.
 
-Making Workspaces native to Yarn enables faster, lighter installation by preventing package duplication across Workspaces. Yarn can also create symlinks between  Workspaces that depend on each other, and  will ensure the  consistency and correctness of all directories.
+Making Workspaces native to Yarn enables faster, lighter installation by preventing package duplication across Workspaces. Yarn can also create symlinks between Workspaces that depend on each other, and will ensure the consistency and correctness of all directories.
 
 ## Setting up Workspaces
 
@@ -83,40 +83,40 @@ To keep things simple I'll describe two small Workspaces packages:
 
 1. jest-matcher-utils Workspace:
 
-```
-{
-  "name": "jest-matcher-utils",
-  "description": "...",
-  "version": "20.0.3",
-  "license": "...",
-  "main": "...",
-  "browser": "...",
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "pretty-format": "^20.0.3"
-  }
-}
-```
+    ```
+    {
+      "name": "jest-matcher-utils",
+      "description": "...",
+      "version": "20.0.3",
+      "license": "...",
+      "main": "...",
+      "browser": "...",
+      "dependencies": {
+        "chalk": "^1.1.3",
+        "pretty-format": "^20.0.3"
+      }
+    }
+    ```
 
 2. jest-diff Workspace that depends on jest-matcher-utils:
 
-```
-{
-  "name": "jest-diff",
-  "version": "20.0.3",
-  "license": "...",
-  "main": "...",
-  "browser": "...",
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "diff": "^3.2.0",
-    "jest-matcher-utils": "^20.0.3",
-    "pretty-format": "^20.0.3"
-  }
-}
-```
+    ```
+    {
+      "name": "jest-diff",
+      "version": "20.0.3",
+      "license": "...",
+      "main": "...",
+      "browser": "...",
+      "dependencies": {
+        "chalk": "^1.1.3",
+        "diff": "^3.2.0",
+        "jest-matcher-utils": "^20.0.3",
+        "pretty-format": "^20.0.3"
+      }
+    }
+    ```
 
-A wrapper like Lerna would first run  `yarn install` for each `package.json` separately and then run `yarn link` for packages that depend on each other.
+A wrapper like Lerna would first run `yarn install` for each `package.json` separately and then run `yarn link` for packages that depend on each other.
 
 If we used that approach, we would get a folder structure like the following:
 
@@ -165,22 +165,22 @@ With Workspaces enabled, Yarn can produce a much more optimized dependency struc
 ...
 ```
 
-Packages like `diff`, `pretty-format` and the symlink to `jest-matcher-utils` were hoisted to the root node_modules directory, making the installation faster and smaller. The package `chalk` however could not be moved to the root  because the root already depends on a different, incompatible version of `chalk`.
+Packages like `diff`, `pretty-format` and the symlink to `jest-matcher-utils` were hoisted to the root node_modules directory, making the installation faster and smaller. The package `chalk` however could not be moved to the root because the root already depends on a different, incompatible version of `chalk`.
 
 Both of the structures above are compatible, but the latter is more optimal while still being correct regarding the Node.js module resolution logic.
 
 For avid Lerna users this is similar to bootstrapping code via the `--hoist` flag.
 
-If you run code inside the `jest-diff` Workspace, it will be able to resolve all its dependencies: 
+If you run code inside the `jest-diff` Workspace, it will be able to resolve all its dependencies:
 
 * require('chalk') resolves to `./node_modules/chalk`
 * require('diff') resolves to `../../node_modules/diff`
 * require('pretty-format') resolves to `../../node_modules/pretty-format`
-* require('jest-matcher-utils') resolves to `../../node_modules/jest-matcher-utils`  that is a symlink to `../packages/jest-matcher-utils`
+* require('jest-matcher-utils') resolves to `../../node_modules/jest-matcher-utils` that is a symlink to `../packages/jest-matcher-utils`
 
 ## Managing dependencies of Workspaces
 
-If you want to modify a dependency of a Workspace, just  run the appropriate command inside the Workspace folder:
+If you want to modify a dependency of a Workspace, just run the appropriate command inside the Workspace folder:
 
 ```
 $ cd packages/jest-matcher-utils/
@@ -191,7 +191,7 @@ modified: package.json
 modified: ../../yarn.lock
 ```
 
-Note that Workspaces don't have their own yarn.lock files, and the root yarn.lock contains all the dependencies for all the Workspaces. 
+Note that Workspaces don't have their own yarn.lock files, and the root yarn.lock contains all the dependencies for all the Workspaces.
 When you want to change a dependency inside a Workspace, the root yarn.lock will be changed as well as the Workspace's package.json.
 
 ## Integrating with Lerna
@@ -200,14 +200,15 @@ Do Yarn Workspaces make Lerna obsolete?
 
 Not at all. Yarn Workspaces are easily integrated with Lerna.
 
-Lerna provides a lot more than just bootstrapping a project and it has a community of users around it that have fine-tuned Lerna for their needs. 
+Lerna provides a lot more than just bootstrapping a project and it has a community of users around it that have fine-tuned Lerna for their needs.
 
-Starting with Lerna 2.0.0, when you pass the flag [--use-workspaces](https://github.com/lerna/lerna#--use-workspaces) when running Lerna commands, it will use Yarn to bootstrap the project and also it will use `package.json/workspaces` field to find the packages instead of `lerna.json/packages`.
+Starting with Lerna 2.0.0, when you pass the flag [`--use-workspaces`](https://github.com/lerna/lerna#--use-workspaces) when running Lerna commands, it will use Yarn to bootstrap the project and also it will use `package.json/workspaces` field to find the packages instead of `lerna.json/packages`.
 
 This is how Lerna is configured for Jest:
 
 ```
 {
+  "lerna": "2.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
@@ -224,4 +225,3 @@ At the same time we don't want to put all the possible monorepo features into Ya
 Our next goal is to finalize Yarn 1.0, which is meant to summarize the work we have done on Yarn over the past year, and recognizing how reliable Yarn has become. We'll also share our thoughts on what we'd like to build next for Yarn then.
 
 Stay tuned.
-

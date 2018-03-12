@@ -35,8 +35,9 @@ const deps = ({ dependencies, title }) => {
 const Usage = ({
   dependencies,
   devDependencies,
-  packageJSONLink,
   versions,
+  bundlesize,
+  packageJSONLink,
 }) => (
   <article className="details-side--usage">
     <h1>{window.i18n.detail.usage}</h1>
@@ -62,6 +63,24 @@ const Usage = ({
           description={
             <a target="_blank" rel="noopener noreferrer" href={packageJSONLink}>
               {window.i18n.detail.see_package_json}
+            </a>
+          }
+        />
+      )}
+      {bundlesize && (
+        <Di
+          icon="download-size"
+          title={window.i18n.detail.bundlesize}
+          description={
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={bundlesize.href}
+              title={window.i18n.detail.bundlesize_text
+                .replace('{size}', bundlesize.size)
+                .replace('{gzip}', bundlesize.gzip)}
+            >
+              {bundlesize.size}
             </a>
           }
         />

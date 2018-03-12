@@ -90,6 +90,10 @@ Run yarn install without printing installation log
 
 Ignore engines check.
 
+##### `yarn install --ignore-optional` <a class="toc" id="toc-yarn-install-ignore-optional" href="#toc-yarn-install-ignore-optional"></a>
+
+Don't install optional dependencies.
+
 ##### `yarn install --offline` <a class="toc" id="toc-yarn-install-offline" href="#toc-yarn-install-offline"></a>
 
 Run yarn install in offline mode.
@@ -101,4 +105,3 @@ Disable interactive prompts, like when there's an invalid version of a dependenc
 ##### `yarn install --update-checksums` <a class="toc" id="toc-yarn-install-update-checksums" href="#toc-yarn-install-update-checksums"></a>
 
 Update checksums in the `yarn.lock` lockfile if there's a mismatch between them and their package's checksum.
-

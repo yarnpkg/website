@@ -1,54 +1,52 @@
 /** Algolia Pkg Search **/
 
-$ais-focus-color: rgba(black,.7);
-$ais-muted-color: rgba(black,.5);
+$ais-focus-color: rgba(black, 0.7);
+$ais-muted-color: rgba(black, 0.5);
 
 .ais-SearchBox {
-  &__root {
-    background-color: mix(black, $yarn-blue, 15%);
-    transition: background-color .1s ease;
-    padding: 1.4em .3em;
-    box-sizing: border-box;
-    position: relative;
+  background-color: mix(black, $yarn-blue, 15%);
+  transition: background-color 0.1s ease;
+  padding: 1.4em 0.3em;
+  box-sizing: border-box;
+  position: relative;
 
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      z-index: 1;
-      left: 0;
-      right: 0;
-      height: 7px;
-      background: {
-        repeat: repeat-x;
-        size: 144px auto;
-      }
-    }
-
-    &:before {
-      top: -3.5px;
-      background-image: $image-border-white;
-    }
-
-    &:after {
-      bottom: -3.5px;
-      background-image: $image-border-yarn-blue;
-
-      .searching & {
-        background-image: $image-border-white;
-      }
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: {
+      repeat: repeat-x;
+      size: 144px auto;
     }
   }
 
-  &__wrapper {
+  &:before {
+    top: -3.5px;
+    background-image: $image-border-white;
+  }
+
+  &:after {
+    bottom: -3.5px;
+    background-image: $image-border-yarn-blue;
+
+    .searching & {
+      background-image: $image-border-white;
+    }
+  }
+
+  &-form {
     @extend .container;
     display: flex;
     background-color: white;
-    border-radius: .2em;
-    padding: .2em;
+    border-radius: 0.2em;
+    padding: 0.2em;
     min-height: 38.8px;
-    transition: box-shadow .4s ease, background .4s ease;
+    transition: box-shadow 0.4s ease, background 0.4s ease;
     box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
 
     .active & {
@@ -57,7 +55,7 @@ $ais-muted-color: rgba(black,.5);
     }
   }
 
-  &__input {
+  &-input {
     order: 2;
     flex-grow: 1;
     background: none;
@@ -65,7 +63,7 @@ $ais-muted-color: rgba(black,.5);
     border-radius: 0;
     font: inherit;
     color: $yarn-blue;
-    margin-left: .5em;
+    margin-left: 0.5em;
 
     &:active,
     &:focus {
@@ -79,7 +77,8 @@ $ais-muted-color: rgba(black,.5);
     }
   }
 
-  &__reset, &__submit {
+  &-reset,
+  &-submit {
     width: 2em;
     height: 2em;
     background: none;
@@ -90,26 +89,26 @@ $ais-muted-color: rgba(black,.5);
     svg {
       width: 1.6em;
       height: 1.6em;
-      padding: .2em;
+      padding: 0.2em;
       fill: $yarn-blue;
       position: absolute;
-      top: .2em;
-      left: .2em;
+      top: 0.2em;
+      left: 0.2em;
     }
   }
 
-  &__submit {
+  &-submit {
     order: 1;
   }
 
-  &__reset {
+  &-reset {
     order: 3;
     visibility: hidden;
   }
 }
 
 .ais-Hits {
-  &--item {
+  &-item {
     padding: 1.5rem 1rem 2rem;
     border-bottom: 1px solid $gray-lighter;
     position: relative;
@@ -119,14 +118,14 @@ $ais-muted-color: rgba(black,.5);
     }
   }
 
-  &__empty {
+  &-empty {
     padding: 2.5rem 0 2rem;
     border-bottom: 1px solid $gray-lighter;
   }
 }
 
 .ais-Hit {
-  &--name {
+  &-name {
     font-size: 1.625rem;
     font-weight: normal;
     color: $ais-focus-color;
@@ -138,7 +137,7 @@ $ais-muted-color: rgba(black,.5);
     &:visited,
     &:focus {
       text-decoration: none;
-      color: rgba(black,.9);
+      color: rgba(black, 0.9);
     }
 
     em {
@@ -146,16 +145,16 @@ $ais-muted-color: rgba(black,.5);
     }
   }
 
-  &--popular {
-    font-size: .825rem;
+  &-popular {
+    font-size: 0.825rem;
     color: $ais-muted-color;
     margin-right: 8px;
     text-transform: uppercase;
 
-    &::before{
+    &::before {
       position: relative;
       display: inline-block;
-      content: "";
+      content: '';
       background-position: bottom center;
       background-repeat: no-repeat;
       background-image: url('/assets/search/ico-download.svg');
@@ -165,35 +164,35 @@ $ais-muted-color: rgba(black,.5);
       top: 2px;
     }
 
-    &.hot-t4::before{
+    &.hot-t4::before {
       background-image: url('/assets/search/ico-hot-t4.svg');
     }
 
-    &.hot-t3::before{
+    &.hot-t3::before {
       background-image: url('/assets/search/ico-hot-t3.svg');
     }
 
-    &.hot-t2::before{
+    &.hot-t2::before {
       background-image: url('/assets/search/ico-hot-t2.svg');
     }
 
-    &.hot-t1::before{
+    &.hot-t1::before {
       background-image: url('/assets/search/ico-hot-t1.svg');
     }
   }
 
-  &--license {
-    font-size: .75rem;
+  &-license {
+    font-size: 0.75rem;
     border: solid 1px #ccc;
     color: $ais-muted-color;
     padding: 2px 4px;
     border-radius: 4px;
     margin-right: 8px;
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
   }
 
-  &--deprecated {
-    font-size: .75rem;
+  &-deprecated {
+    font-size: 0.75rem;
     text-transform: uppercase;
     background-color: #ccc;
     border: solid 1px #ccc;
@@ -201,11 +200,11 @@ $ais-muted-color: rgba(black,.5);
     padding: 2px 4px;
     border-radius: 4px;
     margin-right: 8px;
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
   }
 
-  &--version {
-    font-size: .825rem;
+  &-version {
+    font-size: 0.825rem;
     color: $ais-muted-color;
     font-weight: bold;
     max-width: 90px;
@@ -216,26 +215,26 @@ $ais-muted-color: rgba(black,.5);
     vertical-align: middle;
   }
 
-  &--ownerLink {
-    font-size: .69rem;
+  &-ownerLink {
+    font-size: 0.69rem;
     font-weight: bold;
     color: $ais-focus-color;
     text-transform: uppercase;
-    letter-spacing: .3px;
+    letter-spacing: 0.3px;
     margin-right: 8px;
   }
 
-  &--ownerAvatar {
+  &-ownerAvatar {
     border-radius: 4px;
     margin-right: 4px;
     position: relative;
     top: -2px;
   }
 
-  &--description {
-    font-size: .875rem;
+  &-description {
+    font-size: 0.875rem;
     color: $ais-muted-color;
-    margin: .6rem 0;
+    margin: 0.6rem 0;
     max-width: calc(100% - 120px);
 
     @include media-breakpoint-down(xs) {
@@ -247,34 +246,34 @@ $ais-muted-color: rgba(black,.5);
     }
 
     &::first-letter {
-      text-transform: uppercase
+      text-transform: uppercase;
     }
   }
 
-  &--lastUpdate {
-    font-size: .825rem;
+  &-lastUpdate {
+    font-size: 0.825rem;
     color: $ais-muted-color;
     font-style: italic;
   }
 
-  &--keywords {
-    font-size: .825rem;
+  &-keywords {
+    font-size: 0.825rem;
     color: $ais-muted-color;
     margin-left: 1em;
     font-style: italic;
 
     &:before {
       display: inline-block;
-      content: "";
+      content: '';
       background: url('/assets/search/ico-tag.svg') no-repeat;
       width: 16px;
       height: 8px;
       margin-right: 4px;
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
-  &--keyword {
+  &-keyword {
     color: $ais-muted-color;
 
     em {
@@ -287,98 +286,115 @@ $ais-muted-color: rgba(black,.5);
     }
   }
 
-  &--links {
+  &-links {
     position: absolute;
     top: calc(50% - 12px);
     right: 1rem;
 
-    @include media-breakpoint-down(xs){
+    @include media-breakpoint-down(xs) {
       position: inherit;
     }
   }
 
-  &--link-homepage,
-  &--link-npm,
-  &--link-github {
-    margin-left: .8em;
+  &-link-homepage,
+  &-link-npm,
+  &-link-gitlab,
+  &-link-bitbucket,
+  &-link-github {
+    margin-left: 0.8em;
     display: block;
     float: right;
 
     a {
       display: block;
-      opacity: .5;
+      opacity: 0.5;
       text-indent: -9000px;
       height: 100%;
       background-position: center;
       background-repeat: no-repeat;
 
       &:hover {
-        opacity: .7;
+        opacity: 0.7;
       }
     }
   }
 
-  &--link-homepage a {
+  &-link-homepage a {
     background-image: url('/assets/search/ico-home.svg');
     width: 26px;
     height: 26px;
   }
 
-  &--link-npm a {
+  &-link-npm a {
     background-image: url('/assets/search/ico-npm.svg');
     width: 34px;
     height: 26px;
   }
 
-  &--link-github a {
+  &-link-github a {
     background-image: url('/assets/search/ico-github.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &-link-bitbucket a {
+    background-image: url('/assets/search/ico-bitbucket.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &-link-gitlab a {
+    background-image: url('/assets/search/ico-gitlab.svg');
     width: 26px;
     height: 26px;
   }
 }
 
 .ais-Pagination {
-  &__root {
-    margin: 2em auto;
-    @extend .pagination;
-  }
+  margin: 2em auto;
+  @extend .pagination;
 
-  &__item {
+  &-item {
     @extend .page-item;
+
+    &--selected {
+      @extend .active;
+    }
+
+    &--disabled {
+      @extend .disabled;
+      visibility: visible;
+      opacity: 0.3;
+      cursor: default;
+    }
   }
 
-  &__itemLink {
+  &-link {
     @extend .page-link;
-  }
-
-  &__itemSelected {
-    @extend .active;
-  }
-
-  &__itemDisabled {
-    @extend .disabled;
-    visibility: visible;
-    opacity: .3;
-    cursor: default;
   }
 }
 
 .ais-CurrentRefinements {
-  &__items {
-    display: inline-block;
-    margin-top: 1em;
-    font-size: .8125rem;
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0.5em;
+    font-size: 0.8125rem;
   }
 
-  &__item:not(&__itemParent) {
+  &-item {
+    margin-top: 0.5em;
+  }
+
+  &-category {
     display: inline-block;
     border: 1px solid $gray-lighter;
     border-radius: 2px;
-    margin-right: .5em;
-    padding: 0 .5em;
+    margin-right: 0.5em;
+    padding: 0 0.5em;
   }
 
-  &__itemClear {
+  &-delete {
     background: none;
     border: none;
   }
@@ -399,7 +415,7 @@ $ais-muted-color: rgba(black,.5);
       margin-bottom: 0;
     }
 
-    .ais-Hit--keywords {
+    .ais-Hit-keywords {
       margin-left: 0;
 
       a {
@@ -430,7 +446,7 @@ $ais-muted-color: rgba(black,.5);
   background: white url('/assets/search.svg') no-repeat 1rem center;
   background-size: 1rem 1rem;
 
-  &[aria-expanded=true] {
+  &[aria-expanded='true'] {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -442,8 +458,8 @@ $ais-muted-color: rgba(black,.5);
   width: 100% !important;
   background-color: white;
   border: 1px solid $yarn-blue;
-  border-bottom-right-radius: .25rem;
-  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
   border-top: none;
 }
 
@@ -462,12 +478,15 @@ $ais-muted-color: rgba(black,.5);
   color: $yarn-blue-dark;
 }
 .algolia-docsearch-suggestion--title .algolia-docsearch-suggestion--highlight,
-.algolia-docsearch-suggestion--subcategory-column .algolia-docsearch-suggestion--highlight,
-.algolia-docsearch-suggestion--subcategory-inline .algolia-docsearch-suggestion--highlight {
+.algolia-docsearch-suggestion--subcategory-column
+  .algolia-docsearch-suggestion--highlight,
+.algolia-docsearch-suggestion--subcategory-inline
+  .algolia-docsearch-suggestion--highlight {
   color: $yarn-blue-darker;
 }
 
-.algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight {
+.algolia-docsearch-suggestion--category-header
+  .algolia-docsearch-suggestion--highlight {
   background-color: $yarn-blue-darkest;
 }
 

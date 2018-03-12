@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-if (process.env.CONTEXT === 'deploy-preview') {
-  console.log('sitemap generation skipped');
-} else {
+if (process.env.CONTEXT === 'production') {
   const algoliaSitemap = require('algolia-sitemap');
   const { mkdirSync, rmdirSync, existsSync } = require('fs');
 
@@ -46,4 +44,6 @@ if (process.env.CONTEXT === 'deploy-preview') {
       console.log(e);
       process.exit(1);
     });
+} else {
+  console.log('sitemap generation skipped');
 }

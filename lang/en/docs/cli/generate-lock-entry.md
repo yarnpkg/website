@@ -8,7 +8,7 @@ layout: guide
 
 ##### `yarn generate-lock-entry` <a class="toc" id="toc-yarn-generate-lock-entry" href="#toc-yarn-generate-lock-entry"></a>
 
-*Note: This command is considered for advanced use-cases and tooling only. It generates a lock file entry given the current `package.json` manifest file.*
+_Note: This command is considered for advanced use-cases and tooling only. It generates a lock file entry given the current `package.json` manifest file._
 
 ```sh
 $ yarn generate-lock-entry

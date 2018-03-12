@@ -8,7 +8,6 @@ categories : announcements
 share_text : "Yarn Create & Yarn 1.0"
 ---
 
-
 Last year was a great time for Javascript newcomers! A lot of starter-kit projects were published, refined, and some of them eventually went on to offer command line tools dedicated to make project creation easier. One such example is [create-react-app](https://github.com/facebookincubator/create-react-app), but most frameworks have their own tools, with various flavors and syntaxes.
 
 Despite these tools, one problem remains: Users still need to know how to use their package managers before being able to start a new project. They need to know what's the difference between global packages and local packages, and how to make sure that the binaries are available from the shell, which can sometimes cause subtle issues. Further, because these globally installed tools need to be manually updated, most projects maintain a small cli wrapper that downloads the latest version of the tool itself. Fortunately, we're in a position where we can help with this to make building new applications more cohesive:
@@ -25,7 +24,7 @@ When ran, the create command will automatically install or update the requested 
 
 It is important to us to keep the feature small and extensible. Yarn should be a lightweight tool and `yarn create` is no exception: An immediate implication is that the create command is a completely agnostic tool: we make no assumption regarding what you want to create, and delegate all the behavior to the `create-*` packages! It is our hope that the community will come up with creative way to use this tool. Creating apps is but only one thing! Feel free to make packages that create tests, readmes, changelogs or anything else you want!
 
-*Note: The `create-` prefix is inserted right before the package name. So, for example, if you run yarn create `@ng/app`, it will install the `@ng/create-app` package, then run it.*
+_Note: The `create-` prefix is inserted right before the package name. So, for example, if you run yarn create `@ng/app`, it will install the `@ng/create-app` package, then run it._
 
 ### Other Improvements
 

@@ -13,9 +13,9 @@ layout: guide
 This command is a shorthand that helps you do two things at once:
 
 * Install `create-<starter-kit-package>` globally, or update the package to the
-latest version if it already exists
+  latest version if it already exists
 * Run the executable located in the `bin` field of the starter kit’s `package.json`,
-forwarding any `<args>` to it
+  forwarding any `<args>` to it
 
 For example, `yarn create react-app my-app` is equivalent to:
 

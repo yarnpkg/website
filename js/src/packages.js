@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { InstantSearch, Configure } from 'react-instantsearch/dom';
+import { InstantSearch, Configure } from 'react-instantsearch/es/dom';
 import {
   connectHits,
   connectRefinementList,
-} from 'react-instantsearch/connectors';
+} from 'react-instantsearch/es/connectors';
 import { Owner } from './lib/Hit';
 import { packageLink, Keywords } from './lib/util';
 import { algolia } from './lib/config';
@@ -15,7 +15,7 @@ const FEATURED = ['babel-core', 'react', 'async', 'lodash', 'debug', 'qs'];
 const FeaturedPackage = ({ name, owner, description, keywords }) => (
   <div className="pkg-featured-pkg">
     <Owner {...owner} />
-    <a className="ais-Hit--name" href={packageLink(name)}>
+    <a className="ais-Hit-name" href={packageLink(name)}>
       {name}
     </a>
     <p>{description}</p>
@@ -58,8 +58,9 @@ const Featured = ({ objectIDs }) => (
     <Configure
       hitsPerPage={6}
       attributesToRetrieve={['name', 'owner', 'description', 'keywords']}
+      attributesToHighlight={[]}
     />
-    <FilterByIds attributeName="objectID" defaultRefinement={objectIDs} />
+    <FilterByIds attribute="objectID" defaultRefinement={objectIDs} />
     <Hits />
   </InstantSearch>
 );

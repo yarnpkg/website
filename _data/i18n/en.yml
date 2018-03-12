@@ -119,6 +119,7 @@ docs_cli_cache: yarn cache
 docs_cli_check: yarn check
 docs_cli_config: yarn config
 docs_cli_create: yarn create
+docs_cli_dedupe: yarn dedupe
 docs_cli_generate_lock_entry: yarn generate-lock-entry
 docs_cli_global: yarn global
 docs_cli_help: yarn help
@@ -128,12 +129,14 @@ docs_cli_init: yarn init
 docs_cli_install: yarn install
 docs_cli_licenses: yarn licenses
 docs_cli_link: yarn link
+docs_cli_lockfile: yarn lockfile
 docs_cli_login: yarn login
 docs_cli_logout: yarn logout
 docs_cli_list: yarn list
 docs_cli_outdated: yarn outdated
 docs_cli_owner: yarn owner
 docs_cli_pack: yarn pack
+docs_cli_prune: yarn prune
 docs_cli_publish: yarn publish
 docs_cli_remove: yarn remove
 docs_cli_run: yarn run
@@ -245,7 +248,7 @@ users_add_requirements_logo: >
 
 install_intro: >
   Before you start using Yarn, you'll first need to install it on your system.
-  There is a growing number of different ways to install Yarn:
+  There are a growing number of different ways to install Yarn:
 install_select_platform: Select your platform above
 install_os_mac: macOS
 install_os_windows: Windows
@@ -314,9 +317,11 @@ script:
 
   downloads_in_last_30_days: '{count} downloads in the last 30 days'
   npm_page_for: 'npm page for {name}'
-  github_repo_of: 'GitHub repository of {name}'
+  repository_of: '{provider} repository of {name}'
   npm: npm
   github: GitHub
+  gitlab: GitLab
+  bitbucket: Bitbucket
   homepage: Homepage
   deprecated: deprecated
   result_stats: 'found {number_packages} packages in {time_search}ms'
@@ -336,6 +341,7 @@ script:
     try_in_runkit: Try in RunKit
     back_to_details: Back to Details
     browse_files: Browse Files
+    cdns: CDNs
     contributors: Contributors
     display_full_readme: Display full readme
     display_full_changelog: Display full changelog
@@ -347,6 +353,7 @@ script:
     changelog: changelog
     popularity: Popularity
     github_stargazers: GitHub stargazers
+    gitlab_stargazers: GitLab stargazers
     downloads_last_30_days: Downloads last 30 days
     dependents: Dependents
     usage: Usage
@@ -358,6 +365,8 @@ script:
     versions: Versions
     display_all: Display all
     hide: Hide
+    bundlesize: Size in browser
+    bundlesize_text: 'size: {size}, gzip: {gzip}'
 
     not_found:
       whoa: Whoa, {package_name} does not exist yet

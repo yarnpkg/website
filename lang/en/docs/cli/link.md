@@ -27,7 +27,7 @@ your current project. To follow the above example, in the `react-relay` project,
 you'd run `yarn link react` to use your local version of `react` that you
 previously linked.
 
-Complete Example, assuming two project folders `react` and `react-relay` next to each other:
+Complete example, assuming two project folders `react` and `react-relay` next to each other:
 
 ```sh
 $ cd react
@@ -49,4 +49,4 @@ your local copy of the `react` project.
 
 To reverse this process, simply use `yarn unlink` or `yarn unlink [package]`. Also see:
 
-- [`yarn unlink`]({{url_base}}/docs/cli/unlink): unlink a linked package.
+* [`yarn unlink`]({{url_base}}/docs/cli/unlink): unlink a linked package.

@@ -34,5 +34,5 @@ For example, if you do a `yarn publish --tag beta`, and your package is named
 
 ##### `yarn publish --access <public|restricted>` <a class="toc" id="toc-yarn-publish-access" href="#toc-yarn-publish-access"></a>
 
-The `--access` flag controls whether the npm registry publishes this package as 
+The `--access` flag controls whether the npm registry publishes this package as
 a public package, or restricted.

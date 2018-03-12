@@ -1,25 +1,16 @@
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import React from 'react';
-
 import fetch from 'unfetch';
-
 import bytes from 'bytes';
 
 const SORT_ORDER = { directory: 1, file: 2 };
 
-function getBasename(path) {
-  return path.substr(path.lastIndexOf('/') + 1);
-}
-
 export default class FileBrowser extends React.PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      expandedDirs: {
-        '/': true,
-      },
-    };
-  }
+  state = {
+    expandedDirs: {
+      '/': true,
+    },
+  };
 
   componentWillMount() {
     this._fetchFiles();
@@ -33,8 +24,17 @@ export default class FileBrowser extends React.PureComponent {
 
   _fetchFiles() {
     this.setState({ error: null, files: null });
-    const url = this._getBaseURL() + '?meta';
+    const url = this._getURLForPackageMetadata();
     fetch(url)
+      .then(response => {
+        // If status code >= 400 handle it as an error.
+        if (!response.ok) {
+          return response.json().then(body => {
+            throw body;
+          });
+        }
+        return response;
+      })
       .then(response => response.json())
       .then(
         files => this.setState({ files }),
@@ -63,6 +63,8 @@ export default class FileBrowser extends React.PureComponent {
     if (this.state.files) {
       return (
         <Directory
+          name="/"
+          path="/"
           baseURL={this._getBaseURL()}
           dir={this.state.files}
           expandedDirs={this.state.expandedDirs}
@@ -84,17 +86,24 @@ export default class FileBrowser extends React.PureComponent {
   }
 
   _getBaseURL() {
-    return `https://unpkg.com/${this.props.objectID}@${this.props.version}/`;
+    return `https://cdn.jsdelivr.net/npm/${this.props.objectID}@${
+      this.props.version
+    }`;
   }
 
-  _toggleDir = dir => {
-    const shouldBeExpanded = !this.state.expandedDirs[dir.path];
-    this.setState({
+  _getURLForPackageMetadata() {
+    return `https://data.jsdelivr.com/v1/package/npm/${this.props.objectID}@${
+      this.props.version
+    }`;
+  }
+
+  _toggleDir = path => {
+    this.setState(({ expandedDirs }) => ({
       expandedDirs: {
-        ...this.state.expandedDirs,
-        [dir.path]: shouldBeExpanded,
+        ...expandedDirs,
+        [path]: !expandedDirs[path],
       },
-    });
+    }));
   };
 
   _setBackRef = ref => {
@@ -104,15 +113,15 @@ export default class FileBrowser extends React.PureComponent {
 
 class Directory extends React.PureComponent {
   render() {
-    const dir = this.props.dir;
-    const url = this.props.baseURL + dir.path.substr(1) + '/';
-    if (dir.path === '/') {
+    const path = this.props.path;
+    const url = this.props.baseURL + path;
+    if (path === '/') {
       // Special case for root - Only render the contents, not the outer
       // wrapper.
       return this._renderDirContents();
     }
     return (
-      <li key={dir.path}>
+      <li key={path}>
         <a
           className="details-files__dirname"
           href={url}
@@ -120,7 +129,7 @@ class Directory extends React.PureComponent {
           rel="noopener noreferrer"
           onClick={this._toggleDir}
         >
-          {getBasename(dir.path)}
+          {this.props.name}
         </a>
         <CSSTransitionGroup
           transitionName="details-files"
@@ -134,7 +143,7 @@ class Directory extends React.PureComponent {
   }
 
   _renderDirContents() {
-    if (!this.props.expandedDirs[this.props.dir.path]) {
+    if (!this.props.expandedDirs[this.props.path]) {
       return null;
     }
     const files = this.props.dir.files;
@@ -145,7 +154,7 @@ class Directory extends React.PureComponent {
         return SORT_ORDER[a.type] - SORT_ORDER[b.type];
       }
       // Then sort by filename, case insensitive
-      return a.path.localeCompare(b.path, 'en', { sensitivity: 'base' });
+      return a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
     });
 
     return (
@@ -156,8 +165,10 @@ class Directory extends React.PureComponent {
               <Directory
                 baseURL={this.props.baseURL}
                 dir={file}
+                name={file.name}
+                path={this.props.path + file.name + '/'}
                 expandedDirs={this.props.expandedDirs}
-                key={file.path}
+                key={this.props.path + file.name}
                 onToggleDir={this.props.onToggleDir}
               />
             );
@@ -165,8 +176,9 @@ class Directory extends React.PureComponent {
             return (
               <File
                 file={file}
-                key={file.path}
-                url={this.props.baseURL + file.path.substr(1)}
+                name={file.name}
+                key={this.props.path + file.name}
+                url={this.props.baseURL + this.props.path + file.name}
                 size={file.size}
               />
             );
@@ -177,18 +189,15 @@ class Directory extends React.PureComponent {
   }
 
   _toggleDir = evt => {
-    this.props.onToggleDir(this.props.dir);
+    this.props.onToggleDir(this.props.path);
     evt.preventDefault();
   };
 }
 
-const File = ({ file, url, size }) => (
-  <li
-    key={file.path}
-    className="d-flex justify-items-between align-items-baseline"
-  >
+const File = ({ file, url, key, size }) => (
+  <li key={key} className="d-flex justify-items-between align-items-baseline">
     <a className="details-files__filename" href={url} target="_blank">
-      {getBasename(file.path)}
+      {file.name}
     </a>
     <small>{bytes(size)}</small>
   </li>

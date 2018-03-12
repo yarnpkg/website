@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import { Di } from './';
+import { isKnownRepositoryHost } from '../util';
 
-const Stargazers = ({ stargazers }) =>
-  stargazers >= 0 && (
+const Stargazers = ({ stargazers, repository }) => {
+  if (
+    stargazers < 0 ||
+    !repository ||
+    !isKnownRepositoryHost(repository.host)
+  ) {
+    return null;
+  }
+  const [provider] = repository.host.split('.');
+  return (
     <Di
       icon="stargazers"
-      title={window.i18n.detail.github_stargazers}
+      title={window.i18n.detail[`${provider}_stargazers`]}
       description={stargazers.toLocaleString(window.i18n.active_language)}
     />
   );
+};
 
 const Downloads = ({ downloads, humanDownloads }) =>
   downloads >= 0 &&
@@ -47,6 +57,7 @@ class Popularity extends Component {
     const {
       name,
       stargazers,
+      repository,
       downloads,
       humanDownloads,
       dependents,
@@ -58,7 +69,7 @@ class Popularity extends Component {
         <article className="details-side--popularity">
           <h1>{window.i18n.detail.popularity}</h1>
           <dl>
-            <Stargazers stargazers={stargazers} />
+            <Stargazers repository={repository} stargazers={stargazers} />
             <Downloads downloads={downloads} humanDownloads={humanDownloads} />
             <Dependents
               dependents={dependents}

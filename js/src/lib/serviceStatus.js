@@ -1,17 +1,13 @@
+import fetch from 'unfetch';
 export function checkServiceStatus() {
-  const xhr = new XMLHttpRequest();
-  xhr.open('get', 'https://status.yarnpkg.com/api/v1/status', true);
-  xhr.onload = () => {
-    try {
-      const data = JSON.parse(xhr.responseText).data;
-      if (data.status !== 'success') {
-        showStatusMessage(data.message);
+  fetch('https://status.yarnpkg.com/api/v1/status')
+    .then(res => res.json())
+    .then(({ data: { status, message } }) => {
+      if (status !== 'success') {
+        showStatusMessage(message);
       }
-    } catch (ex) {
-      console.warn('Could not fetch service status: ' + ex.message);
-    }
-  };
-  xhr.send();
+    })
+    .catch(ex => console.warn(`Could not fetch service status: ${ex.message}`));
 }
 
 export function showStatusMessage(message) {
@@ -24,8 +20,7 @@ export function showStatusMessage(message) {
     </button>
     <strong>Status:</strong>
     <span class="system-status"></span>.
-    <a href="https://status.yarnpkg.com/" class="alert-link">Read More &rarr;</a>
-    </div>`;
+    <a href="https://status.yarnpkg.com/" class="alert-link">Read More &rarr;</a>`;
 
   // Set text using textContent so it's not vulnerable to XSS
   const messageEl = alertEl.querySelector('.system-status');

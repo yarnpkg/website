@@ -1,5 +1,4 @@
 .footer {
-
 }
 
 .footer-divider {
@@ -10,7 +9,7 @@
   .footer-right {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid $gray-lighter
+    border-top: 1px solid $gray-lighter;
   }
 }
 
@@ -33,8 +32,8 @@
 
 @include media-breakpoint-up('lg') {
   .footer-item + .footer-item::before {
-    padding-left: .25em;
-    padding-right: .25em;
-    content: " · ";
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    content: ' · ';
   }
 }

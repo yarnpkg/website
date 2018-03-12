@@ -18,37 +18,37 @@ Hello everyone! Today, we're gonna write a new package manager, even better than
 
 To fully understand how things work, we're gonna go step by step, incrementally, adding or extending a single function at a time. We'll treat each of those steps as a separate chapter, and you will find an index of all chapters below this paragraph. Don't worry - they're all relatively short! Note that ES2017 features will be used all through the article - if you're unfamiliar with them, we recommend you to take a look at the great books [Explore ES6](http://exploringjs.com/es6/) and/or [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read), and [Explore ES2017](http://exploringjs.com/es2016-es2017/). Good lecture!
 
-* * *
+---
 
 * **[#](#chapter-1---bravely-download) Chapter 1 - Bravely Download**
 
-    *Or: where we download package tarballs*
+  _Or: where we download package tarballs_
 
 * **[#](#chapter-2---one-reference-to-rule-them-all) Chapter 2 - One Reference to Rule Them All**
 
-    *Or: where we resolve package ranges*
+  _Or: where we resolve package ranges_
 
 * **[#](#chapter-3---dependencies-of-our-dependencies-are-our-dependencies) Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies**
 
-    *Or: where we extract dependencies from packages*
+  _Or: where we extract dependencies from packages_
 
 * **[#](#chapter-4---super-dependency-world) Chapter 4 - Super Dependency World**
 
-    *Or: where we do the same thing, but recursively*
+  _Or: where we do the same thing, but recursively_
 
 * **[#](#chapter-5---links-awakening) Chapter 5 - Links Awakening**
 
-    *Or: where we install our dependencies on the filesystem*
+  _Or: where we install our dependencies on the filesystem_
 
 * **[#](#chapter-6---lord-of-the-optimization) Chapter 6 - Lord of the Optimization**
 
-    *Or: where we try not to install the whole world on our system*
+  _Or: where we try not to install the whole world on our system_
 
 * **[#](#conclusion---there-really-was-a-cakehttpsgithubcomyarnpkglets-dev-demo) Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)**
 
-    *Or: where we reflect on what we've learned*
+  _Or: where we reflect on what we've learned_
 
-* * *
+---
 
 ## Chapter 1 - Bravely Download
 
@@ -58,14 +58,11 @@ So, where should we start? First we have to think about what a package manager i
 import fetch from 'node-fetch';
 
 async function fetchPackage(reference) {
+  let response = await fetch(reference);
 
-    let response = await fetch(reference);
+  if (!response.ok) throw new Error(`Couldn't fetch package "${reference}"`);
 
-    if (!response.ok)
-        throw new Error(`Couldn't fetch package "${reference}"`);
-
-    return await response.buffer();
-
+  return await response.buffer();
 }
 ```
 
@@ -87,13 +84,14 @@ Oh, right, version ranges! It would be nice if we were able to just pass a versi
 ```js
 import semver from 'semver';
 
-async function fetchPackage({name, reference}) {
+async function fetchPackage({ name, reference }) {
+  if (semver.valid(reference))
+    return await fetchPackage({
+      name,
+      reference: `https://registry.yarnpkg.com/${name}/-/${name}-${reference}.tgz`,
+    });
 
-    if (semver.valid(reference))
-        return await fetchPackage({name, reference: `https://registry.yarnpkg.com/${name}/-/${name}-${reference}.tgz`});
-
-    // ... same code as before
-
+  // ... same code as before
 }
 ```
 
@@ -102,20 +100,18 @@ What do you think? If we detect that the reference is a semver version, then we 
 ```js
 import fs from 'fs-extra';
 
-async function fetchPackage({name, reference}) {
+async function fetchPackage({ name, reference }) {
+  // In a pure JS fashion, if it looks like a path, it must be a path.
+  if ([`/`, `./`, `../`].some(prefix => reference.startsWith(prefix)))
+    return await fs.readFile(reference);
 
-    // In a pure JS fashion, if it looks like a path, it must be a path.
-    if ([`/`, `./`, `../`].some(prefix => reference.startsWith(prefix)))
-        return await fs.readFile(reference);
-
-    // ... same code as before
-
+  // ... same code as before
 }
 ```
 
 What do you think? Pretty simple, right?
 
-* * *
+---
 
 ## Chapter 2 - One Reference to Rule Them All
 
@@ -124,27 +120,25 @@ Our `fetchPackage` function is great, but it has one shortcoming, and a big one:
 ```js
 import semver from 'semver';
 
-async function getPinnedReference({name, reference}) {
+async function getPinnedReference({ name, reference }) {
+  // 1.0.0 is a valid range per semver syntax, but since it's also a pinned
+  // reference, we don't actually need to process it. Less work, yeay!~
+  if (semver.validRange(reference) && !semver.valid(reference)) {
+    let response = await fetch(`https://registry.yarnpkg.com/${name}`);
+    let info = await response.json();
 
-    // 1.0.0 is a valid range per semver syntax, but since it's also a pinned
-    // reference, we don't actually need to process it. Less work, yeay!~
-    if (semver.validRange(reference) && !semver.valid(reference)) {
+    let versions = Object.keys(info.versions);
+    let maxSatisfying = semver.maxSatisfying(versions, reference);
 
-        let response = await fetch(`https://registry.yarnpkg.com/${name}`);
-        let info = await response.json();
+    if (maxSatisfying === null)
+      throw new Error(
+        `Couldn't find a version matching "${reference}" for package "${name}"`
+      );
 
-        let versions = Object.keys(info.versions);
-        let maxSatisfying = semver.maxSatisfying(versions, reference);
+    reference = maxSatisfying;
+  }
 
-        if (maxSatisfying === null)
-            throw new Error(`Couldn't find a version matching "${reference}" for package "${name}"`);
-
-        reference = maxSatisfying;
-
-    }
-
-    return {name, reference};
-
+  return { name, reference };
 }
 
 // getPinnedReference({name: "react", reference: "~15.3.0"})
@@ -163,7 +157,7 @@ Note that we don't need to do anything particular with semver versions, direct U
 
 Thanks to this function, we can now rest assured that the references we'll send to our `fetchPackage` function will always be pinned references! Another day, another great victory for us.
 
-* * *
+---
 
 ## Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies
 
@@ -175,22 +169,20 @@ In Chapter 1 we saw how to make a magic function that would download any package
 
 ```js
 // This function reads a file stored within an archive
-import {readPackageJsonFromArchive} from './utilities';
+import { readPackageJsonFromArchive } from './utilities';
 
-async function getPackageDependencies({name, reference}) {
+async function getPackageDependencies({ name, reference }) {
+  let packageBuffer = await fetchPackage({ name, reference });
+  let packageJson = JSON.parse(await readPackageJsonFromArchive(packageBuffer));
 
-    let packageBuffer = await fetchPackage({name, reference});
-    let packageJson = JSON.parse(await readPackageJsonFromArchive(packageBuffer));
+  // Some packages have no dependency field
+  let dependencies = packageJson.dependencies || {};
 
-    // Some packages have no dependency field
-    let dependencies = packageJson.dependencies || {};
-
-    // It's much easier for us to just keep using the same {name, reference}
-    // data structure across all of our code, so we convert it there.
-    return Object.keys(dependencies).map(name => {
-        return { name, reference: dependencies[name] };
-    });
-
+  // It's much easier for us to just keep using the same {name, reference}
+  // data structure across all of our code, so we convert it there.
+  return Object.keys(dependencies).map(name => {
+    return { name, reference: dependencies[name] };
+  });
 }
 
 // getPackageDependencies({name: "react", reference: "15.6.1"})
@@ -198,26 +190,30 @@ async function getPackageDependencies({name, reference}) {
 //        {name: "prop-types", reference: "^15.5.10"}]
 ```
 
-What do you think? We've even been able to use our very own `fetchPackage` implementation to get the archive from where we extract the package information! From now on, whatever package people send us, we'll be able to know what other packages it depends on. That's a good start, but we'll now have to expand this ability a bit further: instead of resolving the first level of dependencies only, we'll want to resolve *everything*. And that's what the next chapter is about!
+What do you think? We've even been able to use our very own `fetchPackage` implementation to get the archive from where we extract the package information! From now on, whatever package people send us, we'll be able to know what other packages it depends on. That's a good start, but we'll now have to expand this ability a bit further: instead of resolving the first level of dependencies only, we'll want to resolve _everything_. And that's what the next chapter is about!
 
-* * *
+---
 
 ## Chapter 4 - Super Dependency World
 
 Time we go full recursion. See, the idea is that before being able to install your packages into your `node_modules` folder, we'll first have to “install” them in memory. Why, you say? Well, proceeding this way will allow us to manipulate the tree before actually persisting it on the filesystem. Whether it's deduplication or hoisting, everything will have to be applied on this tree rather than on the actual disk (which would be really slow otherwise). But we'll cover that in another chapter! Right now, let's focus on extracting a complete dependency tree from a single root dependency. Since we've already written all the needed pieces (first the function to convert a volatile reference to a pinned reference, then the function to obtain a package dependencies), it will be quick. Let's get down to it:
 
 ```js
-async function getPackageDependencyTree({name, reference, dependencies}) {
-
-    return {name, reference, dependencies: await Promise.all(dependencies.map(async (volatileDependency) => {
-
+async function getPackageDependencyTree({ name, reference, dependencies }) {
+  return {
+    name,
+    reference,
+    dependencies: await Promise.all(
+      dependencies.map(async volatileDependency => {
         let pinnedDependency = await getPinnedReference(volatileDependency);
         let subDependencies = await getPackageDependencies(pinnedDependency);
 
-        return await getPackageDependencyTree(Object.assign({}, pinnedDependency, {dependencies: subDependencies}));
-
-    }))};
-
+        return await getPackageDependencyTree(
+          Object.assign({}, pinnedDependency, { dependencies: subDependencies })
+        );
+      })
+    ),
+  };
 }
 ```
 
@@ -226,8 +222,8 @@ This one might look hard to digest, but bear with me! We start from a single pac
 In order to use this function, we just have to read the initial dependencies from the `package.json` file located in the local working directory - everything inside is there for us to use!
 
 ```js
-import {resolve} from 'path';
-import util      from 'util';
+import { resolve } from 'path';
+import util from 'util';
 
 // We'll use the first command line argument (argv[2]) as working directory,
 // but if there's none we'll just use the directory from which we've executed
@@ -237,12 +233,14 @@ let packageJson = require(resolve(cwd, `package.json`));
 
 // Remember that because we use a different format for our dependencies than
 // a simple dictionary, we also need to convert it when reading this file
-packageJson.dependencies = Object.keys(packageJson.dependencies || {}).map(name => {
+packageJson.dependencies = Object.keys(packageJson.dependencies || {}).map(
+  name => {
     return { name, reference: packageJson.dependencies[name] };
-});
+  }
+);
 
 getPackageDependencyTree(packageJson).then(tree => {
-    console.log(util.inspect(tree, {depth: Infinity}));
+  console.log(util.inspect(tree, { depth: Infinity }));
 });
 ```
 
@@ -250,10 +248,10 @@ Now, let's test this code. Try running it inside a directory that contains the f
 
 ```json
 {
-    "name": "my-awesome-package",
-    "dependencies": {
-        "tar-stream": "*"
-    }
+  "name": "my-awesome-package",
+  "dependencies": {
+    "tar-stream": "*"
+  }
 }
 ```
 
@@ -334,40 +332,51 @@ Fortunately, the fix is fairly easy! Remember that in Node, `node_modules` direc
 
 ```js
 // Look, we've added an extra optional parameter! ---------------------------------v
-async function getPackageDependencyTree({name, reference, dependencies}, available = new Map()) {
+async function getPackageDependencyTree(
+  { name, reference, dependencies },
+  available = new Map()
+) {
+  return {
+    name,
+    reference,
+    dependencies: await Promise.all(
+      dependencies
+        .filter(volatileDependency => {
+          let availableReference = available.get(volatileDependency.name);
 
-    return {name, reference, dependencies: await Promise.all(dependencies.filter(volatileDependency => {
+          // If the volatile reference exactly matches the available reference (for
+          // example in the case of two URLs, or two file paths), it means that it
+          // is already satisfied by the package provided by its parent. In such a
+          // case, we can safely ignore this dependency!
+          if (volatileDependency.reference === availableReference) return false;
 
-        let availableReference = available.get(volatileDependency.name);
-
-        // If the volatile reference exactly matches the available reference (for
-        // example in the case of two URLs, or two file paths), it means that it
-        // is already satisfied by the package provided by its parent. In such a
-        // case, we can safely ignore this dependency!
-        if (volatileDependency.reference === availableReference)
+          // If the volatile dependency is a semver range, and if the package
+          // provided by its parent satisfies it, we can also safely ignore the
+          // dependency.
+          if (
+            semver.validRange(volatileDependency.reference) &&
+            semver.satisfies(availableReference, volatileDependency.reference)
+          )
             return false;
 
-        // If the volatile dependency is a semver range, and if the package
-        // provided by its parent satisfies it, we can also safely ignore the
-        // dependency.
-        if (semver.validRange(volatileDependency.reference)
-         && semver.satisfies(availableReference, volatileDependency.reference))
-            return false;
+          return true;
+        })
+        .map(async volatileDependency => {
+          let pinnedDependency = await getPinnedReference(volatileDependency);
+          let subDependencies = await getPackageDependencies(pinnedDependency);
 
-        return true;
+          let subAvailable = new Map(available);
+          subAvailable.set(pinnedDependency.name, pinnedDependency.reference);
 
-    }).map(async (volatileDependency) => {
-
-        let pinnedDependency = await getPinnedReference(volatileDependency);
-        let subDependencies = await getPackageDependencies(pinnedDependency);
-
-        let subAvailable = new Map(available);
-        subAvailable.set(pinnedDependency.name, pinnedDependency.reference);
-
-        return await getPackageDependencyTree(Object.assign({}, pinnedDependency, {dependencies: subDependencies}), subAvailable);
-
-    }))};
-
+          return await getPackageDependencyTree(
+            Object.assign({}, pinnedDependency, {
+              dependencies: subDependencies,
+            }),
+            subAvailable
+          );
+        })
+    ),
+  };
 }
 ```
 
@@ -394,7 +403,7 @@ If we go back to our babel-core example, it will go like this:
 
 Awesome. We now have a working algorithm to compute our full dependency tree. We're almost done, just two more mandatory steps before we reach the fun and optional parts!
 
-* * *
+---
 
 ## Chapter 5 - Links Awakening
 
@@ -402,24 +411,28 @@ In Chapter 4, we saw how to obtain a complete tree of all of our dependencies. N
 
 ```js
 // This function extracts an archive somewhere on the disk
-import {extractNpmArchiveTo} from './utilities';
+import { extractNpmArchiveTo } from './utilities';
 
-async function linkPackages({name, reference, dependencies}, cwd) {
+async function linkPackages({ name, reference, dependencies }, cwd) {
+  let dependencyTree = await getPackageDependencyTree({
+    name,
+    reference,
+    dependencies,
+  });
 
-    let dependencyTree = await getPackageDependencyTree({name, reference, dependencies});
+  // As we previously seen, the root package will be the only one containing
+  // no reference. We can simply skip its linking, since by definition it already
+  // contains the entirety of its own code :)
+  if (reference) {
+    let packageBuffer = await fetchPackage({ name, reference });
+    await extractNpmArchiveTo(packageBuffer, cwd);
+  }
 
-    // As we previously seen, the root package will be the only one containing
-    // no reference. We can simply skip its linking, since by definition it already
-    // contains the entirety of its own code :)
-    if (reference) {
-        let packageBuffer = await fetchPackage({name, reference});
-        await extractNpmArchiveTo(packageBuffer, cwd);
-    }
-
-    await Promise.all(dependencies.map(async (dependency) => {
-        await linkPackages(dependency, `${cwd}/node_modules/${dependency.name}`);
-    }));
-
+  await Promise.all(
+    dependencies.map(async dependency => {
+      await linkPackages(dependency, `${cwd}/node_modules/${dependency.name}`);
+    })
+  );
 }
 ```
 
@@ -429,35 +442,30 @@ And that's about it. This code will traverse your tree, unpack each package insi
 import fs from 'fs-extra';
 import path from 'path';
 
-async function linkPackages({name, reference, dependencies}, cwd) {
+async function linkPackages({ name, reference, dependencies }, cwd) {
+  // ... same code as before, except for the end:
 
-    // ... same code as before, except for the end:
+  await Promise.all(
+    dependencies.map(async ({ name, reference, dependencies }) => {
+      let target = `${cwd}/node_modules/${name}`;
+      let binTarget = `${cwd}/node_modules/.bin`;
 
-    await Promise.all(dependencies.map(async ({name, reference, dependencies}) => {
+      await linkPackages({ name, reference, dependencies }, target);
 
-        let target = `${cwd}/node_modules/${name}`;
-        let binTarget = `${cwd}/node_modules/.bin`;
+      let dependencyPackageJson = require(`${target}/package.json`);
+      let bin = dependencyPackageJson.bin || {};
 
-        await linkPackages({name, reference, dependencies}, target);
+      if (typeof bin === `string`) bin = { [name]: bin };
 
-        let dependencyPackageJson = require(`${target}/package.json`);
-        let bin = dependencyPackageJson.bin || {};
+      for (let binName of Object.keys(bin)) {
+        let source = resolve(target, bin[binName]);
+        let dest = `${binTarget}/${binName}`;
 
-        if (typeof bin === `string`)
-            bin = {[name]: bin};
-
-        for (let binName of Object.keys(bin)) {
-
-            let source = resolve(target, bin[binName]);
-            let dest = `${binTarget}/${binName}`;
-
-            await fs.mkdirp(`${cwd}/node_modules/.bin`);
-            await fs.symlink(relative(binTarget, source), dest);
-
-        }
-
-    }));
-
+        await fs.mkdirp(`${cwd}/node_modules/.bin`);
+        await fs.symlink(relative(binTarget, source), dest);
+      }
+    })
+  );
 }
 ```
 
@@ -469,31 +477,29 @@ import util from 'util';
 
 const exec = util.promisify(cp.exec);
 
-async function linkPackages({name, reference, dependencies}, cwd) {
+async function linkPackages({ name, reference, dependencies }, cwd) {
+  // ... same code as before except the end:
 
-    // ... same code as before except the end:
+  await Promise.all(
+    dependencies.map(async ({ name, reference, dependencies }) => {
+      // ... same code as before
 
-    await Promise.all(dependencies.map(async ({name, reference, dependencies}) => {
+      if (dependencyPackageJson.scripts) {
+        for (let scriptName of [`preinstall`, `install`, `postinstall`]) {
+          let script = dependencyPackageJson.scripts[scriptName];
 
-        // ... same code as before
+          if (!script) continue;
 
-        if (dependencyPackageJson.scripts) {
-            for (let scriptName of [`preinstall`, `install`, `postinstall`]) {
-
-                let script = dependencyPackageJson.scripts[scriptName];
-
-                if (!script)
-                    continue;
-
-                await exec(script, {cwd: target, env: Object.assign({}, process.env, {
-                    PATH: `${target}/node_modules/.bin:${process.env.PATH}`
-                })});
-
-            }
+          await exec(script, {
+            cwd: target,
+            env: Object.assign({}, process.env, {
+              PATH: `${target}/node_modules/.bin:${process.env.PATH}`,
+            }),
+          });
         }
-
-    }));
-
+      }
+    })
+  );
 }
 ```
 
@@ -503,7 +509,7 @@ async function linkPackages({name, reference, dependencies}, cwd) {
 
 Now, calling our linker function will install everything we need on the filesystem! Better yet, all build scripts will be run correctly, meaning you will end up with a working `node_modules` directory! Good job! Our next chapter will be about performances, things will now start to get really interesting.
 
-* * *
+---
 
 ## Chapter 6 - Lord of the Optimization
 
@@ -514,53 +520,53 @@ So let's go! Our job in this chapter will be to decrease the number of packages 
 Here's a possible implementation. It's not perfect, but it's a good start! Don't be scared by its length, most of this is just comments:
 
 ```js
-function optimizePackageTree({name, reference, dependencies}) {
+function optimizePackageTree({ name, reference, dependencies }) {
+  // This is a Divide & Conquer algorithm - we split the large problem into
+  // subproblems that we solve on their own, then we combine their results
+  // to find the final solution.
+  //
+  // In this particular case, we will say that our optimized tree is the result
+  // of optimizing a single depth of already-optimized dependencies (ie we first
+  // optimize each one of our dependencies independently, then we aggregate their
+  // results and optimize them all a last time).
+  dependencies = dependencies.map(dependency => {
+    return optimizePackageTree(dependency);
+  });
 
-    // This is a Divide & Conquer algorithm - we split the large problem into
-    // subproblems that we solve on their own, then we combine their results
-    // to find the final solution.
-    //
-    // In this particular case, we will say that our optimized tree is the result
-    // of optimizing a single depth of already-optimized dependencies (ie we first
-    // optimize each one of our dependencies independently, then we aggregate their
-    // results and optimize them all a last time).
-    dependencies = dependencies.map(dependency => {
-        return optimizePackageTree(dependency);
-    });
+  // Now that our dependencies have been optimized, we can start working on
+  // doing the second pass to combine their results together. We'll iterate on
+  // each one of those "hard" dependencies (called as such because they are
+  // strictly required by the package itself rather than one of its dependencies),
+  // and check if they contain any sub-dependency that we could "adopt" as our own.
+  for (let hardDependency of dependencies.slice()) {
+    for (let subDependency of hardDependency.dependencies.slice()) {
+      // First we look for a dependency we own that is called
+      // just like the sub-dependency we're iterating on.
+      let availableDependency = dependencies.find(dependency => {
+        return dependency.name === subDependency.name;
+      });
 
-    // Now that our dependencies have been optimized, we can start working on
-    // doing the second pass to combine their results together. We'll iterate on
-    // each one of those "hard" dependencies (called as such because they are
-    // strictly required by the package itself rather than one of its dependencies),
-    // and check if they contain any sub-dependency that we could "adopt" as our own.
-    for (let hardDependency of dependencies.slice()) {
-        for (let subDependency of hardDependency.dependencies.slice()) {
+      // If there's none, great! It means that there won't be any collision
+      // if we decide to adopt this one, so we can just go ahead.
+      if (!availableDependency.length) dependencies.push(subDependency);
 
-            // First we look for a dependency we own that is called
-            // just like the sub-dependency we're iterating on.
-            let availableDependency = dependencies.find(dependency => {
-                return dependency.name === subDependency.name;
-            });
-
-            // If there's none, great! It means that there won't be any collision
-            // if we decide to adopt this one, so we can just go ahead.
-            if (!availableDependency.length)
-                dependencies.push(subDependency);
-
-            // If we've adopted the sub-dependency, or if the already existing
-            // dependency has the exact same reference than the sub-dependency,
-            // then it becames useless and we can simply delete it.
-            if (!availableDependency || availableDependency.reference === subDependency.reference) {
-                hardDependency.dependencies.splice(hardDependency.dependencies.findIndex(dependency => {
-                    return dependency.name === subDependency.name;
-                }));
-            }
-
-        }
+      // If we've adopted the sub-dependency, or if the already existing
+      // dependency has the exact same reference than the sub-dependency,
+      // then it becames useless and we can simply delete it.
+      if (
+        !availableDependency ||
+        availableDependency.reference === subDependency.reference
+      ) {
+        hardDependency.dependencies.splice(
+          hardDependency.dependencies.findIndex(dependency => {
+            return dependency.name === subDependency.name;
+          })
+        );
+      }
     }
+  }
 
-    return { name, reference, dependencies };
-
+  return { name, reference, dependencies };
 }
 ```
 
@@ -572,7 +578,7 @@ And that's it. We'll just have to call this function after resolving and before 
 >
 > Solving this would require adding some fields into our resolution tree nodes that we would then use to track the nodes original locations in the tree. The linker would then be able to link the binaries directly inside its children in a post-processing pass. Unfortunately, it would also make the code much less clear, so we opted not to implement this here. Such is the tough life of package manager writers...
 
-* * *
+---
 
 ## Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)
 
@@ -588,8 +594,8 @@ Finally! After all this time, we have our tiny package manager! You can even see
 
 * We could save the tarballs in some sort of a cache, so that we wouldn't have to download them from the network multiple times. By doing this we could even install our packages offline, if our cache is sufficiently well furnished!
 
-This is only a short list, far from being exhaustive! Package managers can implement a wide range of features, and all of them can each be improved in a lot of different ways. As you can see, the future looks bright: who can tell what new features and improvements will come during the incoming years? No one can tell for sure, but what I *can* tell you is to watch this blog for the next Yarn announcement!
+This is only a short list, far from being exhaustive! Package managers can implement a wide range of features, and all of them can each be improved in a lot of different ways. As you can see, the future looks bright: who can tell what new features and improvements will come during the incoming years? No one can tell for sure, but what I _can_ tell you is to watch this blog for the next Yarn announcement!
 
-* * *
+---
 
 > I hope you've enjoyed this article as much as I've taken pleasure in writing it! If you want to discuss it, whether it's to correct some mistake or to just talk about package managers, ping me on Twitter via [@arcanis](https://twitter.com/arcanis), or on Yarn's [Discord](https://discord.gg/yarnpkg) server where the core team regularly lurks :)

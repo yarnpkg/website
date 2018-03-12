@@ -1,4 +1,3 @@
-
 ### Windows
 
 There are three options for installing Yarn on Windows.

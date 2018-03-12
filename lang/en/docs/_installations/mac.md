@@ -26,6 +26,7 @@ sudo port install yarn
 
 #### Path Setup
 
+<!-- prettier-ignore -->
 {% include_relative _installations/unix_path_setup.md %}
 
 #### Upgrade Yarn

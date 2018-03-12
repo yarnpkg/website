@@ -8,9 +8,17 @@
   window.i18n.active_language = {{ vars_active_language.tag | jsonify }};
   
   // give defaults
-  for (var key in i18n_default) {
-    if (window.i18n.hasOwnProperty(key) === false || window.i18n[key] === null) {
-      window.i18n[key] = i18n_default[key];
+  function copyDefaults(from, to) {
+    for (var key in from) {
+      if (from[key] !== null && typeof from[key] === 'object') {
+        copyDefaults(from[key], to[key] || (to[key] = {}));
+        continue;
+      }
+      if (to.hasOwnProperty(key) === false || to[key] === null) {
+        to[key] = from[key];
+      }
     }
   }
+
+  copyDefaults(i18n_default, window.i18n);
 </script>

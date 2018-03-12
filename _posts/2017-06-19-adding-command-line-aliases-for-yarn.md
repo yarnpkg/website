@@ -16,7 +16,7 @@ Let’s say you check for package distribution tags information pretty often, ar
 
 ## Bash & Zsh
 
-[Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) is the default shell on most Unix-like systems; together with [Zsh](https://en.wikipedia.org/wiki/Z_shell), they both descended from the earlier [Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell) and hence syntaxes are largely compatible. To add a simple alias in either Bash or Zsh, simply have the following line added into your `.bashrc` or `.zshrc`, respectively:
+[Bash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>) is the default shell on most Unix-like systems; together with [Zsh](https://en.wikipedia.org/wiki/Z_shell), they both descended from the earlier [Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell) and hence syntaxes are largely compatible. To add a simple alias in either Bash or Zsh, simply have the following line added into your `.bashrc` or `.zshrc`, respectively:
 
 ```sh
 alias ynf="yarn info --verbose --no-emoji"
