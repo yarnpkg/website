@@ -15,8 +15,6 @@ const images = {
 
 export const Link = ({ site, url, display, Tag = 'a' }) => (
   <Tag
-    target="_blank"
-    rel="noopener noreferrer"
     href={url}
     className={`details-links--link details-links--link__${site}`}
   >
