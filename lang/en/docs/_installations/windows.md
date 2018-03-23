@@ -15,7 +15,7 @@ If you use the installer you will first need to install
 #### Install via Chocolatey
 
 [Chocolatey](https://chocolatey.org/) is a package manager for Windows.
-Yu can install Chocolatey by following
+You can install Chocolatey by following
 [these instructions](https://chocolatey.org/install).
 
 Once you have Chocolatey installed, you may install yarn by running the
