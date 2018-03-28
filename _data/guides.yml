@@ -148,6 +148,9 @@
   - id: docs_cli_versions
     path: /docs/cli/versions
     tags: ["cli-versions"]
+  - id: docs_cli_workspace
+    path: /docs/cli/workspace
+    tags: ["cli-workspace"]
   - id: docs_cli_why
     path: /docs/cli/why
     tags: ["cli-why"]

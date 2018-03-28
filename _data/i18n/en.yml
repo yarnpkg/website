@@ -156,6 +156,7 @@ docs_cli_upgrade_interactive_description: |
   Provides an easy and interactive way to update outdated packages.
 docs_cli_version: yarn version
 docs_cli_versions: yarn versions
+docs_cli_workspace: yarn workspace
 docs_cli_why: yarn why
 
 docs_migrating_from_npm_title: Migrating from npm client
