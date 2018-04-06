@@ -87,6 +87,9 @@
   - id: docs_cli_link
     path: /docs/cli/link
     tags: ["cli-link"]
+  - id: docs_cli_list
+    path: /docs/cli/list
+    tags: ["cli-list"]
   - id: docs_cli_lockfile
     path: /docs/cli/lockfile
     tags: ["cli-lockfile"]
@@ -96,9 +99,6 @@
   - id: docs_cli_logout
     path: /docs/cli/logout
     tags: ["cli-logout"]
-  - id: docs_cli_list
-    path: /docs/cli/list
-    tags: ["cli-list"]
   - id: docs_cli_outdated
     path: /docs/cli/outdated
     tags: ["cli-outdated"]
@@ -148,12 +148,12 @@
   - id: docs_cli_versions
     path: /docs/cli/versions
     tags: ["cli-versions"]
-  - id: docs_cli_workspace
-    path: /docs/cli/workspace
-    tags: ["cli-workspace"]
   - id: docs_cli_why
     path: /docs/cli/why
     tags: ["cli-why"]
+  - id: docs_cli_workspace
+    path: /docs/cli/workspace
+    tags: ["cli-workspace"]
 
 - id: docs_migrating_from_npm
   title: docs_migrating_from_npm_title
