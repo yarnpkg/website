@@ -4,8 +4,8 @@ On Debian or Ubuntu Linux, you can install Yarn via our Debian package
 repository. You will first need to configure the repository:
 
 ```sh
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /usr/share/keyrings/yarn-keyring.asc
+echo "deb [signed-by=/usr/share/keyrings/yarn-kerying.asc] https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
 
 On Ubuntu 16.04 or below and Debian Stable, you will also need to configure [the NodeSource repository](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions) to get a new enough version of Node.js.
