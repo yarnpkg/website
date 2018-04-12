@@ -40,11 +40,14 @@ yarn run build
 yarn run watch
 ```
 
-## Using the local builds
+## Testing Your Changes Locally <a class="toc" id="toc-building" href="#toc-local-testing"></a>
 
-```sh
-alias yarn="node /path/to/yarn/lib/cli/index.js"
-```
+You can modify the following command to allow you to test your changes locally such that it doesn't override an existing installation of `yarn`.
+
+1. Navigate to the folder for yarn that you cloned from github
+1. Run `alias yarn-local="node $PWD/lib/cli/index.js"`. This will map `yarn-local` to the `index.js` file in your current working directory.
+
+You can now proceed to run `yarn watch` in one tab, and test with `yarn-local` in the other.
 
 ## Testing <a class="toc" id="toc-testing" href="#toc-testing"></a>
 
