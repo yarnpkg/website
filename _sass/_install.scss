@@ -1,0 +1,11 @@
+.install-only-stable,
+.install-only-rc,
+.install-only-nightly {
+  display: none;
+}
+
+.install-stable .install-only-stable,
+.install-rc .install-only-rc,
+.install-nightly .install-only-nightly {
+  display: inherit;
+}

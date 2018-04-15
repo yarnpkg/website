@@ -11,6 +11,7 @@ site_nav_packages: Packages
 site_nav_blog: Blog
 site_nav_stable_version: Stable
 site_nav_rc_version: Release Candidate
+site_nav_nightly_version: Nightly
 site_nav_node_support: Node
 
 site_bsd_license: Distributed under BSD License
@@ -251,9 +252,16 @@ install_intro: >
   Before you start using Yarn, you'll first need to install it on your system.
   There are a growing number of different ways to install Yarn:
 install_select_platform: Select your platform above
+install_os: Operating system
+install_version: Version
+install_os_alpine: Alpine
+install_os_arch: Arch Linux
+install_os_centos: CentOS / Fedora / RHEL
+install_os_debian: Debian / Ubuntu
 install_os_mac: macOS
+install_os_opensuse: openSUSE
+install_os_solus: Solus
 install_os_windows: Windows
-install_os_linux: Linux
 install_os_alternatives: Alternatives
 
 install_test: "Test that Yarn is installed by running:"

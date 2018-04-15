@@ -1,6 +1,6 @@
-### Windows
-
+<div class="install-only-stable" markdown="1">
 There are three options for installing Yarn on Windows.
+</div>
 
 #### Download the installer
 
@@ -10,8 +10,11 @@ Yarn on Windows.
 If you use the installer you will first need to install
 [Node.js](https://nodejs.org/).
 
-<a class="btn btn-primary" href="/latest.msi">Download Installer</a>
+<span class="install-only-stable"><a class="btn btn-primary" href="/latest.msi">Download Installer</a></span>
+<span class="install-only-rc"><a class="btn btn-primary" href="/latest-rc.msi">Download Installer (RC)</a></span>
+<span class="install-only-nightly"><a class="btn btn-primary" href="https://nightly.yarnpkg.com/latest.msi">Download Installer (Nightly)</a></span>
 
+<div class="install-only-stable" markdown="1">
 #### Install via Chocolatey
 
 [Chocolatey](https://chocolatey.org/) is a package manager for Windows.
@@ -46,6 +49,8 @@ Example:
 ```sh
 scoop install nodejs
 ```
+
+</div>
 
 #### Notice
 

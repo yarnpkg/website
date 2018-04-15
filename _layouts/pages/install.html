@@ -3,38 +3,56 @@ layout: guide
 hero_subtext: version.html
 scripts:
   - "/js/build/install.js"
+operating_systems:
+  - alpine
+  - arch
+  - centos
+  - debian
+  - mac
+  - solus
+  - windows
+  - alternatives
 ---
 
 {% include vars.html %}
 
 {{i18n.install_intro}}
 
-{% capture mac          %}{% include_relative _installations/mac.md          %}{% endcapture %}
-{% capture windows      %}{% include_relative _installations/windows.md      %}{% endcapture %}
-{% capture linux        %}{% include_relative _installations/linux.md        %}{% endcapture %}
-{% capture alternatives %}{% include_relative _installations/alternatives.md %}{% endcapture %}
-
-<div class="tabs">
-  <div class="nav nav-tabs bg-faded text-center">
-    <ul class="nav navbar-nav nav-inline">
-      <a id="mac-tab" class="nav-item nav-link" data-toggle="tab" href="#mac">{{i18n.install_os_mac}}</a>
-      <a id="windows-tab" class="nav-item nav-link" data-toggle="tab" href="#windows">{{i18n.install_os_windows}}</a> <!-- I see you Daniel. -->
-      <a id="linux-tab" class="nav-item nav-link" data-toggle="tab" href="#linux">{{i18n.install_os_linux}}</a>
-      <a id="alternatives-tab" class="nav-item nav-link text-success" data-toggle="tab" href="#alternatives">{{i18n.install_os_alternatives}}</a>
-    </ul>
-  </div>
-
-  <div class="tab-content">
-    <div id="select-platform" class="tab-pane bg-faded active">
-      <p class="text-center my-4 text-muted">
-        {{i18n.install_select_platform}}
-      </p>
+<div class="install-select-os">
+  <div class="form-group row">
+    <label for="os" class="col-3 col-form-label">{{i18n.install_os}}:</label>
+    <div class="col-6">
+      <select id="os" class="form-control">
+        {% for os in layout.operating_systems %}
+          {% capture os_i18n %}install_os_{{os}}{% endcapture %}
+          <option value="{{os}}">{{i18n[os_i18n]}}</option>
+        {% endfor %}
+      </select>
     </div>
-    <div class="tab-pane" id="mac">{{mac | markdownify}}</div>
-    <div class="tab-pane" id="windows">{{windows | markdownify}}</div>
-    <div class="tab-pane" id="linux">{{linux | markdownify}}</div>
-    <div class="tab-pane" id="alternatives">{{alternatives | markdownify}}</div>
   </div>
+
+  <div class="form-group row">
+    <label for="version" class="col-3 col-form-label">{{i18n.install_version}}:</label>
+    <div class="col-6">
+      <select id="version" class="form-control">
+        <option value="stable">{{i18n.site_nav_stable_version}} ({{site.latest_version}})</option>
+        <option value="rc">{{i18n.site_nav_rc_version}} ({{site.latest_rc_version}})</option>
+        <option id="nightly-version" value="nightly">{{i18n.site_nav_nightly_version}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div id="install-instructions">
+  <div class="install-os-instructions">Loading...</div>
+  {% for os in layout.operating_systems %}
+    {% capture info %}{% include_relative _installations/{{os}}.md %}{% endcapture %}
+    <div id="{{os}}" class="install-os-instructions" style="display: none">
+      {% capture os_i18n %}install_os_{{os}}{% endcapture %}
+      <h3>{{i18n[os_i18n]}}</h3>
+      {{info | markdownify}}
+    </div>
+  {% endfor %}
 </div>
 
 <p>
@@ -47,14 +65,6 @@ scripts:
 <div class="language-sh highlighter-rouge">
   <pre class="rougeHighlight"><code>yarn --version</code></pre>
 </div>
-
-<h3>{{i18n.docs_nightly}}</h3>
-<p>{{i18n.install_nightly_intro}}</p>
-<p>
-  <a href="{{url_base}}/docs/nightly">
-    {{i18n.install_nightly_learn_more}}
-  </a>
-</p>
 
 {% capture issueBody %}
 **Which operating system are you using:**
