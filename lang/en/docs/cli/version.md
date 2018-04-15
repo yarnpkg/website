@@ -85,6 +85,13 @@ You can even enabled or disable the git tagging behavior entirely by using
 yarn config set version-git-tag true
 ```
 
+If you would like to stop git commit hooks from running, you can disable them
+using `version-commit-hooks`:
+
+```sh
+yarn config set version-commit-hooks false
+```
+
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
 ##### `yarn version` <a class="toc" id="toc-yarn-version" href="#toc-yarn-version"></a>
@@ -96,6 +103,16 @@ version.
 
 Creates a new version specified by `<version>`.
 
+##### `yarn version --major` <a class="toc" id="toc-yarn-version-major" href="#toc-yarn-version-major"></a>
+##### `yarn version --minor` <a class="toc" id="toc-yarn-version-minor" href="#toc-yarn-version-minor"></a>
+##### `yarn version --patch` <a class="toc" id="toc-yarn-version-patch" href="#toc-yarn-version-patch"></a>
+
+Creates a new version by incrementing the major, minor, or patch number of the current version.
+
 ##### `yarn version --no-git-tag-version` <a class="toc" id="toc-yarn-version-no-git-tag-version" href="#toc-yarn-version-no-git-tag-version"></a>
 
 Creates a new version without creating a git tag.
+
+##### `yarn version --no-commit-hooks` <a class="toc" id="toc-yarn-version-no-commit-hooks" href="#toc-yarn-version-no-commit-hooks"></a>
+
+Bypasses running commit hooks when committing the new version.
