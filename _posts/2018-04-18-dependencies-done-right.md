@@ -60,7 +60,7 @@ So without further ado, this is what we should have done:
 }
 ```
 
-Of course, there is a slight inconvenience: our users will now have to add `react` to their own dependencies if they haven't done so already (). If they don't, then they'll get a warning, and we won't be able to access it.
+Of course, there is a slight inconvenience: our users will now have to add `react` to their own dependencies if they haven't done so already. If they don't, then they'll get a warning, and we won't be able to access it.
 
 Still, when talking about plugins, peer dependencies are always better! They give our users full control over which version of the core libraries they want to use (here, React), and guarantee that they will be shared consistently with any package that adds on them like our plugin. React won't get duplicated multiple times in the dependency tree anymore, decreasing the bundle size in the process and avoiding confusing `instanceof` checks that fail since objects are from different instances of React.
 
