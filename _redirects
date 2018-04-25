@@ -57,8 +57,6 @@ lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
         {% assign redirectsLang = redirectsLang | push: redirect %}
       {% endif %}
     {% endfor %}
-    {% capture redirect %}{{url}}  /lang/en/{{url}}  302  Language=en{% endcapture %}
-    {% assign redirectsBase = redirectsBase | push: redirect %}
   {% endfor %}
 
 {% capture newline %}
@@ -74,3 +72,6 @@ lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
 # renamed commands
 /:language/docs/cli/ls   /:language/docs/cli/list 301
 /:language/docs/cli/clean   /:language/docs/cli/autoclean 301
+
+# default to english
+/*  /en/:splat  302
