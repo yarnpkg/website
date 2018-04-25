@@ -57,7 +57,7 @@ lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
         {% assign redirectsLang = redirectsLang | push: redirect %}
       {% endif %}
     {% endfor %}
-    {% capture redirect %}{{url}}  /lang/en/{{url}}  302  Language=en{% endcapture %}
+    {% capture redirect %}{{url}}  /en{{url}}  302  Language=en{% endcapture %}
     {% assign redirectsBase = redirectsBase | push: redirect %}
   {% endfor %}
 
