@@ -74,4 +74,4 @@ lang/:lang/compare https://github.com/pnpm/node-package-manager-benchmark 302
 /:language/docs/cli/clean   /:language/docs/cli/autoclean 301
 
 # default to english
-/*  /en/:splat  302  Language=en
+/*  /en/:splat  302
