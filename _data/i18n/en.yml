@@ -159,6 +159,7 @@ docs_cli_version: yarn version
 docs_cli_versions: yarn versions
 docs_cli_workspace: yarn workspace
 docs_cli_why: yarn why
+docs_cli_workspaces: yarn workspaces
 
 docs_migrating_from_npm_title: Migrating from npm client
 docs_migrating_from_npm_description: |
