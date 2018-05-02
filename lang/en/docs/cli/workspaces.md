@@ -25,8 +25,7 @@ yarn workspaces info
 
 ```
 yarn workspaces vx.x.x
-{
-  "create-subscription": {
+{ "create-subscription": {
     "location": "packages/create-subscription",
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
@@ -43,7 +42,5 @@ yarn workspaces vx.x.x
     "location": "packages/react-reconciler",
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
-  },
-  ...
-}
+  }, ... }
 ```
