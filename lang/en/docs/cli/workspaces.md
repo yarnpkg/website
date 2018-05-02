@@ -15,7 +15,7 @@ To learn more about workspaces, check these links:
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
-##### `yarn workspace info <command>` <a class="toc" id="toc-yarn-workspaces-info" href="#toc-yarn-workspaces-info"></a>
+##### `yarn workspaces info` <a class="toc" id="toc-yarn-workspaces-info" href="#toc-yarn-workspaces-info"></a>
 
 This command will display the dependency tree of your current workspace.
 
