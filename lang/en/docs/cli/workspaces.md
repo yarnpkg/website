@@ -31,36 +31,7 @@ yarn workspaces vx.x.x
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
   },
-  "events": {
-    "location": "packages/events",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react-art": {
-    "location": "packages/react-art",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react-call-return": {
-    "location": "packages/react-call-return",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react-dom": {
-    "location": "packages/react-dom",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react-is": {
-    "location": "packages/react-is",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react-native-renderer": {
-    "location": "packages/react-native-renderer",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
+  ...
   "react-noop-renderer": {
     "location": "packages/react-noop-renderer",
     "workspaceDependencies": [
@@ -73,32 +44,6 @@ yarn workspaces vx.x.x
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
   },
-  "react-scheduler": {
-    "location": "packages/react-scheduler",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react-test-renderer": {
-    "location": "packages/react-test-renderer",
-    "workspaceDependencies": [
-      "react-is"
-    ],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "react": {
-    "location": "packages/react",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "shared": {
-    "location": "packages/shared",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  },
-  "simple-cache-provider": {
-    "location": "packages/simple-cache-provider",
-    "workspaceDependencies": [],
-    "mismatchedWorkspaceDependencies": []
-  }
+  ...
 }
 ```
