@@ -154,6 +154,9 @@
   - id: docs_cli_workspace
     path: /docs/cli/workspace
     tags: ["cli-workspace"]
+  - id: docs_cli_workspaces
+    path: /docs/cli/workspaces
+    tags: ["cli-workspaces"]
 
 - id: docs_migrating_from_npm
   title: docs_migrating_from_npm_title
