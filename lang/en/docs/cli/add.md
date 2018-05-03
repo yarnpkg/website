@@ -103,3 +103,13 @@ Using `--tilde` or `-T` installs the most recent release of the packages that
 have the same minor version. The default is to use the most recent release with
 the same major version. For example, `yarn add foo@1.2.3 --tilde` would accept
 `1.2.9` but not `1.3.0`.
+
+##### `yarn add <alias-package>@npm:<package>` <a class="toc" id="toc-yarn-add-alias" href="#toc-yarn-add-alias"></a>
+
+This will install a package under a custom alias. Aliasing, allows multiple 
+versions of the same dependency to be installed, each referenced via the
+_alias-package_ name given. For example, `yarn add my-foo@npm:foo` 
+will install the package `foo` (at the latest version) in your 
+[`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies)
+under the specified alias `my-foo`. Also, `yarn add my-foo@npm:foo@1.0.1` allows
+a specific version of `foo` to be installed.
