@@ -32,8 +32,8 @@ This will also ensure that you have [Node.js](https://nodejs.org/) installed.
 
 #### Install via Scoop
 
-[Scoop](http://scoop.sh) is a command-line installer for Windows, you can
-install Scoop by following
+[Scoop](http://scoop.sh) is a command-line installer for Windows.
+You can install Scoop by following
 [these instructions](https://github.com/lukesampson/scoop/wiki/Quick-Start).
 
 Once you have Scoop installed, you may install yarn by running the
