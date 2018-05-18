@@ -90,9 +90,11 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
   workspaces-experimental false
   ```
 
+* If you're only making changes to a single workspace, use [--focus](/blog/2018/05/18/focused-workspaces) to quickly install sibling dependencies from the registry rather than building all of them from scratch.
+
 ### Limitations & Caveats <a class="toc" id="toc-limitations-caveats" href="#toc-limitations-caveats"></a>
 
-* The package layout will be different between your workspace and what your users will get (the workspace dependencies will be hoisted higher into the filesystem hierarchy). Making assumptions about this layout was already hazardous since the hoisting process is not standardized, so theoretically nothing new here. If you encounter issues, try using [the `nohoist` option](https://yarnpkg.com/blog/2018/02/15/nohoist/)
+* The package layout will be different between your workspace and what your users will get (the workspace dependencies will be hoisted higher into the filesystem hierarchy). Making assumptions about this layout was already hazardous since the hoisting process is not standardized, so theoretically nothing new here. If you encounter issues, try using [the `nohoist` option](/blog/2018/02/15/nohoist/)
 
 * In the example above, if `workspace-b` depends on a different version than the one referenced in `workspace-a`'s package.json, the dependency will be installed from Github rather than linked from your local filesystem. This is because some packages actually need to use the previous versions in order to build the new ones (Babel is one of them).
 
