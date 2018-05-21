@@ -53,7 +53,7 @@ your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lo
 | **_(N/A)_**                             | `yarn add [package] --tilde`              |
 | `npm install [package] --global`        | `yarn global add [package]`               |
 | `npm update --global`                   | `yarn global upgrade`                     |
-| `npm rebuild`                           | `yarn install --force`                    |
+| `npm rebuild`                           | `yarn add --force`                        |
 | `npm uninstall [package]`               | `yarn remove [package]`                   |
 | `npm cache clean`                       | `yarn cache clean [package]`              |
 | `rm -rf node_modules && npm install`    | `yarn upgrade`                            |
