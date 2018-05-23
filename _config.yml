@@ -16,13 +16,13 @@ github_username:  yarnpkg
 #
 # Thanks!
 ###
-latest_version: 1.6.0
+latest_version: 1.7.0
 latest_rc_version: 1.7.0
 
 # Whether to show the RC version on the site. Set this to false if the latest
 # stable version is newer than the RC (ie. if an RC has not been released since
 # the most recent stable version).
-show_rc: true
+show_rc: false
 
 # The versions of node that Yarn supports
 # This is visible on the install page
