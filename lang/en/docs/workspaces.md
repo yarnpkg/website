@@ -14,7 +14,7 @@ Workspaces are a new way to setup your package architecture that's available by 
 
 * All your project dependencies will be installed together, giving Yarn more latitude to better optimize them.
 
-* Yarn will use a single lockfile rather than a different one for each project, which means less conflicts and easier reviews.
+* Yarn will use a single lockfile rather than a different one for each project, which means fewer conflicts and easier reviews.
 
 ### How to use it? <a class="toc" id="toc-how-to-use-it" href="#toc-how-to-use-it"></a>
 
