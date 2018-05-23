@@ -37,10 +37,11 @@ homepage_feature_fast_description: |
   faster than ever.
 homepage_feature_fast_image_alt: Watercolour of cat riding a rocketship
 
-homepage_feature_secure_title: Mega Secure.
+homepage_feature_secure_title: Moderately Secure.
 homepage_feature_secure_description: |
-  Yarn uses checksums to verify the integrity of every installed package
-  before its code is executed.
+  Yarn intends to use strong cryptographic checksums to verify the integrity of every
+  installed package before any further processing.
+  We are almost there. Any help is welcome to fix the remaining issues!
 homepage_feature_secure_image_alt: Watercolour of cat driving a robot suit
 
 homepage_feature_reliable_title: Super Reliable.
