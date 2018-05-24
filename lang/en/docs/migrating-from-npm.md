@@ -56,4 +56,7 @@ your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lo
 | `npm rebuild`                           | `yarn add --force`                        |
 | `npm uninstall [package]`               | `yarn remove [package]`                   |
 | `npm cache clean`                       | `yarn cache clean [package]`              |
-| `rm -rf node_modules && npm install`    | `yarn upgrade`                            |
+| `rm -rf node_modules && npm install`    | `yarn upgrade`                            |
+| `npm version major`                     | `yarn version --major`                    |
+| `npm version minor`                     | `yarn version --minor`                    |
+| `npm version patch`                     | `yarn version --patch`                    |
