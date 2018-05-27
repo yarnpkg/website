@@ -104,12 +104,21 @@ have the same minor version. The default is to use the most recent release with
 the same major version. For example, `yarn add foo@1.2.3 --tilde` would accept
 `1.2.9` but not `1.3.0`.
 
+##### `yarn add <package...> [--ignore-workspace-root-check/-W]` <a class="toc" id="toc-yarn-add-ignore-workspace-root-check-w" href="#toc-yarn-add-ignore-workspace-root-check-w"></a>
+
+Using `--ignore-workspace-root-check` or `-W` allows a package to be installed
+at the workspaces root. This tends not to be desired behaviour, as
+dependencies are generally expected to be part of a workspace. For example
+`yarn add lerna --ignore-workspace-root-check --dev` at the workspaces root
+would allow lerna to be used within the scripts of the root package.json
+
+
 ##### `yarn add <alias-package>@npm:<package>` <a class="toc" id="toc-yarn-add-alias" href="#toc-yarn-add-alias"></a>
 
-This will install a package under a custom alias. Aliasing, allows multiple 
+This will install a package under a custom alias. Aliasing, allows multiple
 versions of the same dependency to be installed, each referenced via the
-_alias-package_ name given. For example, `yarn add my-foo@npm:foo` 
-will install the package `foo` (at the latest version) in your 
+_alias-package_ name given. For example, `yarn add my-foo@npm:foo`
+will install the package `foo` (at the latest version) in your
 [`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies)
 under the specified alias `my-foo`. Also, `yarn add my-foo@npm:foo@1.0.1` allows
 a specific version of `foo` to be installed.
