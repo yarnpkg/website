@@ -37,3 +37,8 @@ sudo apt-get install --no-install-recommends yarn
 ```
 
 **Note**: Due to the use of `nodejs` instead of `node` name in some distros, `yarn` might complain about `node` not being installed, a workaround for this is to add an alias in your `.bashrc` file, like so: `alias nodejs=node`. This will point `yarn` to whatever version of `node` you decide to use.
+
+### Path Setup
+
+<!-- prettier-ignore -->
+{% include_relative _installations/unix_path_setup.md %}
