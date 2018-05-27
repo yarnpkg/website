@@ -1,4 +1,4 @@
-If you chose manual installation, the following steps will add Yarn to path variable and run it from anywhere.
+If Yarn is not found in your PATH, follow these steps to add it and allow it to be run from anywhere.
 
 Note: your profile may be in your `.profile`, `.bash_profile`, `.bashrc`, `.zshrc`, etc.
 
