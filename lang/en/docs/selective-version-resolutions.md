@@ -14,7 +14,7 @@ require manual edits in the `yarn.lock` file.
 
 * A sub-dependency of your project got an important security update and you don't want to wait for your direct-dependency to issue a minimum version update.
 
-* You are relying on an unmaintained but working package and one of its dependencies got upgraded. You know the ugprade would not break things and you also don't want to fork the package you are relying on, just to update a minor dependency.
+* You are relying on an unmaintained but working package and one of its dependencies got upgraded. You know the upgrade would not break things and you also don't want to fork the package you are relying on, just to update a minor dependency.
 
 * Your dependency defines a broad version range and your sub-dependency just got a problematic update so you want to pin it to an earlier version.
 
