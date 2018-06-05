@@ -17,16 +17,16 @@ If you have just checked out a package from [version control]({{url_base}}/docs/
 
 When developing a package, installing dependencies is most commonly done after:
 
-1. You have just checked out code for a project that needs these dependencies to function.
-1. Another developer on the project has added a new dependency that you need to pick up.
+1.  You have just checked out code for a project that needs these dependencies to function.
+1.  Another developer on the project has added a new dependency that you need to pick up.
 
 ### Installing Options <a class="toc" id="toc-installing-options" href="#toc-installing-options"></a>
 
 There are many options for installing dependencies, including:
 
-1. Installing all dependencies: `yarn` or `yarn install`
-1. Installing one and only one version of a package: `yarn install --flat`
-1. Forcing a re-download of all packages: `yarn install --force`
-1. Installing only production dependencies: `yarn install --production`
+1.  Installing all dependencies: `yarn` or `yarn install`
+1.  Installing one and only one version of a package: `yarn install --flat`
+1.  Forcing a re-download of all packages: `yarn install --force`
+1.  Installing only production dependencies: `yarn install --production`
 
 See [the full list]({{url_base}}/docs/cli/install) of flags you can pass to `yarn install`.

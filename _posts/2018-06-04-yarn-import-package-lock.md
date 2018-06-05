@@ -14,7 +14,7 @@ We are quite excited to announce that as of `1.7.0` yarn is [able to import](htt
 
 This will no doubt come as great news for developers working in mixed npm/yarn environments or wanting to try yarn out on existing projects.
 
-All you need to do is issue the `yarn import` command in a repository with a `package-lock.json` file, and yarn will use the resolution information from the existing `package-lock.json` file and a corresponding `yarn.lock` file will be created*.
+All you need to do is issue the `yarn import` command in a repository with a `package-lock.json` file, and yarn will use the resolution information from the existing `package-lock.json` file and a corresponding `yarn.lock` file will be created.
 
 This feature is one of the first fruits of a continuing collaboration between the maintainers of the two package managers. We feel strongly about the two tools being aware of each other and providing an easy transition path between them. If you are interested or want to help, head over to [the related GitHub issue](https://github.com/yarnpkg/yarn/issues/5654).
 
@@ -30,7 +30,6 @@ The resulting `yarn.lock` will have all the exact fixed versions specified in `p
 The two lockfile formats and contents are different. Each have their own priorities, [guarantees and trade-offs in terms of determinism, consistency and more](https://yarnpkg.com/blog/2017/05/31/determinism/). Since `yarn.lock` chooses only to store the logical dependency tree, preferring to future-proof for potential physical tree and hoisting optimizations, there are certain nuances that `package-lock.json` expresses that `yarn.lock` cannot.
 
 One example would be:
-
 
     // package-lock.json (slightly simplified for clarity)
     {
@@ -63,7 +62,6 @@ Here, we have both packages `a` and `b` which require the same semver range of p
 
 This would be imported to yarn as:
 
-
     // yarn.lock (slightly simplified for clarity)
     a@9.9.9
       version "9.9.9"
@@ -84,5 +82,4 @@ Here `b`'s dependency `c` would change its locked version from `1.0.1` to `1.0.5
 
 Currently, we’re planning to add some warnings to users who use both `yarn` and `npm` in the same repository to install packages. If there’s a need, we might also try to expand this feature to other lock file formats. If you’d like to point out other issues of interoperability, or try your hand at fixing them - we encourage you to [file an issue](https://github.com/yarnpkg/yarn/issues/new) or better, [fix one](https://github.com/yarnpkg/yarn/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+label%3Ahigh-priority) by sending a PR.
 
-
-*We highly recommend you to delete the `package-lock.json` file if you decide to use yarn in order to avoid future confusion and possible consistency issues.
+_We highly recommend you to delete the `package-lock.json` file if you decide to use yarn in order to avoid future confusion and possible consistency issues_.

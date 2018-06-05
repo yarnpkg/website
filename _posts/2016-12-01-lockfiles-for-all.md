@@ -14,9 +14,9 @@ you want to be sure that you're executing the same code across every system.
 
 Yarn maintains consistency across machines in two key ways:
 
-* Yarn uses a deterministic algorithm that builds up the entire dependency tree
+- Yarn uses a deterministic algorithm that builds up the entire dependency tree
   before placing files where they need to be.
-* Important info from the install process is stored in the `yarn.lock` lockfile
+- Important info from the install process is stored in the `yarn.lock` lockfile
   so that it can be shared between every system installing the dependencies.
 
 This lockfile contains information about the exact versions of every single
@@ -34,10 +34,10 @@ system designed around "breaking" or "non-breaking" changes.
 
 When you have a version such as `v1.2.3`, it's broken into three parts:
 
-* **Major (1.x.x)** – _Changes that may cause user code to break_
-* **Minor (x.2.x)** – _Changes that add new features (but should not break user
+- **Major (1.x.x)** – _Changes that may cause user code to break_
+- **Minor (x.2.x)** – _Changes that add new features (but should not break user
   code)_
-* **Patch (x.x.3)** – _Changes that are fixing bugs in previous versions (but
+- **Patch (x.x.3)** – _Changes that are fixing bugs in previous versions (but
   do not add new features and should not break user code)_
 
 When a package publishes a new version, the author bumps major, minor, or patch
@@ -73,9 +73,9 @@ you do not want that code to end up running without you knowing about it.
 
 There are two primary types of projects that use Yarn:
 
-* **Libraries** – _Projects that get published as packages to the registry and
+- **Libraries** – _Projects that get published as packages to the registry and
   installed by users. (i.e. React or Babel)_
-* **Applications** – _Projects that only consume other packages, typically
+- **Applications** – _Projects that only consume other packages, typically
   building some kind of product. (i.e. Your company's app)_
 
 For applications, most developers agree that lockfiles are A Good Idea™.
@@ -88,9 +88,9 @@ within your dependencies will be ignored.
 
 It is important that Yarn behaves this way for two reasons:
 
-* You would never be able to update the versions of sub-dependencies because
+- You would never be able to update the versions of sub-dependencies because
   they would be locked by other `yarn.lock` files.
-* Yarn would never be able to fold (de-duplicate) dependencies so that
+- Yarn would never be able to fold (de-duplicate) dependencies so that
   compatible version ranges only install a single version.
 
 Some have wondered why libraries should use lockfiles at all if they do not and
@@ -106,9 +106,9 @@ So far we've been talking about dependencies as if there were only one type of
 dependency when in fact there are several different types. These are broken
 down into two categories:
 
-* **Runtime** – _Dependencies that are used by the project's code and needed
+- **Runtime** – _Dependencies that are used by the project's code and needed
   when the code is run._
-* **Development** – _Dependencies that are only needed to work directly on the
+- **Development** – _Dependencies that are only needed to work directly on the
   project_
 
 When a library is installed by a user, only the runtime dependencies are
@@ -149,15 +149,15 @@ Remember, Babel is a really huge project with tens of thousands of users and
 dozens of contributors. Let's try and figure out who will catch the padding
 fiasco first.
 
-* Looking at build history, Babel was installed in CI (with the `left-pad`
+- Looking at build history, Babel was installed in CI (with the `left-pad`
   dependency) exactly **103 times** in the last 30 days.
-* Looking at statistics from the registry, Babel was installed (with
+- Looking at statistics from the registry, Babel was installed (with
   `left-pad`) by users over **5.5 Million times** in the same 30 days.
 
 To put that in a different measurement:
 
-* Contributors install Babel on average **every 7 hours**
-* Users install Babel about on average **every 0.5 seconds**
+- Contributors install Babel on average **every 7 hours**
+- Users install Babel about on average **every 0.5 seconds**
 
 When the `left-pad` incident happened, users discovered it almost immediately.
 Notifying the Babel contributors via GitHub issues, tweets, Facebook messages,

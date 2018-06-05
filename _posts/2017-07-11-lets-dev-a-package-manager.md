@@ -20,31 +20,31 @@ To fully understand how things work, we're gonna go step by step, incrementally,
 
 ---
 
-* **[#](#chapter-1---bravely-download) Chapter 1 - Bravely Download**
+- **[#](#chapter-1---bravely-download) Chapter 1 - Bravely Download**
 
   _Or: where we download package tarballs_
 
-* **[#](#chapter-2---one-reference-to-rule-them-all) Chapter 2 - One Reference to Rule Them All**
+- **[#](#chapter-2---one-reference-to-rule-them-all) Chapter 2 - One Reference to Rule Them All**
 
   _Or: where we resolve package ranges_
 
-* **[#](#chapter-3---dependencies-of-our-dependencies-are-our-dependencies) Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies**
+- **[#](#chapter-3---dependencies-of-our-dependencies-are-our-dependencies) Chapter 3 - Dependencies of Our Dependencies Are Our Dependencies**
 
   _Or: where we extract dependencies from packages_
 
-* **[#](#chapter-4---super-dependency-world) Chapter 4 - Super Dependency World**
+- **[#](#chapter-4---super-dependency-world) Chapter 4 - Super Dependency World**
 
   _Or: where we do the same thing, but recursively_
 
-* **[#](#chapter-5---links-awakening) Chapter 5 - Links Awakening**
+- **[#](#chapter-5---links-awakening) Chapter 5 - Links Awakening**
 
   _Or: where we install our dependencies on the filesystem_
 
-* **[#](#chapter-6---lord-of-the-optimization) Chapter 6 - Lord of the Optimization**
+- **[#](#chapter-6---lord-of-the-optimization) Chapter 6 - Lord of the Optimization**
 
   _Or: where we try not to install the whole world on our system_
 
-* **[#](#conclusion---there-really-was-a-cakehttpsgithubcomyarnpkglets-dev-demo) Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)**
+- **[#](#conclusion---there-really-was-a-cakehttpsgithubcomyarnpkglets-dev-demo) Conclusion - There Really Was a [Cake](https://github.com/yarnpkg/lets-dev-demo)**
 
   _Or: where we reflect on what we've learned_
 
@@ -584,15 +584,15 @@ And that's it. We'll just have to call this function after resolving and before 
 
 Finally! After all this time, we have our tiny package manager! You can even see its full code on [this repository](https://github.com/yarnpkg/lets-dev-demo) - you can try it, it really works! It is admittedly pretty basic, kind of slow, and without much features, but we love it nevertheless and that's all that matters. And because it's young, there is still room for a lot of evolutions and improvements:
 
-* We could implement a powerful CLI that would be similar to Yarn! With progress bars, and emojis, and all those fancy things! In fact, the demo already has progress bars, so that's a good start!
+- We could implement a powerful CLI that would be similar to Yarn! With progress bars, and emojis, and all those fancy things! In fact, the demo already has progress bars, so that's a good start!
 
-* We could split our functions into modules! Our package manager would then be a simple CLI, and our fetchers / resolvers / linkers would be loaded from a configuration file. Want to link everything using symlinks or hardlinks instead of copying files? Just use another linker than the default one! Want to add support for extra fetchers? Add them to your config files and be done with it! In fact, we even [started experimenting with something similar in Yarn](https://github.com/yarnpkg/yarn/pull/3501).
+- We could split our functions into modules! Our package manager would then be a simple CLI, and our fetchers / resolvers / linkers would be loaded from a configuration file. Want to link everything using symlinks or hardlinks instead of copying files? Just use another linker than the default one! Want to add support for extra fetchers? Add them to your config files and be done with it! In fact, we even [started experimenting with something similar in Yarn](https://github.com/yarnpkg/yarn/pull/3501).
 
-* We could also improve our optimizer so that it would actually work in every case! ;) And assuming a plugin architecture like the one we talked about in the previous bullet point, we could even implement different optimization strategies — from the `[--flat](https://yarnpkg.com/lang/en/docs/cli/install/#toc-yarn-install-flat)` option to ensure that we wouldn't use multiple versions of any single package, up to the more esoteric ones that would use more complex algorithms, such as [SAT solvers](https://github.com/yarnpkg/yarn/issues/422) — and all the while without any risk of hurting the package manager core experience!
+- We could also improve our optimizer so that it would actually work in every case! ;) And assuming a plugin architecture like the one we talked about in the previous bullet point, we could even implement different optimization strategies — from the `[--flat](https://yarnpkg.com/lang/en/docs/cli/install/#toc-yarn-install-flat)` option to ensure that we wouldn't use multiple versions of any single package, up to the more esoteric ones that would use more complex algorithms, such as [SAT solvers](https://github.com/yarnpkg/yarn/issues/422) — and all the while without any risk of hurting the package manager core experience!
 
-* We could persist our resolution tree to a file on the disk, which we would call `yarn.lock`, and each time we would need to process a package from within our `getPinnedReference` and `getPackageDependencies` functions, we would instead extract that information from the file instead of over the network! (In case you're wondering, that's exactly how both Yarn's `yarn.lock` and NPM@5's `package-lock.json` files work)
+- We could persist our resolution tree to a file on the disk, which we would call `yarn.lock`, and each time we would need to process a package from within our `getPinnedReference` and `getPackageDependencies` functions, we would instead extract that information from the file instead of over the network! (In case you're wondering, that's exactly how both Yarn's `yarn.lock` and NPM@5's `package-lock.json` files work)
 
-* We could save the tarballs in some sort of a cache, so that we wouldn't have to download them from the network multiple times. By doing this we could even install our packages offline, if our cache is sufficiently well furnished!
+- We could save the tarballs in some sort of a cache, so that we wouldn't have to download them from the network multiple times. By doing this we could even install our packages offline, if our cache is sufficiently well furnished!
 
 This is only a short list, far from being exhaustive! Package managers can implement a wide range of features, and all of them can each be improved in a lot of different ways. As you can see, the future looks bright: who can tell what new features and improvements will come during the incoming years? No one can tell for sure, but what I _can_ tell you is to watch this blog for the next Yarn announcement!
 

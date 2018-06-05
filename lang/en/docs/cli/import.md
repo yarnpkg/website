@@ -26,10 +26,11 @@ and others present a significant barrier to manual migration.
 
 `yarn import` aims to alleviate this challenge by generating a `yarn.lock` file
 in one of two ways:
-1. Using the dependency tree in an existing `package-lock.json` file created by
- `npm install`
-2. If no such file exists, using the versions found inside `node_modules` according
- to normal `require.resolve()` resolution rules.
+
+1.  Using the dependency tree in an existing `package-lock.json` file created by
+    `npm install`
+2.  If no such file exists, using the versions found inside `node_modules` according
+    to normal `require.resolve()` resolution rules.
 
 In cases where the Yarn resolution mechanism can’t satisfy the existing dependency
 tree identically, alerts will be made so that you may manually review the changes.

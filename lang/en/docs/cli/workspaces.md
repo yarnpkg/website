@@ -10,8 +10,8 @@ layout: guide
 
 To learn more about workspaces, check these links:
 
-* [Workspaces in Yarn]({{url_base}}/blog/2017/08/02/introducing-workspaces)
-* [Workspaces]({{url_base}}/docs/workspaces)
+- [Workspaces in Yarn]({{url_base}}/blog/2017/08/02/introducing-workspaces)
+- [Workspaces]({{url_base}}/docs/workspaces)
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 

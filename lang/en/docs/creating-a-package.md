@@ -69,19 +69,19 @@ Now you should have a `package.json` that looks similar to this:
 
 The fields you see in the `package.json` have the following meanings:
 
-* **name** is the identifier of your package, if you are going to publish it to
+- **name** is the identifier of your package, if you are going to publish it to
   the global registry, you need to be sure that it is unique.
-* **version** is the semver-compatible version of your package, you can publish
+- **version** is the semver-compatible version of your package, you can publish
   a package as much as you want but they must have new versions.
-* **description** is an optional but recommended field that gets used by other
+- **description** is an optional but recommended field that gets used by other
   Yarn users to search for and understand your project.
-* **main** is used to define the entry point of your code used by programs like
+- **main** is used to define the entry point of your code used by programs like
   Node.js. If unspecified it will default to `index.js`.
-* **repository** is another optional but recommended field that helps users of
+- **repository** is another optional but recommended field that helps users of
   your package find the source code to contribute back.
-* **author** is the creator or maintainer of a package. It follows the format
+- **author** is the creator or maintainer of a package. It follows the format
   `"Your Name <you@example.com> (http://your-website.com)"`
-* **license** is the published legal terms of your package and what is the
+- **license** is the published legal terms of your package and what is the
   allowed usage of the code in your package.
 
 When you run `yarn init`, all it is doing is creating this file, nothing
@@ -110,18 +110,18 @@ Let's go through some additional `package.json` fields you might want to add.
 }
 ```
 
-* **keywords** is a list of terms that other developers can search for to find
+- **keywords** is a list of terms that other developers can search for to find
   your package or related packages.
-* **homepage** is a url to point users to a website that informs them on the
+- **homepage** is a url to point users to a website that informs them on the
   package with an introduction, documentations, and links to additional
   resources.
-* **bugs** is a url to point users of your package to if they discover an issue
+- **bugs** is a url to point users of your package to if they discover an issue
   with your package.
-* **contributors** is a list of contributors to the package. If there are other
+- **contributors** is a list of contributors to the package. If there are other
   people involved in your project, you can specify them here.
-* **files** is a list of files that should be included in your package when
+- **files** is a list of files that should be included in your package when
   published and installed. If unspecified Yarn will include every file.
-* **bin** is a mapping of cli commands (binaries) for Yarn to create for the
+- **bin** is a mapping of cli commands (binaries) for Yarn to create for the
   package when installing it.
 
 For a complete list of all the `package.json` fields and more details about
@@ -138,9 +138,9 @@ In order for code to be open source it needs to have an open source license.
 There are many open source licenses to choose from, here are a couple of common
 ones:
 
-* [MIT License](http://choosealicense.com/licenses/mit/)
-* [Apache License 2.0](http://choosealicense.com/licenses/apache-2.0/)
-* [GNU General Public License 3.0](http://choosealicense.com/licenses/gpl-3.0/)
+- [MIT License](http://choosealicense.com/licenses/mit/)
+- [Apache License 2.0](http://choosealicense.com/licenses/apache-2.0/)
+- [GNU General Public License 3.0](http://choosealicense.com/licenses/gpl-3.0/)
 
 If you want more options, you can get
 [a more complete list here](http://choosealicense.com/licenses/).
@@ -159,9 +159,9 @@ You will likely want to allow users of your package to be able to access your
 source code and have a way to report issues. There are a couple of popular
 websites for hosting your code:
 
-* [GitHub](https://github.com)
-* [GitLab](https://about.gitlab.com/)
-* [Bitbucket](https://bitbucket.org/)
+- [GitHub](https://github.com)
+- [GitLab](https://about.gitlab.com/)
+- [Bitbucket](https://bitbucket.org/)
 
 These sites will allow your users to see your code, report issues, and
 contribute back. Once you have your code up somewhere you should add the

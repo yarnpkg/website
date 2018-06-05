@@ -13,9 +13,9 @@ a package. A single package can have as many owners as you want.
 
 Owners have permission to do the following tasks:
 
-1. Publish new versions of the package
-2. Add or remove other owners of the package
-3. Change metadata for a package
+1.  Publish new versions of the package
+2.  Add or remove other owners of the package
+3.  Change metadata for a package
 
 ### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
 

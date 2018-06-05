@@ -24,8 +24,8 @@ Lerna is a tool that optimizes the workflow around managing multi-package reposi
 
 Being a wrapper of a package manager, Lerna can't manipulate the contents of node_modules efficiently:
 
-* Lerna calls `yarn install` multiple times for each package which creates overhead because each `package.json` is considered independent and they can't share dependencies with each other. This causes a lot of duplication for each node_modules folder which quite often use the same third-party packages.
-* Lerna manually creates links between packages that refer each other after installation has finished. This introduces inconsistency inside node_modules that a package manager may not be aware of, so running `yarn install` from within a package may break the meta structure that Lerna manages.
+- Lerna calls `yarn install` multiple times for each package which creates overhead because each `package.json` is considered independent and they can't share dependencies with each other. This causes a lot of duplication for each node_modules folder which quite often use the same third-party packages.
+- Lerna manually creates links between packages that refer each other after installation has finished. This introduces inconsistency inside node_modules that a package manager may not be aware of, so running `yarn install` from within a package may break the meta structure that Lerna manages.
 
 Issues such as these convinced us, as package manager developers, that we should support multi-package repositories directly in Yarn. **Starting with [Yarn 0.28,](https://yarnpkg.com/en/docs/install) we're excited to share that we support such repositories under the Workspaces feature**.
 
@@ -81,7 +81,7 @@ The following example is a simplified root `package.json` that enables Workspace
 
 To keep things simple I'll describe two small Workspaces packages:
 
-1. jest-matcher-utils Workspace:
+1.  jest-matcher-utils Workspace:
 
     ```
     {
@@ -98,7 +98,7 @@ To keep things simple I'll describe two small Workspaces packages:
     }
     ```
 
-2. jest-diff Workspace that depends on jest-matcher-utils:
+2.  jest-diff Workspace that depends on jest-matcher-utils:
 
     ```
     {
@@ -173,10 +173,10 @@ For avid Lerna users this is similar to bootstrapping code via the `--hoist` fla
 
 If you run code inside the `jest-diff` Workspace, it will be able to resolve all its dependencies:
 
-* require('chalk') resolves to `./node_modules/chalk`
-* require('diff') resolves to `../../node_modules/diff`
-* require('pretty-format') resolves to `../../node_modules/pretty-format`
-* require('jest-matcher-utils') resolves to `../../node_modules/jest-matcher-utils` that is a symlink to `../packages/jest-matcher-utils`
+- require('chalk') resolves to `./node_modules/chalk`
+- require('diff') resolves to `../../node_modules/diff`
+- require('pretty-format') resolves to `../../node_modules/pretty-format`
+- require('jest-matcher-utils') resolves to `../../node_modules/jest-matcher-utils` that is a symlink to `../packages/jest-matcher-utils`
 
 ## Managing dependencies of Workspaces
 

@@ -104,7 +104,9 @@ version.
 Creates a new version specified by `<version>`.
 
 ##### `yarn version --major` <a class="toc" id="toc-yarn-version-major" href="#toc-yarn-version-major"></a>
+
 ##### `yarn version --minor` <a class="toc" id="toc-yarn-version-minor" href="#toc-yarn-version-minor"></a>
+
 ##### `yarn version --patch` <a class="toc" id="toc-yarn-version-patch" href="#toc-yarn-version-patch"></a>
 
 Creates a new version by incrementing the major, minor, or patch number of the current version.
