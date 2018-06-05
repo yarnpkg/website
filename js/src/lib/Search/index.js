@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Configure, InstantSearch } from 'react-instantsearch/es/dom';
-import { connectRefinementList } from 'react-instantsearch/es/connectors';
+import {
+  Configure,
+  InstantSearch,
+  connectRefinementList,
+} from 'react-instantsearch-dom';
 
 import SearchBox from './SearchBox';
 import Results from './Results';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SearchBox } from 'react-instantsearch/es/dom';
+import { SearchBox } from 'react-instantsearch-dom';
 
 class WrappedSearchBox extends Component {
   state = { active: false };
