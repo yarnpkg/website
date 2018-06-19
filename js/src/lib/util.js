@@ -3,7 +3,7 @@ import fetch from 'unfetch';
 import marked from 'marked';
 import xss from 'xss';
 import unescape from 'unescape-html';
-import { HIGHLIGHT_TAGS, connectHighlight } from 'react-instantsearch-core';
+import { HIGHLIGHT_TAGS, connectHighlight } from 'react-instantsearch-dom';
 
 export const isEmpty = item => typeof item === 'undefined' || item.length < 1;
 
