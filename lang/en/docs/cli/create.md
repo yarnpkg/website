@@ -6,7 +6,7 @@ layout: guide
 
 {% include vars.html %}
 
-<p class="lead">Creates new projects from any `create-*` starter kits.</p>
+<p class="lead">Creates new projects from any <code>create-*</code> starter kits.</p>
 
 ##### `yarn create <starter-kit-package> [<args>]` <a class="toc" id="toc-yarn-create" href="#toc-yarn-create"></a>
 
