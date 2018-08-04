@@ -6,8 +6,8 @@ layout: guide
 
 {% include vars.html %}
 
-<p class="lead">Generates `yarn.lock` from an npm `package-lock.json` file in the
-same location or an existing npm-installed `node_modules` folder.</p>
+<p class="lead">Generates <code>yarn.lock</code> from an npm <code>package-lock.json</code> file in the
+same location or an existing npm-installed <code>node_modules</code> folder.</p>
 
 ##### `yarn import` <a class="toc" id="toc-yarn-import" href="#toc-yarn-import"></a>
 
