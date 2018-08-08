@@ -44,3 +44,19 @@ yarn workspaces vx.x.x
     "mismatchedWorkspaceDependencies": []
   }, ... }
 ```
+
+##### `yarn workspaces run <command>` <a class="toc" id="toc-yarn-workspaces-run" href="#toc-yarn-workspaces-run"></a>
+
+This will run the chosen Yarn command in each workspace.
+
+```sh
+yarn workspaces run test
+```
+
+This will invoke the test script for each workspace.
+
+This will also pass forward flags and can be useful for CI processes.
+
+```sh
+yarn workspaces run test --ci
+```
