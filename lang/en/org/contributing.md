@@ -30,14 +30,24 @@ Here are a few quick links to get you started:
 
 If you would like to start triaging issues, one easy way to get started is to [subscribe to yarn on CodeTriage](https://www.codetriage.com/yarnpkg/yarn).
 
+## Setup <a class="toc" id="toc-setup" href="#toc-setup"></a>
+
+1. Ensure Node.js 4+ and a non-development version of Yarn are installed.
+1. Git clone the [Yarn repository](https://github.com/yarnpkg/yarn).
+1. From the root of the repository, run `yarn` to install the dependencies required for development.
+
 ## Building <a class="toc" id="toc-building" href="#toc-building"></a>
 
-```sh
-yarn run build
-```
+Perform a one-off build using:
 
 ```sh
-yarn run watch
+yarn build
+```
+
+Or to automatically rebuild as changes are made, use:
+
+```sh
+yarn watch
 ```
 
 ## Testing Your Changes Locally <a class="toc" id="toc-local-testing" href="#toc-local-testing"></a>
@@ -51,12 +61,22 @@ You can now proceed to run `yarn watch` in one tab, and test with `yarn-local` i
 
 ## Testing <a class="toc" id="toc-testing" href="#toc-testing"></a>
 
+First follow the building instructions above.
+
+Then to run both the linters and tests, use:
+
 ```sh
-yarn run test
+yarn test
+```
+
+Or to run them separately, use:
+
+```sh
+yarn lint
 ```
 
 ```sh
-yarn run lint
+yarn test-only
 ```
 
 ## Pull Requests <a class="toc" id="toc-pull-requests" href="#toc-pull-requests"></a>
