@@ -80,7 +80,7 @@ The fields you see in the `package.json` have the following meanings:
 - **repository** is another optional but recommended field that helps users of
   your package find the source code to contribute back.
 - **author** is the creator or maintainer of a package. It follows the format
-  `"Your Name <you@example.com> (http://your-website.com)"`
+  `"Your Name <you@example.com> (https://your-website.com)"`
 - **license** is the published legal terms of your package and what is the
   allowed usage of the code in your package.
 
@@ -100,7 +100,7 @@ Let's go through some additional `package.json` fields you might want to add.
   "homepage": "https://my-new-project-website.com",
   "bugs": "https://github.com/you/my-new-project/issues",
   "contributors": [
-    "Your Friend <their-email@example.com> (http://their-website.com)",
+    "Your Friend <their-email@example.com> (https://their-website.com)",
     "Another Friend <another-email@example.com> (https://another-website.org)"
   ],
   "files": ["index.js", "lib/*.js", "bin/*.js"],
@@ -138,12 +138,12 @@ In order for code to be open source it needs to have an open source license.
 There are many open source licenses to choose from, here are a couple of common
 ones:
 
-- [MIT License](http://choosealicense.com/licenses/mit/)
-- [Apache License 2.0](http://choosealicense.com/licenses/apache-2.0/)
-- [GNU General Public License 3.0](http://choosealicense.com/licenses/gpl-3.0/)
+- [MIT License](https://choosealicense.com/licenses/mit/)
+- [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
+- [GNU General Public License 3.0](https://choosealicense.com/licenses/gpl-3.0/)
 
 If you want more options, you can get
-[a more complete list here](http://choosealicense.com/licenses/).
+[a more complete list here](https://choosealicense.com/licenses/).
 
 When you select an open source license for your package, be sure to add a
 `LICENSE` file in the root of your package with the license text and update
