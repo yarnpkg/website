@@ -54,9 +54,9 @@ const Dependents = ({ dependents, humanDependents, name }) =>
 
 const formatHits = (hits) => {
   if (hits >= 1e9) {
-    return (Math.round(hits / 1e7) / 100) + "B";
+    return (Math.round(hits / 1e7) / 100) + "b";
   } else if (hits >= 1e6) {
-    return (Math.round(hits / 1e4) / 100) + "M";
+    return (Math.round(hits / 1e4) / 100) + "m";
   } else if (hits >= 1000) {
     return (Math.round(hits / 10) / 100) + "k";
   }
