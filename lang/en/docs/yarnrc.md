@@ -60,6 +60,14 @@ Controls the number of child processes run parallely to build node modules.
 
 Setting this number to 1 will cause the node modules to be built sequentially which can avoid linker errors on windows with node-gyp.
 
+### `unsafe-disable-integrity-migration` <a class="toc" id="toc-unsafe-disable-integrity-migration" href="#toc-unsafe-disable-integrity-migration"></a>
+
+```shell
+unsafe-disable-integrity-migration false
+```
+Setting this to `false` will enable the `yarn.lock` checksum migration (enabling sha512 support). Causes lockfile format change.
+This will be the default starting from version `2.0`.
+
 ### CLI arguments <a class="toc" id="toc-cli-arguments" href="#toc-cli-arguments"></a>
 
 Setting `--<command>.<flag> <value>` in .yarnrc would be the same as running `yarn <command> --<flag> <value>`.
