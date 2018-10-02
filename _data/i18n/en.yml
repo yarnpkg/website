@@ -365,6 +365,7 @@ script:
     github_stargazers: GitHub stargazers
     gitlab_stargazers: GitLab stargazers
     downloads_last_30_days: Downloads last 30 days
+    jsdelivr_hits: JsDelivr hits
     dependents: Dependents
     usage: Usage
     dependencies: Dependencies

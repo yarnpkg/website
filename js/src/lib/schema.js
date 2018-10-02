@@ -9,6 +9,7 @@ export default {
   description: '…',
   downloadsLast30Days: 0,
   downloadsRatio: 0,
+  jsDelivrHits: 0,
   github: {
     stargazers_count: 0,
   },
