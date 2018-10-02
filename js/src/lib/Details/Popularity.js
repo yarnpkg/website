@@ -65,7 +65,7 @@ const formatHits = (hits) => {
 };
 
 const JsDelivrHits = ({jsDelivrHits}) => (<Di
-  icon="dependents"
+  icon="downloads"
   title={window.i18n.detail.jsdelivr_hits}
   description={
     <span title={jsDelivrHits.toLocaleString(window.i18n.active_language)}>
