@@ -18,7 +18,10 @@ more information, see
 
 Running `yarn` with no command will run `yarn install`, passing through any provided flags.
 
-If you need reproducible dependencies, which is usually the case with the continuous integration systems, you should pass `--frozen-lockfile` flag.
+If you need reproducible dependencies—which is usually the case with Continuous
+Integration systems—you should pass the `--frozen-lockfile` flag ([see
+below](#toc-yarn-install-frozen-lockfile)).
+
 
 ##### `yarn install` <a class="toc" id="toc-yarn-install" href="#toc-yarn-install"></a>
 
@@ -84,9 +87,65 @@ Shallowly installs a package's sibling workspace dependencies underneath its `no
 
 Must be run inside an individual workspace in a workspaces project. Can not be run in a non-workspaces project or at the root of a workspaces project.
 
+
 ##### `yarn install --frozen-lockfile` <a class="toc" id="toc-yarn-install-frozen-lockfile" href="#toc-yarn-install-frozen-lockfile"></a>
 
-Don't generate a `yarn.lock` lockfile and fail if an update is needed.
+Ensure that `yarn.lock` is in sync with `package.json`, returning an error if it
+is not, and then act as if `--pure-lockfile` ([see
+above](#toc-yarn-install-pure-lockfile)) were passed.
+
+"In sync" means that yarn will only throw an error if the `yarn.lock` file is
+incompatible with `package.json`.  *It does not mean that yarn will throw an
+error if a dependency is out of date.*  For example, an error would be thrown if
+a new package were added to `package.json` but `yarn` had not been run; or if
+the version in `yarn.lock` were to not match the version range specified in
+`package.json`.
+
+###### Concrete example
+
+With this `packages.json` dependency:
+
+    { "dependencies": { "vue": "^2.2.6", } }
+
+We would have the resulting lockfile dependency:
+
+    vue@^2.2.6: version "2.4.4" resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.4.tgz#ea9550b96a71465fd2b8b17b61673b3561861789"
+
+In this case, `yarn --frozen-lockfile` would:
+
+ - check package.json and see vue@^2.2.6;
+ - map that in the yarn.lock file: vue@^2.2.6 => 2.4.4; and
+ - install exactly version 2.4.4.
+
+Yarn would therefore determine that the lockfile does not need to be updated,
+and the CI build would pass.
+
+However, if `packages.json` were to be updated to point to ^3.0.0 (a newer
+version than in the lock file) but the lockfile were unchanged, yarn would:
+
+ - check package.json and see vue@^3.0.0;
+ - map that in the yarn.lock file: vue@^3.0.0 does not have a mapping (only
+   ^2.2.6 does); and
+ - add a yarn.lock file mapping for vue@^3.0.0.
+
+In this case, `--frozen-lockfile` would prevent this additional mapping being
+added, so the CI build would fail.
+
+###### Use cases
+
+The primary reasons to have CI fail are:
+
+ - Someone hand-edited `package.json` but did not run `yarn` to sync `yarn.lock`
+   with those changes.
+ - Someone used NPM to install or upgrade a package, and `yarn.lock` does not
+   know about it.
+ - Someone discarded or did not commit the changes to `yarn.lock` after `yarn`
+   ran.
+
+That is why the recommendation is to use `--frozen-lockfile` for CI.  It
+basically points to your `package.json` having changed without a changed
+`yarn.lock` being committed too, which is almost certainly an oversight.
+
 
 ##### `yarn install --silent` <a class="toc" id="toc-yarn-install-silent" href="#toc-yarn-install-silent"></a>
 
