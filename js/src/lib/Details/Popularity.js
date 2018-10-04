@@ -94,12 +94,12 @@ class Popularity extends Component {
           <dl>
             <Stargazers repository={repository} stargazers={stargazers} />
             <Downloads downloads={downloads} humanDownloads={humanDownloads} />
+            <JsDelivrHits jsDelivrHits={jsDelivrHits} />
             <Dependents
               dependents={dependents}
               humanDependents={humanDependents}
               name={name}
             />
-            <JsDelivrHits jsDelivrHits={jsDelivrHits} />
           </dl>
         </article>
       );
