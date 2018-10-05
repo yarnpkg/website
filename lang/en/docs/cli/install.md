@@ -84,6 +84,8 @@ Shallowly installs a package's sibling workspace dependencies underneath its `no
 
 Must be run inside an individual workspace in a workspaces project. Can not be run in a non-workspaces project or at the root of a workspaces project.
 
+[Learn more about focused workspaces.](https://yarnpkg.com/blog/2018/05/18/focused-workspaces/)
+
 ##### `yarn install --frozen-lockfile` <a class="toc" id="toc-yarn-install-frozen-lockfile" href="#toc-yarn-install-frozen-lockfile"></a>
 
 Don't generate a `yarn.lock` lockfile and fail if an update is needed.
