@@ -30,6 +30,7 @@ const Aside = ({
   devDependencies,
   bundlesize,
   onOpenFileBrowser,
+  jsDelivrHits,
 }) => (
   <aside className="details-side col-lg-4">
     <article className="details-side--links">
@@ -45,6 +46,7 @@ const Aside = ({
       dependents={dependents}
       humanDependents={humanDependents}
       name={name}
+      jsDelivrHits={jsDelivrHits}
     />
     {repository &&
       isKnownRepositoryHost(repository.host) &&

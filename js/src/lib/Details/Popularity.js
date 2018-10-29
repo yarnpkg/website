@@ -52,6 +52,28 @@ const Dependents = ({ dependents, humanDependents, name }) =>
     />
   );
 
+const formatHits = (hits) => {
+  if (hits >= 1e9) {
+    return (Math.round(hits / 1e7) / 100) + "b";
+  } else if (hits >= 1e6) {
+    return (Math.round(hits / 1e4) / 100) + "m";
+  } else if (hits >= 1000) {
+    return (Math.round(hits / 10) / 100) + "k";
+  }
+
+  return hits;
+};
+
+const JsDelivrHits = ({jsDelivrHits}) => (<Di
+  icon="downloads"
+  title={window.i18n.detail.jsdelivr_hits}
+  description={
+    <span title={jsDelivrHits.toLocaleString(window.i18n.active_language)}>
+      {formatHits(jsDelivrHits)}
+    </span>
+  }
+/>);
+
 class Popularity extends Component {
   render() {
     const {
@@ -62,15 +84,17 @@ class Popularity extends Component {
       humanDownloads,
       dependents,
       humanDependents,
+      jsDelivrHits
     } = this.props;
 
-    if (downloads >= 0 || dependents >= 0 || stargazers >= 0) {
+    if (downloads >= 0 || dependents >= 0 || stargazers >= 0 || jsDelivrHits >= 0) {
       return (
         <article className="details-side--popularity">
           <h1>{window.i18n.detail.popularity}</h1>
           <dl>
             <Stargazers repository={repository} stargazers={stargazers} />
             <Downloads downloads={downloads} humanDownloads={humanDownloads} />
+            <JsDelivrHits jsDelivrHits={jsDelivrHits} />
             <Dependents
               dependents={dependents}
               humanDependents={humanDependents}

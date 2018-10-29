@@ -391,6 +391,7 @@ class Details extends Component {
         tags={this.state.tags}
         bundlesize={this.state.bundlesize}
         onOpenFileBrowser={this._openFileBrowser}
+        jsDelivrHits={this.state.jsDelivrHits}
       />
     );
   }
