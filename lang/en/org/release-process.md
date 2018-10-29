@@ -10,19 +10,19 @@ The steps vary slightly depending on the type of release you are pushing (major,
 
 ### To release a new patch version (eg. from 0.28.1 to 0.28.2) <a class="toc" id="toc-to-release-a-new-patch-version-eg-from-0-28-1-to-0-28-2" href="#toc-to-release-a-new-patch-version-eg-from-0-28-1-to-0-28-2"></a>
 
-1. Cherry-pick all required changes to the `-stable` branch (eg. `0.28-stable` for 0.28).
-2. Ensure you are on the `-stable` branch locally.
-3. Run `npm version patch` to bump the version number, and create the Git commit and tag
-4. Run `git push origin 0.xx-stable --follow-tags` (replace `0.xx-stable` with the right branch name)
+1.  Cherry-pick all required changes to the `-stable` branch (eg. `0.28-stable` for 0.28).
+2.  Ensure you are on the `-stable` branch locally.
+3.  Run `npm version patch` to bump the version number, and create the Git commit and tag
+4.  Run `git push origin 0.xx-stable --follow-tags` (replace `0.xx-stable` with the right branch name)
 
 ### To release a new minor or major version (eg. from 0.28.x to 0.29.0) <a class="toc" id="toc-to-release-a-new-minor-or-major-version-eg-from-0-28-x-to-0-29-0" href="#toc-to-release-a-new-minor-or-major-version-eg-from-0-28-x-to-0-29-0"></a>
 
-1. Make sure current master branch is green on [Circle](https://circleci.com/gh/yarnpkg/yarn), [Travis](https://travis-ci.com/yarnpkg/yarn/builds) and [AppVeyor](https://ci.appveyor.com/project/kittens/yarn)
-2. Ensure you are on `master` and your local copy of Yarn is up-to-date
-3. Run `./scripts/release-branch.sh`. This will:
-   * Create the `0.xx-stable` branch and `0.xx.0` tag
-   * Bump `master` to the next minor version (eg. after releasing `0.29.0`, master will be bumped to `0.30.0`)
-   * Push it all to `origin`
+1.  Make sure current master branch is green on [Circle](https://circleci.com/gh/yarnpkg/yarn), [Travis](https://travis-ci.com/yarnpkg/yarn/builds) and [AppVeyor](https://ci.appveyor.com/project/kittens/yarn)
+2.  Ensure you are on `master` and your local copy of Yarn is up-to-date
+3.  Run `./scripts/release-branch.sh`. This will:
+    - Create the `0.xx-stable` branch and `0.xx.0` tag
+    - Bump `master` to the next minor version (eg. after releasing `0.29.0`, master will be bumped to `0.30.0`)
+    - Push it all to `origin`
 
 ### To mark an RC release as stable <a class="toc" id="toc-to-mark-an-rc-release-as-stable" href="#toc-to-mark-an-rc-release-as-stable"></a>
 
@@ -58,31 +58,31 @@ Most of the release has been automated and is fairly straightforward. Normally, 
 
 ### Creating a new release <a class="toc" id="toc-creating-a-new-release" href="#toc-creating-a-new-release"></a>
 
-1. Run `yarn build-dist && yarn build-deb` to build the release tarball, Debian package, and RPM package
-2. Run `yarn build-dist && yarn build-win-installer` on Windows to build the Windows installer
-3. GPG sign the `.tar.gz` and `.js` artifacts:
-   ```sh
-   gpg -u 9D41F3C3 --armor --detach-sign yarn-0.xx.xx.tar.gz
-   ```
-   This will generate `.asc` files that you should also attach to the release
-4. Authenticode sign the `.msi` artifacts:
-   ```sh
-   osslsigncode sign -t http://timestamp.digicert.com -n "Yarn Installer" -i https://yarnpkg.com/ -pkcs12 yarn-20161122.pfx -readpass yarn-20161122.key -h sha1 -in yarn-0.xx.xx-unsigned.msi -out yarn-0.xx.xx.msi
-   osslsigncode sign -t http://timestamp.digicert.com -n "Yarn Installer" -i https://yarnpkg.com/ -pkcs12 yarn-20161122.pfx -readpass yarn-20161122.key -nest -h sha2 -in yarn-0.xx.xx.msi -out yarn-0.xx.xx.msi
-   ```
-5. Create new release on GitHub, and attach all artifacts. For the MSI, ensure you attach the **signed** version!
-6. Publish the tarball to npm: `npm publish ./artifacts/yarn-v0.xx.xx.tar.gz`
-7. Perform post-release steps below
+1.  Run `yarn build-dist && yarn build-deb` to build the release tarball, Debian package, and RPM package
+2.  Run `yarn build-dist && yarn build-win-installer` on Windows to build the Windows installer
+3.  GPG sign the `.tar.gz` and `.js` artifacts:
+    ```sh
+    gpg -u 9D41F3C3 --armor --detach-sign yarn-0.xx.xx.tar.gz
+    ```
+    This will generate `.asc` files that you should also attach to the release
+4.  Authenticode sign the `.msi` artifacts:
+    ```sh
+    osslsigncode sign -t http://timestamp.digicert.com -n "Yarn Installer" -i https://yarnpkg.com/ -pkcs12 yarn-20161122.pfx -readpass yarn-20161122.key -h sha1 -in yarn-0.xx.xx-unsigned.msi -out yarn-0.xx.xx.msi
+    osslsigncode sign -t http://timestamp.digicert.com -n "Yarn Installer" -i https://yarnpkg.com/ -pkcs12 yarn-20161122.pfx -readpass yarn-20161122.key -nest -h sha2 -in yarn-0.xx.xx.msi -out yarn-0.xx.xx.msi
+    ```
+5.  Create new release on GitHub, and attach all artifacts. For the MSI, ensure you attach the **signed** version!
+6.  Publish the tarball to npm: `npm publish ./artifacts/yarn-v0.xx.xx.tar.gz`
+7.  Perform post-release steps below
 
 ### Bumping RC to stable <a class="toc" id="toc-bumping-rc-to-stable" href="#toc-bumping-rc-to-stable"></a>
 
-1. Modify GitHub release to mark it as stable
-2. Run `npm dist-tag add yarn@0.xx.xx latest` (where `0.xx.xx` is the version number being released)
-3. Run post-release steps below
+1.  Modify GitHub release to mark it as stable
+2.  Run `npm dist-tag add yarn@0.xx.xx latest` (where `0.xx.xx` is the version number being released)
+3.  Run post-release steps below
 
 ### Post-release <a class="toc" id="toc-post-release" href="#toc-post-release"></a>
 
-1. Bump version number in [\_config.yml on the website](https://github.com/yarnpkg/website/blob/master/_config.yml#L9)
-2. Run `./scripts/build-chocolatey.ps1` to push to Chocolatey
-3. Run `./scripts/update-homebrew.sh` to push to Homebrew
-4. Debian and CentOS repo should be automatically updated with the latest release within 5 minutes (keep an eye on [the commits](https://github.com/yarnpkg/releases/commits/gh-pages))
+1.  Bump version number in [\_config.yml on the website](https://github.com/yarnpkg/website/blob/master/_config.yml#L9)
+2.  Run `./scripts/build-chocolatey.ps1` to push to Chocolatey
+3.  Run `./scripts/update-homebrew.sh` to push to Homebrew
+4.  Debian and CentOS repo should be automatically updated with the latest release within 5 minutes (keep an eye on [the commits](https://github.com/yarnpkg/releases/commits/gh-pages))

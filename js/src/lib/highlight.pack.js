@@ -72,9 +72,15 @@
     function i() {
       return e.length && n.length
         ? e[0].offset !== n[0].offset
-          ? e[0].offset < n[0].offset ? e : n
-          : 'start' === n[0].event ? e : n
-        : e.length ? e : n;
+          ? e[0].offset < n[0].offset
+            ? e
+            : n
+          : 'start' === n[0].event
+            ? e
+            : n
+        : e.length
+          ? e
+          : n;
     }
     function o(e) {
       function n(e) {
@@ -296,7 +302,9 @@
       ? e.replace(A, function(e, t) {
           return z.useBR && '\n' === e
             ? '<br>'
-            : z.tabReplace ? t.replace(/\t/g, z.tabReplace) : '';
+            : z.tabReplace
+              ? t.replace(/\t/g, z.tabReplace)
+              : '';
         })
       : e;
   }

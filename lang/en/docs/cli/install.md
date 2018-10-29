@@ -80,9 +80,11 @@ Don't generate a `yarn.lock` lockfile.
 
 ##### `yarn install --focus` <a class="toc" id="toc-yarn-install-focus" href="#toc-yarn-install-focus"></a>
 
-Shallowly installs a packages's sibling workspace dependencies underneath its `node_modules` folder. This allows you to run that workspace without building the other workspaces it depends on.
+Shallowly installs a package's sibling workspace dependencies underneath its `node_modules` folder. This allows you to run that workspace without building the other workspaces it depends on.
 
 Must be run inside an individual workspace in a workspaces project. Can not be run in a non-workspaces project or at the root of a workspaces project.
+
+[Learn more about focused workspaces.](https://yarnpkg.com/blog/2018/05/18/focused-workspaces/)
 
 ##### `yarn install --frozen-lockfile` <a class="toc" id="toc-yarn-install-frozen-lockfile" href="#toc-yarn-install-frozen-lockfile"></a>
 
@@ -90,7 +92,7 @@ Don't generate a `yarn.lock` lockfile and fail if an update is needed.
 
 ##### `yarn install --silent` <a class="toc" id="toc-yarn-install-silent" href="#toc-yarn-install-silent"></a>
 
-Run yarn install without printing installation log
+Run yarn install without printing installation log.
 
 ##### `yarn install --ignore-engines` <a class="toc" id="toc-yarn-install-ignore-engines" href="#toc-yarn-install-ignore-engines"></a>
 

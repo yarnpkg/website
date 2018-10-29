@@ -15,11 +15,11 @@ These versions are broken down into `major.minor.patch` and looks like one of
 these: `3.14.1`, `0.42.0`, `2.7.18`. Each part of the version gets incremented
 at various times:
 
-* Increment `major` when you make a **breaking** or **incompatible** change to
+- Increment `major` when you make a **breaking** or **incompatible** change to
   the API of a package.
-* Increment `minor` when you add **new functionality** while staying
+- Increment `minor` when you add **new functionality** while staying
   **backwards-compatible**
-* Increment `patch` when you make **bug fixes** while staying
+- Increment `patch` when you make **bug fixes** while staying
   **backwards-compatible**
 
 > **Note:** There are also sometimes "labels" or "extensions" to the semver
@@ -168,7 +168,7 @@ zeroes. However, they will still allow for that value to be changed.
 
 ### More resources <a class="toc" id="toc-more-resources" href="#toc-more-resources"></a>
 
-* For a full specification of how this versioning system works see the
+- For a full specification of how this versioning system works see the
   [`node-semver` README](https://github.com/npm/node-semver).
-* Test out this versioning system on actual packages using the
+- Test out this versioning system on actual packages using the
   [npm semver calculator](https://semver.npmjs.com/).

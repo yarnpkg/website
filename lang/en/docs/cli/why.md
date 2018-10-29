@@ -34,8 +34,8 @@ info Amount of shared dependencies: 125
 
 The mandatory query argument for `yarn why` can be any of:
 
-* a package name (as in the above example)
-* a package folder; eg: `yarn why node_modules/once`
-* a file within a package folder; eg: `yarn why node_modules/once/once.js`
+- a package name (as in the above example)
+- a package folder; eg: `yarn why node_modules/once`
+- a file within a package folder; eg: `yarn why node_modules/once/once.js`
 
 The file locations can also be absolute.

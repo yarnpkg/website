@@ -128,5 +128,5 @@ We hope focused workspaces helps make your migration to a monorepo easier. This 
 
 ## References
 
-* Original Proposal: [RFC](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-focused-workspaces.md)
-* Implementation PR: [#5663](https://github.com/yarnpkg/yarn/pull/5663)
+- Original Proposal: [RFC](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-focused-workspaces.md)
+- Implementation PR: [#5663](https://github.com/yarnpkg/yarn/pull/5663)

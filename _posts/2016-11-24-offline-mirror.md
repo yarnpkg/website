@@ -151,14 +151,14 @@ is-array-1.0.1.tgz    left-pad-1.1.3.tgz    mime-db-1.25.0.tgz    mime-types-2.1
 
 > How can you test to make sure it is offline?
 
-* Clear your global cache with "yarn cache clean"
-* Turn off wifi
-* Run "yarn install --offline". The offline flag will make sure yarn does not reach out to the network
+- Clear your global cache with "yarn cache clean"
+- Turn off wifi
+- Run "yarn install --offline". The offline flag will make sure yarn does not reach out to the network
 
 > In a nutshell, to enable “Offline mirror” for your project you need:
 
-* add “yarn-offline-mirror” configuration to .yarnrc file
-* generate a new yarn.lock with “yarn install” command
+- add “yarn-offline-mirror” configuration to .yarnrc file
+- generate a new yarn.lock with “yarn install” command
 
 ## A few tips and tricks
 
@@ -166,9 +166,9 @@ is-array-1.0.1.tgz    left-pad-1.1.3.tgz    mime-db-1.25.0.tgz    mime-types-2.1
 
 If you want to make sure you have a clean cached modules, here are few of the steps you can take:
 
-* Remove the package first. Make sure you have "yarn-offline-mirror-pruning" set to true in your .yarnrc file
-* Clear the yarn cache with "yarn cache clean" before adding the updated version of the package
-* Add your package
+- Remove the package first. Make sure you have "yarn-offline-mirror-pruning" set to true in your .yarnrc file
+- Clear the yarn cache with "yarn cache clean" before adding the updated version of the package
+- Add your package
 
 The "yarn-offline-mirror-pruning" will help clean up any unlinked dependencies. When you add the updated package, it will check the yarn cache first and pull any missing dependencies from there. This will prevent yarn adding new tarball back with the updated package. You want to make sure the yarn cache is all clean before you do any adding for cache module.
 
@@ -188,8 +188,8 @@ They all share the same “Offline mirror” which means that most dependencies 
 
 The React Native team used to check in the `node_modules` folder but they hit several limits:
 
-* `node_modules` contains more than 37,000 files (and more than 100,000 files back when we were using npm2). This had a bad performance impact on our Mercurial repository.
-* Reviewing Pull Requests that changed a dependency was quite hard as all the files in `node_modules` that were added and removed created a ton of noise, making code reviews unpleasant
+- `node_modules` contains more than 37,000 files (and more than 100,000 files back when we were using npm2). This had a bad performance impact on our Mercurial repository.
+- Reviewing Pull Requests that changed a dependency was quite hard as all the files in `node_modules` that were added and removed created a ton of noise, making code reviews unpleasant
 
 In comparison, updating a third-party dependency with the Offline Mirror adds just a few files that are very easy to review:
 
@@ -277,5 +277,5 @@ This is quite convenient for teams that use multiple operating systems and want 
 
 The “Offline mirror” was implemented early in Yarn's development cycle and we are working on improving it in a backwards compatible way:
 
-* The `resolved` field is used both for offline mirror paths and registry URIs. This means that the `yarn.lock` file that React Native team uses internally can't be shared with the open source community because the React Native team does not sync the offline mirror with the open source version of React Native. [Issue](https://github.com/yarnpkg/yarn/issues/394).
-* There is an [improved workflow being considered](https://github.com/yarnpkg/yarn/issues/393) for future versions of Yarn. It is not drastically different but some settings and lock files may change.
+- The `resolved` field is used both for offline mirror paths and registry URIs. This means that the `yarn.lock` file that React Native team uses internally can't be shared with the open source community because the React Native team does not sync the offline mirror with the open source version of React Native. [Issue](https://github.com/yarnpkg/yarn/issues/394).
+- There is an [improved workflow being considered](https://github.com/yarnpkg/yarn/issues/393) for future versions of Yarn. It is not drastically different but some settings and lock files may change.

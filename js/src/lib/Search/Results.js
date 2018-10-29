@@ -1,11 +1,11 @@
 import React from 'react';
-import { createConnector } from 'react-instantsearch';
 import {
   Pagination,
   CurrentRefinements,
   Stats,
-} from 'react-instantsearch/es/dom';
-import { connectHits } from 'react-instantsearch/es/connectors';
+  connectHits,
+  createConnector,
+} from 'react-instantsearch-dom';
 
 import Hit from '../Hit';
 import { isEmpty } from '../util';

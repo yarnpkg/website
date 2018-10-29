@@ -10,8 +10,8 @@ layout: guide
 
 To learn more about workspaces, check these links:
 
-* [Workspaces in Yarn]({{url_base}}/blog/2017/08/02/introducing-workspaces)
-* [Workspaces]({{url_base}}/docs/workspaces)
+- [Workspaces in Yarn]({{url_base}}/blog/2017/08/02/introducing-workspaces)
+- [Workspaces]({{url_base}}/docs/workspaces)
 
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
@@ -43,4 +43,20 @@ yarn workspaces vx.x.x
     "workspaceDependencies": [],
     "mismatchedWorkspaceDependencies": []
   }, ... }
+```
+
+##### `yarn workspaces run <command>` <a class="toc" id="toc-yarn-workspaces-run" href="#toc-yarn-workspaces-run"></a>
+
+This will run the chosen Yarn command in each workspace.
+
+```sh
+yarn workspaces run test
+```
+
+This will invoke the test script for each workspace.
+
+This will also pass forward flags and can be useful for CI processes.
+
+```sh
+yarn workspaces run test --ci
 ```

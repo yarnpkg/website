@@ -16,9 +16,9 @@ Despite these tools, one problem remains: Users still need to know how to use th
 
 With `yarn create`, you can start building apps with many of the existing projects:
 
-* `yarn create react-app my-app`
-* `yarn create react-native-app my-app`
-* `yarn create next-app my-app`
+- `yarn create react-app my-app`
+- `yarn create react-native-app my-app`
+- `yarn create next-app my-app`
 
 When ran, the create command will automatically install or update the requested package, prefixing its name with `create-`. Running `yarn create react-app` will start by doing the same thing as `yarn global add create-react-app`. Then, once the package installed, Yarn will run the executable located in the `bin` field of the newly installed package's `package.json`, forwarding to it any remaining command line argument.
 
@@ -30,11 +30,11 @@ _Note: The `create-` prefix is inserted right before the package name. So, for e
 
 `yarn create` is but one of the many things we have been working on over the last couple of weeks. Thanks to numerous pull requests from many open source contributors, the recent releases also ship with the following features & improvements:
 
-* The offline mirror does not require changes to the yarn lockfile any longer ([#2970](https://github.com/yarnpkg/yarn/pull/2970))
-* Command-line arguments and environment variables can now be set in the yarnrc file ([#3033](https://github.com/yarnpkg/yarn/pull/3033), [#3218](https://github.com/yarnpkg/yarn/pull/3218))
-* Prepare & prepublish-only lifecycle hooks are now implemented ([#3004](https://github.com/yarnpkg/yarn/pull/3004))
-* The offline mirror can be pruned if used by a single one of your projects ([#2836](https://github.com/yarnpkg/yarn/pull/2836))
-* Various improvements for yarn pack ([#3175](https://github.com/yarnpkg/yarn/pull/3175), [#3092](https://github.com/yarnpkg/yarn/pull/3092))
+- The offline mirror does not require changes to the yarn lockfile any longer ([#2970](https://github.com/yarnpkg/yarn/pull/2970))
+- Command-line arguments and environment variables can now be set in the yarnrc file ([#3033](https://github.com/yarnpkg/yarn/pull/3033), [#3218](https://github.com/yarnpkg/yarn/pull/3218))
+- Prepare & prepublish-only lifecycle hooks are now implemented ([#3004](https://github.com/yarnpkg/yarn/pull/3004))
+- The offline mirror can be pruned if used by a single one of your projects ([#2836](https://github.com/yarnpkg/yarn/pull/2836))
+- Various improvements for yarn pack ([#3175](https://github.com/yarnpkg/yarn/pull/3175), [#3092](https://github.com/yarnpkg/yarn/pull/3092))
 
 The list of all improvements and bugfixes over the last couple of months can be found in our [releases section on GitHub](https://github.com/yarnpkg/yarn/releases). We would specifically like to thank a team from the Delft University of Technology: [Tim van der Lippe](https://github.com/timvdlippe), [Chris Langhout](https://github.com/clanghout), [Gijs Weterings](https://github.com/gijsweterings) and [Chak Shun Yu](https://github.com/keraito). The four of them did a fantastic [analysis of the Yarn project](https://delftswa.gitbooks.io/desosa-2017/content/yarn/chapter.html) and sent pull requests to improve it in many areas. They also pointed out gaps in our test coverage, which our new core contributor [Simon Vocella](https://github.com/voxsim) has been working on improving.
 

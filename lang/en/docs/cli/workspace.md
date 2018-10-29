@@ -6,8 +6,8 @@ layout: guide
 
 To learn more about workspaces, check these links:
 
-* [Workspaces in Yarn](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces)
-* [Workspaces](https://yarnpkg.com/en/docs/workspaces)
+- [Workspaces in Yarn](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces)
+- [Workspaces](https://yarnpkg.com/en/docs/workspaces)
 
 ##### `yarn workspace <workspace_name> <command>` <a class="toc" id="toc-yarn-workspace" href="#toc-yarn-workspace"></a>
 

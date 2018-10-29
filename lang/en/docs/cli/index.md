@@ -10,11 +10,11 @@ Yarn provides a rich set of command-line commands to help you with various aspec
 
 While all of the available commands are provided here, in alphabetical order, some of the more popular commands are:
 
-* [`yarn add`]({{url_base}}/docs/cli/add): adds a package to use in your current package.
-* [`yarn init`]({{url_base}}/docs/cli/init): initializes the development of a package.
-* [`yarn install`]({{url_base}}/docs/cli/install): installs all the dependencies defined in a `package.json` file.
-* [`yarn publish`]({{url_base}}/docs/cli/publish): publishes a package to a package manager.
-* [`yarn remove`]({{url_base}}/docs/cli/remove): removes an unused package from your current package.
+- [`yarn add`]({{url_base}}/docs/cli/add): adds a package to use in your current package.
+- [`yarn init`]({{url_base}}/docs/cli/init): initializes the development of a package.
+- [`yarn install`]({{url_base}}/docs/cli/install): installs all the dependencies defined in a `package.json` file.
+- [`yarn publish`]({{url_base}}/docs/cli/publish): publishes a package to a package manager.
+- [`yarn remove`]({{url_base}}/docs/cli/remove): removes an unused package from your current package.
 
 ## Default Command <a class="toc" id="toc-default-command" href="#toc-default-command"></a>
 
@@ -53,4 +53,4 @@ can also specify an alternate port.
 
 ## Verbose output with `--verbose` <a class="toc" id="toc-verbose" href="#toc-verbose"></a>
 
-Running `yarn <command> --verbose` will print verbose info for the execution (creating directories, copying files, HTTP requests, etc.). 
+Running `yarn <command> --verbose` will print verbose info for the execution (creating directories, copying files, HTTP requests, etc.).

@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { InstantSearch, Configure } from 'react-instantsearch/es/dom';
 import {
+  InstantSearch,
+  Configure,
   connectHits,
   connectRefinementList,
-} from 'react-instantsearch/es/connectors';
+} from 'react-instantsearch-dom';
 import { Owner } from './lib/Hit';
 import { packageLink, Keywords } from './lib/util';
 import { algolia } from './lib/config';

@@ -38,9 +38,9 @@ This will automatically add the `[package]` to your dependencies in your
 You can also add other
 [types of dependencies]({{url_base}}/docs/dependency-types) using flags:
 
-* `yarn add --dev` to add to `devDependencies`
-* `yarn add --peer` to add to `peerDependencies`
-* `yarn add --optional` to add to `optionalDependencies`
+- `yarn add --dev` to add to `devDependencies`
+- `yarn add --peer` to add to `peerDependencies`
+- `yarn add --optional` to add to `optionalDependencies`
 
 You can specify which version of a package you want to install by specifying
 either a [dependency version]({{url_base}}/docs/dependency-versions) or a

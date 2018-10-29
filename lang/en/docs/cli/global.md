@@ -30,11 +30,20 @@ $ create-react-app
 
 `yarn global dir` will print the output of the global installation folder that houses the global `node_modules`. By default that will be: `~/.config/yarn/global`.
 
+### Adding the install location to your PATH
+
+To use the installed packages, the install location has to be added to the PATH environment variable of your shell.
+For bash for example, you can add this line at the end of your .bashrc:
+
+```sh
+export PATH="$(yarn global bin):$PATH"
+```
+
 Read more about the commands that can be used together with `yarn global`:
 
-* [`yarn add`]({{url_base}}/docs/cli/add): add a package to use in your current package.
-* [`yarn bin`]({{url_base}}/docs/cli/bin): displays the location of the yarn bin folder.
-* [`yarn list`]({{url_base}}/docs/cli/list): list installed packages.
-* [`yarn remove`]({{url_base}}/docs/cli/remove): remove a package that will no longer be used in your current package.
-* [`yarn upgrade`]({{url_base}}/docs/cli/upgrade): upgrade packages to their latest version based on the specified range.
-* [`yarn upgrade-interactive`]({{url_base}}/docs/cli/upgrade-interactive): similar to `upgrade` command, but display the outdated packages before performing any upgrade, allowing the user to select which packages to upgrade.
+- [`yarn add`]({{url_base}}/docs/cli/add): add a package to use in your current package.
+- [`yarn bin`]({{url_base}}/docs/cli/bin): displays the location of the yarn bin folder.
+- [`yarn list`]({{url_base}}/docs/cli/list): list installed packages.
+- [`yarn remove`]({{url_base}}/docs/cli/remove): remove a package that will no longer be used in your current package.
+- [`yarn upgrade`]({{url_base}}/docs/cli/upgrade): upgrade packages to their latest version based on the specified range.
+- [`yarn upgrade-interactive`]({{url_base}}/docs/cli/upgrade-interactive): similar to `upgrade` command, but display the outdated packages before performing any upgrade, allowing the user to select which packages to upgrade.
