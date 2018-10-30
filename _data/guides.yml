@@ -120,6 +120,9 @@
   - id: docs_cli_run
     path: /docs/cli/run
     tags: ["cli-run"]
+  - id: docs_cli_support
+    path: /docs/cli/support
+    tags: ["cli-support"]
   - id: docs_cli_self_update
     path: /docs/cli/self-update
     tags: ["cli-self-update"]
