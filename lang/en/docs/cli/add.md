@@ -121,3 +121,7 @@ will install the package `foo` (at the latest version) in your
 [`dependencies`]({{url_base}}/docs/dependency-types#toc-dependencies)
 under the specified alias `my-foo`. Also, `yarn add my-foo@npm:foo@1.0.1` allows
 a specific version of `foo` to be installed.
+
+##### `yarn add <package...> --audit` <a class="toc" id="toc-yarn-add-audit" href="#toc-yarn-add-audit"></a>
+
+Checks for known security issues with the installed packages. A count of found issues will be added to the output. Use the `yarn audit` command for additional details.
