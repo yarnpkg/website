@@ -92,7 +92,7 @@ using `version-commit-hooks`:
 yarn config set version-commit-hooks false
 ```
 
-#### Version lifecycle methods
+#### Version lifecycle methods <a class="toc" id="toc-version-lifecycle" href="#toc-version-lifecycle"></a>
 
 When the `yarn version` command is run it will also run the usual lifecycle methods in the following order:
 
