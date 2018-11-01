@@ -114,6 +114,7 @@ docs_cli_add: yarn add
 docs_cli_add_description: |
   When you want to use another package, you first need to add it to
   your dependencies. Running `yarn add` installs it into your project.
+docs_cli_audit: yarn audit
 docs_cli_autoclean: yarn autoclean
 docs_cli_bin: yarn bin
 docs_cli_cache: yarn cache

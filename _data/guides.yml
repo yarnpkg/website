@@ -39,6 +39,9 @@
     path: /docs/cli/add
     tags: ["cli-add"]
     description: docs_cli_add_description
+  - id: docs_cli_audit
+    path: /docs/cli/audit
+    tags: ["cli-audit"]
   - id: docs_cli_autoclean
     path: /docs/cli/autoclean
     tags: ["cli-autoclean"]

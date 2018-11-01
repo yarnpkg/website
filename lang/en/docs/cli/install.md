@@ -113,3 +113,7 @@ Disable interactive prompts, like when there's an invalid version of a dependenc
 ##### `yarn install --update-checksums` <a class="toc" id="toc-yarn-install-update-checksums" href="#toc-yarn-install-update-checksums"></a>
 
 Update checksums in the `yarn.lock` lockfile if there's a mismatch between them and their package's checksum.
+
+##### `yarn install --audit` <a class="toc" id="toc-yarn-install-audit" href="#toc-yarn-install-audit"></a>
+
+Checks for known security issues with the installed packages. A count of found issues will be added to the output. Use the `yarn audit` command for additional details. Unlike npm, which automatically runs an audit on every install, yarn will only do so when requested. (This may change in a later update as the feature is proven to be stable.)
