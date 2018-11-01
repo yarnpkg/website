@@ -92,6 +92,47 @@ using `version-commit-hooks`:
 yarn config set version-commit-hooks false
 ```
 
+#### Version lifecycle methods
+
+When the `yarn version` command is run it will also run the usual lifecycle methods in the following order:
+
+- `yarn preversion`
+- `yarn version`
+- `yarn postversion`
+
+In these scripts you also get some handy environment variables, e.g. `npm_package_version` will in the `preversion` script hold the version before the version change, and in the `postversion` script it will hold the version after the version change. 
+
+This becomes useful when using yarn with git to publish new tags. Here is an example of what a package.json file could look like:
+
+```json
+{
+  "name": "example-yarn-package",
+  "version": "1.0.2",
+  "description": "An example package to demonstrate Yarn",
+  "scripts": {
+    "test": "echo \"Running tests for version $npm_package_version...\"",
+    "preversion": "yarn test",
+    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
+  }
+}
+```
+
+Running `yarn version` would look something like this:
+```
+info Current version: 1.0.2
+Running tests for version 1.0.2...
+✨  Done in 0.10s.
+info New version: 2.0.0
+...
+To github.com:example-org/example-yarn-package.git
+ * [new tag]             v2.0.0 -> v2.0.0
+...
+Successfully released version 2.0.0!
+✨  Done in 2.72s.
+```
+
+After this both the remote repository should reflect the updated version and the package should be published under the same version.
+
 ### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
 
 ##### `yarn version` <a class="toc" id="toc-yarn-version" href="#toc-yarn-version"></a>
