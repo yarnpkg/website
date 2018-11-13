@@ -1,7 +1,7 @@
 ---
 layout: guide
 scripts:
-  - "/js/build/install.js"
+- "/js/build/install.js"
 ---
 
 {% include vars.html %}
@@ -17,16 +17,16 @@ scripts:
 
 
 <div class="tabs">
-  <div class="nav nav-tabs bg-faded text-center">
-    <ul class="nav navbar-nav nav-inline">
+  <nav>
+    <div class="nav nav-tabs bg-faded text-center" id="nav-tab">
       <a id="appveyor-tab" class="nav-item nav-link" data-toggle="tab" href="#appveyor">{{i18n.ci_appveyor}}</a>
       <a id="circle-tab" class="nav-item nav-link" data-toggle="tab" href="#circle">{{i18n.ci_circle}}</a>
       <a id="codeship-tab" class="nav-item nav-link" data-toggle="tab" href="#codeship">{{i18n.ci_codeship}}</a>
       <a id="travis-tab" class="nav-item nav-link" data-toggle="tab" href="#travis">{{i18n.ci_travis}}</a>
       <a id="semaphore-tab" class="nav-item nav-link" data-toggle="tab" href="#semaphore">{{i18n.ci_semaphore}}</a>
       <a id="solano-tab" class="nav-item nav-link" data-toggle="tab" href="#solano">{{i18n.ci_solano}}</a>
-    </ul>
-  </div>
+    </div>
+  </nav>
 
   <div class="tab-content">
     <div id="select-platform" class="tab-pane bg-faded active">
