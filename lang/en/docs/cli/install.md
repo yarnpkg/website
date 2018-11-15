@@ -25,6 +25,13 @@ If you need reproducible dependencies, which is usually the case with the contin
 Install all the dependencies listed within `package.json` in the local
 `node_modules` folder.
 
+The `yarn.lock` file is utilized as follows:
+
+- If `yarn.lock` is present and is enough to satisfy all the dependencies listed in `package.json`, the exact versions recorded in `yarn.lock` are installed, and `yarn.lock` will be unchanged. Yarn will not check for newer versions.
+- If `yarn.lock` is absent, or is _not_ enough to satisfy all the dependencies listed in `package.json` (for example, if you manually add a dependency to `package.json`), Yarn looks for the newest versions available that satisfy the constraints in `package.json`. The results are written to `yarn.lock`.
+
+If you want to ensure `yarn.lock` is not updated, use `--frozen-lockfile`.
+
 ##### `yarn install --check-files` <a class="toc" id="toc-yarn-install-check-files" href="#toc-yarn-install-check-files"></a>
 
 Verifies that already installed files in `node_modules` did not get removed.
