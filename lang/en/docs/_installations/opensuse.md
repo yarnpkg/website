@@ -2,6 +2,7 @@
 On openSUSE, you can install Yarn via our RPM package repository.
 
 ```
+sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
 sudo zypper ar -f https://dl.yarnpkg.com/rpm/ Yarn
 sudo zypper in yarn
 ```
