@@ -124,3 +124,7 @@ Update checksums in the `yarn.lock` lockfile if there's a mismatch between them 
 ##### `yarn install --audit` <a class="toc" id="toc-yarn-install-audit" href="#toc-yarn-install-audit"></a>
 
 Checks for known security issues with the installed packages. A count of found issues will be added to the output. Use the `yarn audit` command for additional details. Unlike npm, which automatically runs an audit on every install, yarn will only do so when requested. (This may change in a later update as the feature is proven to be stable.)
+
+##### `yarn install --no-bin-links` <a class="toc" id="toc-yarn-install-no-bin-links" href="#toc-yarn-install-no-bin-links"></a>
+
+Don't generate bin links.
