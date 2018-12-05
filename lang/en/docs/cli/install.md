@@ -127,4 +127,4 @@ Checks for known security issues with the installed packages. A count of found i
 
 ##### `yarn install --no-bin-links` <a class="toc" id="toc-yarn-install-no-bin-links" href="#toc-yarn-install-no-bin-links"></a>
 
-Don't generate bin links.
+Prevent yarn from creating symlinks for any binaries the package might contain.
