@@ -57,6 +57,7 @@ const Featured = ({ objectIDs }) => (
     indexName={algolia.indexName}
   >
     <Configure
+      analytics={false}
       hitsPerPage={6}
       attributesToRetrieve={['name', 'owner', 'description', 'keywords']}
       attributesToHighlight={[]}
