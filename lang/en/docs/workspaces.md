@@ -74,7 +74,15 @@ Finally, run `yarn install` somewhere, ideally inside the workspace root. If eve
 /workspace-b/package.json
 ```
 
+_Note: don't look for `/node_modules/workspace-b`. It won't be there unless some other package use it as a dependency._
+
 And that's it! Requiring `workspace-a` from a file located in `workspace-b` will now use the exact code currently located inside your project rather than what is published on Github, and the `cross-env` package has been correctly deduped and put at the root of your project to be used by both `workspace-a` and `workspace-b`.
+
+Please note the fact that `/workspace-a` is aliased as `/node_modules/workspace-a` via a symlink.
+That's the trick that allow you to do require the package like if it was a normal one!
+You also need to know that `/workspace-a/package.json#name` field is used and not the folder name.
+This means that if `/workspace-a/package.json` `name` field was `"pkg-a"`, the alias will be as following:
+`/node_modules/pkg-a -> /workspace-a` and you will be able to import code from `/workspace-a` with `const pkgA = require("pkg-a");` (or maybe `import pkgA from "pkg-a";`).
 
 ### How does it compare to Lerna? <a class="toc" id="toc-how-does-it-compare-to-lerna" href="#toc-how-does-it-compare-to-lerna"></a>
 
