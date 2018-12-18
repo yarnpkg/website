@@ -37,3 +37,7 @@ The command accepts various ways to set which version you want to use:
 Under the hood, the command will simply download the single-file release from the
 Github repository, store it inside your project (inside the `.yarn/releases` folder),
 then finally update your configuration to point to the new file (using `yarn-path`).
+
+Note that this command also is the preferred way to upgrade Yarn - it will work no
+matter how you originally installed it, which might sometimes prove difficult to
+figure out otherwise.
