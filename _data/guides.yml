@@ -111,6 +111,9 @@
   - id: docs_cli_pack
     path: /docs/cli/pack
     tags: ["cli-pack"]
+  - id: docs_cli_policies
+    path: /docs/cli/policies
+    tags: ["cli-policies"]
   - id: docs_cli_prune
     path: /docs/cli/prune
     tags: ["cli-prune"]
