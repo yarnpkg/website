@@ -4,28 +4,18 @@ guide: docs_yarn_version_management
 layout: guide
 ---
 
-# yarn-versions-at-scale
-
 {% include vars.html %}
 
+## Motivation <a class="toc" id="toc-motivation" href="#toc-motivation"></a>
+As your usage of yarn grows, you will find yourself with projects that depend on certain versions of yarn.
+Once you hit this scale it can be difficult to keep all your projects compatible with the latest version of yarn.
+This becomes increasingly more difficult if you have many developers working on these projects, as it is near impossible to have all project-contributors running the same version of yarn.
+To mitigate this, you can manage your version of yarn per project.
 
-Using yarn with 100s of repos and 100s of developments
+#### Use `yvm`, the yarn version manager <a class="toc" id="toc-use-yvm-the-yarn-version-manager" href="#toc-use-yvm-the-yarn-version-manager"></a>
+You [can use yvm](https://yvm.js.org/) to manage your yarn versions
 
-Manually managing different yarn versions across projects is a pain. This fixes that.
+#### Commit the yarn binary to the project and use `yarn-path` in `.yvmrc` <a class="toc" id="toc-commit-the-yarn-binary-to-the-project-and-use-yarn-path-in-yvmrc" href="#toc-commit-the-yarn-binary-to-the-project-and-use-yarn-path-in-yvmrc"></a>
 
-Yeah the idea was that by keeping it separate, yarn can do more forward, drastic changes, between versions (that may even output different lockfiles). Currently managing yarn across multiple repos (if we have to upgrade them all at once) is massively interruptful.
-
-
-You can use
-### `yarn-path` <a class="toc" id="toc-yarn-path" href="#toc-yarn-path"></a>
-
-```shell
-yarn-path "./bin/yarn"
-```
-
-Instructs yarn to defer to another Yarn binary for execution. Useful if you want to bundle Yarn into your repository
-and have everyone use the same version for consistency. This was introduced in Yarn 1.0, so all developers must have Yarn >= 1.0
-installed.
-
-Value must be a relative file path, or `false` to disable (default).
+See [`yarn-path` in the yarnrc docs](/lang/en/docs/yarnrc/#toc-yarn-path)
 

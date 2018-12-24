@@ -221,7 +221,7 @@ docs_workspaces_description: |
 docs_yarn_version_management: Yarn Version Management
 docs_yarn_version_management_title: Yarn Version Management
 docs_yarn_version_management_description: |
-  Managing multiple versions of yarn.
+  Manage your yarn version per project.
 
 yarn_organization_title: Yarn Organization
 yarn_organization_description: |
