@@ -47,3 +47,5 @@ You can also specify the cache directory by environment variable `YARN_CACHE_FOL
 ```sh
 YARN_CACHE_FOLDER=<path> yarn <command>
 ```
+
+Yarn will also respect `cache=<path>` in `.npmrc` for compatibility with npm.
