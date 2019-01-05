@@ -14,7 +14,7 @@ Projects tend to grow over time, and, occasionally, some pieces of a project can
 
 Those who have [tried splitting a project into multiple packages](https://youtu.be/PvabBs_utr8?t=16m24s) know how hard it is to make changes across multiple packages at one time. To make the process easier, some big projects adopted a [monorepo](http://www.drmaciver.com/2016/10/why-you-should-use-a-single-repository-for-all-your-companys-projects/) approach, or multi-package repositories, which reduces the burden of writing code across packages.
 
-Several projects used every day by JavaScript developers are managed as monorepos: [Babel](https://github.com/babel/babel/tree/7.0/packages), [React](https://github.com/facebook/react/tree/master/packages), [Jest](https://github.com/facebook/jest/tree/master/packages), [Vue](https://github.com/vuejs/vue/tree/dev/packages), [Angular](https://github.com/angular/angular/tree/master/packages).
+Several projects used every day by JavaScript developers are managed as monorepos: [Babel](https://github.com/babel/babel/tree/master/packages), [React](https://github.com/facebook/react/tree/master/packages), [Jest](https://github.com/facebook/jest/tree/master/packages), [Vue](https://github.com/vuejs/vue/tree/dev/packages), [Angular](https://github.com/angular/angular/tree/master/packages).
 
 However, separating pieces of projects into their own folders is sometimes not enough. Testing, managing dependencies, and publishing multiple packages quickly gets complicated and many such projects [adopt](https://medium.com/@bebraw/the-case-for-monorepos-907c1361708a) tools such as [Lerna](https://lernajs.io/) to make working with monorepos easier.
 
