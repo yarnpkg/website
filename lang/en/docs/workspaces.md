@@ -117,11 +117,6 @@ The `name` field in a given workspace's `package.json` file is used to name the 
 /workspace-b/package.json
 ```
 
-
-You also need to know that `/workspace-a/package.json#name` field is used and not the folder name.
-This means that if `/workspace-a/package.json` `name` field was `"pkg-a"`, the alias will be as following:
-`/node_modules/pkg-a -> /workspace-a` and you will be able to import code from `/workspace-a` with `const pkgA = require("pkg-a");` (or maybe `import pkgA from "pkg-a";`).
-
 ### How does it compare to Lerna? <a class="toc" id="toc-how-does-it-compare-to-lerna" href="#toc-how-does-it-compare-to-lerna"></a>
 
 Yarn's workspaces are the low-level primitives that tools like Lerna can (and [do](https://github.com/lerna/lerna/pull/899)!) use. They will never try to support the high-level feature that Lerna offers, but by implementing the core logic of the resolution and linking steps inside Yarn itself we hope to enable new usages and improve performance.
