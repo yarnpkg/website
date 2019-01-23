@@ -236,6 +236,13 @@
   - id: docs_workspaces
     path: /docs/workspaces
 
+- id: docs_yarn_version_management
+  title: docs_yarn_version_management_title
+  description: docs_yarn_version_management_description
+  pages:
+  - id: docs_yarn_version_management
+    path: /docs/yarn-version-management
+
 - id: yarn_organization
   title: yarn_organization_title
   description: yarn_organization_description
