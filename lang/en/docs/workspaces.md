@@ -69,6 +69,7 @@ Finally, run `yarn install` somewhere, ideally inside the workspace root. If eve
 /node_modules
 /node_modules/cross-env
 /node_modules/workspace-a -> /workspace-a
+/node_modules/workspace-b -> /workspace-b
 
 /workspace-a/package.json
 /workspace-b/package.json
