@@ -236,6 +236,17 @@
   - id: docs_workspaces
     path: /docs/workspaces
 
+- id: docs_plugnplay
+  title: docs_plugnplay_title
+  description: docs_plugnplay_description
+  pages:
+  - id: docs_plugnplay_overview
+    path: /docs/pnp
+  - id: docs_plugnplay_getting_started
+    path: /docs/pnp/getting-started
+  - id: docs_plugnplay_troubleshooting
+    path: /docs/pnp/troubleshooting
+
 - id: yarn_organization
   title: yarn_organization_title
   description: yarn_organization_description

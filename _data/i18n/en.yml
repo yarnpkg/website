@@ -218,6 +218,15 @@ docs_workspaces_title: Workspaces
 docs_workspaces_description: |
   Link together your projects for easier maintenance.
 
+docs_plugnplay: "Plug'n'Play"
+docs_plugnplay_title: "Plug'n'Play"
+docs_plugnplay_description: |
+  Install your projects in a safer and faster way.
+
+docs_plugnplay_overview: Overview
+docs_plugnplay_getting_started: Getting Started
+docs_plugnplay_troubleshooting: Troubleshooting
+
 yarn_organization_title: Yarn Organization
 yarn_organization_description: |
   The Yarn organization is a collaboration of many companies and
