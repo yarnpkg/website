@@ -33,10 +33,10 @@ $ create-react-app
 ### Adding the install location to your PATH
 
 To use the installed packages, the install location has to be added to the PATH environment variable of your shell.
-For bash for example, you can add this line at the end of your .bashrc:
+For bash for example, assuming the install location is `~/.yarn/bin`, you can add this line at the end of your .bashrc:
 
 ```sh
-export PATH="$(yarn global bin):$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 ```
 
 Read more about the commands that can be used together with `yarn global`:
