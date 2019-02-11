@@ -75,6 +75,7 @@ class Search extends Component {
         <Configure
           hitsPerPage={5}
           facets={['keywords']}
+          analyticsTags={['yarnpkg.com']}
           attributesToRetrieve={[
             'deprecated',
             'description',
