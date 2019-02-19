@@ -76,7 +76,7 @@ Finally, run `yarn install` somewhere, ideally inside the workspace root. If eve
 
 _Note: don't look for `/node_modules/workspace-b`. It won't be there unless some other package use it as a dependency._
 
-And that's it! Requiring `workspace-a` from a file located in `workspace-b` will now use the exact code currently located inside your project rather than what is published on GitHub, and the `cross-env` package has been correctly deduped and put at the root of your project to be used by both `workspace-a` and `workspace-b`.
+And that's it! Requiring `workspace-a` from a file located in `workspace-b` will now use the exact code currently located inside your project rather than what is published on npm, and the `cross-env` package has been correctly deduped and put at the root of your project to be used by both `workspace-a` and `workspace-b`.
 
 Please note the fact that `/workspace-a` is aliased as `/node_modules/workspace-a` via a symlink.
 That's the trick that allow you to do require the package like if it was a normal one!
@@ -104,7 +104,7 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
 
 - The package layout will be different between your workspace and what your users will get (the workspace dependencies will be hoisted higher into the filesystem hierarchy). Making assumptions about this layout was already hazardous since the hoisting process is not standardized, so theoretically nothing new here. If you encounter issues, try using [the `nohoist` option](/blog/2018/02/15/nohoist/)
 
-- In the example above, if `workspace-b` depends on a different version than the one referenced in `workspace-a`'s package.json, the dependency will be installed from GitHub rather than linked from your local filesystem. This is because some packages actually need to use the previous versions in order to build the new ones (Babel is one of them).
+- In the example above, if `workspace-b` depends on a different version than the one referenced in `workspace-a`'s package.json, the dependency will be installed from npm rather than linked from your local filesystem. This is because some packages actually need to use the previous versions in order to build the new ones (Babel is one of them).
 
 - Be careful when publishing packages in a workspace. If you are preparing your next release and you decided to use a new dependency but forgot to declare it in the `package.json` file, your tests might still pass locally if another package already downloaded that dependency into the workspace root. However, it will be broken for consumers that pull it from a registry, since the dependency list is now incomplete so they have no way to download the new dependency. Currently there is no way to throw a warning in this scenario.
 
