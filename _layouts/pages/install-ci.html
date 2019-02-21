@@ -14,6 +14,7 @@ scripts:
 {% capture circle    %}{% include_relative _ci/circle.md    %}{% endcapture %}
 {% capture codeship  %}{% include_relative _ci/codeship.md  %}{% endcapture %}
 {% capture solano    %}{% include_relative _ci/solano.md    %}{% endcapture %}
+{% capture gitlab    %}{% include_relative _ci/gitlab.md    %}{% endcapture %}
 
 
 <div class="tabs">
@@ -25,6 +26,7 @@ scripts:
       <a id="travis-tab" class="nav-item nav-link" data-toggle="tab" href="#travis">{{i18n.ci_travis}}</a>
       <a id="semaphore-tab" class="nav-item nav-link" data-toggle="tab" href="#semaphore">{{i18n.ci_semaphore}}</a>
       <a id="solano-tab" class="nav-item nav-link" data-toggle="tab" href="#solano">{{i18n.ci_solano}}</a>
+      <a id="gitlab-tab" class="nav-item nav-link" data-toggle="tab" href="#gitlab">{{i18n.ci_gitlab}}</a>
     </div>
   </nav>
 
@@ -40,5 +42,6 @@ scripts:
     <div class="tab-pane" id="travis">{{ travis | markdownify }}</div>
     <div class="tab-pane" id="semaphore">{{ semaphore | markdownify }}</div>
     <div class="tab-pane" id="solano">{{ solano | markdownify }}</div>
+    <div class="tab-pane" id="gitlab">{{ gitlab | markdownify }}</div>
   </div>
 </div>

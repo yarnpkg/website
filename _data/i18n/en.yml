@@ -323,6 +323,7 @@ ci_codeship: Codeship
 ci_travis: Travis
 ci_semaphore: Semaphore
 ci_solano: Solano
+ci_gitlab: GitLab
 
 search_docs: Search documentation
 detail:
