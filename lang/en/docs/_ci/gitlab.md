@@ -42,6 +42,4 @@ test:
     paths:
     - node_modules/
     - .yarn
-  script:
-    - yarn test-ci
 ```
