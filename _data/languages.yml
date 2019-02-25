@@ -104,7 +104,7 @@
   accept_languages: ["ro"]
 - name: Русский
   tag: ru
-  enabled: No
+  enabled: Yes
   accept_languages: ["ru", "ru-mo"]
 - name: Slovenský
   tag: sk-SK
@@ -133,8 +133,8 @@
 - name: 中文
   tag: zh-Hans
   enabled: Yes
-  accept_languages: ["zh-cn", "zh-hk", "zh-tw", "zh-sg"]
+  accept_languages: ["zh-hk", "zh-tw", "zh-sg"]
 - name: 繁體中文
   tag: zh-Hant
-  enabled: No
-  accept_languages: []
+  enabled: Yes
+  accept_languages: ["zh-cn"]
