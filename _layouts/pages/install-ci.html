@@ -8,13 +8,30 @@ scripts:
 
 {{i18n.ci_intro}}
 
-{% capture travis    %}{% include_relative _ci/travis.md    %}{% endcapture %}
-{% capture semaphore %}{% include_relative _ci/semaphore.md %}{% endcapture %}
-{% capture appveyor  %}{% include_relative _ci/appveyor.md  %}{% endcapture %}
-{% capture circle    %}{% include_relative _ci/circle.md    %}{% endcapture %}
-{% capture codeship  %}{% include_relative _ci/codeship.md  %}{% endcapture %}
-{% capture solano    %}{% include_relative _ci/solano.md    %}{% endcapture %}
-{% capture gitlab    %}{% include_relative _ci/gitlab.md    %}{% endcapture %}
+{% capture travis %}
+  {% include_relative _ci/travis.md %}
+{% endcapture %}
+{% capture semaphore %}
+  {% include_relative _ci/semaphore.md %}
+{% endcapture %}
+{% capture appveyor %}
+  {% include_relative _ci/appveyor.md %}
+{% endcapture %}
+{% capture circle %}
+  {% include_relative _ci/circle.md %}
+{% endcapture %}
+{% capture codeship %}
+  {% include_relative _ci/codeship.md %}
+{% endcapture %}
+{% capture solano %}
+  {% include_relative _ci/solano.md %}
+{% endcapture %}
+{% capture gitlab %}
+  {% capture exists %}{% file_exists _ci/gitlab.md %}{% endcapture %}
+  {% if exists == "true" %}
+    {% include_relative _ci/gitlab.md %}
+  {% endif %}
+{% endcapture %}
 
 
 <div class="tabs">
