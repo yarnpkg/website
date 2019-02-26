@@ -25,16 +25,16 @@ if you already have it installed. If you already have
 
 Once you have npm installed you can run:
 
-  <div class="install-only-stable" markdown="1">
-    ```sh
-    npm install --global yarn
-    ```
-  </div>
-  <div class="install-only-rc" markdown="1">
-    ```sh
-    npm install --global yarn@rc
-    ```
-  </div>
+<div class="install-only-stable" markdown="1">
+```sh
+npm install --global yarn
+```
+</div>
+<div class="install-only-rc" markdown="1">
+```sh
+npm install --global yarn@rc
+```
+</div>
 </div>
 <div class="install-only-nightly" markdown="1">
   Nightly builds of Yarn are not available via npm.
