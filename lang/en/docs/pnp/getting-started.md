@@ -20,7 +20,7 @@ From now on each time you'll run `yarn install` Yarn will create a single file n
 
 So enabling PnP isn't complicated at all - what might be an issue are third-party packages that reimplement the Node resolution themselves. Three major implementations exist, more might also hide from a project to another:
 
-- [`resolve`](https://yarnpkg.com/en/package/resolve) is the main one, and is supported out-of-the-box thanks to the help of [Jordan Harband](https://github.com/ljharb). Every package using `resolve` (and that includes things you might have heard of like Babel or Gulp) now works with further configuration.
+- [`resolve`](https://yarnpkg.com/en/package/resolve) is the main one, and is supported out-of-the-box thanks to the help of [Jordan Harband](https://github.com/ljharb). Every package using `resolve` (and that includes things you might have heard of like Babel or Gulp) now works without further configuration.
 
 - [`enhanced-resolve`](https://yarnpkg.com/en/package/enhanced-resolve) is the second biggest one. You probably use it but might never have heard about it: it's the resolver used by Webpack. We do support this resolver through the [pnp-webpack-plugin](https://github.com/arcanis/pnp-webpack-plugin) addon.
 
