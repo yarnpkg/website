@@ -78,7 +78,7 @@ You can also turn signing git tags on or off using `version-sign-git-tag`:
 yarn config set version-sign-git-tag false
 ```
 
-You can even enabled or disable the git tagging behavior entirely by using
+You can even enable or disable the git tagging behavior entirely by using
 `version-git-tag`:
 
 ```sh
