@@ -3,4 +3,4 @@ Disallow: /-debug/
 Disallow: /page*/
 Disallow: /*/packages/
 
-Sitemap: http://yarnpkg.com/sitemaps/sitemap-index.xml
+Sitemap: http://sitemap.yarnpkg.com/sitemap-index.xml
