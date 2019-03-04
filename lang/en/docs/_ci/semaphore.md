@@ -10,5 +10,5 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 # install-package is a tool for caching APT installations in Semaphore
 # defining a package version is optional
-install-package yarn=<version>
+install-package --update-new yarn=<version>
 ```
