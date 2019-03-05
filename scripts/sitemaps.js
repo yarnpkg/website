@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-if (process.env.CONTEXT === 'production') {
+if (process.env.CONTEXT === 'production' && false) {
   const algoliaSitemap = require('algolia-sitemap');
   const { mkdirSync, rmdirSync, existsSync } = require('fs');
 

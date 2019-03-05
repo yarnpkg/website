@@ -27,7 +27,7 @@ langs.each {|lang|
   files = Dir.glob(File.join(langsDir, lang, '**', '*.*'))
 
   files.each {|file|
-    puts "- Replacing #{file}"
+    # puts "- Replacing #{file}"
 
     path = file.sub(File.join(langsDir, lang), '')
     contents = IO.read file

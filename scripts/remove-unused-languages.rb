@@ -20,9 +20,9 @@ langs = Dir.entries(langDirectory).select { |entry|
 
 langs.each {|lang|
   if languagesEnabledHash[lang]
-    puts "- Leaving #{lang}"
+    # puts "- Leaving #{lang}"
   else
-    puts "- Removing #{lang}..."
+    # puts "- Removing #{lang}..."
     system "rm _data/i18n/#{lang}.yml"
     system "rm -r lang/#{lang}"
   end
