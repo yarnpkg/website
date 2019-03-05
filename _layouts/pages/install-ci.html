@@ -27,7 +27,7 @@ scripts:
   {% include_relative _ci/solano.md %}
 {% endcapture %}
 {% capture gitlab %}
-  {% capture exists %}{% file_exists _ci/gitlab.md %}{% endcapture %}
+  {% capture exists %}{%file_exists _ci/gitlab.md%}{% endcapture %}
   {% if exists == "true" %}
     {% include_relative _ci/gitlab.md %}
   {% endif %}

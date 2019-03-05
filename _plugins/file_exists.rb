@@ -13,10 +13,11 @@ module Jekyll
 
           # Adds the site source, so that it also works with a custom one
           site_source = context.registers[:site].config['source']
-          file_path = site_source + '/' + url
+          dir_name = File.dirname(context.environments.first["page"]["path"])
+          file_path = File.join(site_source, dir_name, url)
 
           # Check if file exists (returns true or false)
-          "#{File.exist?(file_path.strip!)}"
+          "#{File.exist?(file_path)}"
       end
   end
 end
