@@ -32,7 +32,7 @@ crowdin-upload: test-crowdin
 	@crowdin-cli upload sources --auto-update -b master
 
 crowdin-download: test-crowdin
-	@crowdin-cli download -b master
+	@crowdin-cli download -b master | grep -v '^Extracting: ' | grep -v '^ - '
 	@ruby ./scripts/remove-unused-languages.rb
 	@ruby ./scripts/normalize-translations.rb
 
