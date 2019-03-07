@@ -68,7 +68,7 @@ The `package.json` file will be updated to reflect the latest version range.
 By default, the existing range specifier in `package.json` will be reused if
 it is one of: ^, ~, <=, >, or an exact version.
 Otherwise, it will be changed to a caret (^).
-One of the flags `--caret`, `--tilde` or `--exact` can be used to explicitely
+One of the flags `--caret`, `--tilde` or `--exact` can be used to explicitly
 specify a range.
 
 Examples:
