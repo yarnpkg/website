@@ -37,6 +37,8 @@ Making Workspaces native to Yarn enables faster, lighter installation by prevent
 
 ## Setting up Workspaces
 
+> Starting Yarn 1.0  Workspaces are enabled by default and you may not need th set the below config. Refer to the updated steps at the following location  https://yarnpkg.com/lang/en/docs/workspaces/
+
 To get started, users must enable Workspaces in Yarn by running the following command:
 
 ```
