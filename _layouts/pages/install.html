@@ -8,6 +8,7 @@ operating_systems:
   - arch
   - centos
   - debian
+  - gentoo
   - mac
   - solus
   - windows
@@ -46,11 +47,14 @@ operating_systems:
 <div id="install-instructions">
   <div class="install-os-instructions">Loading...</div>
   {% for os in layout.operating_systems %}
-    {% capture info %}{% include_relative _installations/{{os}}.md %}{% endcapture %}
     <div id="{{os}}" class="install-os-instructions" style="display: none">
       {% capture os_i18n %}install_os_{{os}}{% endcapture %}
       <h3>{{i18n[os_i18n]}}</h3>
-      {{info | markdownify}}
+      {% capture exists %}{% file_exists _installations/{{os}}.md %}{% endcapture %}
+      {% if exists == "true" %}
+        {% capture info %}{% include_relative _installations/{{os}}.md %}{% endcapture %}
+        {{info | markdownify}}
+      {% endif %}
     </div>
   {% endfor %}
 </div>
