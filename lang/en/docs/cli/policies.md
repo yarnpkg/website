@@ -22,7 +22,7 @@ you. Unfortunately, while technically strong, this technique adds an unwanted bu
 on them - given that the Yarn binary is typically global, switching from a branch to
 another might be particularly annoying if they change the version.
 
-To fix that, `yarn policies set-version` offers a simple way to **checkin your Yarn
+To fix that, `yarn policies set-version` offers a simple way to **check in your Yarn
 release within your repository.** Once you run it, your configuration will be updated
 in such a way that anyone running a Yarn command inside the project will always use
 the version you set - and this transparently.
