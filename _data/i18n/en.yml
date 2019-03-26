@@ -270,6 +270,7 @@ install_os_alpine: Alpine
 install_os_arch: Arch Linux
 install_os_centos: CentOS / Fedora / RHEL
 install_os_debian: Debian / Ubuntu
+install_os_gentoo: Gentoo Linux
 install_os_mac: macOS
 install_os_opensuse: openSUSE
 install_os_solus: Solus
