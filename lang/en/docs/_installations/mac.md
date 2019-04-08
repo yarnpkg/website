@@ -8,11 +8,7 @@ This will also install Node.js if it is not already installed.
 brew install yarn
 ```
 
-If you use [nvm](https://github.com/creationix/nvm) or similar, you can exclude installing Node.js so that nvm's version of Node.js is used by ignoring dependencies.
-
-```sh
-brew install yarn --ignore-dependencies
-```
+If you use [nvm](https://github.com/creationix/nvm) or similar, you should ensure that your `PATH` lists nvm's shims before the version of Node.js installed by Homebrew.
 
 #### MacPorts
 
