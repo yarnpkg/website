@@ -128,3 +128,7 @@ Checks for known security issues with the installed packages. A count of found i
 ##### `yarn install --no-bin-links` <a class="toc" id="toc-yarn-install-no-bin-links" href="#toc-yarn-install-no-bin-links"></a>
 
 Prevent yarn from creating symlinks for any binaries the package might contain.
+
+##### `yarn install --link-duplicates` <a class="toc" id="toc-yarn-install-link-duplicates" href="#toc-yarn-install-link-duplicates"></a>
+
+Create hardlinks to the repeated modules in node_modules.
