@@ -58,7 +58,7 @@ const renderAndEscapeMarkdown = ({ source, repository }) => {
           });
 
     // manually ask for sanitation of svgs, otherwise it will have wrong content-type
-    function sanitize(href) {
+    function sanitizeSvg(href) {
       if (
         href.indexOf('//') === -1 &&
         String.prototype.endsWith &&
@@ -71,7 +71,7 @@ const renderAndEscapeMarkdown = ({ source, repository }) => {
 
     renderer.image = (href, title, text) =>
       `<img src="${prefixImage(
-        sanitize(href)
+        sanitizeSvg(href)
       )}" title="${title}" alt="${text}"/>`;
 
     renderer.link = (href, title, text) => {
@@ -91,7 +91,9 @@ const renderAndEscapeMarkdown = ({ source, repository }) => {
       return html.replace(
         /(src|href)="([^"]*)/g,
         (match, type, href) =>
-          `${type}="${type === 'href' ? prefixLink(href) : prefixImage(href)}`
+          `${type}="${
+            type === 'href' ? prefixLink(href) : prefixImage(sanitizeSvg(href))
+          }`
       );
     };
   }
