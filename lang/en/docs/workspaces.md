@@ -78,11 +78,44 @@ _Note: don't look for `/node_modules/workspace-b`. It won't be there unless some
 
 And that's it! Requiring `workspace-a` from a file located in `workspace-b` will now use the exact code currently located inside your project rather than what is published on npm, and the `cross-env` package has been correctly deduped and put at the root of your project to be used by both `workspace-a` and `workspace-b`.
 
-Please note the fact that `/workspace-a` is aliased as `/node_modules/workspace-a` via a symlink.
-That's the trick that allow you to do require the package like if it was a normal one!
-You also need to know that `/workspace-a/package.json#name` field is used and not the folder name.
-This means that if `/workspace-a/package.json` `name` field was `"pkg-a"`, the alias will be as following:
-`/node_modules/pkg-a -> /workspace-a` and you will be able to import code from `/workspace-a` with `const pkgA = require("pkg-a");` (or maybe `import pkgA from "pkg-a";`).
+The key ingredient in this process is the creation of a symbolic link `/node_modules/workspace-a` which points to `/workspace-a`.  To a compiler following the Node.js path resolution strategy, the neighboring package will behave just like any other dependency, as long as the compiler follows the [Node.js path resoultion strategy](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders):
+
+> If the module identifier passed to require() is not a core module, and does not begin with '/', '../', or './', then Node.js starts at 
+> the parent directory of the current module, and adds /node_modules, and attempts to load the module from that location. Node.js will not > append node_modules to a path already ending in node_modules.
+> 
+> If it is not found there, then it moves to the parent directory, and so on, until the root of the file system is reached.
+> [Node.js: Loading from `node_modules` Folders](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders)
+
+Since [ECMAScript Modules use the same path resolution strategy](https://nodejs.org/api/esm.html#esm_notable_differences_between_import_and_require), this also works for compilers which support that flavor of `import` statement as well.
+
+### Which name is used for the symlink?
+
+The `name` field in a given workspace's `package.json` file is used to name the symbolic link.  For example, if `/workspace-a/package.json#name` was changed to something different than `workspace-a`, that name would be used when creating the symbolic link.
+
+**workspace-a/package.json:**
+
+```json
+{
+  "name": "@myproject/workspace-a",
+  "version": "1.0.0",
+
+  "dependencies": {
+    "cross-env": "5.0.5"
+  }
+}
+```
+
+```
+/package.json
+/yarn.lock
+
+/node_modules
+/node_modules/cross-env
+/node_modules/@myproject/workspace-a -> /workspace-a
+
+/workspace-a/package.json
+/workspace-b/package.json
+```
 
 ### How does it compare to Lerna? <a class="toc" id="toc-how-does-it-compare-to-lerna" href="#toc-how-does-it-compare-to-lerna"></a>
 
