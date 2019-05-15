@@ -79,9 +79,9 @@ _Note: don't look for `/node_modules/workspace-b`. It won't be there unless some
 And that's it! Requiring `workspace-a` from a file located in `workspace-b` will now use the exact code currently located inside your project rather than what is published on npm, and the `cross-env` package has been correctly deduped and put at the root of your project to be used by both `workspace-a` and `workspace-b`.
 
 Please note the fact that `/workspace-a` is aliased as `/node_modules/workspace-a` via a symlink.
-That's the trick that allow you to do require the package like if it was a normal one!
-You also need to know that `/workspace-a/package.json#name` field is used and not the folder name.
-This means that if `/workspace-a/package.json` `name` field was `"pkg-a"`, the alias will be as following:
+That's the trick that allows you to require the package as if it was a normal one!
+You also need to know that the `/workspace-a/package.json#name` field is used and not the folder name.
+This means that if the `/workspace-a/package.json` `name` field was `"pkg-a"`, the alias will be the following:
 `/node_modules/pkg-a -> /workspace-a` and you will be able to import code from `/workspace-a` with `const pkgA = require("pkg-a");` (or maybe `import pkgA from "pkg-a";`).
 
 ### How does it compare to Lerna? <a class="toc" id="toc-how-does-it-compare-to-lerna" href="#toc-how-does-it-compare-to-lerna"></a>
@@ -92,7 +92,7 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
 
 - The `workspaces` field is an array containing the paths to each workspace. Since it might be tedious to keep track of each of them, this field also accepts glob patterns! For example, Babel reference all of their packages through a single `packages/*` directive.
 
-- Workspaces are stable enough to be used in large-scale applications and shouldn't change anything to the way the regular installs work, but if you think they're breaking something, you can disable them by adding the following line into your Yarnrc file:
+- Workspaces are stable enough to be used in large-scale applications and shouldn't change anything from the way the regular installs work, but if you think they're breaking something, you can disable them by adding the following line into your Yarnrc file:
 
   ```
   workspaces-experimental false
