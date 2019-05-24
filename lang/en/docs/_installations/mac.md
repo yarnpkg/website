@@ -19,6 +19,8 @@ This will also install Node.js if it is not already installed.
 sudo port install yarn
 ```
 
+{% include_relative _installations/tarball.md %}
+
 </div>
 
 <div class="install-only-rc install-only-nightly" markdown="1">
