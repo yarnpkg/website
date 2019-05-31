@@ -231,8 +231,8 @@ For users upgrading their dependencies, they should be trained to look out for
 breaking changes and if they encounter one, to roll back the version to a
 working state and open an issue in the library.
 
-The only really negative experience that we are adding is for new users. Which
-is admittedly terrible, you want new users to have the best possible
+The only really negative experience that we are adding is for new users, which
+is admittedly terrible. You want new users to have the best possible
 experience.
 
 But remember that they already face this burden in the majority of cases. It's
