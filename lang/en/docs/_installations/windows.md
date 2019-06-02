@@ -54,4 +54,24 @@ scoop install nodejs
 
 #### Notice
 
-Please whitelist your project folder and the Yarn cache directory (%LocalAppData%\Yarn) in your antivirus software, otherwise installing packages will be significantly slower as every single file will be scanned as it's written to disk.
+Please whitelist your project folder and the Yarn cache directory (%LocalAppData%\Yarn) in your antivirus software, otherwise installing packages will be significantly slower as every single file will be scanned as it's written to disk. 
+
+##### Add exclusions to Windows Defender (default anti-virus in WIndows 10)
+
+You can run the follow PowerShell command (must be run from an elevated PowerShell prompt) to exclude the Yarn package cache folder:
+
+```powershell
+Add-MpPreference -ExclusionPath "$ENV:LOCALAPPDATA\yarn"
+```
+You could exclude all node actions from virus scanning by adding the `node.exe` process:
+
+```powershell
+Add-MpPreference -ExclusionProcess 'node.exe'
+```
+if you want to check existing exclusions:
+To check which folders are excluded, use this command:
+
+```powershell
+Get-MpPreference | select ExclusionExtension, ExclusionPath, ExclusionProcess
+```
+
