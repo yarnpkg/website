@@ -44,10 +44,13 @@ You can also specify packages from different locations:
     haven't been published to the registry.
 3.  `yarn add file:/path/to/local/tarball.tgz` installs a package from a gzipped
     tarball which could be used to share a package before publishing it.
-4.  `yarn add <git remote url>` installs a package from a remote git repository.
-5.  `yarn add <git remote url>#<branch/commit/tag>` installs a package from a remote
+4.  `yarn add link:/path/to/local/folder` installs a symlink to a package that is
+    on your local file system. This is useful to develop related packages in
+    monorepo environments.
+5.  `yarn add <git remote url>` installs a package from a remote git repository.
+6.  `yarn add <git remote url>#<branch/commit/tag>` installs a package from a remote
     git repository at specific git branch, git commit or git tag.
-6.  `yarn add https://my-project.org/package.tgz` installs a package from a
+7.  `yarn add https://my-project.org/package.tgz` installs a package from a
     remote gzipped tarball.
 
 ### Caveats <a class="toc" id="toc-caveats" href="#toc-caveats"></a>
