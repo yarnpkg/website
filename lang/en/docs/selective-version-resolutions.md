@@ -34,11 +34,20 @@ Add a `resolutions` field to your `package.json` file and define your version ov
     "d2": "file:../d2-1"
   },
   "resolutions": {
-    "d2/left-pad": "1.1.1",
-    "c/**/left-pad": "1.1.2"
+    "d2/left-pad": "2.0.0",
+    "c/**/left-pad": "3.0.0",
+    "**/right-pad": "1.0.0"
   }
 }
 ```
+
+In this example, all packages requiring `right-pad` will be given the same version. However, this will not always work for your codebase. Any package that wants to require version 6.0.0, will be forced to require version 1.0.0 and that may result in packages breaking.
+
+Another approach is to scope the resolution to a specific dependency, allowing multiple versions to still be used. In this case, when you import `left-pad` directly, it will be version 1.0.0, but when `d2` imports `left-pad` directly it will get version 2.0.0.
+
+However, if `d2` imports a dependency and that dependency imports `left-pad`, it will not likely be version 2.0.0, as the resolution does not apply in this case. To prevent this from happening, `c` uses `**` to apply the resultion for all of its dependencies as well.
+
+Note that not one of these is the better resolution, as different use-cases require different resolutions.
 
 Then run `yarn install`.
 
