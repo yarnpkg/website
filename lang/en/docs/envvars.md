@@ -14,7 +14,7 @@ Environment variables defined in `process.env` allow you to configure additional
 process.env.CHILD_CONCURRENCY=#number#
 ```
 
-Controls the number of child processes run parallely to build node modules.
+Controls the number of child processes run in parallel to build node modules.
 
 Setting this number to 1 will cause the node modules to be built sequentially which can avoid linker errors on windows with node-gyp.
 
