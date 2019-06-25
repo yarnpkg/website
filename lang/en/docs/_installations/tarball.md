@@ -51,7 +51,7 @@ tar zvxf latest.tar.gz
 ```sh
 cd /opt
 wget https://yarnpkg.com/latest-rc.tar.gz
-tar zvxf latest.tar.gz
+tar zvxf latest-rc.tar.gz
 # Yarn is now in /opt/yarn-[version]/
 ```
 </div>
