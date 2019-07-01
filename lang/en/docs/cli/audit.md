@@ -13,7 +13,17 @@ layout: guide
 Checks for known security issues with the installed packages. The output is a list of known issues.
 
 You must be online to perform the audit. The audit will be skipped if the `--offline` general flag is specified.
-The command will exit with a non-0 exit code if there are issues of any severity found.
+
+The command will exit with a non-0 exit code if there are issues of any severity found. The exit code will be a mask of the severities.
+
+* 1 for INFO
+* 2 for LOW
+* 4 for MODERATE
+* 8 for HIGH
+* 16 for CRITICAL
+
+For example, if only INFO and MODERATE vulnerabilities were found, then the exit code will be `1 + 4 = 5`
+
 For scripting purposes, `yarn audit` also supports the `--json` flag, which will output the details for the issues in JSON-lines format (one JSON object per line) instead of plain text.
 
 <strong>If you are experiencing issues with the audit command</strong> please run with the `--verbose` flag, which will output the JSON data that yarn sends to the npm registry as well as the response data, and open an issue on GitHub that includes this data.
