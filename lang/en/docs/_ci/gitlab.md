@@ -1,3 +1,6 @@
+{% comment %}
+Empty line. Do not remove.
+{% endcomment %}
 Because [GitLab CI](https://about.gitlab.com/product/continuous-integration/) uses docker in the background, you can specify an image with yarn pre-installed.
 
 ```yml

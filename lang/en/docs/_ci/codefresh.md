@@ -1,3 +1,6 @@
+{% comment %}
+Empty line. Do not remove.
+{% endcomment %}
 [Codefresh pipelines](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/introduction-to-codefresh-pipelines/) use Docker images in all their steps so it is very easy to use any [Yarn version](https://hub.docker.com/_/node/) in any pipeline.
 
 This pipeline [checks out](https://codefresh.io/docs/docs/codefresh-yaml/steps/git-clone/) the source code and then runs `yarn` with two [freestyle steps](https://codefresh.io/docs/docs/codefresh-yaml/steps/freestyle/).
