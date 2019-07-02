@@ -32,6 +32,12 @@ scripts:
     {% include_relative _ci/gitlab.md %}
   {% endif %}
 {% endcapture %}
+{% capture codefresh %}
+  {% capture exists %}{% file_exists _ci/codefresh.md %}{% endcapture %}
+  {% if exists == "true" %}
+    {% include_relative _ci/codefresh.md %}
+  {% endif %}
+{% endcapture %}
 
 
 <div class="tabs">
@@ -44,6 +50,7 @@ scripts:
       <a id="semaphore-tab" class="nav-item nav-link" data-toggle="tab" href="#semaphore">{{i18n.ci_semaphore}}</a>
       <a id="solano-tab" class="nav-item nav-link" data-toggle="tab" href="#solano">{{i18n.ci_solano}}</a>
       <a id="gitlab-tab" class="nav-item nav-link" data-toggle="tab" href="#gitlab">{{i18n.ci_gitlab}}</a>
+      <a id="codefresh-tab" class="nav-item nav-link" data-toggle="tab" href="#codefresh">{{i18n.ci_codefresh}}</a>
     </div>
   </nav>
 
@@ -60,5 +67,6 @@ scripts:
     <div class="tab-pane" id="semaphore">{{ semaphore | markdownify }}</div>
     <div class="tab-pane" id="solano">{{ solano | markdownify }}</div>
     <div class="tab-pane" id="gitlab">{{ gitlab | markdownify }}</div>
+    <div class="tab-pane" id="codefresh">{{ codefresh | markdownify }}</div>
   </div>
 </div>
