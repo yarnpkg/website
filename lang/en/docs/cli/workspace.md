@@ -24,7 +24,7 @@ This will add `react` and `react-dom` as `devDependencies` in your `packages/awe
 If you want to remove a package:
 
 ```sh
-yarn workspace web-project remove some-package --save
+yarn workspace web-project remove some-package
 ```
 
 The example above would remove `some-package` from `packages/web-project/package.json`.
