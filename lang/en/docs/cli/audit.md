@@ -8,7 +8,7 @@ layout: guide
 
 <p class="lead">Perform a vulnerability audit against the installed packages.</p>
 
-##### `yarn audit [--verbose] [--json]` <a class="toc" id="toc-yarn-audit" href="#toc-yarn-audit"></a>
+##### `yarn audit [--verbose] [--json] [--level]` <a class="toc" id="toc-yarn-audit" href="#toc-yarn-audit"></a>
 
 Checks for known security issues with the installed packages. The output is a list of known issues.
 
@@ -27,3 +27,9 @@ For example, if only INFO and MODERATE vulnerabilities were found, then the exit
 For scripting purposes, `yarn audit` also supports the `--json` flag, which will output the details for the issues in JSON-lines format (one JSON object per line) instead of plain text.
 
 <strong>If you are experiencing issues with the audit command</strong> please run with the `--verbose` flag, which will output the JSON data that yarn sends to the npm registry as well as the response data, and open an issue on GitHub that includes this data.
+
+### Commands <a class="toc" id="toc-commands" href="#toc-commands"></a>
+
+##### `yarn audit [--level info|low|moderate|high|critical]` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
+
+Applying the level flag will limit the audit table to vulnerabilities of the corresponding level and above. It will *not* affect the exit code of the command.
