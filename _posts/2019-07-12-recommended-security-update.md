@@ -2,7 +2,7 @@
 layout     : post
 title      : "Recommended security update"
 author     : "Maël Nison"
-author_url : "https://github.com/arcanis"
+author_url : "https://twitter.com/arcanis"
 date       : 2019-07-12 23:44:03
 categories : announcements
 share_text : "Recommended security update"
@@ -16,7 +16,7 @@ $ sed -i '' 's/http:/https:/g' yarn.lock
 
 ## What happened?
 
-The Yarn registry is just a DNS alias to the npm registry. For a few months in 2018,the npm registry [returned http urls instead of the regular https ones](https://npm.community/t/some-packages-have-dist-tarball-as-http-and-not-https/285/40). Although the problem seems to have been corrected earlier this year, the lockfile entries generated during this period may still reference http urls and cause Yarn to send authentication data unencrypted.
+The Yarn registry is just a DNS alias to the npm registry. For a few months in 2018, the npm registry [returned http urls instead of the regular https ones](https://npm.community/t/some-packages-have-dist-tarball-as-http-and-not-https/285/40). Although the problem seems to have been corrected earlier this year, the lockfile entries generated during this period may still reference http urls and cause Yarn to send unencrypted authentication data over the network.
 
 ## What's the mitigation?
 
