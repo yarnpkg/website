@@ -94,14 +94,15 @@ yarn_link() {
     if ! grep -q 'yarn' "$YARN_PROFILE"; then
       if [[ $YARN_PROFILE == *"fish"* ]]; then
         command fish -c 'set -U fish_user_paths $fish_user_paths ~/.yarn/bin'
+        printf "$cyan> We've added ~/.yarn/bin to your fish_user_paths universal variable\n"
       else
         command printf "$SOURCE_STR" >> "$YARN_PROFILE"
+        printf "$cyan> We've added the following to your $YARN_PROFILE\n"
       fi
+      
+      echo "> If this isn't the profile of your current shell then please add the following to your correct profile:"
+      printf "   $SOURCE_STR$reset\n"
     fi
-
-    printf "$cyan> We've added the following to your $YARN_PROFILE\n"
-    echo "> If this isn't the profile of your current shell then please add the following to your correct profile:"
-    printf "   $SOURCE_STR$reset\n"
 
     version=`$HOME/.yarn/bin/yarn --version` || (
       printf "$red> Yarn was installed, but doesn't seem to be working :(.$reset\n"
