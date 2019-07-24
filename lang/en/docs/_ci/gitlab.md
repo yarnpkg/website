@@ -17,6 +17,8 @@ image: does-not-have-yarn
 before_script:
   # Install yarn as outlined in (https://yarnpkg.com/lang/en/docs/install/#alternatives-stable)
   - curl -o- -L https://yarnpkg.com/install.sh | bash
+  # Make available in the current terminal
+  - export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 ```
 
 In either case, it's good practice to cache your `node_modules` and `.yarn` folders as well to speed up your builds.
