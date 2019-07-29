@@ -152,6 +152,22 @@ Creates a new version specified by `<version>`.
 
 Creates a new version by incrementing the major, minor, or patch number of the current version.
 
+##### `yarn version --premajor` <a class="toc" id="toc-yarn-version-premajor" href="#toc-yarn-version-premajor"></a>
+
+##### `yarn version --preminor` <a class="toc" id="toc-yarn-version-preminor" href="#toc-yarn-version-preminor"></a>
+
+##### `yarn version --prepatch` <a class="toc" id="toc-yarn-version-prepatch" href="#toc-yarn-version-prepatch"></a>
+
+Creates a new prerelease version by incrementing the major, minor, or patch number of the current version and adding a prerelease number.
+
+##### `yarn version --prerelease` <a class="toc" id="toc-yarn-version-prerelease" href="#toc-yarn-version-prerelease"></a>
+
+Increments the prerelease version number keeping the main version.
+
+##### `yarn version [--premajor | --preminor | --prepatch | --prerelease] --preid <pre-identifier>` <a class="toc" id="toc-yarn-version-preid" href="#toc-yarn-version-preid"></a>
+
+Adds an identifier specified by `<pre-identifier>` to be used to prefix premajor, preminor, prepatch or prerelease version increments.
+
 ##### `yarn version --no-git-tag-version` <a class="toc" id="toc-yarn-version-no-git-tag-version" href="#toc-yarn-version-no-git-tag-version"></a>
 
 Creates a new version without creating a git tag.
