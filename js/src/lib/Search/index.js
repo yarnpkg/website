@@ -89,6 +89,7 @@ class Search extends Component {
             'name',
             'owner',
             'version',
+            'types',
           ]}
           attributesToHighlight={['name', 'description', 'keywords']}
         />

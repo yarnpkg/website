@@ -335,6 +335,7 @@ class Details extends Component {
             deprecated={this.state.deprecated}
             keywords={this.state.keywords}
             version={this.state.version}
+            types={this.state.types}
           />
           <section id="readme" className="details-doc">
             <h3 className="details-doc--title details-doc--title__readme py-1">

@@ -55,6 +55,17 @@ export const Downloads = ({ downloads = 0, humanDownloads }) => (
   </span>
 );
 
+export const TypeScript = ({ ts = false }) => {
+  return ts !== false ? (
+    <img
+      className="ais-Hit-typescript"
+      src="/assets/search/ico-typescript.svg"
+      alt={`TypeScript support: ${ts}`}
+      title={`TypeScript support: ${ts}`}
+    />
+  ) : null;
+};
+
 const Repository = ({ repository, name }) => {
   const [provider] = repository.host.split('.');
 
@@ -110,6 +121,7 @@ const Hit = ({ hit, onTagClick, onOwnerClick }) => (
     <License type={hit.license} />
     <Deprecated deprecated={hit.deprecated} />
     <span className="ais-Hit-version">{hit.version}</span>
+    <TypeScript ts={hit.types.ts} />
     <p className="ais-Hit-description">
       {hit.deprecated ? (
         hit.deprecated

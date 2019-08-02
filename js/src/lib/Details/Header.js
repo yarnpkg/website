@@ -1,5 +1,5 @@
 import React from 'react';
-import { License, Deprecated, Owner, Downloads } from '../Hit';
+import { License, Deprecated, Owner, Downloads, TypeScript } from '../Hit';
 import { Keywords, safeMarkdown } from '../util';
 
 const Description = ({ description, deprecated }) => (
@@ -26,6 +26,7 @@ const Header = ({
   deprecated,
   keywords,
   version,
+  types,
 }) => (
   <header className="details-main--header">
     <h2 className="details-main--title d-inline-block m-2">{name}</h2>
@@ -38,6 +39,7 @@ const Header = ({
       <License type={license} />
       <Deprecated deprecated={deprecated} />
       <span className="ais-Hit-version">{version}</span>
+      <TypeScript ts={types.ts} />
     </div>
     <Description description={description} deprecated={deprecated} />
     <Keywords keywords={keywords} />

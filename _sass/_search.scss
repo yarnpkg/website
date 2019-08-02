@@ -348,6 +348,13 @@ $ais-muted-color: rgba(black, 0.5);
     width: 26px;
     height: 26px;
   }
+
+  &-typescript {
+    margin-left: 0.2em;
+    width: 0.8em;
+    height: 0.8em;
+    vertical-align: baseline;
+  }
 }
 
 .ais-Pagination {
