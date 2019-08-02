@@ -29,10 +29,10 @@ the version you set - and this transparently.
 
 The command accepts various ways to set which version you want to use:
 
-  - `yarn policies set-version` will download the latest stable release
-  - `yarn policies set-version --rc` will download the latest rc release
-  - `yarn policies set-version 1.13.0` will download a specific version
-  - `yarn policies set-version '^1.12.0'` will download the latest minor
+- `yarn policies set-version` will download the latest stable release
+- `yarn policies set-version --rc` will download the latest rc release
+- `yarn policies set-version 1.13.0` will download a specific version
+- `yarn policies set-version '^1.12.0'` will download the latest minor
 
 Under the hood, the command will simply download the single-file release from the
 GitHub repository, store it inside your project (inside the `.yarn/releases` folder),

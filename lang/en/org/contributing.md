@@ -32,9 +32,9 @@ If you would like to start triaging issues, one easy way to get started is to [s
 
 ## Setup <a class="toc" id="toc-setup" href="#toc-setup"></a>
 
-1. Ensure Node.js 4+ and a non-development version of Yarn are installed.
-1. Git clone the [Yarn repository](https://github.com/yarnpkg/yarn).
-1. From the root of the repository, run `yarn` to install the dependencies required for development.
+1.  Ensure Node.js 4+ and a non-development version of Yarn are installed.
+1.  Git clone the [Yarn repository](https://github.com/yarnpkg/yarn).
+1.  From the root of the repository, run `yarn` to install the dependencies required for development.
 
 ## Building <a class="toc" id="toc-building" href="#toc-building"></a>
 

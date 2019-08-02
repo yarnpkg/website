@@ -65,6 +65,7 @@ Setting this number to 1 will cause the node modules to be built sequentially wh
 ```shell
 unsafe-disable-integrity-migration false
 ```
+
 Setting this to `false` will enable the `yarn.lock` checksum migration (enabling sha512 support). Causes lockfile format change.
 This will be the default starting from version `2.0`.
 

@@ -21,7 +21,7 @@ export function showStatusMessage(message) {
     <strong>Status:</strong>
     <span class="system-status"></span>.
     <a href="https://status.yarnpkg.com/" class="alert-link">Read More &rarr;</a>`;
-  
+
   const buttonEl = alertEl.querySelector('button');
   buttonEl.addEventListener('click', () => {
     buttonEl.parentNode.parentNode.removeChild(buttonEl.parentNode);

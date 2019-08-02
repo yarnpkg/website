@@ -100,7 +100,7 @@ When the `yarn version` command is run it will also run the usual lifecycle meth
 - `yarn version`
 - `yarn postversion`
 
-In these scripts you also get some handy environment variables, e.g. `npm_package_version` will in the `preversion` script hold the version before the version change, and in the `postversion` script it will hold the version after the version change. 
+In these scripts you also get some handy environment variables, e.g. `npm_package_version` will in the `preversion` script hold the version before the version change, and in the `postversion` script it will hold the version after the version change.
 
 This becomes useful when using yarn with git to publish new tags. Here is an example of what a package.json file could look like:
 
@@ -112,12 +112,14 @@ This becomes useful when using yarn with git to publish new tags. Here is an exa
   "scripts": {
     "test": "echo \"Running tests for version $npm_package_version...\"",
     "preversion": "yarn test",
-    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
+    "postversion":
+      "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
   }
 }
 ```
 
 Running `yarn version` would look something like this:
+
 ```
 info Current version: 1.0.2
 Running tests for version 1.0.2...
