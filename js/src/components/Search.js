@@ -18,7 +18,7 @@ const shouldFocus = path =>
   path.includes('/packages') ||
   path.replace(/\/[a-zA-Z\-]+\/?/, '').length === 0;
 
-class RefinementList extends Component {
+class FakeRefinementList extends Component {
   componentWillReceiveProps(newProps) {
     const { currentRefinement, defaultRefinement, onRefine, refine } = newProps;
     const {
@@ -42,7 +42,7 @@ class RefinementList extends Component {
   }
 }
 
-const VirtualRefinementList = connectRefinementList(RefinementList);
+const VirtualRefinementList = connectRefinementList(FakeRefinementList);
 
 class RawSearch extends Component {
   constructor(props) {
@@ -55,9 +55,9 @@ class RawSearch extends Component {
   addOwner = newOwner =>
     this.setState(({ owners }) => ({ owners: owners.add(newOwner) }));
 
-  onRefineTag = newTags => this.setState(() => ({ tags: new Set(newTags) }));
+  refineTag = newTags => this.setState(() => ({ tags: new Set(newTags) }));
 
-  onRefineOwner = newOwners =>
+  refineOwner = newOwners =>
     this.setState(() => ({ owners: new Set(newOwners) }));
 
   render() {
@@ -100,12 +100,12 @@ class RawSearch extends Component {
         <VirtualRefinementList
           attribute="keywords"
           defaultRefinement={[...this.state.tags]}
-          onRefine={this.onRefineTag}
+          onRefine={this.refineTag}
         />
         <VirtualRefinementList
           attribute="owner.name"
           defaultRefinement={[...this.state.owners]}
-          onRefine={this.onRefineOwner}
+          onRefine={this.refineOwner}
         />
         <Results onTagClick={this.addTag} onOwnerClick={this.addOwner} />
       </InstantSearch>
