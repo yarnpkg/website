@@ -16,7 +16,7 @@ export class SearchBox extends Component {
 
   render() {
     return (
-      <div className={this.state.active ? 'active' : ''}>
+      <div className={'full-searchbox ' + (this.state.active ? 'active' : '')}>
         <AisSearchBox
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}

@@ -3,7 +3,7 @@
 $ais-focus-color: rgba(black, 0.7);
 $ais-muted-color: rgba(black, 0.5);
 
-.ais-SearchBox {
+.full-searchbox .ais-SearchBox {
   background-color: mix(black, $yarn-blue, 15%);
   transition: background-color 0.1s ease;
   padding: 1.4em 0.3em;
@@ -112,10 +112,6 @@ $ais-muted-color: rgba(black, 0.5);
     padding: 1.5rem 1rem 2rem;
     border-bottom: 1px solid $gray-lighter;
     position: relative;
-
-    em {
-      font-style: normal;
-    }
   }
 
   &-empty {
@@ -138,10 +134,6 @@ $ais-muted-color: rgba(black, 0.5);
     &:focus {
       text-decoration: none;
       color: rgba(black, 0.9);
-    }
-
-    em {
-      border-bottom: dotted 1px;
     }
   }
 
@@ -241,10 +233,6 @@ $ais-muted-color: rgba(black, 0.5);
       max-width: 100%;
     }
 
-    em {
-      border-bottom: dotted 1px;
-    }
-
     &::first-letter {
       text-transform: uppercase;
     }
@@ -278,7 +266,6 @@ $ais-muted-color: rgba(black, 0.5);
 
     em {
       font-style: italic;
-      border-bottom: dotted 1px;
     }
 
     &:hover {
@@ -385,12 +372,8 @@ $ais-muted-color: rgba(black, 0.5);
   &-list {
     list-style-type: none;
     padding: 0;
-    margin-top: 0.5em;
+    margin: 0 0.5em;
     font-size: 0.8125rem;
-  }
-
-  &-item {
-    margin-top: 0.5em;
   }
 
   &-category {
@@ -434,4 +417,9 @@ $ais-muted-color: rgba(black, 0.5);
 
 .search-footer {
   text-align: center;
+}
+
+.ais-Highlight-highlighted {
+  border-bottom: dotted 1px;
+  font-style: normal;
 }

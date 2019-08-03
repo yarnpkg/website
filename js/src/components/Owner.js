@@ -15,6 +15,7 @@ export const Owner = ({ link, avatar, name, onClick }) => (
       width="20"
       height="20"
       className="ais-Hit-ownerAvatar"
+      alt=""
       src={`https://res.cloudinary.com/hilnmyskv/image/fetch/w_40,h_40,f_auto,q_80,fl_lossy/${avatar}`}
     />
     {name}

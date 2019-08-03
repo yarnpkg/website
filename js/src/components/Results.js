@@ -25,7 +25,7 @@ const Hits = connectHits(({ hits, onTagClick, onOwnerClick }) =>
 
 const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
   <div className="container">
-    <div className="mx-3">
+    <div className="m-3">
       <CurrentRefinements />
       <Stats
         translations={{
