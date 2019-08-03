@@ -1,21 +1,21 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import {
   InstantSearch,
   Configure,
   connectHits,
   connectRefinementList,
 } from 'react-instantsearch-dom';
-import { Owner } from './lib/Hit';
-import { packageLink, Keywords } from './lib/util';
-import { algolia } from './lib/config';
+import { Owner, Keywords } from './components';
+import { packageLink } from './util';
+import { algolia } from './util/config';
 
 const FEATURED = ['babel-core', 'react', 'async', 'lodash', 'debug', 'qs'];
 
 const FeaturedPackage = ({ name, owner, description, keywords }) => (
   <div className="pkg-featured-pkg">
-    <Owner {...owner} />
+    <Owner name={owner.name} link={owner.link} avatar={owner.avatar} />
     <a className="ais-Hit-name" href={packageLink(name)}>
       {name}
     </a>
@@ -27,6 +27,7 @@ const FeaturedPackage = ({ name, owner, description, keywords }) => (
 FeaturedPackage.propTypes = {
   name: PropTypes.string.isRequired,
   owner: PropTypes.shape({
+    name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
   }),
@@ -43,7 +44,16 @@ const Hits = connectHits(({ hits }) => {
     <div className="row">
       {groups.map((packages, i) => (
         <div className="col-md-6" key={i}>
-          {packages.map(pkg => <FeaturedPackage {...pkg} key={pkg.objectID} />)}
+          {packages.map(({ name, description, owner, keywords, objectID }) => (
+            <FeaturedPackage
+              name={name}
+              description={description}
+              owner={owner}
+              keywords={keywords}
+              objectID={objectID}
+              key={objectID}
+            />
+          ))}
         </div>
       ))}
     </div>

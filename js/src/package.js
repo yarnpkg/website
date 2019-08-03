@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Details from './lib/Details';
+import { Details } from './components';
 import qs from 'qs';
 
 /*

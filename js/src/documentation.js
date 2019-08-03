@@ -1,5 +1,5 @@
 import docsearch from 'docsearch.js';
-import { docsearch as config } from './lib/config';
+import { docsearch as config } from './util/config';
 
 docsearch({
   apiKey: config.apiKey,
