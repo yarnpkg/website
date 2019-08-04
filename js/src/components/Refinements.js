@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { RefinementList, Configure } from 'react-instantsearch-dom';
+import {
+  RefinementList,
+  Configure,
+  connectHitsPerPage,
+} from 'react-instantsearch-dom';
 
 /**
  * This is mostly like ToggleRefinement, but uses "filters" for more flexibility
@@ -38,13 +42,25 @@ class ToggleFilter extends Component {
   }
 }
 
+const VirtualHitsPerPage = connectHitsPerPage(() => null);
+
 export const Refinements = ({ sidebarOpen, toggleSidebar, className }) => (
   <aside className={`refinements ${className}`}>
-    <button onClick={toggleSidebar}>
-      {sidebarOpen ? 'hide' : 'show'} refinements
+    <button onClick={toggleSidebar} className="readMore--button">
+      {sidebarOpen ? 'hide' : 'show'} refinements{' '}
+      <img
+        src="/assets/detail/ico-readmore.svg"
+        alt=""
+        className="readMore--icon"
+        style={{ transform: sidebarOpen ? 'rotate(180deg)' : '' }}
+      />
     </button>
     {sidebarOpen ? (
       <React.Fragment>
+        <VirtualHitsPerPage
+          items={[{ label: '7', value: 7 }]}
+          defaultRefinement={7}
+        />
         <article>
           <h1>Owner</h1>
           <RefinementList attribute="owner.name" searchable />
@@ -72,7 +88,7 @@ export const Refinements = ({ sidebarOpen, toggleSidebar, className }) => (
           <ToggleFilter
             name="deprecated"
             values={[
-              { label: 'all', value: undefined },
+              { label: 'all', value: '' },
               { label: 'not deprecated', value: 'deprecated:false' },
               { label: 'deprecated', value: 'NOT deprecated:false' },
             ]}

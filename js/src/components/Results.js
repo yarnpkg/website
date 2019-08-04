@@ -36,9 +36,9 @@ class InnerResults extends Component {
         <Refinements
           sidebarOpen={sidebarOpen}
           toggleSidebar={this.toggleSidebar}
-          className={sidebarOpen ? 'col-lg-4' : ''}
+          className={sidebarOpen ? 'col-lg-3' : 'col-lg-12'}
         />
-        <div className={sidebarOpen ? 'col-lg-8' : 'col-lg-12'}>
+        <div className={sidebarOpen ? 'col-lg-9' : 'col-lg-12'}>
           <Hits onTagClick={onTagClick} onOwnerClick={onOwnerClick} />
         </div>
       </div>
