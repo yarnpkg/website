@@ -49,7 +49,6 @@ class InnerResults extends Component {
 const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
   <div className="container">
     <div className="m-3 d-flex">
-      <CurrentRefinements />
       <Stats
         translations={{
           stats: (num, time) =>
