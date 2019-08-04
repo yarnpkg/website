@@ -70,7 +70,7 @@ const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
                   item.label = 'owner: ';
                   return [item.attribute, item];
                 }
-                if (item.attribute === 'types.ts' {
+                if (item.attribute === 'types.ts') {
                   item.label = 'TypeScript: ';
                   return [item.attribute, item];
                 }
