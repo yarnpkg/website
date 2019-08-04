@@ -1,5 +1,42 @@
-import React from 'react';
-import { RefinementList, Panel } from 'react-instantsearch-dom';
+import React, { Component } from 'react';
+import { RefinementList, Configure } from 'react-instantsearch-dom';
+
+/**
+ * This is mostly like ToggleRefinement, but uses "filters" for more flexibility
+ * in the values
+ */
+class ToggleFilter extends Component {
+  state = { refinement: undefined };
+
+  setRefinement = e => this.setState({ refinement: e.target.value });
+
+  render() {
+    const filters =
+      this.state.refinement === undefined ? undefined : this.state.refinement;
+
+    return (
+      <div>
+        <Configure filters={filters} />
+        <ul>
+          {this.props.values.map(({ value, label }, i) => (
+            <li key={i}>
+              <label>
+                <input
+                  type="radio"
+                  name={this.props.name}
+                  value={value}
+                  onChange={this.setRefinement}
+                  checked={this.state.refinement === value}
+                />
+                {' ' + label}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
 
 export const Refinements = ({ sidebarOpen, toggleSidebar, className }) => (
   <aside className={`refinements ${className}`}>
@@ -8,10 +45,10 @@ export const Refinements = ({ sidebarOpen, toggleSidebar, className }) => (
     </button>
     {sidebarOpen ? (
       <React.Fragment>
-        <Panel>
+        <article>
           <h1>Owner</h1>
           <RefinementList attribute="owner.name" searchable />
-        </Panel>
+        </article>
         <article>
           <h1>Keywords</h1>
           <RefinementList attribute="keywords" searchable />
@@ -32,7 +69,14 @@ export const Refinements = ({ sidebarOpen, toggleSidebar, className }) => (
         </article>
         <article>
           <h1>Deprecated</h1>
-          <RefinementList attribute="deprecated" />
+          <ToggleFilter
+            name="deprecated"
+            values={[
+              { label: 'all', value: undefined },
+              { label: 'not deprecated', value: 'deprecated:false' },
+              { label: 'deprecated', value: 'NOT deprecated:false' },
+            ]}
+          />
         </article>
       </React.Fragment>
     ) : null}
