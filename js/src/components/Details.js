@@ -244,6 +244,9 @@ export class Details extends Component {
     get({
       url: `https://bundlephobia.com/api/size?package=${name}@${version}`,
       type: 'json',
+      headers: {	
+        'X-Bundlephobia-User': 'yarn website',	
+      },
     }).then(res =>
       this.setState({
         bundlesize: {
