@@ -133,8 +133,8 @@
 - name: 中文
   tag: zh-Hans
   enabled: Yes
-  accept_languages: ["zh-hk", "zh-tw", "zh-sg"]
+  accept_languages: ["zh-cn"]
 - name: 繁體中文
   tag: zh-Hant
   enabled: Yes
-  accept_languages: ["zh-cn"]
+  accept_languages: ["zh-hk", "zh-tw", "zh-sg"]
