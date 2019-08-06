@@ -9,7 +9,7 @@ additional_reading_tags: ["cli-add", "cli-tag", "dependencies-versions", "cli-up
 
 <p class="lead">Upgrades packages to their latest version based on the specified range.</p>
 
-##### `yarn upgrade [package | package@tag | package@version | @scope/]... [--ignore-engines] [--pattern]` <a class="toc" id="toc-yarn-upgrade-package-package-tag-package-version-scope-ignore-engines-pattern" href="#toc-yarn-upgrade-package-package-tag-package-version-scope-ignore-engines-pattern"></a>
+##### `yarn upgrade [package | package@tag | package@version | --scope @scope]... [--ignore-engines] [--pattern]` <a class="toc" id="toc-yarn-upgrade-package-package-tag-package-version-scope-ignore-engines-pattern" href="#toc-yarn-upgrade-package-package-tag-package-version-scope-ignore-engines-pattern"></a>
 
 This command updates dependencies to their latest version based on the
 version range specified in the `package.json` file. The `yarn.lock` file will
@@ -81,7 +81,7 @@ yarn upgrade left-pad grunt --latest --tilde
 
 ##### `yarn upgrade (--scope|-S) @scope [--latest] [--pattern]` <a class="toc" id="toc-yarn-upgrade-scope-s-scope-latest-pattern" href="#toc-yarn-upgrade-scope-s-scope-latest-pattern"></a>
 
-`--scope @scope/` : When a scope is specified, only packages that begin with that scope will be upgraded. A scope must begin with '@'.
+`--scope @scope` : When a scope is specified, only packages that begin with that scope will be upgraded. A scope must begin with '@'.
 
 `--latest` : Ignores the version range specified in `package.json`.
 Instead, the version specified by the `latest` tag will be used
