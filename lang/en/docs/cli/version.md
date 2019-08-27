@@ -52,8 +52,8 @@ We will get this updated `package.json`:
 
 #### Git tags <a class="toc" id="toc-git-tags" href="#toc-git-tags"></a>
 
-If you run `yarn version` within a Git repository a
-[Git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) will be created by
+If you run `yarn version` within a Git repository an
+[annotated Git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) will be created by
 default following the format `v0.0.0`.
 
 You can customize the git tag that is created or disable this behavior by using
