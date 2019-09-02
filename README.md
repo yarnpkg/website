@@ -1,4 +1,6 @@
-# Yarn Website
+Yarn Website
+[![Netlify](https://img.shields.io/badge/netlify-automated-informational?logo=netlify)](https://app.netlify.com/sites/yarnpkg/deploys)
+============
 
 This repo contains the source code for the Yarn website.
 
