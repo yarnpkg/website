@@ -6,7 +6,7 @@ layout: guide
 
 {% include vars.html %}
 
-<table><td>📝 PnP is a feature of Yarn, don't confuse it with <a href="https://pnpm.js.org">pnpm</a>, which is a different, standalone JavaScript package manager.</td></table>
+> 📝 PnP is a feature of Yarn, don't confuse it with [pnpm](https://pnpm.js.org), which is a different, standalone JavaScript package manager.
 
 Plug'n'Play is an alternative installation strategy unveiled in September 2018. It presents interesting characteristics that make suitable for a large panel of projects, and is designed for compatibility with the current ecosystem.
 
