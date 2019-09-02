@@ -6,6 +6,8 @@ layout: guide
 
 {% include vars.html %}
 
+<table><td>📝 PnP is a feature of Yarn, don't confuse it with <a href="https://pnpm.js.org">pnpm</a>, which is a different, standalone JavaScript package manager.</td></table>
+
 Plug'n'Play is an alternative installation strategy unveiled in September 2018. It presents interesting characteristics that make suitable for a large panel of projects, and is designed for compatibility with the current ecosystem.
 
 The way regular installs work is simple: Yarn generates a `node_modules` directory that Node is then able to consume. In this context, Node doesn't know the first thing about what a package is: it only reasons in terms of files. "Does this file exist here? No? Let's look in the parent `node_modules` then. Does it exist here? Still no? Too bad... parent folder it is!" - and it does this until it matches something that matches one of the possibilities. That's vastly inefficient.
