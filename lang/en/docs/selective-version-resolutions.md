@@ -34,7 +34,7 @@ Add a `resolutions` field to your `package.json` file and define your version ov
     "lodash": "4.0.0"
   },
   "resolutions": {
-     "**/right-pad": "1.0.0"
+     "**/right-pad": "1.0.0",
     "jquery/left-pad": "2.0.0",
     "lodash/**/left-pad": "2.0.0",
   }
