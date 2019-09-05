@@ -5,8 +5,12 @@ description: docs_selective_version_resolutions_description
 layout: guide
 ---
 
-Yarn supports selective version resolutions, which lets you define custom package versions inside your dependencies through the `resolutions` field in your `package.json` file. Normally, this would
+Yarn supports selective version resolutions, which lets you define custom package versions or ranges inside your dependencies through the `resolutions` field in your [`package.json`] file. Normally, this would
 require manual edits in the `yarn.lock` file.
+
+See [the Selective Versions Resolutions RFC](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-selective-versions-resolutions.md) for the full spec.
+
+  [`package.json`]: {{url_base}}/docs/package-json
 
 ### Why would you want to do this? <a class="toc" id="toc-why-would-you-want-to-do-this" href="#toc-why-would-you-want-to-do-this"></a>
 
@@ -35,7 +39,7 @@ Add a `resolutions` field to your `package.json` file and define your version ov
   },
   "resolutions": {
     "d2/left-pad": "1.1.1",
-    "c/**/left-pad": "1.1.2"
+    "c/**/left-pad": "^1.1.2"
   }
 }
 ```
