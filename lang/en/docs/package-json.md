@@ -358,9 +358,7 @@ Bundled dependencies are an array of package names that will be bundled together
 }
 ```
 
-If your package only allows one version of a given dependency, and you'd like to enforce the same behavior as [`yarn install --flat`] on the command line, set this to `true`.
-
-  [`yarn install --flat`]: {{url_base}}/docs/cli/install#toc-yarn-install-flat
+If your package only allows one version of a given dependency, and you'd like to enforce the same behavior as [`yarn install --flat`]({{url_base}}/docs/cli/install#toc-yarn-install-flat) on the command line, set this to `true`.
 
 Note that if your `package.json` contains `"flat": true` and other packages depend on yours (e.g. you are building a library rather than an application), those other packages will also need `"flat": true` in their `package.json` or be installed with `yarn install --flat` on the command line.
 
@@ -378,7 +376,7 @@ Note that if your `package.json` contains `"flat": true` and other packages depe
 
 Allows you to override a version of a particular nested dependency. See [the Selective Versions Resolutions RFC](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-selective-versions-resolutions.md) for the full spec.
 
-Note that installing dependencies via [`yarn install --flat`] will automatically add a `resolutions` block to your `package.json` file.
+Note that installing dependencies via [`yarn install --flat`]({{url_base}}/docs/cli/install#toc-yarn-install-flat) will automatically add a `resolutions` block to your `package.json` file.
 
 ## System <a class="toc" id="toc-system" href="#toc-system"></a>
 
