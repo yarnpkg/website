@@ -376,7 +376,7 @@ Note that if your `package.json` contains `"flat": true` and other packages depe
 
 Allows you to override a version of a particular nested dependency. See [the Selective Versions Resolutions RFC](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-selective-versions-resolutions.md) for the full spec.
 
-Note that installing dependencies via [`yarn install --flat`] will automatically add a `resolutions` block to your `package.json` file.
+Note that installing dependencies via [`yarn install --flat`]({{url_base}}/docs/cli/install#toc-yarn-install-flat) will automatically add a `resolutions` block to your `package.json` file.
 
 ## System <a class="toc" id="toc-system" href="#toc-system"></a>
 
