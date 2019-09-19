@@ -20,4 +20,4 @@ Setting this number to 1 will cause the node modules to be built sequentially wh
 
 ### `npm_config` <a class="toc" id="toc-npm-config" href="#toc-npm-config"></a>
 
-For backward compatiibilty with `npm`, Yarn allows passing down `npm` configuration via environment variables. For instance, the `--build-from-source` `npm` CLI flag becomes: `npm_config_build_from_source=true`. For more information on configuring `npm`, refer to the [npm-config](https://docs.npmjs.com/misc/config) page.
+For backward compatibility with `npm`, Yarn allows passing down `npm` configuration via environment variables. For instance, the `--build-from-source` `npm` CLI flag becomes: `npm_config_build_from_source=true`. For more information on configuring `npm`, refer to the [npm-config](https://docs.npmjs.com/misc/config) page.
