@@ -342,7 +342,7 @@ Peer dependencies allow you to state compatibility of your package with versions
 
 Allows you to add metadata to peer dependencies.
 
-Currently on the `optional` tag is available. Setting it to true will suppress the warning for a missing peer dependency.
+Currently only the `optional` tag is available. Setting it to true will suppress the warning for a missing peer dependency.
 
 ### `optionalDependencies` <a class="toc" id="toc-optionaldependencies" href="#toc-optionaldependencies"></a>
 
