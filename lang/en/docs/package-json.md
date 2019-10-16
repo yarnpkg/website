@@ -328,6 +328,22 @@ These are packages that are only required when developing your package but will 
 
 Peer dependencies allow you to state compatibility of your package with versions of other packages.
 
+### `peerDependenciesMeta` <a class="toc" id="toc-peerdependenciesmeta" href="#toc-peerdependenciesmeta"></a>
+
+```json
+{
+  "peerDependenciesMeta": {
+    "package-3": {
+      "optional": true
+    }
+  }
+}
+```
+
+Allows you to add metadata to peer dependencies.
+
+Currently on the `optional` tag is available. Setting it to true will suppress the warning for a missing peer dependency.
+
 ### `optionalDependencies` <a class="toc" id="toc-optionaldependencies" href="#toc-optionaldependencies"></a>
 
 ```json
