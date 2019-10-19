@@ -91,7 +91,7 @@ yarn_link() {
     printf "> Append the following lines to the correct file yourself:$reset\n"
     command printf "${SOURCE_STR}"
   else
-    if ! grep -q 'yarn' "$YARN_PROFILE"; then
+    if ! grep -q 'yarn/bin' "$YARN_PROFILE"; then
       if [[ $YARN_PROFILE == *"fish"* ]]; then
         command fish -c 'set -U fish_user_paths $fish_user_paths ~/.yarn/bin'
         printf "$cyan> We've added ~/.yarn/bin to your fish_user_paths universal variable\n"
