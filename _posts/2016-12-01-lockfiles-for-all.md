@@ -74,9 +74,9 @@ you do not want that code to end up running without you knowing about it.
 There are two primary types of projects that use Yarn:
 
 - **Libraries** – _Projects that get published as packages to the registry and
-  installed by users. (i.e. React or Babel)_
+  installed by users. (e.g. React or Babel)_
 - **Applications** – _Projects that only consume other packages, typically
-  building some kind of product. (i.e. Your company's app)_
+  building some kind of product. (e.g. Your company's app)_
 
 For applications, most developers agree that lockfiles are A Good Idea™.
 But there has been some question about using them when building libraries.
