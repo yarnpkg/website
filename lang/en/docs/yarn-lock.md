@@ -45,7 +45,7 @@ break something.
 
 ### Current package only <a class="toc" id="toc-current-package-only" href="#toc-current-package-only"></a>
 
-During install Yarn will only use the top-level `yarn.lock` file and will
+During install, Yarn will only use the top-level `yarn.lock` file and will
 ignore any `yarn.lock` files that exist within dependencies. The top-level
 `yarn.lock` file includes everything Yarn needs to lock the versions of all
 packages in the entire dependency tree.
