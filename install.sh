@@ -76,6 +76,9 @@ yarn_verify_integrity() {
     printf "$red> GPG signature for this Yarn release is invalid! This is BAD and may mean the release has been tampered with. It is strongly recommended that you report this to the Yarn developers.$reset\n"
     yarn_verify_or_quit "> Do you really want to continue?"
   fi
+
+  # Cleanup verification resources
+  yarn_verification_cleanup
 }
 
 yarn_link() {
@@ -205,12 +208,17 @@ yarn_install() {
   yarn_reset
 }
 
+yarn_verification_cleanup() {
+  gpgconf --kill gpg-agent
+}
+
 yarn_verify_or_quit() {
   read -p "$1 [y/N] " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]
   then
     printf "$red> Aborting$reset\n"
+    yarn_verification_cleanup
     exit 1
   fi
 }
