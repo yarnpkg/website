@@ -69,7 +69,7 @@ yarn_verify_integrity() {
 
   # If no gpg-agent process was running previously, terminate any that may have been created during key import
   if [ -z ${existing_gpg_agent} ]; then
-    gpgconf --kill gpg-agent
+    pkill gpg-agent || true
   fi
 
   if [ ! -f "$1.asc" ]; then
