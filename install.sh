@@ -62,14 +62,14 @@ yarn_verify_integrity() {
   printf "$cyan> Verifying integrity...$reset\n"
 
   # Check whether a gpg-agent process already exists for this session
-  existing_gpg_agent=$(pgrep gpg-agent || echo)
+  existing_gpg_agent=$(pgrep gpg-agent || pidof gpg-agent || echo)
 
   # Grab the public key if it doesn't already exist
   gpg --list-keys $gpg_key >/dev/null 2>&1 || (curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import)
 
   # If no gpg-agent process was running previously, terminate any that may have been created during key import
   if [ -z ${existing_gpg_agent} ]; then
-    pkill gpg-agent || true
+    gpgconf --kill gpg-agent
   fi
 
   if [ ! -f "$1.asc" ]; then
