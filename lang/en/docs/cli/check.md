@@ -8,6 +8,8 @@ layout: guide
 
 Verifies that versions of the package dependencies in the current project's `package.json` match those in yarn's lock file.
 
+**NOTE**: The command `yarn check` has been historically buggy and undermaintained and, as such, [has been deprecated and will be removed in Yarn 2.0](https://github.com/yarnpkg/rfcs/pull/106). You should use `yarn install --check-files` instead.
+
 The switches `--integrity` and `--verify-tree` are mutually exclusive.
 
 ##### `yarn check --integrity` <a class="toc" id="toc-yarn-check-integrity" href="#toc-yarn-check-integrity"></a>
