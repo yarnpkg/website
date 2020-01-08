@@ -14,17 +14,15 @@ layout: guide
 
 _Note: Unlike the `--global` flag in npm, `global` is a command which must immediately follow `yarn`. Entering `yarn add global package-name` will add the packages named `global` and `package-name` locally instead of adding `package-name` globally._
 
-This is useful for developer tooling that is not part of any individual project but instead is used for local commands. One such example is [create-react-app](https://github.com/facebookincubator/create-react-app) which can be installed globally like this:
+This is useful for developer tooling that is not part of any individual project but instead is used for local commands. One such example is [nodemon](https://nodemon.io/) which can be installed globally like this:
 
 ```sh
-$ yarn global add create-react-app --prefix /usr/local
-# the `create-react-app` command is now available globally:
-$ which create-react-app
-$ /usr/local/bin/create-react-app
-$ create-react-app
+$ yarn global add nodemon --prefix /usr/local
+# the `nodemon` command is now available globally:
+$ which nodemon
+$ /usr/local/bin/nodemon
+$ nodemon
 ```
-
-_Note: Although you can install it globally, create-react-app no longer supports global installs
 
 ### Defining install location
 
