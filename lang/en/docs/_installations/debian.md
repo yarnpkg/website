@@ -20,7 +20,7 @@ echo "deb https://nightly.yarnpkg.com/debian/ nightly main" | sudo tee /etc/apt/
 ```
 </div>
 
-On Ubuntu 16.04 or below and Debian Stable, you will also need to configure [the NodeSource repository](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages) to get a new enough version of Node.js.
+On Ubuntu 16.04 or below and Debian Stable, you will also need to configure [the NodeSource repository](https://github.com/nodesource/distributions/blob/master/README.md#deb) to get a new enough version of Node.js.
 
 Then you can simply:
 
