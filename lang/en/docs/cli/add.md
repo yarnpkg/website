@@ -113,7 +113,7 @@ Using `--ignore-workspace-root-check` or `-W` allows a package to be installed
 at the workspaces root. This tends not to be desired behaviour, as
 dependencies are generally expected to be part of a workspace. For example
 `yarn add lerna --ignore-workspace-root-check --dev` at the workspaces root
-would allow lerna to be used within the scripts of the root package.json
+would allow lerna to be used within the scripts of the root package.json.
 
 ##### `yarn add <alias-package>@npm:<package>` <a class="toc" id="toc-yarn-add-alias" href="#toc-yarn-add-alias"></a>
 
