@@ -1,6 +1,12 @@
 ---
 layout: null
 ---
+
+# Redirect from default Netlify subdomain
+https://yarnpkg.netlify.com/* https://classic.yarnpkg.com/:splat 301!
+# Redirect from "legacy" subdomain, as we renamed it to "classic".
+https://legacy.yarnpkg.com/* https://classic.yarnpkg.com/:splat 301!
+
 /:lang/packages/ /lang/:lang/packages 200
 /:lang/package/* /lang/:lang/package 200
 
