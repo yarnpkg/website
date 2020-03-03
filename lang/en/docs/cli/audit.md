@@ -8,7 +8,7 @@ layout: guide
 
 <p class="lead">Perform a vulnerability audit against the installed packages.</p>
 
-##### `yarn audit [--verbose] [--json] [--level]` <a class="toc" id="toc-yarn-audit" href="#toc-yarn-audit"></a>
+##### `yarn audit [--verbose] [--json] [--level] [--groups]` <a class="toc" id="toc-yarn-audit" href="#toc-yarn-audit"></a>
 
 Checks for known security issues with the installed packages. The output is a list of known issues.
 
@@ -33,3 +33,8 @@ For scripting purposes, `yarn audit` also supports the `--json` flag, which will
 ##### `yarn audit [--level info|low|moderate|high|critical]` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
 
 Applying the level flag will limit the audit table to vulnerabilities of the corresponding level and above. It will *not* affect the exit code of the command.
+
+
+##### `yarn audit [--groups group_name ...]` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
+
+Applying the groups flag will limit the audit table to vulnerabilities of the corresponding dependency groups (e.g dependencies,devDependencies).
