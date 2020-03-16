@@ -16,7 +16,7 @@ Those who have [tried splitting a project into multiple packages](https://youtu.
 
 Several projects used every day by JavaScript developers are managed as monorepos: [Babel](https://github.com/babel/babel/tree/master/packages), [React](https://github.com/facebook/react/tree/master/packages), [Jest](https://github.com/facebook/jest/tree/master/packages), [Vue](https://github.com/vuejs/vue/tree/dev/packages), [Angular](https://github.com/angular/angular/tree/master/packages).
 
-However, separating pieces of projects into their own folders is sometimes not enough. Testing, managing dependencies, and publishing multiple packages quickly gets complicated and many such projects [adopt](https://medium.com/@bebraw/the-case-for-monorepos-907c1361708a) tools such as [Lerna](https://lernajs.io/) to make working with monorepos easier.
+However, separating pieces of projects into their own folders is sometimes not enough. Testing, managing dependencies, and publishing multiple packages quickly gets complicated and many such projects [adopt](https://medium.com/@bebraw/the-case-for-monorepos-907c1361708a) tools such as [Lerna](https://lerna.js.org/) to make working with monorepos easier.
 
 ## Lerna
 
