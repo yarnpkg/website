@@ -201,7 +201,7 @@ You can specify files that will be included in your project, along with the main
 }
 ```
 
-These are files that are included in your project. You can specify single files, whole directories or use wildcards to include files that meet a certain criteria.
+These are files that are included in your project. You can specify single files, whole directories or use wildcards to include files that meet a certain criteria. The glob pattern negate flag is not supported in yarn.
 
 ### `main` <a class="toc" id="toc-main" href="#toc-main"></a>
 
