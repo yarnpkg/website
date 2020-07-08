@@ -6,7 +6,7 @@ layout: guide
 
 {% include vars.html %}
 
-Workspaces are a new way to setup your package architecture that's available by default starting from Yarn 1.0. It allows you to setup multiple packages in such a way that you only need to run `yarn install` once to install all of them in a single pass.
+Workspaces are a new way to set up your package architecture that's available by default starting from Yarn 1.0. It allows you to setup multiple packages in such a way that you only need to run `yarn install` once to install all of them in a single pass.
 
 ### Why would you want to do this? <a class="toc" id="toc-why-would-you-want-to-do-this" href="#toc-why-would-you-want-to-do-this"></a>
 
