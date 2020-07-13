@@ -19,7 +19,7 @@ Optionally, one or more package names can be specified.
 When package names are specified, only those packages will be upgraded.
 When no package names are specified, all dependencies will be upgraded.
 
-`[package]` : When a specified package is only a name then the latest patching version
+`[package]` : When a specified package is only a name then the latest matching version
 of this package will be upgraded to.
 
 `[package@tag]` : When a specified package contains a tag then the specified tag will
