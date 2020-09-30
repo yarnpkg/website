@@ -31,7 +31,6 @@ yarn_get_tarball() {
   tarball_tmp=`mktemp -t yarn.tar.gz.XXXXXXXXXX`
   if curl --fail -L -o "$tarball_tmp#1" "$url{,.asc}"; then
     yarn_verify_integrity $tarball_tmp
-
     printf "$cyan> Extracting to ~/.yarn...$reset\n"
     # All this dance is because `tar --strip=1` does not work everywhere
     temp=$(mktemp -d yarn.XXXXXXXXXX)
@@ -45,7 +44,6 @@ yarn_get_tarball() {
     exit 1;
   fi
 }
-
 # Verifies the GPG signature of the tarball
 yarn_verify_integrity() {
   # Check if GPG is installed
@@ -53,22 +51,18 @@ yarn_verify_integrity() {
     printf "$yellow> WARNING: GPG is not installed, integrity can not be verified!$reset\n"
     return
   fi
-
   if [ "$YARN_GPG" == "no" ]; then
     printf "$cyan> WARNING: Skipping GPG integrity check!$reset\n"
     return
   fi
-
   printf "$cyan> Verifying integrity...$reset\n"
   # Grab the public key if it doesn't already exist
   gpg --list-keys $gpg_key >/dev/null 2>&1 || (curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import)
-
   if [ ! -f "$1.asc" ]; then
     printf "$red> Could not download GPG signature for this Yarn release. This means the release can not be verified!$reset\n"
     yarn_verify_or_quit "> Do you really want to continue?"
     return
   fi
-
   # Actually perform the verification
   if gpg --verify "$1.asc" $1; then
     printf "$green> GPG signature looks good$reset\n"
@@ -77,12 +71,10 @@ yarn_verify_integrity() {
     yarn_verify_or_quit "> Do you really want to continue?"
   fi
 }
-
 yarn_link() {
   printf "$cyan> Adding to \$PATH...$reset\n"
   YARN_PROFILE="$(yarn_detect_profile)"
   SOURCE_STR="\nexport PATH=\"\$HOME/.yarn/bin:\$HOME/.config/yarn/global/node_modules/.bin:\$PATH\"\n"
-
   if [ -z "${YARN_PROFILE-}" ] ; then
     printf "$red> Profile not found. Tried ${YARN_PROFILE} (as defined in \$PROFILE), ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.\n"
     echo "> Create one of them and run this script again"
@@ -98,32 +90,26 @@ yarn_link() {
       else
         command printf "$SOURCE_STR" >> "$YARN_PROFILE"
         printf "$cyan> We've added the following to your $YARN_PROFILE\n"
-      fi
-      
+      fi 
       echo "> If this isn't the profile of your current shell then please add the following to your correct profile:"
       printf "   $SOURCE_STR$reset\n"
     fi
-
     version=`$HOME/.yarn/bin/yarn --version` || (
       printf "$red> Yarn was installed, but doesn't seem to be working :(.$reset\n"
       exit 1;
     )
-
     printf "$green> Successfully installed Yarn $version! Please open another terminal where the \`yarn\` command will now be available.$reset\n"
   fi
 }
-
 yarn_detect_profile() {
   if [ -n "${PROFILE}" ] && [ -f "${PROFILE}" ]; then
     echo "${PROFILE}"
     return
   fi
-
   local DETECTED_PROFILE
   DETECTED_PROFILE=''
   local SHELLTYPE
   SHELLTYPE="$(basename "/$SHELL")"
-
   if [ "$SHELLTYPE" = "bash" ]; then
     if [ -f "$HOME/.bashrc" ]; then
       DETECTED_PROFILE="$HOME/.bashrc"
@@ -135,7 +121,6 @@ yarn_detect_profile() {
   elif [ "$SHELLTYPE" = "fish" ]; then
     DETECTED_PROFILE="$HOME/.config/fish/config.fish"
   fi
-
   if [ -z "$DETECTED_PROFILE" ]; then
     if [ -f "$HOME/.profile" ]; then
       DETECTED_PROFILE="$HOME/.profile"
@@ -149,19 +134,15 @@ yarn_detect_profile() {
       DETECTED_PROFILE="$HOME/.config/fish/config.fish"
     fi
   fi
-
   if [ ! -z "$DETECTED_PROFILE" ]; then
     echo "$DETECTED_PROFILE"
   fi
 }
-
 yarn_reset() {
   unset -f yarn_install yarn_reset yarn_get_tarball yarn_link yarn_detect_profile yarn_verify_integrity yarn_verify_or_quit
 }
-
 yarn_install() {
   printf "${white}Installing Yarn!$reset\n"
-
   if [ -d "$HOME/.yarn" ]; then
     if which yarn; then
       local latest_url
@@ -199,12 +180,10 @@ yarn_install() {
       exit 0
     fi
   fi
-
   yarn_get_tarball $1 $2
   yarn_link
   yarn_reset
 }
-
 yarn_verify_or_quit() {
   read -p "$1 [y/N] " -n 1 -r
   echo
@@ -214,6 +193,5 @@ yarn_verify_or_quit() {
     exit 1
   fi
 }
-
 cd ~
 yarn_install $1 $2
