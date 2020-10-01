@@ -11,7 +11,7 @@ $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
 
-You should ensure you have Yarn and [Bundler](http://bundler.io/) installed:
+You should ensure you have the Yarn and [Bundler](http://bundler.io/) installed:
 
 ```sh
 $ gem install bundler
@@ -39,4 +39,4 @@ bundle exec jekyll serve --incremental
 
 ---
 
-**Special thanks to [Netlify](https://www.netlify.com/) for powering the website.**
+**Special thanks [Netlify](https://www.netlify.com/) for powering the website.**
