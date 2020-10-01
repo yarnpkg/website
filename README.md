@@ -1,3 +1,4 @@
+Logr - An amazing project
 Yarn Website
 [![Netlify Status](https://api.netlify.com/api/v1/badges/85057564-01fa-49d4-b898-30acb74ae19e/deploy-status)](https://app.netlify.com/sites/yarnpkg/deploys)
 ============
