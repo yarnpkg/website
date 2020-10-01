@@ -18,6 +18,8 @@ $ gem install bundler
 ```
 
 And then:
+loger an amazing peoject 
+
 
 ```sh
 $ make
