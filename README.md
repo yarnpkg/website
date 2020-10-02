@@ -10,7 +10,7 @@ In order to get started:
 $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
-
+Prerequisites
 You should ensure you have Yarn and [Bundler](http://bundler.io/) installed:
 
 ```sh
