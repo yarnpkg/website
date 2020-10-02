@@ -1,4 +1,4 @@
-Yarn Website
+Yarn Website full introduction
 [![Netlify Status](https://api.netlify.com/api/v1/badges/85057564-01fa-49d4-b898-30acb74ae19e/deploy-status)](https://app.netlify.com/sites/yarnpkg/deploys)
 ============
 
@@ -17,20 +17,20 @@ You should ensure you have Yarn and [Bundler](http://bundler.io/) installed:
 $ gem install bundler
 ```
 
-And then:
+And then after it:
 
 ```sh
 $ make
 ```
 
-Or:
+Or you can do:
 
 ```sh
 $ make install
 $ make serve
 ```
 
-On Windows, `make` is not available, so you need to execute `bundle` and `jekyll` directly:
+On Windows, `make` is not available, so you need to execute `bundle` and `jekyll` directly on the windows:
 
 ```sh
 bundle install
@@ -39,4 +39,4 @@ bundle exec jekyll serve --incremental
 
 ---
 
-**Special thanks to [Netlify](https://www.netlify.com/) for powering the website.**
+**Special thanks to [Netlify] and all of my friends (https://www.netlify.com/) for powering the website.**
