@@ -21,13 +21,12 @@ before_script:
   - export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 ```
 
-In either case, it's good practice to cache your `node_modules` and `.yarn` folders as well to speed up your builds.
+In either case, it's good practice to cache your `.yarn` folder as well to speed up your builds.
 
 ```yml
 # .gitlab-ci.yml
 cache:
   paths:
-    - node_modules/
     - .yarn
 ```
 
@@ -39,7 +38,7 @@ Just save this file to the root of your project and GitLab's CI will pick up the
 image: node:9.11.1
 
 before_script:
-  - yarn install
+  - yarn install --cache-folder .yarn
 
 test:
   stage: test
