@@ -1,36 +1,37 @@
-Yarn Website
+糸のウェブサイト
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/85057564-01fa-49d4-b898-30acb74ae19e/deploy-status)](https://app.netlify.com/sites/yarnpkg/deploys)
 ============
 
-This repo contains the source code for the Yarn Classic (v1) website, available at https://classic.yarnpkg.com/. For the Yarn v2 site, see https://github.com/yarnpkg/berry/tree/master/packages/gatsby
+このリポジトリには、https：//classic.yarnpkg.com/で入手できるYarn Classic（v1）Webサイトのソースコードが含まれています。 Yarn v2サイトについては、https：//github.com/yarnpkg/berry/tree/master/packages/gatsbyを参照してください。
 
-In order to get started:
+開始するには：
 
 ```sh
 $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
 
-You should ensure you have Yarn and [Bundler](http://bundler.io/) installed:
+Yarnと[Bundler]（http://bundler.io/）がインストールされていることを確認する必要があります。
 
 ```sh
 $ gem install bundler
 ```
 
-And then:
+その後：
 
 ```sh
 $ make
 ```
 
-Or:
+または：
 
 ```sh
 $ make install
 $ make serve
 ```
 
-On Windows, `make` is not available, so you need to execute `bundle` and `jekyll` directly:
+Windowsでは、 `make`は使用できないため、` bundle`と `jekyll`を直接実行する必要があります。
 
 ```sh
 bundle install
