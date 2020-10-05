@@ -2,7 +2,7 @@ Yarn Website
 [![Netlify Status](https://api.netlify.com/api/v1/badges/85057564-01fa-49d4-b898-30acb74ae19e/deploy-status)](https://app.netlify.com/sites/yarnpkg/deploys)
 ============
 
-このリポジトリには、https：//classic.yarnpkg.com/で入手できるYarn Classic（v1）Webサイトのソースコードが含まれています。 Yarn v2サイトについては、https：//github.com/yarnpkg/berry/tree/master/packages/gatsbyを参照してください。
+このリポジトリには、https//classic.yarnpkg.com/で入手できるYarn Classic（v1）Webサイトのソースコードが含まれています。 Yarn v2サイトについては、https//github.com/yarnpkg/berry/tree/master/packages/gatsbyを参照してください。
 
 開始するには：
 
@@ -11,7 +11,7 @@ $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
 
-Yarnと[Bundler]（http://bundler.io/）がインストールされていることを確認する必要があります。
+Yarnと [Bundler](http://bundler.io/) がインストールされていることを確認する必要があります。
 ```sh
 $ gem install bundler
 ```
