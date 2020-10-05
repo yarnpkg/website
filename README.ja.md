@@ -2,7 +2,7 @@ Yarn Website
 [![Netlify Status](https://api.netlify.com/api/v1/badges/85057564-01fa-49d4-b898-30acb74ae19e/deploy-status)](https://app.netlify.com/sites/yarnpkg/deploys)
 ============
 
-このリポジトリには、https//classic.yarnpkg.com/で入手できるYarn Classic（v1）Webサイトのソースコードが含まれています。 Yarn v2サイトについては、https//github.com/yarnpkg/berry/tree/master/packages/gatsbyを参照してください。
+このリポジトリには、<https://classic.yarnpkg.com/> で入手できるYarn Classic（v1）Webサイトのソースコードが含まれています。 Yarn v2サイトについては、<https://github.com/yarnpkg/berry/tree/master/packages/gatsby> を参照してください。
 
 開始するには：
 
