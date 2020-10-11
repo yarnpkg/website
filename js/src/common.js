@@ -8,6 +8,7 @@ import { checkServiceStatus } from './util/serviceStatus';
 import { fillLanguageDropdown } from './util/production';
 import { Search } from './components';
 
+// Thank you
 checkServiceStatus();
 
 ReactDOM.render(<Search />, document.getElementById('search'));
