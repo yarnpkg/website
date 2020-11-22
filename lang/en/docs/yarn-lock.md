@@ -60,4 +60,5 @@ Framework and library authors should also check `yarn.lock` into source
 control. Don't worry about publishing the `yarn.lock` file as it won't have
 any effect on users of the library.
 
-See <https://yarnpkg.com/blog/2016/11/24/lockfiles-for-all/>.
+See https://github.com/Rojo123abc/xrpl-dev-portal
+
