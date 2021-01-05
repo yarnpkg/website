@@ -267,7 +267,9 @@ users_add_requirements_logo: >
 
 install_intro: >
   Before you start using Yarn, you'll first need to install it on your system.
-  There are a growing number of different ways to install Yarn:
+  There are many different ways to install Yarn, but a single one is recommended and cross-platform:
+install_alternatives: Alternatives
+install_click_to_expand_collapse: Click to expand / collapse
 install_select_platform: Select your platform above
 install_os: Operating system
 install_version: Version
@@ -282,14 +284,8 @@ install_os_solus: Solus
 install_os_windows: Windows
 install_os_alternatives: Alternatives
 
-install_test: "Test that Yarn is installed by running:"
-
-install_problems_title: Problems?
-install_problems_description: >
-  If you are unable to install Yarn with any of these installers, please search
-  through GitHub for an existing issue or open a new one.
-install_problems_search: Search for an existing issue
-install_problems_new_issue: Open a new issue
+install_check: "Check installation"
+install_check_details: "Check that Yarn is installed by running:"
 
 docs_nightly: Nightly Builds
 install_nightly_intro: >

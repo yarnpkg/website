@@ -19,48 +19,61 @@ operating_systems:
 
 {{i18n.install_intro}}
 
-<div class="install-select-os">
-  <div class="form-group row">
-    <label for="os" class="col-3 col-form-label">{{i18n.install_os}}:</label>
-    <div class="col-6">
-      <select id="os" class="form-control">
-        {% for os in layout.operating_systems %}
-          {% capture os_i18n %}install_os_{{os}}{% endcapture %}
-          <option value="{{os}}">{{i18n[os_i18n]}}</option>
-        {% endfor %}
-      </select>
+{% capture npm_info %}{% include_relative _installations/npm.md %}{% endcapture %}
+{{npm_info | markdownify}}
+
+<h2>{{i18n.install_alternatives}}</h2>
+
+<details>
+  <summary>{{i18n.install_click_to_expand_collapse}}</summary>
+
+  <br />
+
+  <div class="install-select-os">
+    <div class="form-group row">
+      <label for="os" class="col-3 col-form-label">{{i18n.install_os}}:</label>
+      <div class="col-6">
+        <select id="os" class="form-control">
+          {% for os in layout.operating_systems %}
+            {% capture os_i18n %}install_os_{{os}}{% endcapture %}
+            <option value="{{os}}">{{i18n[os_i18n]}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="version" class="col-3 col-form-label">{{i18n.install_version}}:</label>
+      <div class="col-6">
+        <select id="version" class="form-control">
+          <option value="stable">{{i18n.site_nav_stable_version}} ({{site.latest_version}})</option>
+          <option value="rc">{{i18n.site_nav_rc_version}} ({{site.latest_rc_version}})</option>
+          <option id="nightly-version" value="nightly">{{i18n.site_nav_nightly_version}}</option>
+        </select>
+      </div>
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="version" class="col-3 col-form-label">{{i18n.install_version}}:</label>
-    <div class="col-6">
-      <select id="version" class="form-control">
-        <option value="stable">{{i18n.site_nav_stable_version}} ({{site.latest_version}})</option>
-        <option value="rc">{{i18n.site_nav_rc_version}} ({{site.latest_rc_version}})</option>
-        <option id="nightly-version" value="nightly">{{i18n.site_nav_nightly_version}}</option>
-      </select>
-    </div>
+  <div id="install-instructions">
+    <div class="install-os-instructions">Loading...</div>
+    {% for os in layout.operating_systems %}
+      <div id="{{os}}" class="install-os-instructions" style="display: none">
+        {% capture os_i18n %}install_os_{{os}}{% endcapture %}
+        <h3>{{i18n[os_i18n]}}</h3>
+        {% capture exists %}{% file_exists _installations/{{os}}.md %}{% endcapture %}
+        {% if exists == "true" %}
+          {% capture info %}{% include_relative _installations/{{os}}.md %}{% endcapture %}
+          {{info | markdownify}}
+        {% endif %}
+      </div>
+    {% endfor %}
   </div>
-</div>
+</details>
 
-<div id="install-instructions">
-  <div class="install-os-instructions">Loading...</div>
-  {% for os in layout.operating_systems %}
-    <div id="{{os}}" class="install-os-instructions" style="display: none">
-      {% capture os_i18n %}install_os_{{os}}{% endcapture %}
-      <h3>{{i18n[os_i18n]}}</h3>
-      {% capture exists %}{% file_exists _installations/{{os}}.md %}{% endcapture %}
-      {% if exists == "true" %}
-        {% capture info %}{% include_relative _installations/{{os}}.md %}{% endcapture %}
-        {{info | markdownify}}
-      {% endif %}
-    </div>
-  {% endfor %}
-</div>
+<h2>{{i18n.install_check}}</h2>
 
 <p>
-  {{i18n.install_test}}
+  {{i18n.install_check_details}}
 </p>
 
 {% highlight sh %}
@@ -69,29 +82,3 @@ operating_systems:
 <div class="language-sh highlighter-rouge">
   <pre class="rougeHighlight"><code>yarn --version</code></pre>
 </div>
-
-{% capture issueBody %}
-**Which operating system are you using:**
-
-
-**Please describe the steps you took when trying to install Yarn and what went wrong:**
-
-{% endcapture %}
-{% assign issueBodyEscaped = issueBody | uri_escape %}
-
-{% assign searchHref = "https://github.com/yarnpkg/yarn/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20%22Installation%20Problem%22%20in%3Atitle%20" %}
-{% assign newIssueHref = "https://github.com/yarnpkg/yarn/issues/new?title=Installation%20Problem:%20[title]&body=" | append: issueBodyEscaped %}
-
-<hr class="my-4">
-
-<blockquote>
-  <p>
-    <strong>{{i18n.install_problems_title}}</strong>
-    {{i18n.install_problems_description}}
-  </p>
-  <p>
-    <a class="text-success" href="{{searchHref}}">{{i18n.install_problems_search}}</a>
-    &middot;
-    <a class="text-danger" href="{{newIssueHref}}">{{i18n.install_problems_new_issue}}</a>
-  </p>
-</blockquote>
