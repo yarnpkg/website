@@ -57,6 +57,7 @@ homepage_feature_reliable_image_alt: Watercolour of cat waving from seat behind 
 homepage_c2a_text: What are you waiting for?
 homepage_c2a_button: Get Started
 homepage_install_button: Install Yarn
+homepage_migrate_button: Migrate to Yarn 2+
 
 homepage_featurette_offline_title: Offline Mode
 homepage_featurette_offline_description: |
