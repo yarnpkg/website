@@ -13,10 +13,10 @@ site_nav_getting_started: Getting Started
 site_nav_documentation: Docs
 site_nav_packages: Packages
 site_nav_blog: Blog
-site_nav_stable_version: Stable
-site_nav_rc_version: Release Candidate
-site_nav_nightly_version: Nightly
-site_nav_node_support: Node
+site_nav_stable_version: Classic Stable
+site_nav_rc_version: Classic Release Candidate
+site_nav_nightly_version: Classic Nightly
+site_nav_node_support: Classic Node
 
 site_bsd_license: Distributed under BSD License
 site_code_of_conduct: Code of Conduct

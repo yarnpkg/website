@@ -21,6 +21,16 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.news-container-alert {
+  position: relative;
+
+  height: auto;
+
+  text-decoration: none;
+
+  margin: auto;
+}
+
 .news-overlay {
   position: absolute;
 
@@ -45,6 +55,14 @@
 
     &:hover {
       color: #ffffff;
+    }
+
+    .alert & {
+      color: $link-color;
+
+      &:hover {
+        color: $link-color-hover;
+      }
     }
   }
 }

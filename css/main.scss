@@ -21,6 +21,7 @@ $brand-primary: $yarn-blue;
 $progress-bar-color: $brand-primary;
 
 $link-color: saturate(darken($brand-primary, 8%), 20%);
+$link-color-hover: saturate(darken($brand-primary, 30%), 20%);
 
 $npm-red: #c12127;
 
