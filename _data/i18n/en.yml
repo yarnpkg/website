@@ -5,6 +5,10 @@
 site_title: Yarn
 site_description: Fast, reliable, and secure dependency management.
 
+site_news_important: Important
+site_news_docs_cover_v1: This documentation covers Yarn 1 (Classic).
+site_news_see_v2_docs: For Yarn 2+ docs and migration guide, see yarnpkg.com.
+
 site_nav_getting_started: Getting Started
 site_nav_documentation: Docs
 site_nav_packages: Packages
