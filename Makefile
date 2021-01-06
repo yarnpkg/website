@@ -23,7 +23,7 @@ serve-production: test-builddeps
 	@JEKYLL_ENV=production bundle exec jekyll serve
 
 build-production: test-builddeps
-ifeq($(CONTEXT),"production")
+ifeq ($(CONTEXT), "production")
 	@make crowdin-download
 	@ruby ./scripts/validate-translations.rb
 endif
