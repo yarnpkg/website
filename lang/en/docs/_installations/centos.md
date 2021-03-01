@@ -8,7 +8,7 @@ If you do not already have Node.js installed, you should also configure
 [the NodeSource repository](https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora):
 
 ```sh
-curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
 ```
 
 Then you can simply:

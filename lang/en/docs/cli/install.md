@@ -132,3 +132,8 @@ Prevent yarn from creating symlinks for any binaries the package might contain.
 ##### `yarn install --link-duplicates` <a class="toc" id="toc-yarn-install-link-duplicates" href="#toc-yarn-install-link-duplicates"></a>
 
 Create hardlinks to the repeated modules in node_modules.
+
+##### `yarn install --verbose` <a class="toc" id="toc-yarn-install-verbose" href="#toc-yarn-install-verbose"></a>
+
+Show additional logs while installing dependencies
+

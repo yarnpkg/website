@@ -42,11 +42,11 @@ your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lo
 
 | npm (v5)                                | Yarn                                      |
 | --------------------------------------- | ----------------------------------------- |
-| `npm install`                           | `yarn install`                            |
-| **_(N/A)_**                             | `yarn install --flat`                     |
-| **_(N/A)_**                             | `yarn install --har`                      |
-| `npm install --no-package-lock`         | `yarn install --no-lockfile`              |
-| **_(N/A)_**                             | `yarn install --pure-lockfile`            |
+| `npm install`                           | `yarn add`                            |
+| **_(N/A)_**                             | `yarn add --flat`                     |
+| **_(N/A)_**                             | `yarn add --har`                      |
+| `npm install --no-package-lock`         | `yarn add --no-lockfile`              |
+| **_(N/A)_**                             | `yarn add --pure-lockfile`            |
 | `npm install [package] --save`          | `yarn add [package]`                      |
 | `npm install [package] --save-dev`      | `yarn add [package] --dev`                |
 | **_(N/A)_**                             | `yarn add [package] --peer`               |

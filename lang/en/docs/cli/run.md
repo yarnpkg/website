@@ -49,7 +49,20 @@ It's also possible to leave out the `run` in this command, each script can be ex
 yarn test -o --watch
 ```
 
-Running this command will do the same as `yarn run test -o --watch`. Note that built-in cli commands will have preference over your scripts, so you shouldn't always rely on this shortcut in other scripts
+Running this command will do the same as `yarn run test -o --watch`. Note that built-in cli commands will have preference over your scripts, so you shouldn't always rely on this shortcut in other scripts.
+
+By default, a specified `[script]` can be prefixed with `pre` or `post` to execute before another. 
+
+```json
+{
+  "name": "my-package",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prebuild": "jest"
+  }
+}
+```
+Running `yarn run build` will execute `yarn run prebuild` prior to `yarn build`.
 
 ##### `yarn run env` <a class="toc" id="toc-yarn-run-env" href="#toc-yarn-run-env"></a>
 

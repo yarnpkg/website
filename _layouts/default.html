@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     <meta property="og:url" content="{{ page.url | replace: 'index.html', '' | replace: '/lang', '' | prepend: site.baseurl | prepend: site.url }}" />
     <meta property="og:site_name" content="{{ site.title }}"/>
@@ -33,6 +33,7 @@
     {% include debug/url.html url=page.url %}
     {% include debug/todo.html content=page.content %}
 
+    {% include news.html %}
     {% include navigation.html %}
     <div id="search">
       <!-- Here to avoid flash of unstyled content on page load -->

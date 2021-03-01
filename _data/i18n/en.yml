@@ -5,13 +5,17 @@
 site_title: Yarn
 site_description: Fast, reliable, and secure dependency management.
 
+site_news_important: Important
+site_news_docs_cover_v1: This documentation covers Yarn 1 (Classic).
+site_news_see_v2_docs: For Yarn 2+ docs and migration guide, see yarnpkg.com.
+
 site_nav_getting_started: Getting Started
 site_nav_documentation: Docs
 site_nav_packages: Packages
 site_nav_blog: Blog
-site_nav_stable_version: Stable
-site_nav_rc_version: Release Candidate
-site_nav_nightly_version: Nightly
+site_nav_stable_version: Classic Stable
+site_nav_rc_version: Classic Release Candidate
+site_nav_nightly_version: Classic Nightly
 site_nav_node_support: Node
 
 site_bsd_license: Distributed under BSD License
@@ -53,6 +57,7 @@ homepage_feature_reliable_image_alt: Watercolour of cat waving from seat behind 
 homepage_c2a_text: What are you waiting for?
 homepage_c2a_button: Get Started
 homepage_install_button: Install Yarn
+homepage_migrate_button: Migrate to Yarn 2+
 
 homepage_featurette_offline_title: Offline Mode
 homepage_featurette_offline_description: |
@@ -262,7 +267,9 @@ users_add_requirements_logo: >
 
 install_intro: >
   Before you start using Yarn, you'll first need to install it on your system.
-  There are a growing number of different ways to install Yarn:
+  There are many different ways to install Yarn, but a single one is recommended and cross-platform:
+install_alternatives: Alternatives
+install_click_to_expand_collapse: Click to expand / collapse
 install_select_platform: Select your platform above
 install_os: Operating system
 install_version: Version
@@ -277,14 +284,8 @@ install_os_solus: Solus
 install_os_windows: Windows
 install_os_alternatives: Alternatives
 
-install_test: "Test that Yarn is installed by running:"
-
-install_problems_title: Problems?
-install_problems_description: >
-  If you are unable to install Yarn with any of these installers, please search
-  through GitHub for an existing issue or open a new one.
-install_problems_search: Search for an existing issue
-install_problems_new_issue: Open a new issue
+install_check: "Check installation"
+install_check_details: "Check that Yarn is installed by running:"
 
 docs_nightly: Nightly Builds
 install_nightly_intro: >

@@ -53,7 +53,7 @@ function getNightlyVersionNumber() {
     .then(res => res.text())
     .then(version => {
       document.getElementById('nightly-version').innerText =
-        'Nightly (' + version + ')';
+        'Classic Nightly (' + version + ')';
     });
 }
 

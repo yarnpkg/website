@@ -47,6 +47,8 @@ success Registered "react".
 This will create a symlink named `react-relay/node_modules/react` that links to
 your local copy of the `react` project.
 
+Links are registered in `~/.config/yarn/link`. If you want to specify a different folder you can run the command with this syntax `yarn link --link-folder path/to/dir/`
+
 To reverse this process, simply use `yarn unlink` or `yarn unlink [package]`. Also see:
 
 - [`yarn unlink`]({{url_base}}/docs/cli/unlink): unlink a linked package.

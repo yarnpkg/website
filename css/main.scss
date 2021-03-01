@@ -21,11 +21,13 @@ $brand-primary: $yarn-blue;
 $progress-bar-color: $brand-primary;
 
 $link-color: saturate(darken($brand-primary, 8%), 20%);
+$link-color-hover: saturate(darken($brand-primary, 30%), 20%);
 
 $npm-red: #c12127;
 
 @import 'bootstrap/scss/bootstrap.scss';
 @import '_base.scss';
+@import '_news.scss';
 @import '_navbar.scss';
 @import '_icons.scss';
 @import '_heros.scss';

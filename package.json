@@ -51,7 +51,7 @@
     "prop-types": "^15.6.1",
     "qs": "^6.5.2",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^16.4.2",
     "react-instantsearch-dom": "^5.2.0-beta.2",
     "react-transition-group": "^1.2.1",
     "unescape-html": "^1.0.0",

@@ -54,3 +54,13 @@ can also specify an alternate port.
 ## Verbose output with `--verbose` <a class="toc" id="toc-verbose" href="#toc-verbose"></a>
 
 Running `yarn <command> --verbose` will print verbose info for the execution (creating directories, copying files, HTTP requests, etc.).
+
+## Force ANSI color output
+
+Yarn utilizes the [chalk](https://github.com/chalk/chalk) terminal colors library and will respect an environment variable setting `FORCE_COLOR=true`, e.g. to make script tasks output color when the terminal is not a tty (e.g., in CI environments.)
+
+## Specify working directory with `yarn --cwd <command>` <a class="toc" id="toc-cwd" href="#toc-cwd"></a>
+
+Specifies a current working directory, instead of the default `./`. Use this flag to perform an operation in a working directory that is not the current one.
+
+This can make scripts nicer by avoiding the need to `cd` into a folder and then `cd` back out.
