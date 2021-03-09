@@ -17,8 +17,8 @@ Run `yarn unlink` in the folder that was previously used to create a link.
 ##### `yarn unlink [package]`<a class="toc" id="toc-yarn-unlink-package" href="#toc-yarn-unlink-package"></a>
 
 To unlink a package that was symlinked during development in your project, simply
-run `yarn unlink [package]`. You will need to run `yarn` or `yarn install` to re-install
-the package that was linked.
+run `yarn unlink [package]`. You will need to run `yarn install --check-files` to re-install
+the package that was linked, for more info [see issue 1957](https://github.com/yarnpkg/yarn/issues/1957).
 
 Continued example from the [`yarn link`]({{url_base}}/docs/cli/link) documentation: assume two folders
 `react` and `react-relay` that are located next to each other with `react` linked
