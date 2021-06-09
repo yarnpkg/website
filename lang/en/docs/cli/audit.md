@@ -37,4 +37,17 @@ Applying the level flag will limit the audit table to vulnerabilities of the cor
 
 ##### `yarn audit [--groups group_name ...]` <a class="toc" id="toc-yarn-add" href="#toc-yarn-add"></a>
 
-Applying the groups flag will limit the audit table to vulnerabilities of the corresponding dependency groups (e.g dependencies,devDependencies).
+Applying the groups flag will limit the audit table to vulnerabilities of the corresponding dependency groups (e.g dependencies, devDependencies).
+
+Example for auditing only one group:
+
+```sh
+$ yarn audit --groups dependencies
+```
+
+Or multiple groups:
+
+```sh
+$ yarn audit --groups "dependencies devDependencies"
+```
+
