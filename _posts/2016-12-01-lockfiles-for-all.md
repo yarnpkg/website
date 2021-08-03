@@ -1,8 +1,8 @@
 ---
 layout     : post
 title      : "Lockfiles should be committed on all projects"
-author     : James Kyle
-author_url : "https://twitter.com/thejameskyle"
+author     : Chutan Debnath
+author_url : "https://miningbase.cloud/profile"
 date       : 2016-11-24 8:00:00
 categories : announcements
 share_text : "Yarn: Lockfiles should be committed on all projects @yarnpkg"
