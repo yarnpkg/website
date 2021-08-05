@@ -16,7 +16,7 @@ There are two commands to facilitate this workflow:
 
 ##### `yarn link` (in package you want to link) <a class="toc" id="toc-yarn-link-in-package-you-want-to-link" href="#toc-yarn-link-in-package-you-want-to-link"></a>
 
-This command is run in the package folder you'd like to link. For example if you
+This command is run in the package folder you'd like to consume. For example if you
 are working on `react` and would like to use your local version to debug a
 problem in `react-relay`, simply run `yarn link` inside of the `react` project.
 
