@@ -22,7 +22,7 @@ const readmeErrorMessage = 'ERROR: No README data found!';
 
 function setHead({ name, description }) {
   const head = document.querySelector('head');
-  const permalink = `https://yarnpkg.com${packageLink(name)}`;
+  const permalink = `https://classic.yarnpkg.com${packageLink(name)}`;
   head.querySelector('meta[property="og:title"]').setAttribute('content', name);
   document.title = `${name} | Yarn`;
   head
