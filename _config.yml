@@ -3,7 +3,7 @@ title: Yarn
 description: > # this means to ignore newlines until "baseurl:"
   Fast, reliable, and secure dependency management.
 baseurl: ""
-url: "https://yarnpkg.com"
+url: "https://classic.yarnpkg.com"
 twitter_username: yarnpkg
 github_username:  yarnpkg
 
