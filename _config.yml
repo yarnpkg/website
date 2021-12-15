@@ -7,17 +7,8 @@ url: "https://classic.yarnpkg.com"
 twitter_username: yarnpkg
 github_username:  yarnpkg
 
-###
-# Hi there! I see you're trying to update the latest_version to whatever
-# it currently is. Please don't worry about it, the team will handle it.
-#
-# If it appears to have fallen behind, then we have decided to hold it
-# back for now, we have not forgotten about it.
-#
-# Thanks!
-###
-latest_version: 1.22.15
-latest_rc_version: 1.22.15
+latest_version: 1.22.17
+latest_rc_version: 1.22.17
 
 # Whether to show the RC version on the site. Set this to false if the latest
 # stable version is newer than the RC (ie. if an RC has not been released since
