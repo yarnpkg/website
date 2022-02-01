@@ -34,6 +34,18 @@ See [the releases](https://github.com/yarnpkg/yarn/releases) for possible versio
 
 </div>
 
+<div class="install-only-stable" markdown="1">
+If you are using Node Version Manager and want per-node-version yarn installations, add the --use-nvm-at-node-version flag, followed by the target node version you've previously installed via nvm. This flag causes the install script to install yarn into the global install directory for the indicated node version, rather than your user home directory, add the binary symlinks, and also set the yarn prefix: 
+For example, passing $(nvm current) as the last arg will install yarn within the current version of node set by nvm.
+
+```sh
+curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version [version] --use-nvm-at-node-version $(nvm current)
+```
+The script uses the NVM_DIR environment variable to ensure nvm.sh is loaded in the script environment. Be sure NVM_DIR is exported to be seen by the install script.
+
+</div>
+
+
 #### Manual Install via tarball
 
 You can install Yarn by [downloading a tarball]({{site.baseurl}}/latest.tar.gz) and

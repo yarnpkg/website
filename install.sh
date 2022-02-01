@@ -32,12 +32,12 @@ yarn_get_tarball() {
   if curl --fail -L -o "$tarball_tmp#1" "$url{,.asc}"; then
     yarn_verify_integrity $tarball_tmp
 
-    printf "$cyan> Extracting to ~/.yarn...$reset\n"
+    printf "$cyan> Extracting to $install_parent_dir/$reL_install_dir...$reset\n"
     # All this dance is because `tar --strip=1` does not work everywhere
     temp=$(mktemp -d yarn.XXXXXXXXXX)
     tar zxf $tarball_tmp -C "$temp"
-    mkdir .yarn
-    mv "$temp"/*/* .yarn
+    mkdir $rel_install_dir
+    mv "$temp"/*/* $rel_install_dir 
     rm -rf "$temp"
     rm $tarball_tmp*
   else
@@ -156,13 +156,13 @@ yarn_detect_profile() {
 }
 
 yarn_reset() {
-  unset -f yarn_install yarn_reset yarn_get_tarball yarn_link yarn_detect_profile yarn_verify_integrity yarn_verify_or_quit
+  unset -f yarn_install yarn_reset yarn_get_tarball yarn_link yarn_detect_profile yarn_verify_integrity yarn_verify_or_quit yarn_symlink_nvm_binaries
 }
 
 yarn_install() {
   printf "${white}Installing Yarn!$reset\n"
 
-  if [ -d "$HOME/.yarn" ]; then
+  if [ -d "$install_parent_dir/$rel_install_dir" ]; then
     if which yarn; then
       local latest_url
       local specified_version
@@ -191,17 +191,24 @@ yarn_install() {
         exit 0
       else
       	printf "$yellow> $yarn_alt_version is already installed, Specified version: $specified_version.$reset\n"
-        rm -rf "$HOME/.yarn"
+        rm -rf "$install_parent_dir/$rel_install_dir"
       fi
     else
-      printf "$red> $HOME/.yarn already exists, possibly from a past Yarn install.$reset\n"
-      printf "$red> Remove it (rm -rf $HOME/.yarn) and run this script again.$reset\n"
+      printf "$red> $install_parent_dir/$rel_install_dir already exists, possibly from a past Yarn install.$reset\n"
+      printf "$red> Remove it (rm -rf $install_parent_dir/$rel_install_dir) and run this script again.$reset\n"
       exit 0
     fi
   fi
 
   yarn_get_tarball $1 $2
-  yarn_link
+
+  if [ "$3" = '--use-nvm-at-node-version' ] 
+  then
+    yarn_symlink_nvm_binaries
+  else
+    yarn_link
+  fi
+
   yarn_reset
 }
 
@@ -215,5 +222,29 @@ yarn_verify_or_quit() {
   fi
 }
 
-cd ~
-yarn_install $1 $2
+yarn_symlink_nvm_binaries() {
+  printf "$cyan> Symlinking yarn binaries for $(node -v) and setting yarn prefix $reset\n"
+  ln -s "$install_parent_dir/$rel_install_dir/bin/yarn.js" "$node_env_dir/bin/yarn"
+  ln -s "$install_parent_dir/$rel_install_dir/bin/yarn.js" "$node_env_dir/bin/yarnpkg"
+  printf "${white}Setting yarn prefix to $node_env_dir $reset"
+  yarn config set prefix $node_env_dir
+}
+
+if [ "$3" = '--use-nvm-at-node-version' ] 
+then
+  # Load nvm script
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
+  nvm use $4
+  node_env_dir="$(nvm which current | sed 's/\/bin\/node$//')"
+  install_parent_dir="$node_env_dir/lib/node_modules" 
+  rel_install_dir="yarn"
+  printf "${cyan}Installing yarn within nvm env for node $(node -v).$reset\n"
+  # Next line output might be useful to refactor after both cases, but trying to leave non-nvm behavior unchanged.
+  printf "${white}Installation dir will be $install_parent_dir/$rel_install_dir$reset\n"
+else
+  install_parent_dir="$HOME" 
+  rel_install_dir=".yarn"
+fi
+
+cd $install_parent_dir
+yarn_install $1 $2 $3
