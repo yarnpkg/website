@@ -15,3 +15,5 @@ There are a few things you should know about the basic workflow:
 3.  Installing/reinstalling your dependencies
 4.  Working with version control (e.g. git)
 5.  Continuous Integration
+ - cd path_to_your_project
+ - cd path_to_your_project
