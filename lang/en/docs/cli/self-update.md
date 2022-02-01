@@ -14,4 +14,5 @@ In order to update your version of Yarn, you can run one of the following comman
 
 - `npm install --global yarn` - if you've installed Yarn via npm (recommended)
 - `curl --compressed -o- -L - https://yarnpkg.com/install.sh | bash` if you're on Unix
+- `npm update yarn` - if you want to update Yarn via npm
 - otherwise, check the docs of the installer you've used to install Yarn
