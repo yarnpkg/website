@@ -17,3 +17,4 @@ There are a few things you should know about the basic workflow:
 5.  Continuous Integration
  - cd path_to_your_project
  - cd path_to_your_project
+https://github.com/yarnpkg/website/pull/1148
