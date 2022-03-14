@@ -13,5 +13,5 @@ _**Important**: `self-update` is not available. See [policies](https://yarnpkg.c
 In order to update your version of Yarn, you can run one of the following commands:
 
 - `npm install --global yarn` - if you've installed Yarn via npm (recommended)
-- `curl --compressed -o- -L - https://yarnpkg.com/install.sh | bash` if you're on Unix
+- `curl --compressed -o- -L https://yarnpkg.com/install.sh | bash` if you're on Unix
 - otherwise, check the docs of the installer you've used to install Yarn
