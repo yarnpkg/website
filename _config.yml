@@ -7,8 +7,8 @@ url: "https://classic.yarnpkg.com"
 twitter_username: yarnpkg
 github_username:  yarnpkg
 
-latest_version: 1.22.18
-latest_rc_version: 1.22.18
+latest_version: 1.22.19
+latest_rc_version: 1.22.19
 
 # Whether to show the RC version on the site. Set this to false if the latest
 # stable version is newer than the RC (ie. if an RC has not been released since
