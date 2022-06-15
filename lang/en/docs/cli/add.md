@@ -81,17 +81,17 @@ This will install one or more packages in your
 ##### `yarn add <package...> [--dev/-D]` <a class="toc" id="toc-yarn-add-dev-d" href="#toc-yarn-add-dev-d"></a>
 
 Using `--dev` or `-D` will install one or more packages in your
-[`devDependencies`]({{url_base}}/docs/dependency-types#toc-dev-dependencies).
+[`devDependencies`]({{url_base}}/docs/dependency-types#toc-devdependencies).
 
 ##### `yarn add <package...> [--peer/-P]` <a class="toc" id="toc-yarn-add-peer-p" href="#toc-yarn-add-peer-p"></a>
 
 Using `--peer` or `-P` will install one or more packages in your
-[`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peer-dependencies).
+[`peerDependencies`]({{url_base}}/docs/dependency-types#toc-peerdependencies).
 
 ##### `yarn add <package...> [--optional/-O]` <a class="toc" id="toc-yarn-add-optional-o" href="#toc-yarn-add-optional-o"></a>
 
 Using `--optional` or `-O` will install one or more packages in your
-[`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optional-dependencies).
+[`optionalDependencies`]({{url_base}}/docs/dependency-types#toc-optionaldependencies).
 
 ##### `yarn add <package...> [--exact/-E]` <a class="toc" id="toc-yarn-add-exact-e" href="#toc-yarn-add-exact-e"></a>
 
