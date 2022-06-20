@@ -63,3 +63,4 @@ your existing `npm-shrinkwrap.json` file and check in the newly created `yarn.lo
 | `npm version minor`                     | `yarn version --minor`                    |
 | `npm version patch`                     | `yarn version --patch`                    |
 | `npm explain [package]`                 | `yarn why [package]`                      |
+| `npm audit [package]`                   | `yarn audit [package]`                    |
