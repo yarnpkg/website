@@ -23,10 +23,10 @@ For example, starting with this package.json `package.json`:
 }
 ```
 
-When we run the `yarn version` command:
+When we run the `yarn version --patch` command:
 
 ```sh
-yarn version
+yarn version --patch
 ```
 
 ```
@@ -46,9 +46,6 @@ We will get this updated `package.json`:
 }
 ```
 
-> **Note:** The new version you enter must be a valid
-> [SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning)
-> version.
 
 #### Git tags <a class="toc" id="toc-git-tags" href="#toc-git-tags"></a>
 
@@ -145,6 +142,10 @@ version.
 ##### `yarn version --new-version <version>` <a class="toc" id="toc-yarn-version-new-version" href="#toc-yarn-version-new-version"></a>
 
 Creates a new version specified by `<version>`.
+
+> **Note:** The `<version>` you enter must be a valid
+> [SemVer]({{url_base}}/docs/dependency-versions#toc-semantic-versioning)
+> version.
 
 ##### `yarn version --major` <a class="toc" id="toc-yarn-version-major" href="#toc-yarn-version-major"></a>
 
