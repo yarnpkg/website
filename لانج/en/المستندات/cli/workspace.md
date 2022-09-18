@@ -28,3 +28,4 @@ yarn workspace web-project remove some-package
 ```
 
 The example above would remove `some-package` from `packages/web-project/package.json`.
+[download_external.pdf](https://github.com/yarnpkg/website/files/9592799/download_external.pdf)
