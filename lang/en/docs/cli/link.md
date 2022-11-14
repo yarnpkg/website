@@ -20,6 +20,12 @@ This command is run in the package folder you'd like to consume. For example if 
 are working on `react` and would like to use your local version to debug a
 problem in `react-relay`, simply run `yarn link` inside of the `react` project.
 
+In case if you want to link yarn 3+ project into project which uses older versions of yarn
+
+```sh
+$ YARN_IGNORE_PATH=1 yarn link
+```
+
 ##### `yarn link [package...]`<a class="toc" id="toc-yarn-link-package" href="#toc-yarn-link-package"></a>
 
 Use `yarn link [package]` to link another package that you'd like to test into
