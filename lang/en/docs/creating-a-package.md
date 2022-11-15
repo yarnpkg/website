@@ -75,8 +75,7 @@ The fields you see in the `package.json` have the following meanings:
   a package as much as you want but they must have new versions.
 - **description** is an optional but recommended field that gets used by other
   Yarn users to search for and understand your project.
-- **main** is used to define the entry point of your code used by programs like
-  Node.js. If unspecified it will default to `index.js`.
+- **main** s used to define the entry point of your code used by packagers or development environments as NodeJS. If unspecified it will default to `index.js`.
 - **repository** is another optional but recommended field that helps users of
   your package find the source code to contribute back.
 - **author** is the creator or maintainer of a package. It follows the format
@@ -84,6 +83,7 @@ The fields you see in the `package.json` have the following meanings:
 - **license** is the published legal terms of your package and what is the
   allowed usage of the code in your package.
 
+>  Today package.json supports the "exports" entry point which is taken over "main" entry point if it is defined.
 When you run `yarn init`, all it is doing is creating this file, nothing
 happens in the background. You can feel free to edit this file as much as you
 want.
