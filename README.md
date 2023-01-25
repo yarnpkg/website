@@ -9,7 +9,7 @@ This repo contains the source code for the Yarn Classic (v1) website, available 
 In order to get started:
 
 ```sh
-$ Fork the repo using the fork button at the top right.
+Fork the repo using the fork button at the top right.
 $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
