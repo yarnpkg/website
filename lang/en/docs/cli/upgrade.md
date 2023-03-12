@@ -94,8 +94,7 @@ yarn upgrade --scope @angular
 yarn upgrade -S @angular
 ```
 
-Note:
-
+**Note:**
 Users should be aware that when yarn.lock is present, indirect dependencies
 will only be updated by `yarn upgrade` without a package name.  In order to
 maintain the security of their applications, users should ensure that `yarn
