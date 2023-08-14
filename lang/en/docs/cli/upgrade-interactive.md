@@ -17,7 +17,7 @@ Yarn will respect the version ranges in `package.json` when determining the vers
 
 You can think of `yarn upgrade-interactive` as a combination of the `yarn outdated` and `yarn upgrade [package...]` commands.
 Where `yarn outdated` displays the list of outdated packages and `yarn upgrade [package...]` can then be used to upgrade desired packages,
-`yarn upgrade-interactive` displays the same outdated package list and lets you immediately chose which to upgrade.
+`yarn upgrade-interactive` displays the same outdated package list and lets you immediately choose which to upgrade.
 
 `--latest` : This flag tells yarn to ignore the specified version ranges in `package.json` and instead use the version tagged `latest`
 in the registry.
