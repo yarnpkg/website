@@ -39,7 +39,7 @@ You can pass additional arguments to your script by passing them after the scrip
 yarn run test -o --watch
 ```
 
-Running this command will execute `jest -o --watch`.
+Running this command will execute `test -o --watch`.
 
 `[script]` can also be any locally installed executable that is inside `node_modules/.bin/`.
 
@@ -58,7 +58,7 @@ By default, a specified `[script]` can be prefixed with `pre` or `post` to execu
   "name": "my-package",
   "scripts": {
     "build": "babel src -d lib",
-    "prebuild": "jest"
+    "prebuild": "test"
   }
 }
 ```
