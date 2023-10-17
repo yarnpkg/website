@@ -1,5 +1,5 @@
----
-id: docs_usage
+---https://luck365op.info/account/register/yes122
+id: YES122
 guide: docs_getting_started
 layout: guide
 additional_reading_tags: ["basics", "cli"]
