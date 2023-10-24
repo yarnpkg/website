@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Pagination,
   CurrentRefinements,
@@ -7,7 +7,7 @@ import {
   createConnector,
 } from 'react-instantsearch-dom';
 
-import { Hit } from './';
+import { Hit, Refinements } from './';
 import { isEmpty } from '../util';
 
 const body = document.querySelector('body');
@@ -23,10 +23,32 @@ const Hits = connectHits(({ hits, onTagClick, onOwnerClick }) =>
   ))
 );
 
+class InnerResults extends Component {
+  state = { sidebarOpen: false };
+  toggleSidebar = () =>
+    this.setState(({ sidebarOpen }) => ({ sidebarOpen: !sidebarOpen }));
+  render() {
+    const { sidebarOpen } = this.state;
+    const { onOwnerClick, onTagClick } = this.props;
+
+    return (
+      <div className="row">
+        <Refinements
+          sidebarOpen={sidebarOpen}
+          toggleSidebar={this.toggleSidebar}
+          className={sidebarOpen ? 'col-lg-3' : 'col-lg-12'}
+        />
+        <div className={sidebarOpen ? 'col-lg-9' : 'col-lg-12'}>
+          <Hits onTagClick={onTagClick} onOwnerClick={onOwnerClick} />
+        </div>
+      </div>
+    );
+  }
+}
+
 const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
   <div className="container">
-    <div className="m-3">
-      <CurrentRefinements />
+    <div className="m-3 d-flex">
       <Stats
         translations={{
           stats: (num, time) =>
@@ -38,8 +60,27 @@ const ResultsFound = ({ pagination, onTagClick, onOwnerClick }) => (
               .replace('{time_search}', time),
         }}
       />
+      <CurrentRefinements
+        transformItems={items => {
+          return [
+            ...new Map(
+              items.map(item => {
+                if (item.attribute === 'owner.name') {
+                  item.label = 'owner: ';
+                  return [item.attribute, item];
+                }
+                if (item.attribute === 'types.ts') {
+                  item.label = 'TypeScript: ';
+                  return [item.attribute, item];
+                }
+                return [item.attribute, item];
+              })
+            ).values(),
+          ];
+        }}
+      />
     </div>
-    <Hits onTagClick={onTagClick} onOwnerClick={onOwnerClick} />
+    <InnerResults onTagClick={onTagClick} onOwnerClick={onOwnerClick} />
     <div className="d-flex">
       {pagination ? (
         <Pagination showFirst={false} showLast={false} scrollTo={true} />
