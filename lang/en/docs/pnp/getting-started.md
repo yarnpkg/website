@@ -18,7 +18,7 @@ Getting started with Plug'n'Play isn't difficult - at its basis it just involves
 
 From now on each time you'll run `yarn install` Yarn will create a single file named `.pnp.js` instead of the `node_modules` megafolder. You can try it right now by running `yarn --pnp` in your project, which will enable the settings and run the install in the same pass!
 
-`.pnp.*` should also be added to your `.gitignore`. (see [which files should get ignored]([https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored](https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored)))
+`.pnp.*` should also be added to your `.gitignore`. (see [which files should get ignored](https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored))
 
 So enabling PnP isn't complicated at all - what might be an issue are third-party packages that reimplement the Node resolution themselves. Three major implementations exist, more might also hide from a project to another:
 
