@@ -7,6 +7,7 @@ Yarn Website
 開始するには：
 
 ```sh
+ Fork the repo using the fork button at the top right.
 $ git clone git@github.com:yarnpkg/website.git yarn-website
 $ cd yarn-website
 ```
