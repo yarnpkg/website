@@ -49,7 +49,7 @@
     "marked": "^0.4.0",
     "popper.js": "^1.14.3",
     "prop-types": "^15.6.1",
-    "qs": "^6.5.2",
+    "qs": "^6.5.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.2",
     "react-instantsearch-dom": "^5.2.0-beta.2",
