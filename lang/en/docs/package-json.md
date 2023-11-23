@@ -274,6 +274,50 @@ Certain script names are special. If defined, the `preinstall` script is called 
 
 The `start` script value defaults to `node server.js`.
 
+As an alternative, scripts may also be imported from a javascript file.  This allows for customization such as comments, metadata and structuring or grouping scripts.
+
+```json
+{
+  "scripts": "package-scripts.js",  
+}
+```
+
+For defining scripts within the js file, the following structures are supported:
+
+1.  Structure as a standard object hash inside of the scripts object.  This is identical to how scripts are specified in the     packages.json file with the additional ability of comments.    
+
+        module.exports = {
+          scripts: {
+            "build-project": "node build-project.js" // Build project
+          },
+        };
+
+2.  Structure a script as an object with a 'script' key.  This allows for additional metadata to be co-located with an associated script. When a script key is specified within an object, the object's remaining non object values are ignored.  Remaining objects are imported normally.
+
+        module.exports = {
+          scripts: {
+            "test": {
+              script: "node test-project.js",
+              description: "Run tests",                
+            },
+            "build-project": "node build-project.js"
+          },
+        };
+
+3.  Group scripts together using objects with an optional 'default' key.  When scripts are grouped together, the script name or key will be generated from the object hierarchy and the delimiter.  If no delimiter is specified, then '.' will be used by default.  For example, the test.watch script below will be exposed via 'yarn test.watch'.  If a script is specified under an object's 'default' key, it will inherit the parent name.  In the below example, the test.default script will be exposed via 'yarn test'.
+
+        module.exports = {
+          delimiter: '.',
+          scripts: {
+            "test": {
+              default: "cross-env CI=1 react-scripts test --env=jsdom",                
+              watch: "react-scripts test --env=jsdom",
+            },            
+            "build": "rollup -c",
+            "start": "rollup -c -w",            
+          },
+        };
+
 ### `config` <a class="toc" id="toc-config" href="#toc-config"></a>
 
 ```json
