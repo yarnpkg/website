@@ -2,7 +2,7 @@
 id: docs_cli_info
 guide: docs_cli
 layout: guide
----
+----
 
 <p class="lead">Show information about a package.</p>
 
