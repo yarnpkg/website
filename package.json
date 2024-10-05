@@ -46,7 +46,7 @@
     "date-fns": "^2.0.0-alpha.7",
     "docsearch.js": "^2.5.2",
     "jquery": "^3.4.0",
-    "marked": "^0.4.0",
+    "marked": "^4.0.10",
     "popper.js": "^1.14.3",
     "prop-types": "^15.6.1",
     "qs": "^6.5.2",
