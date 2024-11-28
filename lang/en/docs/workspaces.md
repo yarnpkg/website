@@ -100,6 +100,8 @@ Yarn's workspaces are the low-level primitives that tools like Lerna can (and [d
 
 - If you're only making changes to a single workspace, use [--focus](/blog/2018/05/18/focused-workspaces) to quickly install sibling dependencies from the registry rather than building all of them from scratch.
 
+- Resolutions need to be moved to the workspace root package.json, they will no longer work from the subfolder package.jsons. Resolutions for specific packages can still be defined like [this](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/#toc-how-to-use-it).
+
 ### Limitations & Caveats <a class="toc" id="toc-limitations-caveats" href="#toc-limitations-caveats"></a>
 
 - The package layout will be different between your workspace and what your users will get (the workspace dependencies will be hoisted higher into the filesystem hierarchy). Making assumptions about this layout was already hazardous since the hoisting process is not standardized, so theoretically nothing new here. If you encounter issues, try using [the `nohoist` option](/blog/2018/02/15/nohoist/)
