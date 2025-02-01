@@ -1,4 +1,4 @@
----
+https://github.com/kubernetes/registry.k8s.io/issues/187#issuecomment-2629002625https://github.com/kubernetes/registry.k8s.io/issues/187---
 id: docs_configuration_package_json
 guide: docs_configuration
 layout: guide
