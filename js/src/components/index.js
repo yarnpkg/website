@@ -22,6 +22,7 @@ export { Markdown } from './Markdown.js';
 export { Owner } from './Owner.js';
 export { Popularity } from './Popularity.js';
 export { ReadMore } from './ReadMore.js';
+export { Refinements } from './Refinements.js';
 export { Results } from './Results.js';
 export { Search } from './Search.js';
 export { SearchBox } from './SearchBox.js';
