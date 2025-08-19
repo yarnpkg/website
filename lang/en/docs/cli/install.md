@@ -71,6 +71,12 @@ Do not execute any scripts defined in the project package.json and its dependenc
 
 Specifies an alternate location for the `node_modules` directory, instead of the default `./node_modules`.
 
+##### `yarn install --cwd <path>` <a class="toc" id="toc-yarn-install-cwd" href="#toc-yarn-install-cwd"></a>
+
+Specifies a current working directory, instead of the default `./`. Use this flag to perform an operation in a working directory that is not the current one.
+
+This can make scripts nicer by avoiding the need to `cd` into a folder and then `cd` back out.
+
 ##### `yarn install --no-lockfile` <a class="toc" id="toc-yarn-install-no-lockfile" href="#toc-yarn-install-no-lockfile"></a>
 
 Don't read or generate a `yarn.lock` lockfile.
