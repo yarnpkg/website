@@ -12,7 +12,7 @@ layout: guide
 
 `yarn global` is a prefix used for a number of commands like `add`, `bin`, `list` and `remove`. They behave identically to their normal versions except that they use a global directory to store packages. The `global` command makes executables available to use on your operating system.
 
-_Note: Unlike the `--global` flag in npm, `global` is a command which must immediately follow `yarn`. Entering `yarn add global package-name` will add the packages named `global` and `package-name` locally instead of adding `package-name` globally._
+_Note: Unlike the `--location=global` flag in npm, `global` is a command which must immediately follow `yarn`. Entering `yarn add global package-name` will add the packages named `global` and `package-name` locally instead of adding `package-name` globally._
 
 This is useful for developer tooling that is not part of any individual project but instead is used for local commands. One such example is [nodemon](https://nodemon.io/) which can be installed globally like this:
 
