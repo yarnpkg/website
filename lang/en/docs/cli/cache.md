@@ -30,6 +30,8 @@ next time `yarn` or `yarn install` is run. Additionally, you can specify one or 
 
 ### Change the cache path for yarn <a class="toc" id="toc-change-the-cache-path-for-yarn" href="#toc-change-the-cache-path-for-yarn"></a>
 
+> Note: If a relative path is supplied, it will be resolved to an absolute path relative to your user's home directory.
+
 Set `cache-folder` config value to configure the cache directory.
 
 ```sh
