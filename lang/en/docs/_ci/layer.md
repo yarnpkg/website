@@ -1,0 +1,1 @@
+Yarn works well in [LayerCI](https://layerci.com/?ref=yarn) pipelines. For information on how to set it up, check out LayerCI's documentation on [using Yarn](https://layerci.com/docs/advanced-workflows/nocode-visual-tests-with-reflectrun#using-yarn/?ref=Yarn).
