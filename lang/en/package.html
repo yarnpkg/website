@@ -1,4 +1,104 @@
---- 
+# Using npm
+npm run storybook
+
+# Using yarn
+yarn storybook
+
+# Using pnpm
+pnpm storybook
+
+These scripts typically resolve to the direct command:
+storybook dev [options]
+
+Common Options
+Here are the most frequently used options (flags) you can pass to the storybook dev command.
+-p, --port <port>
+Specifies the port for the development server to run on.
+ * Default: 6006
+ * Example: Run Storybook on port 9009.
+   storybook dev -p 9009
+
+--host <host>
+Specifies the hostname to use. Use 0.0.0.0 to make your Storybook accessible on your local network (e.g., for testing on a mobile device).
+ * Default: localhost
+ * Example: Make Storybook accessible to other devices on your network.
+   storybook dev --host 0.0.0.0
+
+-c, --config-dir <dir>
+Specifies the directory where your Storybook configuration files (e.g., main.js, preview.js) are located.
+ * Default: .storybook
+ * Example: Use a configuration from a different directory.
+   storybook dev -c .storybook-v2
+
+-s, --static-dir <dir>
+Serves a directory of static files (e.g., images, fonts). You can use this option multiple times to serve multiple directories.
+ * Example: Serve the public directory. Your files will be available at the root URL (e.g., /my-image.png).
+   storybook dev -s ./public
+
+ * Example: Serve multiple directories.
+   storybook dev -s ./public -s ./src/assets
+
+--https
+Starts the development server using HTTPS instead of HTTP. This is useful for testing features that require a secure context. It will use a self-signed certificate.
+ * Example:
+   storybook dev --https
+
+You can also specify certificate files with --ssl-cert <file> and --ssl-key <file>.
+--no-open
+Prevents Storybook from automatically opening in a new browser tab upon starting.
+ * Example:
+   storybook dev --no-open
+
+--ci
+A convenient flag for running Storybook in a Continuous Integration (CI) environment. It combines several behaviors:
+ * It won't open the browser (--no-open).
+ * It will exit with a non-zero exit code if there are any errors during startup.
+ * It provides minimal, non-interactive logging.
+ * Example:
+   storybook dev --ci
+
+Advanced & Debugging Options
+These options are useful for more specific use cases or for debugging complex configurations.
+--debug-webpack
+Prints the final webpack configuration that Storybook is using to the console. This is extremely helpful for debugging build issues or understanding how an addon is affecting your build.
+ * Example: Save the webpack config to a file for inspection.
+   storybook dev --debug-webpack > webpack.config.log
+
+--smoke-test
+Exits the process with a successful exit code (0) after the Storybook build is complete. This is useful in CI to verify that Storybook can start without actually running the server long-term.
+ * Example:
+   storybook dev --smoke-test
+
+--quiet
+Suppresses all build output from the underlying bundler (like Webpack or Vite), showing only Storybook's core messages.
+ * Example:
+   storybook dev --quiet
+
+--force-build-preview
+Forces the preview iframe to be rebuilt, ignoring the cache. This can resolve issues where changes don't seem to be applying correctly.
+ * Example:
+   storybook dev --force-build-preview
+
+Putting It All Together: Examples
+Scenario 1: Simple port change
+You already have something running on port 6006 and want to run Storybook on port 3000.
+storybook dev -p 3000
+
+Scenario 2: Testing on a mobile device
+You want to access your Storybook from your phone, which is on the same Wi-Fi network.
+storybook dev --host 0.0.0.0 --https
+
+Now you can navigate to https://<your-computer-ip-address>:6006 on your phone.
+Scenario 3: A project with a non-standard structure
+Your Storybook config is in ./config/storybook and your static assets are in ./src/assets.
+storybook dev -c ./config/storybook -s ./src/assets
+
+How to Get the Most Up-to-Date List
+The options can change between major versions of Storybook. The most reliable way to see all available options for your specific version is to use the --help flag.
+storybook dev --help
+
+
+-- 
 layout: pages/detail 
 scripts: 
   - "/js/build/package.js"
