@@ -16,3 +16,4 @@ use Yarn to keep it all up to date.
 Code is shared through something called a **package** (sometimes referred to as
 a **module**). A package contains all the code being shared as well as a
 `package.json` file which describes the package.
+ 
