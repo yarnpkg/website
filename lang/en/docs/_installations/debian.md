@@ -1,5 +1,10 @@
 On Debian or Ubuntu Linux, you can install Yarn via our Debian package
-repository. You will first need to configure the repository:
+repository. 
+
+Warning: apt-key is deprecated in Ubuntu 24.* and does not exist in 25.*, so you should instead adapt this using e.g.
+https://askubuntu.com/questions/1286545/what-commands-exactly-should-replace-the-deprecated-apt-key
+
+You will first need to configure the repository:
 
 <div class="install-only-stable" markdown="1">
 ```sh
