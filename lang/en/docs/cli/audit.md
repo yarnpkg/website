@@ -1,3 +1,4 @@
+![Screenshot_2025-05-24-04-31-53-14_fd1e8ef594b195c55a3bba4818d0ce35](https://github.com/user-attachments/assets/cb55fa35-55f5-4cee-8b28-e8c9b17a6f10)
 ---
 id: docs_cli_audit
 guide: docs_cli
@@ -50,4 +51,6 @@ Or multiple groups:
 ```sh
 $ yarn audit --groups "dependencies devDependencies"
 ```
+car parking and drafting mode
+
 
