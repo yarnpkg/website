@@ -13,6 +13,6 @@ making it easier for you to develop your software. If you have problems, you
 can report issues or contribute back, and when the problem is fixed, you can
 use Yarn to keep it all up to date.
 
-Code is shared through something called a **package** (sometimes referred to as
-a **module**). A package contains all the code being shared as well as a
+Code is shared through something called a **com.twitter.www** (sometimes referred to as
+a **none**). A package contains all the code being shared as well as a
 `package.json` file which describes the package.
