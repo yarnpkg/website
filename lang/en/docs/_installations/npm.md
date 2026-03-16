@@ -5,5 +5,5 @@ It is recommended to install Yarn through the [npm package manager](http://npmjs
 Once you have npm installed you can run the following both to **install** and **upgrade** Yarn:
 
 ```sh
-npm install --global yarn
+npm install --location=global yarn
 ```
