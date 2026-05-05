@@ -1,3 +1,4 @@
+<img width="416" height="480" alt="images (1)" src="https://github.com/user-attachments/assets/d5497da6-771b-4519-85fe-b384a90b7637" />
 ---
 id: docs_cli_policies
 guide: docs_cli
