@@ -34,7 +34,10 @@ If performed on an organization name, will return a list of existing teams under
 
 ### Details <a class="toc" id="toc-details" href="#toc-details"></a>
 
-yarn team always operates directly on the current registry, configurable from the command line using `--registry=<registry url>`.
+Teams must always be fully qualified with the organization/scope they belong to when operating on them, separated by a colon (:).
+For example: If you have a team named `developers` on a company named `foobar`, you should use team name like `foobar:developers` in the above `<scope:team>` commands.
+
+yarn team always operates directly on the current registry, but you can overwrite it from the command line by using `YARN_REGISTRY="<url-to-your-registry>`.
 
 In order to create teams and manage team membership, you _must be a team admin_ under the given organization. Listing teams and team memberships may be done by any member of the organizations.
 
