@@ -2,7 +2,7 @@
 layout     : post
 title      : "Yarn: A new package manager for JavaScript"
 author     : Sebastian McKenzie, Christoph Pojer, James Kyle
-author_url : "https://twitter.com/yarnpkg"
+author_url : "https://x.com/yarnpkg"
 date       : 2016-10-11 8:00:00
 categories : announcements
 share_text : "Yarn: A new package manager for JavaScript"
