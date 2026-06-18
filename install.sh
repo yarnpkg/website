@@ -114,7 +114,7 @@ yarn_link() {
 }
 
 yarn_detect_profile() {
-  if [ -n "${PROFILE}" ] && [ -f "${PROFILE}" ]; then
+  if [ -n "${PROFILE}" ] && [ -w "${PROFILE}" ]; then
     echo "${PROFILE}"
     return
   fi
@@ -125,9 +125,9 @@ yarn_detect_profile() {
   SHELLTYPE="$(basename "/$SHELL")"
 
   if [ "$SHELLTYPE" = "bash" ]; then
-    if [ -f "$HOME/.bashrc" ]; then
+    if [ -w "$HOME/.bashrc" ]; then
       DETECTED_PROFILE="$HOME/.bashrc"
-    elif [ -f "$HOME/.bash_profile" ]; then
+    elif [ -w "$HOME/.bash_profile" ]; then
       DETECTED_PROFILE="$HOME/.bash_profile"
     fi
   elif [ "$SHELLTYPE" = "zsh" ]; then
@@ -137,15 +137,15 @@ yarn_detect_profile() {
   fi
 
   if [ -z "$DETECTED_PROFILE" ]; then
-    if [ -f "$HOME/.profile" ]; then
+    if [ -w "$HOME/.profile" ]; then
       DETECTED_PROFILE="$HOME/.profile"
-    elif [ -f "$HOME/.bashrc" ]; then
+    elif [ -w "$HOME/.bashrc" ]; then
       DETECTED_PROFILE="$HOME/.bashrc"
-    elif [ -f "$HOME/.bash_profile" ]; then
+    elif [ -w "$HOME/.bash_profile" ]; then
       DETECTED_PROFILE="$HOME/.bash_profile"
-    elif [ -f "$HOME/.zshrc" ]; then
+    elif [ -w "$HOME/.zshrc" ]; then
       DETECTED_PROFILE="$HOME/.zshrc"
-    elif [ -f "$HOME/.config/fish/config.fish" ]; then
+    elif [ -w "$HOME/.config/fish/config.fish" ]; then
       DETECTED_PROFILE="$HOME/.config/fish/config.fish"
     fi
   fi
