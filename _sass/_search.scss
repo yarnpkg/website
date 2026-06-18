@@ -3,39 +3,54 @@
 $ais-focus-color: rgba(black, 0.7);
 $ais-muted-color: rgba(black, 0.5);
 
-.full-searchbox .ais-SearchBox {
-  background-color: mix(black, $yarn-blue, 15%);
-  transition: background-color 0.1s ease;
-  padding: 1.4em 0.3em;
-  box-sizing: border-box;
-  position: relative;
+.ais-SearchBox {
+  .full-searchbox & {
+    background-color: mix(black, $yarn-blue, 15%);
+    transition: background-color 0.1s ease;
+    padding: 1.4em 0.3em;
+    box-sizing: border-box;
+    position: relative;
+    color: $yarn-blue;
 
-  &:before,
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    height: 7px;
-    background: {
-      repeat: repeat-x;
-      size: 144px auto;
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: {
+        repeat: repeat-x;
+        size: 144px auto;
+      }
     }
-  }
 
-  &:before {
-    top: -3.5px;
-    background-image: $image-border-white;
-  }
-
-  &:after {
-    bottom: -3.5px;
-    background-image: $image-border-yarn-blue;
-
-    .searching & {
+    &:before {
+      top: -3.5px;
       background-image: $image-border-white;
+    }
+
+    &:after {
+      bottom: -3.5px;
+      background-image: $image-border-yarn-blue;
+
+      .searching & {
+        background-image: $image-border-white;
+      }
+    }
+
+    &-form {
+      transition: box-shadow 0.4s ease, background 0.4s ease;
+      box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
+      border: none;
+      min-height: 38.8px;
+
+      .active & {
+        background-color: mix(black, white, 2%);
+        box-shadow: none;
+      }
     }
   }
 
@@ -44,15 +59,8 @@ $ais-muted-color: rgba(black, 0.5);
     display: flex;
     background-color: white;
     border-radius: 0.2em;
+    border: 1px solid;
     padding: 0.2em;
-    min-height: 38.8px;
-    transition: box-shadow 0.4s ease, background 0.4s ease;
-    box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
-
-    .active & {
-      background-color: mix(black, white, 2%);
-      box-shadow: none;
-    }
   }
 
   &-input {
@@ -62,7 +70,7 @@ $ais-muted-color: rgba(black, 0.5);
     border: none;
     border-radius: 0;
     font: inherit;
-    color: $yarn-blue;
+    color: currentColor;
     margin-left: 0.5em;
 
     &:active,
@@ -71,7 +79,8 @@ $ais-muted-color: rgba(black, 0.5);
     }
 
     @include placeholder {
-      color: lighten($yarn-blue, 10%);
+      color: currentColor;
+      opacity: 0.9;
       font-style: italic;
       font-weight: 100;
     }
@@ -85,12 +94,13 @@ $ais-muted-color: rgba(black, 0.5);
     border: none;
     position: relative;
     cursor: pointer;
+    color: currentColor;
 
     svg {
       width: 1.6em;
       height: 1.6em;
       padding: 0.2em;
-      fill: $yarn-blue;
+      fill: currentColor;
       position: absolute;
       top: 0.2em;
       left: 0.2em;
@@ -422,4 +432,25 @@ $ais-muted-color: rgba(black, 0.5);
 .ais-Highlight-highlighted {
   border-bottom: dotted 1px;
   font-style: normal;
+}
+
+.refinements {
+  h1 {
+    font-size: 1.625em;
+    font-weight: normal;
+    color: rgba(black, 0.9);
+  }
+
+  article {
+    margin-top: 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
+.ais-RefinementList-checkbox {
+  margin-right: 0.5em;
 }
